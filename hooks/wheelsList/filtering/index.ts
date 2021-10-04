@@ -1,10 +1,22 @@
 /* eslint-disable max-lines */
-import React, { useReducer } from 'react';
+import React from 'react';
 import CheckboxGroup from '../../../components/Form/CheckboxGroup';
 import Dropdown from '../../../components/Form/Dropdown';
 import Text from '../../../components/Form/Text';
 import { SHOW_PRICE, wheelFeatureIcons, wheelFeatureNames } from '../../../constants';
-import { AntiSpin, BrandId, Color, Display, FilterField, Kickstand, SoundSystem, Suspension, TrolleyHandle, WheelFilters } from '../../../types';
+import { useArenaContext } from '../../../context';
+import {
+  AntiSpin,
+  BrandId,
+  Color,
+  Display,
+  FilterField,
+  Kickstand,
+  SoundSystem,
+  Suspension,
+  TrolleyHandle,
+  WheelFilters
+} from '../../../types';
 import {
   antiSpinOptions,
   brandIdOptions,
@@ -16,11 +28,10 @@ import {
   suspensionOptions,
   trolleyHandleOptions
 } from './constants';
-import wheelsTableFiltersReducer, { getInitialValue } from './reducer';
 
 // eslint-disable-next-line max-lines-per-function
 const useFilters = () => {
-  const [state, dispatch] = useReducer(wheelsTableFiltersReducer, getInitialValue());
+  const { filters, dispatch } = useArenaContext();
 
   const handleFilterBy = (key: keyof WheelFilters, value: unknown) => {
     dispatch({
@@ -40,9 +51,9 @@ const useFilters = () => {
     const name = event.target.name as BrandId;
     const value = event.target.checked;
 
-    let enabledBrands = [...state.brandId];
+    let enabledBrands = [...filters.brandId];
     if (!value) {
-      enabledBrands = [...state.brandId].filter(b => b !== name);
+      enabledBrands = [...filters.brandId].filter(b => b !== name);
     } else if (value && !enabledBrands.includes(name)) {
       enabledBrands.push(name);
     }
@@ -168,7 +179,7 @@ const useFilters = () => {
   };
 
   return {
-    filters: state,
+    filters,
     handleChange,
     handleChangeAntispin,
     handleChangeBrandId,

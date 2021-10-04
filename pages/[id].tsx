@@ -60,10 +60,10 @@ const EucDetail: React.FC = () => {
   );
 };
 
+export const getStaticProps = async () => ({ props: {} });
+
 export const getStaticPaths = async () => ({
-  paths: [
-    { params: wheels.map(wheel => ({ id: wheel.id })) } // See the "paths" section below
-  ],
+  paths: wheels.map(wheel => ({ params: { id: wheel.id } })),
   fallback:'blocking'
 });
 

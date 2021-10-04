@@ -10,10 +10,9 @@ import { DropdownItem } from '../components/Form/Dropdown';
 import MainLayout from '../components/Layouts/MainLayout';
 import { EUC_DETAILS } from '../constants/clientRoutes';
 import { regions } from '../constants/regions';
-import { ArenaContextProvider, useArenaContext } from '../context';
-import { initialValue } from '../context/models';
-import '../styles/globals.css';
+import { ArenaContextProvider, useArenaContext, useContextReducer } from '../context';
 import '../styles/dropdownOverride.css';
+import '../styles/globals.css';
 import theme from '../styles/theme';
 import { Wheel } from '../types';
 import { init } from '../utils/htmlRender';
@@ -47,13 +46,15 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 };
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const { state, dispatch } = useContextReducer();
+
   useEffect(() => {
     init();
   }, []);
   
   return (
     <ThemeProvider theme={ theme }>
-      <ArenaContextProvider value={ initialValue }>
+      <ArenaContextProvider value={ { state, dispatch } }>
         <EucArenaApp>
           <Component { ...pageProps } />
         </EucArenaApp>
