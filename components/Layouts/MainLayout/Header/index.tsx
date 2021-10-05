@@ -12,18 +12,13 @@ import Link from 'next/link';
 import React from 'react';
 import { APP_NAME } from '../../../../constants';
 import { ROOT } from '../../../../constants/clientRoutes';
-import { Brands, Wheel } from '../../../../types';
-import { DropdownItem } from '../../../Form/Dropdown';
+import { Brands, Region, Wheel } from '../../../../types';
+import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
 import { Search, SearchIconWrapper, StyledInputBase } from '../SearchBar';
 
 export interface Props {
   brands: Brands
-  handleSelectRegion: (
-    event: React.SyntheticEvent<Element, Event>,
-    value: DropdownItem | null,
-    reason: AutocompleteChangeReason,
-    details?: AutocompleteChangeDetails<DropdownItem> | undefined
-  ) => void
+  handleSelectRegion: (event: React.ChangeEvent<HTMLSelectElement>) => void
   handleSelectWheel: (
     event: React.SyntheticEvent<Element, Event>,
     value: Wheel | null,
@@ -31,7 +26,7 @@ export interface Props {
     details?: AutocompleteChangeDetails<Wheel> | undefined
   ) => void
   regions: DropdownItem[]
-  selectedRegion: DropdownItem
+  selectedRegion: Region
   wheels: Wheel[]
 }
 
@@ -104,21 +99,12 @@ const Header: React.FC<Props> = ({
         </Search>
 
         <Search sx={ { ml: (theme) => theme.spacing(1) } }>
-          <SearchIconWrapper>
-            <Icon>public</Icon>
-          </SearchIconWrapper>
-
-          <Autocomplete<DropdownItem>
+          <Dropdown
+            icon="public"
+            label="Región"
+            name="region"
             onChange={ handleSelectRegion }
             options={ regions }
-            getOptionLabel={ option => option.label }
-            defaultValue={ regions[0] }
-            renderInput={ ({ InputLabelProps, InputProps, ...params }) => (
-              <StyledInputBase
-                { ...InputProps }
-                { ...params }
-                placeholder="Región"
-              />) }
             value={ selectedRegion }
           />
         </Search>

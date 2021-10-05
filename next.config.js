@@ -12,6 +12,7 @@ module.exports = {
       'eucsale.com',
       'iwheelsurvive.com',
       'm.media-amazon.com',
+      'i1.wp.com',
       'i2.wp.com',
       'www.ewheels.com'
     ]

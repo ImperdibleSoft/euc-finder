@@ -49,7 +49,7 @@ const Dropdown: React.FC<Props> = ({
     if (icon) {
       return (
         <InputAdornment position="start">
-          <Icon fontSize="small">{ icon }</Icon>
+          <Icon color="inherit" fontSize="small">{ icon }</Icon>
         </InputAdornment>
       );
     }

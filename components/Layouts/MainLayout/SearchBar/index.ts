@@ -12,7 +12,20 @@ export const Search = styled('div')(({ theme }) => ({
     maxWidth: 'none',
     minWidth: 200,
     width: 'auto'
-  }
+  },
+  '& > div': {
+    marginBottom: '0px !important',
+    maxWidth: '100%',
+    minWidth: '0px !important'
+  },
+  '& > div > label': { display: 'none' },
+  '& .MuiFormControl-root': { padding: '4px 0px 4px 16px' },
+  '& .MuiInputAdornment-root': { color: theme.palette.common.white },
+  '& .MuiSelect-select': { color: theme.palette.common.white },
+  '& .MuiInput-root': { marginTop: 0 },
+  '& .MuiInput-underline::before': { display: 'none' },
+  '& .MuiInput-underline::after': { display: 'none' },
+  '& .MuiSelect-nativeInput': { height: '100%' }
 }));
 
 export const SearchIconWrapper = styled('div')(({ theme }) => ({

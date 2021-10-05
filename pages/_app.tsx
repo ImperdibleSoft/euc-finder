@@ -6,7 +6,6 @@ import { ThemeProvider } from '@mui/material';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/dist/client/router';
 import React, { PropsWithChildren } from 'react';
-import { DropdownItem } from '../components/Form/Dropdown';
 import MainLayout from '../components/Layouts/MainLayout';
 import { EUC_DETAILS } from '../constants/clientRoutes';
 import { regions } from '../constants/regions';
@@ -19,7 +18,6 @@ import { Wheel } from '../types';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const { brands, region, wheels, dispatch } = useArenaContext();
-  const selectedRegion = regions.find(r => r.value === region) ?? regions[0];
   const router = useRouter();
 
   const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
@@ -28,11 +26,13 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     }
   };
 
-  const handleSelectRegion = (event: React.SyntheticEvent<Element, Event>, value: DropdownItem | null) => {
-    if (value?.label) {
+  const handleSelectRegion = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target;
+
+    if (value) {
       dispatch({
         type: 'setRegion',
-        payload: value
+        payload: { value }
       });
     }
   };
@@ -43,7 +43,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       handleSelectRegion={ handleSelectRegion }
       handleSelectWheel={ handleSelectWheel }
       regions={ regions }
-      selectedRegion={ selectedRegion }
+      selectedRegion={ region }
       wheels={ wheels }
     >
       { children }
