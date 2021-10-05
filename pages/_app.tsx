@@ -4,6 +4,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider } from '@mui/material';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import { useRouter } from 'next/dist/client/router';
 import React, { PropsWithChildren } from 'react';
 import MainLayout from '../components/Layouts/MainLayout';
@@ -15,6 +16,7 @@ import '../styles/EucPicturesOverride.css';
 import '../styles/globals.css';
 import theme from '../styles/theme';
 import { Wheel } from '../types';
+import { APP_NAME } from '../constants';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const { brands, region, wheels, dispatch } = useArenaContext();
@@ -55,13 +57,24 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { state, dispatch } = useContextReducer();
   
   return (
-    <ThemeProvider theme={ theme }>
-      <ArenaContextProvider value={ { state, dispatch } }>
-        <EucArenaApp>
-          <Component { ...pageProps } />
-        </EucArenaApp>
-      </ArenaContextProvider>
-    </ThemeProvider>
+    <>
+      <Head>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+          
+        <meta name="author" content="ImperdibleSoft (Rafael Pérez <rafael.perez@imperdiblesoft.com>)" />
+        <meta property="og:site_name" content={ APP_NAME } />
+      </Head>
+
+      <ThemeProvider theme={ theme }>
+        <ArenaContextProvider value={ { state, dispatch } }>
+          <EucArenaApp>
+            <Component { ...pageProps } />
+          </EucArenaApp>
+        </ArenaContextProvider>
+      </ThemeProvider>
+    </>
   );};
 
 export default MyApp;
