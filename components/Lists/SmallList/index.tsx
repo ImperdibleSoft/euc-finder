@@ -1,4 +1,4 @@
-import { Icon, List, ListItem as MaterialListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { Icon, List, ListItem as MaterialListItem, ListItemIcon, ListItemText, Tooltip } from '@mui/material';
 import React from 'react';
 import { ListProps } from '../types';
 
@@ -8,12 +8,13 @@ const SmallList: React.FC<ListProps> = ({ items }) => (
   <List dense>
     { items.map(({ icon, iconProps, primary, secondary }) => (
       <MaterialListItem key={ `${ primary }-${ secondary }-${ icon }` } sx={ { px: 0 } }>
-        <ListItemIcon sx={ { minWidth: 32 } }>
-          <Icon color={ iconProps?.active ? 'primary' : 'disabled' }>{ icon }</Icon>
-        </ListItemIcon>
+        <Tooltip disableFocusListener title={ primary }>
+          <ListItemIcon sx={ { minWidth: 32 } }>
+            <Icon color={ iconProps?.active ? 'primary' : 'disabled' }>{ icon }</Icon>
+          </ListItemIcon>
+        </Tooltip>
         <ListItemText
-          primary={ primary }
-          secondary={ secondary }
+          primary={ secondary }
         />
       </MaterialListItem>
     )) }
