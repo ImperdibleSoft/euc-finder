@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Columns from '../components/Columns';
 import Filters from '../components/Filters';
 import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
+import NoWheels from '../components/NoWheels';
 import WheelsList from '../components/WheelsList';
 import WheelsTable from '../components/WheelsTable';
 import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../hooks';
@@ -74,6 +75,13 @@ const EucList: React.FC = () => {
         records={ sortedWheels }
         sorting={ sorting }
       />
+
+      { sortedWheels.length <= 0 && (
+        <NoWheels
+          handleOpenFilters={ handleOpenSidebar }
+          handleResetFilters={ handleResetFilters }
+        />
+      ) }
     </LeftSidebarLayout>
   );
 };
