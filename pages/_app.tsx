@@ -5,7 +5,7 @@ import '@fontsource/roboto/700.css';
 import { ThemeProvider } from '@mui/material';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/dist/client/router';
-import React, { PropsWithChildren, useEffect } from 'react';
+import React, { PropsWithChildren } from 'react';
 import { DropdownItem } from '../components/Form/Dropdown';
 import MainLayout from '../components/Layouts/MainLayout';
 import { EUC_DETAILS } from '../constants/clientRoutes';
@@ -15,7 +15,6 @@ import '../styles/dropdownOverride.css';
 import '../styles/globals.css';
 import theme from '../styles/theme';
 import { Wheel } from '../types';
-import { init } from '../utils/htmlRender';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const { brands, wheels } = useArenaContext();
@@ -47,10 +46,6 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { state, dispatch } = useContextReducer();
-
-  useEffect(() => {
-    init();
-  }, []);
   
   return (
     <ThemeProvider theme={ theme }>

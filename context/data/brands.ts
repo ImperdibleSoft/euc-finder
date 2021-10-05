@@ -9,7 +9,7 @@ const begode: Brand = {
 
 const extremeBull: Brand = {
   id: BrandId.extremeBull,
-  name: 'Extreme Bull - Begode',
+  name: 'Extreme Bull/Begode',
   logo: '',
   website: ''
 };

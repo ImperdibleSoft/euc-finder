@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
+import { APP_NAME } from '../../../../constants';
 import { ROOT } from '../../../../constants/clientRoutes';
 import { Brands, Wheel } from '../../../../types';
 import { DropdownItem } from '../../../Form/Dropdown';
@@ -57,10 +58,11 @@ const Header: React.FC<Props> = ({ brands, handleSelectRegion, handleSelectWheel
             noWrap
             sx={ {
               color: (theme) => theme.palette.common.white,
+              cursor: 'pointer',
               textDecoration: 'none'
             } }
           >
-            EUC Arena
+            { APP_NAME }
           </Typography>
         </Link>
       </Box>

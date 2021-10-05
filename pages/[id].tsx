@@ -1,5 +1,6 @@
 import { Grid } from '@mui/material';
 import { useRouter } from 'next/dist/client/router';
+import Head from 'next/head';
 import React from 'react';
 import EmptyCase from '../components/EmptyCase';
 import EucAdditionalPurchaseLinks from '../components/EucAdditionalPurchaseLinks';
@@ -9,6 +10,7 @@ import EucSpecsAdditional from '../components/EucSpecsAdditional';
 import EucSpecsHighlighted from '../components/EucSpecsHighlighted';
 import EucSpecsMain from '../components/EucSpecsMain';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
+import { APP_NAME } from '../constants';
 import { wheels } from '../context/data';
 import { useEucDetail, useEucDetailHandlers, useEucDetailInformationGroups, useEucPurchaseLinks } from '../hooks';
 
@@ -21,42 +23,54 @@ const EucDetail: React.FC = () => {
   const { handleClosePicture, handleOpenPicture, pictureDetail } = useEucDetailHandlers();
   const { sponsoredLinks, regularLinks } = useEucPurchaseLinks(id);
 
+  const pageTitle = `${ name } - ${ APP_NAME }`;
+
   return (
-    <SimpleLayout>
-      { !wheel && (
-        <EmptyCase />
-      ) }
+    <>
+      <Head>
+        <title>{ pageTitle }</title>
 
-      { !!wheel && (
-        <>
-          <EucDetailHeader
-            heroImage={ pictures[0] ?? 'https://smartmoveperu.com/wp-content/uploads/2021/08/34-scaled.jpg' }
-            purchaseLinks={ sponsoredLinks }
-            wheelName={ name }
-          >
-            This should be a small description about selected wheel
-          </EucDetailHeader>
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={ pageTitle } />
+        <meta property="og:image" content={ pictures?.[0] } />
+      </Head>
 
-          <EucSpecsHighlighted specs={ highlightedSpecs } wheel={ wheel } />
+      <SimpleLayout>
+        { !wheel && (
+          <EmptyCase />
+        ) }
 
-          <Grid container spacing={ 2 }>
-            <EucSpecsMain specs={ mainSpecs } wheel={ wheel } />
-
-            <EucPictures
-              onClick={ handleOpenPicture }
-              onClose={ handleClosePicture }
-              pictureDetail={ pictureDetail }
-              pictures={ pictures }
+        { !!wheel && (
+          <>
+            <EucDetailHeader
+              heroImage={ pictures[0] ?? 'https://smartmoveperu.com/wp-content/uploads/2021/08/34-scaled.jpg' }
+              purchaseLinks={ sponsoredLinks }
               wheelName={ name }
-            />
+            >
+            This should be a small description about selected wheel
+            </EucDetailHeader>
 
-            <EucSpecsAdditional specs={ additionalSpecs } wheel={ wheel } />
+            <EucSpecsHighlighted specs={ highlightedSpecs } wheel={ wheel } />
 
-            <EucAdditionalPurchaseLinks items={ regularLinks } />
-          </Grid>
-        </>
-      ) }
-    </SimpleLayout>
+            <Grid container spacing={ 2 }>
+              <EucSpecsMain specs={ mainSpecs } wheel={ wheel } />
+
+              <EucPictures
+                onClick={ handleOpenPicture }
+                onClose={ handleClosePicture }
+                pictureDetail={ pictureDetail }
+                pictures={ pictures }
+                wheelName={ name }
+              />
+
+              <EucSpecsAdditional specs={ additionalSpecs } wheel={ wheel } />
+
+              <EucAdditionalPurchaseLinks items={ regularLinks } />
+            </Grid>
+          </>
+        ) }
+      </SimpleLayout>
+    </>
   );
 };
 
