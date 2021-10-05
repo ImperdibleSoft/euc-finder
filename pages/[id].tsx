@@ -10,8 +10,8 @@ import EucSpecsAdditional from '../components/EucSpecsAdditional';
 import EucSpecsHighlighted from '../components/EucSpecsHighlighted';
 import EucSpecsMain from '../components/EucSpecsMain';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
-import { APP_NAME } from '../constants';
-import { wheels } from '../context/data';
+import { APP_NAME, KEYWORDS } from '../constants';
+import { brands, wheels } from '../context/data';
 import { useEucDetail, useEucDetailHandlers, useEucDetailInformationGroups, useEucPurchaseLinks } from '../hooks';
 
 const EucDetail: React.FC = () => {
@@ -24,11 +24,15 @@ const EucDetail: React.FC = () => {
   const { sponsoredLinks, regularLinks } = useEucPurchaseLinks(id);
 
   const pageTitle = `${ name } - ${ APP_NAME }`;
+  const newKeywords = wheel ? [brands[wheel.brandId].name, wheel.name, name]: [];
+  const keywords = KEYWORDS.concat(newKeywords).join(', ');
 
   return (
     <>
       <Head>
         <title>{ pageTitle }</title>
+
+        <meta name="keywords" content={ keywords } />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content={ pageTitle } />

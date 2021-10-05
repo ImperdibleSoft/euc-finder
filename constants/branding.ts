@@ -5,3 +5,15 @@ const {
 
 export const APP_NAME = displayName;
 export const APP_DESCRIPTION = description;
+export const KEYWORDS = [
+  'Electric',
+  'Personal',
+  'Transport',
+  'Unicycle',
+  'Vehicles',
+  'EUC',
+  'Eléctrico',
+  'Transporte',
+  'Monociclos',
+  'Vehículos'
+];
