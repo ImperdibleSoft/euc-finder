@@ -1,4 +1,5 @@
 import {
+  Button,
   Card,
   CardActions,
   CardContent,
@@ -74,8 +75,10 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
       <CardActions sx={ { pt: 0 } }>
         <IconsList items={ additionalSpecsItems } />
 
-        <Link href={ link }>
-          Detalles
+        <Link href={ link } passHref>
+          <Button size="small" sx={  { marginLeft: 'auto' } }>
+            Detalles
+          </Button>
         </Link>
       </CardActions>
     </Card>

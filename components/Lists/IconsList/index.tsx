@@ -10,7 +10,7 @@ const IconsList: React.FC<ListProps> = ({ items }) => (
       <Icon
         key={ icon }
         color={ iconProps?.active ? 'action' : 'disabled' }
-        fontSize="small"
+        style={ { fontSize: '20px' } }
       >
         { icon }
       </Icon>
