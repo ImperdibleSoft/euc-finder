@@ -1,4 +1,4 @@
-import { Box, TableCell } from '@mui/material';
+import { Box, Button, TableCell } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 import { EUC_DETAILS } from '../../constants/clientRoutes';
@@ -111,8 +111,10 @@ const WheelsTable: React.FC<Props> = ({
               )) }
 
               <TableCell style={ { ...cellStyles, textAlign: 'right' } }>
-                <Link href={ EUC_DETAILS.replace(':id', row.id) }>
-                  Detalles
+                <Link href={ EUC_DETAILS.replace(':id', row.id) } passHref>
+                  <Button size="small" variant="outlined">
+                    Detalles
+                  </Button>
                 </Link>
               </TableCell>
             </TableRow>
