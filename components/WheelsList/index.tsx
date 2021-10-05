@@ -64,22 +64,22 @@ const WheelsList: React.FC<Props> = ({ handleSort, records, sorting  }) => {
           } }
         >
           <Dropdown
-            defaultValue={ sorting.key }
             fullWidth={ false }
             label="Ordenar por"
             name="sortCriteria"
             onChange={ handleChangeSortCriteria }
             options={ sortCriteriaOptions }
+            value={ sorting.key }
           />
 
           <Dropdown
-            defaultValue={ sorting.order }
             fullWidth={ false }
             label="Orden"
             name="order"
             onChange={ handleChangeSortOrder }
             options={ sortOrderOptions }
             style={ { marginLeft: 8 } }
+            value={ sorting.order }
           />
         </Toolbar>
       ) }

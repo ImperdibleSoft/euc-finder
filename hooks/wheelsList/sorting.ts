@@ -10,7 +10,7 @@ export const useSorting = () => {
       setOrder(order === 'asc' ? 'desc' : 'asc');
     } else {
       setSortCriteria(key);
-      setOrder('asc');
+      setOrder('desc');
     }
   };
 
