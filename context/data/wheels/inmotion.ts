@@ -197,7 +197,7 @@ const v12: Wheel = {
 
   diameter: 16,
   width: 3,
-  groundClearance: 0,
+  groundClearance: [160, 170, 180],
   weight: 29,
   trolleyHandle: TrolleyHandle.scorpion,
   antiSpin: AntiSpin.button,
