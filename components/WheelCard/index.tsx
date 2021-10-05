@@ -76,7 +76,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
         <IconsList items={ additionalSpecsItems } />
 
         <Link href={ link } passHref>
-          <Button size="small" sx={  { marginLeft: 'auto' } }>
+          <Button size="small" variant="outlined" sx={  { marginLeft: 'auto' } }>
             Detalles
           </Button>
         </Link>
