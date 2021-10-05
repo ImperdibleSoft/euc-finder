@@ -1,0 +1,34 @@
+.MuiImageList-root.MuiImageList-standard > .MuiImageListItem-root.MuiImageListItem-standard > div {
+  /* display: initial !important; */
+  /* overflow: initial !important; */
+  position: initial !important;
+  top: initial !important;
+  left: initial !important;
+  bottom: initial !important;
+  right: initial !important;
+  box-sizing: initial !important;
+  margin: initial !important;
+
+  display: flex !important;
+  max-height: 100%;
+  overflow: hidden !important;
+}
+
+.MuiImageList-root.MuiImageList-standard > .MuiImageListItem-root.MuiImageListItem-standard > div > img {
+  position: initial !important;
+  top: initial !important;
+  left: initial !important;
+  bottom: initial !important;
+  right: initial !important;
+  box-sizing: initial !important;
+  padding: initial !important;
+  border: initial !important;
+  margin: initial !important;
+  display: initial !important;
+  width: initial !important;
+  height: initial !important;
+  min-width: initial !important;
+  max-width: initial !important;
+  min-height: initial !important;
+  max-height: 100% !important;
+}

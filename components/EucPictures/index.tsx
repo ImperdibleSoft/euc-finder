@@ -3,7 +3,6 @@ import Image from 'next/image';
 import React from 'react';
 import PictureDetails from '../PictureDetails';
 
-
 interface Props {
   onClick: (pictureUrl: string) => void
   onClose: () => void
@@ -56,9 +55,9 @@ const EucPictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, picture
               } }
             >
               <Image
-                src={ picture }
+                alt={ `Imagen de ${ wheelName }` }
                 loading="lazy"
-                alt={ `Imágen de ${ wheelName }` }
+                src={ picture }
                 layout="fill"
               />
             </ImageListItem>

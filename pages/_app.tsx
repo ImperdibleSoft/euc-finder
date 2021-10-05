@@ -12,6 +12,7 @@ import { EUC_DETAILS } from '../constants/clientRoutes';
 import { regions } from '../constants/regions';
 import { ArenaContextProvider, useArenaContext, useContextReducer } from '../context';
 import '../styles/dropdownOverride.css';
+import '../styles/EucPicturesOverride.css';
 import '../styles/globals.css';
 import theme from '../styles/theme';
 import { Wheel } from '../types';
