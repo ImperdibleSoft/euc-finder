@@ -31,10 +31,18 @@ export interface Props {
     details?: AutocompleteChangeDetails<Wheel> | undefined
   ) => void
   regions: DropdownItem[]
+  selectedRegion: DropdownItem
   wheels: Wheel[]
 }
 
-const Header: React.FC<Props> = ({ brands, handleSelectRegion, handleSelectWheel, regions, wheels }) => (
+const Header: React.FC<Props> = ({
+  brands,
+  handleSelectRegion,
+  handleSelectWheel,
+  regions,
+  selectedRegion,
+  wheels
+}) => (
   <AppBar
     position="fixed"
     sx={ {
@@ -111,6 +119,7 @@ const Header: React.FC<Props> = ({ brands, handleSelectRegion, handleSelectWheel
                 { ...params }
                 placeholder="Región"
               />) }
+            value={ selectedRegion }
           />
         </Search>
       </Box>

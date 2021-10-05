@@ -1,4 +1,4 @@
-import { DropdownItem } from "../components/Form/Dropdown";
+import { DropdownItem } from '../components/Form/Dropdown';
 
 export const regions: DropdownItem[] = [
   {

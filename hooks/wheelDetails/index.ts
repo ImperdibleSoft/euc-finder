@@ -43,15 +43,20 @@ export const useEucDetailHandlers = () => {
 };
 
 export const useEucPurchaseLinks = (id: string) => {
-  const { purchaseLinks: wheelPurchaseLinks, stores } = useArenaContext();
+  const { purchaseLinks: wheelPurchaseLinks, region, stores } = useArenaContext();
   const wheelLinks = wheelPurchaseLinks[id as WheelId] ?? [];
 
+  const options = {
+    region,
+    stores
+  };
+
   const sponsoredLinks = wheelLinks
-    .map(url => getPurchaseLink(stores, url, true))
+    .map(url => getPurchaseLink({ ...options, url, sponsored: true }))
     .filter(link => !!link) as PurchaseLink[];
 
   const regularLinks = wheelLinks
-    .map(url => getPurchaseLink(stores, url))
+    .map(url => getPurchaseLink({ ...options, url }))
     .filter(link => !!link) as PurchaseLink[];
 
   return {

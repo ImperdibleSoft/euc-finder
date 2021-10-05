@@ -1,16 +1,24 @@
-import { PurchaseLink, Stores } from '../types';
+import { PurchaseLink, Region, Stores } from '../types';
 
-const getStoreFromUrl = (stores: Stores, url: string, sponsored?: boolean) =>
+interface GetStoreOptions {
+  stores: Stores
+  region: Region
+  url: string
+  sponsored?: boolean
+}
+
+const getStoreFromUrl = ({ region, stores, url, sponsored }: GetStoreOptions) =>
   Object
     .values(stores)
-    .find(({ sponsor, website }) => (
-      website
+    .find(({ region: storeRegion, sponsor, website }) => (
+      region === storeRegion
+      && website
       && url.includes(website)
       && ((sponsored && sponsor) || (!sponsored && !sponsor))
     ));
 
-export const getPurchaseLink = (stores: Stores, url: string, sponsored?: boolean): PurchaseLink | undefined => {
-  const store = getStoreFromUrl(stores, url, sponsored);
+export const getPurchaseLink = (options: GetStoreOptions): PurchaseLink | undefined => {
+  const store = getStoreFromUrl(options);
 
   if (!store) {
     return undefined;
@@ -19,6 +27,6 @@ export const getPurchaseLink = (stores: Stores, url: string, sponsored?: boolean
   return {
     color: store.color,
     label: store.name,
-    url
+    url: options.url
   };
 };

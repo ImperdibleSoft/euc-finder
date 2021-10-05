@@ -18,7 +18,8 @@ import theme from '../styles/theme';
 import { Wheel } from '../types';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
-  const { brands, wheels } = useArenaContext();
+  const { brands, region, wheels, dispatch } = useArenaContext();
+  const selectedRegion = regions.find(r => r.value === region) ?? regions[0];
   const router = useRouter();
 
   const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
@@ -28,8 +29,12 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   };
 
   const handleSelectRegion = (event: React.SyntheticEvent<Element, Event>, value: DropdownItem | null) => {
-    // eslint-disable-next-line no-console
-    console.log('Region selected', value);
+    if (value?.label) {
+      dispatch({
+        type: 'setRegion',
+        payload: value
+      });
+    }
   };
 
   return (
@@ -38,6 +43,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       handleSelectRegion={ handleSelectRegion }
       handleSelectWheel={ handleSelectWheel }
       regions={ regions }
+      selectedRegion={ selectedRegion }
       wheels={ wheels }
     >
       { children }

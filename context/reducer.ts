@@ -19,6 +19,13 @@ const arenaContextReducer = (state: ArenaContextState, action: any): ArenaContex
         }
       };
 
+    case 'setRegion':
+      return {
+        ...state,
+        // @ts-ignore
+        region: action.payload.value
+      };
+
     default:
       return state;
   }

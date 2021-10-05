@@ -43,6 +43,7 @@ const initialValue: ArenaContextState = {
   filters: filtersInitialValue,
   pictures: wheelPictures,
   purchaseLinks: wheelPurchaseLinks,
+  region: 'eu',
   sorting: sortingInitialValue,
   stores,
   wheels

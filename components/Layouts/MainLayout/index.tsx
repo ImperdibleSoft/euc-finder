@@ -8,6 +8,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   handleSelectRegion,
   handleSelectWheel,
   regions,
+  selectedRegion,
   wheels
 }) => (
   <Box
@@ -24,6 +25,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
       handleSelectRegion={ handleSelectRegion }
       handleSelectWheel={ handleSelectWheel }
       regions={ regions }
+      selectedRegion={ selectedRegion }
       wheels={ wheels }
     />
 
