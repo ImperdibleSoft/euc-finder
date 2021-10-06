@@ -3,6 +3,7 @@ import Head from 'next/head';
 import React, { useState } from 'react';
 import Columns from '../components/Columns';
 import Filters from '../components/Filters';
+import Footer from '../components/Footer';
 import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
 import NoWheels from '../components/NoWheels';
 import WheelsList from '../components/WheelsList';
@@ -97,6 +98,8 @@ const EucList: React.FC = () => {
             handleResetFilters={ handleResetFilters }
           />
         ) }
+
+        <Footer />
       </LeftSidebarLayout>
     </>
   );
