@@ -9,7 +9,6 @@ import EucPictures from '../components/EucPictures';
 import EucSpecsAdditional from '../components/EucSpecsAdditional';
 import EucSpecsHighlighted from '../components/EucSpecsHighlighted';
 import EucSpecsMain from '../components/EucSpecsMain';
-import Footer from '../components/Footer';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../constants';
 import { brands, wheels } from '../context/data';
@@ -74,8 +73,6 @@ const EucDetail: React.FC = () => {
             </Grid>
           </>
         ) }
-
-        <Footer />
       </SimpleLayout>
     </>
   );

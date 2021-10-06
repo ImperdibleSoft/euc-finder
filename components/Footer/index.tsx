@@ -2,6 +2,8 @@ import { Container, Divider, Link, Typography } from '@mui/material';
 import React from 'react';
 import { APP_NAME, APP_REPO, APP_VERSION, CURRENT_YEAR } from '../../constants';
 
+const yearText = CURRENT_YEAR <= 2021 ? CURRENT_YEAR : `2020-${ CURRENT_YEAR }`;
+
 const Footer: React.FC = () => (
   <>
     <Divider sx={ { mt: 5 } }  />
@@ -12,10 +14,10 @@ const Footer: React.FC = () => (
       textAlign: 'center'
     } }>
       <div style={ { marginBottom: 24 } }>
-        { APP_NAME } 2020-{ CURRENT_YEAR } — v{ APP_VERSION } { 'en ' }
+        { APP_NAME } { yearText } — v{ APP_VERSION } { 'en ' }
 
         <Link href={ APP_REPO } target="_blank" rel="noreferrer">
-            Github
+           Github
         </Link>
       </div>
 

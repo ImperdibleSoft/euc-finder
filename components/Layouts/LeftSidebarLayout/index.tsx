@@ -1,6 +1,7 @@
 import { Box, Drawer, Icon, IconButton, SwipeableDrawer, Theme, useMediaQuery, useTheme } from '@mui/material';
 import { SxProps } from '@mui/system';
 import React, { PropsWithChildren } from 'react';
+import Footer from '../../Footer';
 
 const drawerWidth = 320;
 
@@ -92,6 +93,8 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
         }
       } }>
         { children }
+
+        <Footer />
       </Box>
     </>
   );};
