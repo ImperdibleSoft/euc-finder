@@ -18,15 +18,17 @@ const getStoreFromUrl = ({ region, stores, url, sponsored }: GetStoreOptions) =>
     ));
 
 export const getPurchaseLink = (options: GetStoreOptions): PurchaseLink | undefined => {
+  return undefined;
+
   const store = getStoreFromUrl(options);
 
   if (!store) {
     return undefined;
   }
 
-  return {
-    color: store.color,
-    label: store.name,
-    url: options.url
-  };
+  // return {
+  //   color: store.color,
+  //   label: store.name,
+  //   url: options.url
+  // };
 };
