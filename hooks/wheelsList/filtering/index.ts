@@ -435,7 +435,7 @@ export const useFilterFields = () => {
       onChange: handleChangeDisplay,
       options: displayOptions,
       value: filters.display?.toString() ?? '',
-      space: true
+      space: !!SHOW_PRICE
     }
   ];
 
@@ -457,8 +457,7 @@ export const useFilterFields = () => {
         name: 'maxPrice',
         onChange: handleChange,
         type: 'number',
-        value: filters.maxPrice?.toString() ?? '',
-        space: true
+        value: filters.maxPrice?.toString() ?? ''
       }
     );
   }

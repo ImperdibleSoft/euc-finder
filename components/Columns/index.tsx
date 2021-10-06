@@ -1,8 +1,8 @@
-import { Button, Card, CardActions, CardContent } from '@mui/material';
+import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-import Checkbox from '../Form/Checkbox';
 import { wheelFeatureNames } from '../../constants/wheelFeatures';
 import { WheelsTableColumns } from '../../types';
+import Checkbox from '../Form/Checkbox';
 
 interface Props {
   columns: WheelsTableColumns,
@@ -34,19 +34,23 @@ const Columns: React.FC<Props> = ({ columns, handleHide, handleReset, handleShow
   };
 
   return (
-    <Card sx={ { minWidth: 275 } }>
-      <CardContent>
-        <h3>Columnas</h3>
+    <Box sx={ { p: 2, pt: 0 } }>
+      <Typography variant="h6" component="div" sx={ { mb: 2, mt: { sm: 2 } } }>
+        Columnas
+      </Typography>
 
-        <form noValidate onSubmit={ handleSubmit }>
-          { Object.keys(columns).map(renderColumnCheckbox) }
+      <form noValidate onSubmit={ handleSubmit }>
+        { Object.keys(columns).map(renderColumnCheckbox) }
 
-          <CardActions style={ { justifyContent: 'flex-end' } }>
-            <Button onClick={ handleReset } type="button">Reiniciar</Button>
-          </CardActions>
-        </form>
-      </CardContent>
-    </Card>
+        <Button
+          onClick={ handleReset }
+          type="button"
+          sx={ { justifySelf: 'flex-end' } }
+        >
+          Reiniciar
+        </Button>
+      </form>
+    </Box>
   );
 };
 

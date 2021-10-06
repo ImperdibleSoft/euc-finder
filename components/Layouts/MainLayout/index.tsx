@@ -13,7 +13,8 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
 }) => (
   <Box
     sx={ {
-      bgcolor: '#ebedf0',
+      bgcolor: (theme) => theme.palette.background.default,
+      // '#ebedf0',
       display: 'flex',
       minHeight: '100vh'
     } }

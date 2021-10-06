@@ -19,7 +19,7 @@ const Filters: React.FC<Props> = ({
   return (
     <Box sx={ { p: 2, pt: 0 } }>
       <Typography variant="h6" component="div" sx={ { mb: 2, mt: { sm: 2 } } }>
-          Filtros
+        Filtros
       </Typography>
 
       <form noValidate onSubmit={ handleSubmit }>
@@ -36,7 +36,7 @@ const Filters: React.FC<Props> = ({
           type="button"
           sx={ { justifySelf: 'flex-end' } }
         >
-            Reiniciar
+          Reiniciar
         </Button>
       </form>
     </Box>

@@ -6,7 +6,7 @@ import { ThemeProvider } from '@mui/material';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/dist/client/router';
-import React, { PropsWithChildren } from 'react';
+import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import MainLayout from '../components/Layouts/MainLayout';
 import { EUC_DETAILS } from '../constants/clientRoutes';
 import { regions } from '../constants/regions';
@@ -14,9 +14,10 @@ import { ArenaContextProvider, useArenaContext, useContextReducer } from '../con
 import '../styles/dropdownOverride.css';
 import '../styles/EucPicturesOverride.css';
 import '../styles/globals.css';
-import theme from '../styles/theme';
 import { Wheel } from '../types';
 import { APP_NAME } from '../constants';
+import { darkTheme, lightTheme } from '../styles/theme';
+import { isDarkTheme } from '../utils';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const { brands, region, wheels, dispatch } = useArenaContext();
@@ -54,7 +55,15 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 };
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const [dark, setDark] = useState(false);
   const { state, dispatch } = useContextReducer();
+
+  const theme = useMemo(() => dark ? darkTheme : lightTheme, [dark]);
+
+  useEffect(() => {
+    const newDark = isDarkTheme();
+    setDark(newDark);
+  }, []);
   
   return (
     <>
