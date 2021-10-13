@@ -1,5 +1,6 @@
 import { Box, Button } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { PurchaseLink } from '../../types';
 
 interface Props {
@@ -7,21 +8,24 @@ interface Props {
   large?: boolean
 }
 
-const EucDetailPurchaseLinks: React.FC<Props> = ({ items, large }) => (
-  <Box>
-    { items.map(({ label, url }) => (
-      <Button
-        key={ url }
-        href={ url }
-        size={ large ? 'large' : 'medium' }
-        sx={ { mr: 2, mt: 2 } }
-        target="_blank"
-        variant="contained"
-      >
-        { `${ large ? 'Comprar en ' : '' }${ label }` }
-      </Button>
-    )) }
-  </Box>
-);
+const EucDetailPurchaseLinks: React.FC<Props> = ({ items, large }) => {
+  const { t } = useTranslation();
+  
+  return (
+    <Box>
+      { items.map(({ label, url }) => (
+        <Button
+          key={ url }
+          href={ url }
+          size={ large ? 'large' : 'medium' }
+          sx={ { mr: 2, mt: 2 } }
+          target="_blank"
+          variant="contained"
+        >
+          { `${ large ? `${ t('buyAt-label') } ` : '' }${ label }` }
+        </Button>
+      )) }
+    </Box>
+  );};
 
 export default EucDetailPurchaseLinks;

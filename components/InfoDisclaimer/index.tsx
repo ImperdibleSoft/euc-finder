@@ -1,5 +1,6 @@
 import { Box, Button, Dialog, DialogTitle, Typography } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface Props {
   handleClose: () => void
@@ -7,40 +8,43 @@ interface Props {
 }
 
 /* eslint-disable max-len */
-const InfoDisclaimer: React.FC<Props> = ({ handleClose, open }) => (
-  <Dialog onClose={ handleClose } open={ open }>
-    <DialogTitle>Información importante</DialogTitle>
+const InfoDisclaimer: React.FC<Props> = ({ handleClose, open }) => {
+  const { t } = useTranslation();
 
-    <Box sx={ { px: 3 } }>
-      <Typography variant="h6" component="p" sx={ { mb: 2 } }>
-        Modelos
-      </Typography>
-      <Typography variant="body1" component="p" sx={ { mb: 2 } }>
-        Esta web sólo muestra las versiones más nuevas y potentes de cada modelo proporcionado por el fabricante.
-      </Typography>
-      <Typography variant="body1" component="p" sx={ { mb: 2 } }>
-        Es decir, versiones anteriores y/o con menos prestaciones (aunque sean actuales) no se mostrarán en esta web.
-      </Typography>
-    </Box>
+  return (
+    <Dialog onClose={ handleClose } open={ open }>
+      <DialogTitle>{ t('importantInfo-msg') }</DialogTitle>
 
-    <Box sx={ { px: 3 } }>
-      <Typography variant="h6" component="p" sx={ { mb: 2 } }>
-        Autonomía
-      </Typography>
-      <Typography variant="body1" component="p" sx={ { mb: 2 } }>
-        La autonomía mostrada en esta página está basada en un uso más realista de los monociclos.
-      </Typography>
-      <Typography variant="body1" component="p" sx={ { mb: 2 } }>
-        Esto incluye acelerones, frenadas intensas, subir pendientes, saltar o mantener altas velocidades de forma prolongada.
-      </Typography>
-    </Box>
+      <Box sx={ { px: 3 } }>
+        <Typography variant="h6" component="p" sx={ { mb: 2 } }>
+          { t('models-title') }
+        </Typography>
+        <Typography variant="body1" component="p" sx={ { mb: 2 } }>
+          { t('newModels-msg') }
+        </Typography>
+        <Typography variant="body1" component="p" sx={ { mb: 2 } }>
+          { t('olderVersions-msg') }
+        </Typography>
+      </Box>
 
-    <Box sx={ { px: 3, pb: 3, alignItems: 'flex-end', display: 'flex', justifyContent: 'flex-end' } }>
-      <Button onClick={ handleClose } variant="contained">
-        OK
-      </Button>
-    </Box>
-  </Dialog>
-);
+      <Box sx={ { px: 3 } }>
+        <Typography variant="h6" component="p" sx={ { mb: 2 } }>
+          { t('range-title') }
+        </Typography>
+        <Typography variant="body1" component="p" sx={ { mb: 2 } }>
+          { t('displayedRange-msg') }
+        </Typography>
+        <Typography variant="body1" component="p" sx={ { mb: 2 } }>
+          { t('usageExamples-msg') }
+        </Typography>
+      </Box>
+
+      <Box sx={ { px: 3, pb: 3, alignItems: 'flex-end', display: 'flex', justifyContent: 'flex-end' } }>
+        <Button onClick={ handleClose } variant="contained">
+          { t('ok-label') }
+        </Button>
+      </Box>
+    </Dialog>
+  );};
 
 export default InfoDisclaimer;

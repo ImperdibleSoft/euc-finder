@@ -2,6 +2,7 @@ import React from 'react';
 
 export * from './brands';
 export * from './filtering';
+export * from './i18n';
 export * from './localStorage';
 export * from './sorting';
 export * from './stores';

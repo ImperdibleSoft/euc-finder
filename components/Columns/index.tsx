@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-import { wheelFeatureNames } from '../../constants/wheelFeatures';
+import { useTranslation } from 'react-i18next';
 import { WheelsTableColumns } from '../../types';
 import Checkbox from '../Form/Checkbox';
 
@@ -12,8 +12,10 @@ interface Props {
 }
 
 const Columns: React.FC<Props> = ({ columns, handleHide, handleReset, handleShow }) => {
+  const { t } = useTranslation();
+
   const renderColumnCheckbox = (key: string) => {
-    const label = wheelFeatureNames[key as keyof WheelsTableColumns];
+    const label = t(key);
     const value = columns[key as keyof WheelsTableColumns];
 
     const action = value ? handleHide : handleShow;
@@ -36,7 +38,7 @@ const Columns: React.FC<Props> = ({ columns, handleHide, handleReset, handleShow
   return (
     <Box sx={ { p: 2, pt: 0 } }>
       <Typography variant="h6" component="div" sx={ { mb: 2, mt: { sm: 2 } } }>
-        Columnas
+        { t('columns-title') }
       </Typography>
 
       <form noValidate onSubmit={ handleSubmit }>
@@ -47,7 +49,7 @@ const Columns: React.FC<Props> = ({ columns, handleHide, handleReset, handleShow
           type="button"
           sx={ { justifySelf: 'flex-end' } }
         >
-          Reiniciar
+          { t('reset-label') }
         </Button>
       </form>
     </Box>

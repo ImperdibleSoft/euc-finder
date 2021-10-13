@@ -6,8 +6,7 @@ import {
   SuspensionWeight,
   TrolleyHandleWeight,
   WheelFeatureFormatters,
-  WheelFeatureIcons,
-  WheelFeatureNames
+  WheelFeatureIcons
 } from '../types';
 import * as formatters from '../utils/formatters';
 
@@ -40,37 +39,6 @@ export const wheelFeatureIcons: WheelFeatureIcons = {
   display: 'smart_screen',
   suspension: 'file_download',
   color: 'water_drop'
-};
-
-export const wheelFeatureNames: WheelFeatureNames = {
-  id: 'ID',
-  brandId: 'Fabricante',
-  name: 'Nombre',
-  price: 'Precio (€)',
-
-  ratedPower: 'Potencia del motor (W)',
-  peakPower: 'Picos de potencia (W)',
-  maxGradibility: 'Inclinación (°)',
-  maxSpeed: 'Velocidad tope (Km/h)',
-  battery: 'Capacidad de la batería (mAh)',
-  batteryOutput: 'Salida de la batería (Wh)',
-  range: 'Autonomía real* (Km)',
-  voltage: 'Voltaje (v)',
-
-  diameter: 'Diámetro (pulg)',
-  width: 'Ancho del neumático (pulg)',
-  groundClearance: 'Distancia al suelo (mm)',
-  weight: 'Peso (Kg)',
-  trolleyHandle: 'Trolley',
-  antiSpin: 'Anti giro',
-  kickstand: 'Punto de apoyo',
-  headlight: 'Luces delanteras (lm)',
-  tailLight: 'Luces traseras',
-  leds: 'LEDs',
-  sound: 'Equipo de sonido (ch)',
-  display: 'Pantalla',
-  suspension: 'Suspensión',
-  color: 'Color'
 };
 
 export const wheelFeatureFormatters: WheelFeatureFormatters = {

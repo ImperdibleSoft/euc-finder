@@ -8,15 +8,16 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
-import { wheelFeatureFormatters, wheelFeatureIcons, wheelFeatureNames } from '../../constants';
+import { useTranslation } from 'react-i18next';
+import { wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
 import { EUC_DETAILS } from '../../constants/clientRoutes';
 import { useArenaContext } from '../../context';
 import { useEucListInformationGroups } from '../../hooks';
+import { Wheel, WheelFeatureFormatters, WheelFeatureIcons, WheelSorting } from '../../types';
 import { formatWheelName } from '../../utils';
-import { Wheel, WheelFeatureFormatters, WheelFeatureIcons, WheelFeatureNames, WheelSorting } from '../../types';
-import { ListItem } from '../Lists/types';
-import SmallList from '../Lists/SmallList';
 import IconsList from '../Lists/IconsList';
+import SmallList from '../Lists/SmallList';
+import { ListItem } from '../Lists/types';
 
 interface Props {
   sorting: WheelSorting
@@ -24,6 +25,7 @@ interface Props {
 }
 
 const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
+  const { t } = useTranslation();
   const { brands, pictures: wheelPictures } = useArenaContext();
   const { mainSpecs, additionalSpecs } = useEucListInformationGroups(sorting);
   const link = EUC_DETAILS.replace(':id', wheel.id);
@@ -31,7 +33,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
   
   const mainSpecItems: ListItem[] = mainSpecs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
-    const label = wheelFeatureNames[key as keyof WheelFeatureNames];
+    const label = t(key);
     const formatter = wheelFeatureFormatters[key as keyof WheelFeatureFormatters];
     const value = formatter?.(wheel[key]) ??  wheel[key];
 
@@ -45,7 +47,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
 
   const additionalSpecsItems: ListItem[] = additionalSpecs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
-    const label = wheelFeatureNames[key as keyof WheelFeatureNames];
+    const label = t(key);
     const formatter = wheelFeatureFormatters[key as keyof WheelFeatureFormatters];
     const value = formatter?.(wheel[key]) ??  wheel[key];
 
@@ -63,7 +65,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
         component="img"
         height="240"
         image={ firstPicture ?? 'https://smartmoveperu.com/wp-content/uploads/2021/08/34-scaled.jpg' }
-        alt={ `Foto de ${ formatWheelName(wheel, brands) }` }
+        alt={ t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
       />
 
       <CardContent>
@@ -83,7 +85,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
 
         <Link href={ link } passHref>
           <Button size="small" variant="outlined" sx={  { marginLeft: 'auto' } }>
-            Detalles
+            { t('details-btn') }
           </Button>
         </Link>
       </CardActions>

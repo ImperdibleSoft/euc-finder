@@ -1,6 +1,7 @@
 import { Card, Grid, Typography } from '@mui/material';
 import React from 'react';
-import { wheelFeatureFormatters, wheelFeatureIcons, wheelFeatureNames } from '../../constants';
+import { useTranslation } from 'react-i18next';
+import { wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
 import { Wheel, WheelFeatureFormatters, WheelFeatureIcons } from '../../types';
 import RegularList from '../Lists/RegularList';
 import { ListItem } from '../Lists/types';
@@ -11,9 +12,11 @@ interface Props {
 }
 
 const EucSpecsAdditional: React.FC<Props> = ({ specs, wheel }) => {
+  const { t } = useTranslation();
+
   const listItems: ListItem[] = specs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
-    const label = wheelFeatureNames[key];
+    const label = t(key);
     const formatter = wheelFeatureFormatters[key as keyof WheelFeatureFormatters];
     const value = formatter(wheel[key]);
 
@@ -28,7 +31,7 @@ const EucSpecsAdditional: React.FC<Props> = ({ specs, wheel }) => {
   return (
     <Grid item xs={ 12 } md={ 6 }>
       <Typography sx={ { mt: 4, mb: 2 } } variant="h6" component="div">
-        Especificaciones adicionales
+        { t('additionalSpecs-title') }
       </Typography>
 
       <Card>

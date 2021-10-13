@@ -1,6 +1,7 @@
 import { Card, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import PictureDetails from '../PictureDetails';
 
 interface Props {
@@ -12,6 +13,8 @@ interface Props {
 }
 
 const EucPictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelName }) => {
+  const { t } = useTranslation();
+
   if (!pictures?.length) {
     return null;
   }
@@ -22,7 +25,7 @@ const EucPictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, picture
   return (
     <Grid item xs={ 12 } md={ 6 }>
       <Typography sx={ { mt: 4, mb: 2 } } variant="h6" component="div">
-        Imágenes
+        { t('pictures-title') }
       </Typography>
 
       <Card style={ {
@@ -55,7 +58,7 @@ const EucPictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, picture
               } }
             >
               <Image
-                alt={ `Imagen de ${ wheelName }` }
+                alt={ t('wheelPicture-msg', { wheelName }) }
                 loading="lazy"
                 src={ picture }
                 layout="fill"
@@ -66,7 +69,7 @@ const EucPictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, picture
       </Card>
 
       <PictureDetails
-        alt="Sample text"
+        alt={ t('wheelPicture-msg', { wheelName }) }
         handleClose={ onClose }
         picture={ pictureDetail }
       />

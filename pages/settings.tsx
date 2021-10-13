@@ -1,12 +1,15 @@
 import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Dropdown from '../components/Form/Dropdown';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../constants';
 import { useSettings } from '../hooks';
+import { getStaticProps } from '../utils/translatedResources';
 
 const Settings: React.FC = () => {
+  const { t } = useTranslation();
   const fields = useSettings();
   
   const pageTitle = `Opciones - ${ APP_NAME }`;
@@ -25,7 +28,7 @@ const Settings: React.FC = () => {
 
       <SimpleLayout>
         <Typography variant="h4" component="h1" sx={ { mb: 3 } }>
-          Opciones
+          { t('settings-title') }
         </Typography>
 
         <Grid container>
@@ -33,7 +36,7 @@ const Settings: React.FC = () => {
             <Card>
               <CardContent>
                 <Typography variant="h5" component="div" sx={ { mb: 3 } }>
-                  Unidades de medida
+                  { t('measureUnits-title') }
                 </Typography>
 
                 { fields.map(field => (
@@ -47,9 +50,10 @@ const Settings: React.FC = () => {
                   />
                 )) }
               </CardContent>
+
               <CardActions sx={ { alignItems: 'flex-end', justifyContent: 'flex-end' } }>
                 <Button variant="outlined" size="small" onClick={ () => { return; } }>
-                  Guardar
+                  { t('save-btn') }
                 </Button>
               </CardActions>
             </Card>
@@ -61,3 +65,5 @@ const Settings: React.FC = () => {
 };
 
 export default Settings;
+
+export { getStaticProps };
