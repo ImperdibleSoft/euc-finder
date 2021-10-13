@@ -1,4 +1,12 @@
 import { BrandId, WheelFilters, WheelSorting } from '../types';
+import {
+  DiameterUnits,
+  GroundClearanceUnits,
+  RangeUnits,
+  SpeedUnits,
+  WeightUnits,
+  WidthUnits
+} from '../types/settings';
 import { brands, stores, wheelPictures, wheelPurchaseLinks, wheels } from './data';
 import { ArenaContextState } from './types';
 
@@ -29,18 +37,30 @@ const filtersInitialValue: WheelFilters = {
   battery: undefined
 };
 
-export const getFiltersInitialValue = () => filtersInitialValue;
+export const getFiltersInitialValue = () => ({ ...filtersInitialValue });
 
 const sortingInitialValue: WheelSorting = {
   key: 'range',
   order: 'desc'
 };
 
-export const getSortingInitialValue = () => sortingInitialValue;
+export const getSortingInitialValue = () => ({ ...sortingInitialValue });
+
+const measureUnitsInitialValue: ArenaContextState['measureUnits'] = {
+  diameter: DiameterUnits.in,
+  groundClearance: GroundClearanceUnits.mm,
+  range: RangeUnits.km,
+  speed: SpeedUnits.kmh,
+  weight: WeightUnits.kg,
+  width: WidthUnits.in
+};
+
+export const getMeasureUnitsInitialValue = () => ({ ...measureUnitsInitialValue });
 
 const initialValue: ArenaContextState = {
   brands,
   filters: filtersInitialValue,
+  measureUnits: measureUnitsInitialValue,
   pictures: wheelPictures,
   purchaseLinks: wheelPurchaseLinks,
   region: 'eu',

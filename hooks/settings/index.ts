@@ -1,7 +1,9 @@
-import { ChangeEvent, useState } from 'react';
+/* eslint-disable max-lines */
+import { ChangeEvent } from 'react';
 import { useTranslation, TFunction } from 'react-i18next';
 import { DropdownItem, Props } from '../../components/Form/Dropdown';
 import { wheelFeatureIcons } from '../../constants';
+import { useArenaContext } from '../../context';
 import {
   DiameterUnits,
   GroundClearanceUnits,
@@ -12,7 +14,6 @@ import {
 } from '../../types/settings';
 
 const getOptions = (t: TFunction<'translation'>) => {
-
   const diameterOptions: DropdownItem[] = [
     {
       label: t('centimeters'),
@@ -91,41 +92,54 @@ const getOptions = (t: TFunction<'translation'>) => {
 
 export const useSettings = () => {
   const { t } = useTranslation();
-  const [diameter, setDiameter] = useState(DiameterUnits.in);
-  const [width, setWidth] = useState(WidthUnits.in);
-  const [range, setRange] = useState(RangeUnits.km);
-  const [speed, setSpeed] = useState(SpeedUnits.kmh);
-  const [weight, setWeight] = useState(WeightUnits.kg);
-  const [groundClearance, setGroundClearance] = useState(GroundClearanceUnits.mm);
+  const { measureUnits, dispatch }= useArenaContext();
 
   const handleChangeDiameter = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    setDiameter(value as DiameterUnits);
+    dispatch({
+      type: 'setMeasureUnit',
+      payload: { diameter: value as DiameterUnits }
+    });
   };
 
   const handleChangeWidth = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    setWidth(value as WidthUnits);
+    dispatch({
+      type: 'setMeasureUnit',
+      payload: { width: value as WidthUnits }
+    });
   };
 
   const handleChangeRange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    setRange(value as RangeUnits);
+    dispatch({
+      type: 'setMeasureUnit',
+      payload: { range: value as RangeUnits }
+    });
   };
 
   const handleChangeSpeed = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    setSpeed(value as SpeedUnits);
+    dispatch({
+      type: 'setMeasureUnit',
+      payload: { speed: value as SpeedUnits }
+    });
   };
 
   const handleChangeWeight = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    setWeight(value as WeightUnits);
+    dispatch({
+      type: 'setMeasureUnit',
+      payload: { weight: value as WeightUnits }
+    });
   };
 
   const handleChangeGroundClearance = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    setGroundClearance(value as GroundClearanceUnits);
+    dispatch({
+      type: 'setMeasureUnit',
+      payload: { groundClearance: value as GroundClearanceUnits }
+    });
   };
 
   const {
@@ -144,7 +158,7 @@ export const useSettings = () => {
       name: 'diameter',
       onChange: handleChangeDiameter,
       options: diameterOptions,
-      value: diameter
+      value: measureUnits.diameter
     },
     {
       icon: wheelFeatureIcons.width,
@@ -152,7 +166,7 @@ export const useSettings = () => {
       name: 'width',
       onChange: handleChangeWidth,
       options: widthOptions,
-      value: width
+      value: measureUnits.width
     },
     {
       icon: wheelFeatureIcons.maxSpeed,
@@ -160,7 +174,7 @@ export const useSettings = () => {
       name: 'speed',
       onChange: handleChangeSpeed,
       options: speedOptions,
-      value: speed
+      value: measureUnits.speed
     },
     {
       icon: wheelFeatureIcons.range,
@@ -168,7 +182,7 @@ export const useSettings = () => {
       name: 'range',
       onChange: handleChangeRange,
       options: rangeOptions,
-      value: range
+      value: measureUnits.range
     },
     {
       icon: wheelFeatureIcons.weight,
@@ -176,7 +190,7 @@ export const useSettings = () => {
       name: 'weight',
       onChange: handleChangeWeight,
       options: weightOptions,
-      value: weight
+      value: measureUnits.weight
     },
     {
       icon: wheelFeatureIcons.groundClearance,
@@ -185,7 +199,7 @@ export const useSettings = () => {
       onChange: handleChangeGroundClearance,
       options: groundClearanceOptions,
       style: { marginBottom: 0 },
-      value: groundClearance
+      value: measureUnits.groundClearance
     }
   ];
 

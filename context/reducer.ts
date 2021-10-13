@@ -26,6 +26,15 @@ const arenaContextReducer = (state: ArenaContextState, action: any): ArenaContex
         region: action.payload.value
       };
 
+    case 'setMeasureUnit':
+      return {
+        ...state,
+        measureUnits: {
+          ...state.measureUnits,
+          ...action.payload
+        }
+      };
+
     default:
       return state;
   }
