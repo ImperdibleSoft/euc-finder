@@ -13,7 +13,7 @@ const InfoDisclaimer: React.FC<Props> = ({ handleClose, open }) => {
 
   return (
     <Dialog onClose={ handleClose } open={ open }>
-      <DialogTitle>{ t('importantInfo-msg') }</DialogTitle>
+      <DialogTitle>{ t('importantInfo-title') }</DialogTitle>
 
       <Box sx={ { px: 3 } }>
         <Typography variant="h6" component="p" sx={ { mb: 2 } }>
