@@ -1,9 +1,11 @@
 /* eslint-disable max-lines */
-import { ChangeEvent } from 'react';
+import { useRouter } from 'next/dist/client/router';
+import { ChangeEvent, useState } from 'react';
 import { useTranslation, TFunction } from 'react-i18next';
 import { DropdownItem, Props } from '../../components/Form/Dropdown';
 import { wheelFeatureIcons } from '../../constants';
 import { useArenaContext } from '../../context';
+import { LOCAL_STORAGE_KEY } from '../../types';
 import {
   DiameterUnits,
   GroundClearanceUnits,
@@ -12,6 +14,7 @@ import {
   WeightUnits,
   WidthUnits
 } from '../../types/settings';
+import { setItem } from '../../utils';
 
 const getOptions = (t: TFunction<'translation'>) => {
   const diameterOptions: DropdownItem[] = [
@@ -90,9 +93,12 @@ const getOptions = (t: TFunction<'translation'>) => {
   };
 };
 
+// eslint-disable-next-line max-lines-per-function
 export const useSettings = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const router = useRouter();
   const { measureUnits, dispatch }= useArenaContext();
+  const [language, setLanguage] = useState(i18n.language);
 
   const handleChangeDiameter = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
@@ -151,7 +157,7 @@ export const useSettings = () => {
     widthOptions
   } = getOptions(t);
 
-  const fields: Props[] = [
+  const measureUnitFields: Props[] = [
     {
       icon: wheelFeatureIcons.diameter,
       label: t('diameter'),
@@ -203,5 +209,30 @@ export const useSettings = () => {
     }
   ];
 
-  return fields;
+  const handleChangeLanguage = (event: ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target;
+    setLanguage(value);
+    setItem(LOCAL_STORAGE_KEY.LANGUAGE, value);
+
+    router.push(router.pathname, router.asPath, { locale: value });
+  };
+
+  const languageField: Props = {
+    label: t('language-label'),
+    name: 'language',
+    onChange: handleChangeLanguage,
+    options: [
+      {
+        label: t('english-label'),
+        value: 'en'
+      },
+      {
+        label: t('spanish-label'),
+        value: 'es'
+      }
+    ],
+    value: language
+  };
+
+  return { measureUnitFields, languageField };
 };

@@ -14,10 +14,10 @@ import { getStaticProps } from '../utils/translatedResources';
 const Settings: React.FC = () => {
   const { t } = useTranslation();
   const { dispatch } = useArenaContext();
-  const fields = useSettings();
+  const { languageField, measureUnitFields } = useSettings();
 
   const handleSave = () => {
-    fields.forEach(field => {
+    measureUnitFields.forEach(field => {
       const key = `preference_${ field.name }` as LOCAL_STORAGE_KEY;
 
       if (field.value) {
@@ -55,7 +55,18 @@ const Settings: React.FC = () => {
           { t('settings-title') }
         </Typography>
 
-        <Grid container>
+        <Grid container spacing={ 2 }>
+          <Grid item xs={ 12 } sm={ 6 } md={ 4 }>
+            <Card>
+              <CardContent>
+                <Typography variant="h5" component="div" sx={ { mb: 3 } }>
+                  { t('interface-title') }
+                </Typography>
+
+                <Dropdown { ...languageField }/>
+              </CardContent>
+            </Card>
+          </Grid>
           <Grid item xs={ 12 } sm={ 6 } md={ 4 }>
             <Card>
               <CardContent>
@@ -63,7 +74,7 @@ const Settings: React.FC = () => {
                   { t('measureUnits-title') }
                 </Typography>
 
-                { fields.map(field => (
+                { measureUnitFields.map(field => (
                   <Dropdown
                     key={ field.name }
                     { ...field }

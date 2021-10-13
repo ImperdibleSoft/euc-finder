@@ -17,6 +17,10 @@
   "europe-label": "Europe",
   "america-label": "America",
   "asia-label": "Asia",
+  "interface-title": "User interface",
+  "language-label": "Language",
+  "english-label": "English",
+  "spanish-label": "Español",
   
   "id": "ID",
   "brandId": "Manufacturer",
