@@ -5,12 +5,36 @@ import { useTranslation } from 'react-i18next';
 import Dropdown from '../components/Form/Dropdown';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../constants';
+import { useArenaContext } from '../context';
 import { useSettings } from '../hooks';
+import { LOCAL_STORAGE_KEY } from '../types';
+import { removeItem, setItem } from '../utils';
 import { getStaticProps } from '../utils/translatedResources';
 
 const Settings: React.FC = () => {
   const { t } = useTranslation();
+  const { dispatch } = useArenaContext();
   const fields = useSettings();
+
+  const handleSave = () => {
+    fields.forEach(field => {
+      const key = `preference_${ field.name }` as LOCAL_STORAGE_KEY;
+
+      if (field.value) {
+        setItem(key, field.value);
+      } else {
+        removeItem(key);
+      }
+    });
+  };
+
+  const handleDefault = () => {
+    dispatch({ type: 'defaultMeasureUnits' });
+  };
+
+  const handleReset = () => {
+    dispatch({ type: 'resetMeasureUnits' });
+  };
   
   const pageTitle = `Opciones - ${ APP_NAME }`;
   const keywords = KEYWORDS.join(', ');
@@ -52,7 +76,13 @@ const Settings: React.FC = () => {
               </CardContent>
 
               <CardActions sx={ { alignItems: 'flex-end', justifyContent: 'flex-end' } }>
-                <Button variant="outlined" size="small" onClick={ () => { return; } }>
+                <Button variant="outlined" size="small" onClick={ handleDefault } sx={ { mr: 'auto' } }>
+                  { t('default-btn') }
+                </Button>
+                <Button variant="outlined" size="small" onClick={ handleReset }>
+                  { t('cancel-btn') }
+                </Button>
+                <Button variant="outlined" size="small" onClick={ handleSave }>
                   { t('save-btn') }
                 </Button>
               </CardActions>

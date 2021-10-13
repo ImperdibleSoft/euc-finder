@@ -171,7 +171,7 @@ export const useSettings = () => {
     {
       icon: wheelFeatureIcons.maxSpeed,
       label: t('maxSpeed'),
-      name: 'speed',
+      name: 'maxSpeed',
       onChange: handleChangeSpeed,
       options: speedOptions,
       value: measureUnits.maxSpeed

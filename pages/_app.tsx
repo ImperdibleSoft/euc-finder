@@ -40,6 +40,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
         type: 'setRegion',
         payload: { value }
       });
+      setItem(LOCAL_STORAGE_KEY.REGION, value);
     }
   };
 

@@ -1,11 +1,13 @@
 {
   "columns-title": "Columnas",
 
-  "reset-label": "Reiniciar",
   "at": "en",
   "unicycles-label": "{{quantity}} monociclos",
   "search-label": "Buscar...",
   "selectAnOption-label": "Selecciona una opción",
+  "default-btn": "Predefinido",
+  "reset-btn": "Reiniciar",
+  "cancel-btn": "Cancelar",
   "without": "Sin",
   "with": "Con",
   "withAny": "Con cualquier",

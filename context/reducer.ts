@@ -1,4 +1,9 @@
-import { getFiltersInitialValue, getSortingInitialValue } from './models';
+import {
+  getFiltersInitialValue,
+  getMeasureUnitsDefaultValue,
+  getMeasureUnitsInitialValue,
+  getSortingInitialValue
+} from './models';
 import { ArenaContextState } from './types';
 
 const arenaContextReducer = (state: ArenaContextState, action: any): ArenaContextState => {
@@ -24,6 +29,18 @@ const arenaContextReducer = (state: ArenaContextState, action: any): ArenaContex
         ...state,
         // @ts-ignore
         region: action.payload.value
+      };
+
+    case 'defaultMeasureUnits':
+      return {
+        ...state,
+        measureUnits: { ...getMeasureUnitsDefaultValue() }
+      };
+
+    case 'resetMeasureUnits':      
+      return {
+        ...state,
+        measureUnits: { ...getMeasureUnitsInitialValue() }
       };
 
     case 'setMeasureUnit':

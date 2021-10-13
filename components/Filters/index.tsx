@@ -39,7 +39,7 @@ const Filters: React.FC<Props> = ({
           type="button"
           sx={ { justifySelf: 'flex-end' } }
         >
-          { t('reset-label') }
+          { t('reset-btn') }
         </Button>
       </form>
     </Box>

@@ -35,6 +35,10 @@ const WheelsTable: React.FC<Props> = ({
   const { t } = useTranslation();
   const { headings, rows } = useTableData(records, columns);
 
+  if (records.length <= 0) {
+    return null;
+  }
+
   return (
     <Box sx={ { px: 2 } }>
       <Table>

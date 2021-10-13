@@ -49,7 +49,7 @@ const Columns: React.FC<Props> = ({ columns, handleHide, handleReset, handleShow
           type="button"
           sx={ { justifySelf: 'flex-end' } }
         >
-          { t('reset-label') }
+          { t('reset-btn') }
         </Button>
       </form>
     </Box>
