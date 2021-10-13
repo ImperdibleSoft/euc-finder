@@ -50,7 +50,7 @@ const measureUnitsInitialValue: ArenaContextState['measureUnits'] = {
   diameter: DiameterUnits.in,
   groundClearance: GroundClearanceUnits.mm,
   range: RangeUnits.km,
-  speed: SpeedUnits.kmh,
+  maxSpeed: SpeedUnits.kmh,
   weight: WeightUnits.kg,
   width: WidthUnits.in
 };

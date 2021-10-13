@@ -22,9 +22,9 @@ export const useEucListInformationGroups = (sorting: WheelSorting) => {
 };
 
 export const useEucList = (filters: WheelFilters, sorting: WheelSorting): Wheel[] => {
-  const { brands, wheels } = useArenaContext();
+  const { brands, measureUnits, wheels } = useArenaContext();
 
   return wheels
-    .filter(wheel => filterWheels(wheel, filters))
+    .filter(wheel => filterWheels(wheel, filters, measureUnits))
     .sort(customisedSortBy(brands)(sorting.key, sorting.order));
 };

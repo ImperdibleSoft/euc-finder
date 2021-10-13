@@ -62,7 +62,7 @@ const getColumnValue = (key: keyof Wheel, record: Wheel, brands: Brands) => {
 
 export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
   const { t } = useTranslation();
-  const { brands } = useArenaContext();
+  const { brands, measureUnits } = useArenaContext();
 
   const headings = SPEC_COLUMNS
     .filter(key => shouldShowColumn(columns, key))
@@ -80,6 +80,9 @@ export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
           id: key,
           style: getCellStyles(key),
           formatter:  wheelFeatureFormatters[key as keyof WheelFeatureFormatters],
+          // @ts-ignore
+          // eslint-disable-next-line no-restricted-syntax
+          units: key in measureUnits ? measureUnits[key] : undefined,
           value: getColumnValue(key, record, brands)
         }))
     }));

@@ -122,7 +122,7 @@ export const useSettings = () => {
     const { value } = event.target;
     dispatch({
       type: 'setMeasureUnit',
-      payload: { speed: value as SpeedUnits }
+      payload: { maxSpeed: value as SpeedUnits }
     });
   };
 
@@ -174,7 +174,7 @@ export const useSettings = () => {
       name: 'speed',
       onChange: handleChangeSpeed,
       options: speedOptions,
-      value: measureUnits.speed
+      value: measureUnits.maxSpeed
     },
     {
       icon: wheelFeatureIcons.range,

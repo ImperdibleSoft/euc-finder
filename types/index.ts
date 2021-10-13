@@ -4,6 +4,7 @@ export * from './brands';
 export * from './filtering';
 export * from './i18n';
 export * from './localStorage';
+export * from './settings';
 export * from './sorting';
 export * from './stores';
 export * from './wheel';

@@ -3,16 +3,28 @@ import {
   AntiSpin,
   Brands,
   Color,
+  DiameterUnits,
   Display,
   GroundClearance,
+  GroundClearanceUnits,
   Kickstand,
   Lumens,
+  RangeUnits,
   SoundSystem,
+  SpeedUnits,
   Suspension,
   TrolleyHandle,
+  WeightUnits,
   Wheel
 } from '../types';
-import { getEstimatedRealRange } from './range';
+import {
+  getConvertedDiameter,
+  getConvertedGroundClearance,
+  getConvertedRange,
+  getConvertedSpeed,
+  getConvertedWeight
+} from './conversions';
+import { getEstimatedRealRange, toDecimals } from './range';
 
 export const currency = (value: number): string => {
   if (value) {
@@ -25,38 +37,56 @@ export const currency = (value: number): string => {
   return '-';
 };
 
-export const diameter = (value: number | number[]): string => {
+export const diameter = (value: number | number[], units?: DiameterUnits): string => {
   if (value) {
     if (typeof value === 'number') {
-      return `${ value }''`;
+      switch (units) {
+        case DiameterUnits.cm:
+          return `${ getConvertedDiameter(value, units) } cm`;
+
+        case DiameterUnits.in:
+        default:
+          return `${ getConvertedDiameter(value, units) }''`;
+      }
     }
 
     const [size, diam] = value;
     if (diam) {
-      return `${ diameter(size) } x ${ diameter(diam) }`;
+      return `${ diameter(size, units) } x ${ diameter(diam, units) }`;
     }
 
-    return diameter(size);
+    return diameter(size, units);
   }
 
   return '-';
 };
 
-export const speed = (value: number): string => {
+export const speed = (value: number, units?: SpeedUnits): string => {
   if (value) {
-    return `${ value } Km/h`;
+    switch (units) {
+      case SpeedUnits.mih:
+        return `${ getConvertedSpeed(value, units) } mi/h`;
+
+      case SpeedUnits.kmh:
+      default:
+        return `${ getConvertedSpeed(value, units) } km/h`;
+    }
   }
 
   return '-';
 };
 
-export const distance = (value: number, estimateRealRange = true): string => {
+export const distance = (value: number, units?: RangeUnits, estimateRealRange = true): string => {
   if (value) {
     const parsedValue = estimateRealRange ? getEstimatedRealRange(value) : value;
-    return `${ parsedValue.toLocaleString('en-EN', {
-      maximumFractionDigits: 2,
-      minimumFractionDigits: 2
-    }) } Km`;
+    switch (units) {
+      case RangeUnits.mi:
+        return `${ getConvertedRange(parsedValue, units) } mi`;
+
+      case RangeUnits.km:
+      default:
+        return `${ getConvertedRange(parsedValue, units) } km`;
+    }
   }
 
   return '-';
@@ -96,38 +126,46 @@ export const degrees = (value: number): string => {
 
 export const voltage = (value: number): string => {
   if (value) {
-    return `${ value.toLocaleString('en-EN', {
-      maximumFractionDigits: 0,
-      minimumFractionDigits: 0
-    }) }v`;
+    return `${ toDecimals(value, 0) }v`;
   }
 
   return '-';
 };
 
-export const groundClearance = (value: GroundClearance): string => {
+export const groundClearance = (value: GroundClearance, units?: GroundClearanceUnits): string => {
   if (value) {
     if (typeof value === 'number') {
-      return `${ value } mm`;
+      switch (units) {
+        case GroundClearanceUnits.in:
+          return `${ getConvertedGroundClearance(value, units) } in`;
+  
+        case GroundClearanceUnits.mm:
+        default:
+          return `${ getConvertedGroundClearance(value, units) } mm`;
+      }
     }
 
     if (value.length === 2) {
       const [min, max] = value;
-      return `${ groundClearance(min) } - ${ groundClearance(max) }`;
+      return `${ groundClearance(min, units) } - ${ groundClearance(max, units) }`;
     }
 
-    return value.map(clearance => groundClearance(clearance)).join(', ');
+    return value.map(clearance => groundClearance(clearance, units)).join(', ');
   }
 
   return '-';
 };
 
-export const weight = (value: number): string => {
+export const weight = (value: number, units?: WeightUnits): string => {
   if (value) {
-    return `${ value.toLocaleString('en-EN', {
-      maximumFractionDigits: 2,
-      minimumFractionDigits: 2
-    }) } Kg`;
+    switch (units) {
+      case WeightUnits.lb:
+        return `${ getConvertedWeight(value, units) } lb`;
+
+      case WeightUnits.kg:
+      default:
+        return `${ getConvertedWeight(value, units) } kg`;
+    }
   }
 
   return '-';

@@ -1,4 +1,5 @@
 export * from './collections';
+export * from './conversions';
 export * from './filtering';
 export * from './formatters';
 export * from './localStorage';

@@ -15,7 +15,7 @@ export interface ArenaContextState {
     diameter: DiameterUnits,
     groundClearance: GroundClearanceUnits,
     range: RangeUnits,
-    speed: SpeedUnits,
+    maxSpeed: SpeedUnits,
     weight: WeightUnits,
     width: WidthUnits
   }
