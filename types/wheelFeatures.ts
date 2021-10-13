@@ -1,4 +1,4 @@
-import { Wheel, WheelFeatures, WheelId } from './wheel';
+import { WheelFeatures, WheelId } from './wheel';
 
 export type GroundClearance = number | number[]
 
@@ -54,7 +54,6 @@ interface IconKeys extends WheelFeatures {
 }
 
 export type WheelFeatureIcons = Record<keyof IconKeys, string>
-export type WheelFeatureNames = Record<keyof Wheel, string>
 export type WheelFeatureFormatters = Record<keyof WheelFeatures, Function>
 
 export type WheelPictures = Record<WheelId, string[]>

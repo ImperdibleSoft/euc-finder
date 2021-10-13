@@ -1,6 +1,7 @@
 import { Button, ButtonGroup, Container, Icon, Typography } from '@mui/material';
 import Head from 'next/head';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Columns from '../components/Columns';
 import Filters from '../components/Filters';
 import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
@@ -9,9 +10,10 @@ import WheelsList from '../components/WheelsList';
 import WheelsTable from '../components/WheelsTable';
 import { APP_DESCRIPTION, APP_NAME } from '../constants';
 import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../hooks';
-
+import { getStaticProps } from '../utils/translatedResources';
 
 const EucList: React.FC = () => {
+  const { t } = useTranslation();
   const [view, setView] = useState<'grid' | 'table'>('grid');
   const displayTable = view === 'table';
   const Component = displayTable ? WheelsTable : WheelsList;
@@ -65,12 +67,12 @@ const EucList: React.FC = () => {
           sx={ { alignItems: 'center', display: 'flex', flexDirection: 'row', pb: 1 } }
         >
           <Typography variant="body1" component="span" sx={ { display: 'flex', flex: 1 } }>
-            { sortedWheels.length } monociclos
+            { t('unicycles-label', { quantity: sortedWheels.length }) }
           </Typography>
 
           <ButtonGroup sx={ { display: { xs: 'inline-flex', sm: 'none' } } }>
             <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
-            Filtros
+              { t('filters-title') }
             </Button>
           </ButtonGroup>
 
@@ -104,3 +106,5 @@ const EucList: React.FC = () => {
 };
 
 export default EucList;
+
+export { getStaticProps };

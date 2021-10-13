@@ -1,6 +1,7 @@
 import { Box, Button, TableCell } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { EUC_DETAILS } from '../../constants/clientRoutes';
 import { wheelPictures } from '../../context/data';
 import { useTableData } from '../../hooks';
@@ -31,7 +32,12 @@ const WheelsTable: React.FC<Props> = ({
   records,
   sorting
 }) => {
+  const { t } = useTranslation();
   const { headings, rows } = useTableData(records, columns);
+
+  if (records.length <= 0) {
+    return null;
+  }
 
   return (
     <Box sx={ { px: 2 } }>
@@ -59,7 +65,7 @@ const WheelsTable: React.FC<Props> = ({
                 <React.Fragment key={ cell.id }>
                   { cell.id !== 'name' && (
                     <TableCell style={ { ...cellStyles, ...cell.style } }>
-                      { cell.formatter?.(cell.value) ?? cell.value }
+                      { cell.formatter?.(cell.value, cell.units) ?? cell.value }
                     </TableCell>
                   ) }
 
@@ -94,7 +100,7 @@ const WheelsTable: React.FC<Props> = ({
               <TableCell style={ { ...cellStyles, textAlign: 'right' } }>
                 <Link href={ EUC_DETAILS.replace(':id', row.id) } passHref>
                   <Button size="small" variant="outlined">
-                    Detalles
+                    { t('details-btn') }
                   </Button>
                 </Link>
               </TableCell>

@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { FilterField } from '../../types';
 import Clear from '../Clear';
 
@@ -12,6 +13,8 @@ const Filters: React.FC<Props> = ({
   fields,
   handleResetFilters
 }) => {
+  const { t } = useTranslation();
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
@@ -19,7 +22,7 @@ const Filters: React.FC<Props> = ({
   return (
     <Box sx={ { p: 2, pt: 0 } }>
       <Typography variant="h6" component="div" sx={ { mb: 2, mt: { sm: 2 } } }>
-        Filtros
+        { t('filters-title') }
       </Typography>
 
       <form noValidate onSubmit={ handleSubmit }>
@@ -36,7 +39,7 @@ const Filters: React.FC<Props> = ({
           type="button"
           sx={ { justifySelf: 'flex-end' } }
         >
-          Reiniciar
+          { t('reset-btn') }
         </Button>
       </form>
     </Box>

@@ -1,8 +1,24 @@
 import { Brands, Region, Stores, Wheel, WheelFilters, WheelPictures, WheelPurchaseLinks, WheelSorting } from '../types';
+import {
+  DiameterUnits,
+  GroundClearanceUnits,
+  RangeUnits,
+  SpeedUnits,
+  WeightUnits,
+  WidthUnits
+} from '../types/settings';
 
 export interface ArenaContextState {
   brands: Brands
   filters: WheelFilters
+  measureUnits: {
+    diameter: DiameterUnits,
+    groundClearance: GroundClearanceUnits,
+    range: RangeUnits,
+    maxSpeed: SpeedUnits,
+    weight: WeightUnits,
+    width: WidthUnits
+  }
   pictures: WheelPictures
   purchaseLinks: WheelPurchaseLinks
   region: Region

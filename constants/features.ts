@@ -2,6 +2,8 @@ import { Wheel } from '../types';
 
 export const SHOW_PRICE = false;
 
+export const SHOW_PURCHASE_LINKS = true;
+
 // Wheels List
 export const LIST_MAIN_SPECS: (keyof Wheel | undefined)[] = [
   SHOW_PRICE ? 'price' : undefined,

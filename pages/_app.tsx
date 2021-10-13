@@ -4,11 +4,13 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider } from '@mui/material';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
 import { useRouter } from 'next/dist/client/router';
+import Head from 'next/head';
+import { appWithTranslation } from 'next-i18next';
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import MainLayout from '../components/Layouts/MainLayout';
-import { APP_NAME, regions } from '../constants';
+import { APP_NAME, getRegions } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
 import { ArenaContextProvider, useArenaContext, useContextReducer } from '../context';
 import '../styles/dropdownOverride.css';
@@ -17,8 +19,10 @@ import '../styles/globals.css';
 import { darkTheme, lightTheme } from '../styles/theme';
 import { LOCAL_STORAGE_KEY, Wheel } from '../types';
 import { getItem, isDarkTheme, setItem } from '../utils';
+import '../utils/i18n';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
+  const { t } = useTranslation();
   const { brands, region, wheels, dispatch } = useArenaContext();
   const router = useRouter();
 
@@ -36,6 +40,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
         type: 'setRegion',
         payload: { value }
       });
+      setItem(LOCAL_STORAGE_KEY.REGION, value);
     }
   };
 
@@ -44,7 +49,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       brands={ brands }
       handleSelectRegion={ handleSelectRegion }
       handleSelectWheel={ handleSelectWheel }
-      regions={ regions }
+      regions={ getRegions(t) }
       selectedRegion={ region }
       wheels={ wheels }
     >
@@ -103,4 +108,4 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     </>
   );};
 
-export default MyApp;
+export default appWithTranslation(MyApp);

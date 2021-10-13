@@ -1,9 +1,10 @@
 /* eslint-disable max-lines */
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import CheckboxGroup from '../../../components/Form/CheckboxGroup';
 import Dropdown from '../../../components/Form/Dropdown';
 import Text from '../../../components/Form/Text';
-import { SHOW_PRICE, wheelFeatureIcons, wheelFeatureNames } from '../../../constants';
+import { SHOW_PRICE, wheelFeatureIcons } from '../../../constants';
 import { useArenaContext } from '../../../context';
 import {
   AntiSpin,
@@ -17,17 +18,7 @@ import {
   TrolleyHandle,
   WheelFilters
 } from '../../../types';
-import {
-  antiSpinOptions,
-  brandIdOptions,
-  colorOptions,
-  displayOptions,
-  kickstandOptions,
-  ledOptions,
-  soundSystemOptions,
-  suspensionOptions,
-  trolleyHandleOptions
-} from './constants';
+import { getDropdownOptions } from './constants';
 
 // eslint-disable-next-line max-lines-per-function
 const useFilters = () => {
@@ -195,6 +186,20 @@ const useFilters = () => {
 
 // eslint-disable-next-line max-lines-per-function
 export const useFilterFields = () => {
+  const { t } = useTranslation();
+
+  const {
+    antiSpinOptions,
+    brandIdOptions,
+    colorOptions,
+    displayOptions,
+    kickstandOptions,
+    ledOptions,
+    soundSystemOptions,
+    suspensionOptions,
+    trolleyHandleOptions
+  } = getDropdownOptions(t);
+
   const {
     handleChange,
     handleChangeAntispin,
@@ -215,7 +220,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.diameter,
-      label: `${ wheelFeatureNames.diameter } mínimo`,
+      label: t('minimum', { property: t('diameter') }),
       name: 'minDiameter',
       onChange: handleChange ,
       type: 'number',
@@ -224,7 +229,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.diameter,
-      label: `${ wheelFeatureNames.diameter } máximo`,
+      label: t('maximum', { property: t('diameter') }),
       name:'maxDiameter',
       onChange: handleChange,
       type:'number',
@@ -233,7 +238,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.width,
-      label: `${ wheelFeatureNames.width } mínimo`,
+      label: t('minimum', { property: t('width') }),
       name: 'minWidth',
       onChange: handleChange ,
       type: 'text',
@@ -242,7 +247,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.width,
-      label: `${ wheelFeatureNames.width } máximo`,
+      label: t('maximum', { property: t('width') }),
       name:'maxWidth',
       onChange: handleChange,
       type:'text',
@@ -253,7 +258,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.maxSpeed,
-      label: `${ wheelFeatureNames.maxSpeed } mínima`,
+      label: t('minimum', { property: t('maxSpeed') }),
       name: 'minMaxSpeed',
       onChange: handleChange,
       type: 'number',
@@ -262,7 +267,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.maxSpeed,
-      label: `${ wheelFeatureNames.maxSpeed } máxima`,
+      label: t('maximum', { property: t('maxSpeed') }),
       name: 'maxMaxSpeed',
       onChange: handleChange,
       type: 'number',
@@ -273,7 +278,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.range,
-      label: `${ wheelFeatureNames.range } mínima`,
+      label: t('minimum', { property: t('range') }),
       name: 'minRange',
       onChange: handleChange,
       type: 'number',
@@ -282,7 +287,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.weight,
-      label: `${ wheelFeatureNames.weight } máximo`,
+      label: t('maximum', { property: t('weight') }),
       name: 'maxWeight',
       onChange: handleChange,
       type: 'number',
@@ -293,7 +298,7 @@ export const useFilterFields = () => {
     {
       Field: CheckboxGroup,
       icon: wheelFeatureIcons.brandId,
-      label: `${ wheelFeatureNames.brandId }`,
+      label: t('brandId'),
       name: 'brandId',
       options: brandIdOptions.map(option => ({
         ...option,
@@ -306,7 +311,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.ratedPower,
-      label: `${ wheelFeatureNames.ratedPower } mínima`,
+      label: t('minimum', { property: t('ratedPower') }),
       name: 'minPower',
       onChange: handleChange,
       type:'number',
@@ -315,7 +320,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.voltage,
-      label: `${ wheelFeatureNames.voltage } mínimo`,
+      label: t('minimum', { property: t('voltage') }),
       name: 'minVoltage',
       onChange: handleChange,
       type:'number',
@@ -324,7 +329,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.battery,
-      label: `${ wheelFeatureNames.battery } mínima`,
+      label: t('minimum', { property: t('battery') }),
       name: 'battery',
       onChange: handleChange,
       type: 'number',
@@ -333,7 +338,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.batteryOutput,
-      label: `${ wheelFeatureNames.batteryOutput } mínima`,
+      label: t('minimum', { property: t('batteryOutput') }),
       name: 'minBatteryOutput',
       onChange: handleChange,
       type:'number',
@@ -344,7 +349,7 @@ export const useFilterFields = () => {
     {
       Field: Dropdown,
       icon: wheelFeatureIcons.color,
-      label: wheelFeatureNames.color,
+      label: t('color'),
       name:'color',
       onChange: handleChangeColor,
       options: colorOptions,
@@ -353,7 +358,7 @@ export const useFilterFields = () => {
     {
       Field: Dropdown,
       icon: wheelFeatureIcons.trolleyHandle,
-      label: wheelFeatureNames.trolleyHandle,
+      label: t('trolleyHandle'),
       name:'trolleyHandle',
       onChange: handleChangeTrolley,
       options: trolleyHandleOptions,
@@ -362,7 +367,7 @@ export const useFilterFields = () => {
     {
       Field: Dropdown,
       icon: wheelFeatureIcons.antiSpin,
-      label: wheelFeatureNames.antiSpin,
+      label: t('antiSpin'),
       name:'antiSpin',
       onChange: handleChangeAntispin,
       options: antiSpinOptions,
@@ -371,7 +376,7 @@ export const useFilterFields = () => {
     {
       Field: Dropdown,
       icon: wheelFeatureIcons.kickstand,
-      label: wheelFeatureNames.kickstand,
+      label: t('kickstand'),
       name:'kickstand',
       onChange: handleChangeKickstand,
       options: kickstandOptions,
@@ -380,7 +385,7 @@ export const useFilterFields = () => {
     {
       Field: Dropdown,
       icon: wheelFeatureIcons.suspension,
-      label: wheelFeatureNames.suspension,
+      label: t('suspension'),
       name:'suspension',
       onChange: handleChangeSuspension,
       options: suspensionOptions,
@@ -391,7 +396,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.groundClearance,
-      label: `${ wheelFeatureNames.groundClearance } mínima`,
+      label: t('minimum', { property: t('groundClearance') }),
       name: 'minGroundClearance',
       onChange: handleChange,
       type: 'number',
@@ -400,7 +405,7 @@ export const useFilterFields = () => {
     {
       Field: Text,
       icon: wheelFeatureIcons.groundClearance,
-      label: `${ wheelFeatureNames.groundClearance } máxima`,
+      label: t('maximum', { property: t('groundClearance') }),
       name: 'maxGroundClearance',
       onChange: handleChange,
       type: 'number',
@@ -411,7 +416,7 @@ export const useFilterFields = () => {
     {
       Field: Dropdown,
       icon: wheelFeatureIcons.leds,
-      label: wheelFeatureNames.leds,
+      label: t('leds'),
       name: 'leds',
       onChange: handleChangeLeds,
       options: ledOptions,
@@ -420,7 +425,7 @@ export const useFilterFields = () => {
     {
       Field: Dropdown,
       icon: wheelFeatureIcons.sound,
-      label: wheelFeatureNames.sound,
+      label: t('sound'),
       name: 'sound',
       onChange: handleChangeSound,
       options: soundSystemOptions,
@@ -429,7 +434,7 @@ export const useFilterFields = () => {
     {
       Field: Dropdown,
       icon: wheelFeatureIcons.display,
-      label: wheelFeatureNames.display,
+      label: t('display'),
       name: 'display',
       onChange: handleChangeDisplay,
       options: displayOptions,
@@ -443,7 +448,7 @@ export const useFilterFields = () => {
       {
         Field: Text,
         icon: wheelFeatureIcons.price,
-        label: wheelFeatureNames.price,
+        label: t('price'),
         name: 'minPrice',
         onChange: handleChange,
         type: 'number',
@@ -452,7 +457,7 @@ export const useFilterFields = () => {
       {
         Field: Text,
         icon: wheelFeatureIcons.price,
-        label: wheelFeatureNames.price,
+        label: t('price'),
         name: 'maxPrice',
         onChange: handleChange,
         type: 'number',

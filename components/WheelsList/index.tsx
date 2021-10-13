@@ -1,6 +1,7 @@
 import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
-import { SHOW_PRICE, wheelFeatureIcons, wheelFeatureNames } from '../../constants';
+import { useTranslation } from 'react-i18next';
+import { SHOW_PRICE, wheelFeatureIcons } from '../../constants';
 import { Wheel, WheelFeatureIcons, WheelSorting, WheelSortingKeys } from '../../types';
 import Dropdown, { DropdownItem } from '../Form/Dropdown';
 import WheelCard from '../WheelCard';
@@ -12,6 +13,8 @@ interface Props {
 }
 
 const WheelsList: React.FC<Props> = ({ handleSort, records, sorting  }) => {
+  const { t } = useTranslation();
+
   const [sampleWheel] = records ?? [];
   const sortCriteriaOptions = Object
     .keys(sampleWheel ?? {})
@@ -22,19 +25,19 @@ const WheelsList: React.FC<Props> = ({ handleSort, records, sorting  }) => {
     })
     .map((key): DropdownItem => ({
       icon: wheelFeatureIcons[key as keyof WheelFeatureIcons],
-      label: wheelFeatureNames[key as keyof Wheel],
+      label: t(key),
       value: key
     }));
 
   const sortOrderOptions: DropdownItem[] = [
     {
       icon: 'arrow_upward_icon',
-      label: 'Ascendente',
+      label: t('ascending-label'),
       value: 'asc'
     },
     {
       icon: 'arrow_downward_icon',
-      label: 'Descendente',
+      label: t('descending-label'),
       value: 'desc'
     }
   ];
@@ -65,7 +68,7 @@ const WheelsList: React.FC<Props> = ({ handleSort, records, sorting  }) => {
         >
           <Dropdown
             fullWidth={ false }
-            label="Ordenar por"
+            label={ t('sortBy-label') }
             name="sortCriteria"
             onChange={ handleChangeSortCriteria }
             options={ sortCriteriaOptions }
@@ -74,7 +77,7 @@ const WheelsList: React.FC<Props> = ({ handleSort, records, sorting  }) => {
 
           <Dropdown
             fullWidth={ false }
-            label="Orden"
+            label={ t('order-label') }
             name="order"
             onChange={ handleChangeSortOrder }
             options={ sortOrderOptions }

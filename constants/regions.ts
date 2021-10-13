@@ -1,16 +1,17 @@
+import { TFunction } from 'react-i18next';
 import { DropdownItem } from '../components/Form/Dropdown';
 
-export const regions: DropdownItem[] = [
+export const getRegions = (t: TFunction<'translation'>): DropdownItem[] => [
   {
-    label: 'Europa',
+    label: t('europe-label'),
     value: 'eu'
   },
   {
-    label: 'América',
+    label: t('america-label'),
     value: 'us'
   },
   {
-    label: 'Asia',
+    label: t('asia-label'),
     value: 'asia'
   }
 ];

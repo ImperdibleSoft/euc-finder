@@ -1,3 +1,4 @@
+import { SHOW_PURCHASE_LINKS } from '../constants';
 import { PurchaseLink, Region, Stores } from '../types';
 
 interface GetStoreOptions {
@@ -18,7 +19,9 @@ const getStoreFromUrl = ({ region, stores, url, sponsored }: GetStoreOptions) =>
     ));
 
 export const getPurchaseLink = (options: GetStoreOptions): PurchaseLink | undefined => {
-  return undefined;
+  if (!SHOW_PURCHASE_LINKS) {
+    return undefined;
+  }
 
   const store = getStoreFromUrl(options);
 
@@ -26,9 +29,9 @@ export const getPurchaseLink = (options: GetStoreOptions): PurchaseLink | undefi
     return undefined;
   }
 
-  // return {
-  //   color: store.color,
-  //   label: store.name,
-  //   url: options.url
-  // };
+  return {
+    color: store.color,
+    label: store.name,
+    url: options.url
+  };
 };
