@@ -1,4 +1,4 @@
-import { BrandId, LOCAL_STORAGE_KEY, WheelFilters, WheelSorting } from '../types';
+import { BrandId, LOCAL_STORAGE_KEY, Region, WheelFilters, WheelSorting } from '../types';
 import {
   DiameterUnits,
   GroundClearanceUnits,
@@ -74,13 +74,13 @@ export const getSortingInitialValue = (): WheelSorting => ({
   order: 'desc'
 });
 
-export const getInitialValue = () => ({
+export const getInitialValue = (): ArenaContextState => ({
   brands,
   filters: getFiltersInitialValue(),
   measureUnits: getMeasureUnitsInitialValue(),
   pictures: wheelPictures,
   purchaseLinks: wheelPurchaseLinks,
-  region: getItem(LOCAL_STORAGE_KEY.REGION) || 'eu',
+  region: (getItem(LOCAL_STORAGE_KEY.REGION) || 'eu') as Region,
   sorting: getSortingInitialValue(),
   stores,
   wheels
