@@ -5,6 +5,7 @@ import {
   AutocompleteChangeReason,
   Box,
   Icon,
+  IconButton,
   Toolbar,
   Typography
 } from '@mui/material';
@@ -79,7 +80,7 @@ const Header: React.FC<Props> = ({
         pb: { xs: 1, sm: 0 },
         width: { xs: '100%', sm: 'auto' }
       } }>
-        <Search>
+        <Search sx={ { mr: (theme) => theme.spacing(1) } }>
           <SearchIconWrapper>
             <Icon>search</Icon>
           </SearchIconWrapper>
@@ -98,7 +99,7 @@ const Header: React.FC<Props> = ({
           />
         </Search>
 
-        <Search sx={ { ml: (theme) => theme.spacing(1) } }>
+        <Search sx={ { mr: (theme) => theme.spacing(1) } }>
           <Dropdown
             icon="public"
             label="Región"
@@ -108,6 +109,12 @@ const Header: React.FC<Props> = ({
             value={ selectedRegion }
           />
         </Search>
+
+        <Link href={ '/settings' } passHref>
+          <IconButton>
+            <Icon sx={ { color: (theme) => theme.palette.common.white } }>settings</Icon>
+          </IconButton>
+        </Link>
       </Box>
     </Toolbar>
   </AppBar>
