@@ -54,7 +54,7 @@ export const wheelFeatureNames: WheelFeatureNames = {
   maxSpeed: 'Velocidad tope (Km/h)',
   battery: 'Capacidad de la batería (mAh)',
   batteryOutput: 'Salida de la batería (Wh)',
-  range: 'Autonomía (Km)',
+  range: 'Autonomía real* (Km)',
   voltage: 'Voltaje (v)',
 
   diameter: 'Diámetro (pulg)',

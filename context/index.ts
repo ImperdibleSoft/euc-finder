@@ -1,23 +1,32 @@
 import React, { useContext, useReducer } from 'react';
 import { getInitialValue } from './models';
 import arenaContextReducer from './reducer';
+import { ArenaContextType } from './types';
 
-const ArenaContext = React.createContext({
+
+const ArenaContext = React.createContext<ArenaContextType>({
   state: getInitialValue(),
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: (() => { return; }) as React.Dispatch<any>
+  dispatch: () => { return; },
+  disclaimer: {}
 });
 
 export const ArenaContextProvider = ArenaContext.Provider;
 
 export const useArenaContext = () => {
-  const { state, dispatch } = useContext(ArenaContext);
+  const { state, dispatch, disclaimer } = useContext(ArenaContext);
 
-  return { ...state, dispatch };
+  return {
+    ...state,
+    dispatch,
+    disclaimer 
+  };
 };
 
 export const useContextReducer = () => {
-  const [state, dispatch] = useReducer(arenaContextReducer, getInitialValue());
+  const [state, dispatch] = useReducer(arenaContextReducer, getInitialValue()); 
 
-  return { state, dispatch };
+  return {
+    state,
+    dispatch
+  };
 };

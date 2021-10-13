@@ -44,7 +44,6 @@ const useFilters = () => {
     const name = event.target.name as keyof WheelFilters;
     const { value } = event.target;
     handleFilterBy(name as keyof WheelFilters, value);
-
   };
 
   const handleChangeBrandId = (event: React.ChangeEvent<HTMLInputElement>) => {

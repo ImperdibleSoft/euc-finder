@@ -1,0 +1,1 @@
+export const getEstimatedRealRange = (range: number) => range * 55 / 100;

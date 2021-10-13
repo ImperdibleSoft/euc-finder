@@ -12,6 +12,7 @@ import {
   TrolleyHandle,
   Wheel
 } from '../types';
+import { getEstimatedRealRange } from './range';
 
 export const currency = (value: number): string => {
   if (value) {
@@ -49,9 +50,10 @@ export const speed = (value: number): string => {
   return '-';
 };
 
-export const distance = (value: number): string => {
+export const distance = (value: number, estimateRealRange = true): string => {
   if (value) {
-    return `${ value.toLocaleString('en-EN', {
+    const parsedValue = estimateRealRange ? getEstimatedRealRange(value) : value;
+    return `${ parsedValue.toLocaleString('en-EN', {
       maximumFractionDigits: 2,
       minimumFractionDigits: 2
     }) } Km`;

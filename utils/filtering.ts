@@ -1,5 +1,6 @@
 import { Wheel, WheelFilters } from '../types';
 import { getMaximumValue, getMinimumValue } from './collections';
+import { getEstimatedRealRange } from './range';
 
 export const filterWheels = (wheel: Wheel, filters: WheelFilters) => (
   filters.brandId.includes(wheel.brandId)
@@ -16,7 +17,11 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters) => (
   && (!filters.minMaxSpeed || !wheel.maxSpeed || wheel.maxSpeed >= Number(filters.minMaxSpeed))
 
   && (!filters.battery || !wheel.battery || wheel.battery >= Number(filters.battery))
-  && (!filters.minRange || !wheel.range || wheel.range >= Number(filters.minRange))
+  && (
+    !filters.minRange
+    || !wheel.range
+    || getEstimatedRealRange(wheel.range) >= Number(filters.minRange)
+  )
   && (!filters.maxWeight || wheel.weight <= Number(filters.maxWeight))
 
   && (!filters.minPower || !wheel.ratedPower || wheel.ratedPower >= Number(filters.minPower))

@@ -10,6 +10,7 @@ import WheelsTable from '../components/WheelsTable';
 import { APP_DESCRIPTION, APP_NAME } from '../constants';
 import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../hooks';
 
+
 const EucList: React.FC = () => {
   const [view, setView] = useState<'grid' | 'table'>('grid');
   const displayTable = view === 'table';

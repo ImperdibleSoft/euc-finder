@@ -8,16 +8,15 @@ import Head from 'next/head';
 import { useRouter } from 'next/dist/client/router';
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import MainLayout from '../components/Layouts/MainLayout';
+import { APP_NAME, regions } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
-import { regions } from '../constants/regions';
 import { ArenaContextProvider, useArenaContext, useContextReducer } from '../context';
 import '../styles/dropdownOverride.css';
 import '../styles/EucPicturesOverride.css';
 import '../styles/globals.css';
-import { Wheel } from '../types';
-import { APP_NAME } from '../constants';
 import { darkTheme, lightTheme } from '../styles/theme';
-import { isDarkTheme } from '../utils';
+import { LOCAL_STORAGE_KEY, Wheel } from '../types';
+import { getItem, isDarkTheme, setItem } from '../utils';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const { brands, region, wheels, dispatch } = useArenaContext();
@@ -54,16 +53,34 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   );
 };
 
+const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER) !== 'true';
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const [dark, setDark] = useState(false);
+  const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer); 
   const { state, dispatch } = useContextReducer();
 
-  const theme = useMemo(() => dark ? darkTheme : lightTheme, [dark]);
+  const theme = useMemo(() => dark ? darkTheme : lightTheme, [dark]); 
+
+  const handleOpenDisclaimer = () => {
+    setOpenDisclaimer(true);
+  };
+
+  const handleCloseDisclaimer = () => {
+    setItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER, 'true');
+    setOpenDisclaimer(false);
+  };
 
   useEffect(() => {
     const newDark = isDarkTheme();
     setDark(newDark);
   }, []);
+
+  const disclaimer = {
+    open: openDisclaimer,
+    handleOpen: handleOpenDisclaimer,
+    handleClose: handleCloseDisclaimer
+  };
   
   return (
     <>
@@ -77,9 +94,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
 
       <ThemeProvider theme={ theme }>
-        <ArenaContextProvider value={ { state, dispatch } }>
+        <ArenaContextProvider value={ { state, dispatch, disclaimer } }>
           <EucArenaApp>
-            <Component { ...pageProps } />
+            <Component { ...pageProps }/>
           </EucArenaApp>
         </ArenaContextProvider>
       </ThemeProvider>

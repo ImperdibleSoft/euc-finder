@@ -49,4 +49,4 @@ const initialValue: ArenaContextState = {
   wheels
 };
 
-export const getInitialValue = () => initialValue;
+export const getInitialValue = () => ({ ...initialValue });

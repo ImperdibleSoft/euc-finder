@@ -5,7 +5,6 @@ import { EUC_DETAILS } from '../../constants/clientRoutes';
 import { wheelPictures } from '../../context/data';
 import { useTableData } from '../../hooks';
 import { Wheel, WheelSorting, WheelSortingKeys, WheelsTableColumns } from '../../types';
-import { getEstimatedRealRange } from '../../utils';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../Table';
 
 const cellStyles: React.CSSProperties = {
@@ -39,27 +38,15 @@ const WheelsTable: React.FC<Props> = ({
       <Table>
         <TableHeading>
           { headings.map(({ id, label }) => (
-            <React.Fragment key={ id }>
-              <TableHead
-                id={ id }
-                onClick={ () => handleSort(id as WheelSortingKeys) }
-                sorting={ sorting }
-                style={ headingStyles }
-              >
-                { label }
-              </TableHead>
-
-              { id === 'range' && (
-                <TableHead
-                  id={ id }
-                  onClick={ () => handleSort(id as WheelSortingKeys) }
-                  sorting={ sorting }
-                  style={ headingStyles }
-                >
-                  { label } Real
-                </TableHead>
-              ) }
-            </React.Fragment>
+            <TableHead
+              key={ id }
+              id={ id }
+              onClick={ () => handleSort(id as WheelSortingKeys) }
+              sorting={ sorting }
+              style={ headingStyles }
+            >
+              { label }
+            </TableHead>
           )) }
 
           <TableHead/>
@@ -73,12 +60,6 @@ const WheelsTable: React.FC<Props> = ({
                   { cell.id !== 'name' && (
                     <TableCell style={ { ...cellStyles, ...cell.style } }>
                       { cell.formatter?.(cell.value) ?? cell.value }
-                    </TableCell>
-                  ) }
-
-                  { cell.id === 'range' && (
-                    <TableCell style={ { ...cellStyles, ...cell.style } }>
-                      { cell.formatter?.(getEstimatedRealRange(cell.value as number)) }
                     </TableCell>
                   ) }
 
