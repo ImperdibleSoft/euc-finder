@@ -25,13 +25,11 @@ import {
   getConvertedWeight
 } from './conversions';
 import { getEstimatedRealRange, toDecimals } from './range';
+import { getTranslation } from './clientTranslatedResources';
 
 export const currency = (value: number): string => {
   if (value) {
-    return `${ value.toLocaleString('en-EN', {
-      maximumFractionDigits: 2,
-      minimumFractionDigits: 2
-    }) } €`;
+    return `${ toDecimals(value, 2) } €`;
   }
 
   return '-';
@@ -174,52 +172,44 @@ export const weight = (value: number, units?: WeightUnits): string => {
 export const trolleyHandle = (value?: TrolleyHandle): string => {
   switch (value) {
     case TrolleyHandle.scorpion:
-      return 'Escorpión';
-
     case TrolleyHandle.telescopic:
-      return 'Telescópico';
+      return getTranslation(value);
 
     default:
-      return 'No';
+      return getTranslation('no');
   }
 };
 
 export const antiSpin = (value?: AntiSpin): string => {
   switch (value) {
     case AntiSpin.sensor:
-      return 'Sensor';
-
     case AntiSpin.button:
-      return 'Botón';
-
     case AntiSpin.position:
-      return 'Posición del Trolley';
+      return getTranslation(value);
 
     default:
-      return 'No';
+      return getTranslation('no');
   }
 };
 
 export const kickstand = (value?: Kickstand): string => {
   switch (value) {
     case Kickstand.dedicated:
-      return 'Pata de cabra';
-
     case Kickstand.shell:
-      return 'Carcasa';
+      return getTranslation(value);
       
     default:
-      return 'No';
+      return getTranslation('no');
   }
 };
 
 export const lumens = (value: Lumens): string => {
   if (value === true) {
-    return 'Si';
+    return getTranslation('yes');
   }
 
   if (value === false) {
-    return 'No';
+    return getTranslation('no');
   }
 
   if (value) {
@@ -231,10 +221,10 @@ export const lumens = (value: Lumens): string => {
 
 export const boolean = (value: boolean): string => {
   if (value) {
-    return 'Si';
+    return getTranslation('yes');
   }
 
-  return 'No';
+  return getTranslation('no');
 };
 
 export const soundChannels = (value?: SoundSystem): string => {
@@ -242,32 +232,28 @@ export const soundChannels = (value?: SoundSystem): string => {
     return `${ value } ch`;
   }
 
-  return 'No';
+  return getTranslation('no');
 };
 
 export const display = (value?: Display): string => {
   switch (value) {
     case Display.lcd:
-      return 'LCD';
-
     case Display.led:
-      return 'LED';
+      return getTranslation(value);
 
     default:
-      return 'No';
+      return getTranslation('no');
   }
 };
 
 export const suspension = (value?: Suspension): string => {
   switch (value) {
-    case Suspension.oil:
-      return 'Aceite';
-
-    case Suspension.air:
-      return 'Aire';
+    case Suspension.custom:
+    case Suspension.standard:
+      return getTranslation(value);
 
     default:
-      return 'No';
+      return getTranslation('no');
   }
 };
 
@@ -276,10 +262,8 @@ export const color = (value?: Color | Color[]): string => {
     if (typeof value === 'string') {
       switch (value) {
         case Color.white:
-          return 'Blanco';
-
         case Color.black:
-          return 'Negro';
+          return getTranslation(value);
 
         default:
           return value;

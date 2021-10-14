@@ -29,12 +29,12 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       value: 'true'
     },
     {
-      label: formatters.suspension(Suspension.oil),
-      value: Suspension.oil
+      label: formatters.suspension(Suspension.custom),
+      value: Suspension.custom
     },
     {
-      label: formatters.suspension(Suspension.air),
-      value: Suspension.air
+      label: formatters.suspension(Suspension.standard),
+      value: Suspension.standard
     }
   ];
   

@@ -176,7 +176,7 @@ const v11: Wheel = {
   leds: false,
   sound: undefined,
   display: undefined,
-  suspension: Suspension.air,
+  suspension: Suspension.custom,
   color: Color.black
 };
 

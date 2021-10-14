@@ -221,7 +221,7 @@ const ksS18: Wheel = {
   leds: false,
   sound: undefined,
   display: undefined,
-  suspension: Suspension.air,
+  suspension: Suspension.standard,
   color: [Color.black, Color.white]
 };
 
@@ -252,7 +252,7 @@ const ksS20: Wheel = {
   leds: false,
   sound: undefined,
   display: Display.led,
-  suspension: Suspension.oil,
+  suspension: Suspension.standard,
   color: Color.black
 };
 

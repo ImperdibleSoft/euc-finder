@@ -9,7 +9,7 @@ import { useArenaContext } from '../context';
 import { useSettings } from '../hooks';
 import { LOCAL_STORAGE_KEY } from '../types';
 import { removeItem, setItem } from '../utils';
-import { getStaticProps } from '../utils/translatedResources';
+import { getStaticProps } from '../utils/serverTranslatedResources';
 
 const Settings: React.FC = () => {
   const { t } = useTranslation();

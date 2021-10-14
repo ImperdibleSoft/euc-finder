@@ -141,7 +141,7 @@ const useFilters = () => {
     const rawValue = event.target.value;
 
     let value: undefined | boolean | Suspension;
-    if (rawValue === Suspension.air || rawValue === Suspension.oil) {
+    if (rawValue === Suspension.standard || rawValue === Suspension.custom) {
       value = rawValue;
     } else if (rawValue === 'true' || rawValue === 'false') {
       value = rawValue === 'true';

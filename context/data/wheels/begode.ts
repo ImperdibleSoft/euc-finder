@@ -276,7 +276,7 @@ const ex: Wheel = {
   leds: false,
   sound: undefined,
   display: Display.led,
-  suspension: Suspension.air,
+  suspension: Suspension.custom,
   color: Color.black
 };
 
@@ -323,7 +323,7 @@ const hero: Wheel = {
   leds: false,
   sound: SoundSystem.twoPointO,
   display: Display.led,
-  suspension: Suspension.air,
+  suspension: Suspension.standard,
   color: Color.black
 };
 

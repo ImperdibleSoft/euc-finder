@@ -14,7 +14,7 @@ import SimpleLayout from '../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../constants';
 import { brands, wheels } from '../context/data';
 import { useEucDetail, useEucDetailHandlers, useEucDetailInformationGroups, useEucPurchaseLinks } from '../hooks';
-import { getStaticProps } from '../utils/translatedResources';
+import { getStaticProps } from '../utils/serverTranslatedResources';
 
 const EucDetail: React.FC = () => {
   const router = useRouter();

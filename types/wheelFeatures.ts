@@ -38,8 +38,8 @@ export enum Display {
 export type DisplayWeight = Record<Display, number>
 
 export enum Suspension {
-  air = 'air',
-  oil = 'oil',
+  standard = 'standard',
+  custom = 'custom',
 }
 export type SuspensionWeight = Record<Suspension, number>
 

@@ -10,7 +10,7 @@ import WheelsList from '../components/WheelsList';
 import WheelsTable from '../components/WheelsTable';
 import { APP_DESCRIPTION, APP_NAME } from '../constants';
 import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../hooks';
-import { getStaticProps } from '../utils/translatedResources';
+import { getStaticProps } from '../utils/serverTranslatedResources';
 
 const EucList: React.FC = () => {
   const { t } = useTranslation();

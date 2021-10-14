@@ -98,6 +98,6 @@ export const displayWeight: DisplayWeight = {
 };
 
 export const suspensionWeight: SuspensionWeight = {
-  oil: 2,
-  air: 1
+  standard: 2,
+  custom: 1
 };
