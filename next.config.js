@@ -1,9 +1,11 @@
 /** @type {import('next').NextConfig} */
-const { i18n } = require('./next-i18next.config');
+const withOffline = require('next-offline');
 
-module.exports = {
+const { i18n } = require('./next-i18next.config');
+const { workboxOpts } = require('./next-offline.config');
+
+const config = {
   reactStrictMode: true,
-  i18n,
   images: {
     domains: [
       'ciclonic.es',
@@ -19,5 +21,9 @@ module.exports = {
       'i2.wp.com',
       'www.ewheels.com'
     ]
-  }
+  },
+  i18n,
+  workboxOpts
 };
+
+module.exports = withOffline(config);

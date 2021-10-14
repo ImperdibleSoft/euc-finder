@@ -123,6 +123,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         </ArenaContextProvider>
       </ThemeProvider>
     </>
-  );};
+  );
+};
 
 export default appWithTranslation(MyApp);

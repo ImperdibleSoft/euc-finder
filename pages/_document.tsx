@@ -42,6 +42,17 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <meta charSet="utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          
+          <link rel="manifest" href="/manifest.json" />
+          <meta name="theme-color" content="#1976d2" />
+          <script
+            async
+            src="https://cdn.jsdelivr.net/npm/pwacompat"
+            crossOrigin="anonymous"
+          />
+
           { this.renderAnalytics() }
         </Head>
         <body>

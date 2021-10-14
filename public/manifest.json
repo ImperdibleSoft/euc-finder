@@ -1,0 +1,13 @@
+{
+  "name": "EUC Finder",
+  "short_name": "EUC Finder",
+  "description": "Find the best EUC for you",
+  "categories": ["tools", "vehicles"],
+  "orientation": "any",
+  "display": "standalone",
+  "background_color": "#1976d2",
+  "theme_color": "#1976d2",
+  "start_url": "/",
+  "scope": "/",
+  "prefer_related_applications": false
+}
