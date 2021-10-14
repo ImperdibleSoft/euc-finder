@@ -38,7 +38,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
     // @ts-ignore
     // eslint-disable-next-line no-restricted-syntax
     const convertTo = key in measureUnits ? measureUnits[key] : undefined;
-    const value = formatter?.(wheel[key], convertTo) ??  wheel[key];
+    const value = formatter?.(wheel[key], t, convertTo) ??  wheel[key];
 
     return {
       icon,
@@ -52,7 +52,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
     const label = t(key);
     const formatter = wheelFeatureFormatters[key as keyof WheelFeatureFormatters];
-    const value = formatter?.(wheel[key]) ??  wheel[key];
+    const value = formatter?.(wheel[key], t) ??  wheel[key];
 
     return {
       icon,

@@ -241,7 +241,7 @@ export const useFilterFields = () => {
       label: t('minimum', { property: t('width') }),
       name: 'minWidth',
       onChange: handleChange ,
-      type: 'text',
+      type: 'number',
       value: filters.minWidth?.toString() ?? ''
     },
     {
@@ -250,7 +250,7 @@ export const useFilterFields = () => {
       label: t('maximum', { property: t('width') }),
       name:'maxWidth',
       onChange: handleChange,
-      type:'text',
+      type:'number',
       value: filters.maxWidth?.toString() ?? '',
       space: true
     },

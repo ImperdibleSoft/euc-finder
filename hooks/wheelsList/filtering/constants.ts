@@ -29,12 +29,12 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       value: 'true'
     },
     {
-      label: formatters.suspension(Suspension.custom),
-      value: Suspension.custom
+      label: formatters.suspension(Suspension.standard, t),
+      value: Suspension.standard
     },
     {
-      label: formatters.suspension(Suspension.standard),
-      value: Suspension.standard
+      label: formatters.suspension(Suspension.custom, t),
+      value: Suspension.custom
     }
   ];
   
@@ -48,15 +48,15 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       value: 'true'
     },
     {
-      label: formatters.antiSpin(AntiSpin.sensor),
+      label: formatters.antiSpin(AntiSpin.sensor, t),
       value: AntiSpin.sensor
     },
     {
-      label: formatters.antiSpin(AntiSpin.button),
+      label: formatters.antiSpin(AntiSpin.button, t),
       value: AntiSpin.button
     },
     {
-      label: formatters.antiSpin(AntiSpin.position),
+      label: formatters.antiSpin(AntiSpin.position, t),
       value: AntiSpin.position
     }
   ];
@@ -71,11 +71,11 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       value: 'true'
     },
     {
-      label: formatters.kickstand(Kickstand.dedicated),
+      label: formatters.kickstand(Kickstand.dedicated, t),
       value: Kickstand.dedicated
     },
     {
-      label: formatters.kickstand(Kickstand.shell),
+      label: formatters.kickstand(Kickstand.shell, t),
       value: Kickstand.shell
     }
   ];
@@ -90,11 +90,11 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       value: 'true'
     },
     {
-      label: formatters.trolleyHandle(TrolleyHandle.scorpion),
+      label: formatters.trolleyHandle(TrolleyHandle.scorpion, t),
       value: TrolleyHandle.scorpion
     },
     {
-      label: formatters.trolleyHandle(TrolleyHandle.telescopic),
+      label: formatters.trolleyHandle(TrolleyHandle.telescopic, t),
       value: TrolleyHandle.telescopic
     }
   ];
@@ -124,19 +124,19 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       value: 'true'
     },
     {
-      label: formatters.soundChannels(SoundSystem.fivePointOne),
+      label: formatters.soundChannels(SoundSystem.fivePointOne, t),
       value: SoundSystem.fivePointOne
     },
     {
-      label: formatters.soundChannels(SoundSystem.forPointO),
+      label: formatters.soundChannels(SoundSystem.forPointO, t),
       value: SoundSystem.forPointO
     },
     {
-      label: formatters.soundChannels(SoundSystem.twoPointOne),
+      label: formatters.soundChannels(SoundSystem.twoPointOne, t),
       value: SoundSystem.twoPointOne
     },
     {
-      label: formatters.soundChannels(SoundSystem.twoPointO),
+      label: formatters.soundChannels(SoundSystem.twoPointO, t),
       value: SoundSystem.twoPointO
     }
   ];
@@ -155,11 +155,11 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       value: 'true'
     },
     {
-      label: formatters.display(Display.lcd),
+      label: formatters.display(Display.lcd, t),
       value: Display.lcd
     },
     {
-      label: formatters.display(Display.led),
+      label: formatters.display(Display.led, t),
       value: Display.led
     }
   ];
@@ -170,11 +170,11 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       value: undefined
     },
     {
-      label: formatters.color(Color.white),
+      label: formatters.color(Color.white, t),
       value: Color.white
     },
     {
-      label: formatters.color(Color.black),
+      label: formatters.color(Color.black, t),
       value: Color.black
     }
   ];

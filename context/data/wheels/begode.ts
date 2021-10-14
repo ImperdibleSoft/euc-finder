@@ -343,7 +343,7 @@ const monster: Wheel = {
   voltage: 100,
 
   diameter: 22,
-  width: 0,
+  width: 3,
   groundClearance: 164,
   weight: 29,
   trolleyHandle: undefined,

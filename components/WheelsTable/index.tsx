@@ -65,7 +65,7 @@ const WheelsTable: React.FC<Props> = ({
                 <React.Fragment key={ cell.id }>
                   { cell.id !== 'name' && (
                     <TableCell style={ { ...cellStyles, ...cell.style } }>
-                      { cell.formatter?.(cell.value, cell.units) ?? cell.value }
+                      { cell.formatter?.(cell.value, t, cell.units) ?? cell.value }
                     </TableCell>
                   ) }
 
@@ -90,7 +90,7 @@ const WheelsTable: React.FC<Props> = ({
                           } }
                         />
 
-                        { cell.formatter?.(cell.value) ?? cell.value }
+                        { cell.formatter?.(cell.value, t) ?? cell.value }
                       </div>
                     </TableCell>
                   ) }

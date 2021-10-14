@@ -26,6 +26,7 @@ import {
 } from './conversions';
 import { getEstimatedRealRange, toDecimals } from './range';
 import { getTranslation } from './clientTranslatedResources';
+import { TFunction } from 'react-i18next';
 
 export const currency = (value: number): string => {
   if (value) {
@@ -35,55 +36,72 @@ export const currency = (value: number): string => {
   return '-';
 };
 
-export const diameter = (value: number | number[], units?: DiameterUnits): string => {
+export const diameter = (
+  value: number | number[],
+  t?: TFunction<string>,
+  units?: DiameterUnits
+): string => {
   if (value) {
     if (typeof value === 'number') {
+      const convertedVal = getConvertedDiameter(value, units);
+
       switch (units) {
         case DiameterUnits.cm:
-          return `${ getConvertedDiameter(value, units) } cm`;
+          return `${ convertedVal } cm`;
 
         case DiameterUnits.in:
         default:
-          return `${ getConvertedDiameter(value, units) }''`;
+          return `${ convertedVal }''`;
       }
     }
 
     const [size, diam] = value;
     if (diam) {
-      return `${ diameter(size, units) } x ${ diameter(diam, units) }`;
+      return `${ diameter(size, t, units) } x ${ diameter(diam, t, units) }`;
     }
 
-    return diameter(size, units);
+    return diameter(size, t, units);
   }
 
   return '-';
 };
 
-export const speed = (value: number, units?: SpeedUnits): string => {
+export const speed = (
+  value: number,
+  t?: TFunction<string>,
+  units?: SpeedUnits
+): string => {
   if (value) {
+    const convertedVal = getConvertedSpeed(value, units);
+
     switch (units) {
       case SpeedUnits.mih:
-        return `${ getConvertedSpeed(value, units) } mi/h`;
+        return `${ convertedVal } mi/h`;
 
       case SpeedUnits.kmh:
       default:
-        return `${ getConvertedSpeed(value, units) } km/h`;
+        return `${ convertedVal } km/h`;
     }
   }
 
   return '-';
 };
 
-export const distance = (value: number, units?: RangeUnits, estimateRealRange = true): string => {
+export const distance = (
+  value: number,
+  t?: TFunction<string>,
+  units?: RangeUnits
+): string => {
   if (value) {
-    const parsedValue = estimateRealRange ? getEstimatedRealRange(value) : value;
+    const convertedVal = getConvertedRange(getEstimatedRealRange(value), units);
+
     switch (units) {
       case RangeUnits.mi:
-        return `${ getConvertedRange(parsedValue, units) } mi`;
+        return `${ convertedVal } mi`;
 
       case RangeUnits.km:
       default:
-        return `${ getConvertedRange(parsedValue, units) } km`;
+        return `${ convertedVal } km`;
     }
   }
 
@@ -130,86 +148,103 @@ export const voltage = (value: number): string => {
   return '-';
 };
 
-export const groundClearance = (value: GroundClearance, units?: GroundClearanceUnits): string => {
+export const groundClearance = (
+  value: GroundClearance,
+  t?: TFunction<string>,
+  units?: GroundClearanceUnits
+): string => {
   if (value) {
     if (typeof value === 'number') {
+      const convertedVal = getConvertedGroundClearance(value, units);
+
       switch (units) {
         case GroundClearanceUnits.in:
-          return `${ getConvertedGroundClearance(value, units) } in`;
-  
+          return `${ convertedVal } in`;
+
         case GroundClearanceUnits.mm:
         default:
-          return `${ getConvertedGroundClearance(value, units) } mm`;
+          return `${ convertedVal } mm`;
       }
     }
 
     if (value.length === 2) {
       const [min, max] = value;
-      return `${ groundClearance(min, units) } - ${ groundClearance(max, units) }`;
+      return `${ groundClearance(min, t, units) } - ${ groundClearance(max, t, units) }`;
     }
 
-    return value.map(clearance => groundClearance(clearance, units)).join(', ');
+    return value
+      .map((clearance) => groundClearance(clearance, t, units))
+      .join(', ');
   }
 
   return '-';
 };
 
-export const weight = (value: number, units?: WeightUnits): string => {
+export const weight = (
+  value: number,
+  t?: TFunction<string>,
+  units?: WeightUnits
+): string => {
   if (value) {
+    const convertedVal = getConvertedWeight(value, units);
+
     switch (units) {
       case WeightUnits.lb:
-        return `${ getConvertedWeight(value, units) } lb`;
+        return `${ convertedVal } lb`;
 
       case WeightUnits.kg:
       default:
-        return `${ getConvertedWeight(value, units) } kg`;
+        return `${ convertedVal } kg`;
     }
   }
 
   return '-';
 };
 
-export const trolleyHandle = (value?: TrolleyHandle): string => {
+export const trolleyHandle = (
+  value?: TrolleyHandle,
+  t?: TFunction<string>
+): string => {
   switch (value) {
     case TrolleyHandle.scorpion:
     case TrolleyHandle.telescopic:
-      return getTranslation(value);
+      return t?.(value) ?? getTranslation(value);
 
     default:
-      return getTranslation('no');
+      return t?.('no') ?? getTranslation('no');
   }
 };
 
-export const antiSpin = (value?: AntiSpin): string => {
+export const antiSpin = (value?: AntiSpin, t?: TFunction<string>): string => {
   switch (value) {
     case AntiSpin.sensor:
     case AntiSpin.button:
     case AntiSpin.position:
-      return getTranslation(value);
+      return t?.(value) ?? getTranslation(value);
 
     default:
-      return getTranslation('no');
+      return t?.('no') ?? getTranslation('no');
   }
 };
 
-export const kickstand = (value?: Kickstand): string => {
+export const kickstand = (value?: Kickstand, t?: TFunction<string>): string => {
   switch (value) {
     case Kickstand.dedicated:
     case Kickstand.shell:
-      return getTranslation(value);
-      
+      return t?.(value) ?? getTranslation(value);
+
     default:
-      return getTranslation('no');
+      return t?.('no') ?? getTranslation('no');
   }
 };
 
-export const lumens = (value: Lumens): string => {
+export const lumens = (value: Lumens, t?: TFunction<string>): string => {
   if (value === true) {
-    return getTranslation('yes');
+    return t?.('yes') ?? getTranslation('yes');
   }
 
   if (value === false) {
-    return getTranslation('no');
+    return t?.('no') ?? getTranslation('no');
   }
 
   if (value) {
@@ -219,61 +254,71 @@ export const lumens = (value: Lumens): string => {
   return '-';
 };
 
-export const boolean = (value: boolean): string => {
+export const boolean = (value: boolean, t?: TFunction<string>): string => {
   if (value) {
-    return getTranslation('yes');
+    return t?.('yes') ?? getTranslation('yes');
   }
 
-  return getTranslation('no');
+  return t?.('no') ?? getTranslation('no');
 };
 
-export const soundChannels = (value?: SoundSystem): string => {
+export const soundChannels = (
+  value?: SoundSystem,
+  t?: TFunction<string>
+): string => {
   if (value) {
     return `${ value } ch`;
   }
 
-  return getTranslation('no');
+  return t?.('no') ?? getTranslation('no');
 };
 
-export const display = (value?: Display): string => {
+export const display = (value?: Display, t?: TFunction<string>): string => {
   switch (value) {
     case Display.lcd:
     case Display.led:
-      return getTranslation(value);
+      return t?.(value) ?? getTranslation(value);
 
     default:
-      return getTranslation('no');
+      return t?.('no') ?? getTranslation('no');
   }
 };
 
-export const suspension = (value?: Suspension): string => {
+export const suspension = (
+  value?: Suspension,
+  t?: TFunction<string>
+): string => {
   switch (value) {
     case Suspension.custom:
     case Suspension.standard:
-      return getTranslation(value);
+      return t?.(value) ?? getTranslation(value);
 
     default:
-      return getTranslation('no');
+      return t?.('no') ?? getTranslation('no');
   }
 };
 
-export const color = (value?: Color | Color[]): string => {
+export const color = (
+  value?: Color | Color[],
+  t?: TFunction<string>
+): string => {
   if (value) {
     if (typeof value === 'string') {
       switch (value) {
         case Color.white:
         case Color.black:
-          return getTranslation(value);
+          return t?.(value) ?? getTranslation(value);
 
         default:
           return value;
       }
     }
 
-    return value.map(c => color(c)).join(', ');
+    return value.map((c) => color(c)).join(', ');
   }
 
   return '-';
 };
 
-export const formatWheelName = ({ brandId, name }: Wheel, brands: Brands) => `${ brands[brandId].name } ${ name }`;
+export const formatWheelName = ({ brandId, name }: Wheel, brands: Brands) =>
+  `${ brands[brandId].name } ${ name }`;
