@@ -1,3 +1,4 @@
+export * from './analytics';
 export * from './clientTranslatedResources';
 export * from './collections';
 export * from './conversions';

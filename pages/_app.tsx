@@ -18,7 +18,7 @@ import '../styles/EucPicturesOverride.css';
 import '../styles/globals.css';
 import { darkTheme, lightTheme } from '../styles/theme';
 import { LOCAL_STORAGE_KEY, Wheel } from '../types';
-import { getItem, isDarkTheme, setItem } from '../utils';
+import { getItem, isDarkTheme, pageview, setItem } from '../utils';
 import '../utils/i18n';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
@@ -61,6 +61,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER) !== 'true';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const { events } = useRouter();
   const [dark, setDark] = useState(false);
   const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer); 
   const { state, dispatch } = useContextReducer();
@@ -80,6 +81,22 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     const newDark = isDarkTheme();
     setDark(newDark);
   }, []);
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageview(url);
+    };
+
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    events.on('routeChangeComplete', handleRouteChange);
+
+    // If the component is unmounted, unsubscribe
+    // from the event with the `off` method
+    return () => {
+      events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [events]);
 
   const disclaimer = {
     open: openDisclaimer,
