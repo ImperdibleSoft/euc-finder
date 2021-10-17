@@ -3,6 +3,7 @@ import {
   BrandId,
   Color,
   Display,
+  SoundSystem,
   TrolleyHandle,
   Wheel,
   WheelId
@@ -20,7 +21,7 @@ const commanderHT: Wheel = {
   maxSpeed: 65,
   battery: 0,
   batteryOutput: 3600,
-  range: 230,
+  range: 170,
   voltage: 100,
 
   diameter: 20,
@@ -32,8 +33,8 @@ const commanderHT: Wheel = {
   kickstand: undefined,
   headlight: true,
   tailLight: true,
-  leds: false,
-  sound: undefined,
+  leds: true,
+  sound: SoundSystem.twoPointO,
   display: Display.led,
   suspension: undefined,
   color: Color.black
