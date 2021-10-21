@@ -1,5 +1,6 @@
 import { SHOW_PURCHASE_LINKS } from '../constants';
-import { PurchaseLink, Region, Stores } from '../types';
+import { storeCode, storeDiscounts } from '../context/data';
+import { PurchaseLink, Region, StoreId, Stores } from '../types';
 
 interface GetStoreOptions {
   stores: Stores
@@ -7,6 +8,10 @@ interface GetStoreOptions {
   url: string
   sponsored?: boolean
 }
+
+const getStoreDiscount = (storeId: StoreId) => storeDiscounts[storeId];
+
+const getStoreCode = (storeId: StoreId) => storeCode[storeId];
 
 const getStoreFromUrl = ({ region, stores, url, sponsored }: GetStoreOptions) =>
   Object
@@ -29,9 +34,12 @@ export const getPurchaseLink = (options: GetStoreOptions): PurchaseLink | undefi
     return undefined;
   }
 
+  const discount = getStoreDiscount(store.id);
+  const code = getStoreCode(store.id);
+
   return {
     color: store.color,
-    label: store.name,
-    url: options.url
+    label: discount ? `${ store.name } (-${ discount }%)` : store.name,
+    url: code ? `${ options.url }?${ code }` : options.url
   };
 };
