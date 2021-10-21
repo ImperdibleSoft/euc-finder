@@ -13,12 +13,12 @@ const EucDetailPurchaseLinks: React.FC<Props> = ({ items, large }) => {
   
   return (
     <Box>
-      { items.map(({ label, url }) => (
+      { items.map(({ color, label, url }) => (
         <Button
           key={ url }
           href={ url }
           size={ large ? 'large' : 'medium' }
-          sx={ { mr: 2, mt: 2 } }
+          sx={ { mr: 2, mt: 2, backgroundColor: color } }
           target="_blank"
           variant="contained"
         >
