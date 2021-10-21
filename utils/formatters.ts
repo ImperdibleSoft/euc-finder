@@ -37,30 +37,23 @@ export const currency = (value: number): string => {
 };
 
 export const diameter = (
-  value: number | number[],
+  value: number,
   t?: TFunction<string>,
-  units?: DiameterUnits
+  units?: DiameterUnits,
+  decimals = 0
+  // eslint-disable-next-line max-params
 ): string => {
   if (value) {
-    if (typeof value === 'number') {
-      const convertedVal = getConvertedDiameter(value, units);
+    const convertedVal = getConvertedDiameter(value, units, decimals);
 
-      switch (units) {
-        case DiameterUnits.cm:
-          return `${ convertedVal } cm`;
+    switch (units) {
+      case DiameterUnits.cm:
+        return `${ convertedVal } cm`;
 
-        case DiameterUnits.in:
-        default:
-          return `${ convertedVal }''`;
-      }
+      case DiameterUnits.in:
+      default:
+        return `${ convertedVal }''`;
     }
-
-    const [size, diam] = value;
-    if (diam) {
-      return `${ diameter(size, t, units) } x ${ diameter(diam, t, units) }`;
-    }
-
-    return diameter(size, t, units);
   }
 
   return '-';

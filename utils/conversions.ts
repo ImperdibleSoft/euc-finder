@@ -9,14 +9,14 @@ const kilogramsToPounds = (kilograms: number) => kilograms * 2.20462;
 
 const milimetersToInches = (milimeters: number) => milimeters * 0.0393701;
 
-export const getConvertedDiameter = (value: number, units?: DiameterUnits): string => {
+export const getConvertedDiameter = (value: number, units?: DiameterUnits, decimals = 0): string => {
   switch (units) {
     case DiameterUnits.cm:
-      return toDecimals(inchesToCentimeters(value));
+      return toDecimals(inchesToCentimeters(value), decimals, decimals ? 0 : 0);
 
     case DiameterUnits.in:
     default:
-      return toDecimals(value, 0);
+      return toDecimals(value, decimals, decimals ? 0 : 0);
   }
 };
 

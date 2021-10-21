@@ -23,7 +23,7 @@ const EucSpecsHighlighted: React.FC<Props> = ({ specs, wheel }) => {
     // @ts-ignore
     // eslint-disable-next-line no-restricted-syntax
     const convertTo = key in measureUnits ? measureUnits[key] : undefined;
-    const value = formatter(wheel[key], t, convertTo);
+    const value = formatter(wheel[key], t, convertTo, key === 'width' ? 2 : 0);
 
     return {
       icon,
