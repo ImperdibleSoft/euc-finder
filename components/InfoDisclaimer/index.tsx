@@ -1,6 +1,8 @@
 import { Box, Button, Dialog, DialogTitle, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { wheelFeatureFormatters } from '../../constants';
+import { useArenaContext } from '../../context';
 
 interface Props {
   handleClose: () => void
@@ -9,7 +11,9 @@ interface Props {
 
 /* eslint-disable max-len */
 const InfoDisclaimer: React.FC<Props> = ({ handleClose, open }) => {
+  const { measureUnits: { maxSpeed } } = useArenaContext();
   const { t } = useTranslation();
+  const speed = wheelFeatureFormatters.maxSpeed(25, t, maxSpeed);
 
   return (
     <Dialog onClose={ handleClose } open={ open }>
@@ -24,6 +28,18 @@ const InfoDisclaimer: React.FC<Props> = ({ handleClose, open }) => {
         </Typography>
         <Typography variant="body1" component="p" sx={ { mb: 2 } }>
           { t('olderVersions-msg') }
+        </Typography>
+      </Box>
+
+      <Box sx={ { px: 3 } }>
+        <Typography variant="h6" component="p" sx={ { mb: 2 } }>
+          { t('speed-title') }
+        </Typography>
+        <Typography variant="body1" component="p" sx={ { mb: 2 } }>
+          { t('displayedSpeed-msg', { speed }) }
+        </Typography>
+        <Typography variant="body1" component="p" sx={ { mb: 2 } }>
+          { t('modifySpeed-msg') }
         </Typography>
       </Box>
 
