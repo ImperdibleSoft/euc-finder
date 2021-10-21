@@ -81,7 +81,7 @@ const tesla: Wheel = {
   price: 1650,
 
   ratedPower: 2000,
-  peakPower: 0,
+  peakPower: 4000,
   maxGradibility: 20,
   maxSpeed: 50,
   battery: 0,
@@ -214,6 +214,7 @@ const msx100: Wheel = {
 
   ratedPower: 2350,
   peakPower: 5700,
+  batteryOutput: 1230,
   range: 95,
   voltage: 100
 };
@@ -274,7 +275,7 @@ const ex: Wheel = {
   headlight: 6000,
   tailLight: true,
   leds: false,
-  sound: undefined,
+  sound: SoundSystem.twoPointO,
   display: Display.led,
   suspension: Suspension.custom,
   color: Color.black
