@@ -40,7 +40,10 @@ const Checkbox: React.FC<CheckboxProps> = ({
           name={ name }
           onChange={ onChange }
           size={ small ? 'small' : 'medium' }
-          sx={ { py: small ? 0 : undefined } }
+          sx={ {
+            '&, &.Mui-checked': { color: (theme) => theme.palette.secondary.main },
+            py: small ? 0 : undefined
+          } }
         />
       }
       label={ label ?? name }
