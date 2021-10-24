@@ -86,8 +86,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   
   useEffect(() => {
-    setItem(LOCAL_STORAGE_KEY.SHOW_PRICE, (price as string) || 'false');
-    setItem(LOCAL_STORAGE_KEY.SHOW_PURCHASE_LINKS, (purchaseLinks as string) || 'false');
+    if (price === 'false' || price === 'true') {
+      setItem(LOCAL_STORAGE_KEY.SHOW_PRICE, price);
+    }
+    
+    if (purchaseLinks === 'false' || purchaseLinks === 'true') {
+      setItem(LOCAL_STORAGE_KEY.SHOW_PURCHASE_LINKS, purchaseLinks);
+    }
   }, [price, purchaseLinks]);
 
   useEffect(() => {
