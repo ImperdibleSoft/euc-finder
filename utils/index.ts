@@ -2,6 +2,7 @@ export * from './analytics';
 export * from './clientTranslatedResources';
 export * from './collections';
 export * from './conversions';
+export * from './features';
 export * from './filtering';
 export * from './formatters';
 export * from './localStorage';

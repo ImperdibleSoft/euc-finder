@@ -59,7 +59,7 @@ const mcm5: Wheel = {
   voltage: 84,
 
   diameter: 14,
-  width: 0,
+  width: 2.5,
   groundClearance: 140,
   weight: 17,
   trolleyHandle: TrolleyHandle.telescopic,

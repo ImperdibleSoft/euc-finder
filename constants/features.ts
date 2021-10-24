@@ -6,7 +6,7 @@ export const SHOW_PURCHASE_LINKS = false;
 
 // Wheels List
 export const LIST_MAIN_SPECS: (keyof Wheel | undefined)[] = [
-  SHOW_PRICE ? 'price' : undefined,
+  'price',
   'diameter',
   'maxSpeed',
   'range',
@@ -58,7 +58,7 @@ export const SPEC_COLUMNS: Array<keyof Wheel> = [
 
 // Wheels details
 export const DETAIL_HIGHLIGHTED_SPECS: (keyof Wheel | undefined)[] = [
-  SHOW_PRICE ? 'price': undefined,
+  'price',
   'diameter',
   'width',
   'maxSpeed',

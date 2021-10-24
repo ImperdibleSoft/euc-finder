@@ -1,4 +1,4 @@
-import { SHOW_PURCHASE_LINKS } from '../constants';
+import { showPurchaseLinks } from './features';
 import { storeCode, storeDiscounts } from '../context/data';
 import { PurchaseLink, Region, StoreId, Stores } from '../types';
 
@@ -24,7 +24,7 @@ const getStoreFromUrl = ({ region, stores, url, sponsored }: GetStoreOptions) =>
     ));
 
 export const getPurchaseLink = (options: GetStoreOptions): PurchaseLink | undefined => {
-  if (!SHOW_PURCHASE_LINKS) {
+  if (!showPurchaseLinks()) {
     return undefined;
   }
 

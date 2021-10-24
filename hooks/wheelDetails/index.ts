@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { DETAIL_ADDITIONAL_SPECS, DETAIL_HIGHLIGHTED_SPECS, DETAIL_MAIN_SPECS } from '../../constants';
 import { useArenaContext } from '../../context';
 import { PurchaseLink, Wheel, WheelId } from '../../types';
-import { formatWheelName, getPurchaseLink } from '../../utils';
+import { formatWheelName, getPurchaseLink, showPrice } from '../../utils';
 
 export const useEucDetail = (id: string) => {
   const { brands, pictures: wheelPictures, wheels } = useArenaContext();
@@ -19,7 +19,7 @@ export const useEucDetail = (id: string) => {
 };
 
 export const useEucDetailInformationGroups = () => ({
-  highlightedSpecs: DETAIL_HIGHLIGHTED_SPECS.filter(s => !!s) as (keyof Wheel)[],
+  highlightedSpecs: DETAIL_HIGHLIGHTED_SPECS.filter(s => !!s && (s !== 'price' || showPrice())) as (keyof Wheel)[],
   mainSpecs: DETAIL_MAIN_SPECS.filter(s => !!s) as (keyof Wheel)[],
   additionalSpecs: DETAIL_ADDITIONAL_SPECS
 });

@@ -7,5 +7,7 @@ export enum LOCAL_STORAGE_KEY {
   PREFERENCE_WIDTH = 'preference_width',
   RANGE_DISCLAIMER = 'rangeDisclaimer',
   REGION = 'preference_region',
-  LANGUAGE = 'i18nextLng'
+  LANGUAGE = 'i18nextLng',
+  SHOW_PRICE = 'showPrice',
+  SHOW_PURCHASE_LINKS = 'showPurchaseLinks'
 }

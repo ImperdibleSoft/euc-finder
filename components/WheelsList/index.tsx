@@ -1,8 +1,9 @@
 import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { SHOW_PRICE, wheelFeatureIcons } from '../../constants';
+import { wheelFeatureIcons } from '../../constants';
 import { Wheel, WheelFeatureIcons, WheelSorting, WheelSortingKeys } from '../../types';
+import { showPrice } from '../../utils';
 import Dropdown, { DropdownItem } from '../Form/Dropdown';
 import WheelCard from '../WheelCard';
 
@@ -20,7 +21,7 @@ const WheelsList: React.FC<Props> = ({ handleSort, records, sorting  }) => {
     .keys(sampleWheel ?? {})
     .filter(key => {
       if (key === 'id' || key === 'peakPower' || key === 'maxGradibility') return false;
-      if (key === 'price') return SHOW_PRICE;
+      if (key === 'price') return showPrice();
       return true;
     })
     .map((key): DropdownItem => ({

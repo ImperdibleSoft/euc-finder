@@ -1,8 +1,9 @@
 import React, { useReducer } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SHOW_PRICE, SPEC_COLUMNS, wheelFeatureFormatters } from '../../../constants';
+import { SPEC_COLUMNS, wheelFeatureFormatters } from '../../../constants';
 import { useArenaContext } from '../../../context';
 import { Brands, Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
+import { showPrice } from '../../../utils';
 import wheelsTableSettingsReducer, { getInitialValue } from './reducer';
 
 export const useColumns = () => {
@@ -35,7 +36,7 @@ export const useColumns = () => {
 };
 
 const shouldShowColumn = (columns: WheelsTableColumns, key: keyof Wheel) =>
-  (SHOW_PRICE && key === 'price') || key ==='name' || !!columns[key as keyof WheelsTableColumns];
+  (key === 'price' && showPrice()) || key ==='name' || !!columns[key as keyof WheelsTableColumns];
 
 const getCellStyles = (key: keyof Wheel): React.CSSProperties => {
   switch (key) {

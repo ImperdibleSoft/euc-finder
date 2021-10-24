@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import CheckboxGroup from '../../../components/Form/CheckboxGroup';
 import Dropdown from '../../../components/Form/Dropdown';
 import Text from '../../../components/Form/Text';
-import { SHOW_PRICE, wheelFeatureIcons } from '../../../constants';
+import { wheelFeatureIcons } from '../../../constants';
 import { useArenaContext } from '../../../context';
 import {
   AntiSpin,
@@ -18,6 +18,7 @@ import {
   TrolleyHandle,
   WheelFilters
 } from '../../../types';
+import { showPrice } from '../../../utils';
 import { getDropdownOptions } from './constants';
 
 // eslint-disable-next-line max-lines-per-function
@@ -439,11 +440,11 @@ export const useFilterFields = () => {
       onChange: handleChangeDisplay,
       options: displayOptions,
       value: filters.display?.toString() ?? '',
-      space: !!SHOW_PRICE
+      space: !!showPrice()
     }
   ];
 
-  if (SHOW_PRICE) {
+  if (showPrice()) {
     fields.unshift(
       {
         Field: Text,
