@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
+import qs from 'query-string';
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MainLayout from '../components/Layouts/MainLayout';
@@ -61,6 +62,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER) !== 'true';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const { price, purchaseLinks } = qs.parse(global?.location?.search);
   const { events } = useRouter();
   const [dark, setDark] = useState(false);
   const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer); 
@@ -81,6 +83,12 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     const newDark = isDarkTheme();
     setDark(newDark);
   }, []);
+
+  
+  useEffect(() => {
+    setItem(LOCAL_STORAGE_KEY.SHOW_PRICE, (price as string) || 'false');
+    setItem(LOCAL_STORAGE_KEY.SHOW_PURCHASE_LINKS, (purchaseLinks as string) || 'false');
+  }, [price, purchaseLinks]);
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
