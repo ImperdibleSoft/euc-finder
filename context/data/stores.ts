@@ -6,16 +6,9 @@ export const stores: Stores = {
     id: StoreId.ciclonic,
     name: 'Ciclonic',
     region: 'eu',
-    sponsor: false,
+    sponsor: true,
     website: 'ciclonic.es'
   },
-  // [StoreId.madridrueda]: {
-  //   color: '',
-  //   id: StoreId.madridrueda,
-  //   name: 'Madrid Rueda',
-  //   region: 'eu',
-  //   website: 'madridrueda.es'
-  // },
   [StoreId.urban360]: {
     color: '#76c043',
     id: StoreId.urban360,
@@ -23,6 +16,34 @@ export const stores: Stores = {
     region: 'eu',
     website: 'https://store.urban360.es'
   },
+  [StoreId.inmotionFrance]: {
+    color: '#ee7203',
+    id: StoreId.inmotionFrance,
+    name: 'Inmotion France',
+    region: 'eu',
+    website: 'https://www.inmotion-france.fr'
+  },
+  [StoreId.euco]: {
+    color: '#01b7fd',
+    id: StoreId.euco,
+    name: 'EUCO',
+    region: 'us',
+    website: 'https://www.euco.us/'
+  },
+  [StoreId.myewheel]: {
+    color: '#34c1f0',
+    id: StoreId.myewheel,
+    name: 'My EWheel',
+    region: 'eu',
+    website: 'https://www.euco.us/'
+  }
+  // [StoreId.madridrueda]: {
+  //   color: '',
+  //   id: StoreId.madridrueda,
+  //   name: 'Madrid Rueda',
+  //   region: 'eu',
+  //   website: 'madridrueda.es'
+  // },
   // [StoreId.rodandoEs]: {
   //   color: '',
   //   id: StoreId.rodandoEs,
@@ -58,13 +79,6 @@ export const stores: Stores = {
   //   region: 'eu',
   //   website: 'https://tienda.monociclos.com'
   // },
-  [StoreId.inmotionFrance]: {
-    color: '#ee7203',
-    id: StoreId.inmotionFrance,
-    name: 'Inmotion France',
-    region: 'eu',
-    website: 'https://www.inmotion-france.fr'
-  },
   // [StoreId.gpsmodus]: {
   //   color: '',
   //   id: StoreId.gpsmodus,
@@ -79,41 +93,36 @@ export const stores: Stores = {
   //   region: 'eu',
   //   website: 'https://www.imoveblue.es/'
   // },
-  [StoreId.euco]: {
-    color: '#01b7fd',
-    id: StoreId.euco,
-    name: 'EUCO',
-    region: 'us',
-    website: 'https://www.euco.us/'
-  }
 };
 
 export const storeDiscounts: StoreDiscount = {
   [StoreId.ciclonic]: 5,
-  // madridrueda: 0,
   urban360: 0,
+  inmotionFrance: 0,
+  euco: 0,
+  myewheel: 0
+  // madridrueda: 0,
   // rodandoEs: 0,
   // solorueda: 0,
   // green220: 0,
   // eptv: 0,
   // monociclosCom: 0,
-  inmotionFrance: 0,
   // gpsmodus: 0,
   // imoveblue: 0,
-  euco: 0
 };
 
 export const storeCode: StoreCode = {
   [StoreId.ciclonic]: 'code=EUCFinder',
-  // madridrueda: '',
   urban360: '',
+  inmotionFrance: '',
+  euco: '',
+  myewheel: ''
+  // madridrueda: '',
   // rodandoEs: '',
   // solorueda: '',
   // green220: '',
   // eptv: '',
   // monociclosCom: '',
-  inmotionFrance: '',
   // gpsmodus: '',
   // imoveblue: '',
-  euco: ''
 };

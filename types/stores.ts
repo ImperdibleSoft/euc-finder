@@ -2,17 +2,18 @@ export type Region = 'us' | 'eu' | 'asia'
 
 export enum StoreId {
   ciclonic = 'ciclonic',
-  // madridrueda = 'madridrueda',
   urban360 = 'urban360',
+  inmotionFrance = 'inmotionFrance',
+  euco = 'euco',
+  myewheel = 'myewheel'
+  // madridrueda = 'madridrueda',
   // rodandoEs = 'rodando.es',
   // solorueda = 'solorueda',
   // green220 = 'green220',
   // eptv = 'eptv',
   // monociclosCom = 'monociclos.com',
-  inmotionFrance = 'inmotionFrance',
   // gpsmodus = 'gpsmodus',
   // imoveblue = 'imoveblue',
-  euco = 'euco'
 } 
 
 export interface Store {
