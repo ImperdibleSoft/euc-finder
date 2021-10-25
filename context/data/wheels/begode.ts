@@ -139,7 +139,7 @@ const nikola: Wheel = {
 const rsHT: Wheel = {
   id: WheelId.rsHT,
   brandId: BrandId.begode,
-  name: 'RS HT',
+  name: 'RS Torque',
   price: 2300,
 
   ratedPower: 2600,

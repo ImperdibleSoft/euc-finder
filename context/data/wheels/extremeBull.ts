@@ -12,7 +12,7 @@ import {
 const commanderHT: Wheel = {
   id: WheelId.commanderHT,
   brandId: BrandId.extremeBull,
-  name: 'Commander HT',
+  name: 'Commander Torque',
   price: 3400,
 
   ratedPower: 2800,
@@ -43,7 +43,7 @@ const commanderHT: Wheel = {
 const commanderHS: Wheel = {
   ...commanderHT,
   id: WheelId.commanderHS,
-  name: 'Commander HS',
+  name: 'Commander Speed',
 
   maxSpeed: 80
 };
