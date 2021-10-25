@@ -46,7 +46,7 @@ class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           
           <link rel="manifest" href="/manifest.json" />
-          <meta name="theme-color" content="#1976d2" />
+          <meta name="theme-color" content="#2b2d42" />
           <script
             async
             src="https://cdn.jsdelivr.net/npm/pwacompat"
