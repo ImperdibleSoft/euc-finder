@@ -5,8 +5,8 @@
   "categories": ["tools", "vehicles"],
   "orientation": "any",
   "display": "standalone",
-  "background_color": "#1976d2",
-  "theme_color": "#1976d2",
+  "background_color": "#2b2d42",
+  "theme_color": "#2b2d42",
   "start_url": "/",
   "scope": "/",
   "prefer_related_applications": false
