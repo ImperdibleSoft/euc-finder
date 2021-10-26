@@ -187,7 +187,7 @@ const msx: Wheel = {
   maxSpeed: 60,
   battery: 0,
   batteryOutput: 1600,
-  range: 160,
+  range: 100,
   voltage: 84,
 
   diameter: 19,
