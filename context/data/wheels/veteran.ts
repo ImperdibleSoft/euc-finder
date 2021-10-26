@@ -21,11 +21,11 @@ const sherman: Wheel = {
   maxSpeed: 70,
   battery: 0,
   batteryOutput: 3200,
-  range: 200,
+  range: 190,
   voltage: 100,
 
   diameter: 20,
-  width: 0,
+  width: 2.75,
   groundClearance: 170,
   weight: 35,
   trolleyHandle: TrolleyHandle.telescopic,
