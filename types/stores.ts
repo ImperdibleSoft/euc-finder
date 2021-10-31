@@ -5,7 +5,8 @@ export enum StoreId {
   urban360 = 'urban360',
   inmotionFrance = 'inmotionFrance',
   euco = 'euco',
-  myewheel = 'myewheel'
+  myewheel = 'myewheel',
+  ewheels = 'ewheels'
   // madridrueda = 'madridrueda',
   // rodandoEs = 'rodando.es',
   // solorueda = 'solorueda',
