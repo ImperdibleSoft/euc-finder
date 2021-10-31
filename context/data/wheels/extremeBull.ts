@@ -27,7 +27,7 @@ const commanderHT: Wheel = {
   diameter: 20,
   width: 0,
   groundClearance: 160,
-  weight: 36.5,
+  weight: 38.5,
   trolleyHandle: TrolleyHandle.telescopic,
   antiSpin: undefined,
   kickstand: undefined,

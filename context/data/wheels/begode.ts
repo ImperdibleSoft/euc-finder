@@ -312,7 +312,7 @@ const hero: Wheel = {
   range: 125,
   voltage: 100,
 
-  diameter: 20,
+  diameter: 18,
   width: 3,
   groundClearance: [90, 170],
   weight: 36.5,
