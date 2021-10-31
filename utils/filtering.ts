@@ -8,7 +8,7 @@ import {
   getConvertedSpeed,
   getConvertedWeight
 } from './conversions';
-import { getEstimatedRealRange } from './range';
+import { getEstimatedMaxRange } from './range';
 
 export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: ArenaContextState['measureUnits']) => {
   const diameter = Number(getConvertedDiameter(wheel.diameter, units.diameter));
@@ -21,7 +21,7 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: ArenaCo
     getMinimumValue(wheel.groundClearance),
     units.groundClearance
   ));
-  const range = Number(getConvertedRange(getEstimatedRealRange(wheel.range), units.range));
+  const range = Number(getConvertedRange(getEstimatedMaxRange(wheel.range), units.range));
   const weight = Number(getConvertedWeight(wheel.weight, units.weight));
   const width = Number(getConvertedDiameter(wheel.width, units.diameter));
 

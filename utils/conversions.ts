@@ -34,11 +34,11 @@ export const getConvertedSpeed = (value: number, units?: SpeedUnits): string => 
 export const getConvertedRange = (value: number, units?: RangeUnits): string => {
   switch (units) {
     case RangeUnits.mi:
-      return toDecimals(kilometersToMiles(value));
+      return toDecimals(kilometersToMiles(value), 0);
 
     case RangeUnits.km:
     default:
-      return toDecimals(value);
+      return toDecimals(value, 0);
   }
 };
 

@@ -340,7 +340,7 @@ const monster: Wheel = {
   maxSpeed: 68,
   battery: 0,
   batteryOutput: 1845,
-  range: 210,
+  range: 120,
   voltage: 100,
 
   diameter: 22,

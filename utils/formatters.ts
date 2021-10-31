@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+import { TFunction } from 'react-i18next';
 import {
   AntiSpin,
   Brands,
@@ -17,6 +18,7 @@ import {
   WeightUnits,
   Wheel
 } from '../types';
+import { getTranslation } from './clientTranslatedResources';
 import {
   getConvertedDiameter,
   getConvertedGroundClearance,
@@ -24,9 +26,7 @@ import {
   getConvertedSpeed,
   getConvertedWeight
 } from './conversions';
-import { getEstimatedRealRange, toDecimals } from './range';
-import { getTranslation } from './clientTranslatedResources';
-import { TFunction } from 'react-i18next';
+import { getEstimatedMaxRange, getEstimatedMinRange, toDecimals } from './range';
 
 export const currency = (value: number): string => {
   if (value) {
@@ -86,15 +86,16 @@ export const distance = (
   units?: RangeUnits
 ): string => {
   if (value) {
-    const convertedVal = getConvertedRange(getEstimatedRealRange(value), units);
+    const convertedMin = getConvertedRange(getEstimatedMinRange(value), units);
+    const convertedMax = getConvertedRange(getEstimatedMaxRange(value), units);
 
     switch (units) {
       case RangeUnits.mi:
-        return `${ convertedVal } mi`;
+        return `${ convertedMin } mi - ${ convertedMax } mi`;
 
       case RangeUnits.km:
       default:
-        return `${ convertedVal } km`;
+        return `${ convertedMin } km - ${ convertedMax } km`;
     }
   }
 
