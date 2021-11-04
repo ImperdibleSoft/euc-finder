@@ -1,4 +1,4 @@
-import { Box, Button, Card, CardMedia, Typography } from '@mui/material';
+import { Box, Button, Card, CardMedia, Icon, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Store } from '../../types';
@@ -47,8 +47,9 @@ const PurchaseLink: React.FC<Props> = ({ discount, large = false, url, store }) 
       </Box>
 
       { !!discount && (
-        <Typography variant="body1" component="p" sx={ { mb: 1 } }>
-          { t('discount', { discount }) }
+
+        <Typography variant="body1" component="span" sx={ { alignItems: 'center', display: 'flex', mb: 2 } }>
+          <Icon sx={ { mr: 1 } } color="secondary">local_offer</Icon> { t('discount', { discount }) }
         </Typography>
       ) }
 

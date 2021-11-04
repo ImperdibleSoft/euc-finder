@@ -117,7 +117,7 @@ const nikola: Wheel = {
   maxSpeed: 60,
   battery: 0,
   batteryOutput: 1800,
-  range: 105,
+  range: 95,
   voltage: 100,
 
   diameter: 16,
