@@ -38,7 +38,7 @@ export const currency = (value: number): string => {
 
 export const diameter = (
   value: number,
-  t?: TFunction<string>,
+  t?: TFunction<'translation'>,
   units?: DiameterUnits,
   decimals = 0
   // eslint-disable-next-line max-params
@@ -61,7 +61,7 @@ export const diameter = (
 
 export const speed = (
   value: number,
-  t?: TFunction<string>,
+  t?: TFunction<'translation'>,
   units?: SpeedUnits
 ): string => {
   if (value) {
@@ -82,7 +82,7 @@ export const speed = (
 
 export const distance = (
   value: number,
-  t?: TFunction<string>,
+  t?: TFunction<'translation'>,
   units?: RangeUnits
 ): string => {
   if (value) {
@@ -144,7 +144,7 @@ export const voltage = (value: number): string => {
 
 export const groundClearance = (
   value: GroundClearance,
-  t?: TFunction<string>,
+  t?: TFunction<'translation'>,
   units?: GroundClearanceUnits
 ): string => {
   if (value) {
@@ -176,7 +176,7 @@ export const groundClearance = (
 
 export const weight = (
   value: number,
-  t?: TFunction<string>,
+  t?: TFunction<'translation'>,
   units?: WeightUnits
 ): string => {
   if (value) {
@@ -197,7 +197,7 @@ export const weight = (
 
 export const trolleyHandle = (
   value?: TrolleyHandle,
-  t?: TFunction<string>
+  t?: TFunction<'translation'>
 ): string => {
   switch (value) {
     case TrolleyHandle.scorpion:
@@ -209,7 +209,7 @@ export const trolleyHandle = (
   }
 };
 
-export const antiSpin = (value?: AntiSpin, t?: TFunction<string>): string => {
+export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string => {
   switch (value) {
     case AntiSpin.sensor:
     case AntiSpin.button:
@@ -221,7 +221,7 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<string>): string => {
   }
 };
 
-export const kickstand = (value?: Kickstand, t?: TFunction<string>): string => {
+export const kickstand = (value?: Kickstand, t?: TFunction<'translation'>): string => {
   switch (value) {
     case Kickstand.dedicated:
     case Kickstand.shell:
@@ -232,7 +232,7 @@ export const kickstand = (value?: Kickstand, t?: TFunction<string>): string => {
   }
 };
 
-export const lumens = (value: Lumens, t?: TFunction<string>): string => {
+export const lumens = (value: Lumens, t?: TFunction<'translation'>): string => {
   if (value === true) {
     return t?.('yes') ?? getTranslation('yes');
   }
@@ -248,7 +248,7 @@ export const lumens = (value: Lumens, t?: TFunction<string>): string => {
   return '-';
 };
 
-export const boolean = (value: boolean, t?: TFunction<string>): string => {
+export const boolean = (value: boolean, t?: TFunction<'translation'>): string => {
   if (value) {
     return t?.('yes') ?? getTranslation('yes');
   }
@@ -258,7 +258,7 @@ export const boolean = (value: boolean, t?: TFunction<string>): string => {
 
 export const soundChannels = (
   value?: SoundSystem,
-  t?: TFunction<string>
+  t?: TFunction<'translation'>
 ): string => {
   if (value) {
     return `${ value } ch`;
@@ -267,7 +267,7 @@ export const soundChannels = (
   return t?.('no') ?? getTranslation('no');
 };
 
-export const display = (value?: Display, t?: TFunction<string>): string => {
+export const display = (value?: Display, t?: TFunction<'translation'>): string => {
   switch (value) {
     case Display.lcd:
     case Display.led:
@@ -280,7 +280,7 @@ export const display = (value?: Display, t?: TFunction<string>): string => {
 
 export const suspension = (
   value?: Suspension,
-  t?: TFunction<string>
+  t?: TFunction<'translation'>
 ): string => {
   switch (value) {
     case Suspension.custom:
@@ -294,7 +294,7 @@ export const suspension = (
 
 export const color = (
   value?: Color | Color[],
-  t?: TFunction<string>
+  t?: TFunction<'translation'>
 ): string => {
   if (value) {
     if (typeof value === 'string') {
