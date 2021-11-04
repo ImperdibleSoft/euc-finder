@@ -1,19 +1,15 @@
 import { CardMedia, Grid, Typography } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { PurchaseLink } from '../../types';
-import EucDetailPurchaseLinks from '../EucDetailPurchaseLinks';
 
 interface Props {
   heroImage: string
-  purchaseLinks: PurchaseLink[]
   wheelName: string
 }
 
 const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
   children,
   heroImage,
-  purchaseLinks,
   wheelName
 }) => {
   const { t } = useTranslation();
@@ -47,8 +43,6 @@ const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
         <Typography variant="body1" component="p" color="text.secondary" style={ { flex: 1 } }>
           { children }
         </Typography>
-
-        <EucDetailPurchaseLinks items={ purchaseLinks } large />
       </Grid>
     </Grid>
   );};

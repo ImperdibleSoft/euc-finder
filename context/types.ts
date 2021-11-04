@@ -1,30 +1,37 @@
-import { Brands, Region, Stores, Wheel, WheelFilters, WheelPictures, WheelPurchaseLinks, WheelSorting } from '../types';
 import {
+  Brands,
   DiameterUnits,
   GroundClearanceUnits,
   RangeUnits,
+  Region,
   SpeedUnits,
+  Stores,
   WeightUnits,
+  Wheel,
+  WheelFilters,
+  WheelPictures,
+  WheelPurchaseLinks,
+  WheelSorting,
   WidthUnits
-} from '../types/settings';
+} from '../types';
 
 export interface ArenaContextState {
-  brands: Brands
-  filters: WheelFilters
+  brands: Brands;
+  filters: WheelFilters;
   measureUnits: {
-    diameter: DiameterUnits,
-    groundClearance: GroundClearanceUnits,
-    range: RangeUnits,
-    maxSpeed: SpeedUnits,
-    weight: WeightUnits,
-    width: WidthUnits
+    diameter: DiameterUnits;
+    groundClearance: GroundClearanceUnits;
+    range: RangeUnits;
+    maxSpeed: SpeedUnits;
+    weight: WeightUnits;
+    width: WidthUnits;
   }
-  pictures: WheelPictures
-  purchaseLinks: WheelPurchaseLinks
-  region: Region
-  sorting: WheelSorting
-  stores: Stores
-  wheels: Wheel[]
+  pictures: WheelPictures;
+  purchaseLinks: WheelPurchaseLinks;
+  region: Region;
+  sorting: WheelSorting;
+  stores: Stores;
+  wheels: Wheel[];
 }
 
 export interface ArenaContextType {

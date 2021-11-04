@@ -13,6 +13,7 @@
   "without": "Without",
   "with": "With",
   "withAny": "With any",
+  "discount": "{{discount}}% off",
   "maximum": "Maximum {{property}}",
   "minimum": "Minimum {{property}}",
   "region-label": "Region",

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Store } from './stores';
 
 export * from './brands';
 export * from './filtering';
@@ -27,7 +28,7 @@ export interface RouteWithID {
 }
 
 export interface PurchaseLink {
-  color?: string
-  label: string
+  discount?: number
+  store: Store
   url: string
 }

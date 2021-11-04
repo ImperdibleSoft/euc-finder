@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import {  Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PurchaseLink } from '../../types';
@@ -21,9 +21,7 @@ const EucAdditionalPurchaseLinks: React.FC<Props> = ({ items }) => {
         { t('otherStores-title') }
       </Typography>
 
-      <Box>
-        <EucDetailPurchaseLinks items={ items } />
-      </Box>
+      <EucDetailPurchaseLinks items={ items } />
     </Grid>
   );
 };

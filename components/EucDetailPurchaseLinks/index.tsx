@@ -1,7 +1,8 @@
-import { Box, Button } from '@mui/material';
+import { Grid, Typography  } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { PurchaseLink } from '../../types';
+import PurchaseLinkComponent from '../PurchaseLink';
 
 interface Props {
   items: PurchaseLink[]
@@ -10,22 +11,39 @@ interface Props {
 
 const EucDetailPurchaseLinks: React.FC<Props> = ({ items, large }) => {
   const { t } = useTranslation();
+
+  if (!items.length) {
+    return null;
+  }
   
   return (
-    <Box>
-      { items.map(({ color, label, url }) => (
-        <Button
-          key={ url }
-          href={ url }
-          size={ large ? 'large' : 'medium' }
-          sx={ { mr: 2, mt: 2, backgroundColor: color } }
-          target="_blank"
-          variant="contained"
-        >
-          { `${ large ? `${ t('buyAt-label') } ` : '' }${ label }` }
-        </Button>
-      )) }
-    </Box>
-  );};
+    <>
+      { large && (
+        <Typography sx={ { mt: 4, mb: 2 } } variant="h6" component="div">
+          { t('buyAt-label') }
+        </Typography>
+      ) }
+
+      <Grid container spacing={ 2 }>
+        { items.map(({ discount, url, store }) => (
+          <Grid
+            key={ url }
+            item
+            xs={ 6 }
+            sm={ large ? 6 : 4 }
+            md={ 4 }
+          >
+            <PurchaseLinkComponent
+              discount={ discount }
+              large={ large  }
+              store={ store }
+              url={ url }
+            />
+          </Grid>
+        )) }
+      </Grid>
+    </>
+  );
+};
 
 export default EucDetailPurchaseLinks;

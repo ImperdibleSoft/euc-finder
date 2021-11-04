@@ -23,6 +23,7 @@ export interface Store {
   region: Region
   website: string
   color: string
+  logo: string
   sponsor?: boolean
 }
 

@@ -4,6 +4,7 @@ export const stores: Stores = {
   [StoreId.ciclonic]: {
     color: '#0075ff',
     id: StoreId.ciclonic,
+    logo: '/logos/ciclonic.png',
     name: 'Ciclonic',
     region: 'eu',
     sponsor: true,
@@ -12,6 +13,7 @@ export const stores: Stores = {
   [StoreId.urban360]: {
     color: '#76c043',
     id: StoreId.urban360,
+    logo: '/logos/urban360.png',
     name: 'Urban 360',
     region: 'eu',
     website: 'https://store.urban360.es'
@@ -19,6 +21,7 @@ export const stores: Stores = {
   [StoreId.inmotionFrance]: {
     color: '#ee7203',
     id: StoreId.inmotionFrance,
+    logo: '/logos/inmotionFrance.png',
     name: 'Inmotion France',
     region: 'eu',
     website: 'https://www.inmotion-france.fr'
@@ -26,6 +29,7 @@ export const stores: Stores = {
   [StoreId.euco]: {
     color: '#01b7fd',
     id: StoreId.euco,
+    logo: '/logos/euco.png',
     name: 'EUCO',
     region: 'us',
     website: 'https://www.euco.us/'
@@ -33,6 +37,7 @@ export const stores: Stores = {
   [StoreId.myewheel]: {
     color: '#34c1f0',
     id: StoreId.myewheel,
+    logo: '/logos/myewheel.png',
     name: 'My EWheel',
     region: 'eu',
     website: 'https://myewheel.com'
@@ -40,6 +45,7 @@ export const stores: Stores = {
   [StoreId.ewheels]: {
     color: '#b73225',
     id: StoreId.ewheels,
+    logo: '/logos/ewheels.png',
     name: 'eWheels',
     region: 'us',
     website: 'https://www.ewheels.com/'

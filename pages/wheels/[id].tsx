@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import EmptyCase from '../../components/EmptyCase';
 import EucAdditionalPurchaseLinks from '../../components/EucAdditionalPurchaseLinks';
 import EucDetailHeader from '../../components/EucDetailHeader';
+import EucDetailPurchaseLinks from '../../components/EucDetailPurchaseLinks';
 import EucPictures from '../../components/EucPictures';
 import EucSpecsAdditional from '../../components/EucSpecsAdditional';
 import EucSpecsHighlighted from '../../components/EucSpecsHighlighted';
@@ -51,13 +52,14 @@ const EucDetail: React.FC = () => {
           <>
             <EucDetailHeader
               heroImage={ pictures[0] }
-              purchaseLinks={ sponsoredLinks }
               wheelName={ name }
             >
               { t('defaultDescription-msg') }
             </EucDetailHeader>
 
             <EucSpecsHighlighted specs={ highlightedSpecs } wheel={ wheel } />
+
+            <EucDetailPurchaseLinks items={ sponsoredLinks } large />
 
             <Grid container spacing={ 2 }>
               <EucSpecsMain specs={ mainSpecs } wheel={ wheel } />

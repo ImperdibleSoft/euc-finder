@@ -38,8 +38,8 @@ export const getPurchaseLink = (options: GetStoreOptions): PurchaseLink | undefi
   const code = getStoreCode(store.id);
 
   return {
-    color: store.color,
-    label: discount ? `${ store.name } (-${ discount }%)` : store.name,
+    discount,
+    store,
     url: code ? `${ options.url }?${ code }` : options.url
   };
 };
