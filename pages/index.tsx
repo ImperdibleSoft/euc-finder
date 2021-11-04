@@ -66,17 +66,25 @@ const EucList: React.FC = () => {
           maxWidth={ view === 'grid' ? 'lg' : false }
           sx={ { alignItems: 'center', display: 'flex', flexDirection: 'row', pb: 1 } }
         >
-          <Typography variant="body1" component="span" sx={ { display: 'flex', flex: 1 } }>
-            { t('unicycles-label', { quantity: sortedWheels.length }) }
-          </Typography>
-
-          <ButtonGroup sx={ { display: { xs: 'inline-flex', sm: 'none' } } }>
+          <ButtonGroup sx={ { display: { xs: 'inline-flex', sm: 'none' }, flex: 1 } }>
             <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
               { t('filters-title') }
             </Button>
           </ButtonGroup>
 
-          <ButtonGroup sx={ { display: { xs: 'none', xl: 'flex' } } }>
+          <Typography
+            variant="body1"
+            component="span"
+            sx={ {
+              display: 'flex',
+              flex: 1,
+              justifyContent: { xs: 'flex-end', sm: 'flex-start' }
+            } }
+          >
+            { t('unicycles-label', { quantity: sortedWheels.length }) }
+          </Typography>
+
+          <ButtonGroup sx={ { display: { xs: 'none', lg: 'flex' } } }>
             <Button onClick={ () => { setView('grid'); } }>
               <Icon color={ view === 'grid' ? 'primary' : 'disabled' }>grid_view</Icon>
             </Button>
