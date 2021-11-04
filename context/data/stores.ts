@@ -35,7 +35,7 @@ export const stores: Stores = {
     id: StoreId.myewheel,
     name: 'My EWheel',
     region: 'eu',
-    website: 'https://www.euco.us/'
+    website: 'https://myewheel.com'
   },
   [StoreId.ewheels]: {
     color: '#b73225',
