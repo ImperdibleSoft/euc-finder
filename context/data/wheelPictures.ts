@@ -92,7 +92,18 @@ export const wheelPictures: WheelPictures = {
     'https://cdn11.bigcommerce.com/s-h5qh7w00cc/images/stencil/1280x1280/products/526/1061/EX_5__19150.1626127534.jpg',
     'https://cdn11.bigcommerce.com/s-h5qh7w00cc/images/stencil/1280x1280/products/526/1059/EX_6__81475.1626127534.jpg'
   ],
-  [WheelId.exn]: [
+  [WheelId.exnHT]: [
+    'https://cdn11.bigcommerce.com/s-h5qh7w00cc/images/stencil/1280x1280/products/526/1060/EX.N_1__74163.1626127534.jpg',
+    'https://cdn11.bigcommerce.com/s-h5qh7w00cc/images/stencil/1280x1280/products/526/1052/EX.N__56910.1626127531.jpg',
+    'https://cdn11.bigcommerce.com/s-h5qh7w00cc/images/stencil/1280x1280/products/526/1054/EX.N_4__49063.1626127533.jpg',
+    'https://eucsale.com/assets/image-cache/images/EUC-transport/Gotway/EXN/exn-1.21ba5615.jpg',
+    'https://eucsale.com/assets/image-cache/images/EUC-transport/Gotway/EXN/exn-2.21ba5615.jpg',
+    'https://eucsale.com/assets/image-cache/images/EUC-transport/Gotway/EXN/exn-11.21ba5615.jpg',
+    'https://eucsale.com/assets/image-cache/images/EUC-transport/Gotway/EXN/exn-12.21ba5615.jpg',
+    'https://eucsale.com/assets/image-cache/images/EUC-transport/Gotway/EXN/exn-14.21ba5615.jpg',
+    'https://eucsale.com/assets/image-cache/images/EUC-transport/Gotway/EXN/exn-26.21ba5615.jpg'
+  ],
+  [WheelId.exnHS]: [
     'https://cdn11.bigcommerce.com/s-h5qh7w00cc/images/stencil/1280x1280/products/526/1060/EX.N_1__74163.1626127534.jpg',
     'https://cdn11.bigcommerce.com/s-h5qh7w00cc/images/stencil/1280x1280/products/526/1052/EX.N__56910.1626127531.jpg',
     'https://cdn11.bigcommerce.com/s-h5qh7w00cc/images/stencil/1280x1280/products/526/1054/EX.N_4__49063.1626127533.jpg',

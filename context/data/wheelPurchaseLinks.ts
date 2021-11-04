@@ -56,7 +56,12 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.euco.us/products/gotway-ex-electric-unicycle',
     'https://myewheel.com/gotway-ex/'
   ],
-  [WheelId.exn]: [
+  [WheelId.exnHT]: [
+    'https://www.euco.us/products/gotway-ex-n-electric-unicycle',
+    'https://myewheel.com/gotway-begode-exn/',
+    'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/'
+  ],
+  [WheelId.exnHS]: [
     'https://www.euco.us/products/gotway-ex-n-electric-unicycle',
     'https://myewheel.com/gotway-begode-exn/',
     'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/'

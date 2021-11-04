@@ -117,7 +117,7 @@ const nikola: Wheel = {
   maxSpeed: 60,
   battery: 0,
   batteryOutput: 1800,
-  range: 160,
+  range: 105,
   voltage: 100,
 
   diameter: 16,
@@ -281,20 +281,27 @@ const ex: Wheel = {
   color: Color.black
 };
 
-const exn: Wheel = {
+const exnHT: Wheel = {
   ...ex,
-  id: WheelId.exn,
-  name: 'EX.N',
+  id: WheelId.exnHT,
+  name: 'EX.N Torque',
   price: 3000,
 
   ratedPower: 2800,
-  maxSpeed: 80,
+  maxSpeed: 70,
   range: 190,
 
   groundClearance: 160,
   sound: SoundSystem.twoPointO,
   suspension: undefined,
   color: Color.black
+};
+
+const exnHS: Wheel = {
+  ...exnHT,
+  id: WheelId.exnHS,
+  name: 'EX.N Speed',
+  maxSpeed: 80
 };
 
 const hero: Wheel = {
@@ -392,7 +399,8 @@ export const begodeWheels: Wheel[] = [
   msx100,
   msp,
   ex,
-  exn,
+  exnHT,
+  exnHS,
   hero,
   monster,
   monsterPro
