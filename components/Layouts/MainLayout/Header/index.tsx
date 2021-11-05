@@ -9,6 +9,7 @@ import {
   Toolbar,
   Typography
 } from '@mui/material';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -63,17 +64,30 @@ const Header: React.FC<Props> = ({
           width: { xs: '100%', sm: 'auto' } 
         } }>
           <Link href={ ROOT } passHref>
-            <Typography
-              variant="h6"
-              noWrap
-              sx={ {
-                color: (theme) => theme.palette.common.white,
-                cursor: 'pointer',
-                textDecoration: 'none'
-              } }
-            >
-              { APP_NAME }
-            </Typography>
+            <Box sx={ {
+              alignItems: 'center',
+              cursor: 'pointer',
+              display: 'flex' 
+            } }>
+              <Image
+                alt="App's logo"
+                height="48px"
+                src="/favicon/maskable_icon_x48.png"
+                width="48px"
+              />
+
+              <Typography
+                variant="h6"
+                noWrap
+                sx={ {
+                  color: (theme) => theme.palette.common.white,
+                  display: 'inline-block',
+                  textDecoration: 'none'
+                } }
+              >
+                { APP_NAME }
+              </Typography>
+            </Box>
           </Link>
         </Box>
 

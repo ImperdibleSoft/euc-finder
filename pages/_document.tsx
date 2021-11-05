@@ -46,6 +46,7 @@ class MyDocument extends Document {
           <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
           
           <link rel="manifest" href="/manifest.json" />
+          <link rel="shortcut icon" href="/favicon/maskable_icon_x512.png" />
           <meta name="theme-color" content="#2b2d42" />
           <script
             async
