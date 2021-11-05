@@ -72,7 +72,7 @@ const Header: React.FC<Props> = ({
               <Image
                 alt="App's logo"
                 height="48px"
-                src="/favicon/maskable_icon_x48.png"
+                src="/logos/eucfinder-dark.png"
                 width="48px"
               />
 

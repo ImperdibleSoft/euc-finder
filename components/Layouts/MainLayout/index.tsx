@@ -19,7 +19,6 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
     <Box
       sx={ {
         bgcolor: (theme) => theme.palette.background.default,
-        // '#ebedf0',
         display: 'flex',
         minHeight: '100vh'
       } }
@@ -45,7 +44,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
       >
         <Toolbar sx={ {
           boxSizing: 'content-box',
-          py: { xs: 2, sm: 0 }
+          py: { xs: 3, sm: 0 }
         } } />
 
         { children }
