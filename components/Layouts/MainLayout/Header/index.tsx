@@ -92,11 +92,11 @@ const Header: React.FC<Props> = ({
         </Box>
 
         <Box sx={ {
-          alignItems: { sx: 'center', sm: 'flex-end' },
+          alignItems: { xs: 'center', sm: 'flex-end' },
           display: 'flex',
           flex: { xs: 1, sm: 0 },
           flexDirection: 'row',
-          justifyContent: 'center',
+          justifyContent: { xs: 'flex-end', sm: 'center' },
           pb: { xs: 1, sm: 0 },
           width: { xs: '100%', sm: 'auto' }
         } }>
@@ -140,6 +140,7 @@ const Header: React.FC<Props> = ({
         </Box>
       </Toolbar>
     </AppBar>
-  );};
+  );
+};
 
 export default Header;
