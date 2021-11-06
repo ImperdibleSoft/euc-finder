@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { Store, StoreId } from '../../types';
 
 export const stores: Store[] = [
@@ -25,7 +26,8 @@ export const stores: Store[] = [
     meta: {
       code: 'code=eucfinder22',
       discount: 5,
-      public: true,
+      manualDiscount: true,
+      public: false,
       sponsor: false
     }
   },

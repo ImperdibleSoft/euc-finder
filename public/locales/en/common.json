@@ -24,6 +24,8 @@
   "language-label": "Language",
   "english-label": "English",
   "spanish-label": "Español",
+  "copied-msg": "Copied to clipboard.",
+  "copyError-msg": "There was an error. Please, copy the code manually.",
 
   "defaultDescription-msg": "We will add a small description about this EUC soon.",
   "noWheel-msg": "We don't have this EUC in our database.",
@@ -65,6 +67,12 @@
   "descending-label": "Descending",
   "sortBy-label": "Sort by",
   "order-label": "Order",
+
+  "confirmation-title": "You are navigating out of {{appName}}",
+  "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{externalName}}'s site.",
+  "manualDiscount-msg": "If you want to get a {{discount}}% discount, you need to manually enter this code when you are proccesing your payment:",
+  "confirmationVisit-label": "Visit",
+  "confirmationStay-label": "Stay here",
 
   "settings-title": "Settings",
   "measureUnits-title": "Measure units",

@@ -27,6 +27,7 @@ export interface Store {
   meta: {
     code?: string;
     discount?: number;
+    manualDiscount?: boolean
     public?: boolean;
     sponsor?: boolean;
   }

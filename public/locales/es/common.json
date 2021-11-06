@@ -24,6 +24,8 @@
   "language-label": "Idioma",
   "english-label": "English",
   "spanish-label": "Español",
+  "copied-msg": "Copiado al portapapeles.",
+  "copyError-msg": "Hubo un error. Por favor, copia el código manualmente.",
 
   "defaultDescription-msg": "En breve añadiremos una pequeña descripción sobre esta rueda.",
   "noWheel-msg": "No tenemos esa rueda en nuestra base de datos.",
@@ -65,6 +67,12 @@
   "descending-label": "Descendente",
   "sortBy-label": "Ordenar por",
   "order-label": "Órden",
+
+  "confirmation-title": "Vas a abandonar {{appName}}",
+  "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{externalName}}.",
+  "manualDiscount-msg": "Si quieres obtener un {{discount}}% de descuento, tienes que introducir este código manualmente, cuando estés procesando tu pedido:",
+  "confirmationVisit-label": "Visitar",
+  "confirmationStay-label": "Quedarme aquí",
 
   "settings-title": "Opciones",
   "measureUnits-title": "Unidades de medida",
