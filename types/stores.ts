@@ -6,29 +6,28 @@ export enum StoreId {
   inmotionFrance = 'inmotionFrance',
   euco = 'euco',
   myewheel = 'myewheel',
-  ewheels = 'ewheels'
-  // madridrueda = 'madridrueda',
-  // rodandoEs = 'rodando.es',
-  // solorueda = 'solorueda',
-  // green220 = 'green220',
-  // eptv = 'eptv',
-  // monociclosCom = 'monociclos.com',
-  // gpsmodus = 'gpsmodus',
-  // imoveblue = 'imoveblue',
+  ewheels = 'ewheels',
+  madridrueda = 'madridrueda',
+  rodandoEs = 'rodando.es',
+  solorueda = 'solorueda',
+  green220 = 'green220',
+  eptv = 'eptv',
+  monociclosCom = 'monociclos.com',
+  gpsmodus = 'gpsmodus',
+  imoveblue = 'imoveblue',
 } 
 
 export interface Store {
-  id: StoreId,
-  name: string
-  region: Region
-  website: string
-  color: string
-  logo: string
-  sponsor?: boolean
+  id: StoreId;
+  name: string;
+  region: Region;
+  website: string;
+  color: string;
+  logo: string;
+  meta: {
+    code?: string;
+    discount?: number;
+    public?: boolean;
+    sponsor?: boolean;
+  }
 }
-
-export type Stores = Record<StoreId, Store>
-
-export type StoreDiscount = Record<StoreId, number>
-
-export type StoreCode = Record<StoreId, string>

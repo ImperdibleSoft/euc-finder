@@ -1,34 +1,31 @@
 import { showPurchaseLinks } from './features';
-import { storeCode, storeDiscounts } from '../context/data';
-import { PurchaseLink, Region, StoreId, Stores } from '../types';
+import { PurchaseLink, Region, Store, StoreId } from '../types';
+import { stores } from '../context/data';
 
 interface GetStoreOptions {
-  stores: Stores
+  stores: Store[]
   region: Region
   url: string
   sponsored?: boolean
 }
 
-const getStoreDiscount = (storeId: StoreId) => storeDiscounts[storeId];
+const getStoreDiscount = (storeId: StoreId) => stores.find(s => s.id === storeId)?.meta.discount ?? 0;
 
-const getStoreCode = (storeId: StoreId) => storeCode[storeId];
+const getStoreCode = (storeId: StoreId) => stores.find(s => s.id === storeId)?.meta?.code ?? '';
 
-const getStoreFromUrl = ({ region, stores, url, sponsored }: GetStoreOptions) =>
-  Object
-    .values(stores)
-    .find(({ region: storeRegion, sponsor, website }) => (
-      region === storeRegion
+const getStoreFromUrl = ({ region, stores: storesData, url, sponsored }: GetStoreOptions) =>
+  storesData.find(({ meta, region: storeRegion, website }) => (
+    region === storeRegion
       && website
       && url.includes(website)
-      && ((sponsored && sponsor) || (!sponsored && !sponsor))
-    ));
+      && ((sponsored && meta.sponsor) || (!sponsored && !meta.sponsor))
+  ));
 
-export const getPurchaseLink = (options: GetStoreOptions): PurchaseLink | undefined => {
-  if (!showPurchaseLinks()) {
-    return undefined;
-  }
-
-  const store = getStoreFromUrl(options);
+export const getPurchaseLink = ({ stores: storesData, ...options }: GetStoreOptions): PurchaseLink | undefined => {
+  const store = getStoreFromUrl({
+    stores: storesData.filter(s => s.meta.public || showPurchaseLinks()),
+    ...options
+  });
 
   if (!store) {
     return undefined;

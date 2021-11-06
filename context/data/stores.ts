@@ -1,143 +1,200 @@
-import { StoreCode, StoreDiscount, StoreId, Stores } from '../../types';
+import { Store, StoreId } from '../../types';
 
-export const stores: Stores = {
-  [StoreId.ciclonic]: {
-    color: '#0075ff',
+export const stores: Store[] = [
+  {
     id: StoreId.ciclonic,
-    logo: '/logos/ciclonic.png',
     name: 'Ciclonic',
+    website: 'ciclonic.es',
     region: 'eu',
-    sponsor: true,
-    website: 'ciclonic.es'
+    logo: '/logos/ciclonic.png',
+    color: '#0075ff',
+    meta: {
+      code: 'code=eucfinder',
+      discount: 5,
+      public: false,
+      sponsor: true
+    }
   },
-  [StoreId.urban360]: {
-    color: '#76c043',
+  {
     id: StoreId.urban360,
-    logo: '/logos/urban360.png',
     name: 'Urban 360',
+    website: 'https://store.urban360.es',
     region: 'eu',
-    website: 'https://store.urban360.es'
+    logo: '/logos/urban360.png',
+    color: '#76c043',
+    meta: {
+      code: 'code=eucfinder22',
+      discount: 5,
+      public: true,
+      sponsor: false
+    }
   },
-  [StoreId.inmotionFrance]: {
-    color: '#ee7203',
+  {
     id: StoreId.inmotionFrance,
-    logo: '/logos/inmotionFrance.png',
     name: 'Inmotion France',
+    website: 'https://www.inmotion-france.fr',
     region: 'eu',
-    website: 'https://www.inmotion-france.fr'
+    logo: '/logos/inmotionFrance.png',
+    color: '#ee7203',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
   },
-  [StoreId.euco]: {
-    color: '#01b7fd',
+  {
     id: StoreId.euco,
-    logo: '/logos/euco.png',
     name: 'EUCO',
+    website: 'https://www.euco.us/',
     region: 'us',
-    website: 'https://www.euco.us/'
+    logo: '/logos/euco.png',
+    color: '#01b7fd',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
   },
-  [StoreId.myewheel]: {
-    color: '#34c1f0',
+  {
     id: StoreId.myewheel,
-    logo: '/logos/myewheel.png',
     name: 'My EWheel',
+    website: 'https://myewheel.com',
     region: 'eu',
-    website: 'https://myewheel.com'
+    logo: '/logos/myewheel.png',
+    color: '#34c1f0',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
   },
-  [StoreId.ewheels]: {
-    color: '#b73225',
+  {
     id: StoreId.ewheels,
-    logo: '/logos/ewheels.png',
     name: 'eWheels',
+    website: 'https://www.ewheels.com/',
     region: 'us',
-    website: 'https://www.ewheels.com/'
+    logo: '/logos/ewheels.png',
+    color: '#b73225',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.madridrueda,
+    name: 'Madrid Rueda',
+    website: 'madridrueda.es',
+    region: 'eu',
+    logo: '',
+    color: '',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.rodandoEs,
+    name: 'Rodando.es',
+    website: 'https://rodando.es',
+    region: 'eu',
+    logo: '',
+    color: '',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.solorueda,
+    name: 'Solo Rueda',
+    website: 'https://solorueda.com',
+    region: 'eu',
+    logo: '',
+    color: '',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.green220,
+    name: 'Green 220',
+    website: 'https://www.green220.com',
+    region: 'eu',
+    logo: '',
+    color: '',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.eptv,
+    name: 'EPTV',
+    website: 'https://eptv.es',
+    region: 'eu',
+    logo: '',
+    color: '',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.monociclosCom,
+    name: 'Monociclos.com',
+    website: 'https://tienda.monociclos.com',
+    region: 'eu',
+    logo: '',
+    color: '',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.gpsmodus,
+    name: 'GPS Modus',
+    website: 'https://www.gpsmodus.com/',
+    region: 'us',
+    logo: '',
+    color: '',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.imoveblue,
+    name: 'iMove Blue',
+    website: 'https://www.imoveblue.es/',
+    region: 'eu',
+    logo: '',
+    color: '',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
   }
-  // [StoreId.madridrueda]: {
-  //   color: '',
-  //   id: StoreId.madridrueda,
-  //   name: 'Madrid Rueda',
-  //   region: 'eu',
-  //   website: 'madridrueda.es'
-  // },
-  // [StoreId.rodandoEs]: {
-  //   color: '',
-  //   id: StoreId.rodandoEs,
-  //   name: 'Rodando.es',
-  //   region: 'eu',
-  //   website: 'https://rodando.es'
-  // },
-  // [StoreId.solorueda]: {
-  //   color: '',
-  //   id: StoreId.solorueda,
-  //   name: 'Solo Rueda',
-  //   region: 'eu',
-  //   website: 'https://solorueda.com'
-  // },
-  // [StoreId.green220]: {
-  //   color: '',
-  //   id: StoreId.green220,
-  //   name: 'Green 220',
-  //   region: 'eu',
-  //   website: 'https://www.green220.com'
-  // },
-  // [StoreId.eptv]: {
-  //   color: '',
-  //   id: StoreId.eptv,
-  //   name: 'EPTV',
-  //   region: 'eu',
-  //   website: 'https://eptv.es'
-  // },
-  // [StoreId.monociclosCom]: {
-  //   color: '',
-  //   id: StoreId.monociclosCom,
-  //   name: 'Monociclos.com',
-  //   region: 'eu',
-  //   website: 'https://tienda.monociclos.com'
-  // },
-  // [StoreId.gpsmodus]: {
-  //   color: '',
-  //   id: StoreId.gpsmodus,
-  //   name: 'GPS Modus',
-  //   region: 'us',
-  //   website: 'https://www.gpsmodus.com/'
-  // },
-  // [StoreId.imoveblue]: {
-  //   color: '',
-  //   id: StoreId.imoveblue,
-  //   name: 'iMove Blue',
-  //   region: 'eu',
-  //   website: 'https://www.imoveblue.es/'
-  // },
-};
-
-export const storeDiscounts: StoreDiscount = {
-  [StoreId.ciclonic]: 5,
-  [StoreId.urban360]: 0,
-  [StoreId.inmotionFrance]: 0,
-  [StoreId.euco]: 0,
-  [StoreId.myewheel]: 0,
-  [StoreId.ewheels]: 0
-  // [StoreId.madridrueda]: 0,
-  // [StoreId.rodandoEs]: 0,
-  // [StoreId.solorueda]: 0,
-  // [StoreId.green220]: 0,
-  // [StoreId.eptv]: 0,
-  // [StoreId.monociclosCom]: 0,
-  // [StoreId.gpsmodus]: 0,
-  // [StoreId.imoveblue]: 0,
-};
-
-export const storeCode: StoreCode = {
-  [StoreId.ciclonic]: 'code=EUCFinder',
-  [StoreId.urban360]: '',
-  [StoreId.inmotionFrance]: '',
-  [StoreId.euco]: '',
-  [StoreId.myewheel]: '',
-  [StoreId.ewheels]: ''
-  // [StoreId.madridrueda]: '',
-  // [StoreId.rodandoEs]: '',
-  // [StoreId.solorueda]: '',
-  // [StoreId.green220]: '',
-  // [StoreId.eptv]: '',
-  // [StoreId.monociclosCom]: '',
-  // [StoreId.gpsmodus]: '',
-  // [StoreId.imoveblue]: '',
-};
+];

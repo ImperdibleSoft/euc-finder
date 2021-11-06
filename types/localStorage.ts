@@ -9,5 +9,6 @@ export enum LOCAL_STORAGE_KEY {
   REGION = 'preference_region',
   LANGUAGE = 'i18nextLng',
   SHOW_PRICE = 'showPrice',
-  SHOW_PURCHASE_LINKS = 'showPurchaseLinks'
+  SHOW_PURCHASE_LINKS = 'showPurchaseLinks',
+  THEME = 'theme'
 }

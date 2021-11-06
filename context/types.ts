@@ -5,7 +5,7 @@ import {
   RangeUnits,
   Region,
   SpeedUnits,
-  Stores,
+  Store,
   WeightUnits,
   Wheel,
   WheelFilters,
@@ -30,7 +30,7 @@ export interface ArenaContextState {
   purchaseLinks: WheelPurchaseLinks;
   region: Region;
   sorting: WheelSorting;
-  stores: Stores;
+  stores: Store[];
   wheels: Wheel[];
 }
 
