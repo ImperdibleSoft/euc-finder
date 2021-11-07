@@ -18,9 +18,16 @@ export const ciclonicHttp = createInstance({
   }
 });
 
+export const eucoHttp = createInstance({
+  headers: {
+    Origin: 'https://www.euco.us/',
+    Referer: 'https://www.euco.us/'
+  }
+});
+
 export const inmotionFranceHttp = createInstance({
   headers: {
-    Origin: 'https://www.inmotion-france.fr',
+    Origin: 'https://www.inmotion-france.fr/',
     Referer: 'https://www.inmotion-france.fr/'
   }
 });

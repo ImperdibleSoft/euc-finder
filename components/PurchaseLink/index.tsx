@@ -1,6 +1,7 @@
 import { Box, Button, Card, CardMedia, Icon, Typography } from '@mui/material';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useArenaContext } from '../../context';
 import { useConfirmationModal, useWheelPrice, useWheelPriceStyles } from '../../hooks';
 import { Store } from '../../types';
 import { currency, isDarkTheme } from '../../utils';
@@ -15,6 +16,7 @@ interface Props {
 
 // eslint-disable-next-line max-lines-per-function
 const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url, store }) => {
+  const { region } = useArenaContext();
   const { t } = useTranslation();
   const dark = isDarkTheme();
   const { loadingState, price: rawPrice } = useWheelPrice(store.id, url, expensive);
@@ -24,14 +26,14 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
       return [];
     }
 
-    const p = currency(rawPrice);
+    const p = currency(rawPrice, region);
     if (!discount) {
       return [p];
     }
 
     const dp = rawPrice - (rawPrice * discount / 100);
-    return [p, currency(dp)];
-  }, [discount, rawPrice]);
+    return [p, currency(dp, region)];
+  }, [discount, rawPrice, region]);
 
   const mainStyles = useWheelPriceStyles(true, large);
   const secondaryStyles = useWheelPriceStyles(false, large);

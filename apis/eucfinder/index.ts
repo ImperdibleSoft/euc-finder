@@ -10,6 +10,15 @@ const getCiclonicPrice = async (url: string, expensive: boolean): Promise<number
   }
 };
 
+const getEucoPrice = async (url: string): Promise<number | '-' | undefined> => {
+  try {
+    const response = await http.get(`/api/euco/${ encodeURIComponent(url) }`);
+    return response.data as ('-' | undefined);
+  } catch {
+    return undefined;
+  }
+};
+
 const getInmotionFrancePrice = async (url: string): Promise<number | undefined> => {
   try {
     const response = await http.get(`/api/inmotionFrance/${ encodeURIComponent(url) }`);
@@ -28,7 +37,7 @@ const getMyEWheelPrice = async (url: string): Promise<number | '-' | undefined> 
   }
 };
 
-const getUrban360Price = async (url: string, expensive: boolean): Promise<number | undefined> => {
+const getUrban360Price = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
   try {
     const expensiveParam = expensive ? '?expensive=true' : '';
     const response = await http.get(`/api/urban360/${ encodeURIComponent(url) }${ expensiveParam }`);
@@ -40,6 +49,7 @@ const getUrban360Price = async (url: string, expensive: boolean): Promise<number
 
 const eucFinderApi = {
   getCiclonicPrice,
+  getEucoPrice,
   getInmotionFrancePrice,
   getMyEWheelPrice,
   getUrban360Price

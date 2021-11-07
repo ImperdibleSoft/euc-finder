@@ -8,6 +8,9 @@ const getApiRequest = (store: StoreId) => {
     case StoreId.ciclonic:
       return eucFinderApi.getCiclonicPrice;
 
+    case StoreId.euco:
+      return eucFinderApi.getEucoPrice;
+
       // case StoreId.inmotionFrance:
       //   return eucFinderApi.getInmotionFrancePrice;
 

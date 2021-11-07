@@ -11,6 +11,7 @@ import {
   Kickstand,
   Lumens,
   RangeUnits,
+  Region,
   SoundSystem,
   SpeedUnits,
   Suspension,
@@ -28,9 +29,15 @@ import {
 } from './conversions';
 import { getEstimatedMaxRange, getEstimatedMinRange, toDecimals } from './range';
 
-export const currency = (value: number): string => {
+export const currency = (value: number, region: Region): string => {
   if (value) {
-    return `${ toDecimals(value, 2) } €`;
+    switch (region) {
+      case 'us':
+        return `US$ ${ toDecimals(value, 2) }`;
+
+      default:
+        return `${ toDecimals(value, 2) } €`;
+    }
   }
 
   return '-';
