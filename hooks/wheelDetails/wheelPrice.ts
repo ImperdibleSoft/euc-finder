@@ -31,21 +31,21 @@ const getApiRequest = (store: StoreId) => {
 export const useWheelPrice = (store: StoreId, url: string, expensive: boolean) => {
   const [price, setPrice] = useState<number | '-'>();
   const [loadingState, setLoadingState] = useState<LoadingState>('idle');
-  const request = getApiRequest(store);
+  
+  const getPrice = async (s: StoreId, u: string, e: boolean) => {
+    const request = getApiRequest(s);
 
-  const getPrice = async () => {
     if (request) {
       setLoadingState('loading');
-      const p = await request(url, expensive);
+      const p = await request(u, e);
       setPrice(p);
       setLoadingState('success');
     }
   };
 
   useEffect(() => {
-    getPrice();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    getPrice(store, url, expensive);
+  }, [store, url, expensive]);
 
   return { loadingState, price };
 };

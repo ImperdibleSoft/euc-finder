@@ -25,6 +25,13 @@ export const eucoHttp = createInstance({
   }
 });
 
+export const ewheelsHttp = createInstance({
+  headers: {
+    Origin: 'https://www.ewheels.com/',
+    Referer: 'https://www.ewheels.com/'
+  }
+});
+
 export const inmotionFranceHttp = createInstance({
   headers: {
     Origin: 'https://www.inmotion-france.fr/',
