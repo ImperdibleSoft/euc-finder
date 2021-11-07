@@ -31,20 +31,20 @@ export const stores: Store[] = [
       sponsor: false
     }
   },
-  {
-    id: StoreId.inmotionFrance,
-    name: 'Inmotion France',
-    website: 'https://www.inmotion-france.fr',
-    region: 'eu',
-    logo: '/logos/inmotionFrance.png',
-    color: '#ee7203',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
+  // {
+  //   id: StoreId.inmotionFrance,
+  //   name: 'Inmotion France',
+  //   website: 'https://www.inmotion-france.fr',
+  //   region: 'eu',
+  //   logo: '/logos/inmotionFrance.png',
+  //   color: '#ee7203',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
   {
     id: StoreId.euco,
     name: 'EUCO',
@@ -86,117 +86,117 @@ export const stores: Store[] = [
       public: false,
       sponsor: false
     }
-  },
-  {
-    id: StoreId.madridrueda,
-    name: 'Madrid Rueda',
-    website: 'madridrueda.es',
-    region: 'eu',
-    logo: '',
-    color: '',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.rodandoEs,
-    name: 'Rodando.es',
-    website: 'https://rodando.es',
-    region: 'eu',
-    logo: '',
-    color: '',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.solorueda,
-    name: 'Solo Rueda',
-    website: 'https://solorueda.com',
-    region: 'eu',
-    logo: '',
-    color: '',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.green220,
-    name: 'Green 220',
-    website: 'https://www.green220.com',
-    region: 'eu',
-    logo: '',
-    color: '',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.eptv,
-    name: 'EPTV',
-    website: 'https://eptv.es',
-    region: 'eu',
-    logo: '',
-    color: '',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.monociclosCom,
-    name: 'Monociclos.com',
-    website: 'https://tienda.monociclos.com',
-    region: 'eu',
-    logo: '',
-    color: '',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.gpsmodus,
-    name: 'GPS Modus',
-    website: 'https://www.gpsmodus.com/',
-    region: 'us',
-    logo: '',
-    color: '',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.imoveblue,
-    name: 'iMove Blue',
-    website: 'https://www.imoveblue.es/',
-    region: 'eu',
-    logo: '',
-    color: '',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
   }
+  // {
+  //   id: StoreId.madridrueda,
+  //   name: 'Madrid Rueda',
+  //   website: 'madridrueda.es',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.rodandoEs,
+  //   name: 'Rodando.es',
+  //   website: 'https://rodando.es',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.solorueda,
+  //   name: 'Solo Rueda',
+  //   website: 'https://solorueda.com',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.green220,
+  //   name: 'Green 220',
+  //   website: 'https://www.green220.com',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.eptv,
+  //   name: 'EPTV',
+  //   website: 'https://eptv.es',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.monociclosCom,
+  //   name: 'Monociclos.com',
+  //   website: 'https://tienda.monociclos.com',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.gpsmodus,
+  //   name: 'GPS Modus',
+  //   website: 'https://www.gpsmodus.com/',
+  //   region: 'us',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.imoveblue,
+  //   name: 'iMove Blue',
+  //   website: 'https://www.imoveblue.es/',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // }
 ];
