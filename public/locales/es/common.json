@@ -69,10 +69,12 @@
   "order-label": "Órden",
 
   "confirmation-title": "Vas a abandonar {{appName}}",
-  "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{externalName}}.",
+  "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{storeName}}.",
   "manualDiscount-msg": "Si quieres obtener un {{discount}}% de descuento, tienes que introducir este código manualmente, cuando estés procesando tu pedido:",
   "confirmationVisit-label": "Visitar",
   "confirmationStay-label": "Quedarme aquí",
+  "soldOut-msg": "¡Agotado!",
+  "loadingPrice-msg": "Buscando el precio de {{storeName}}",
 
   "settings-title": "Opciones",
   "measureUnits-title": "Unidades de medida",

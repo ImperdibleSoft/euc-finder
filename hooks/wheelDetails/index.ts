@@ -4,6 +4,9 @@ import { useArenaContext } from '../../context';
 import { PurchaseLink, Wheel, WheelId } from '../../types';
 import { formatWheelName, getPurchaseLink, showPrice } from '../../utils';
 
+export * from './confirmationModal';
+export * from './wheelPrice';
+
 export const useEucDetail = (id: string) => {
   const { brands, pictures: wheelPictures, wheels } = useArenaContext();
   const wheel = wheels.find(w => w.id === id);

@@ -67,6 +67,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/'
   ],
   [WheelId.hero]: [
+    'https://ciclonic.es/productos/monociclos/monociclos-gotway/reserva-begode-hero/',
     'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
     'https://www.ewheels.com/product/begode-hero-100-deposit/'
   ],
@@ -193,12 +194,13 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
   [WheelId.v11]: [
     'https://ciclonic.es/productos/inmotion/monociclos-inmotion/inmotion-v11/',
     'https://store.urban360.es/product/sample-product/inmotion-v11/',
-    'https://www.inmotion-france.fr/v11',
+    'https://www.inmotion-france.fr/es/monociclo-electrico/330-monociclo-electrico-inmotion-v11-3760243826825.html',
     'https://www.euco.us/products/inmotion-v11-electric-unicycle',
     'https://myewheel.com/inmotion-v11/',
     'https://www.ewheels.com/product/inmotion-v11-1420wh-battery-2000w-motor-pedal-suspension/'
   ],
   [WheelId.v12]: [
+    'https://ciclonic.es/productos/inmotion/monociclos-inmotion/inmotion-v12/',
     'https://store.urban360.es/product/sample-product/nuevo-inmotion-v12/',
     'https://www.inmotion-france.fr/v12',
     'https://www.euco.us/products/inmotion-v12-electric-unicycle',

@@ -7,7 +7,7 @@ export type { ListItem } from '../types';
 const HighlightedList: React.FC<ListProps> = ({ items }) => (
   <Grid container spacing={ 2 }>
     { items.map(({ icon, iconProps, primary, secondary }) => (
-      <Grid key={ `${ primary }-${ secondary }-${ icon }` } item xs={ 12 } md={ 6 } lg={ 3 }>
+      <Grid key={ `${ primary }-${ secondary }-${ icon }` } item xs={ 12 } sm={ 6 } md={ 4 } lg={ 3 } >
         <Card>
           <List>
             <MaterialListItem>

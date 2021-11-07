@@ -5,11 +5,12 @@ import { PurchaseLink } from '../../types';
 import PurchaseLinkComponent from '../PurchaseLink';
 
 interface Props {
+  expensive: boolean;
   items: PurchaseLink[]
   large?: boolean
 }
 
-const EucDetailPurchaseLinks: React.FC<Props> = ({ items, large }) => {
+const EucDetailPurchaseLinks: React.FC<Props> = ({ expensive, items, large }) => {
   const { t } = useTranslation();
 
   if (!items.length) {
@@ -35,6 +36,7 @@ const EucDetailPurchaseLinks: React.FC<Props> = ({ items, large }) => {
           >
             <PurchaseLinkComponent
               discount={ discount }
+              expensive={ expensive }
               large={ large  }
               store={ store }
               url={ url }

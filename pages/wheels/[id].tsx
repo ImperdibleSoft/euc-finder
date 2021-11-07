@@ -15,12 +15,14 @@ import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { brands, wheels } from '../../context/data';
 import { useEucDetail, useEucDetailHandlers, useEucDetailInformationGroups, useEucPurchaseLinks } from '../../hooks';
+import { WheelId } from '../../types';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const EucDetail: React.FC = () => {
   const router = useRouter();
   const id = router.query.id as string;
   const { t } = useTranslation();
+  const expensive = (id !== WheelId.ks16xs);
 
   const { name, pictures, wheel } = useEucDetail(id);
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
@@ -59,7 +61,7 @@ const EucDetail: React.FC = () => {
 
             <EucSpecsHighlighted specs={ highlightedSpecs } wheel={ wheel } />
 
-            <EucDetailPurchaseLinks items={ sponsoredLinks } large />
+            <EucDetailPurchaseLinks expensive={ expensive } items={ sponsoredLinks } large />
 
             <Grid container spacing={ 2 }>
               <EucSpecsMain specs={ mainSpecs } wheel={ wheel } />
@@ -74,7 +76,7 @@ const EucDetail: React.FC = () => {
 
               <EucSpecsAdditional specs={ additionalSpecs } wheel={ wheel } />
 
-              <EucAdditionalPurchaseLinks items={ regularLinks } />
+              <EucAdditionalPurchaseLinks expensive={ expensive } items={ regularLinks } />
             </Grid>
           </>
         ) }

@@ -5,10 +5,11 @@ import { PurchaseLink } from '../../types';
 import EucDetailPurchaseLinks from '../EucDetailPurchaseLinks';
 
 interface Props {
+  expensive: boolean;
   items: PurchaseLink[]
 }
 
-const EucAdditionalPurchaseLinks: React.FC<Props> = ({ items }) => {
+const EucAdditionalPurchaseLinks: React.FC<Props> = ({ expensive, items }) => {
   const { t } = useTranslation();
 
   if (items.length <= 0) {
@@ -21,7 +22,7 @@ const EucAdditionalPurchaseLinks: React.FC<Props> = ({ items }) => {
         { t('otherStores-title') }
       </Typography>
 
-      <EucDetailPurchaseLinks items={ items } />
+      <EucDetailPurchaseLinks expensive={ expensive } items={ items } />
     </Grid>
   );
 };
