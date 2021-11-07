@@ -5,6 +5,7 @@ export * from './conversions';
 export * from './features';
 export * from './filtering';
 export * from './formatters';
+export * from './http';
 export * from './localStorage';
 export * from './range';
 export * from './sorting';
