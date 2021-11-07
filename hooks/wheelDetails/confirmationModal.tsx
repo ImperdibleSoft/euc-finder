@@ -15,7 +15,7 @@ interface Props {
   callback: () => void
   code?: string
   discount?: number;
-  externalName: string
+  storeName: string
 }
 
 /**
@@ -26,7 +26,7 @@ interface Props {
  * Also, displays a discount code, in case it needs to be manually
  * applied
  */
-export const useConfirmationModal = ({ callback, code, discount, externalName }: Props) => {
+export const useConfirmationModal = ({ callback, code, discount, storeName }: Props) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
@@ -56,7 +56,7 @@ export const useConfirmationModal = ({ callback, code, discount, externalName }:
 
         <DialogContent>
           <DialogContentText sx={ { mb: 2 } }>
-            { t('confirmation-msg', { appName: APP_NAME, externalName }) }
+            { t('confirmation-msg', { appName: APP_NAME, storeName }) }
           </DialogContentText>
 
           { !!(code && discount) && (

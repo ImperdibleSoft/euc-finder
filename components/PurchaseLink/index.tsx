@@ -49,7 +49,7 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
 
   const { handleOpen, render } = useConfirmationModal({
     callback: navigate,
-    externalName: store.name,
+    storeName: store.name,
     ...discountProps
   });
 
@@ -93,7 +93,7 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
 
         { loadingState === 'loading' && (
           <Typography variant="body1" component="span" sx={ { mb: 2 } }>
-            { t('loadingPrice-msg') }
+            { t('loadingPrice-msg', { storeName: store.name }) }
           </Typography>
         ) }
 

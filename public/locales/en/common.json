@@ -69,11 +69,12 @@
   "order-label": "Order",
 
   "confirmation-title": "You are navigating out of {{appName}}",
-  "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{externalName}}'s site.",
+  "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{storeName}}'s site.",
   "manualDiscount-msg": "If you want to get a {{discount}}% discount, you need to manually enter this code when you are proccesing your payment:",
   "confirmationVisit-label": "Visit",
   "confirmationStay-label": "Stay here",
   "soldOut-msg": "Sold out!",
+  "loadingPrice-msg": "Looking for {{storeName}}'s price",
 
   "settings-title": "Settings",
   "measureUnits-title": "Measure units",
