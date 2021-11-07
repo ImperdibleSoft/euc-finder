@@ -73,6 +73,7 @@
   "manualDiscount-msg": "If you want to get a {{discount}}% discount, you need to manually enter this code when you are proccesing your payment:",
   "confirmationVisit-label": "Visit",
   "confirmationStay-label": "Stay here",
+  "soldOut-msg": "Sold out!",
 
   "settings-title": "Settings",
   "measureUnits-title": "Measure units",
