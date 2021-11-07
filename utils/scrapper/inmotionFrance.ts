@@ -12,6 +12,8 @@ export const parseInmotionFrancePrice = (html: string): number | undefined => {
     /** Final price when released */
 
     /** Sale price */
+    
+    /** Expensive version price */
   
     /** Regular price */
     const [

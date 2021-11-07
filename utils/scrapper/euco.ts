@@ -8,13 +8,12 @@ export const parseEucoPrice = (html: string): number | '-' | undefined => {
     const { document } = dom.window;
 
     /** Sold out. Out of stock */
-    // eslint-disable-next-line max-len
     const soldOutElem = document.querySelector('.price--sold-out');
     if (soldOutElem) {
       return '-';
     }
 
-    // /** Final price when released */
+    /** Final price when released */
     const [
       finalPriceElement
     // eslint-disable-next-line max-len
@@ -39,6 +38,8 @@ export const parseEucoPrice = (html: string): number | '-' | undefined => {
         return Number(salePrice);
       }
     }
+    
+    /** Expensive version price */
 
     /** Regular version price */
     const cheapPriceElement = document.querySelector('.price__pricing-group > .price__regular .price-item--regular');

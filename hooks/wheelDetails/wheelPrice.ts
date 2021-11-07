@@ -11,6 +11,9 @@ const getApiRequest = (store: StoreId) => {
     case StoreId.euco:
       return eucFinderApi.getEucoPrice;
 
+    case StoreId.ewheels:
+      return eucFinderApi.getEwheelsPrice;
+
       // case StoreId.inmotionFrance:
       //   return eucFinderApi.getInmotionFrancePrice;
 
