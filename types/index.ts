@@ -32,3 +32,5 @@ export interface PurchaseLink {
   store: Store
   url: string
 }
+
+export type LoadingState = 'idle' | 'loading' | 'success' | 'error'

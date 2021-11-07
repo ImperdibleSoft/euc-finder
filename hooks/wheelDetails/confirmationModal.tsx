@@ -8,8 +8,8 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import TextToCopy from '../components/TextToCopy';
-import { APP_NAME } from '../constants';
+import TextToCopy from '../../components/TextToCopy';
+import { APP_NAME } from '../../constants';
 
 interface Props {
   callback: () => void
