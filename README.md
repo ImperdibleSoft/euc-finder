@@ -24,13 +24,14 @@ These stores are big/important enought to implement them proactively.
 
 - EUC Sale (EU)
 - AlienRides (US)
-- SmartWheel (US)
-- gpsmodus (US)
 
 ### Future ideas
 
 These stores could be implemented in the future, when all main stores have been already implemented.
 
+- SmartWheel (US)
+- gpsmodus (US)
+- Eevee's (US), convert from C$ to US$
 - Free Motion Shop (US), convert from C$ to US$
 - inmotionFrance (EU), FR
 - green220 (EU), ES
