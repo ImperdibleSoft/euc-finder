@@ -315,7 +315,7 @@ export const color = (
       }
     }
 
-    return value.map((c) => color(c)).join(', ');
+    return value.map((c) => color(c, t)).join(', ');
   }
 
   return '-';
