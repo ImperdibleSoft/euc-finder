@@ -3,6 +3,7 @@ import React, { PropsWithChildren } from 'react';
 import { useArenaContext } from '../../../context';
 import InfoDisclaimer from '../../InfoDisclaimer';
 import Header, { Props } from './Header';
+import Notifications from './Notifications';
 
 const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   brands,
@@ -56,6 +57,8 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
           open={ disclaimer.open }
         />
       ) }
+
+      <Notifications />
     </Box>
   );};
 
