@@ -84,10 +84,12 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
 
   // Extreme bull
   [WheelId.commanderHT]: [
+    'https://ciclonic.es/tienda/monociclos/monociclos-gotway/begode-extreme-bull-commander/',
     'https://www.euco.us/products/begode-commander-electric-unicycle',
     'https://www.ewheels.com/product/begode-commander-100-deposit/'
   ],
   [WheelId.commanderHS]: [
+    'https://ciclonic.es/tienda/monociclos/monociclos-gotway/begode-extreme-bull-commander/',
     'https://www.euco.us/products/begode-commander-electric-unicycle',
     'https://www.ewheels.com/product/begode-commander-100-deposit/'
   ],
@@ -111,7 +113,6 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
   ],
   [WheelId.ks16s]: [
     'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-16s/',
-    'https://store.urban360.es/product/sample-product/kingsong-ks16s-420wh/',
     'https://store.urban360.es/product/sample-product/kingsong-ks16s-840wh-negro-mate/',
     'https://www.euco.us/products/king-song-ks-16s-electric-unicycle',
     'https://myewheel.com/kingsong-ks-16s-840wh/',
