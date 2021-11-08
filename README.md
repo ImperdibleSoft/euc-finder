@@ -1,34 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Implemented
 
-## Getting Started
+These stores have been already processed. Their information is available in the app to display their links properly.
 
-First, run the development server:
+### Discount agreement completed
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- MyEWheel (EU)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Waiting for discount code
+- Ciclonic (EU)
+- Urban360 (EU)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Ready to initiate negotiations
+- EUCO (US)
+- EWheels (US)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+# Pending
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+These stores have not been processed yet. Need to gather purchase links, branding (id, name, logo, website, color).
 
-## Learn More
+### To be implemented
 
-To learn more about Next.js, take a look at the following resources:
+These stores are big/important enought to implement them proactively.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- EUC Sale (EU)
+- AlienRides (US)
+- SmartWheel (US)
+- gpsmodus (US)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Future ideas
 
-## Deploy on Vercel
+These stores could be implemented in the future, when all main stores have been already implemented.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Free Motion Shop (US), convert from C$ to US$
+- inmotionFrance (EU), FR
+- green220 (EU), ES
+- imoveblue (EU), ES
+- eptv (EU), ES
+- madridrueda (EU), ES
+- rodandoEs (EU), ES
+- solorueda (EU), ES
