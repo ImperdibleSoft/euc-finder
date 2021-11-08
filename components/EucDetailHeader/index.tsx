@@ -1,13 +1,18 @@
 import { CardMedia, Grid, Typography } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
+import { brands } from '../../context/data';
+import { BrandId } from '../../types';
+import BrandLogo from '../BrandLogo';
 
 interface Props {
+  brandId: BrandId
   heroImage: string
   wheelName: string
 }
 
 const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
+  brandId,
   children,
   heroImage,
   wheelName
@@ -16,12 +21,17 @@ const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
   
   return (
     <Grid container>
-      <Grid item xs={ 12 } md={ 4 }>
+      <Grid item xs={ 12 } md={ 4 } sx={ { position: 'relative' } }>
         <CardMedia
           component="img"
           height="240"
           image={ heroImage }
           alt={ t('wheelPicture-msg', { wheelName }) }
+        />
+
+        <BrandLogo
+          alt={ t('wheelPicture-msg', { wheelName: brands[brandId].name }) }
+          brandId={ brandId }
         />
       </Grid>
 

@@ -15,6 +15,7 @@ import { useArenaContext } from '../../context';
 import { useEucListInformationGroups } from '../../hooks';
 import { Wheel, WheelFeatureFormatters, WheelFeatureIcons, WheelSorting } from '../../types';
 import { formatWheelName } from '../../utils';
+import BrandLogo from '../BrandLogo';
 import IconsList from '../Lists/IconsList';
 import SmallList from '../Lists/SmallList';
 import { ListItem } from '../Lists/types';
@@ -63,12 +64,17 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
   });
 
   return (
-    <Card>
+    <Card sx={ { position: 'relative' } }>
       <CardMedia
         component="img"
         height="240"
-        image={ firstPicture ?? 'https://smartmoveperu.com/wp-content/uploads/2021/08/34-scaled.jpg' }
+        image={ firstPicture }
         alt={ t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
+      />
+
+      <BrandLogo
+        alt={ t('wheelPicture-msg', { wheelName: brands[wheel.brandId].name }) }
+        brandId={ wheel.brandId }
       />
 
       <CardContent>

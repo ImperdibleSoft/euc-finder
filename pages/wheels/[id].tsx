@@ -53,6 +53,7 @@ const EucDetail: React.FC = () => {
         { !!wheel && (
           <>
             <EucDetailHeader
+              brandId={ wheel.brandId }
               heroImage={ pictures[0] }
               wheelName={ name }
             >
