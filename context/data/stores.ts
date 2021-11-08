@@ -69,7 +69,7 @@ export const stores: Store[] = [
     logo: '/logos/distributors/myewheel.png',
     color: '#34c1f0',
     meta: {
-      code: 'code=eucfinder',
+      code: 'ref=eucfinder',
       discount: 5,
       manualDiscount: true,
       public: false,
