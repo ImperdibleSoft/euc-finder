@@ -4,13 +4,13 @@ import { WheelId, WheelPurchaseLinks } from '../../types';
 export const wheelPurchaseLinks: WheelPurchaseLinks = {
   // Begode / Gotway
   [WheelId.mten]: [
-    'https://ciclonic.es/productos/gotway/monociclos-gotway/gotway-mten3/',
+    'https://ciclonic.es/tienda/gotway/monociclos-gotway/gotway-mten3/',
     'https://www.euco.us/products/gotway-mten-electric-unicycle',
     'https://myewheel.com/gotway-mten3-512wh/',
     'https://www.ewheels.com/product/gotway-mten3-512-800w-motor/'
   ],
   [WheelId.mcm5]: [
-    'https://ciclonic.es/productos/gotway/monociclos-gotway/mcm5/',
+    'https://ciclonic.es/tienda/gotway/monociclos-gotway/mcm5/',
     'https://www.euco.us/products/gotway-mcm5-v2-electric-unicycle',
     'https://myewheel.com/gotway-mcm5/',
     'https://www.ewheels.com/product/new-gotway-mcm5-14-the-mountain-climber-800wh-battery-1500w-motor/'
@@ -22,7 +22,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/begode-tesla-v3-1500wh-battery-2000w-motor-deposit/'
   ],
   [WheelId.nikola]: [
-    'https://ciclonic.es/productos/gotway/monociclos-gotway/nikola-plus/',
+    'https://ciclonic.es/tienda/gotway/monociclos-gotway/nikola-plus/',
     'https://store.urban360.es/product/sample-product/gotway-nikola-plus-1800wh-100v/',
     'https://www.euco.us/products/gotway-nikola-electric-unicycle',
     'https://myewheel.com/gotway-nikola-plus/',
@@ -47,7 +47,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://store.urban360.es/product/sample-product/gotway-msuper-xs-1230-wh-100v-estimado-en-noviembre-2018-reservalo-ahora-por-400e-y-beneficia-de-200-e-de-descuento/'
   ],
   [WheelId.msp]: [
-    'https://ciclonic.es/productos/gotway/monociclos-gotway/m-super-pro-100v/',
+    'https://ciclonic.es/tienda/gotway/monociclos-gotway/m-super-pro-100v/',
     'https://store.urban360.es/product/sample-product/gotway-msuper-pro-100v-1800wh/',
     'https://myewheel.com/gotway-msp/'
   ],
@@ -67,12 +67,12 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/'
   ],
   [WheelId.hero]: [
-    'https://ciclonic.es/productos/monociclos/monociclos-gotway/reserva-begode-hero/',
+    'https://ciclonic.es/tienda/monociclos/monociclos-gotway/reserva-begode-hero/',
     'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
     'https://www.ewheels.com/product/begode-hero-100-deposit/'
   ],
   [WheelId.monster]: [
-    'https://ciclonic.es/productos/gotway/monociclos-gotway/gotway-monster-100v/',
+    'https://ciclonic.es/tienda/gotway/monociclos-gotway/gotway-monster-100v/',
     'https://store.urban360.es/product/sample-product/nuevo-gotway-monster-v3-100v-1854wh/',
     'https://myewheel.com/gotway-monster-v3/'
   ],
@@ -94,7 +94,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
   
   // Kingsong
   [WheelId.ks14m]: [
-    'https://ciclonic.es/productos/kingsong/monocilos-kingsong/kingsong-14m/'
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-14m/'
   ],
   [WheelId.ks14s]: [
     'https://store.urban360.es/product/sample-product/kingsong-ks14s-840wh-negro/',
@@ -102,7 +102,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/king-song-14s-840wh-battery-800w-motor/'
   ],
   [WheelId.ks14d]: [
-    'https://ciclonic.es/productos/kingsong/monocilos-kingsong/kingsong-14d/',
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-14d/',
     'https://store.urban360.es/product/sample-product/kingsong-ks14d-420wh/',
     'https://store.urban360.es/product/sample-product/kingsong-ks14d-420wh-negra/',
     'https://www.euco.us/products/king-song-ks-14d-electric-unicycle',
@@ -110,7 +110,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/new-king-song-14d-420wh-battery800w-motor/'
   ],
   [WheelId.ks16s]: [
-    'https://ciclonic.es/productos/kingsong/monocilos-kingsong/kingsong-16s/',
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-16s/',
     'https://store.urban360.es/product/sample-product/kingsong-ks16s-420wh/',
     'https://store.urban360.es/product/sample-product/kingsong-ks16s-840wh-negro-mate/',
     'https://www.euco.us/products/king-song-ks-16s-electric-unicycle',
@@ -118,12 +118,12 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/kingsong-16-electric-unicycle/'
   ],
   [WheelId.ks16xs]: [
-    'https://ciclonic.es/productos/kingsong/monocilos-kingsong/king-song-ks16x/',
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/king-song-ks16x/',
     'https://store.urban360.es/product/sample-product/king-song-ks16x-1554wh-2000w/',
     'https://www.ewheels.com/product/new-king-song-16x-1554wh-battery-2000w-motor-3-wide-tire/'
   ],
   [WheelId.ks16x]: [
-    'https://ciclonic.es/productos/kingsong/monocilos-kingsong/king-song-ks16x/',
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/king-song-ks16x/',
     'https://store.urban360.es/product/sample-product/king-song-ks16x-1554wh-2000w/',
     'https://www.euco.us/products/king-song-16x-electric-unicycle',
     'https://myewheel.com/kingsong-ks-16x/',
@@ -134,21 +134,21 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://myewheel.com/kingsong-ks-18l/'
   ],
   [WheelId.ks18xl]: [
-    'https://ciclonic.es/productos/kingsong/monocilos-kingsong/kingsong-18xl/',
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-18xl/',
     'https://store.urban360.es/product/sample-product/king-song-ks18xl/',
     'https://www.euco.us/products/king-song-18xl-electric-unicycle',
     'https://myewheel.com/kingsong-ks-18xl/',
     'https://www.ewheels.com/product/new-king-song-18xl-1554wh-battery-2000w-motor/'
   ],
   [WheelId.ksS18]: [
-    'https://ciclonic.es/productos/kingsong/monocilos-kingsong/king-song-s18/',
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/king-song-s18/',
     'https://store.urban360.es/product/sample-product/ks-s18/',
     'https://www.euco.us/products/king-song-s18-electric-unicycle',
     'https://myewheel.com/kingsong-s18/',
     'https://www.ewheels.com/product/new-king-song-s18-1110wh-battery-2200w-motor-full-body-suspension/'
   ],
   [WheelId.ksS20]: [
-    'https://ciclonic.es/productos/kingsong/monocilos-kingsong/kingsong-s20-precompra-reserva/',
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-s20-precompra-reserva/',
     'https://store.urban360.es/product/sample-product/king-song-s20-eagle/',
     'https://www.euco.us/products/king-song-s20-eagle-preorder-deposit',
     'https://myewheel.com/kingsong-s20/',
@@ -158,7 +158,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
   // Inmotion
   [WheelId.v5]: [],
   [WheelId.v5f]: [
-    'https://ciclonic.es/productos/inmotion/monociclos-inmotion/inmotion-v5f/',
+    'https://ciclonic.es/tienda/inmotion/monociclos-inmotion/inmotion-v5f/',
     'https://store.urban360.es/product/sample-product/inmotion-v5f-negro/',
     'https://www.inmotion-france.fr/v5',
     'https://www.euco.us/products/inmotion-v5f-electric-unicycle',
@@ -170,7 +170,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.euco.us/products/inmotion-v8f-electric-unicycle'
   ],
   [WheelId.v8f]: [
-    'https://ciclonic.es/productos/inmotion/monociclos-inmotion/inmotion-v8f/',
+    'https://ciclonic.es/tienda/inmotion/monociclos-inmotion/inmotion-v8f/',
     'https://store.urban360.es/product/sample-product/inmotion-v8f/',
     'https://www.inmotion-france.fr/v8',
     'https://www.euco.us/products/inmotion-v8f-electric-unicycle',
@@ -184,7 +184,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/new-inmotion-v10-v10f/'
   ],
   [WheelId.v10f]: [
-    'https://ciclonic.es/productos/inmotion/monociclos-inmotion/inmotion-v10f/',
+    'https://ciclonic.es/tienda/inmotion/monociclos-inmotion/inmotion-v10f/',
     'https://store.urban360.es/product/sample-product/v10f/',
     'https://www.inmotion-france.fr/v10',
     'https://www.euco.us/products/inmotion-v10-electric-unicycle',
@@ -192,7 +192,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/new-inmotion-v10-v10f/'
   ],
   [WheelId.v11]: [
-    'https://ciclonic.es/productos/inmotion/monociclos-inmotion/inmotion-v11/',
+    'https://ciclonic.es/tienda/inmotion/monociclos-inmotion/inmotion-v11/',
     'https://store.urban360.es/product/sample-product/inmotion-v11/',
     'https://www.inmotion-france.fr/es/monociclo-electrico/330-monociclo-electrico-inmotion-v11-3760243826825.html',
     'https://www.euco.us/products/inmotion-v11-electric-unicycle',
@@ -200,7 +200,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/inmotion-v11-1420wh-battery-2000w-motor-pedal-suspension/'
   ],
   [WheelId.v12]: [
-    'https://ciclonic.es/productos/inmotion/monociclos-inmotion/inmotion-v12/',
+    'https://ciclonic.es/tienda/inmotion/monociclos-inmotion/inmotion-v12/',
     'https://store.urban360.es/product/sample-product/nuevo-inmotion-v12/',
     'https://www.inmotion-france.fr/v12',
     'https://www.euco.us/products/inmotion-v12-electric-unicycle',
