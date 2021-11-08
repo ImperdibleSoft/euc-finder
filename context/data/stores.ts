@@ -72,7 +72,7 @@ export const stores: Store[] = [
       code: 'ref=eucfinder',
       discount: 5,
       manualDiscount: true,
-      public: false,
+      public: true,
       sponsor: false
     }
   },
