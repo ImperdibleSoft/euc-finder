@@ -3,6 +3,8 @@ import Image from 'next/image';
 import React from 'react';
 import { BrandId } from '../../types';
 
+const size = 64;
+
 interface Props {
   alt: string;
   brandId: BrandId;
@@ -10,21 +12,21 @@ interface Props {
 
 const BrandLogo: React.FC<Props> = ({ alt, brandId }) => (
   <Box
-    style={ { backgroundColor: '#fefefe66' } }
+    style={ { backgroundColor: '#dcdcdc88' } }
     sx={ {
       borderTopLeftRadius: 4,
-      height: 96,
+      height: size,
       position: 'absolute',
       right: 0,
-      top: 240 - 96,
-      width: 96
+      top: 240 - size,
+      width: size
     } }
   >
     <Image
       alt={ alt }
-      height="96px"
+      height={ `${ size }px` }
       src={ `/logos/manufacturers/${ brandId }.png` }
-      width="96px"
+      width={ `${ size }px` }
     />
   </Box>
 );
