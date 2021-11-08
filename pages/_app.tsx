@@ -62,7 +62,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER) !== 'true';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const { price, purchaseLinks } = qs.parse(global?.location?.search);
+  const { price, purchaseLinks, test } = qs.parse(global?.location?.search);
   const { events } = useRouter();
   const [dark, setDark] = useState(false);
   const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer); 
@@ -93,7 +93,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     if (purchaseLinks === 'false' || purchaseLinks === 'true') {
       setItem(LOCAL_STORAGE_KEY.SHOW_PURCHASE_LINKS, purchaseLinks);
     }
-  }, [price, purchaseLinks]);
+
+    if (test === 'false' || test === 'true') {
+      setItem(LOCAL_STORAGE_KEY.TEST, test);
+    }
+  }, [price, purchaseLinks, test]);
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {

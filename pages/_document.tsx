@@ -2,6 +2,8 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
 import { MEASUREMENT_ID } from '../constants';
+import { LOCAL_STORAGE_KEY } from '../types';
+import { getItem } from '../utils';
 
 class MyDocument extends Document {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,7 +13,7 @@ class MyDocument extends Document {
   }
 
   renderAnalytics() {
-    if (process.env.NODE_ENV !== 'production') {
+    if (getItem(LOCAL_STORAGE_KEY.TEST) === 'true' || process.env.NODE_ENV !== 'production') {
       return null;
     }
 
