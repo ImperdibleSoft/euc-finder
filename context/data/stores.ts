@@ -7,11 +7,12 @@ export const stores: Store[] = [
     name: 'Ciclonic',
     website: 'ciclonic.es',
     region: 'eu',
-    logo: '/logos/ciclonic.png',
+    logo: '/logos/distributors/ciclonic.png',
     color: '#0075ff',
     meta: {
       code: 'code=eucfinder',
       discount: 5,
+      manualDiscount: true,
       public: false,
       sponsor: true
     }
@@ -21,7 +22,7 @@ export const stores: Store[] = [
     name: 'Urban 360',
     website: 'https://store.urban360.es',
     region: 'eu',
-    logo: '/logos/urban360.png',
+    logo: '/logos/distributors/urban360.png',
     color: '#76c043',
     meta: {
       code: 'code=eucfinder22',
@@ -36,11 +37,12 @@ export const stores: Store[] = [
   //   name: 'Inmotion France',
   //   website: 'https://www.inmotion-france.fr',
   //   region: 'eu',
-  //   logo: '/logos/inmotionFrance.png',
+  //   logo: '/logos/distributors/inmotionFrance.png',
   //   color: '#ee7203',
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
@@ -50,7 +52,7 @@ export const stores: Store[] = [
     name: 'EUCO',
     website: 'https://www.euco.us/',
     region: 'us',
-    logo: '/logos/euco.png',
+    logo: '/logos/distributors/euco.png',
     color: '#01b7fd',
     meta: {
       code: '',
@@ -64,11 +66,12 @@ export const stores: Store[] = [
     name: 'My EWheel',
     website: 'https://myewheel.com',
     region: 'eu',
-    logo: '/logos/myewheel.png',
+    logo: '/logos/distributors/myewheel.png',
     color: '#34c1f0',
     meta: {
-      code: '',
-      discount: 0,
+      code: 'code=eucfinder',
+      discount: 5,
+      manualDiscount: true,
       public: false,
       sponsor: false
     }
@@ -78,7 +81,7 @@ export const stores: Store[] = [
     name: 'eWheels',
     website: 'https://www.ewheels.com/',
     region: 'us',
-    logo: '/logos/ewheels.png',
+    logo: '/logos/distributors/ewheels.png',
     color: '#b73225',
     meta: {
       code: '',
@@ -97,6 +100,7 @@ export const stores: Store[] = [
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
@@ -111,6 +115,7 @@ export const stores: Store[] = [
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
@@ -125,6 +130,7 @@ export const stores: Store[] = [
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
@@ -139,6 +145,7 @@ export const stores: Store[] = [
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
@@ -153,6 +160,7 @@ export const stores: Store[] = [
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
@@ -167,6 +175,7 @@ export const stores: Store[] = [
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
@@ -181,6 +190,7 @@ export const stores: Store[] = [
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
@@ -195,6 +205,7 @@ export const stores: Store[] = [
   //   meta: {
   //     code: '',
   //     discount: 0,
+  //     manualDiscount: true,
   //     public: false,
   //     sponsor: false
   //   }
