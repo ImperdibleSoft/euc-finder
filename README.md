@@ -33,6 +33,7 @@ These stores could be implemented in the future, when all main stores have been 
 - gpsmodus (US)
 - Eevee's (US), convert from C$ to US$
 - Free Motion Shop (US), convert from C$ to US$
+- EUC Service (EU)
 - inmotionFrance (EU), FR
 - green220 (EU), ES
 - imoveblue (EU), ES

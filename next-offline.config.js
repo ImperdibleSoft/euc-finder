@@ -1,3 +1,5 @@
+const { version } = require('./package.json');
+
 const assetsPattern = /.*\.(png|PNG|jpeg|JPEG|jpg|JPG|gif|GIF)$/gm;
 const bundlesPattern = /.*\.(html|css|js|woff2)$/gm;
 const documentsPattern = /https:\/\/www.eucfinder.com\/((en|es)(\/)?)?(wheels\/.*)?$/gm;
@@ -14,7 +16,7 @@ const assets = {
   urlPattern: assetsPattern,
   handler: CacheFirst,
   options: {
-    cacheName: 'assets',
+    cacheName: `assets-${ version }`,
     cacheableResponse: commonOptions.cacheableResponse,
     expiration: commonOptions.expiration
   }
@@ -24,7 +26,7 @@ const bundles = {
   urlPattern: bundlesPattern,
   handler: NetworkFirst,
   options: {
-    cacheName: 'bundles',
+    cacheName: `bundles-${ version }`,
     cacheableResponse: commonOptions.cacheableResponse,
     expiration: commonOptions.expiration
   }
@@ -34,7 +36,7 @@ const documents = {
   urlPattern: documentsPattern,
   handler: NetworkFirst,
   options: {
-    cacheName: 'bundles',
+    cacheName: `bundles-${ version }`,
     cacheableResponse: commonOptions.cacheableResponse,
     expiration: commonOptions.expiration
   }
