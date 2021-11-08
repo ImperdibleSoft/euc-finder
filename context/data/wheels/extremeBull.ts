@@ -17,7 +17,7 @@ const commanderHT: Wheel = {
 
   ratedPower: 2800,
   peakPower: 0,
-  maxGradibility: 0,
+  maxGradibility: 30,
   maxSpeed: 65,
   battery: 0,
   batteryOutput: 3600,

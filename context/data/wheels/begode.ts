@@ -151,8 +151,8 @@ const rsHT: Wheel = {
   range: 130,
   voltage: 100,
 
-  diameter: 19,
-  width: 0,
+  diameter: 18,
+  width: 3,
   groundClearance: 165,
   weight: 27,
   trolleyHandle: TrolleyHandle.telescopic,
@@ -190,8 +190,8 @@ const msx: Wheel = {
   range: 100,
   voltage: 84,
 
-  diameter: 19,
-  width: 0,
+  diameter: 18,
+  width: 3,
   groundClearance: 136,
   weight: 23.5,
   trolleyHandle: TrolleyHandle.telescopic,
@@ -266,7 +266,7 @@ const ex: Wheel = {
   voltage: 100,
 
   diameter: 20,
-  width: 0,
+  width: 3,
   groundClearance: [90, 190],
   weight: 33,
   trolleyHandle: TrolleyHandle.telescopic,
@@ -379,7 +379,7 @@ const monsterPro: Wheel = {
   voltage: 100,
 
   diameter: 24,
-  width: 0,
+  width: 3,
   groundClearance: 165,
   weight: 40,
   trolleyHandle: TrolleyHandle.telescopic,
