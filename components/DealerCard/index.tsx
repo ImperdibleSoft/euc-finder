@@ -100,11 +100,9 @@ const DealerCard: React.FC<Props> = ({
 
           <List dense>
             <ListItem sx={ listItemStyles }>
-              <Tooltip title={ t(`${ available }-label`) ?? '' }>
-                <ListItemIcon sx={ listItemIconStyles }>
-                  { available }
-                </ListItemIcon>
-              </Tooltip>
+              <ListItemIcon sx={ listItemIconStyles }>
+                { available }
+              </ListItemIcon>
               <ListItemText primary={ t('dealers-available-label') } />
             </ListItem>
             <Divider />
