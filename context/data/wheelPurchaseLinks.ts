@@ -8,20 +8,23 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.euco.us/products/gotway-mten-electric-unicycle',
     'https://myewheel.com/gotway-mten3-512wh/',
     'https://www.ewheels.com/product/gotway-mten3-512-800w-motor/',
-    'https://eucsale.com/euc-transport/begode/mten-3.html'
+    'https://eucsale.com/euc-transport/begode/mten-3.html',
+    'https://eucservice.com/produkt/tesla-t3-2000w-1500wh-84v-copy-copy-copy/'
   ],
   [WheelId.mcm5]: [
     'https://ciclonic.es/tienda/gotway/monociclos-gotway/mcm5/',
     'https://www.euco.us/products/gotway-mcm5-v2-electric-unicycle',
     'https://myewheel.com/gotway-mcm5/',
     'https://www.ewheels.com/product/new-gotway-mcm5-14-the-mountain-climber-800wh-battery-1500w-motor/',
-    'https://eucsale.com/euc-transport/begode/mcm5.html'
+    'https://eucsale.com/euc-transport/begode/mcm5.html',
+    'https://eucservice.com/produkt/tesla-t3-2000w-1500wh-84v-copy-copy/'
   ],
   [WheelId.tesla]: [
     'https://store.urban360.es/product/sample-product/new-gotway-tesla-850-wh-84v-con-asa-telescopica-integrada/',
     'https://www.euco.us/products/gotway-t3-tesla-v3',
     'https://myewheel.com/gotway-tesla-2-1020wh/',
-    'https://www.ewheels.com/product/begode-tesla-v3-1500wh-battery-2000w-motor-deposit/'
+    'https://www.ewheels.com/product/begode-tesla-v3-1500wh-battery-2000w-motor-deposit/',
+    'https://eucservice.com/produkt/tesla-t3-2000w-1500wh-84v/'
   ],
   [WheelId.nikola]: [
     'https://ciclonic.es/tienda/gotway/monociclos-gotway/nikola-plus/',
@@ -29,19 +32,22 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.euco.us/products/gotway-nikola-electric-unicycle',
     'https://myewheel.com/gotway-nikola-plus/',
     'https://www.ewheels.com/product/new-gotway-nikola-1800wh-battery-2000w-motor-3-wide-tire/',
-    'https://eucsale.com/euc-transport/begode/nikola-plus-100v-1800wh.html'
+    'https://eucsale.com/euc-transport/begode/nikola-plus-100v-1800wh.html',
+    'https://eucservice.com/produkt/gotway-rs-19-speed-version-1800wh-100v-copy-3/'
   ],
   [WheelId.rsHT]: [
     'https://store.urban360.es/product/sample-product/nuevo-gotway-rs/',
     'https://www.euco.us/products/gotway-rs-electric-unicycle',
-    'https://www.ewheels.com/product/new-gotway-rs-19-100v-1800wh-battery/'
+    'https://www.ewheels.com/product/new-gotway-rs-19-100v-1800wh-battery/',
+    'https://eucservice.com/produkt/gotway-rs-19-speed-version-1800wh-100v/'
   ],
   [WheelId.rsHS]: [
     'https://store.urban360.es/product/sample-product/nuevo-gotway-rs/',
     'https://www.euco.us/products/gotway-rs-electric-unicycle',
     'https://myewheel.com/gotway-msuper-pro-1800wh/',
     'https://www.ewheels.com/product/new-gotway-rs-19-100v-1800wh-battery/',
-    'https://eucsale.com/euc-transport/begode/gotway-rs.html'
+    'https://eucsale.com/euc-transport/begode/gotway-rs.html',
+    'https://eucservice.com/produkt/gotway-rs-19-speed-version-1800wh-100v-copy-2/'
   ],
   [WheelId.msx]: [
     'https://store.urban360.es/product/sample-product/gotway-msuper-x-x1-x2-x3-junio-2018-reserva-ahora-200e-de-dto/',
@@ -60,18 +66,21 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://store.urban360.es/product/sample-product/gotway-ex/',
     'https://www.euco.us/products/gotway-ex-electric-unicycle',
     'https://myewheel.com/gotway-ex/',
-    'https://eucsale.com/euc-transport/begode/ex.html'
+    'https://eucsale.com/euc-transport/begode/ex.html',
+    'https://eucservice.com/produkt/gotway-ex-2700wh-100v-lg-inr21700-m50t/'
   ],
   [WheelId.exnHT]: [
     'https://www.euco.us/products/gotway-ex-n-electric-unicycle',
     'https://myewheel.com/gotway-begode-exn/',
-    'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/'
+    'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/',
+    'https://eucservice.com/produkt/begode-ex-n-2800w-2700wh-100v-lg-inr21700-m50t-105km-h-bez-obciazenia-160km-zasiegu/'
   ],
   [WheelId.exnHS]: [
     'https://www.euco.us/products/gotway-ex-n-electric-unicycle',
     'https://myewheel.com/gotway-begode-exn/',
     'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/',
-    'https://eucsale.com/euc-transport/begode/begode-ex-n-speed.html'
+    'https://eucsale.com/euc-transport/begode/begode-ex-n-speed.html',
+    'https://eucservice.com/produkt/begode-ex-n-2800w-2700wh-100v-lg-inr21700-m50t-105km-h-bez-obciazenia-160km-zasiegu/'
   ],
   [WheelId.hero]: [
     'https://ciclonic.es/tienda/monociclos/monociclos-gotway/reserva-begode-hero/',
@@ -83,13 +92,15 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://ciclonic.es/tienda/gotway/monociclos-gotway/gotway-monster-100v/',
     'https://store.urban360.es/product/sample-product/nuevo-gotway-monster-v3-100v-1854wh/',
     'https://myewheel.com/gotway-monster-v3/',
-    'https://eucsale.com/euc-transport/begode/monster-v3-100v-1845wh.html'
+    'https://eucsale.com/euc-transport/begode/monster-v3-100v-1845wh.html',
+    'https://eucservice.com/produkt/gotway-monster-v3-1845wh-100v-sanyo-ncr18650ga/'
   ],
   [WheelId.monsterPro]: [
     'https://store.urban360.es/product/sample-product/nuevo-gotway-monster-pro-3600wh-100v/',
     'https://www.euco.us/products/gotway-monster-pro-electric-unicycle',
     'https://myewheel.com/gotway-monster-pro/',
-    'https://eucsale.com/euc-transport/begode/gotway-monster-pro-24.html'
+    'https://eucsale.com/euc-transport/begode/gotway-monster-pro-24.html',
+    'https://eucservice.com/produkt/gotway-monster-pro-3600wh-100v-lg-inr21700-m50t/'
   ],
 
   // Extreme bull
@@ -236,7 +247,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://store.urban360.es/product/sample-product/veteran-sherman/',
     'https://myewheel.com/veteran-sherman-3200wh/',
     'https://www.ewheels.com/product/new-veteran-sherman-18-100v-3200wh-battery-2500w-motor-1000-deposit/',
-    'https://eucsale.com/euc-transport/veteran-leaperkim-electric-unicycle/sherman.html'
+    'https://eucsale.com/euc-transport/veteran-leaperkim-electric-unicycle/sherman.html',
+    'https://eucservice.com/produkt/veteran-sherman-3200wh-100v-sanyo-ncr18650ga/'
   ],
   [WheelId.abrams]: [
     'https://www.ewheels.com/product/veteran-abrams-100-deposit/',
