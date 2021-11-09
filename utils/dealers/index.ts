@@ -12,7 +12,7 @@ const cleanString = (
     removeSpaces = true
   }: Options = {}
 ) => {
-  let parsed = str
+  let parsed = (str ?? '')
     .replace(/\n/g, '')
     .replace(/\r/g, '')
     .replace(/\-/g, '');
@@ -33,7 +33,7 @@ const cleanString = (
 };
 
 export const parseMarkdown = (str: string) => {
-  const [, , europe, america] = str.split('# ');
+  const [, , europe = '', america = ''] = str.split('# ');
 
   const regions = [europe, america];
 

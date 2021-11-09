@@ -53,6 +53,7 @@ const DealerCard: React.FC<Props> = ({
   }
 
   const available = (
+    (!store || store.meta.public) &&
     ((negotiations === '✔️' && discountCode === '✔️') || negotiations === '❌') &&
     storeInformation === '✔️' &&
     purchaseLinks === '✔️' &&
