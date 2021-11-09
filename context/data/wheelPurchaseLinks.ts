@@ -232,7 +232,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.euco.us/products/king-song-s18-electric-unicycle',
     'https://myewheel.com/kingsong-s18/',
     'https://www.ewheels.com/product/new-king-song-s18-1110wh-battery-2200w-motor-full-body-suspension/',
-    'https://eucsale.com/euc-transport/kingsong/s18.html'
+    'https://eucsale.com/euc-transport/kingsong/s18.html',
+    'https://eucservice.com/produkt/tesla-t3-2000w-1500wh-84v-copy-copy-copy-copy/'
   ],
   [WheelId.ksS20]: [
     'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-s20-precompra-reserva/',

@@ -11,6 +11,12 @@ const getApiRequest = (store: StoreId) => {
     case StoreId.euco:
       return eucFinderApi.getEucoPrice;
 
+    case StoreId.eucSale:
+      return eucFinderApi.getEucSalePrice;
+
+    case StoreId.eucService:
+      return eucFinderApi.getEucServicePrice;
+
     case StoreId.ewheels:
       return eucFinderApi.getEwheelsPrice;
 
