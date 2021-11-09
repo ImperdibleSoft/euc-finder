@@ -320,68 +320,21 @@ export const useFilterFields = () => {
     },
     {
       Field: Text,
+      icon: wheelFeatureIcons.battery,
+      label: t('minimum', { property: t('battery') }),
+      name: 'minBatteryOutput',
+      onChange: handleChange,
+      type:'number',
+      value: filters.minBatteryOutput?.toString() ?? ''
+    },
+    {
+      Field: Text,
       icon: wheelFeatureIcons.voltage,
       label: t('minimum', { property: t('voltage') }),
       name: 'minVoltage',
       onChange: handleChange,
       type:'number',
       value: filters.minVoltage?.toString() ?? ''
-    },
-    {
-      Field: Text,
-      icon: wheelFeatureIcons.battery,
-      label: t('minimum', { property: t('battery') }),
-      name: 'battery',
-      onChange: handleChange,
-      type: 'number',
-      value: filters.battery?.toString() ?? ''
-    },
-    {
-      Field: Text,
-      icon: wheelFeatureIcons.batteryOutput,
-      label: t('minimum', { property: t('batteryOutput') }),
-      name: 'minBatteryOutput',
-      onChange: handleChange,
-      type:'number',
-      value: filters.minBatteryOutput?.toString() ?? '',
-      space: true
-    },
-    
-    {
-      Field: Dropdown,
-      icon: wheelFeatureIcons.color,
-      label: t('color'),
-      name:'color',
-      onChange: handleChangeColor,
-      options: colorOptions,
-      value: filters.color?.toString() ?? ''
-    },
-    {
-      Field: Dropdown,
-      icon: wheelFeatureIcons.trolleyHandle,
-      label: t('trolleyHandle'),
-      name:'trolleyHandle',
-      onChange: handleChangeTrolley,
-      options: trolleyHandleOptions,
-      value: filters.trolleyHandle?.toString() ?? ''
-    },
-    {
-      Field: Dropdown,
-      icon: wheelFeatureIcons.antiSpin,
-      label: t('antiSpin'),
-      name:'antiSpin',
-      onChange: handleChangeAntispin,
-      options: antiSpinOptions,
-      value: filters.antiSpin?.toString() ?? ''
-    },
-    {
-      Field: Dropdown,
-      icon: wheelFeatureIcons.kickstand,
-      label: t('kickstand'),
-      name:'kickstand',
-      onChange: handleChangeKickstand,
-      options: kickstandOptions,
-      value: filters.kickstand?.toString() ?? ''
     },
     {
       Field: Dropdown,
@@ -416,6 +369,33 @@ export const useFilterFields = () => {
     
     {
       Field: Dropdown,
+      icon: wheelFeatureIcons.trolleyHandle,
+      label: t('trolleyHandle'),
+      name:'trolleyHandle',
+      onChange: handleChangeTrolley,
+      options: trolleyHandleOptions,
+      value: filters.trolleyHandle?.toString() ?? ''
+    },
+    {
+      Field: Dropdown,
+      icon: wheelFeatureIcons.antiSpin,
+      label: t('antiSpin'),
+      name:'antiSpin',
+      onChange: handleChangeAntispin,
+      options: antiSpinOptions,
+      value: filters.antiSpin?.toString() ?? ''
+    },
+    {
+      Field: Dropdown,
+      icon: wheelFeatureIcons.kickstand,
+      label: t('kickstand'),
+      name:'kickstand',
+      onChange: handleChangeKickstand,
+      options: kickstandOptions,
+      value: filters.kickstand?.toString() ?? ''
+    },
+    {
+      Field: Dropdown,
       icon: wheelFeatureIcons.leds,
       label: t('leds'),
       name: 'leds',
@@ -439,7 +419,16 @@ export const useFilterFields = () => {
       name: 'display',
       onChange: handleChangeDisplay,
       options: displayOptions,
-      value: filters.display?.toString() ?? '',
+      value: filters.display?.toString() ?? ''
+    },
+    {
+      Field: Dropdown,
+      icon: wheelFeatureIcons.color,
+      label: t('color'),
+      name:'color',
+      onChange: handleChangeColor,
+      options: colorOptions,
+      value: filters.color?.toString() ?? '',
       space: !!showPrice()
     }
   ];
@@ -449,7 +438,7 @@ export const useFilterFields = () => {
       {
         Field: Text,
         icon: wheelFeatureIcons.price,
-        label: t('price'),
+        label: t('minimum', { property: t('price') }),
         name: 'minPrice',
         onChange: handleChange,
         type: 'number',
@@ -458,7 +447,7 @@ export const useFilterFields = () => {
       {
         Field: Text,
         icon: wheelFeatureIcons.price,
-        label: t('price'),
+        label: t('maximum', { property: t('price') }),
         name: 'maxPrice',
         onChange: handleChange,
         type: 'number',

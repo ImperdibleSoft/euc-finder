@@ -34,8 +34,7 @@ export const getFiltersInitialValue = (): WheelFilters => ({
   minGroundClearance: undefined,
   leds: undefined,
   sound: undefined,
-  display: undefined,
-  battery: undefined
+  display: undefined
 });
 
 export const getMeasureUnitsDefaultValue = (): ArenaContextState['measureUnits'] => ({

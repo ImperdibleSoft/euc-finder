@@ -75,11 +75,11 @@ export interface WheelFeatures {
   /**
    * Battery capacity, in mAh
    */
-  battery: number
+  batterySetup: [number, number]
   /**
    * Battery output, in W/h
    */
-  batteryOutput: number
+  battery: number
   /**
    * Estimated mileage, in km
    */

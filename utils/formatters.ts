@@ -125,9 +125,13 @@ export const energy = (value: number): string => {
   return '-';
 };
 
-export const capacity = (value: number): string => {
-  if (value) {
-    return `${ value } mAh`;
+export const batterySetup = (value: number[]): string => {
+  if (value?.length === 2) {
+    const [cells, mAh] = value;
+
+    if (cells && mAh) {
+      return `${ cells } x ${ mAh } mAh`;
+    }
   }
 
   return '-';

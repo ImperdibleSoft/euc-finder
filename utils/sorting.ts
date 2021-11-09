@@ -18,6 +18,15 @@ export const customisedSortBy = (brands: Brands) => (key: keyof Wheel, order: Or
       if (aNameWeight > bNameWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
+    case 'batterySetup':
+      const [aCells, aMAh] = a.batterySetup;
+      const [bCells, bMAh] = b.batterySetup;
+      const aBatterySetupWeight = aCells * aMAh;
+      const bBatterySetupWeight = bCells * bMAh;
+      if (aBatterySetupWeight < bBatterySetupWeight) return order === 'asc' ? -1 : 1;
+      if (aBatterySetupWeight > bBatterySetupWeight) return order === 'asc' ? 1 : -1;
+      return sortBy(key, order)(a, b);
+
     case 'groundClearance':
       const operation = order === 'asc' ? getMinimumValue : getMaximumValue;
       const aClearanceWeight = a.groundClearance ? operation(a.groundClearance) : 0;

@@ -26,7 +26,6 @@ export interface WheelFilters {
   
   minPower?: string
   minVoltage?: string
-  battery?: string
   minBatteryOutput?: string
 
   color?: Color

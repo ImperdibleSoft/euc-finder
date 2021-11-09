@@ -23,8 +23,8 @@ const ks14m: Wheel = {
   peakPower: 1500,
   maxGradibility: 28,
   maxSpeed: 20,
-  battery: 0,
-  batteryOutput: 174,
+  batterySetup: [0, 0],
+  battery: 174,
   range: 18,
   voltage: 67.2,
 
@@ -53,7 +53,7 @@ const ks14d: Wheel = {
   peakPower: 2400,
   maxGradibility: 30,
   maxSpeed: 30,
-  batteryOutput: 420,
+  battery: 420,
   range: 35,
 
   weight: 12.5,
@@ -68,7 +68,7 @@ const ks14s: Wheel = {
   price: 1300,
 
   peakPower: 2000,
-  batteryOutput: 840,
+  battery: 840,
   range: 70,
 
   weight: 16.2,
@@ -85,8 +85,8 @@ const ks16s: Wheel = {
   peakPower: 3000,
   maxGradibility: 30,
   maxSpeed: 35,
-  battery: 0,
-  batteryOutput: 840,
+  batterySetup: [0, 0],
+  battery: 840,
   range: 70,
   voltage: 67.2,
 
@@ -116,8 +116,8 @@ const ks16xs: Wheel = {
   peakPower: 4200,
   maxGradibility: 35,
   maxSpeed: 50,
-  battery: 0,
-  batteryOutput: 777,
+  batterySetup: [0, 0],
+  battery: 777,
   range: 75,
   voltage: 84,
 
@@ -143,7 +143,8 @@ const ks16x: Wheel = {
   name: '16X',
   price: 2200,
 
-  batteryOutput: 1554,
+  batterySetup: [6, 3500],
+  battery: 1554,
   range: 150,
 
   weight: 24.4,
@@ -160,8 +161,8 @@ const ks18l: Wheel = {
   peakPower: 4000,
   maxGradibility: 35,
   maxSpeed: 50,
-  battery: 0,
-  batteryOutput: 1036,
+  batterySetup: [0, 0],
+  battery: 1036,
   range: 70,
   voltage: 84,
 
@@ -187,7 +188,7 @@ const ks18xl: Wheel = {
   name: '18XL',
   price: 2500,
 
-  batteryOutput: 1554,
+  battery: 1554,
   range: 100,
 
   weight: 25.4,
@@ -204,8 +205,8 @@ const ksS18: Wheel = {
   peakPower: 4000,
   maxGradibility: 35,
   maxSpeed: 50,
-  battery: 0,
-  batteryOutput: 1110,
+  batterySetup: [3, 3500],
+  battery: 1110,
   range: 100,
   voltage: 84,
 
@@ -235,13 +236,13 @@ const ksS20: Wheel = {
   peakPower: 7500,
   maxGradibility: 40,
   maxSpeed: 70,
-  battery: 0,
-  batteryOutput: 2220,
+  batterySetup: [0, 0],
+  battery: 2220,
   range: 200,
   voltage: 126,
 
   diameter: 20,
-  width: 0,
+  width: 3,
   groundClearance: [100, 230],
   weight: 35,
   trolleyHandle: TrolleyHandle.telescopic,

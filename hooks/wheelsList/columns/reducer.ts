@@ -4,31 +4,27 @@ import { WheelsTableColumns } from '../../../types';
 const initialValue: WheelsTableColumns = {
   diameter: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'diameter'),
   width: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'width'),
-
   maxSpeed: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'maxSpeed'),
-  
   range: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'range'),
   weight: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'weight'),
   
   ratedPower: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'ratedPower'),
-  maxGradibility: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'maxGradibility'),
-  voltage: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'voltage'),
   battery: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'battery'),
-  batteryOutput: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'batteryOutput'),
-
-  color: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'color'),
-  trolleyHandle: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'trolleyHandle'),
-  antiSpin: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'antiSpin'),
-  kickstand: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'kickstand'),
-  suspension: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'suspension'),
-
+  batterySetup: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'batterySetup'),
+  voltage: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'voltage'),
+  maxGradibility: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'maxGradibility'),
   groundClearance: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'groundClearance'),
+  suspension: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'suspension'),
 
   headlight: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'headlight'),
   tailLight: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'tailLight'),
+  trolleyHandle: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'trolleyHandle'),
+  antiSpin: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'antiSpin'),
+  kickstand: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'kickstand'),
   leds: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'leds'),
   sound: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'sound'),
-  display: DETAIL_HIGHLIGHTED_SPECS.some(f => f === 'display')
+  display: DETAIL_HIGHLIGHTED_SPECS.some(f => f === 'display'),
+  color: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'color')
 };
 
 export const getInitialValue = () => ({ ...initialValue });
