@@ -33,7 +33,7 @@ const cleanString = (
 };
 
 export const parseMarkdown = (str: string) => {
-  const [, , europe, america] = str.split('# ');
+  const [, , europe = '', america = ''] = str.split('# ');
 
   const regions = [europe, america];
 
