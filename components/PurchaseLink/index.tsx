@@ -62,6 +62,8 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
   const logoVersion = dark ? 'dark' : 'light';
   const logo = `${ logoPath }-${ logoVersion }.${ extension }`; 
 
+  const displayDiscount = (loadingState === 'success' || loadingState === 'error') && price !== undefined && !!discount;
+
   return (
     <>
       <Card
@@ -87,7 +89,7 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
           />
         </Box>
 
-        { !!discount && (
+        { displayDiscount && (
           <Typography variant="body1" component="span" sx={ { alignItems: 'center', display: 'flex', mb: 2 } }>
             <Icon sx={ { mr: 1 } } color="secondary">local_offer</Icon> { t('discount', { discount }) }
           </Typography>
