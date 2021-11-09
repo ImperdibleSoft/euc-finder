@@ -4,8 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 const Notifications: React.FC = () => {
   const { t } = useTranslation();
-  const navigateToTelegram = () => {
+  const navigateToChannel = () => {
     window.open('https://t.me/joinchat/dGqzjV3hD_dhOGFh');
+  };
+
+  const navigateToGroup = () => {
+    window.open('https://t.me/joinchat/-Tleimo5qjY5MDkx');
   };
   
   return (
@@ -20,9 +24,14 @@ const Notifications: React.FC = () => {
       } }
     >
       <SpeedDialAction
-        key="telegram"
         icon={ <Icon>telegram</Icon> }
-        onClick={ navigateToTelegram }
+        onClick={ navigateToGroup }
+        tooltipOpen
+        tooltipTitle={ t('joinToTelegram-msg') }
+      />
+      <SpeedDialAction
+        icon={ <Icon>telegram</Icon> }
+        onClick={ navigateToChannel }
         tooltipOpen
         tooltipTitle={ t('subscribeToTelegram-msg') }
       />
