@@ -2,6 +2,22 @@
 import { Store, StoreId } from '../../types';
 
 export const stores: Store[] = [
+  // EU
+  {
+    id: StoreId.myewheel,
+    name: 'My EWheel',
+    website: 'https://myewheel.com',
+    region: 'eu',
+    logo: '/logos/distributors/myewheel.png',
+    color: '#34c1f0',
+    meta: {
+      code: 'ref=eucfinder',
+      discount: 5,
+      manualDiscount: true,
+      public: true,
+      sponsor: false
+    }
+  },
   {
     id: StoreId.ciclonic,
     name: 'Ciclonic',
@@ -32,6 +48,36 @@ export const stores: Store[] = [
       sponsor: false
     }
   },
+  {
+    id: StoreId.eucSale,
+    name: 'EUC Sale',
+    website: 'https://eucsale.com/',
+    region: 'eu',
+    logo: '/logos/distributors/eucSale.png',
+    color: '#2c2929',
+    meta: {
+      code: '',
+      discount: 0,
+      manualDiscount: true,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.eucService,
+    name: 'EUC Service',
+    website: 'https://eucservice.com/',
+    region: 'eu',
+    logo: '/logos/distributors/eucService.png',
+    color: '#009fe3',
+    meta: {
+      code: '',
+      discount: 0,
+      manualDiscount: true,
+      public: false,
+      sponsor: false
+    }
+  },
   // {
   //   id: StoreId.inmotionFrance,
   //   name: 'Inmotion France',
@@ -47,49 +93,51 @@ export const stores: Store[] = [
   //     sponsor: false
   //   }
   // },
-  {
-    id: StoreId.euco,
-    name: 'EUCO',
-    website: 'https://www.euco.us/',
-    region: 'us',
-    logo: '/logos/distributors/euco.png',
-    color: '#01b7fd',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.myewheel,
-    name: 'My EWheel',
-    website: 'https://myewheel.com',
-    region: 'eu',
-    logo: '/logos/distributors/myewheel.png',
-    color: '#34c1f0',
-    meta: {
-      code: 'ref=eucfinder',
-      discount: 5,
-      manualDiscount: true,
-      public: true,
-      sponsor: false
-    }
-  },
-  {
-    id: StoreId.ewheels,
-    name: 'eWheels',
-    website: 'https://www.ewheels.com/',
-    region: 'us',
-    logo: '/logos/distributors/ewheels.png',
-    color: '#b73225',
-    meta: {
-      code: '',
-      discount: 0,
-      public: false,
-      sponsor: false
-    }
-  }
+  // {
+  //   id: StoreId.green220,
+  //   name: 'Green 220',
+  //   website: 'https://www.green220.com',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     manualDiscount: true,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.imoveblue,
+  //   name: 'iMove Blue',
+  //   website: 'https://www.imoveblue.es/',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     manualDiscount: true,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
+  // {
+  //   id: StoreId.eptv,
+  //   name: 'EPTV',
+  //   website: 'https://eptv.es',
+  //   region: 'eu',
+  //   logo: '',
+  //   color: '',
+  //   meta: {
+  //     code: '',
+  //     discount: 0,
+  //     manualDiscount: true,
+  //     public: false,
+  //     sponsor: false
+  //   }
+  // },
   // {
   //   id: StoreId.madridrueda,
   //   name: 'Madrid Rueda',
@@ -135,26 +183,47 @@ export const stores: Store[] = [
   //     sponsor: false
   //   }
   // },
+
+  // US
+  {
+    id: StoreId.euco,
+    name: 'EUCO',
+    website: 'https://www.euco.us/',
+    region: 'us',
+    logo: '/logos/distributors/euco.png',
+    color: '#01b7fd',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  },
+  {
+    id: StoreId.ewheels,
+    name: 'eWheels',
+    website: 'https://www.ewheels.com/',
+    region: 'us',
+    logo: '/logos/distributors/ewheels.png',
+    color: '#b73225',
+    meta: {
+      code: '',
+      discount: 0,
+      public: false,
+      sponsor: false
+    }
+  }
   // {
-  //   id: StoreId.green220,
-  //   name: 'Green 220',
-  //   website: 'https://www.green220.com',
-  //   region: 'eu',
-  //   logo: '',
-  //   color: '',
-  //   meta: {
-  //     code: '',
-  //     discount: 0,
-  //     manualDiscount: true,
-  //     public: false,
-  //     sponsor: false
-  //   }
+  //   id: StoreId.alienRides
   // },
   // {
-  //   id: StoreId.eptv,
-  //   name: 'EPTV',
-  //   website: 'https://eptv.es',
-  //   region: 'eu',
+  //   id: StoreId.smartWheel
+  // }
+  // {
+  //   id: StoreId.gpsmodus,
+  //   name: 'GPS Modus',
+  //   website: 'https://www.gpsmodus.com/',
+  //   region: 'us',
   //   logo: '',
   //   color: '',
   //   meta: {
@@ -180,34 +249,4 @@ export const stores: Store[] = [
   //     sponsor: false
   //   }
   // },
-  // {
-  //   id: StoreId.gpsmodus,
-  //   name: 'GPS Modus',
-  //   website: 'https://www.gpsmodus.com/',
-  //   region: 'us',
-  //   logo: '',
-  //   color: '',
-  //   meta: {
-  //     code: '',
-  //     discount: 0,
-  //     manualDiscount: true,
-  //     public: false,
-  //     sponsor: false
-  //   }
-  // },
-  // {
-  //   id: StoreId.imoveblue,
-  //   name: 'iMove Blue',
-  //   website: 'https://www.imoveblue.es/',
-  //   region: 'eu',
-  //   logo: '',
-  //   color: '',
-  //   meta: {
-  //     code: '',
-  //     discount: 0,
-  //     manualDiscount: true,
-  //     public: false,
-  //     sponsor: false
-  //   }
-  // }
 ];

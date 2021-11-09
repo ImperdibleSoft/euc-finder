@@ -1,20 +1,27 @@
 export type Region = 'us' | 'eu' | 'asia'
 
 export enum StoreId {
+  // EU
+  myewheel = 'myewheel',
   ciclonic = 'ciclonic',
   urban360 = 'urban360',
+  eucSale = 'eucsale',
+  eucService = 'eucservice',
   // inmotionFrance = 'inmotionFrance',
-  euco = 'euco',
-  myewheel = 'myewheel',
-  ewheels = 'ewheels',
+  // green220 = 'green220',
+  // imoveblue = 'imoveblue',
+  // eptv = 'eptv',
   // madridrueda = 'madridrueda',
   // rodandoEs = 'rodando.es',
   // solorueda = 'solorueda',
-  // green220 = 'green220',
-  // eptv = 'eptv',
-  // monociclosCom = 'monociclos.com',
+
+  // US
+  euco = 'euco',
+  ewheels = 'ewheels',
+  // alienRides = 'alienRides',
+  // smartWheel = 'smartWheel',
   // gpsmodus = 'gpsmodus',
-  // imoveblue = 'imoveblue',
+  // monociclosCom = 'monociclos.com',
 } 
 
 export interface Store {
