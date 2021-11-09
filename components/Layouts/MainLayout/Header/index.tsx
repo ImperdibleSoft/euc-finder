@@ -16,7 +16,6 @@ import { useTranslation } from 'react-i18next';
 import { APP_NAME } from '../../../../constants';
 import { ROOT, SETTINGS } from '../../../../constants/clientRoutes';
 import { Brands, Region, Wheel } from '../../../../types';
-import { showPurchaseLinks } from '../../../../utils';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
 import { Search, SearchIconWrapper, StyledInputBase } from '../SearchBar';
 
@@ -43,7 +42,6 @@ const Header: React.FC<Props> = ({
   wheels
 }) => {
   const { t } = useTranslation();
-  const purchaseLinks = showPurchaseLinks();
   
   return (
     <AppBar
@@ -119,18 +117,16 @@ const Header: React.FC<Props> = ({
             />
           </Search>
 
-          { purchaseLinks && (
-            <Search sx={ { mr: (theme) => theme.spacing(1) } }>
-              <Dropdown
-                icon="public"
-                label={ t('region-label') }
-                name="region"
-                onChange={ handleSelectRegion }
-                options={ regions }
-                value={ selectedRegion }
-              />
-            </Search>
-          ) }
+          <Search sx={ { mr: (theme) => theme.spacing(1) } }>
+            <Dropdown
+              icon="public"
+              label={ t('region-label') }
+              name="region"
+              onChange={ handleSelectRegion }
+              options={ regions }
+              value={ selectedRegion }
+            />
+          </Search>
 
           <Link href={ SETTINGS } passHref>
             <IconButton>

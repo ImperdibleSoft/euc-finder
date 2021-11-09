@@ -1,4 +1,4 @@
-import { showPurchaseLinks } from './features';
+import { showAllPurchaseLinks } from './features';
 import { PurchaseLink, Region, Store, StoreId } from '../types';
 import { stores } from '../context/data';
 
@@ -23,7 +23,7 @@ const getStoreFromUrl = ({ region, stores: storesData, url, sponsored }: GetStor
 
 export const getPurchaseLink = ({ stores: storesData, ...options }: GetStoreOptions): PurchaseLink | undefined => {
   const store = getStoreFromUrl({
-    stores: storesData.filter(s => s.meta.public || showPurchaseLinks()),
+    stores: storesData.filter(s => s.meta.public || showAllPurchaseLinks()),
     ...options
   });
 
