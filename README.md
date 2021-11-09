@@ -30,14 +30,14 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Discount code ➖
   - Store information ✔️
   - Purchase links ✔️
-  - Fetch prices ➖
+  - Fetch prices ✔️
 
 - EUC Service
   - Negotiations 🕑
   - Discount code ➖
   - Store information ✔️
   - Purchase links ✔️
-  - Fetch prices ➖
+  - Fetch prices ✔️
 
 - inmotionFrance, FR
   - Negotiations ➖
