@@ -12,7 +12,7 @@ const cleanString = (
     removeSpaces = true
   }: Options = {}
 ) => {
-  let parsed = (str ?? '')
+  let parsed = str
     .replace(/\n/g, '')
     .replace(/\r/g, '')
     .replace(/\-/g, '');
@@ -44,13 +44,13 @@ export const parseMarkdown = (str: string) => {
     const parsedDealers = dealers.map(dealer => {
 
       const [
-        dealerName,
-        storeInformation,
-        purchaseLinks,
-        fetchPrices,
-        negotiations,
-        discountCode
-      ] = dealer.split('\r\n  ');
+        dealerName = '',
+        storeInformation = '',
+        purchaseLinks = '',
+        fetchPrices = '',
+        negotiations = '',
+        discountCode = ''
+      ] = dealer.split('\n') as (string | undefined)[];
 
       return {
         dealerName: cleanString(dealerName, { removeLetters: false, removeSpaces: false }),
