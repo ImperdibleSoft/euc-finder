@@ -1,43 +1,110 @@
-# Implemented
+# Dealers and stores
 
-These stores have been already processed. Their information is available in the app to display their links properly.
+List of stores/delaers that could potentially be present in the app at some point
 
-### Discount agreement completed
+### Europe (EU)
 
-- MyEWheel (EU)
+- MyEWheel
+  - Negotiations ✔️
+  - Discount code ✔️
+  - Store information ✔️
 
-### Waiting for discount code
-- Ciclonic (EU)
-- Urban360 (EU)
-- EUC Sale (EU)
-- EUC Service (EU)
-- EUCO (US)
-- SmartWheel (US)
-- Gps Modus (US)
+- Ciclonic
+  - Negotiations ✔️
+  - Discount code 🕑
+  - Store information ✔️
 
-### Ready to initiate negotiations
-- EWheels (US)
+- Urban360
+  - Negotiations ✔️
+  - Discount code 🕑
+  - Store information ✔️
 
-# Pending
+- EUC Sale
+  - Negotiations 🕑
+  - Discount code ➖
+  - Store information ➖
 
-These stores have not been processed yet. Need to gather purchase links, branding (id, name, logo, website, color).
+- EUC Service
+  - Negotiations 🕑
+  - Discount code ➖
+  - Store information ➖
 
-### To be implemented
+- inmotionFrance, FR
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
 
-These stores are big/important enought to implement them proactively.
+- green220, ES
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
 
-- AlienRides (US)
+- imoveblue, ES
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
 
-### Future ideas
+- eptv, ES
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
 
-These stores could be implemented in the future, when all main stores have been already implemented.
+- madridrueda, ES
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
 
-- Eevee's (US), convert from C$ to US$
-- Free Motion Shop (US), convert from C$ to US$
-- inmotionFrance (EU), FR
-- green220 (EU), ES
-- imoveblue (EU), ES
-- eptv (EU), ES
-- madridrueda (EU), ES
-- rodandoEs (EU), ES
-- solorueda (EU), ES
+- rodandoEs, ES
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
+
+- solorueda, ES
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
+
+### America (US)
+
+- EUCO
+  - Negotiations 🕑
+  - Discount code ➖
+  - Store information ✔️
+
+- EWheels
+  - Negotiations 🕑
+  - Discount code ➖
+  - Store information ✔️
+
+- SmartWheel
+  - Negotiations 🕑
+  - Discount code ➖
+  - Store information ➖
+
+- Gps Modus
+  - Negotiations 🕑
+  - Discount code ➖
+  - Store information ➖
+
+- AlienRides
+  - Negotiations 🕑
+  - Discount code ➖
+  - Store information ➖
+
+- Eevee's, convert from C$ to US$
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
+
+- Free Motion Shop, convert from C$ to US$
+  - Negotiations ➖
+  - Discount code ➖
+  - Store information ➖
+
+
+
+
+
+
+
+

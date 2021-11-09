@@ -58,7 +58,7 @@ const abrams: Wheel = {
   diameter: 22,
   width: 2.75,
   groundClearance: 180,
-  weight: 44,
+  weight: 40,
   trolleyHandle: TrolleyHandle.telescopic,
   antiSpin: undefined,
   kickstand: Kickstand.dedicated,
