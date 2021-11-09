@@ -3,6 +3,7 @@ const withOffline = require('next-offline');
 
 const { i18n } = require('./next-i18next.config');
 const { workboxOpts } = require('./next-offline.config');
+const { webpack } = require('./next-webpack.config');
 
 const config = {
   reactStrictMode: true,
@@ -23,7 +24,8 @@ const config = {
     ]
   },
   i18n,
-  workboxOpts
+  workboxOpts,
+  webpack
 };
 
 module.exports = withOffline(config);

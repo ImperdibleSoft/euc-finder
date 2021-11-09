@@ -177,7 +177,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
   
   // Kingsong
   [WheelId.ks14m]: [
-    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-14m/'
+    'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-14m/',
+    'https://eucsale.com/euc-transport/kingsong/14m/14d/14s.html'
   ],
   [WheelId.ks14s]: [
     'https://store.urban360.es/product/sample-product/kingsong-ks14s-840wh-negro/',
@@ -191,7 +192,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://store.urban360.es/product/sample-product/kingsong-ks14d-420wh-negra/',
     'https://www.euco.us/products/king-song-ks-14d-electric-unicycle',
     'https://myewheel.com/kingsong-ks-14d/',
-    'https://www.ewheels.com/product/new-king-song-14d-420wh-battery800w-motor/'
+    'https://www.ewheels.com/product/new-king-song-14d-420wh-battery800w-motor/',
+    'https://eucsale.com/euc-transport/kingsong/14m/14d/14s.html'
   ],
   [WheelId.ks16s]: [
     'https://ciclonic.es/tienda/kingsong/monocilos-kingsong/kingsong-16s/',

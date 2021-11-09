@@ -14,7 +14,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { APP_NAME } from '../../../../constants';
-import { ROOT } from '../../../../constants/clientRoutes';
+import { ROOT, SETTINGS } from '../../../../constants/clientRoutes';
 import { Brands, Region, Wheel } from '../../../../types';
 import { showPurchaseLinks } from '../../../../utils';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
@@ -132,7 +132,7 @@ const Header: React.FC<Props> = ({
             </Search>
           ) }
 
-          <Link href={ '/settings' } passHref>
+          <Link href={ SETTINGS } passHref>
             <IconButton>
               <Icon sx={ { color: (theme) => theme.palette.common.white } }>settings</Icon>
             </IconButton>
