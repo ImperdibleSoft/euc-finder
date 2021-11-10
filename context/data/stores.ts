@@ -217,7 +217,7 @@ export const stores: Store[] = [
   },
   {
     id: StoreId.alienRides,
-    name: 'Alien rides',
+    name: 'Alien Rides',
     website: 'https://alienrides.com/',
     region: 'us',
     logo: '/logos/distributors/alienRides.png',
@@ -229,10 +229,22 @@ export const stores: Store[] = [
       public: true,
       sponsor: false
     }
+  },
+  {
+    id: StoreId.smartWheel,
+    name: 'Smart Wheel',
+    website: 'https://www.smartwheel.ca/',
+    region: 'us',
+    logo: '/logos/distributors/smartWheel.png',
+    color: '#01c3b7',
+    meta: {
+      code: '',
+      discount: 0,
+      manualDiscount: true,
+      public: false,
+      sponsor: false
+    }
   }
-  // {
-  //   id: StoreId.smartWheel
-  // }
   // {
   //   id: StoreId.gpsmodus,
   //   name: 'GPS Modus',

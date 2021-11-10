@@ -53,6 +53,13 @@ export const myEWheelHttp = createInstance({
   }
 });
 
+export const smartWheelHttp = createInstance({
+  headers: {
+    Origin: 'https://www.smartwheel.ca/',
+    Referer: 'https://www.smartwheel.ca/'
+  }
+});
+
 export const urban360Http = createInstance({
   headers: {
     Origin: 'https://store.urban360.es/',

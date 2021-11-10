@@ -6,4 +6,5 @@ export * from './eucService';
 export * from './ewheels';
 export * from './inmotionFrance';
 export * from './myewheel';
+export * from './smartWheel';
 export * from './urban360';
