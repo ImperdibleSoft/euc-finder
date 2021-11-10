@@ -26,6 +26,7 @@
   "spanish-label": "Español",
   "copied-msg": "Copied to clipboard.",
   "copyError-msg": "There was an error. Please, copy the code manually.",
+  "appLogo-label": "{{appName}}'s logo",
 
   "defaultDescription-msg": "We will add a small description about this EUC soon.",
   "noWheel-msg": "We don't have this EUC in our database.",

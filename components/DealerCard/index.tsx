@@ -85,7 +85,7 @@ const DealerCard: React.FC<Props> = ({
         } }>
           { !!logo && (
             <CardMedia
-              alt={ `${ storeName } logo` }
+              alt={ t('appLogo-label', { appName: storeName }) }
               component="img"
               image={ logo }
               sx={ { objectFit: 'initial' } }

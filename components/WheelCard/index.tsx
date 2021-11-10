@@ -73,7 +73,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
       />
 
       <BrandLogo
-        alt={ t('wheelPicture-msg', { wheelName: brands[wheel.brandId].name }) }
+        alt={ t('appLogo-label', { appName: brands[wheel.brandId].name }) }
         brandId={ wheel.brandId }
       />
 

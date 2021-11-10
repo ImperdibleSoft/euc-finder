@@ -30,7 +30,7 @@ const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
         />
 
         <BrandLogo
-          alt={ t('wheelPicture-msg', { wheelName: brands[brandId].name }) }
+          alt={ t('appLogo-label', { appName: brands[brandId].name }) }
           brandId={ brandId }
         />
       </Grid>

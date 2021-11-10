@@ -37,17 +37,18 @@ const Settings: React.FC = () => {
   };
   
   const pageTitle = `Opciones - ${ APP_NAME }`;
-  const keywords = KEYWORDS.join(', ');
 
   return (
     <>
       <Head>
         <title>{ pageTitle }</title>
 
-        <meta name="keywords" content={ keywords } />
+        <meta name="keywords" content={ KEYWORDS.join(', ') } />
 
-        <meta property="og:type" content="article" />
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={ pageTitle } />
+        <meta property="og:image" content={ require('/public/favicon/maskable_icon_x512.png') } />
+        <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
       </Head>
 
       <SimpleLayout>

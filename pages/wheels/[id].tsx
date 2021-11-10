@@ -30,6 +30,7 @@ const EucDetail: React.FC = () => {
   const { sponsoredLinks, regularLinks } = useEucPurchaseLinks(id);
 
   const pageTitle = `${ name } - ${ APP_NAME }`;
+  const pageDescription = t('defaultDescription-msg');
   const newKeywords = wheel ? [brands[wheel.brandId].name, wheel.name, name]: [];
   const keywords = KEYWORDS.concat(newKeywords).join(', ');
 
@@ -37,12 +38,15 @@ const EucDetail: React.FC = () => {
     <>
       <Head>
         <title>{ pageTitle }</title>
+        <meta name="description" content={ pageDescription } />
 
         <meta name="keywords" content={ keywords } />
 
         <meta property="og:type" content="article" />
         <meta property="og:title" content={ pageTitle } />
+        <meta property="og:description" content={ pageDescription } />
         <meta property="og:image" content={ pictures?.[0] } />
+        <meta property="og:image:alt" content={ t('wheelPicture-msg', { wheelName: wheel?.name }) } />
       </Head>
 
       <SimpleLayout>
@@ -57,7 +61,7 @@ const EucDetail: React.FC = () => {
               heroImage={ pictures[0] }
               wheelName={ name }
             >
-              { t('defaultDescription-msg') }
+              { pageDescription }
             </EucDetailHeader>
 
             <EucSpecsHighlighted specs={ highlightedSpecs } wheel={ wheel } />

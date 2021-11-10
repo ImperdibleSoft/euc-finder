@@ -8,7 +8,7 @@ import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
 import NoWheels from '../components/NoWheels';
 import WheelsList from '../components/WheelsList';
 import WheelsTable from '../components/WheelsTable';
-import { APP_DESCRIPTION, APP_NAME } from '../constants';
+import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../constants';
 import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../hooks';
 import { getStaticProps } from '../utils/serverTranslatedResources';
 
@@ -35,9 +35,13 @@ const EucList: React.FC = () => {
         <title>{ pageTitle }</title>
         <meta name="description" content={ pageDescription } />
 
+        <meta name="keywords" content={ KEYWORDS.join(', ') } />
+
+        <meta property="og:type" content="website" />
         <meta property="og:title" content={ pageTitle } />
         <meta property="og:description" content={ pageDescription } />
-        <meta property="og:type" content="website" />
+        <meta property="og:image" content={ require('/public/favicon/maskable_icon_x512.png') } />
+        <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
       </Head>
 
       <LeftSidebarLayout

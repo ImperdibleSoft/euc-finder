@@ -101,7 +101,7 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
           maxWidth: logoSize
         } }>
           <CardMedia
-            alt={ `${ store.name } logo` }
+            alt={ t('appLogo-label', { appName: store.name }) }
             component="img"
             image={ logo }
             sx={ { objectFit: 'initial' } }

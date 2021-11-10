@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import DealerCard from '../components/DealerCard';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
-import { APP_NAME } from '../constants';
+import { APP_NAME, KEYWORDS } from '../constants';
 import { useArenaContext } from '../context';
 // @ts-ignore
 import dealersMarkdown from '../docs/dealers.md';
@@ -33,14 +33,24 @@ const Dealers: React.FC = () => {
 
   const regions = parseMarkdown(dealersMarkdown);
   const region = regions.find(r => r.name === regionId);
+  const regionName = t(`${ regionId }-label`);
 
   const pageTitle = t('dealers-title');
-  const regionName = t(`${ regionId }-label`);
+  const pageDescription = t('dealers1-msg', { appName: APP_NAME, region: regionName });
 
   return (
     <>
       <Head>
         <title>{ `${ pageTitle } - ${ APP_NAME }` }</title>
+        <meta name="description" content={ pageDescription } />
+
+        <meta name="keywords" content={ KEYWORDS.join(', ') } />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={ pageTitle } />
+        <meta property="og:description" content={ pageDescription } />
+        <meta property="og:image" content={ require('/public/favicon/maskable_icon_x512.png') } />
+        <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
       </Head>
 
       <SimpleLayout>
@@ -49,7 +59,7 @@ const Dealers: React.FC = () => {
         </Typography>
 
         <Typography variant="body1" component="p" sx={ { mb: 3 } }>
-          { t('dealers1-msg', { appName: APP_NAME, region: regionName }) }
+          { pageDescription }
         </Typography>
 
         <Typography variant="body1" component="p" sx={ { mb: 3 } }>

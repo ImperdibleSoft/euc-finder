@@ -68,7 +68,7 @@ const Header: React.FC<Props> = ({
               display: 'flex' 
             } }>
               <Image
-                alt="App's logo"
+                alt={ t('appLogo-label', { appName: APP_NAME }) }
                 height="48px"
                 src="/logos/eucfinder-dark.png"
                 width="48px"
