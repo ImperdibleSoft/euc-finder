@@ -23,15 +23,10 @@
   },
   "extends": [
     "next/core-web-vitals",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
   "plugins": [
-    "@typescript-eslint",
-    "jsx-a11y",
-    "react",
-    "react-hooks"
+    "@typescript-eslint"
   ],
   "rules": {
     "@typescript-eslint/indent": "off",
