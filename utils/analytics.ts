@@ -4,13 +4,9 @@ import { getItem } from './localStorage';
 
 export const shouldTrackUser = () => {
   if (process.env.NODE_ENV === 'production' && getItem(LOCAL_STORAGE_KEY.TEST) === '') {
-    // eslint-disable-next-line no-console
-    console.log('Should track user');
     return true;
   }
 
-  // eslint-disable-next-line no-console
-  console.log('Should NOT track user');
   return false;
 };
 
@@ -28,10 +24,7 @@ interface EventProps {
   params: {[key: string]: string}
 }
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const logEvent = ({ action, params }: EventProps) => {
-  // eslint-disable-next-line no-console
-  console.log('Tracking event', { action, params });
-  
+export const logEvent = ({ action, params }: EventProps) => {  
   // eslint-disable-next-line no-restricted-syntax
   if (shouldTrackUser() && 'gtag' in window) {
     // @ts-ignore
