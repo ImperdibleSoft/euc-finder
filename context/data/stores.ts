@@ -193,9 +193,10 @@ export const stores: Store[] = [
     logo: '/logos/distributors/euco.png',
     color: '#01b7fd',
     meta: {
-      code: '',
+      code: 'ref=159',
       discount: 0,
-      public: false,
+      manualDiscount: false,
+      public: true,
       sponsor: false
     }
   },
@@ -209,6 +210,7 @@ export const stores: Store[] = [
     meta: {
       code: '',
       discount: 0,
+      manualDiscount: true,
       public: false,
       sponsor: false
     }
@@ -223,6 +225,7 @@ export const stores: Store[] = [
     meta: {
       code: '',
       discount: 0,
+      manualDiscount: true,
       public: true,
       sponsor: false
     }

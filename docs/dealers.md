@@ -94,8 +94,8 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Store information ✔️
   - Purchase links ✔️
   - Fetch prices ✔️
-  - Negotiations 🕑
-  - Discount code ➖
+  - Negotiations ❌
+  - Discount code ❌
 
 - eWheels
   - Store information ✔️
