@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { DETAIL_ADDITIONAL_SPECS, DETAIL_HIGHLIGHTED_SPECS, DETAIL_MAIN_SPECS } from '../../constants';
 import { useArenaContext } from '../../context';
 import { PurchaseLink, Wheel, WheelId } from '../../types';
-import { formatWheelName, getPurchaseLink, showPrice } from '../../utils';
+import { formatWheelName, getPurchaseLink, showPrice, sortBy } from '../../utils';
 
 export * from './confirmationModal';
 export * from './wheelPrice';
@@ -63,7 +63,7 @@ export const useEucPurchaseLinks = (id: string) => {
     .filter(link => !!link) as PurchaseLink[];
 
   return {
-    sponsoredLinks,
-    regularLinks
+    sponsoredLinks: sponsoredLinks.sort(sortBy('store', 'asc', 'name')),
+    regularLinks: regularLinks.sort(sortBy('store', 'asc', 'name'))
   };
 };

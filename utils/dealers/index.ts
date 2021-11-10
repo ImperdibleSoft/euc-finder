@@ -1,3 +1,5 @@
+import { sortBy } from '../collections';
+
 interface Options {
   removeSpaces?: boolean;
   removeLetters?: boolean;
@@ -42,7 +44,6 @@ export const parseMarkdown = (str: string) => {
     const [, ...dealers] = region.replace(/#/g, '').split('\n- ');
 
     const parsedDealers = dealers.map(dealer => {
-
       const [
         dealerName = '',
         storeInformation = '',
@@ -60,7 +61,7 @@ export const parseMarkdown = (str: string) => {
         negotiations: cleanString(negotiations),
         discountCode: cleanString(discountCode)
       };
-    });
+    }).sort(sortBy('dealerName', 'asc'));
 
     return {
       name: cleanString(regionName, { removeLetters: false }),

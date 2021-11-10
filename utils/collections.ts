@@ -5,11 +5,17 @@ interface Collection {
   [index: string]: any;
 }
 
-export const sortBy = <T extends Collection>(key: keyof T, order: Order = 'desc') => (a: T, b: T) => {
-  if (a[key] < b[key]) return order === 'asc' ? -1 : 1;
-  if (a[key] > b[key]) return order === 'asc' ? 1 : -1;
-  return 0;
-};
+export const sortBy = <T extends Collection>(
+  key: keyof T,
+  order: Order = 'desc',
+  secondKey?: string
+) => (a: T, b: T) => {
+    if (secondKey && a[key][secondKey] < b[key][secondKey]) return order === 'asc' ? -1 : 1;
+    if (secondKey && a[key][secondKey] > b[key][secondKey]) return order === 'asc' ? 1 : -1;
+    if (a[key] < b[key]) return order === 'asc' ? -1 : 1;
+    if (a[key] > b[key]) return order === 'asc' ? 1 : -1;
+    return 0;
+  };
 
 export const getMinimumValue = (collection: number | number[]): number => {
   if (typeof collection === 'number') {
