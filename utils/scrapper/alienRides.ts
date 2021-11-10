@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 
-const priceRegExp = /\$([0-9]{2,}(\.[0-9]{2,2})?)/g;
+const priceRegExp = /\$([0-9]{3,}(\.[0-9]{2,2})?)/g;
 
 export const parseAlienRidesPrice = (html: string): number | '-' | undefined => {
   try {
@@ -38,8 +38,7 @@ export const parseAlienRidesPrice = (html: string): number | '-' | undefined => 
             return undefined;
           })
           .filter(opt => !!opt)
-          .sort()
-          .reverse();
+          .sort((a = 0, b = 0) => b - a);
 
         return finalPriceNumberOptions[0];
       }

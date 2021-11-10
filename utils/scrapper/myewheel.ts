@@ -1,6 +1,6 @@
 import { JSDOM } from 'jsdom';
 
-const priceRegExp = /([0-9]{1,}\.[0-9]{2,2})/;
+const priceRegExp = /([0-9]{3,}\.[0-9]{2,2})/;
 
 export const parseMyEWheelPrice = (html: string, showExpensive: boolean): number | '-' | undefined => {
   try {

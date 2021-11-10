@@ -22,7 +22,7 @@ const EucDetail: React.FC = () => {
   const router = useRouter();
   const id = router.query.id as WheelId;
   const { t } = useTranslation();
-  const expensive = (id !== WheelId.ks16xs);
+  const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
 
   const { name, pictures, wheel } = useEucDetail(id);
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
