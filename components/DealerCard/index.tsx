@@ -16,6 +16,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { stores } from '../../context/data';
 import { isDarkTheme } from '../../utils';
+import { isDealerAvailable } from '../../utils/dealers';
 
 const listItemStyles = { px: 0 };
 const listItemIconStyles = { cursor: 'default', minWidth: 24, mr: 2 };
@@ -65,14 +66,7 @@ const DealerCard: React.FC<Props> = ({
     return null;
   }
 
-  const available = (
-    (!store || store.meta.public) &&
-    (discountCode === '✔️' || discountCode === '❌') &&
-    storeInformation === '✔️' &&
-    purchaseLinks === '✔️' &&
-    fetchPrices === '✔️'
-  ) ? '✔️': '❌';
-
+  const available = isDealerAvailable(storeName) ? '✔️': '❌';
   const parsedNegotiations = getNegotiationsStatus(discountCode) ?? negotiations;
 
   const logoSize = 156;

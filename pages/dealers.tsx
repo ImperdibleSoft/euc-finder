@@ -6,10 +6,8 @@ import DealerCard from '../components/DealerCard';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../constants';
 import { useArenaContext } from '../context';
-// @ts-ignore
-import dealersMarkdown from '../docs/dealers.md';
 import { Region } from '../types';
-import { parseMarkdown } from '../utils/dealers';
+import { getDealersFromMarkdown } from '../utils/dealers';
 import { getStaticProps } from '../utils/serverTranslatedResources';
 
 const getRegionId = (regionCode: Region) => {
@@ -31,7 +29,7 @@ const Dealers: React.FC = () => {
   const { region: regionCode } = useArenaContext();
   const regionId = getRegionId(regionCode);
 
-  const regions = parseMarkdown(dealersMarkdown);
+  const regions = getDealersFromMarkdown();
   const region = regions.find(r => r.name === regionId);
   const regionName = t(`${ regionId }-label`);
 

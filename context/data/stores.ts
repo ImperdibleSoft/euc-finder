@@ -14,7 +14,6 @@ export const stores: Store[] = [
       code: 'ref=eucfinder',
       discount: 5,
       manualDiscount: true,
-      public: true,
       sponsor: false
     }
   },
@@ -29,7 +28,6 @@ export const stores: Store[] = [
       code: 'code=eucfinder',
       discount: 5,
       manualDiscount: true,
-      public: false,
       sponsor: true
     }
   },
@@ -44,7 +42,6 @@ export const stores: Store[] = [
       code: 'code=eucfinder22',
       discount: 5,
       manualDiscount: true,
-      public: false,
       sponsor: false
     }
   },
@@ -59,7 +56,6 @@ export const stores: Store[] = [
       code: '',
       discount: 0,
       manualDiscount: true,
-      public: false,
       sponsor: false
     }
   },
@@ -74,7 +70,6 @@ export const stores: Store[] = [
       code: '',
       discount: 0,
       manualDiscount: true,
-      public: false,
       sponsor: false
     }
   },
@@ -89,7 +84,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },
@@ -104,7 +98,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },
@@ -119,7 +112,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },
@@ -134,7 +126,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },
@@ -149,7 +140,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },
@@ -164,7 +154,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },
@@ -179,7 +168,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },
@@ -196,7 +184,6 @@ export const stores: Store[] = [
       code: 'ref=159',
       discount: 0,
       manualDiscount: false,
-      public: true,
       sponsor: false
     }
   },
@@ -211,7 +198,6 @@ export const stores: Store[] = [
       code: '',
       discount: 0,
       manualDiscount: true,
-      public: false,
       sponsor: false
     }
   },
@@ -226,7 +212,6 @@ export const stores: Store[] = [
       code: '',
       discount: 0,
       manualDiscount: true,
-      public: true,
       sponsor: false
     }
   },
@@ -241,7 +226,6 @@ export const stores: Store[] = [
       code: '',
       discount: 0,
       manualDiscount: true,
-      public: false,
       sponsor: false
     }
   }
@@ -256,7 +240,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },
@@ -271,7 +254,6 @@ export const stores: Store[] = [
   //     code: '',
   //     discount: 0,
   //     manualDiscount: true,
-  //     public: false,
   //     sponsor: false
   //   }
   // },

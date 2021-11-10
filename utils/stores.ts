@@ -1,6 +1,7 @@
 import { showAllPurchaseLinks } from './features';
 import { PurchaseLink, Region, Store, StoreId } from '../types';
 import { stores } from '../context/data';
+import { isDealerAvailable } from './dealers';
 
 interface GetStoreOptions {
   stores: Store[]
@@ -23,7 +24,7 @@ const getStoreFromUrl = ({ region, stores: storesData, url, sponsored }: GetStor
 
 export const getPurchaseLink = ({ stores: storesData, ...options }: GetStoreOptions): PurchaseLink | undefined => {
   const store = getStoreFromUrl({
-    stores: storesData.filter(s => s.meta.public || showAllPurchaseLinks()),
+    stores: storesData.filter(s => isDealerAvailable(s.name) || showAllPurchaseLinks()),
     ...options
   });
 

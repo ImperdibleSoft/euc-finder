@@ -1,3 +1,5 @@
+// @ts-ignore
+import dealersMarkdown from '../../docs/dealers.md';
 import { sortBy } from '../collections';
 
 interface Options {
@@ -34,8 +36,8 @@ const cleanString = (
   return parsed;
 };
 
-export const parseMarkdown = (str: string) => {
-  const [, , europe = '', america = ''] = str.split('# ');
+export const getDealersFromMarkdown = () => {
+  const [, , europe = '', america = ''] = (dealersMarkdown as string).split('# ');
 
   const regions = [europe, america];
 
@@ -70,4 +72,29 @@ export const parseMarkdown = (str: string) => {
   });
 
   return parsedRegions;
+};
+
+export const isDealerAvailable = (rawDealerName: string): boolean => {
+  const [europe, america] = getDealersFromMarkdown();
+  const dealers = [...europe.dealers, ...america.dealers];
+
+  const dealerName = cleanString(rawDealerName.toLowerCase(), { removeLetters: false });
+  const dealer = dealers.find(d => {
+    const name = cleanString(d.dealerName.toLowerCase(), { removeLetters: false });
+    return name === dealerName;
+  });
+  
+  if (!dealer) {
+    return false;
+  }
+
+  const { discountCode, storeInformation, purchaseLinks, fetchPrices } = dealer;
+  const available = (
+    (discountCode === '✔️' || discountCode === '❌') &&
+    storeInformation === '✔️' &&
+    purchaseLinks === '✔️' &&
+    fetchPrices === '✔️'
+  );
+
+  return available;
 };
