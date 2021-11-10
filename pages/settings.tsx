@@ -47,7 +47,7 @@ const Settings: React.FC = () => {
 
         <meta property="og:type" content="website" />
         <meta property="og:title" content={ pageTitle } />
-        <meta property="og:image" content={ require('/public/favicon/maskable_icon_x512.png') } />
+        <meta property="og:image" content={ require('/public/assets/ogImage.png').default?.src } />
         <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
       </Head>
 
