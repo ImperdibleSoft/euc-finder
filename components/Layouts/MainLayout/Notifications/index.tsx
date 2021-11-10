@@ -9,7 +9,7 @@ const Notifications: React.FC = () => {
   };
 
   const navigateToGroup = () => {
-    window.open('https://t.me/joinchat/-Tleimo5qjY5MDkx');
+    window.open('https://t.me/EUCFinder');
   };
   
   return (
