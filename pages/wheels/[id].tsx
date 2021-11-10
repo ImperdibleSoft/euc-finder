@@ -20,7 +20,7 @@ import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const EucDetail: React.FC = () => {
   const router = useRouter();
-  const id = router.query.id as string;
+  const id = router.query.id as WheelId;
   const { t } = useTranslation();
   const expensive = (id !== WheelId.ks16xs);
 
@@ -62,7 +62,12 @@ const EucDetail: React.FC = () => {
 
             <EucSpecsHighlighted specs={ highlightedSpecs } wheel={ wheel } />
 
-            <EucDetailPurchaseLinks expensive={ expensive } items={ sponsoredLinks } large />
+            <EucDetailPurchaseLinks
+              expensive={ expensive }
+              items={ sponsoredLinks }
+              large
+              wheel={ id }
+            />
 
             <Grid container spacing={ 2 }>
               <EucSpecsMain specs={ mainSpecs } wheel={ wheel } />
@@ -77,7 +82,11 @@ const EucDetail: React.FC = () => {
 
               <EucSpecsAdditional specs={ additionalSpecs } wheel={ wheel } />
 
-              <EucAdditionalPurchaseLinks expensive={ expensive } items={ regularLinks } />
+              <EucAdditionalPurchaseLinks
+                expensive={ expensive }
+                items={ regularLinks }
+                wheel={ id }
+              />
             </Grid>
           </>
         ) }

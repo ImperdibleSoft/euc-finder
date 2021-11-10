@@ -1,10 +1,10 @@
 import { Box, Button, Card, CardMedia, Icon, Typography } from '@mui/material';
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useArenaContext } from '../../context';
 import { useConfirmationModal, useWheelPrice, useWheelPriceStyles } from '../../hooks';
-import { Store } from '../../types';
-import { currency, isDarkTheme } from '../../utils';
+import { Store, WheelId } from '../../types';
+import { currency, isDarkTheme, logEvent } from '../../utils';
 
 interface Props {
   discount?: number;
@@ -12,14 +12,17 @@ interface Props {
   large?: boolean;
   url: string;
   store: Store;
+  wheel: WheelId;
 }
 
 // eslint-disable-next-line max-lines-per-function
-const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url, store }) => {
+const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url, store, wheel }) => {
+  const [codeCopied, setCodeCopied] = useState('');
   const { region } = useArenaContext();
   const { t } = useTranslation();
   const dark = isDarkTheme();
   const { loadingState, price: rawPrice } = useWheelPrice(store.id, url, expensive);
+  const [, discountCode] = store?.meta?.code?.split('=') ?? [];
 
   const [price, discountedPrice] = useMemo(() => {
     if (!rawPrice || rawPrice === '-') {
@@ -37,20 +40,36 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
 
   const mainStyles = useWheelPriceStyles(true, large);
   const secondaryStyles = useWheelPriceStyles(false, large);
+
+  const copyCallback = () => {
+    if (discountCode) {
+      setCodeCopied(discountCode);
+    }
+  };
   
   const navigate = () => {
+    logEvent({
+      action: 'click',
+      params: {
+        codeCopied,
+        store: store.id,
+        wheel
+      }
+    });
+
     window?.open(url);
   };
 
   const discountProps = !!store.meta.manualDiscount
     ? {
-      code: store.meta.code,
+      code: discountCode,
       discount: store.meta.discount
     }
     : {};
 
   const { handleOpen, render } = useConfirmationModal({
     callback: navigate,
+    copyCallback: copyCallback,
     storeName: store.name,
     ...discountProps
   });

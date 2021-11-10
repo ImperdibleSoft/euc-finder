@@ -12,10 +12,11 @@ import TextToCopy from '../../components/TextToCopy';
 import { APP_NAME } from '../../constants';
 
 interface Props {
-  callback: () => void
-  code?: string
+  callback: () => void;
+  copyCallback?: () => void;
+  code?: string;
   discount?: number;
-  storeName: string
+  storeName: string;
 }
 
 /**
@@ -26,7 +27,7 @@ interface Props {
  * Also, displays a discount code, in case it needs to be manually
  * applied
  */
-export const useConfirmationModal = ({ callback, code, discount, storeName }: Props) => {
+export const useConfirmationModal = ({ callback, code, copyCallback, discount, storeName }: Props) => {
   const { t } = useTranslation();
   const [open, setOpen] = useState(false);
 
@@ -48,8 +49,6 @@ export const useConfirmationModal = ({ callback, code, discount, storeName }: Pr
       return null;
     }
 
-    const [, parsedCode] = code?.split('=') ?? [];
-
     return (
       <Dialog open={ open } onClose={ handleDismiss }>
         <DialogTitle>{ t('confirmation-title', { appName: APP_NAME }) }</DialogTitle>
@@ -65,7 +64,7 @@ export const useConfirmationModal = ({ callback, code, discount, storeName }: Pr
                 { t('manualDiscount-msg', { discount }) }
               </DialogContentText>
 
-              <TextToCopy text={ parsedCode } />
+              <TextToCopy callback={ copyCallback } text={ code } />
             </>
           ) }
         </DialogContent>

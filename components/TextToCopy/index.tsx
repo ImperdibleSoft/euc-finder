@@ -5,10 +5,11 @@ import { useTranslation } from 'react-i18next';
 type CopyState = 'idle' | 'success' | 'error'
 
 interface Props {
-  text: string
+  callback?: () => void;
+  text: string;
 }
 
-const TextToCopy: React.FC<Props> = ({ text }) => {
+const TextToCopy: React.FC<Props> = ({ callback, text }) => {
   const { t } = useTranslation();
   const canCopy = !!navigator?.clipboard?.writeText;
   const [copied, setCopied] = useState<CopyState>('idle');
@@ -18,6 +19,7 @@ const TextToCopy: React.FC<Props> = ({ text }) => {
       try {
         navigator.clipboard.writeText(text);
         setCopied('success');
+        callback?.();
       } catch {
         setCopied('error');
       }
