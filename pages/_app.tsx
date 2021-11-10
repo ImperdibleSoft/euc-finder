@@ -4,14 +4,15 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { ThemeProvider } from '@mui/material';
 import type { AppProps } from 'next/app';
-import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
 import { appWithTranslation } from 'next-i18next';
 import qs from 'query-string';
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import MainLayout from '../components/Layouts/MainLayout';
-import { APP_NAME, getRegions } from '../constants';
+import { APP_NAME, getRegions, MEASUREMENT_ID } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
 import { ArenaContextProvider, useArenaContext, useContextReducer } from '../context';
 import '../styles/dropdownOverride.css';
@@ -139,6 +140,24 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           </EucArenaApp>
         </ArenaContextProvider>
       </ThemeProvider>
+
+      { /* eslint-disable max-len */ }
+      <Script id="init-analytics" dangerouslySetInnerHTML={ {
+        __html: `
+        (function() {
+          if (window.localStorage && window.localStorage.getItem) {
+            var testValue=window.localStorage.getItem('test');var isTestUser=(testValue!==undefined && testValue!==null && testValue!=='');
+            if (!isTestUser) {
+              function initialize(){
+                var init=document.createElement('script');init.innerHTML="window.dataLayer=window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ MEASUREMENT_ID }')";document.head.append(init);
+              }
+              var script=document.createElement('script');script.async=true;script.src='https://www.googletagmanager.com/gtag/js?id=${ MEASUREMENT_ID }';script.onload=initialize;document.head.append(script);
+            }
+          }
+        })();
+        ` 
+      } } />
+      { /* eslint-enable max-len */ }
     </>
   );
 };
