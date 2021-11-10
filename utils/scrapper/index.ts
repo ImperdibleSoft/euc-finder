@@ -1,3 +1,4 @@
+export * from './alienRides';
 export * from './ciclonic';
 export * from './euco';
 export * from './eucSale';

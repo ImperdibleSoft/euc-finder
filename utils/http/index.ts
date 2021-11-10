@@ -11,6 +11,13 @@ const createInstance = (config?: AxiosRequestConfig): AxiosInstance =>
 
 export const http = createInstance();
 
+export const alienRidesHttp = createInstance({
+  headers: {
+    Origin: 'https://alienrides.com/',
+    Referer: 'https://alienrides.com/'
+  }
+});
+
 export const ciclonicHttp = createInstance({
   headers: {
     Origin: 'https://ciclonic.es/',

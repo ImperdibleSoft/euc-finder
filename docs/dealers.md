@@ -105,9 +105,9 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Discount code ➖
 
 - Alien Rides
-  - Store information ➖
-  - Purchase links ➖
-  - Fetch prices ➖
+  - Store information ✔️
+  - Purchase links ✔️
+  - Fetch prices ✔️
   - Negotiations ❌
   - Discount code ❌
 

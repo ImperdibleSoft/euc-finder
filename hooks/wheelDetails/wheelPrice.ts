@@ -5,6 +5,9 @@ import { LoadingState, StoreId } from '../../types';
 
 const getApiRequest = (store: StoreId) => {
   switch (store) {
+    case StoreId.alienRides:
+      return eucFinderApi.getAlienRidesPrice;
+
     case StoreId.ciclonic:
       return eucFinderApi.getCiclonicPrice;
 

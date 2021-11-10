@@ -1,5 +1,15 @@
 import { http } from '../../utils';
 
+const getAlienRidesPrice = async (url: string, expensive: boolean): Promise<number | undefined> => {
+  try {
+    const expensiveParam = expensive ? '?expensive=true' : '';
+    const response = await http.get(`/api/alienRides/${ encodeURIComponent(url) }${ expensiveParam }`);
+    return response.data as number | undefined;
+  } catch {
+    return undefined;
+  }
+};
+
 const getCiclonicPrice = async (url: string, expensive: boolean): Promise<number | undefined> => {
   try {
     const expensiveParam = expensive ? '?expensive=true' : '';
@@ -76,6 +86,7 @@ const getUrban360Price = async (url: string, expensive: boolean): Promise<number
 };
 
 const eucFinderApi = {
+  getAlienRidesPrice,
   getCiclonicPrice,
   getEucoPrice,
   getEucSalePrice,

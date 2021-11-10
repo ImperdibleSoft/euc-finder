@@ -212,10 +212,21 @@ export const stores: Store[] = [
       public: false,
       sponsor: false
     }
+  },
+  {
+    id: StoreId.alienRides,
+    name: 'Alien rides',
+    website: 'https://alienrides.com/',
+    region: 'us',
+    logo: '/logos/distributors/alienRides.png',
+    color: '#000000',
+    meta: {
+      code: '',
+      discount: 0,
+      public: true,
+      sponsor: false
+    }
   }
-  // {
-  //   id: StoreId.alienRides
-  // },
   // {
   //   id: StoreId.smartWheel
   // }

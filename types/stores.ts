@@ -18,7 +18,7 @@ export enum StoreId {
   // US
   euco = 'euco',
   ewheels = 'ewheels',
-  // alienRides = 'alienRides',
+  alienRides = 'alienRides',
   // smartWheel = 'smartWheel',
   // gpsmodus = 'gpsmodus',
   // eevees = 'eevees',
