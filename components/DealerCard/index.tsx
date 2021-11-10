@@ -20,6 +20,19 @@ import { isDarkTheme } from '../../utils';
 const listItemStyles = { px: 0 };
 const listItemIconStyles = { cursor: 'default', minWidth: 24, mr: 2 };
 
+const getNegotiationsStatus = (discountCode: string) => {
+  switch (discountCode) {
+    case '✔️':
+      return '✔️';
+
+    case '❌':
+      return '❌';
+
+    default:
+      return undefined;
+  }
+};
+
 interface Props {
   storeName: string;
   negotiations: string;
@@ -54,11 +67,13 @@ const DealerCard: React.FC<Props> = ({
 
   const available = (
     (!store || store.meta.public) &&
-    ((negotiations === '✔️' && discountCode === '✔️') || negotiations === '❌') &&
+    (discountCode === '✔️' || discountCode === '❌') &&
     storeInformation === '✔️' &&
     purchaseLinks === '✔️' &&
     fetchPrices === '✔️'
   ) ? '✔️': '❌';
+
+  const parsedNegotiations = getNegotiationsStatus(discountCode) ?? negotiations;
 
   const logoSize = 156;
   const [logoPath, extension] = store?.logo.split('.') ?? [];
@@ -135,9 +150,9 @@ const DealerCard: React.FC<Props> = ({
             </ListItem>
 
             <ListItem sx={ listItemStyles }>
-              <Tooltip title={ t(`${ negotiations }-label`) ?? '' }>
+              <Tooltip title={ t(`${ parsedNegotiations }-label`) ?? '' }>
                 <ListItemIcon sx={ listItemIconStyles }>
-                  { negotiations }
+                  { parsedNegotiations }
                 </ListItemIcon>
               </Tooltip>
               <ListItemText primary={ t('dealers-negotiations-label') } />
