@@ -5,6 +5,7 @@ import {
   CardMedia,
   Divider,
   Grid,
+  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -72,7 +73,7 @@ const DealerCard: React.FC<Props> = ({
   const logoSize = 156;
   const [logoPath, extension] = store?.logo.split('.') ?? [];
   const logoVersion = dark ? 'dark' : 'light';
-  const logo = store ? `${ logoPath }-${ logoVersion }.${ extension }` : undefined; 
+  const logo = store ? `${ logoPath }-${ logoVersion }.${ extension }` : undefined;
 
   return (
     <Grid
@@ -106,6 +107,24 @@ const DealerCard: React.FC<Props> = ({
           <Typography gutterBottom variant="h5" component="p">
             { storeName }
           </Typography>
+
+          { !!store?.website && (
+            <List dense>
+              <ListItem sx={ listItemStyles }>
+                <ListItemText
+                  primary={ (
+                    <Link
+                      href={ `${ store.website }${ store.meta.code ? `?${ store.meta.code }` : '' }` }
+                      target="_blank"
+                    >
+                      { store.website }
+                    </Link>
+                  ) }
+                  secondary={ t('website-label') }
+                />
+              </ListItem>
+            </List>
+          ) }
 
           <List dense>
             <ListItem sx={ listItemStyles }>

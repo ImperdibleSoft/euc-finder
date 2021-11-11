@@ -20,12 +20,12 @@ export const stores: Store[] = [
   {
     id: StoreId.ciclonic,
     name: 'Ciclonic',
-    website: 'ciclonic.es',
+    website: 'https://ciclonic.es/',
     region: 'eu',
     logo: '/logos/distributors/ciclonic.png',
     color: '#0075ff',
     meta: {
-      code: 'code=eucfinder',
+      code: '',
       discount: 5,
       manualDiscount: true,
       sponsor: true
@@ -39,7 +39,7 @@ export const stores: Store[] = [
     logo: '/logos/distributors/urban360.png',
     color: '#76c043',
     meta: {
-      code: 'code=eucfinder22',
+      code: 'ref=eucfinder22',
       discount: 5,
       manualDiscount: true,
       sponsor: false
