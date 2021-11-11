@@ -122,7 +122,7 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Store information ✔️
   - Purchase links ✔️
   - Fetch prices ✔️
-  - Negotiations ➖
+  - Negotiations 🕑
   - Discount code ➖
 
 - Free Motion Shop, convert from C$ to US$
