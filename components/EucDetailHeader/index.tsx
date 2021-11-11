@@ -31,7 +31,7 @@ const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
 
         <BrandLogo
           alt={ t('appLogo-label', { appName: brands[brandId].name }) }
-          brandId={ brandId }
+          logo={ brands[brandId].logo }
         />
       </Grid>
 

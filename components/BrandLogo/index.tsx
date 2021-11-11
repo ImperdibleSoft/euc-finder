@@ -1,16 +1,15 @@
 import { Box } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
-import { BrandId } from '../../types';
 
 const size = 64;
 
 interface Props {
   alt: string;
-  brandId: BrandId;
+  logo: string;
 }
 
-const BrandLogo: React.FC<Props> = ({ alt, brandId }) => (
+const BrandLogo: React.FC<Props> = ({ alt, logo }) => (
   <Box
     style={ { backgroundColor: '#dcdcdc88' } }
     sx={ {
@@ -25,7 +24,7 @@ const BrandLogo: React.FC<Props> = ({ alt, brandId }) => (
     <Image
       alt={ alt }
       height={ `${ size }px` }
-      src={ `/logos/manufacturers/${ brandId }.png` }
+      src={ logo }
       width={ `${ size }px` }
     />
   </Box>
