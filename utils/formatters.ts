@@ -130,7 +130,7 @@ export const batterySetup = (value: number[]): string => {
     const [cells, mAh] = value;
 
     if (cells && mAh) {
-      return `${ cells } x ${ mAh } mAh`;
+      return `${ cells }p x ${ mAh } mAh`;
     }
   }
 
