@@ -74,8 +74,6 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
     ...discountProps
   });
 
-  const [btnLabel] = t('buyAt-label').split(' ');
-
   const logoSize = large ? 200 : 156;
   const [logoPath, extension] = store.logo.split('.');
   const logoVersion = dark ? 'dark' : 'light';
@@ -177,7 +175,7 @@ const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url
           size={ large ? 'large' : 'medium' }
           variant="contained"
         >
-          { btnLabel }
+          { t('buy-label') }
         </Button>
       </Card>
 

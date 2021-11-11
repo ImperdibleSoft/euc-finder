@@ -30,8 +30,9 @@
 
   "defaultDescription-msg": "We will add a small description about this EUC soon.",
   "noWheel-msg": "We don't have this EUC in our database.",
+  "sponsoredStores-title": "Sponsored stores",
   "otherStores-title": "Other available stores",
-  "buyAt-label": "Buy at",
+  "buy-label": "Buy",
   "pictures-title": "Pictures",
   "wheelPicture-msg": "{{wheelName}}'s picture",
   "additionalSpecs-title": "Additional specs",

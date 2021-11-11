@@ -30,8 +30,9 @@
 
   "defaultDescription-msg": "En breve añadiremos una pequeña descripción sobre esta rueda.",
   "noWheel-msg": "No tenemos esa rueda en nuestra base de datos.",
+  "sponsoredStores-title": "Tiendas patrocinadas",
   "otherStores-title": "Otras tiendas disponibles",
-  "buyAt-label": "Comprar en",
+  "buy-label": "Comprar",
   "pictures-title": "Imágenes",
   "wheelPicture-msg": "Foto de la {{wheelName}}",
   "additionalSpecs-title": "Especificaciones adicionales",

@@ -22,7 +22,7 @@ const EucDetailPurchaseLinks: React.FC<Props> = ({ expensive, items, large, whee
     <>
       { large && (
         <Typography sx={ { mt: 4, mb: 2 } } variant="h6" component="div">
-          { t('buyAt-label') }
+          { t('sponsoredStores-title') }
         </Typography>
       ) }
 
