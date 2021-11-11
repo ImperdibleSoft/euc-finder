@@ -198,7 +198,7 @@ export const stores: Store[] = [
       code: '',
       discount: 0,
       manualDiscount: true,
-      sponsor: false
+      sponsor: true
     }
   },
   {

@@ -96,5 +96,6 @@ export const isDealerAvailable = (rawDealerName: string): boolean => {
     fetchPrices === '✔️'
   );
 
-  return available;
+  // Hardcode this in order to help them, because of the fire
+  return available || dealer.dealerName === 'eWheels';
 };
