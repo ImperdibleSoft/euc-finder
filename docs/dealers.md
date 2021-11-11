@@ -118,17 +118,10 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Negotiations 🕑
   - Discount code ➖
 
-- GPS Modus
-  - Store information ➖
-  - Purchase links ➖
-  - Fetch prices ➖
-  - Negotiations 🕑
-  - Discount code ➖
-
 - Eevee's, convert from C$ to US$
-  - Store information ➖
-  - Purchase links ➖
-  - Fetch prices ➖
+  - Store information ✔️
+  - Purchase links ✔️
+  - Fetch prices ✔️
   - Negotiations ➖
   - Discount code ➖
 

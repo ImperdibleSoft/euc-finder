@@ -3,16 +3,12 @@ import { getConvertedCAD } from '../conversions';
 
 const priceRegExp = /\$([0-9]{3,}(\.[0-9]{2,2})?)/g;
 
-export const parseSmartWheelPrice = (html: string): number | '-' | undefined => {
+export const parseEeveesPrice = (html: string): number | '-' | undefined => {
   try {
     const dom = new JSDOM(html);
     const { document } = dom.window;
 
     /** Sold out. Out of stock */
-    const soldOutElem = document.querySelector('.form--addToCart .alertBox.alertBox--error .alertBox-message');
-    if (soldOutElem) {
-      return '-';
-    }
 
     /** Final price when released */
 
@@ -22,7 +18,7 @@ export const parseSmartWheelPrice = (html: string): number | '-' | undefined => 
 
     /** Regular version price */
     // eslint-disable-next-line max-len
-    const cheapPriceElement = document.querySelector('.productView-details .productView-price .price-section .price.price--main');
+    const cheapPriceElement = document.querySelector('.product-single__meta .product-single__meta-list .product-single__price');
     if (cheapPriceElement) {
       const cheapString = cheapPriceElement?.innerHTML?.replace(',', '');
       const [rawCheap] = cheapString?.match(priceRegExp) ?? [];

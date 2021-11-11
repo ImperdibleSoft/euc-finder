@@ -10,10 +10,26 @@ export const sortBy = <T extends Collection>(
   order: Order = 'desc',
   secondKey?: string
 ) => (a: T, b: T) => {
-    if (secondKey && a[key][secondKey] < b[key][secondKey]) return order === 'asc' ? -1 : 1;
-    if (secondKey && a[key][secondKey] > b[key][secondKey]) return order === 'asc' ? 1 : -1;
-    if (a[key] < b[key]) return order === 'asc' ? -1 : 1;
-    if (a[key] > b[key]) return order === 'asc' ? 1 : -1;
+    if (secondKey) {
+      if (typeof a[key][secondKey] === 'string') {
+        // eslint-disable-next-line max-len
+        if (secondKey && a[key][secondKey].toLowerCase() < b[key][secondKey].toLowerCase()) return order === 'asc' ? -1 : 1;
+        // eslint-disable-next-line max-len
+        if (secondKey && a[key][secondKey].toLowerCase() > b[key][secondKey].toLowerCase()) return order === 'asc' ? 1 : -1;
+      } else {
+        if (secondKey && a[key][secondKey] < b[key][secondKey]) return order === 'asc' ? -1 : 1;
+        if (secondKey && a[key][secondKey] > b[key][secondKey]) return order === 'asc' ? 1 : -1;
+      }
+    }
+
+    if (typeof a[key] === 'string') {
+      if (a[key].toLowerCase() < b[key].toLowerCase()) return order === 'asc' ? -1 : 1;
+      if (a[key].toLowerCase() > b[key].toLowerCase()) return order === 'asc' ? 1 : -1;
+    } else {
+      if (a[key] < b[key]) return order === 'asc' ? -1 : 1;
+      if (a[key] > b[key]) return order === 'asc' ? 1 : -1;
+    }
+    
     return 0;
   };
 

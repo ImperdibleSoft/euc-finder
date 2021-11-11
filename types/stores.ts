@@ -20,8 +20,7 @@ export enum StoreId {
   ewheels = 'ewheels',
   alienRides = 'alienRides',
   smartWheel = 'smartWheel',
-  // gpsmodus = 'gpsmodus',
-  // eevees = 'eevees',
+  eevees = 'eevees',
   // freeMotionShop = 'freeMotionShop',
   // monociclosCom = 'monociclos.com',
 } 

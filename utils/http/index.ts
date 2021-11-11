@@ -25,6 +25,13 @@ export const ciclonicHttp = createInstance({
   }
 });
 
+export const eeveesHttp = createInstance({
+  headers: {
+    Origin: 'https://eevees.com/',
+    Referer: 'https://eevees.com/'
+  }
+});
+
 export const eucoHttp = createInstance({
   headers: {
     Origin: 'https://www.euco.us/',

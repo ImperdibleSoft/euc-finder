@@ -1,5 +1,6 @@
 export * from './alienRides';
 export * from './ciclonic';
+export * from './eevees';
 export * from './euco';
 export * from './eucSale';
 export * from './eucService';

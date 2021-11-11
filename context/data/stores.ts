@@ -228,21 +228,21 @@ export const stores: Store[] = [
       manualDiscount: true,
       sponsor: false
     }
+  },
+  {
+    id: StoreId.eevees,
+    name: 'eevee\'s',
+    website: 'https://eevees.com/',
+    region: 'us',
+    logo: '/logos/distributors/eevees.png',
+    color: '#3cdcbf',
+    meta: {
+      code: '',
+      discount: 0,
+      manualDiscount: true,
+      sponsor: false
+    }
   }
-  // {
-  //   id: StoreId.gpsmodus,
-  //   name: 'GPS Modus',
-  //   website: 'https://www.gpsmodus.com/',
-  //   region: 'us',
-  //   logo: '',
-  //   color: '',
-  //   meta: {
-  //     code: '',
-  //     discount: 0,
-  //     manualDiscount: true,
-  //     sponsor: false
-  //   }
-  // },
   // {
   //   id: StoreId.monociclosCom,
   //   name: 'Monociclos.com',

@@ -20,6 +20,15 @@ const getCiclonicPrice = async (url: string, expensive: boolean): Promise<number
   }
 };
 
+const getEeveesPrice = async (url: string): Promise<number | '-' | undefined> => {
+  try {
+    const response = await http.get(`/api/eevees/${ encodeURIComponent(url) }`);
+    return response.data as number | '-' | undefined;
+  } catch {
+    return undefined;
+  }
+};
+
 const getEucoPrice = async (url: string): Promise<number | '-' | undefined> => {
   try {
     const response = await http.get(`/api/euco/${ encodeURIComponent(url) }`);
@@ -98,6 +107,7 @@ const getUrban360Price = async (url: string, expensive: boolean): Promise<number
 const eucFinderApi = {
   getAlienRidesPrice,
   getCiclonicPrice,
+  getEeveesPrice,
   getEucoPrice,
   getEucSalePrice,
   getEucServicePrice,

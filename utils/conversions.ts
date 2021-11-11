@@ -63,3 +63,5 @@ export const getConvertedWeight = (value: number, units?: WeightUnits): string =
       return toDecimals(value, 2);
   }
 };
+
+export const getConvertedCAD = (value: number) => value * 0.8;
