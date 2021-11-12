@@ -24,7 +24,7 @@ export const getServerSideProps = ({ res }: Props) => {
   const baseUrl = getBaseUrl();
 
   // eslint-disable-next-line no-console
-  console.log('Directories', readdirSync(__dirname));
+  console.log('Directories', readdirSync('.'));
 
   const mainPages = fs
     .readdirSync('pages')
