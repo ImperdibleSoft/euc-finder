@@ -1,8 +1,19 @@
+/* eslint-disable max-lines */
 import { TFunction } from 'react-i18next';
 import { CheckboxProps } from '../../../components/Form/Checkbox';
 import { DropdownItem } from '../../../components/Form/Dropdown';
 import { brands } from '../../../context/data';
-import { AntiSpin, BrandId, Color, Display, Kickstand, SoundSystem, Suspension, TrolleyHandle } from '../../../types';
+import {
+  AntiSpin,
+  BrandId,
+  Category,
+  Color,
+  Display,
+  Kickstand,
+  SoundSystem,
+  Suspension,
+  TrolleyHandle
+} from '../../../types';
 import * as formatters from '../../../utils/formatters';
 
 // eslint-disable-next-line max-lines-per-function
@@ -14,6 +25,14 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
       name: brands[brand].id,
       onChange: ()=> { return; }
     }));
+
+  const categoryOptions: CheckboxProps[] =
+    (['extreme', 'high-end', 'standard', 'starter'] as Category[])
+      .map(category => ({
+        label: t(`${ category }-label`),
+        name: category,
+        onChange: ()=> { return; }
+      }));
   
   const suspensionOptions: DropdownItem[] = [
     {
@@ -181,6 +200,7 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
 
   return {
     brandIdOptions,
+    categoryOptions,
     suspensionOptions,
     antiSpinOptions,
     kickstandOptions,

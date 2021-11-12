@@ -11,3 +11,4 @@ export * from './range';
 export * from './sorting';
 export * from './stores';
 export * from './styles';
+export * from './wheels';

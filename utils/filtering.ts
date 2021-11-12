@@ -9,6 +9,7 @@ import {
   getConvertedWeight
 } from './conversions';
 import { getEstimatedMaxRange } from './range';
+import { getWheelCategory } from './wheels';
 
 export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: ArenaContextState['measureUnits']) => {
   const diameter = Number(getConvertedDiameter(wheel.diameter, units.diameter));
@@ -27,6 +28,7 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: ArenaCo
 
   return (
     filters.brandId.includes(wheel.brandId)
+    && filters.categories.includes(getWheelCategory(wheel))
 
     && (!filters.maxPrice || !wheel.price || wheel.price <= Number(filters.maxPrice))
     && (!filters.minPrice || !wheel.price || wheel.price >= Number(filters.minPrice))

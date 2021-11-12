@@ -242,7 +242,7 @@ const ksS20: Wheel = {
   voltage: 126,
 
   diameter: 20,
-  width: 3,
+  width: 2.75,
   groundClearance: [100, 230],
   weight: 35,
   trolleyHandle: TrolleyHandle.telescopic,

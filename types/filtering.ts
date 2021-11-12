@@ -1,14 +1,16 @@
 import React from 'react';
-import { Order, WheelSortingKeys } from '.';
+import { Order  } from '.';
 import { CheckboxProps } from '../components/Form/Checkbox';
 import { DropdownItem } from '../components/Form/Dropdown';
 import { Props as TextProps } from '../components/Form/Text';
 import { BrandId } from './brands';
 import { WheelFeatures } from './wheel';
-import { AntiSpin, Color, Display, Kickstand, SoundSystem, TrolleyHandle, Suspension } from './wheelFeatures';
+import { WheelSortingKeys } from './sorting';
+import { AntiSpin, Category, Color, Display, Kickstand, SoundSystem, TrolleyHandle, Suspension } from './wheelFeatures';
 
 export interface WheelFilters {
   brandId: BrandId[]
+  categories: Category[]
 
   maxPrice?: string
   minPrice?: string

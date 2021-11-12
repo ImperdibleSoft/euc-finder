@@ -9,6 +9,7 @@ import { useArenaContext } from '../../../context';
 import {
   AntiSpin,
   BrandId,
+  Category,
   Color,
   Display,
   FilterField,
@@ -50,6 +51,20 @@ const useFilters = () => {
     }
 
     handleFilterBy('brandId', enabledBrands);
+  };
+
+  const handleChangeCategory = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const category = event.target.name as Category;
+    const value = event.target.checked;
+
+    let enabledCategories = [...filters.categories];
+    if (!value) {
+      enabledCategories = [...filters.categories].filter(b => b !== category);
+    } else if (value && !enabledCategories.includes(category)) {
+      enabledCategories.push(category);
+    }
+
+    handleFilterBy('categories', enabledCategories);
   };
 
   const handleChangeAntispin = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -174,6 +189,7 @@ const useFilters = () => {
     handleChange,
     handleChangeAntispin,
     handleChangeBrandId,
+    handleChangeCategory,
     handleChangeColor,
     handleChangeDisplay,
     handleChangeKickstand,
@@ -192,6 +208,7 @@ export const useFilterFields = () => {
   const {
     antiSpinOptions,
     brandIdOptions,
+    categoryOptions,
     colorOptions,
     displayOptions,
     kickstandOptions,
@@ -205,6 +222,7 @@ export const useFilterFields = () => {
     handleChange,
     handleChangeAntispin,
     handleChangeBrandId,
+    handleChangeCategory,
     handleChangeColor,
     handleChangeDisplay,
     handleChangeKickstand,
@@ -218,6 +236,19 @@ export const useFilterFields = () => {
 
 
   const fields: FilterField[] = [
+    {
+      Field: CheckboxGroup,
+      icon: wheelFeatureIcons.category,
+      label: t('category-label'),
+      name: 'category',
+      options: categoryOptions.map(option => ({
+        ...option,
+        onChange: handleChangeCategory,
+        checked: filters.categories.includes(option.name as Category)
+      })),
+      space: true
+    },
+
     {
       Field: Text,
       icon: wheelFeatureIcons.diameter,

@@ -1,5 +1,7 @@
 import { WheelFeatures, WheelId } from './wheel';
 
+export type Category = 'starter' | 'standard' | 'high-end' | 'extreme'
+
 export type GroundClearance = number | number[]
 
 export enum TrolleyHandle {
@@ -53,7 +55,7 @@ interface IconKeys extends WheelFeatures {
   name: string
 }
 
-export type WheelFeatureIcons = Record<keyof IconKeys, string>
+export type WheelFeatureIcons = Record<keyof IconKeys | 'category', string>
 export type WheelFeatureFormatters = Record<keyof WheelFeatures, Function>
 
 export type WheelPictures = Record<WheelId, string[]>

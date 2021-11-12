@@ -115,6 +115,11 @@
   
   "id": "ID",
   "brandId": "Fabricante",
+  "category-label": "Categoría",
+  "starter-label": "Inicial",
+  "standard-label": "Estándar",
+  "high-end-label": "Potente",
+  "extreme-label": "Extremo",
   "name": "Nombre",
   "price": "Precio",
   "ratedPower": "Potencia del motor",

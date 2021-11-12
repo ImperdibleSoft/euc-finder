@@ -13,6 +13,8 @@ import { ArenaContextState } from './types';
 
 export const getFiltersInitialValue = (): WheelFilters => ({
   brandId: Object.values(BrandId),
+  categories: ['starter', 'standard', 'high-end', 'extreme'],
+
   maxPrice: undefined,
   minPrice: undefined,
 

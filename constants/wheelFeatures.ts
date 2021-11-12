@@ -12,6 +12,7 @@ import * as formatters from '../utils/formatters';
 
 export const wheelFeatureIcons: WheelFeatureIcons = {
   brandId: 'business',
+  category: 'exposure',
   name: 'sort_by_alpha',
   price: 'euro',
 
