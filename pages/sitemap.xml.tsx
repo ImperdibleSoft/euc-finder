@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs, { readdirSync } from 'fs';
 import { ServerResponse } from 'http';
 import React from 'react';
 import { wheels } from '../context/data';
@@ -22,6 +22,9 @@ export const getServerSideProps = ({ res }: Props) => {
   };
 
   const baseUrl = getBaseUrl();
+
+  // eslint-disable-next-line no-console
+  console.log('Directories', readdirSync(__dirname));
 
   const mainPages = fs
     .readdirSync('pages')
