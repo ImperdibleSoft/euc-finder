@@ -248,42 +248,17 @@ export const useFilterFields = () => {
       })),
       space: true
     },
-
+    
     {
-      Field: Text,
-      icon: wheelFeatureIcons.diameter,
-      label: t('minimum', { property: t('diameter') }),
-      name: 'minDiameter',
-      onChange: handleChange ,
-      type: 'number',
-      value: filters.minDiameter?.toString() ?? ''
-    },
-    {
-      Field: Text,
-      icon: wheelFeatureIcons.diameter,
-      label: t('maximum', { property: t('diameter') }),
-      name:'maxDiameter',
-      onChange: handleChange,
-      type:'number',
-      value: filters.maxDiameter?.toString() ?? ''
-    },
-    {
-      Field: Text,
-      icon: wheelFeatureIcons.width,
-      label: t('minimum', { property: t('width') }),
-      name: 'minWidth',
-      onChange: handleChange ,
-      type: 'number',
-      value: filters.minWidth?.toString() ?? ''
-    },
-    {
-      Field: Text,
-      icon: wheelFeatureIcons.width,
-      label: t('maximum', { property: t('width') }),
-      name:'maxWidth',
-      onChange: handleChange,
-      type:'number',
-      value: filters.maxWidth?.toString() ?? '',
+      Field: CheckboxGroup,
+      icon: wheelFeatureIcons.brandId,
+      label: t('brandId'),
+      name: 'brandId',
+      options: brandIdOptions.map(option => ({
+        ...option,
+        onChange: handleChangeBrandId,
+        checked: filters.brandId.includes(option.name as BrandId)
+      })),
       space: true
     },
 
@@ -326,17 +301,42 @@ export const useFilterFields = () => {
       value: filters.maxWeight?.toString() ?? '',
       space: true
     },
-    
+
     {
-      Field: CheckboxGroup,
-      icon: wheelFeatureIcons.brandId,
-      label: t('brandId'),
-      name: 'brandId',
-      options: brandIdOptions.map(option => ({
-        ...option,
-        onChange: handleChangeBrandId,
-        checked: filters.brandId.includes(option.name as BrandId)
-      })),
+      Field: Text,
+      icon: wheelFeatureIcons.diameter,
+      label: t('minimum', { property: t('diameter') }),
+      name: 'minDiameter',
+      onChange: handleChange ,
+      type: 'number',
+      value: filters.minDiameter?.toString() ?? ''
+    },
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.diameter,
+      label: t('maximum', { property: t('diameter') }),
+      name:'maxDiameter',
+      onChange: handleChange,
+      type:'number',
+      value: filters.maxDiameter?.toString() ?? ''
+    },
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.width,
+      label: t('minimum', { property: t('width') }),
+      name: 'minWidth',
+      onChange: handleChange ,
+      type: 'number',
+      value: filters.minWidth?.toString() ?? ''
+    },
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.width,
+      label: t('maximum', { property: t('width') }),
+      name:'maxWidth',
+      onChange: handleChange,
+      type:'number',
+      value: filters.maxWidth?.toString() ?? '',
       space: true
     },
     
