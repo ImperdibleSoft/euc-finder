@@ -145,7 +145,7 @@ const rsHT: Wheel = {
   ratedPower: 2600,
   peakPower: 0,
   maxGradibility: 25,
-  maxSpeed: 60,
+  maxSpeed: 68,
   batterySetup: [4, 5000],
   battery: 1800,
   range: 130,
@@ -288,7 +288,7 @@ const exnHT: Wheel = {
   price: 3000,
 
   ratedPower: 2800,
-  maxSpeed: 70,
+  maxSpeed: 68,
   range: 190,
 
   groundClearance: 160,
