@@ -4,9 +4,6 @@ import { useTranslation } from 'react-i18next';
 
 const Notifications: React.FC = () => {
   const { t } = useTranslation();
-  const navigateToChannel = () => {
-    window.open('https://t.me/joinchat/dGqzjV3hD_dhOGFh');
-  };
 
   const navigateToGroup = () => {
     window.open('https://t.me/EUCFinder');
@@ -28,12 +25,6 @@ const Notifications: React.FC = () => {
         onClick={ navigateToGroup }
         tooltipOpen
         tooltipTitle={ t('joinToTelegram-msg') }
-      />
-      <SpeedDialAction
-        icon={ <Icon>telegram</Icon> }
-        onClick={ navigateToChannel }
-        tooltipOpen
-        tooltipTitle={ t('subscribeToTelegram-msg') }
       />
     </SpeedDial>
   );
