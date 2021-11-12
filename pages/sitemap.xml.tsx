@@ -1,4 +1,3 @@
-import fs, { readdirSync } from 'fs';
 import { ServerResponse } from 'http';
 import React from 'react';
 import { wheels } from '../context/data';
@@ -23,24 +22,8 @@ export const getServerSideProps = ({ res }: Props) => {
 
   const baseUrl = getBaseUrl();
 
-  // eslint-disable-next-line no-console
-  console.log('Directories', readdirSync('.'));
-
-  const mainPages = fs
-    .readdirSync('pages')
-    .filter((staticPage) =>
-      ![
-        'api',
-        '_app.tsx',
-        '_document.tsx',
-        'sitemap.xml.tsx'
-      ].includes(staticPage)
-    ).map((staticPagePath) =>
-      `${ baseUrl }/${ staticPagePath.replace('index', '').replace('.tsx', '') }`
-    );
-
-  const wheelsPages = wheels
-    .map((wheel) => `${ baseUrl }/wheels/${ wheel.id }`);
+  const mainPages = ['', 'dealers', 'settings'].map((staticPagePath) => `${ baseUrl }/${ staticPagePath }`);
+  const wheelsPages = wheels.map((wheel) => `${ baseUrl }/wheels/${ wheel.id }`);
 
   const staticPages = [...mainPages, ...wheelsPages];
 
