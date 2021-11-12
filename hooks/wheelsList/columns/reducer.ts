@@ -1,30 +1,30 @@
-import { DETAIL_HIGHLIGHTED_SPECS } from '../../../constants';
+import { LIST_MAIN_SPECS } from '../../../constants';
 import { WheelsTableColumns } from '../../../types';
 
 const initialValue: WheelsTableColumns = {
-  diameter: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'diameter'),
-  width: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'width'),
-  maxSpeed: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'maxSpeed'),
-  range: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'range'),
-  weight: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'weight'),
+  diameter: LIST_MAIN_SPECS.some(f => f ===  'diameter'),
+  width: LIST_MAIN_SPECS.some(f => f ===  'width'),
+  maxSpeed: LIST_MAIN_SPECS.some(f => f ===  'maxSpeed'),
+  range: LIST_MAIN_SPECS.some(f => f ===  'range'),
+  weight: LIST_MAIN_SPECS.some(f => f ===  'weight'),
   
-  ratedPower: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'ratedPower'),
-  battery: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'battery'),
-  batterySetup: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'batterySetup'),
-  voltage: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'voltage'),
-  maxGradibility: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'maxGradibility'),
-  groundClearance: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'groundClearance'),
-  suspension: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'suspension'),
+  ratedPower: LIST_MAIN_SPECS.some(f => f ===  'ratedPower'),
+  battery: LIST_MAIN_SPECS.some(f => f ===  'battery'),
+  batterySetup: LIST_MAIN_SPECS.some(f => f ===  'batterySetup'),
+  voltage: LIST_MAIN_SPECS.some(f => f ===  'voltage'),
+  maxGradibility: LIST_MAIN_SPECS.some(f => f ===  'maxGradibility'),
+  groundClearance: LIST_MAIN_SPECS.some(f => f ===  'groundClearance'),
+  suspension: LIST_MAIN_SPECS.some(f => f ===  'suspension'),
 
-  headlight: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'headlight'),
-  tailLight: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'tailLight'),
-  trolleyHandle: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'trolleyHandle'),
-  antiSpin: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'antiSpin'),
-  kickstand: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'kickstand'),
-  leds: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'leds'),
-  sound: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'sound'),
-  display: DETAIL_HIGHLIGHTED_SPECS.some(f => f === 'display'),
-  color: DETAIL_HIGHLIGHTED_SPECS.some(f => f ===  'color')
+  headlight: LIST_MAIN_SPECS.some(f => f ===  'headlight'),
+  tailLight: LIST_MAIN_SPECS.some(f => f ===  'tailLight'),
+  trolleyHandle: LIST_MAIN_SPECS.some(f => f ===  'trolleyHandle'),
+  antiSpin: LIST_MAIN_SPECS.some(f => f ===  'antiSpin'),
+  kickstand: LIST_MAIN_SPECS.some(f => f ===  'kickstand'),
+  leds: LIST_MAIN_SPECS.some(f => f ===  'leds'),
+  sound: LIST_MAIN_SPECS.some(f => f ===  'sound'),
+  display: LIST_MAIN_SPECS.some(f => f === 'display'),
+  color: LIST_MAIN_SPECS.some(f => f ===  'color')
 };
 
 export const getInitialValue = () => ({ ...initialValue });
