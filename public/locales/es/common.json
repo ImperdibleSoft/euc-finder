@@ -4,6 +4,8 @@
   "yes": "Sí",
   "no": "No",
   "at": "en",
+  "more": "Más",
+  "less": "Menos",
   "unicycles-label": "{{quantity}} monociclos",
   "search-label": "Buscar...",
   "selectAnOption-label": "Selecciona una opción",

@@ -4,6 +4,8 @@
   "yes": "Yes",
   "no": "No",
   "at": "at",
+  "more": "More",
+  "less": "Less",
   "unicycles-label": "{{quantity}} EUCs",
   "search-label": "Search...",
   "selectAnOption-label": "Select an option",
