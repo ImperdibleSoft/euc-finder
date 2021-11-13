@@ -1,6 +1,8 @@
 import { Button, ButtonGroup, Container, Icon, Typography } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Columns from '../components/Columns';
 import Filters from '../components/Filters';
@@ -13,6 +15,8 @@ import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from 
 import { getStaticProps } from '../utils/serverTranslatedResources';
 
 const EucList: React.FC = () => {
+  const theme = useTheme();
+  const isTablet = useMediaQuery(theme.breakpoints.up('sm'));
   const { t } = useTranslation();
   const [view, setView] = useState<'grid' | 'table'>('grid');
   const displayTable = view === 'table';
@@ -28,6 +32,20 @@ const EucList: React.FC = () => {
 
   const pageTitle = APP_NAME;
   const pageDescription = APP_DESCRIPTION;
+
+  const collapsableSize = useMemo(() => {
+    if (!displayTable || !isTablet) {
+      return undefined;
+    }
+
+    const headerSize = 64 / 2;
+    const paddingBottom = 16;
+    const button = 36;
+    const spacing = headerSize + paddingBottom + button;
+
+    return `calc(50vh - ${ spacing }px)`;
+  }, [isTablet, displayTable]);
+
 
   return (
     <>
@@ -51,12 +69,14 @@ const EucList: React.FC = () => {
         sidebar={ (
           <>
             <Filters
+              collapsedSize={ collapsableSize }
               fields={ fields }
               handleResetFilters={ handleResetFilters }
             />
 
             { displayTable && (
               <Columns
+                collapsedSize={ collapsableSize }
                 columns={ columns }
                 handleHide={ handleHide }
                 handleReset={ handleReset }
