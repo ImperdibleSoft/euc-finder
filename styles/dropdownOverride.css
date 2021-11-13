@@ -2,3 +2,7 @@
   align-items: center;
   display: flex !important;
 }
+
+.MuiAutocomplete-popper > .MuiPaper-root > .MuiAutocomplete-listbox {
+  max-height: calc(100vh - 120px) !important;
+}
