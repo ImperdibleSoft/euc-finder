@@ -21,12 +21,10 @@ export const wheelFeatureIcons: WheelFeatureIcons = {
   maxSpeed: 'speed',
   range: 'space_bar',
   weight: 'fitness_center',
-  // weight: 'file_download',
 
   ratedPower: 'bolt',
   peakPower: 'offline_bolt',
-  battery: 'battery_charging_full',
-  batterySetup: 'battery_full',
+  battery: 'battery_full',
   voltage: 'power',
   maxGradibility: 'filter_hdr',
   groundClearance: 'height',
@@ -54,8 +52,7 @@ export const wheelFeatureFormatters: WheelFeatureFormatters = {
 
   ratedPower: formatters.power,
   peakPower: formatters.power,
-  battery: formatters.energy,
-  batterySetup: formatters.batterySetup,
+  battery: formatters.battery,
   voltage: formatters.voltage,
   maxGradibility: formatters.degrees,
   groundClearance: formatters.groundClearance,

@@ -19,8 +19,12 @@ const sherman: Wheel = {
   peakPower: 0,
   maxGradibility: 30,
   maxSpeed: 70,
-  batterySetup: [10, 3500],
-  battery: 3200,
+  battery: {
+    capacity: 3500,
+    parallels: 10,
+    type: '',
+    wattsHour: 3200
+  },
   range: 190,
   voltage: 100,
 
@@ -50,8 +54,12 @@ const abrams: Wheel = {
   peakPower: 6500,
   maxGradibility: 30,
   maxSpeed: 80,
-  batterySetup: [0, 0],
-  battery: 2700,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 2700
+  },
   range: 130,
   voltage: 100,
 

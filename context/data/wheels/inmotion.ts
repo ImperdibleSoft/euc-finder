@@ -22,8 +22,12 @@ const v5: Wheel = {
   peakPower: 0,
   maxGradibility: 18,
   maxSpeed: 20,
-  batterySetup: [0,0],
-  battery: 160,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 160
+  },
   range: 18,
   voltage: 84,
 
@@ -51,8 +55,12 @@ const v5f: Wheel = {
 
   ratedPower: 550,
   maxSpeed: 25,
-  batterySetup: [4, 1100],
-  battery: 320,
+  battery: {
+    capacity: 1100,
+    parallels: 4,
+    type: '',
+    wattsHour: 320
+  },
   range: 38,
 
   weight: 11.9
@@ -68,8 +76,12 @@ const v8: Wheel = {
   peakPower: 0,
   maxGradibility: 25,
   maxSpeed: 30,
-  batterySetup: [0,0],
-  battery: 450,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 450
+  },
   range: 40,
   voltage: 84,
 
@@ -98,8 +110,12 @@ const v8f: Wheel = {
   ratedPower: 1000,
   maxGradibility: 30,
   maxSpeed: 35,
-  batterySetup: [6, 583],
-  battery: 518,
+  battery: {
+    capacity: 583,
+    parallels: 6,
+    type: '',
+    wattsHour: 518
+  },
   range: 55,
 
   diameter: 16,
@@ -117,8 +133,12 @@ const v10: Wheel = {
   peakPower: 0,
   maxGradibility: 30,
   maxSpeed: 40,
-  batterySetup: [4, 2200],
-  battery: 650,
+  battery: {
+    capacity: 2200,
+    parallels: 4,
+    type: '',
+    wattsHour: 650
+  },
   range: 70,
   voltage: 84,
 
@@ -145,8 +165,12 @@ const v10f: Wheel = {
   price: 1600,
 
   ratedPower: 2000,
-  batterySetup: [4, 3250],
-  battery: 960,
+  battery: {
+    capacity: 3250,
+    parallels: 4,
+    type: '',
+    wattsHour: 960
+  },
   range: 90
 };
 
@@ -160,8 +184,12 @@ const v11: Wheel = {
   peakPower: 0,
   maxGradibility: 35,
   maxSpeed: 55,
-  batterySetup: [4, 5000],
-  battery: 1500,
+  battery: {
+    capacity: 5000,
+    parallels: 4,
+    type: '',
+    wattsHour: 1500
+  },
   range: 120,
   voltage: 84,
 
@@ -191,8 +219,12 @@ const v12: Wheel = {
   peakPower: 5000,
   maxGradibility: 35,
   maxSpeed: 70,
-  batterySetup: [0,0],
-  battery: 1750,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 1750
+  },
   range: 160,
   voltage: 100,
 

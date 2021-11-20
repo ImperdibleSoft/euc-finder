@@ -50,7 +50,11 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: ArenaCo
 
     && (!filters.minPower || !wheel.ratedPower || wheel.ratedPower >= Number(filters.minPower))
     && (!filters.minVoltage || !wheel.voltage || wheel.voltage >= Number(filters.minVoltage))
-    && (!filters.minBatteryOutput || !wheel.battery || wheel.battery >= Number(filters.minBatteryOutput))
+    && (
+      !filters.minBatteryOutput
+      || !wheel.battery?.wattsHour
+      || wheel.battery.wattsHour >= Number(filters.minBatteryOutput)
+    )
     
     && (
       !filters.color

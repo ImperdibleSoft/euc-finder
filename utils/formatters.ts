@@ -2,6 +2,7 @@
 import { TFunction } from 'react-i18next';
 import {
   AntiSpin,
+  Battery,
   Brands,
   Color,
   DiameterUnits,
@@ -117,9 +118,43 @@ export const power = (value: number): string => {
   return '-';
 };
 
-export const energy = (value: number): string => {
+export const battery = (value: Battery): string => {
   if (value) {
-    return `${ value } Wh`;
+    const { capacity, parallels, type, wattsHour } = value;
+    const p = parallels && `${ parallels }p`;
+    const mAh = capacity && `${ capacity } mAh`;
+    const wh = wattsHour && `${ wattsHour } Wh`;
+
+    let output = '';
+    if (wh) {
+      output += wh;
+    }
+
+    if (p || mAh || type) {
+      output += ' (';
+
+      if (p) {
+        output += p;
+      }
+  
+      if (mAh) {
+        if (p) {
+          output += ' x ';
+        }
+        output += mAh;
+      }
+
+      if (type) {
+        if (p || mAh) {
+          output += ', ';
+        }
+        output += type;
+      }
+
+      output += ')';
+    }
+
+    return output;
   }
 
   return '-';

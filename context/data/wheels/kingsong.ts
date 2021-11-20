@@ -23,8 +23,12 @@ const ks14m: Wheel = {
   peakPower: 1500,
   maxGradibility: 28,
   maxSpeed: 20,
-  batterySetup: [0, 0],
-  battery: 174,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 174
+  },
   range: 18,
   voltage: 67.2,
 
@@ -53,7 +57,10 @@ const ks14d: Wheel = {
   peakPower: 2400,
   maxGradibility: 30,
   maxSpeed: 30,
-  battery: 420,
+  battery: {
+    ...ks14m.battery,
+    wattsHour: 420
+  },
   range: 35,
 
   weight: 12.5,
@@ -68,7 +75,10 @@ const ks14s: Wheel = {
   price: 1300,
 
   peakPower: 2000,
-  battery: 840,
+  battery: {
+    ...ks14d.battery,
+    wattsHour: 840
+  },
   range: 70,
 
   weight: 16.2,
@@ -85,8 +95,12 @@ const ks16s: Wheel = {
   peakPower: 3000,
   maxGradibility: 30,
   maxSpeed: 35,
-  batterySetup: [0, 0],
-  battery: 840,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 840
+  },
   range: 70,
   voltage: 67.2,
 
@@ -116,8 +130,12 @@ const ks16xs: Wheel = {
   peakPower: 4200,
   maxGradibility: 35,
   maxSpeed: 50,
-  batterySetup: [0, 0],
-  battery: 777,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 777
+  },
   range: 75,
   voltage: 84,
 
@@ -143,8 +161,12 @@ const ks16x: Wheel = {
   name: '16X',
   price: 2200,
 
-  batterySetup: [6, 3500],
-  battery: 1554,
+  battery: {
+    ...ks16xs.battery,
+    capacity: 3500,
+    parallels: 6,
+    wattsHour: 1554
+  },
   range: 150,
 
   weight: 24.4,
@@ -161,8 +183,12 @@ const ks18l: Wheel = {
   peakPower: 4000,
   maxGradibility: 35,
   maxSpeed: 50,
-  batterySetup: [0, 0],
-  battery: 1036,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 1036
+  },
   range: 70,
   voltage: 84,
 
@@ -188,7 +214,13 @@ const ks18xl: Wheel = {
   name: '18XL',
   price: 2500,
 
-  battery: 1554,
+  battery: {
+    ...ks18l.battery,
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 1554
+  },
   range: 100,
 
   weight: 25.4,
@@ -205,8 +237,12 @@ const ksS18: Wheel = {
   peakPower: 4000,
   maxGradibility: 35,
   maxSpeed: 50,
-  batterySetup: [3, 3500],
-  battery: 1110,
+  battery: {
+    capacity: 3500,
+    parallels: 3,
+    type: '',
+    wattsHour: 1110
+  },
   range: 100,
   voltage: 84,
 
@@ -236,8 +272,12 @@ const ksS20: Wheel = {
   peakPower: 7500,
   maxGradibility: 40,
   maxSpeed: 70,
-  batterySetup: [0, 0],
-  battery: 2220,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 2200
+  },
   range: 200,
   voltage: 126,
 

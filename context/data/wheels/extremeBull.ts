@@ -19,8 +19,12 @@ const commanderHT: Wheel = {
   peakPower: 0,
   maxGradibility: 30,
   maxSpeed: 68,
-  batterySetup: [0, 0],
-  battery: 3600,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 3600
+  },
   range: 170,
   voltage: 100,
 

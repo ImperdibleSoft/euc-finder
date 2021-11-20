@@ -22,8 +22,12 @@ const mten: Wheel = {
   peakPower: 0,
   maxGradibility: 20,
   maxSpeed: 35,
-  batterySetup: [0, 0],
-  battery: 512,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 512
+  },
   range: 40,
   voltage: 84,
 
@@ -53,8 +57,12 @@ const mcm5: Wheel = {
   peakPower: 2250,
   maxGradibility: 20,
   maxSpeed: 40,
-  batterySetup: [0, 0],
-  battery: 800,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 800
+  },
   range: 65,
   voltage: 84,
 
@@ -84,8 +92,12 @@ const tesla: Wheel = {
   peakPower: 4000,
   maxGradibility: 20,
   maxSpeed: 50,
-  batterySetup: [0, 0],
-  battery: 1500,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 1500
+  },
   range: 100,
   voltage: 84,
 
@@ -115,8 +127,12 @@ const nikola: Wheel = {
   peakPower: 0,
   maxGradibility: 30,
   maxSpeed: 60,
-  batterySetup: [6, 3500],
-  battery: 1800,
+  battery: {
+    capacity: 3500,
+    parallels: 6,
+    type: '',
+    wattsHour: 1800
+  },
   range: 95,
   voltage: 100,
 
@@ -146,8 +162,12 @@ const rsHT: Wheel = {
   peakPower: 0,
   maxGradibility: 25,
   maxSpeed: 68,
-  batterySetup: [4, 5000],
-  battery: 1800,
+  battery: {
+    capacity: 5000,
+    parallels: 4,
+    type: '',
+    wattsHour: 1800
+  },
   range: 130,
   voltage: 100,
 
@@ -185,8 +205,12 @@ const msx: Wheel = {
   peakPower: 4000,
   maxGradibility: 20,
   maxSpeed: 60,
-  batterySetup: [6, 3500],
-  battery: 1600,
+  battery: {
+    capacity: 3500,
+    parallels: 6,
+    type: '',
+    wattsHour: 1600
+  },
   range: 100,
   voltage: 84,
 
@@ -214,7 +238,10 @@ const msx100: Wheel = {
 
   ratedPower: 2350,
   peakPower: 5700,
-  battery: 1860,
+  battery: {
+    ...msx.battery,
+    wattsHour: 1860
+  },
   range: 95,
   voltage: 100
 };
@@ -229,8 +256,12 @@ const msp: Wheel = {
   peakPower: 0,
   maxGradibility: 20,
   maxSpeed: 50,
-  batterySetup: [4, 5000],
-  battery: 1800,
+  battery: {
+    capacity: 5000,
+    parallels: 4,
+    type: '',
+    wattsHour: 1800
+  },
   range: 120,
   voltage: 100,
 
@@ -260,8 +291,12 @@ const ex: Wheel = {
   peakPower: 0,
   maxGradibility: 30,
   maxSpeed: 70,
-  batterySetup: [6, 5000],
-  battery: 2700,
+  battery: {
+    capacity: 5000,
+    parallels: 6,
+    type: '',
+    wattsHour: 2700
+  },
   range: 190,
   voltage: 100,
 
@@ -314,8 +349,12 @@ const hero: Wheel = {
   peakPower: 0,
   maxGradibility: 35,
   maxSpeed: 65,
-  batterySetup: [0, 0],
-  battery: 1800,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 1800
+  },
   range: 125,
   voltage: 100,
 
@@ -345,8 +384,12 @@ const monster: Wheel = {
   peakPower: 0,
   maxGradibility: 20,
   maxSpeed: 68,
-  batterySetup: [6, 3500],
-  battery: 1845,
+  battery: {
+    capacity: 3500,
+    parallels: 6,
+    type: '',
+    wattsHour: 1845
+  },
   range: 120,
   voltage: 100,
 
@@ -374,8 +417,12 @@ const monsterPro: Wheel = {
 
   ratedPower: 3500,
   maxSpeed: 80,
-  batterySetup: [8, 5000],
-  battery: 3600,
+  battery: {
+    capacity: 5000,
+    parallels: 8,
+    type: '',
+    wattsHour: 3600
+  },
   range: 200,
   voltage: 100,
 

@@ -50,6 +50,25 @@ export enum WheelId {
   abrams = 'abrams',
 }
 
+export interface Battery {
+  /**
+   * Battery capacity, in mAh
+   */
+  capacity: number;
+  /**
+   * Number of simultaneous parallels
+   */
+  parallels: number;
+  /**
+   * Battery brand and model
+   */
+  type: string;
+  /**
+   * Battery output, in W/h
+   */
+  wattsHour: number;
+}
+
 export interface WheelFeatures {
   /**
    * Price, in €
@@ -73,13 +92,9 @@ export interface WheelFeatures {
    */
   maxSpeed: number
   /**
-   * Battery capacity, in mAh
+   * Battery information
    */
-  batterySetup: [number, number]
-  /**
-   * Battery output, in W/h
-   */
-  battery: number
+  battery: Battery
   /**
    * Estimated mileage, in km
    */

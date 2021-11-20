@@ -10,7 +10,6 @@ const initialValue: WheelsTableColumns = {
   
   ratedPower: LIST_MAIN_SPECS.some(f => f ===  'ratedPower'),
   battery: LIST_MAIN_SPECS.some(f => f ===  'battery'),
-  batterySetup: LIST_MAIN_SPECS.some(f => f ===  'batterySetup'),
   voltage: LIST_MAIN_SPECS.some(f => f ===  'voltage'),
   maxGradibility: LIST_MAIN_SPECS.some(f => f ===  'maxGradibility'),
   groundClearance: LIST_MAIN_SPECS.some(f => f ===  'groundClearance'),

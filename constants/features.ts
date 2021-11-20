@@ -15,7 +15,6 @@ export const SPEC_COLUMNS: Array<keyof Wheel> = [
   
   'ratedPower',
   'battery',
-  'batterySetup',
   'voltage',
   'maxGradibility',
   'groundClearance',
@@ -64,7 +63,6 @@ export const DETAIL_MAIN_SPECS: (keyof Wheel | undefined)[] = [
   'ratedPower',
   'peakPower',
   'battery',
-  'batterySetup',
   'voltage',
   'maxGradibility',
   'groundClearance',
