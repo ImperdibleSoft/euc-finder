@@ -51,24 +51,12 @@ export const parseEWheelsPrice = (html: string, showExpensive: boolean): number 
       cheapPriceElement,
       expensivePriceElement
     ] = Array.from(document.querySelectorAll('.summary .price .amount')) ?? [];
-    // eslint-disable-next-line no-console
-    console.log('cheapPriceElement', cheapPriceElement);
-    // eslint-disable-next-line no-console
-    console.log('expensivePriceElement', expensivePriceElement);
 
     /** Expensive version price */
     if (showExpensive && expensivePriceElement) {
       const expensiveString = expensivePriceElement?.innerHTML?.replace(',', '');
-      // eslint-disable-next-line no-console
-      console.log('expensiveString', expensiveString);
-      // eslint-disable-next-line no-console
-      console.log('expensiveString?.match(priceRegExp)', expensiveString?.match(priceRegExp));
       const [rawExpensive] = expensiveString?.match(priceRegExp) ?? [];
-      // eslint-disable-next-line no-console
-      console.log('rawExpensive', rawExpensive);
       const expensiveVersionPrice = rawExpensive.replace('$', '');
-      // eslint-disable-next-line no-console
-      console.log('expensiveVersionPrice', expensiveVersionPrice);
       if (expensiveVersionPrice) {
         return Number(expensiveVersionPrice);
       }
@@ -77,16 +65,8 @@ export const parseEWheelsPrice = (html: string, showExpensive: boolean): number 
     /** Regular version price */
     if (cheapPriceElement) {
       const cheapString = cheapPriceElement?.innerHTML?.replace(',', '');
-      // eslint-disable-next-line no-console
-      console.log('cheapString', cheapString);
-      // eslint-disable-next-line no-console
-      console.log('cheapString?.match(priceRegExp)', cheapString?.match(priceRegExp));
       const [rawCheap] = cheapString?.match(priceRegExp) ?? [];
-      // eslint-disable-next-line no-console
-      console.log('rawCheap', rawCheap);
       const cheapVersionPrice = rawCheap.replace('$', '');
-      // eslint-disable-next-line no-console
-      console.log('cheapVersionPrice', cheapVersionPrice);
       if (cheapVersionPrice) {
         return Number(cheapVersionPrice);
       }
