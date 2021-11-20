@@ -12,28 +12,40 @@ import { brands, stores, wheelPictures, wheelPurchaseLinks, wheels } from './dat
 import { ArenaContextState } from './types';
 
 export const getFiltersInitialValue = (): WheelFilters => ({
-  brandId: Object.values(BrandId),
   categories: ['starter', 'standard', 'high-end', 'extreme'],
+  brandId: Object.values(BrandId),
+
+  maxMaxSpeed: undefined,
+  minMaxSpeed: undefined,
+
+  minRange: undefined,
+  maxWeight: undefined,
 
   maxPrice: undefined,
   minPrice: undefined,
 
-  minPower: undefined,
-  maxMaxSpeed: undefined,
-  minMaxSpeed: undefined,
-  minBatteryOutput: undefined,
-  minRange: undefined,
-  minVoltage: undefined,
-
   maxDiameter: undefined,
   minDiameter: undefined,
-  maxWeight: undefined,
-  suspension: undefined,
-  antiSpin: undefined,
-  kickstand: undefined,
-  trolleyHandle: undefined,
+  maxWidth: undefined,
+  minWidth: undefined,
+
   maxGroundClearance: undefined,
   minGroundClearance: undefined,
+
+  minPower: undefined,
+  minVoltage: undefined,
+  suspension: undefined,
+  
+  minBatteryParallels: undefined,
+  maxBatteryParallels: undefined,
+  minBatteryOutput: undefined,
+  batteryType: undefined,
+
+  color: undefined,
+  trolleyHandle: undefined,
+  antiSpin: undefined,
+  kickstand: undefined,
+  
   leds: undefined,
   sound: undefined,
   display: undefined

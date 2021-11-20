@@ -339,6 +339,26 @@ export const useFilterFields = () => {
       value: filters.maxWidth?.toString() ?? '',
       space: true
     },
+
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.groundClearance,
+      label: t('minimum', { property: t('groundClearance') }),
+      name: 'minGroundClearance',
+      onChange: handleChange,
+      type: 'number',
+      value: filters.minGroundClearance?.toString() ?? ''
+    },
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.groundClearance,
+      label: t('maximum', { property: t('groundClearance') }),
+      name: 'maxGroundClearance',
+      onChange: handleChange,
+      type: 'number',
+      value: filters.maxGroundClearance?.toString() ?? '',
+      space: true
+    },
     
     {
       Field: Text,
@@ -348,15 +368,6 @@ export const useFilterFields = () => {
       onChange: handleChange,
       type:'number',
       value: filters.minPower?.toString() ?? ''
-    },
-    {
-      Field: Text,
-      icon: wheelFeatureIcons.battery,
-      label: t('minimum', { property: t('battery') }),
-      name: 'minBatteryOutput',
-      onChange: handleChange,
-      type:'number',
-      value: filters.minBatteryOutput?.toString() ?? ''
     },
     {
       Field: Text,
@@ -380,21 +391,39 @@ export const useFilterFields = () => {
 
     {
       Field: Text,
-      icon: wheelFeatureIcons.groundClearance,
-      label: t('minimum', { property: t('groundClearance') }),
-      name: 'minGroundClearance',
+      icon: 'earbuds_battery',
+      label: t('minimum', { property: t('parallels') }),
+      name: 'minBatteryParallels',
       onChange: handleChange,
-      type: 'number',
-      value: filters.minGroundClearance?.toString() ?? ''
+      type:'number',
+      value: filters.minBatteryParallels?.toString() ?? ''
     },
     {
       Field: Text,
-      icon: wheelFeatureIcons.groundClearance,
-      label: t('maximum', { property: t('groundClearance') }),
-      name: 'maxGroundClearance',
+      icon: 'earbuds_battery',
+      label: t('maximum', { property: t('parallels') }),
+      name: 'maxBatteryParallels',
       onChange: handleChange,
-      type: 'number',
-      value: filters.maxGroundClearance?.toString() ?? '',
+      type:'number',
+      value: filters.maxBatteryParallels?.toString() ?? ''
+    },
+    {
+      Field: Text,
+      icon: 'battery_charging_full',
+      label: t('minimum', { property: t('battery') }),
+      name: 'minBatteryOutput',
+      onChange: handleChange,
+      type:'number',
+      value: filters.minBatteryOutput?.toString() ?? ''
+    },
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.battery,
+      label: t('batteryType'),
+      name: 'batteryType',
+      onChange: handleChange,
+      type:'text',
+      value: filters.batteryType ?? '',
       space: true
     },
     

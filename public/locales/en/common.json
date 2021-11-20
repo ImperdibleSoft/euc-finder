@@ -129,6 +129,8 @@
   "maxSpeed": "Top speed*",
   "batterySetup": "Battery setup",
   "battery": "Battery",
+  "parallels": "Parallels",
+  "batteryType": "Cells type",
   "range": "Real range*",
   "voltage": "Voltage",
   "diameter": "Diameter",

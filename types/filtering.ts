@@ -9,8 +9,14 @@ import { WheelSortingKeys } from './sorting';
 import { AntiSpin, Category, Color, Display, Kickstand, SoundSystem, TrolleyHandle, Suspension } from './wheelFeatures';
 
 export interface WheelFilters {
-  brandId: BrandId[]
   categories: Category[]
+  brandId: BrandId[]
+
+  maxMaxSpeed?: string
+  minMaxSpeed?: string
+
+  minRange?: string
+  maxWeight?: string
 
   maxPrice?: string
   minPrice?: string
@@ -19,25 +25,23 @@ export interface WheelFilters {
   minDiameter?: string
   maxWidth?: string
   minWidth?: string
-
-  maxMaxSpeed?: string
-  minMaxSpeed?: string
-
-  minRange?: string
-  maxWeight?: string
   
+  maxGroundClearance?: string
+  minGroundClearance?: string
+
   minPower?: string
   minVoltage?: string
+  suspension?: Suspension | boolean
+
+  minBatteryParallels?: string
+  maxBatteryParallels?: string
   minBatteryOutput?: string
+  batteryType?: string
 
   color?: Color
   trolleyHandle?: TrolleyHandle | true
   antiSpin?: AntiSpin | true
   kickstand?: Kickstand | true
-  suspension?: Suspension | boolean
-  
-  maxGroundClearance?: string
-  minGroundClearance?: string
   
   leds?: boolean
   sound?: SoundSystem | true
