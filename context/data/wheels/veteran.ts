@@ -22,7 +22,7 @@ const sherman: Wheel = {
   battery: {
     capacity: 3500,
     parallels: 10,
-    type: '',
+    type: '18650',
     wattsHour: 3200
   },
   range: 190,

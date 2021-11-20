@@ -165,6 +165,7 @@ const ks16x: Wheel = {
     ...ks16xs.battery,
     capacity: 3500,
     parallels: 6,
+    type: '18650',
     wattsHour: 1554
   },
   range: 150,
@@ -240,7 +241,7 @@ const ksS18: Wheel = {
   battery: {
     capacity: 3500,
     parallels: 3,
-    type: '',
+    type: '18650',
     wattsHour: 1110
   },
   range: 100,

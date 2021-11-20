@@ -25,7 +25,7 @@ const v5: Wheel = {
   battery: {
     capacity: 0,
     parallels: 0,
-    type: '',
+    type: '18650',
     wattsHour: 160
   },
   range: 18,
@@ -56,9 +56,9 @@ const v5f: Wheel = {
   ratedPower: 550,
   maxSpeed: 25,
   battery: {
+    ...v5.battery,
     capacity: 1100,
     parallels: 4,
-    type: '',
     wattsHour: 320
   },
   range: 38,
@@ -79,7 +79,7 @@ const v8: Wheel = {
   battery: {
     capacity: 0,
     parallels: 0,
-    type: '',
+    type: '18650',
     wattsHour: 450
   },
   range: 40,
@@ -111,9 +111,9 @@ const v8f: Wheel = {
   maxGradibility: 30,
   maxSpeed: 35,
   battery: {
+    ...v8.battery,
     capacity: 583,
     parallels: 6,
-    type: '',
     wattsHour: 518
   },
   range: 55,
@@ -136,7 +136,7 @@ const v10: Wheel = {
   battery: {
     capacity: 2200,
     parallels: 4,
-    type: '',
+    type: '18650',
     wattsHour: 650
   },
   range: 70,
@@ -166,9 +166,9 @@ const v10f: Wheel = {
 
   ratedPower: 2000,
   battery: {
+    ...v10.battery,
     capacity: 3250,
     parallels: 4,
-    type: '',
     wattsHour: 960
   },
   range: 90
@@ -187,7 +187,7 @@ const v11: Wheel = {
   battery: {
     capacity: 5000,
     parallels: 4,
-    type: '',
+    type: '21700',
     wattsHour: 1500
   },
   range: 120,

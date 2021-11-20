@@ -60,7 +60,7 @@ const mcm5: Wheel = {
   battery: {
     capacity: 0,
     parallels: 0,
-    type: '',
+    type: '18650',
     wattsHour: 800
   },
   range: 65,
@@ -130,8 +130,8 @@ const nikola: Wheel = {
   battery: {
     capacity: 3500,
     parallels: 6,
-    type: '',
-    wattsHour: 1800
+    type: '18650',
+    wattsHour: 1860
   },
   range: 95,
   voltage: 100,
@@ -165,7 +165,7 @@ const rsHT: Wheel = {
   battery: {
     capacity: 5000,
     parallels: 4,
-    type: '',
+    type: '21700',
     wattsHour: 1800
   },
   range: 130,
@@ -208,7 +208,7 @@ const msx: Wheel = {
   battery: {
     capacity: 3500,
     parallels: 6,
-    type: '',
+    type: '18650',
     wattsHour: 1600
   },
   range: 100,
@@ -259,7 +259,7 @@ const msp: Wheel = {
   battery: {
     capacity: 5000,
     parallels: 4,
-    type: '',
+    type: '21700',
     wattsHour: 1800
   },
   range: 120,
@@ -294,7 +294,7 @@ const ex: Wheel = {
   battery: {
     capacity: 5000,
     parallels: 6,
-    type: '',
+    type: '21700',
     wattsHour: 2700
   },
   range: 190,
@@ -387,7 +387,7 @@ const monster: Wheel = {
   battery: {
     capacity: 3500,
     parallels: 6,
-    type: '',
+    type: '18650',
     wattsHour: 1845
   },
   range: 120,
@@ -420,7 +420,7 @@ const monsterPro: Wheel = {
   battery: {
     capacity: 5000,
     parallels: 8,
-    type: '',
+    type: '21700',
     wattsHour: 3600
   },
   range: 200,
