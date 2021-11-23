@@ -1,7 +1,9 @@
-import { Box, CssBaseline, Toolbar } from '@mui/material';
+import { Box, CssBaseline, Toolbar, useTheme } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import React, { PropsWithChildren } from 'react';
 import { useArenaContext } from '../../../context';
 import InfoDisclaimer from '../../InfoDisclaimer';
+import BottomNavigation from './BottomNavigation';
 import Header, { Props } from './Header';
 import Notifications from './Notifications';
 
@@ -15,12 +17,15 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   wheels
 }) => {
   const { disclaimer } = useArenaContext();
+  const { breakpoints } = useTheme();
+  const isTablet = useMediaQuery(breakpoints.up('md'));
   
   return (
     <Box
       sx={ {
         bgcolor: (theme) => theme.palette.background.default,
         display: 'flex',
+        flexDirection: 'column',
         minHeight: '100vh'
       } }
     >
@@ -51,6 +56,10 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
         { children }
       </Box>
 
+      { !isTablet && (
+        <BottomNavigation />
+      ) }
+
       { disclaimer.open && disclaimer.handleClose && (
         <InfoDisclaimer
           handleClose={ disclaimer.handleClose }
@@ -58,7 +67,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
         />
       ) }
 
-      <Notifications />
+      <Notifications isTablet={ isTablet } />
     </Box>
   );};
 

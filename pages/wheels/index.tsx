@@ -4,15 +4,15 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Columns from '../components/Columns';
-import Filters from '../components/Filters';
-import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
-import NoWheels from '../components/NoWheels';
-import WheelsList from '../components/WheelsList';
-import WheelsTable from '../components/WheelsTable';
-import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../constants';
-import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../hooks';
-import { getStaticProps } from '../utils/serverTranslatedResources';
+import Columns from '../../components/Columns';
+import Filters from '../../components/Filters';
+import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
+import NoWheels from '../../components/NoWheels';
+import WheelsList from '../../components/WheelsList';
+import WheelsTable from '../../components/WheelsTable';
+import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
+import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../../hooks';
+import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const EucList: React.FC = () => {
   const theme = useTheme();

@@ -16,6 +16,12 @@ export interface ClientRoute {
   exact?: boolean;
 }
 
+export interface BottomNavigationRoute {
+  label: string;
+  icon: string;
+  path: string;
+}
+
 export interface ServerRoute {
   path: string
   method: 'get' | 'post' | 'patch' | 'put' | 'delete'
