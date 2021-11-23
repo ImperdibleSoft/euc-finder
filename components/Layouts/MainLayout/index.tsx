@@ -25,7 +25,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
       sx={ {
         bgcolor: (theme) => theme.palette.background.default,
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'row',
         minHeight: '100vh'
       } }
     >
@@ -41,24 +41,26 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
       />
 
       <Box
-        component="main"
-        sx={ {
-          flexGrow: 1,
-          maxWidth: '100vw',
-          py: 3
-        } }
+        sx={ { display: 'flex', flexDirection: isTablet ? 'row-reverse' : 'column', flex: 1 } }
       >
-        <Toolbar sx={ {
-          boxSizing: 'content-box',
-          py: { xs: 3, sm: 0 }
-        } } />
+        <Box
+          component="main"
+          sx={ {
+            flexGrow: 1,
+            maxWidth: '100vw',
+            py: 3
+          } }
+        >
+          <Toolbar sx={ {
+            boxSizing: 'content-box',
+            py: { xs: 3, sm: 0 }
+          } } />
 
-        { children }
+          { children }
+        </Box>
+
+        <BottomNavigation isTablet={ isTablet } />
       </Box>
-
-      { !isTablet && (
-        <BottomNavigation />
-      ) }
 
       { disclaimer.open && disclaimer.handleClose && (
         <InfoDisclaimer

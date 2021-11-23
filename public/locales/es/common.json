@@ -30,6 +30,8 @@
   "copyError-msg": "Hubo un error. Por favor, copia el código manualmente.",
   "appLogo-label": "Logo de {{appName}}",
   "website-label": "Página web",
+  "eucs": "Monociclos",
+  "videos": "Vídeos",
 
   "defaultDescription-msg": "En breve añadiremos una pequeña descripción sobre esta rueda.",
   "noWheel-msg": "No tenemos esa rueda en nuestra base de datos.",

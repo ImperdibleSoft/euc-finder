@@ -6,6 +6,7 @@ import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Columns from '../../components/Columns';
 import Filters from '../../components/Filters';
+import { HEADER_HEIGHT } from '../../components/Layouts/constants';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
 import NoWheels from '../../components/NoWheels';
 import WheelsList from '../../components/WheelsList';
@@ -38,7 +39,7 @@ const EucList: React.FC = () => {
       return undefined;
     }
 
-    const headerSize = 64 / 2;
+    const headerSize = HEADER_HEIGHT / 2;
     const paddingBottom = 16;
     const button = 36;
     const spacing = headerSize + paddingBottom + button;
