@@ -8,7 +8,7 @@ import {
   WidthUnits
 } from '../types/settings';
 import { getItem } from '../utils';
-import { brands, stores, wheelPictures, wheelPurchaseLinks, wheels } from './data';
+import { brands, influencers, stores, videos, wheelPictures, wheelPurchaseLinks, wheels } from './data';
 import { ArenaContextState } from './types';
 
 export const getFiltersInitialValue = (): WheelFilters => ({
@@ -90,11 +90,13 @@ export const getSortingInitialValue = (): WheelSorting => ({
 export const getInitialValue = (): ArenaContextState => ({
   brands,
   filters: getFiltersInitialValue(),
+  influencers,
   measureUnits: getMeasureUnitsInitialValue(),
   pictures: wheelPictures,
   purchaseLinks: wheelPurchaseLinks,
   region: (getItem(LOCAL_STORAGE_KEY.REGION) || 'eu') as Region,
   sorting: getSortingInitialValue(),
   stores,
+  videos,
   wheels
 });

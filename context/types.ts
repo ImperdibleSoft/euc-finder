@@ -2,10 +2,12 @@ import {
   Brands,
   DiameterUnits,
   GroundClearanceUnits,
+  Influencer,
   RangeUnits,
   Region,
   SpeedUnits,
   Store,
+  Video,
   WeightUnits,
   Wheel,
   WheelFilters,
@@ -18,6 +20,7 @@ import {
 export interface ArenaContextState {
   brands: Brands;
   filters: WheelFilters;
+  influencers: Influencer[];
   measureUnits: {
     diameter: DiameterUnits;
     groundClearance: GroundClearanceUnits;
@@ -31,6 +34,7 @@ export interface ArenaContextState {
   region: Region;
   sorting: WheelSorting;
   stores: Store[];
+  videos: Video[];
   wheels: Wheel[];
 }
 
