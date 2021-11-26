@@ -1,5 +1,5 @@
 import { BottomNavigationRoute, Wheel } from '../types';
-import { DEALERS, EUCS, VIDEOS } from './clientRoutes';
+import { DEALERS, EUCS, SETTINGS, VIDEOS } from './clientRoutes';
 
 export const SHOW_PRICE = false;
 
@@ -97,5 +97,10 @@ export const BOTTOM_SHEET: BottomNavigationRoute[] = [
     label: 'videos',
     icon: 'smart_display',
     path: VIDEOS
+  },
+  {
+    label: 'settings-title',
+    icon: 'settings',
+    path: SETTINGS
   }
 ];

@@ -5,7 +5,6 @@ import {
   AutocompleteChangeReason,
   Box,
   Icon,
-  IconButton,
   Toolbar,
   Typography
 } from '@mui/material';
@@ -14,7 +13,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { APP_NAME } from '../../../../constants';
-import { ROOT, SETTINGS } from '../../../../constants/clientRoutes';
+import { ROOT } from '../../../../constants/clientRoutes';
 import { Brands, Region, Wheel } from '../../../../types';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
 import { Search, SearchIconWrapper, StyledInputBase } from '../SearchBar';
@@ -117,7 +116,7 @@ const Header: React.FC<Props> = ({
             />
           </Search>
 
-          <Search sx={ { mr: (theme) => theme.spacing(1) } }>
+          <Search>
             <Dropdown
               icon="public"
               label={ t('region-label') }
@@ -127,12 +126,6 @@ const Header: React.FC<Props> = ({
               value={ selectedRegion }
             />
           </Search>
-
-          <Link href={ SETTINGS } passHref>
-            <IconButton>
-              <Icon sx={ { color: (theme) => theme.palette.common.white } }>settings</Icon>
-            </IconButton>
-          </Link>
         </Box>
       </Toolbar>
     </AppBar>
