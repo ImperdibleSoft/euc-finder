@@ -363,7 +363,7 @@ const hero: Wheel = {
   groundClearance: [90, 170],
   weight: 36.5,
   trolleyHandle: TrolleyHandle.telescopic,
-  antiSpin: AntiSpin.button,
+  antiSpin: AntiSpin.position,
   kickstand: Kickstand.dedicated,
   headlight: true,
   tailLight: true,
