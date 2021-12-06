@@ -29,6 +29,15 @@ const getEeveesPrice = async (url: string): Promise<number | '-' | undefined> =>
   }
 };
 
+const getERidesPrice = async (url: string): Promise<number | '-' | undefined> => {
+  try {
+    const response = await http.get(`/api/eRides/${ encodeURIComponent(url) }`);
+    return response.data as number | '-' | undefined;
+  } catch {
+    return undefined;
+  }
+};
+
 const getEucoPrice = async (url: string): Promise<number | '-' | undefined> => {
   try {
     const response = await http.get(`/api/euco/${ encodeURIComponent(url) }`);
@@ -108,6 +117,7 @@ const eucFinderApi = {
   getAlienRidesPrice,
   getCiclonicPrice,
   getEeveesPrice,
+  getERidesPrice,
   getEucoPrice,
   getEucSalePrice,
   getEucServicePrice,

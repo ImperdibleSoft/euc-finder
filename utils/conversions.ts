@@ -64,4 +64,6 @@ export const getConvertedWeight = (value: number, units?: WeightUnits): string =
   }
 };
 
-export const getConvertedCAD = (value: number) => value * 0.8;
+export const getConvertedCAD = (canadianDolars: number) => canadianDolars * 0.8;
+
+export const getConvertedPounds = (pounds: number) => pounds * 1.18;

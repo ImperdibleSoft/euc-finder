@@ -73,6 +73,20 @@ export const stores: Store[] = [
       sponsor: false
     }
   },
+  {
+    id: StoreId.eRides,
+    name: 'eRides',
+    website: 'https://e-rides.com',
+    region: 'eu',
+    logo: '/logos/distributors/eRides.svg',
+    color: '#00c3ff',
+    meta: {
+      code: '',
+      discount: 0,
+      manualDiscount: true,
+      sponsor: false
+    }
+  },
   // {
   //   id: StoreId.inmotionFrance,
   //   name: 'Inmotion France',
