@@ -89,14 +89,14 @@ export const BOTTOM_SHEET: BottomNavigationRoute[] = [
     path: EUCS
   },
   {
-    label: 'dealers-title',
-    icon: 'storefront',
-    path: DEALERS
-  },
-  {
     label: 'videos',
     icon: 'smart_display',
     path: VIDEOS
+  },
+  {
+    label: 'dealers-title',
+    icon: 'storefront',
+    path: DEALERS
   },
   {
     label: 'settings-title',
