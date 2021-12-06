@@ -1,7 +1,7 @@
 import { Box, CssBaseline, Toolbar, useTheme } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import React, { PropsWithChildren } from 'react';
-import { useArenaContext } from '../../../context';
+import { useModalsContext } from '../../../context';
 import InfoDisclaimer from '../../InfoDisclaimer';
 import BottomNavigation from './BottomNavigation';
 import Header, { Props } from './Header';
@@ -16,7 +16,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   selectedRegion,
   wheels
 }) => {
-  const { disclaimer } = useArenaContext();
+  const { initialDisclaimer } = useModalsContext();
   const { breakpoints } = useTheme();
   const isTablet = useMediaQuery(breakpoints.up('md'));
   
@@ -62,10 +62,10 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
         <BottomNavigation isTablet={ isTablet } />
       </Box>
 
-      { disclaimer.open && disclaimer.handleClose && (
+      { initialDisclaimer.open && initialDisclaimer.handleClose && (
         <InfoDisclaimer
-          handleClose={ disclaimer.handleClose }
-          open={ disclaimer.open }
+          handleClose={ initialDisclaimer.handleClose }
+          open={ initialDisclaimer.open }
         />
       ) }
 

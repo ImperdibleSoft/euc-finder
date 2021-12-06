@@ -2,13 +2,13 @@ import { Box, Container, Divider, Link, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { APP_NAME, APP_REPO, APP_VERSION, CURRENT_YEAR } from '../../constants';
-import { useArenaContext } from '../../context';
+import { useModalsContext } from '../../context';
 
 const yearText = CURRENT_YEAR <= 2021 ? CURRENT_YEAR : `2020-${ CURRENT_YEAR }`;
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
-  const { disclaimer } = useArenaContext();
+  const { initialDisclaimer } = useModalsContext();
   
   return (
     <>
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
         </Box>
 
         <Box sx={ { mb: 4 } }>
-          <Link sx={ { cursor: 'pointer' } } onClick={ disclaimer.handleOpen }>
+          <Link sx={ { cursor: 'pointer' } } onClick={ initialDisclaimer.handleOpen }>
             { t('information-label') }
           </Link>
 

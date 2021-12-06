@@ -15,7 +15,7 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import MainLayout from '../components/Layouts/MainLayout';
 import { APP_NAME, getRegions, MEASUREMENT_ID } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
-import { ArenaContextProvider } from '../context';
+import { ModalsContextProvider } from '../context';
 import { configureStore } from '../store';
 import '../styles/dropdownOverride.css';
 import '../styles/EucPicturesOverride.css';
@@ -120,7 +120,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     };
   }, [events]);
 
-  const disclaimer = {
+  const initialDisclaimer = {
     open: openDisclaimer,
     handleOpen: handleOpenDisclaimer,
     handleClose: handleCloseDisclaimer
@@ -139,11 +139,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
       <ThemeProvider theme={ theme }>
         <Provider store={ store }>
-          <ArenaContextProvider value={ { disclaimer } }>
+          <ModalsContextProvider value={ { initialDisclaimer } }>
             <EucArenaApp>
               <Component { ...pageProps }/>
             </EucArenaApp>
-          </ArenaContextProvider>
+          </ModalsContextProvider>
         </Provider>
       </ThemeProvider>
 
