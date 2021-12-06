@@ -1,7 +1,7 @@
 import { InfluencerId } from './influencers';
 import { WheelId } from './wheel';
 
-export enum Categories {
+export enum VideoCategory {
   commuting = 'commuting',
   comparision = 'comparision',
   offroad = 'offroad',
@@ -11,5 +11,5 @@ export enum Categories {
 
 export interface Video {
   url: string;
-  tags: (InfluencerId | Categories | WheelId)[];
+  tags: (InfluencerId | VideoCategory | WheelId)[];
 }

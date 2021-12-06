@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { getBrands, getInfluencers, getVideos, getWheels } from '../../store/selectors';
-import { Categories, Video } from '../../types';
+import { getBrands, getFilteredVideos, getInfluencers, getWheels } from '../../store/selectors';
+import { VideoCategory, Video } from '../../types';
 import { formatWheelName } from '../../utils';
 
-const getCategories = () => Object.values(Categories);
+const getCategories = () => Object.values(VideoCategory);
 
 const getEmbedPath = (video: Video) => {
   const { url } = video;
@@ -18,7 +18,7 @@ const getEmbedPath = (video: Video) => {
 };
 
 export const useVideos = () => {
-  const videos = useSelector(getVideos);
+  const videos = useSelector(getFilteredVideos);
 
   return { videos: videos.map(getEmbedPath) };
 };
