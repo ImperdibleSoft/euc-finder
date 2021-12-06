@@ -10,16 +10,16 @@ import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
-import { EUC_DETAILS } from '../../constants/clientRoutes';
-import { useEucListInformationGroups } from '../../hooks';
-import { getBrands, getFirstPicture, getMeasureUnits } from '../../store/selectors';
-import { Wheel, WheelFeatureFormatters, WheelFeatureIcons, WheelSorting } from '../../types';
-import { formatWheelName } from '../../utils';
-import BrandLogo from '../BrandLogo';
-import IconsList from '../Lists/IconsList';
-import SmallList from '../Lists/SmallList';
-import { ListItem } from '../Lists/types';
+import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../constants';
+import { EUC_DETAILS } from '../../../constants/clientRoutes';
+import { useEucListInformationGroups } from '../../../hooks';
+import { getBrands, getFirstPicture, getMeasureUnits } from '../../../store/selectors';
+import { Wheel, WheelFeatureFormatters, WheelFeatureIcons, WheelSorting } from '../../../types';
+import { formatWheelName } from '../../../utils';
+import BrandLogo from '../../BrandLogo';
+import IconsList from '../../Lists/IconsList';
+import SmallList from '../../Lists/SmallList';
+import { ListItem } from '../../Lists/types';
 
 interface Props {
   sorting: WheelSorting

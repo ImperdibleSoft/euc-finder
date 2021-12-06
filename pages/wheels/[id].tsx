@@ -5,14 +5,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import EmptyCase from '../../components/EmptyCase';
-import EucAdditionalPurchaseLinks from '../../components/EucAdditionalPurchaseLinks';
-import EucDetailHeader from '../../components/EucDetailHeader';
-import EucDetailPurchaseLinks from '../../components/EucDetailPurchaseLinks';
-import EucPictures from '../../components/EucPictures';
-import EucSpecsAdditional from '../../components/EucSpecsAdditional';
-import EucSpecsHighlighted from '../../components/EucSpecsHighlighted';
-import EucSpecsMain from '../../components/EucSpecsMain';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
+import AdditionalPurchaseLinks from '../../components/WheelDetails/AdditionalPurchaseLinks';
+import Header from '../../components/WheelDetails/Header';
+import SponsoredPurchaseLinks from '../../components/WheelDetails/SponsoredPurchaseLinks';
+import Pictures from '../../components/WheelDetails/Pictures';
+import AdditionalSpecs from '../../components/WheelDetails/AdditionalSpecs';
+import HighlightedSpecs from '../../components/WheelDetails/HighlightedSpecs';
+import MainSpecs from '../../components/WheelDetails/MainSpecs';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { useEucDetail, useEucDetailHandlers, useEucDetailInformationGroups, useEucPurchaseLinks } from '../../hooks';
 import { wheels } from '../../store/models/data';
@@ -59,17 +59,17 @@ const EucDetail: React.FC = () => {
 
         { !!wheel && (
           <>
-            <EucDetailHeader
+            <Header
               brandId={ wheel.brandId }
               heroImage={ pictures[0] }
               wheelName={ name }
             >
               { pageDescription }
-            </EucDetailHeader>
+            </Header>
 
-            <EucSpecsHighlighted specs={ highlightedSpecs } wheel={ wheel } />
+            <HighlightedSpecs specs={ highlightedSpecs } wheel={ wheel } />
 
-            <EucDetailPurchaseLinks
+            <SponsoredPurchaseLinks
               expensive={ expensive }
               items={ sponsoredLinks }
               large
@@ -77,9 +77,9 @@ const EucDetail: React.FC = () => {
             />
 
             <Grid container spacing={ 2 }>
-              <EucSpecsMain specs={ mainSpecs } wheel={ wheel } />
+              <MainSpecs specs={ mainSpecs } wheel={ wheel } />
 
-              <EucPictures
+              <Pictures
                 onClick={ handleOpenPicture }
                 onClose={ handleClosePicture }
                 pictureDetail={ pictureDetail }
@@ -87,9 +87,9 @@ const EucDetail: React.FC = () => {
                 wheelName={ name }
               />
 
-              <EucSpecsAdditional specs={ additionalSpecs } wheel={ wheel } />
+              <AdditionalSpecs specs={ additionalSpecs } wheel={ wheel } />
 
-              <EucAdditionalPurchaseLinks
+              <AdditionalPurchaseLinks
                 expensive={ expensive }
                 items={ regularLinks }
                 wheel={ id }

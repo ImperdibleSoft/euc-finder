@@ -2,18 +2,18 @@ import { Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
-import { getMeasureUnits } from '../../store/selectors';
-import { Wheel, WheelFeatureFormatters, WheelFeatureIcons } from '../../types';
-import HighlightedList from '../Lists/HighlightedList';
-import { ListItem } from '../Lists/types';
+import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../constants';
+import { getMeasureUnits } from '../../../store/selectors';
+import { Wheel, WheelFeatureFormatters, WheelFeatureIcons } from '../../../types';
+import HighlightedList from '../../Lists/HighlightedList';
+import { ListItem } from '../../Lists/types';
 
 interface Props {
   specs: Array<keyof Wheel>
   wheel: Wheel
 }
 
-const EucSpecsHighlighted: React.FC<Props> = ({ specs, wheel }) => {
+const HighlightedSpecs: React.FC<Props> = ({ specs, wheel }) => {
   const { t } = useTranslation();
   const measureUnits = useSelector(getMeasureUnits);
   
@@ -44,4 +44,4 @@ const EucSpecsHighlighted: React.FC<Props> = ({ specs, wheel }) => {
     </>
   );};
 
-export default EucSpecsHighlighted;
+export default HighlightedSpecs;

@@ -2,7 +2,7 @@ import { Card, Grid, ImageList, ImageListItem, Typography } from '@mui/material'
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import PictureDetails from '../PictureDetails';
+import PictureDetails from '../../PictureDetails';
 
 interface Props {
   onClick: (pictureUrl: string) => void
@@ -12,7 +12,7 @@ interface Props {
   wheelName: string
 }
 
-const EucPictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelName }) => {
+const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelName }) => {
   const { t } = useTranslation();
 
   if (!pictures?.length) {
@@ -76,4 +76,4 @@ const EucPictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, picture
     </Grid>
   );};
 
-export default EucPictures;
+export default Pictures;

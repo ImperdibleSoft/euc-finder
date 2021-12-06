@@ -4,24 +4,24 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Columns from '../../components/Columns';
-import Filters from '../../components/Filters';
 import { HEADER_HEIGHT } from '../../components/Layouts/constants';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
-import NoWheels from '../../components/NoWheels';
-import WheelsList from '../../components/WheelsList';
-import WheelsTable from '../../components/WheelsTable';
+import Columns from '../../components/WheelsList/Columns';
+import Filters from '../../components/WheelsList/Filters';
+import NoWheels from '../../components/WheelsList/NoWheels';
+import GridView from '../../components/WheelsList/GridView';
+import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../../hooks';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
-const EucList: React.FC = () => {
+const Wheels: React.FC = () => {
   const theme = useTheme();
   const isTablet = useMediaQuery(theme.breakpoints.up('sm'));
   const { t } = useTranslation();
   const [view, setView] = useState<'grid' | 'table'>('grid');
   const displayTable = view === 'table';
-  const Component = displayTable ? WheelsTable : WheelsList;
+  const ListView = displayTable ? TableView : GridView;
 
   const { handleHide, handleReset, handleShow, ...columns } = useColumns();
   const { fields, filters, handleResetFilters } = useFilterFields();
@@ -120,7 +120,7 @@ const EucList: React.FC = () => {
           </ButtonGroup>
         </Container>
       
-        <Component
+        <ListView
           columns={ columns }
           handleSort={ handleSort }
           records={ sortedWheels }
@@ -138,6 +138,6 @@ const EucList: React.FC = () => {
   );
 };
 
-export default EucList;
+export default Wheels;
 
 export { getStaticProps };

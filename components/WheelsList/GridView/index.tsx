@@ -1,10 +1,10 @@
 import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { wheelFeatureIcons } from '../../constants';
-import { Wheel, WheelFeatureIcons, WheelSorting, WheelSortingKeys } from '../../types';
-import { showPrice } from '../../utils';
-import Dropdown, { DropdownItem } from '../Form/Dropdown';
+import { wheelFeatureIcons } from '../../../constants';
+import { Wheel, WheelFeatureIcons, WheelSorting, WheelSortingKeys } from '../../../types';
+import { showPrice } from '../../../utils';
+import Dropdown, { DropdownItem } from '../../Form/Dropdown';
 import WheelCard from '../WheelCard';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
   sorting: WheelSorting
 }
 
-const WheelsList: React.FC<Props> = ({ handleSort, records, sorting  }) => {
+const GridView: React.FC<Props> = ({ handleSort, records, sorting  }) => {
   const { t } = useTranslation();
 
   const [sampleWheel] = records ?? [];
@@ -99,4 +99,4 @@ const WheelsList: React.FC<Props> = ({ handleSort, records, sorting  }) => {
   );
 };
 
-export default WheelsList;
+export default GridView;

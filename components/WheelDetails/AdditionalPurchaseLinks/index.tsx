@@ -1,8 +1,8 @@
 import {  Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { PurchaseLink, WheelId } from '../../types';
-import EucDetailPurchaseLinks from '../EucDetailPurchaseLinks';
+import { PurchaseLink, WheelId } from '../../../types';
+import SponsoredPurchaseLinks from '../SponsoredPurchaseLinks';
 
 interface Props {
   expensive: boolean;
@@ -10,7 +10,7 @@ interface Props {
   wheel: WheelId;
 }
 
-const EucAdditionalPurchaseLinks: React.FC<Props> = ({ expensive, items, wheel }) => {
+const AdditionalPurchaseLinks: React.FC<Props> = ({ expensive, items, wheel }) => {
   const { t } = useTranslation();
 
   if (items.length <= 0) {
@@ -23,9 +23,9 @@ const EucAdditionalPurchaseLinks: React.FC<Props> = ({ expensive, items, wheel }
         { t('otherStores-title') }
       </Typography>
 
-      <EucDetailPurchaseLinks expensive={ expensive } items={ items } wheel={ wheel } />
+      <SponsoredPurchaseLinks expensive={ expensive } items={ items } wheel={ wheel } />
     </Grid>
   );
 };
 
-export default EucAdditionalPurchaseLinks;
+export default AdditionalPurchaseLinks;

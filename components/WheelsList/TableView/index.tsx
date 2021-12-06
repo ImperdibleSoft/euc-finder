@@ -3,11 +3,11 @@ import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { EUC_DETAILS } from '../../constants/clientRoutes';
-import { useTableData } from '../../hooks';
-import { getAllWheelPictures } from '../../store/selectors';
-import { Wheel, WheelSorting, WheelSortingKeys, WheelsTableColumns } from '../../types';
-import Table, { TableBody, TableHead, TableHeading, TableRow } from '../Table';
+import { EUC_DETAILS } from '../../../constants/clientRoutes';
+import { useTableData } from '../../../hooks';
+import { getAllWheelPictures } from '../../../store/selectors';
+import { Wheel, WheelSorting, WheelSortingKeys, WheelsTableColumns } from '../../../types';
+import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../Table';
 
 const cellStyles: React.CSSProperties = {
   textAlign: 'center',
@@ -27,7 +27,7 @@ interface Props {
   sorting: WheelSorting;
 }
 
-const WheelsTable: React.FC<Props> = ({
+const TableView: React.FC<Props> = ({
   columns,
   handleSort,
   records,
@@ -114,4 +114,4 @@ const WheelsTable: React.FC<Props> = ({
   );
 };
 
-export default WheelsTable;
+export default TableView;

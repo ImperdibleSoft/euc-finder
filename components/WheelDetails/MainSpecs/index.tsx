@@ -2,18 +2,18 @@ import { Card, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
-import { getMeasureUnits } from '../../store/selectors';
-import { Wheel, WheelFeatureFormatters, WheelFeatureIcons } from '../../types';
-import RegularList from '../Lists/RegularList';
-import { ListItem } from '../Lists/types';
+import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../constants';
+import { getMeasureUnits } from '../../../store/selectors';
+import { Wheel, WheelFeatureFormatters, WheelFeatureIcons } from '../../../types';
+import RegularList from '../../Lists/RegularList';
+import { ListItem } from '../../Lists/types';
 
 interface Props {
   specs: Array<keyof Wheel>
   wheel: Wheel
 }
 
-const EucSpecsMain: React.FC<Props> = ({ specs, wheel }) => {
+const MainSpecs: React.FC<Props> = ({ specs, wheel }) => {
   const { t } = useTranslation();
   const measureUnits = useSelector(getMeasureUnits);
 
@@ -46,4 +46,4 @@ const EucSpecsMain: React.FC<Props> = ({ specs, wheel }) => {
     </Grid>
   );};
 
-export default EucSpecsMain;
+export default MainSpecs;

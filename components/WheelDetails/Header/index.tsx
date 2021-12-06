@@ -2,9 +2,9 @@ import { CardMedia, Grid, Typography } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getBrands } from '../../store/selectors';
-import { BrandId } from '../../types';
-import BrandLogo from '../BrandLogo';
+import { getBrands } from '../../../store/selectors';
+import { BrandId } from '../../../types';
+import BrandLogo from '../../BrandLogo';
 
 interface Props {
   brandId: BrandId
@@ -12,7 +12,7 @@ interface Props {
   wheelName: string
 }
 
-const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
+const Header: React.FC<PropsWithChildren<Props>> = ({
   brandId,
   children,
   heroImage,
@@ -59,4 +59,4 @@ const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
     </Grid>
   );};
 
-export default EucDetailHeader;
+export default Header;

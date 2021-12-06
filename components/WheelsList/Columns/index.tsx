@@ -1,9 +1,9 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { WheelsTableColumns } from '../../types';
-import Collapsable from '../Collapsable';
-import Checkbox from '../Form/Checkbox';
+import { WheelsTableColumns } from '../../../types';
+import Collapsable from '../../Collapsable';
+import Checkbox from '../../Form/Checkbox';
 
 interface Props {
   collapsedSize?: string;
