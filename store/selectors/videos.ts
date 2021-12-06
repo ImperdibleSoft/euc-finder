@@ -1,4 +1,4 @@
-import { InfluencerId, VideoCategory, WheelId } from '../../types';
+import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags } from '../../utils';
 import { RootState } from '../types';
 
 export const getVideos = ({ videos }: RootState) =>
@@ -21,14 +21,10 @@ export const getSponsoredVideos = ({ influencers, videos }: RootState) =>
   });
 
 export const getFilteredVideos = ({ videos: { collection, filters } }: RootState) => {
-  const categories = Object.values(VideoCategory);
-  const influencers =  Object.values(InfluencerId);
-  const wheels = Object.values(WheelId);
-
   return collection.filter(video => {
-    const categoryTags = video.tags.filter(tag => categories.some(category => category === tag));
-    const influencerTags = video.tags.filter(tag => influencers.some(id => id === tag));
-    const wheelTags = video.tags.filter(tag => wheels.some(id => id === tag));
+    const categoryTags = getCategoryFromTags(video.tags);
+    const influencerTags = getInfluencerFromTags(video.tags);
+    const wheelTags = getWheelFromTags(video.tags);
 
     const matchesAllCategories = (
       !categoryTags.length

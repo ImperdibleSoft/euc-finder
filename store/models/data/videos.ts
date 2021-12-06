@@ -1,6 +1,5 @@
 import { VideoCategory, InfluencerId, Video, WheelId } from '../../../types';
 
-
 export const videos: Video[] = [
   {
     url: 'https://www.youtube.com/watch?v=84czA_ugr28',

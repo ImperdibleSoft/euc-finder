@@ -1,10 +1,8 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getBrands, getFilteredVideos, getInfluencers, getWheels } from '../../store/selectors';
-import { VideoCategory, Video } from '../../types';
-import { formatWheelName } from '../../utils';
-
-const getCategories = () => Object.values(VideoCategory);
+import { Influencer, Video, Wheel } from '../../types';
+import { formatWheelName, getCategoryFromTags, getInfluencerFromTags, getWheelFromTags } from '../../utils';
 
 const getEmbedPath = (video: Video) => {
   const { url } = video;
@@ -28,20 +26,26 @@ export const useVideoInfo = ({ tags, url }: Video) => {
   const influencers = useSelector(getInfluencers);
   const wheels = useSelector(getWheels);
   
-  const taggedInfluencers = useMemo(() => {
-    return influencers.filter(influencer => tags.some(tag => influencer.id === tag));
-  }, [influencers, tags]);
-
-  const taggedWheels = useMemo(() => {
-    return wheels.filter(wheel => tags.some(tag => wheel.id === tag));
-  }, [wheels, tags]);
-
-  const categories = tags.filter(tag => getCategories().some(category => category === tag));
+  const taggedInfo = useMemo(() =>
+    ({
+      categories: getCategoryFromTags(tags),
+      influencers: getInfluencerFromTags(tags)
+        .map(influencerId => {
+          const influencer = influencers.find(i => i.id === influencerId);
+          return influencer;
+        })
+        .filter(i => !!i) as Influencer[],
+      wheels: getWheelFromTags(tags)
+        .map(wheelId => {
+          const wheel = wheels.find(w => w.id === wheelId);
+          return wheel ? { ...wheel, name: formatWheelName(wheel, brands) } : undefined;
+        })
+        .filter(w => !!w) as Wheel[]
+    }), [brands, influencers, tags, wheels]
+  );
 
   return {
     url,
-    influencers: taggedInfluencers,
-    categories,
-    wheels: taggedWheels.map(w => ({ ...w, name: formatWheelName(w, brands) }))
+    ...taggedInfo
   };
 };
