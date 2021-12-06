@@ -1,6 +1,6 @@
 import { showAllPurchaseLinks } from './features';
 import { PurchaseLink, Region, Store, StoreId } from '../types';
-import { stores } from '../context/data';
+import { stores } from '../store/models/data';
 import { isDealerAvailable } from './dealers';
 
 interface GetStoreOptions {

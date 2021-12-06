@@ -1,11 +1,13 @@
 /* eslint-disable max-lines */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import CheckboxGroup from '../../../components/Form/CheckboxGroup';
 import Dropdown from '../../../components/Form/Dropdown';
 import Text from '../../../components/Form/Text';
 import { wheelFeatureIcons } from '../../../constants';
-import { useArenaContext } from '../../../context';
+import { filterWheels, resetWheelFilters } from '../../../store/actions';
+import { getWheelFilters } from '../../../store/selectors';
 import {
   AntiSpin,
   BrandId,
@@ -24,13 +26,11 @@ import { getDropdownOptions } from './constants';
 
 // eslint-disable-next-line max-lines-per-function
 const useFilters = () => {
-  const { filters, dispatch } = useArenaContext();
+  const dispatch = useDispatch();
+  const filters = useSelector(getWheelFilters);
 
   const handleFilterBy = (key: keyof WheelFilters, value: unknown) => {
-    dispatch({
-      type: 'filter',
-      payload: { [key]: value }
-    });
+    dispatch(filterWheels({ key, value }));
   };
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -181,7 +181,7 @@ const useFilters = () => {
   };
 
   const handleResetFilters = () => {
-    dispatch({ type: 'reset' });
+    dispatch(resetWheelFilters());
   };
 
   return {

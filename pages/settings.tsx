@@ -2,18 +2,19 @@ import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/m
 import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import Dropdown from '../components/Form/Dropdown';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../constants';
-import { useArenaContext } from '../context';
 import { useSettings } from '../hooks';
+import { defaultMeasureUnits, resetMeasureUnits } from '../store/actions';
 import { LOCAL_STORAGE_KEY } from '../types';
 import { removeItem, setItem } from '../utils';
 import { getStaticProps } from '../utils/serverTranslatedResources';
 
 const Settings: React.FC = () => {
   const { t } = useTranslation();
-  const { dispatch } = useArenaContext();
+  const dispatch = useDispatch();
   const { languageField, measureUnitFields } = useSettings();
 
   const handleSave = () => {
@@ -29,11 +30,11 @@ const Settings: React.FC = () => {
   };
 
   const handleDefault = () => {
-    dispatch({ type: 'defaultMeasureUnits' });
+    dispatch(defaultMeasureUnits());
   };
 
   const handleReset = () => {
-    dispatch({ type: 'resetMeasureUnits' });
+    dispatch(resetMeasureUnits());
   };
   
   const pageTitle = `Opciones - ${ APP_NAME }`;

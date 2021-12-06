@@ -1,18 +1,26 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { DETAIL_ADDITIONAL_SPECS, DETAIL_HIGHLIGHTED_SPECS, DETAIL_MAIN_SPECS } from '../../constants';
-import { useArenaContext } from '../../context';
+import {
+  getBrands,
+  getPurchaseLinks,
+  getRegion,
+  getStores,
+  getWheelById,
+  getWheelPictures
+} from '../../store/selectors';
 import { PurchaseLink, Wheel, WheelId } from '../../types';
 import { formatWheelName, getPurchaseLink, showPrice, sortBy } from '../../utils';
 
 export * from './confirmationModal';
 export * from './wheelPrice';
 
-export const useEucDetail = (id: string) => {
-  const { brands, pictures: wheelPictures, wheels } = useArenaContext();
-  const wheel = wheels.find(w => w.id === id);
+export const useEucDetail = (id: WheelId) => {
+  const brands = useSelector(getBrands);
+  const pictures = useSelector(getWheelPictures(id));
+  const wheel = useSelector(getWheelById(id));
 
   const name = !!wheel ? formatWheelName(wheel, brands) : '';
-  const pictures = !!wheel ? wheelPictures[wheel.id] : [];
 
   return {
     name,
@@ -45,9 +53,10 @@ export const useEucDetailHandlers = () => {
   };
 };
 
-export const useEucPurchaseLinks = (id: string) => {
-  const { purchaseLinks: wheelPurchaseLinks, region, stores } = useArenaContext();
-  const wheelLinks = wheelPurchaseLinks[id as WheelId] ?? [];
+export const useEucPurchaseLinks = (id: WheelId) => {
+  const wheelLinks = useSelector(getPurchaseLinks(id));
+  const region = useSelector(getRegion);
+  const stores = useSelector(getStores);
 
   const options = {
     region,

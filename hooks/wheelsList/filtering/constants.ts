@@ -2,7 +2,7 @@
 import { TFunction } from 'react-i18next';
 import { CheckboxProps } from '../../../components/Form/Checkbox';
 import { DropdownItem } from '../../../components/Form/Dropdown';
-import { brands } from '../../../context/data';
+import { brands } from '../../../store/models/data';
 import {
   AntiSpin,
   BrandId,

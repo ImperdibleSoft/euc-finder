@@ -2,10 +2,11 @@ import { Box, Grid, Typography } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import DealerCard from '../components/DealerCard';
 import SimpleLayout from '../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../constants';
-import { useArenaContext } from '../context';
+import { getRegion } from '../store/selectors';
 import { Region } from '../types';
 import { getDealersFromMarkdown } from '../utils/dealers';
 import { getStaticProps } from '../utils/serverTranslatedResources';
@@ -26,7 +27,7 @@ const getRegionId = (regionCode: Region) => {
 
 const Dealers: React.FC = () => {
   const { t } = useTranslation();
-  const { region: regionCode } = useArenaContext();
+  const regionCode = useSelector(getRegion);
   const regionId = getRegionId(regionCode);
 
   const regions = getDealersFromMarkdown();

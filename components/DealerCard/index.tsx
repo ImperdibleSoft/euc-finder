@@ -15,7 +15,8 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { stores } from '../../context/data';
+import { useSelector } from 'react-redux';
+import { getStores } from '../../store/selectors';
 import { isDarkTheme } from '../../utils';
 import { isDealerAvailable } from '../../utils/dealers';
 
@@ -55,6 +56,7 @@ const DealerCard: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
   const dark = isDarkTheme();
+  const stores = useSelector(getStores);
   const store = stores.find(s => s.name.toLowerCase() === storeName.toLowerCase());
   
   if (

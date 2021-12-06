@@ -9,10 +9,11 @@ import {
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
 import { EUC_DETAILS } from '../../constants/clientRoutes';
-import { useArenaContext } from '../../context';
 import { useEucListInformationGroups } from '../../hooks';
+import { getBrands, getFirstPicture, getMeasureUnits } from '../../store/selectors';
 import { Wheel, WheelFeatureFormatters, WheelFeatureIcons, WheelSorting } from '../../types';
 import { formatWheelName } from '../../utils';
 import BrandLogo from '../BrandLogo';
@@ -27,10 +28,11 @@ interface Props {
 
 const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
   const { t } = useTranslation();
-  const { brands, measureUnits, pictures: wheelPictures } = useArenaContext();
+  const brands = useSelector(getBrands);
+  const measureUnits = useSelector(getMeasureUnits);
+  const firstPicture = useSelector(getFirstPicture(wheel.id));
   const { mainSpecs, additionalSpecs } = useEucListInformationGroups(sorting);
   const link = EUC_DETAILS.replace(':id', wheel.id);
-  const [firstPicture] = wheelPictures[wheel.id] ?? [];
   
   const mainSpecItems: ListItem[] = mainSpecs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];

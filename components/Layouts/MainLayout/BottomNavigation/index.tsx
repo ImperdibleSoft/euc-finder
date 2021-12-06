@@ -33,7 +33,8 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
     zIndex: 1200,
     '& > .MuiBottomNavigation-root': {
       flexDirection: isTablet ? 'column' : 'row',
-      justifyContent: isTablet ? 'flex-start' : 'center'
+      justifyContent: isTablet ? 'flex-start' : 'center',
+      height: 'auto'
     }
   };
 

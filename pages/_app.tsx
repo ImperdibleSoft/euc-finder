@@ -11,22 +11,29 @@ import { appWithTranslation } from 'next-i18next';
 import qs from 'query-string';
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import MainLayout from '../components/Layouts/MainLayout';
 import { APP_NAME, getRegions, MEASUREMENT_ID } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
-import { ArenaContextProvider, useArenaContext, useContextReducer } from '../context';
+import { ArenaContextProvider } from '../context';
+import { configureStore } from '../store';
 import '../styles/dropdownOverride.css';
 import '../styles/EucPicturesOverride.css';
 import '../styles/globals.css';
 import { darkTheme, lightTheme } from '../styles/theme';
-import { LOCAL_STORAGE_KEY, Wheel } from '../types';
+import { LOCAL_STORAGE_KEY, Region, Wheel } from '../types';
 import { getItem, isDarkTheme, pageview, setItem } from '../utils';
 import '../utils/i18n';
+import { getBrands, getRegion, getWheels } from '../store/selectors';
+import { setRegion } from '../store/actions';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const { t } = useTranslation();
-  const { brands, region, wheels, dispatch } = useArenaContext();
+  const dispatch = useDispatch();
   const router = useRouter();
+  const brands = useSelector(getBrands);
+  const region = useSelector(getRegion);
+  const wheels = useSelector(getWheels);
 
   const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
     if (value?.id) {
@@ -38,10 +45,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
     const { value } = event.target;
 
     if (value) {
-      dispatch({
-        type: 'setRegion',
-        payload: { value }
-      });
+      dispatch(setRegion(value as Region));
       setItem(LOCAL_STORAGE_KEY.REGION, value);
     }
   };
@@ -61,13 +65,13 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 };
 
 const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER) !== 'true';
+const store = configureStore();
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { price, purchaseLinks, test } = qs.parse(global?.location?.search);
   const { events } = useRouter();
   const [dark, setDark] = useState(false);
-  const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer); 
-  const { state, dispatch } = useContextReducer();
+  const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer);
 
   const theme = useMemo(() => dark ? darkTheme : lightTheme, [dark]); 
 
@@ -121,7 +125,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     handleOpen: handleOpenDisclaimer,
     handleClose: handleCloseDisclaimer
   };
-  
+
   return (
     <>
       <Head>
@@ -134,11 +138,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
 
       <ThemeProvider theme={ theme }>
-        <ArenaContextProvider value={ { state, dispatch, disclaimer } }>
-          <EucArenaApp>
-            <Component { ...pageProps }/>
-          </EucArenaApp>
-        </ArenaContextProvider>
+        <Provider store={ store }>
+          <ArenaContextProvider value={ { disclaimer } }>
+            <EucArenaApp>
+              <Component { ...pageProps }/>
+            </EucArenaApp>
+          </ArenaContextProvider>
+        </Provider>
       </ThemeProvider>
 
       { /* eslint-disable max-len */ }

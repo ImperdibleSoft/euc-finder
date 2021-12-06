@@ -2,9 +2,10 @@ import { Box, Button, TableCell } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { EUC_DETAILS } from '../../constants/clientRoutes';
-import { wheelPictures } from '../../context/data';
 import { useTableData } from '../../hooks';
+import { getAllWheelPictures } from '../../store/selectors';
 import { Wheel, WheelSorting, WheelSortingKeys, WheelsTableColumns } from '../../types';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../Table';
 
@@ -33,6 +34,7 @@ const WheelsTable: React.FC<Props> = ({
   sorting
 }) => {
   const { t } = useTranslation();
+  const wheelPictures = useSelector(getAllWheelPictures);
   const { headings, rows } = useTableData(records, columns);
 
   if (records.length <= 0) {

@@ -1,4 +1,6 @@
-import { useArenaContext } from '../../context';
+import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
+import { getBrands, getInfluencers, getVideos, getWheels } from '../../store/selectors';
 import { Categories, Video } from '../../types';
 import { formatWheelName } from '../../utils';
 
@@ -16,16 +18,24 @@ const getEmbedPath = (video: Video) => {
 };
 
 export const useVideos = () => {
-  const { videos } = useArenaContext();
+  const videos = useSelector(getVideos);
 
   return { videos: videos.map(getEmbedPath) };
 };
 
 export const useVideoInfo = ({ tags, url }: Video) => {
-  const { brands, influencers, wheels } = useArenaContext();
+  const brands = useSelector(getBrands);
+  const influencers = useSelector(getInfluencers);
+  const wheels = useSelector(getWheels);
   
-  const taggedInfluencers = influencers.filter(influencer => tags.some(tag => influencer.id === tag));
-  const taggedWheels = wheels.filter(wheel => tags.some(tag => wheel.id === tag));
+  const taggedInfluencers = useMemo(() => {
+    return influencers.filter(influencer => tags.some(tag => influencer.id === tag));
+  }, [influencers, tags]);
+
+  const taggedWheels = useMemo(() => {
+    return wheels.filter(wheel => tags.some(tag => wheel.id === tag));
+  }, [wheels, tags]);
+
   const categories = tags.filter(tag => getCategories().some(category => category === tag));
 
   return {

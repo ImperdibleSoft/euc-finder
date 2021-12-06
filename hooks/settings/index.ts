@@ -2,9 +2,11 @@
 import { useRouter } from 'next/dist/client/router';
 import { ChangeEvent, useState } from 'react';
 import { useTranslation, TFunction } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 import { DropdownItem, Props } from '../../components/Form/Dropdown';
 import { wheelFeatureIcons } from '../../constants';
-import { useArenaContext } from '../../context';
+import { setMeasureUnit } from '../../store/actions';
+import { getMeasureUnits } from '../../store/selectors';
 import { LOCAL_STORAGE_KEY } from '../../types';
 import {
   DiameterUnits,
@@ -97,7 +99,8 @@ const getOptions = (t: TFunction<'translation'>) => {
 export const useSettings = () => {
   const { t, i18n } = useTranslation();
   const router = useRouter();
-  const { measureUnits, dispatch }= useArenaContext();
+  const dispatch = useDispatch();
+  const measureUnits = useSelector(getMeasureUnits);
   const [language, setLanguage] = useState(i18n.language);
 
   const handleChangeDiameter = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -110,42 +113,27 @@ export const useSettings = () => {
 
   const handleChangeWidth = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    dispatch({
-      type: 'setMeasureUnit',
-      payload: { width: value as WidthUnits }
-    });
+    dispatch(setMeasureUnit({ key: 'width', value }));
   };
 
   const handleChangeRange = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    dispatch({
-      type: 'setMeasureUnit',
-      payload: { range: value as RangeUnits }
-    });
+    dispatch(setMeasureUnit({ key: 'range', value }));
   };
 
   const handleChangeSpeed = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    dispatch({
-      type: 'setMeasureUnit',
-      payload: { maxSpeed: value as SpeedUnits }
-    });
+    dispatch(setMeasureUnit({ key: 'maxSpeed', value }));
   };
 
   const handleChangeWeight = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    dispatch({
-      type: 'setMeasureUnit',
-      payload: { weight: value as WeightUnits }
-    });
+    dispatch(setMeasureUnit({ key: 'weight', value }));
   };
 
   const handleChangeGroundClearance = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    dispatch({
-      type: 'setMeasureUnit',
-      payload: { groundClearance: value as GroundClearanceUnits }
-    });
+    dispatch(setMeasureUnit({ key: 'groundClearance', value }));
   };
 
   const {

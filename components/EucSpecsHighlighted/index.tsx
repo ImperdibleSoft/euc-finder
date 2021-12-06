@@ -1,8 +1,9 @@
 import { Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
-import { useArenaContext } from '../../context';
+import { getMeasureUnits } from '../../store/selectors';
 import { Wheel, WheelFeatureFormatters, WheelFeatureIcons } from '../../types';
 import HighlightedList from '../Lists/HighlightedList';
 import { ListItem } from '../Lists/types';
@@ -14,7 +15,7 @@ interface Props {
 
 const EucSpecsHighlighted: React.FC<Props> = ({ specs, wheel }) => {
   const { t } = useTranslation();
-  const { measureUnits } = useArenaContext();
+  const measureUnits = useSelector(getMeasureUnits);
   
   const listItems: ListItem[] = specs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];

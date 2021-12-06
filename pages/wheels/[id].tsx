@@ -3,6 +3,7 @@ import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import EmptyCase from '../../components/EmptyCase';
 import EucAdditionalPurchaseLinks from '../../components/EucAdditionalPurchaseLinks';
 import EucDetailHeader from '../../components/EucDetailHeader';
@@ -13,8 +14,9 @@ import EucSpecsHighlighted from '../../components/EucSpecsHighlighted';
 import EucSpecsMain from '../../components/EucSpecsMain';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import { brands, wheels } from '../../context/data';
 import { useEucDetail, useEucDetailHandlers, useEucDetailInformationGroups, useEucPurchaseLinks } from '../../hooks';
+import { wheels } from '../../store/models/data';
+import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
@@ -24,6 +26,7 @@ const EucDetail: React.FC = () => {
   const { t } = useTranslation();
   const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
 
+  const brands = useSelector(getBrands);
   const { name, pictures, wheel } = useEucDetail(id);
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
   const { handleClosePicture, handleOpenPicture, pictureDetail } = useEucDetailHandlers();

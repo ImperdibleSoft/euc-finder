@@ -1,7 +1,8 @@
 import { CardMedia, Grid, Typography } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useTranslation } from 'react-i18next';
-import { brands } from '../../context/data';
+import { useSelector } from 'react-redux';
+import { getBrands } from '../../store/selectors';
 import { BrandId } from '../../types';
 import BrandLogo from '../BrandLogo';
 
@@ -18,6 +19,7 @@ const EucDetailHeader: React.FC<PropsWithChildren<Props>> = ({
   wheelName
 }) => {
   const { t } = useTranslation();
+  const brands = useSelector(getBrands);
   
   return (
     <Grid container>

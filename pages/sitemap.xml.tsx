@@ -1,6 +1,6 @@
 import { ServerResponse } from 'http';
 import React from 'react';
-import { wheels } from '../context/data';
+import { wheels } from '../store/models/data';
 
 const Sitemap: React.FC = () => null;
 
