@@ -49,4 +49,8 @@ export const getFilteredVideos = ({ videos: { collection, filters } }: RootState
     }
 
     return false;
-  });};
+  });
+};
+
+export const getVideoFilters = ({ videos }: RootState) =>
+  videos.filters;

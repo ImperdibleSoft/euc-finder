@@ -1,9 +1,8 @@
 import { Avatar, Card, CardContent, Chip, List, ListItem } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useVideoInfo } from '../../hooks';
-import { Video } from '../../types';
-import YoutubePlayer from '../YoutubePlayer';
+import { useVideoInfo } from '../../../hooks';
+import { Video } from '../../../types';
+import YoutubePlayer from '../../YoutubePlayer';
 
 const cardWidth = 314;
 
@@ -14,11 +13,13 @@ const commonProps = {
 };
 
 interface Props {
+  handleChangeCategories: (id: string) => void;
+  handleChangeInfluencers: (id: string) => void;
+  handleChangeWheels: (id: string) => void;
   video: Video
 }
 
-const VideoCard: React.FC<Props> = ({ video }) => {
-  const { t } = useTranslation();
+const VideoCard: React.FC<Props> = ({ handleChangeCategories, handleChangeInfluencers, handleChangeWheels, video }) => {
   const { categories, influencers, url, wheels } = useVideoInfo(video);
   
   return (
@@ -52,10 +53,11 @@ const VideoCard: React.FC<Props> = ({ video }) => {
                 // @ts-ignore
                 <Chip
                   key={ influencer.id }
+                  { ...commonProps }
                   avatar={ <Avatar alt={ influencer.name } src={ influencer.avatar } /> }
                   color="secondary"
                   label={ influencer.name }
-                  { ...commonProps }
+                  onClick={ () => handleChangeInfluencers(influencer.id) }
                 />
               )) }
             </ListItem>
@@ -64,9 +66,10 @@ const VideoCard: React.FC<Props> = ({ video }) => {
                 // @ts-ignore
                 <Chip
                   key={ wheel.id }
+                  { ...commonProps }
                   color="primary"
                   label={ wheel.name }
-                  { ...commonProps }
+                  onClick={ () => handleChangeWheels(wheel.id) }
                 />
               )) }
             </ListItem>
@@ -74,9 +77,10 @@ const VideoCard: React.FC<Props> = ({ video }) => {
               { categories.map(category => (
                 // @ts-ignore
                 <Chip
-                  key={ category }
-                  label={ t(category) }
+                  key={ category.id }
                   { ...commonProps }
+                  label={ category.label }
+                  onClick={ () => handleChangeCategories(category.id) }
                 />
               )) }
             </ListItem>

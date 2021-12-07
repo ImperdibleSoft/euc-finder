@@ -8,3 +8,17 @@ export interface VideosState {
   filters: VideoFilters;
   sorting: unknown;
 }
+
+export interface ResetVideosFiltersAction {
+  type: 'RESET_VIDEO_FILTERS'
+}
+
+export interface FilterVideosAction {
+  type: 'FILTER_VIDEOS';
+  payload: {
+    key: keyof VideoFilters;
+    value: unknown
+  }
+}
+
+export type VideosAction = ResetVideosFiltersAction | FilterVideosAction

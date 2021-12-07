@@ -3,16 +3,23 @@ import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
-import VideoCard from '../../components/VideoCard';
-import VideoFilters from '../../components/VideoFilters';
+import VideoCard from '../../components/Videos/VideoCard';
+import VideoFilters from '../../components/Videos/VideoFilters';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { useSidebar, useVideos } from '../../hooks';
+import { useSidebar, useVideoFilterFields, useVideos } from '../../hooks';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const Videos = () => {
   const { t } = useTranslation();
   const { handleCloseSidebar, handleOpenSidebar, open } = useSidebar();
   const { videos } = useVideos();
+  const {
+    fields, 
+    handleChangeCategories,
+    handleChangeInfluencers,
+    handleChangeWheels,
+    handleResetFilters 
+  } = useVideoFilterFields();
 
   const title = t('videos');
   const pageTitle = `${ title } - ${ APP_NAME }`;
@@ -42,8 +49,8 @@ const Videos = () => {
         sidebar={ (
           <>
             <VideoFilters
-              fields={ [] }
-              handleResetFilters={ () => null }
+              fields={ fields }
+              handleResetFilters={ handleResetFilters }
             />
           </>
         ) }
@@ -63,7 +70,13 @@ const Videos = () => {
         <Box sx={ { alignItems: 'center', display: 'flex', flexDirection: 'column', pb: 1 } }>
           <Box sx={ { width: '100%', pr: 2, pb: 2, textAlign: 'center', m: '0 auto' } }>
             { videos.map(video => (
-              <VideoCard key={ video.url } video={ video } />
+              <VideoCard
+                key={ video.url }
+                handleChangeCategories={ handleChangeCategories }
+                handleChangeInfluencers={ handleChangeInfluencers }
+                handleChangeWheels={ handleChangeWheels }
+                video={ video }
+              />
             )) }
           </Box>
         </Box>

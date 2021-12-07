@@ -13,6 +13,7 @@ export interface VideoFilters {
   influencers: InfluencerId[];
   wheels: WheelId[];
 }
+
 export interface WheelFilters {
   categories: Category[];
   brandId: BrandId[];

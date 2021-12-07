@@ -1,9 +1,9 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FilterField } from '../../types';
-import Clear from '../Clear';
-import Collapsable from '../Collapsable';
+import { FilterField } from '../../../types';
+import Clear from '../../Clear';
+import Collapsable from '../../Collapsable';
 
 interface Props {
   collapsedSize?: string;

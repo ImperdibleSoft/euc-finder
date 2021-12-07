@@ -1,8 +1,11 @@
 import { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getBrands, getFilteredVideos, getInfluencers, getWheels } from '../../store/selectors';
 import { Influencer, Video, Wheel } from '../../types';
 import { formatWheelName, getCategoryFromTags, getInfluencerFromTags, getWheelFromTags } from '../../utils';
+
+export * from './filtering';
 
 const getEmbedPath = (video: Video) => {
   const { url } = video;
@@ -22,13 +25,18 @@ export const useVideos = () => {
 };
 
 export const useVideoInfo = ({ tags, url }: Video) => {
+  const { t } = useTranslation();
   const brands = useSelector(getBrands);
   const influencers = useSelector(getInfluencers);
   const wheels = useSelector(getWheels);
   
   const taggedInfo = useMemo(() =>
     ({
-      categories: getCategoryFromTags(tags),
+      categories: getCategoryFromTags(tags)
+        .map(tag => ({
+          id: tag,
+          label: t(`${ tag }-label`)
+        })),
       influencers: getInfluencerFromTags(tags)
         .map(influencerId => {
           const influencer = influencers.find(i => i.id === influencerId);
@@ -41,7 +49,7 @@ export const useVideoInfo = ({ tags, url }: Video) => {
           return wheel ? { ...wheel, name: formatWheelName(wheel, brands) } : undefined;
         })
         .filter(w => !!w) as Wheel[]
-    }), [brands, influencers, tags, wheels]
+    }), [brands, influencers, t, tags, wheels]
   );
 
   return {
