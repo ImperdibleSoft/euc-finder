@@ -2,6 +2,7 @@ import { VideoCategory, InfluencerId, Video, WheelId } from '../../../types';
 import eeveesVideos from './videos/eevees';
 import electricDreamsVideos from './videos/electricDreams';
 import eucVibesVideos from './videos/eucVibes';
+import evxVideos from './videos/evx';
 
 export const videos: Video[] = [
   {
@@ -21,5 +22,6 @@ export const videos: Video[] = [
   },
   ...eeveesVideos,
   ...electricDreamsVideos,
-  ...eucVibesVideos
+  ...eucVibesVideos,
+  ...evxVideos
 ];

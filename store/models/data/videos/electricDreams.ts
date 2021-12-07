@@ -62,7 +62,7 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.commuting,
       WheelId.sherman
     ],
-    date: new Date('08/Jul/200')
+    date: new Date('08/Jul/2020')
   },
   {
     url: 'https://www.youtube.com/watch?v=jNq2J9AdQlg',
