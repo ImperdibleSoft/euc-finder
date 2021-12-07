@@ -1,4 +1,4 @@
-import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags } from '../../utils';
+import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
 import { RootState } from '../types';
 
 export const getVideos = ({ videos }: RootState) =>
@@ -21,35 +21,41 @@ export const getSponsoredVideos = ({ influencers, videos }: RootState) =>
   });
 
 export const getFilteredVideos = ({ videos: { collection, filters } }: RootState) => {
-  return collection.filter(video => {
-    const categoryTags = getCategoryFromTags(video.tags);
-    const influencerTags = getInfluencerFromTags(video.tags);
-    const wheelTags = getWheelFromTags(video.tags);
+  return collection
+    .filter(video => {
+      if (!video.url || video.url === '' || video.url === undefined) {
+        return false;
+      }
 
-    const matchesAllCategories = (
-      !categoryTags.length
-      || !filters.categories.length
-      || filters.categories.every(category => categoryTags.some(cat => cat === category))
-    );
+      const categoryTags = getCategoryFromTags(video.tags);
+      const influencerTags = getInfluencerFromTags(video.tags);
+      const wheelTags = getWheelFromTags(video.tags);
 
-    const matchesAllInfluencers = (
-      !influencerTags.length
-      || !filters.influencers.length
-      || filters.influencers.every(influencerId => influencerTags.some(id => id === influencerId))
-    );
+      const matchesAllCategories = (
+        !categoryTags.length
+        || !filters.categories.length
+        || filters.categories.every(category => categoryTags.some(cat => cat === category))
+      );
 
-    const matchesAllWheels = (
-      !wheelTags.length
-      || !filters.wheels.length
-      || filters.wheels.every(wheelId => wheelTags.some(id => id === wheelId))
-    );
+      const matchesAllInfluencers = (
+        !influencerTags.length
+        || !filters.influencers.length
+        || filters.influencers.every(influencerId => influencerTags.some(id => id === influencerId))
+      );
 
-    if (matchesAllCategories && matchesAllInfluencers && matchesAllWheels) {
-      return true;
-    }
+      const matchesAllWheels = (
+        !wheelTags.length
+        || !filters.wheels.length
+        || filters.wheels.every(wheelId => wheelTags.some(id => id === wheelId))
+      );
 
-    return false;
-  });
+      if (matchesAllCategories && matchesAllInfluencers && matchesAllWheels) {
+        return true;
+      }
+
+      return false;
+    })
+    .sort(sortBy('date', 'desc'));
 };
 
 export const getVideoFilters = ({ videos }: RootState) =>

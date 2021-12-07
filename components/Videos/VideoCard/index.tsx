@@ -2,6 +2,7 @@ import { Avatar, Card, CardContent, Chip, List, ListItem } from '@mui/material';
 import React from 'react';
 import { useVideoInfo } from '../../../hooks';
 import { Video } from '../../../types';
+import { getEmbedPath } from '../../../utils/videos';
 import YoutubePlayer from '../../YoutubePlayer';
 
 const cardWidth = 314;
@@ -20,7 +21,8 @@ interface Props {
 }
 
 const VideoCard: React.FC<Props> = ({ handleChangeCategories, handleChangeInfluencers, handleChangeWheels, video }) => {
-  const { categories, influencers, url, wheels } = useVideoInfo(video);
+  const { categories, influencers, wheels } = useVideoInfo(video);
+  const { url } = getEmbedPath(video);
   
   return (
     <div
@@ -30,7 +32,8 @@ const VideoCard: React.FC<Props> = ({ handleChangeCategories, handleChangeInflue
         paddingLeft: 16,
         paddingTop: 16,
         position: 'relative',
-        textAlign: 'left'
+        textAlign: 'left',
+        verticalAlign: 'top'
       } }
     >
       <Card>
@@ -61,7 +64,7 @@ const VideoCard: React.FC<Props> = ({ handleChangeCategories, handleChangeInflue
                 />
               )) }
             </ListItem>
-            <ListItem>
+            <ListItem sx={ { display: 'block' } }>
               { wheels.map(wheel => (
                 // @ts-ignore
                 <Chip
@@ -73,7 +76,7 @@ const VideoCard: React.FC<Props> = ({ handleChangeCategories, handleChangeInflue
                 />
               )) }
             </ListItem>
-            <ListItem>
+            <ListItem sx={ { display: 'block' } }>
               { categories.map(category => (
                 // @ts-ignore
                 <Chip

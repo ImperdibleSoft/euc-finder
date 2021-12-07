@@ -2,17 +2,19 @@ import { Box, Button, ButtonGroup, Container, Icon, Typography } from '@mui/mate
 import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
 import VideoCard from '../../components/Videos/VideoCard';
 import VideoFilters from '../../components/Videos/VideoFilters';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { useSidebar, useVideoFilterFields, useVideos } from '../../hooks';
+import { useSidebar, useVideoFilterFields } from '../../hooks';
+import { getFilteredVideos } from '../../store/selectors';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const Videos = () => {
   const { t } = useTranslation();
+  const videos = useSelector(getFilteredVideos);
   const { handleCloseSidebar, handleOpenSidebar, open } = useSidebar();
-  const { videos } = useVideos();
   const {
     fields, 
     handleChangeCategories,

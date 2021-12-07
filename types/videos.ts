@@ -2,6 +2,7 @@ import { InfluencerId } from './influencers';
 import { WheelId } from './wheel';
 
 export enum VideoCategory {
+  chatting = 'chatting',
   commuting = 'commuting',
   comparision = 'comparision',
   offroad = 'offroad',
@@ -12,4 +13,5 @@ export enum VideoCategory {
 export interface Video {
   url: string;
   tags: (InfluencerId | VideoCategory | WheelId)[];
+  date: Date;
 }
