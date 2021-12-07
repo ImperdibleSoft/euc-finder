@@ -5,6 +5,7 @@ import eucVibesVideos from './videos/eucVibes';
 import evxVideos from './videos/evx';
 import hsiangVideos from './videos/hsiang';
 import kujiVideos from './videos/kuji';
+import madpackVideos from './videos/madpack';
 
 export const videos: Video[] = [
   {
@@ -22,5 +23,6 @@ export const videos: Video[] = [
   ...eucVibesVideos,
   ...evxVideos,
   ...hsiangVideos,
-  ...kujiVideos
+  ...kujiVideos,
+  ...madpackVideos
 ];
