@@ -4,6 +4,7 @@ import electricDreamsVideos from './videos/electricDreams';
 import eucVibesVideos from './videos/eucVibes';
 import evxVideos from './videos/evx';
 import hsiangVideos from './videos/hsiang';
+import kujiVideos from './videos/kuji';
 
 export const videos: Video[] = [
   {
@@ -16,14 +17,10 @@ export const videos: Video[] = [
     tags: [InfluencerId.ox, VideoCategory.review, VideoCategory.commuting, WheelId.v12],
     date: new Date('20/May/2021')
   },
-  {
-    url: 'https://www.youtube.com/watch?v=yB325Y0Unbg',
-    tags: [InfluencerId.kuji, VideoCategory.review, VideoCategory.commuting, WheelId.v11],
-    date: new Date('29/May/2020')
-  },
   ...eeveesVideos,
   ...electricDreamsVideos,
   ...eucVibesVideos,
   ...evxVideos,
-  ...hsiangVideos
+  ...hsiangVideos,
+  ...kujiVideos
 ];
