@@ -32,12 +32,12 @@ export const influencers: Influencer[] = [
     name: 'Hsiang',
     avatar: 'https://yt3.ggpht.com/ytc/AKedOLSBNx9be6Ra4mWTEcS-soCKtKB9j6KuMI_UK4ex8A=s88-c-k-c0x00ffffff-no-rj'
   },
-  {
-    channel: 'https://www.youtube.com/channel/UCiP_Bdsb3XSuKh6TR15RFPA',
-    id: InfluencerId.kellyChameleons,
-    name: 'Kelly Chameleon',
-    avatar: 'https://yt3.ggpht.com/704x6BA9Mn1iHIMyg6vB5OUBldL2tg-abdMBOQsXVuSg_1KugHIWM3v4XLaI-mV-L4OPMeND=s88-c-k-c0x00ffffff-no-rj'
-  },
+  // {
+  //   channel: 'https://www.youtube.com/channel/UCiP_Bdsb3XSuKh6TR15RFPA',
+  //   id: InfluencerId.kellyChameleons,
+  //   name: 'Kelly Chameleon',
+  //   avatar: 'https://yt3.ggpht.com/704x6BA9Mn1iHIMyg6vB5OUBldL2tg-abdMBOQsXVuSg_1KugHIWM3v4XLaI-mV-L4OPMeND=s88-c-k-c0x00ffffff-no-rj'
+  // },
   {
     channel: 'https://www.youtube.com/channel/UCfsmUHp1lI4s_8qpMJwF6ng',
     id: InfluencerId.kuji,
