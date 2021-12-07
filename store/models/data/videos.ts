@@ -3,6 +3,7 @@ import eeveesVideos from './videos/eevees';
 import electricDreamsVideos from './videos/electricDreams';
 import eucVibesVideos from './videos/eucVibes';
 import evxVideos from './videos/evx';
+import hsiangVideos from './videos/hsiang';
 
 export const videos: Video[] = [
   {
@@ -23,5 +24,6 @@ export const videos: Video[] = [
   ...eeveesVideos,
   ...electricDreamsVideos,
   ...eucVibesVideos,
-  ...evxVideos
+  ...evxVideos,
+  ...hsiangVideos
 ];
