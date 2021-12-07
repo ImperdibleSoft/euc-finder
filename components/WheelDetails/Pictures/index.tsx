@@ -1,19 +1,33 @@
-import { Card, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
+import { Button, Card, CardActions, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { VIDEOS } from '../../../constants/clientRoutes';
+import { filterVideos, resetVideoFilters } from '../../../store/actions';
+import { WheelId } from '../../../types';
 import PictureDetails from '../../PictureDetails';
 
 interface Props {
-  onClick: (pictureUrl: string) => void
-  onClose: () => void
-  pictureDetail?: string
-  pictures?: string[]
-  wheelName: string
+  onClick: (pictureUrl: string) => void;
+  onClose: () => void;
+  pictureDetail?: string;
+  pictures?: string[];
+  wheelId: WheelId;
+  wheelName: string;
 }
 
-const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelName }) => {
+const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelId, wheelName }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const handleViewVideos = () => {
+    dispatch(resetVideoFilters());
+    dispatch(filterVideos({ key: 'wheels', value: [wheelId] }));
+    router.push(VIDEOS);
+  };
 
   if (!pictures?.length) {
     return null;
@@ -31,8 +45,8 @@ const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, 
       <Card style={ {
         alignItems: 'center',
         display: 'flex',
-        justifyContent: 'center',
-        minHeight: widgetSize
+        flexDirection: 'column',
+        justifyContent: 'center'
       } }>
         <ImageList
           cols={ 3 }
@@ -66,6 +80,12 @@ const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, 
             </ImageListItem>
           )) }
         </ImageList>
+
+        <CardActions sx={ { justifyContent: 'flex-end', pb: 2, pr: 2, pt: 0, width: '100%' } }>
+          <Button onClick={ handleViewVideos } variant="outlined">
+            { t('watchVideos-label') }
+          </Button>
+        </CardActions>
       </Card>
 
       <PictureDetails

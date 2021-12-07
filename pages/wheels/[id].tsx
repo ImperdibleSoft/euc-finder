@@ -84,6 +84,7 @@ const EucDetail: React.FC = () => {
                 onClose={ handleClosePicture }
                 pictureDetail={ pictureDetail }
                 pictures={ pictures }
+                wheelId={ id }
                 wheelName={ name }
               />
 
