@@ -9,13 +9,21 @@ const reducer = (state = getVideosInitialState(), action: VideosAction): VideosS
         filters: {
           ...state.filters,
           [action.payload.key]: action.payload.value
-        }
+        },
+        pagination: { ...getVideosInitialState().pagination }
+      };
+
+    case 'PAGINATE_VIDEOS':
+      return {
+        ...state,
+        pagination: { offset: action.payload.offset }
       };
 
     case 'RESET_VIDEO_FILTERS':
       return {
         ...state,
-        filters: { ...getVideosInitialState().filters }
+        filters: { ...getVideosInitialState().filters },
+        pagination: { ...getVideosInitialState().pagination }
       };
     
     default:

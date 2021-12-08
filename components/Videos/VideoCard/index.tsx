@@ -29,11 +29,13 @@ const VideoCard: React.FC<Props> = ({ handleChangeCategories, handleChangeInflue
       style={ {
         display: 'inline-block',
         maxWidth: cardWidth,
+        minWidth: cardWidth,
         paddingLeft: 16,
         paddingTop: 16,
         position: 'relative',
         textAlign: 'left',
-        verticalAlign: 'top'
+        verticalAlign: 'top',
+        width: cardWidth
       } }
     >
       <Card>

@@ -1,3 +1,4 @@
+import { PAGINATION_SIZE } from '../../constants';
 import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
 import { RootState } from '../types';
 
@@ -60,3 +61,20 @@ export const getFilteredVideos = ({ videos: { collection, filters } }: RootState
 
 export const getVideoFilters = ({ videos }: RootState) =>
   videos.filters;
+
+export const getPaginatedVideos = (filtered = true) => (rootState: RootState) => {
+  const start = rootState.videos.pagination.offset;
+  const end = rootState.videos.pagination.offset + PAGINATION_SIZE;
+
+  const allVideos = (filtered ? getFilteredVideos : getVideos)(rootState);
+  const videos = allVideos.slice(start, end);
+
+  return {
+    videos,
+    pagination: {
+      ...rootState.videos.pagination,
+      count: videos.length,
+      total: allVideos.length
+    }
+  };
+};

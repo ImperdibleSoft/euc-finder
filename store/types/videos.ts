@@ -7,6 +7,9 @@ export interface VideosState {
   // Misc
   filters: VideoFilters;
   sorting: unknown;
+  pagination: {
+    offset: number;
+  }
 }
 
 export interface ResetVideosFiltersAction {
@@ -21,4 +24,11 @@ export interface FilterVideosAction {
   }
 }
 
-export type VideosAction = ResetVideosFiltersAction | FilterVideosAction
+export interface PaginateVideosAction {
+  type: 'PAGINATE_VIDEOS';
+  payload: {
+    offset: number;
+  }
+}
+
+export type VideosAction = ResetVideosFiltersAction | FilterVideosAction | PaginateVideosAction;

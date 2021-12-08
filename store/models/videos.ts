@@ -8,5 +8,6 @@ export const getVideosInitialState = (): VideosState => ({
     influencers: [],
     wheels: []
   },
+  pagination: { offset: 0 },
   sorting: undefined
 });

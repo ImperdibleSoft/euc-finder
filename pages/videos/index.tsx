@@ -1,19 +1,21 @@
-import { Box, Button, ButtonGroup, Container, Icon, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Container, Icon, Pagination, Typography } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
 import VideoCard from '../../components/Videos/VideoCard';
 import VideoFilters from '../../components/Videos/VideoFilters';
-import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
+import { APP_DESCRIPTION, APP_NAME, KEYWORDS, PAGINATION_SIZE } from '../../constants';
 import { useSidebar, useVideoFilterFields } from '../../hooks';
-import { getFilteredVideos } from '../../store/selectors';
+import { paginateVideos } from '../../store/actions';
+import { getPaginatedVideos } from '../../store/selectors';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const Videos = () => {
   const { t } = useTranslation();
-  const videos = useSelector(getFilteredVideos);
+  const dispatch = useDispatch();
+  const { videos, pagination } = useSelector(getPaginatedVideos(true));
   const { handleCloseSidebar, handleOpenSidebar, open } = useSidebar();
   const {
     fields, 
@@ -22,6 +24,11 @@ const Videos = () => {
     handleChangeWheels,
     handleResetFilters 
   } = useVideoFilterFields();
+
+  const handlePaginate = (event: unknown, page: number) => {
+    const newOffset = (page - 1) * PAGINATION_SIZE;
+    dispatch(paginateVideos(newOffset));
+  };
 
   const title = t('videos');
   const pageTitle = `${ title } - ${ APP_NAME }`;
@@ -81,9 +88,17 @@ const Videos = () => {
               />
             )) }
           </Box>
+
+          <Pagination
+            color="secondary"
+            count={ Math.ceil(pagination.total / PAGINATION_SIZE) }
+            page={ Math.ceil((pagination.offset + pagination.count) / PAGINATION_SIZE) }
+            onChange={ handlePaginate }
+            hidePrevButton={ pagination.offset <= 0 }
+            hideNextButton={ (pagination.offset + pagination.count) >= pagination.total }
+          />
         </Box>
       </LeftSidebarLayout>
-
     </>
   );
 };

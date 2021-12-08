@@ -3,6 +3,8 @@ import { DEALERS, EUCS, SETTINGS, VIDEOS } from './clientRoutes';
 
 export const SHOW_PRICE = false;
 
+export const PAGINATION_SIZE = 12;
+
 // Wheels Table
 export const SPEC_COLUMNS: Array<keyof Wheel> = [
   'name',
