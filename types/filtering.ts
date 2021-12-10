@@ -68,13 +68,14 @@ interface CommonFilterProps {
   label: string;
   name: string;
   space?: boolean;
-  value?: string;
+  value?: string | string[];
 }
 
 interface FilterCheckboxGroup extends CommonFilterProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Field: React.FC<any>;
   options: CheckboxProps[];
+  value?: string;
 }
 
 interface FilterDropdown extends CommonFilterProps {
@@ -82,6 +83,15 @@ interface FilterDropdown extends CommonFilterProps {
   Field: React.FC<any>;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   options: DropdownItem[];
+  value?: string;
+}
+
+interface FilterMultipleSelect extends CommonFilterProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  Field: React.FC<any>;
+  onChange: (value: string[]) => void;
+  options: DropdownItem[];
+  value?: string[]
 }
 
 interface FilterText extends CommonFilterProps {
@@ -89,6 +99,7 @@ interface FilterText extends CommonFilterProps {
   Field: React.FC<any>;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   type: TextProps['type'];
+  value?: string;
 }
 
-export type FilterField = FilterCheckboxGroup | FilterDropdown | FilterText;
+export type FilterField = FilterCheckboxGroup | FilterDropdown | FilterMultipleSelect | FilterText;

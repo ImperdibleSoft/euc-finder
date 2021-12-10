@@ -1,5 +1,5 @@
 import { TFunction } from 'react-i18next';
-import { CheckboxProps } from '../../../components/Form/Checkbox';
+import { DropdownItem } from '../../../components/Form/Dropdown';
 import { Brands, Influencer, Wheel } from '../../../types';
 import { formatWheelName, getAllCategories } from '../../../utils';
 
@@ -10,25 +10,22 @@ interface Params {
 }
 
 export const getDropdownOptions = ({ brands, influencers, wheels }: Params, t: TFunction<'translation'>) => {
-  const categoryOptions: CheckboxProps[] = getAllCategories()
+  const categoryOptions: DropdownItem[] = getAllCategories()
     .map(category => ({
       label: t(`${ category }-label`),
-      name: category,
-      onChange: () => { return; }
+      value: category
     }));
 
-  const influencersOptions: CheckboxProps[] = influencers
+  const influencersOptions: DropdownItem[] = influencers
     .map(influencer => ({
       label: influencer.name,
-      name: influencer.id,
-      onChange: () => { return; }
+      value: influencer.id
     }));
 
-  const wheelsOptions: CheckboxProps[] = wheels
+  const wheelsOptions: DropdownItem[] = wheels
     .map(wheel => ({
       label: formatWheelName(wheel, brands),
-      name: wheel.id,
-      onChange: () => { return; }
+      value: wheel.id
     }));
 
   return {
