@@ -99,18 +99,15 @@ export const useVideoFilterFields = () => {
 
   
   const onChangeCategories = (id: string) => {
-    // @ts-ignore incomplete target object
-    handleChangeCategories({ target: { name: id, checked: true } });
+    handleChangeCategories([id]);
   };
 
   const onChangeInfluencers = (id: string) => {
-    // @ts-ignore incomplete target object
-    handleChangeInfluencers({ target: { name: id, checked: true } });
+    handleChangeInfluencers([id]);
   };
 
   const onChangeWheels = (id: string) => {
-    // @ts-ignore incomplete target object
-    handleChangeWheels({ target: { name: id, checked: true } });
+    handleChangeWheels([id]);
   };
 
 
