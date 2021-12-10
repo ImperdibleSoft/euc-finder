@@ -38,10 +38,10 @@ export const getFilteredVideos = ({ videos: { collection, filters } }: RootState
         || filters.categories.every(category => categoryTags.some(cat => cat === category))
       );
 
-      const matchesAllInfluencers = (
+      const matchesAnyInfluencers = (
         !influencerTags.length
         || !filters.influencers.length
-        || filters.influencers.every(influencerId => influencerTags.some(id => id === influencerId))
+        || filters.influencers.some(influencerId => influencerTags.some(id => id === influencerId))
       );
 
       const matchesAllWheels = (
@@ -50,7 +50,7 @@ export const getFilteredVideos = ({ videos: { collection, filters } }: RootState
         || filters.wheels.every(wheelId => wheelTags.some(id => id === wheelId))
       );
 
-      if (matchesAllCategories && matchesAllInfluencers && matchesAllWheels) {
+      if (matchesAllCategories && matchesAnyInfluencers && matchesAllWheels) {
         return true;
       }
 
