@@ -3,6 +3,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import React, { PropsWithChildren } from 'react';
 import { useModalsContext } from '../../../context';
 import InfoDisclaimer from '../../InfoDisclaimer';
+import { NAV_SIDEBAR_WIDTH } from '../constants';
 import BottomNavigation from './BottomNavigation';
 import Header, { Props } from './Header';
 import Notifications from './Notifications';
@@ -47,7 +48,10 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
           component="main"
           sx={ {
             flexGrow: 1,
-            maxWidth: '100vw',
+            maxWidth: {
+              xs: '100vw',
+              md: `calc(100vw - ${ NAV_SIDEBAR_WIDTH }px)`
+            },
             py: 3
           } }
         >

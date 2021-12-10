@@ -1,11 +1,15 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useVideoFilterFields } from '..';
 import { DETAIL_ADDITIONAL_SPECS, DETAIL_HIGHLIGHTED_SPECS, DETAIL_MAIN_SPECS } from '../../constants';
+import { VIDEOS } from '../../constants/clientRoutes';
 import {
   getBrands,
   getPurchaseLinks,
   getRegion,
   getStores,
+  getVideosByWheel,
   getWheelById,
   getWheelPictures
 } from '../../store/selectors';
@@ -74,5 +78,23 @@ export const useEucPurchaseLinks = (id: WheelId) => {
   return {
     sponsoredLinks: sponsoredLinks.sort(sortBy('store', 'asc', 'name')),
     regularLinks: regularLinks.sort(sortBy('store', 'asc', 'name'))
+  };
+};
+
+export const useEucVideos = (id: WheelId) => {
+  const router = useRouter();
+  const videos = useSelector(getVideosByWheel(id));
+  const { handleChangeWheels, handleResetFilters } = useVideoFilterFields();
+
+  const handleWatchMoreVideos = () => {
+    handleResetFilters();
+    handleChangeWheels(id);
+    router.push(VIDEOS);
+  };
+
+  return {
+    handleWatchMoreVideos,
+    totalCount: videos.length,
+    videos: videos.slice(0, 6)
   };
 };

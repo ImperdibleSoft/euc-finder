@@ -14,11 +14,18 @@ import AdditionalSpecs from '../../components/WheelDetails/AdditionalSpecs';
 import HighlightedSpecs from '../../components/WheelDetails/HighlightedSpecs';
 import MainSpecs from '../../components/WheelDetails/MainSpecs';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import { useEucDetail, useEucDetailHandlers, useEucDetailInformationGroups, useEucPurchaseLinks } from '../../hooks';
+import {
+  useEucDetail,
+  useEucDetailHandlers,
+  useEucDetailInformationGroups,
+  useEucPurchaseLinks,
+  useEucVideos
+} from '../../hooks';
 import { wheels } from '../../store/models/data';
 import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
+import VideosCarousel from '../../components/WheelDetails/VideosCarousel';
 
 const EucDetail: React.FC = () => {
   const router = useRouter();
@@ -31,6 +38,7 @@ const EucDetail: React.FC = () => {
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
   const { handleClosePicture, handleOpenPicture, pictureDetail } = useEucDetailHandlers();
   const { sponsoredLinks, regularLinks } = useEucPurchaseLinks(id);
+  const { handleWatchMoreVideos, totalCount, videos } = useEucVideos(id);
 
   const pageTitle = `${ name } - ${ APP_NAME }`;
   const pageDescription = t('defaultDescription-msg');
@@ -84,9 +92,17 @@ const EucDetail: React.FC = () => {
                 onClose={ handleClosePicture }
                 pictureDetail={ pictureDetail }
                 pictures={ pictures }
-                wheelId={ id }
                 wheelName={ name }
               />
+
+              { totalCount > 0 && (
+                <VideosCarousel
+                  handleWatchMoreVideos={ handleWatchMoreVideos }
+                  totalCount={ totalCount }
+                  videos={ videos }
+                />
+              ) }
+              
 
               <AdditionalSpecs specs={ additionalSpecs } wheel={ wheel } />
 

@@ -1,5 +1,6 @@
 import { PAGINATION_SIZE } from '../../constants';
 import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
+import { WheelId } from '../../types';
 import { RootState } from '../types';
 
 export const getVideos = ({ videos }: RootState) =>
@@ -78,3 +79,10 @@ export const getPaginatedVideos = (filtered = true) => (rootState: RootState) =>
     }
   };
 };
+
+export const getVideosByWheel = (wheelId: WheelId) =>
+  ({ videos }: RootState) =>
+    videos.collection.filter(v =>
+      v.tags.some(t => t === wheelId)
+    )
+      .sort(sortBy('date', 'desc'));

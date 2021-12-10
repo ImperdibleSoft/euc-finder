@@ -1,12 +1,7 @@
-import { Button, Card, CardActions, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
+import { Card, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
-import { VIDEOS } from '../../../constants/clientRoutes';
-import { filterVideos, resetVideoFilters } from '../../../store/actions';
-import { WheelId } from '../../../types';
 import PictureDetails from '../../PictureDetails';
 
 interface Props {
@@ -14,20 +9,11 @@ interface Props {
   onClose: () => void;
   pictureDetail?: string;
   pictures?: string[];
-  wheelId: WheelId;
   wheelName: string;
 }
 
-const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelId, wheelName }) => {
+const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelName }) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const router = useRouter();
-
-  const handleViewVideos = () => {
-    dispatch(resetVideoFilters());
-    dispatch(filterVideos({ key: 'wheels', value: [wheelId] }));
-    router.push(VIDEOS);
-  };
 
   if (!pictures?.length) {
     return null;
@@ -80,12 +66,6 @@ const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, 
             </ImageListItem>
           )) }
         </ImageList>
-
-        <CardActions sx={ { justifyContent: 'flex-end', pb: 2, pr: 2, pt: 0, width: '100%' } }>
-          <Button onClick={ handleViewVideos } variant="outlined">
-            { t('watchVideos-label') }
-          </Button>
-        </CardActions>
       </Card>
 
       <PictureDetails

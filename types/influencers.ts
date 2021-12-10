@@ -1,4 +1,5 @@
 export enum InfluencerId {
+  chooch = 'chooch',
   eevees = 'eevees',
   electricDreams = 'electricDreams',
   eucVibes = 'eucVibes',

@@ -13,14 +13,21 @@ const commonProps = {
   variant: 'outlined'
 };
 
-interface Props {
+interface SmallProps {
+  video: Video;
+  small: true;
+}
+
+interface RegularProps {
   handleChangeCategories: (id: string) => void;
   handleChangeInfluencers: (id: string) => void;
   handleChangeWheels: (id: string) => void;
   video: Video
 }
 
-const VideoCard: React.FC<Props> = ({ handleChangeCategories, handleChangeInfluencers, handleChangeWheels, video }) => {
+type Props = SmallProps | RegularProps;
+
+const VideoCard: React.FC<Props> = ({ video, ...props }) => {
   const { categories, influencers, wheels } = useVideoInfo(video);
   const { url } = getEmbedPath(video);
   
@@ -38,59 +45,67 @@ const VideoCard: React.FC<Props> = ({ handleChangeCategories, handleChangeInflue
         width: cardWidth
       } }
     >
-      <Card>
+      <Card
+        sx={ {
+          // eslint-disable-next-line no-restricted-syntax
+          boxShadow: 'small' in props ? 0 : undefined
+        } }
+      >
         <YoutubePlayer 
           controls
           url={ url }
           width={ cardWidth }
         />
 
-        <CardContent
-          sx={ {
-            maxWidth: '100%',
-            p: 0,
-            '&:last-child': { pb: 0 }
-          } }
-        >
-          <List dense>
-            <ListItem sx={ { display: 'block' } }>
-              { influencers.map(influencer => (
+        { /* eslint-disable-next-line no-restricted-syntax */ }
+        { 'handleChangeInfluencers' in props && (
+          <CardContent
+            sx={ {
+              maxWidth: '100%',
+              p: 0,
+              '&:last-child': { pb: 0 }
+            } }
+          >
+            <List dense>
+              <ListItem sx={ { display: 'block' } }>
+                { influencers.map(influencer => (
                 // @ts-ignore
-                <Chip
-                  key={ influencer.id }
-                  { ...commonProps }
-                  avatar={ <Avatar alt={ influencer.name } src={ influencer.avatar } /> }
-                  color="secondary"
-                  label={ influencer.name }
-                  onClick={ () => handleChangeInfluencers(influencer.id) }
-                />
-              )) }
-            </ListItem>
-            <ListItem sx={ { display: 'block' } }>
-              { wheels.map(wheel => (
+                  <Chip
+                    key={ influencer.id }
+                    { ...commonProps }
+                    avatar={ <Avatar alt={ influencer.name } src={ influencer.avatar } /> }
+                    color="secondary"
+                    label={ influencer.name }
+                    onClick={ () => props.handleChangeInfluencers(influencer.id) }
+                  />
+                )) }
+              </ListItem>
+              <ListItem sx={ { display: 'block' } }>
+                { wheels.map(wheel => (
                 // @ts-ignore
-                <Chip
-                  key={ wheel.id }
-                  { ...commonProps }
-                  color="primary"
-                  label={ wheel.name }
-                  onClick={ () => handleChangeWheels(wheel.id) }
-                />
-              )) }
-            </ListItem>
-            <ListItem sx={ { display: 'block' } }>
-              { categories.map(category => (
+                  <Chip
+                    key={ wheel.id }
+                    { ...commonProps }
+                    color="primary"
+                    label={ wheel.name }
+                    onClick={ () => props.handleChangeWheels(wheel.id) }
+                  />
+                )) }
+              </ListItem>
+              <ListItem sx={ { display: 'block' } }>
+                { categories.map(category => (
                 // @ts-ignore
-                <Chip
-                  key={ category.id }
-                  { ...commonProps }
-                  label={ category.label }
-                  onClick={ () => handleChangeCategories(category.id) }
-                />
-              )) }
-            </ListItem>
-          </List>
-        </CardContent>
+                  <Chip
+                    key={ category.id }
+                    { ...commonProps }
+                    label={ category.label }
+                    onClick={ () => props.handleChangeCategories(category.id) }
+                  />
+                )) }
+              </ListItem>
+            </List>
+          </CardContent>
+        ) }
       </Card>
     </div>
   );
