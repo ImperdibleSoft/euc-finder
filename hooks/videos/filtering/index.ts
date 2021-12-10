@@ -85,7 +85,7 @@ export const useVideoFilterFields = () => {
     {
       Field: MultiSelect,
       icon: wheelFeatureIcons.diameter,
-      label: t('wheels'),
+      label: t('eucs'),
       name: 'wheels',
       onChange: handleChangeWheels,
       options: wheelsOptions,

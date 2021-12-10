@@ -92,7 +92,6 @@ const MultiSelect: React.FC<Props> = ({
 
   return (
     <FormControl sx={ { my: 1, width: '100%' } }>
-
       <InputLabel id={ name }>
         { label }
       </InputLabel>
@@ -102,7 +101,15 @@ const MultiSelect: React.FC<Props> = ({
         defaultValue={ defaultValue }
         labelId={ name }
         MenuProps={ {
-          // PaperProps: { style: { width: FILTERS_SIDEBAR_WIDTH - 32 } },
+          MenuListProps: {
+            sx: isAllSelected
+              ? {
+                backgroundColor: 'rgba(0, 0, 0, 0.08)',
+                '& .MuiMenuItem-root:hover': { backgroundColor: 'rgba(43, 45, 66, 0.12)' },
+                '& .Mui-selected': { backgroundColor: 'transparent' }
+              }
+              : undefined
+          },
           anchorOrigin: {
             vertical: 'bottom',
             horizontal: 'center'
@@ -120,15 +127,7 @@ const MultiSelect: React.FC<Props> = ({
         value={ value }
         variant={ variant }
       >
-        <MenuItem
-          value={ allOptions.value }
-          sx={ {
-            root: {
-              backgroundColor: 'rgba(0, 0, 0, 0.08)',
-              '&:hover': { backgroundColor: 'rgba(0, 0, 0, 0.08)' }
-            } 
-          } }
-        >
+        <MenuItem value={ allOptions.value }>
           <ListItemIcon>
             <Checkbox
               sx={ { color: isIndeterminate ? '#f50057' : '' } }
@@ -147,7 +146,11 @@ const MultiSelect: React.FC<Props> = ({
           const isChecked = value.findIndex(v => v === option.value) > -1;
 
           return (
-            <MenuItem key={ option.label } value={ option.value ?? option.label }>
+            <MenuItem
+              key={ option.label }
+              value={ option.value ?? option.label }
+              sx={ isAllSelected ? { backgroundColor: 'transparent' } : undefined }
+            >
               <ListItemIcon>
                 <Checkbox checked={ isChecked } />
               </ListItemIcon>
