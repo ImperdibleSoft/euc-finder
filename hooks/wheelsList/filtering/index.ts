@@ -239,7 +239,7 @@ export const useFilterFields = () => {
     {
       Field: CheckboxGroup,
       icon: wheelFeatureIcons.category,
-      label: t('category-label'),
+      label: t('categories-label'),
       name: 'category',
       options: categoryOptions.map(option => ({
         ...option,

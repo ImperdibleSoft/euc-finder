@@ -120,7 +120,7 @@
   
   "id": "ID",
   "brandId": "Fabricante",
-  "category-label": "Categoría",
+  "categories-label": "Categorías",
   "starter-label": "Inicial",
   "standard-label": "Estándar",
   "high-end-label": "Potente",
@@ -165,6 +165,8 @@
   "white": "Blanco",
   "black": "Negro",
 
+  "allOptions-label": "Todas las {{option}}",
+  "allElements-label": "Todos los {{element}}",
   "chatting-label": "Conversando",
   "commuting-label": "Desplazamientos",
   "comparision-label": "Comparación",

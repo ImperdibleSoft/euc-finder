@@ -87,6 +87,7 @@ interface FilterDropdown extends CommonFilterProps {
 }
 
 interface FilterMultipleSelect extends CommonFilterProps {
+  allOptionsLabel: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Field: React.FC<any>;
   onChange: (value: string[]) => void;

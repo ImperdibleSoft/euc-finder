@@ -63,9 +63,10 @@ export const useVideoFilterFields = () => {
 
   const fields: FilterField[] = [
     {
+      allOptionsLabel: t('allOptions-label', { option: t('categories-label') }),
       Field: MultiSelect,
       icon: wheelFeatureIcons.category,
-      label: t('category-label'),
+      label: t('categories-label'),
       name: 'categories',
       onChange: handleChangeCategories,
       options: categoryOptions,
@@ -73,6 +74,7 @@ export const useVideoFilterFields = () => {
       space: true
     },
     {
+      allOptionsLabel: t('allElements-label', { element: t('influencers') }),
       Field: MultiSelect,
       icon: 'person',
       label: t('influencers'),
@@ -83,6 +85,7 @@ export const useVideoFilterFields = () => {
       space: true
     },
     {
+      allOptionsLabel: t('allElements-label', { element: t('eucs') }),
       Field: MultiSelect,
       icon: wheelFeatureIcons.diameter,
       label: t('eucs'),

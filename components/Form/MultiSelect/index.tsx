@@ -16,6 +16,7 @@ import {
 import { DropdownItem } from '../Dropdown';
 
 interface Props {
+  allOptionsLabel: string;
   defaultValue?: string[];
   fullWidth?: boolean;
   icon?: string;
@@ -30,6 +31,7 @@ interface Props {
 }
 
 const MultiSelect: React.FC<Props> = ({
+  allOptionsLabel,
   defaultValue = [],
   icon,
   label,
@@ -44,7 +46,7 @@ const MultiSelect: React.FC<Props> = ({
   const isIndeterminate = value.length > 0 && value.length < options.length;
 
   const allOptions: DropdownItem = {
-    label: 'All options',
+    label: allOptionsLabel,
     value: 'all'
   };
 
