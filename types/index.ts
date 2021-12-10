@@ -3,10 +3,12 @@ import { Store } from './stores';
 
 export * from './brands';
 export * from './filtering';
+export * from './influencers';
 export * from './localStorage';
 export * from './settings';
 export * from './sorting';
 export * from './stores';
+export * from './videos';
 export * from './wheel';
 export * from './wheelFeatures';
 
@@ -14,6 +16,12 @@ export interface ClientRoute {
   path: string;
   component: React.FC;
   exact?: boolean;
+}
+
+export interface BottomNavigationRoute {
+  label: string;
+  icon: string;
+  path: string;
 }
 
 export interface ServerRoute {

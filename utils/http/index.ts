@@ -32,6 +32,13 @@ export const eeveesHttp = createInstance({
   }
 });
 
+export const eRidesHttp = createInstance({
+  headers: {
+    Origin: 'https://e-rides.com/',
+    Referer: 'https://e-rides.com/'
+  }
+});
+
 export const eucoHttp = createInstance({
   headers: {
     Origin: 'https://www.euco.us/',

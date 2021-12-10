@@ -2,8 +2,7 @@ import { Box, Drawer, Icon, IconButton, SwipeableDrawer, Theme, useMediaQuery, u
 import { SxProps } from '@mui/system';
 import React, { PropsWithChildren } from 'react';
 import Footer from '../../Footer';
-
-const drawerWidth = 320;
+import { BOTTOM_NAVIGATION_HEIGHT, FILTERS_SIDEBAR_WIDTH, HEADER_HEIGHT, NAV_SIDEBAR_WIDTH } from '../constants';
 
 const sidebarStyles: SxProps<Theme> = {
   alignItems: 'flex-start',
@@ -13,8 +12,8 @@ const sidebarStyles: SxProps<Theme> = {
   maxWidth: 'calc(100vw - 48px)',
   overflow: 'hidden',
   overflowY: 'auto',
-  width: drawerWidth,
-  '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
+  width: FILTERS_SIDEBAR_WIDTH,
+  '& .MuiDrawer-paper': { boxSizing: 'border-box', width: FILTERS_SIDEBAR_WIDTH }
 };
 
 interface Props {
@@ -32,6 +31,7 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
   sidebar
 }) => {
   const theme = useTheme();
+  const isNavSidebar = useMediaQuery(theme.breakpoints.up('md'));
   const isPermanentSidebar = useMediaQuery(theme.breakpoints.up('sm'));
 
   const renderSwipableSidebar = (content: React.ReactNode) => (
@@ -69,8 +69,9 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
         sx:{ 
           ...sidebarStyles,
           display: { xs: 'none', sm: 'block' },
-          maxHeight: 'calc(100vh - 64px)',
-          top: 64
+          maxHeight: `calc(100vh - ${ HEADER_HEIGHT }px - ${ isNavSidebar ? 0 : BOTTOM_NAVIGATION_HEIGHT }px)`,
+          top: HEADER_HEIGHT,
+          left: isNavSidebar ? NAV_SIDEBAR_WIDTH : 0
         } 
       } }
       open
@@ -89,7 +90,7 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
         flex: 1,
         marginLeft: {
           xs: 0,
-          sm: 40
+          sm: FILTERS_SIDEBAR_WIDTH / 8
         }
       } }>
         { children }

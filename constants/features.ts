@@ -1,6 +1,9 @@
-import { Wheel } from '../types';
+import { BottomNavigationRoute, Wheel } from '../types';
+import { DEALERS, EUCS, SETTINGS, VIDEOS } from './clientRoutes';
 
 export const SHOW_PRICE = false;
+
+export const PAGINATION_SIZE = 12;
 
 // Wheels Table
 export const SPEC_COLUMNS: Array<keyof Wheel> = [
@@ -79,4 +82,27 @@ export const DETAIL_ADDITIONAL_SPECS: (keyof Wheel)[] = [
   'sound',
   'display',
   'color'
+];
+
+export const BOTTOM_SHEET: BottomNavigationRoute[] = [
+  {
+    label: 'eucs',
+    icon: 'radio_button_unchecked',
+    path: EUCS
+  },
+  {
+    label: 'videos',
+    icon: 'smart_display',
+    path: VIDEOS
+  },
+  {
+    label: 'dealers-title',
+    icon: 'storefront',
+    path: DEALERS
+  },
+  {
+    label: 'settings-title',
+    icon: 'settings',
+    path: SETTINGS
+  }
 ];

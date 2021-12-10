@@ -1,7 +1,8 @@
 import React, { useReducer } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { SPEC_COLUMNS, wheelFeatureFormatters } from '../../../constants';
-import { useArenaContext } from '../../../context';
+import { getBrands, getMeasureUnits } from '../../../store/selectors';
 import { Brands, Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
 import { showPrice } from '../../../utils';
 import wheelsTableSettingsReducer, { getInitialValue } from './reducer';
@@ -63,7 +64,8 @@ const getColumnValue = (key: keyof Wheel, record: Wheel, brands: Brands) => {
 
 export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
   const { t } = useTranslation();
-  const { brands, measureUnits } = useArenaContext();
+  const brands = useSelector(getBrands);
+  const measureUnits = useSelector(getMeasureUnits);
 
   const headings = SPEC_COLUMNS
     .filter(key => shouldShowColumn(columns, key))

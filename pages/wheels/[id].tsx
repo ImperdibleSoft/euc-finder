@@ -3,20 +3,29 @@ import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import EmptyCase from '../../components/EmptyCase';
-import EucAdditionalPurchaseLinks from '../../components/EucAdditionalPurchaseLinks';
-import EucDetailHeader from '../../components/EucDetailHeader';
-import EucDetailPurchaseLinks from '../../components/EucDetailPurchaseLinks';
-import EucPictures from '../../components/EucPictures';
-import EucSpecsAdditional from '../../components/EucSpecsAdditional';
-import EucSpecsHighlighted from '../../components/EucSpecsHighlighted';
-import EucSpecsMain from '../../components/EucSpecsMain';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
+import AdditionalPurchaseLinks from '../../components/WheelDetails/AdditionalPurchaseLinks';
+import Header from '../../components/WheelDetails/Header';
+import SponsoredPurchaseLinks from '../../components/WheelDetails/SponsoredPurchaseLinks';
+import Pictures from '../../components/WheelDetails/Pictures';
+import AdditionalSpecs from '../../components/WheelDetails/AdditionalSpecs';
+import HighlightedSpecs from '../../components/WheelDetails/HighlightedSpecs';
+import MainSpecs from '../../components/WheelDetails/MainSpecs';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import { brands, wheels } from '../../context/data';
-import { useEucDetail, useEucDetailHandlers, useEucDetailInformationGroups, useEucPurchaseLinks } from '../../hooks';
+import {
+  useEucDetail,
+  useEucDetailHandlers,
+  useEucDetailInformationGroups,
+  useEucPurchaseLinks,
+  useEucVideos
+} from '../../hooks';
+import { wheels } from '../../store/models/data';
+import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
+import VideosCarousel from '../../components/WheelDetails/VideosCarousel';
 
 const EucDetail: React.FC = () => {
   const router = useRouter();
@@ -24,10 +33,12 @@ const EucDetail: React.FC = () => {
   const { t } = useTranslation();
   const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
 
+  const brands = useSelector(getBrands);
   const { name, pictures, wheel } = useEucDetail(id);
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
   const { handleClosePicture, handleOpenPicture, pictureDetail } = useEucDetailHandlers();
   const { sponsoredLinks, regularLinks } = useEucPurchaseLinks(id);
+  const { handleWatchMoreVideos, totalCount, videos } = useEucVideos(id);
 
   const pageTitle = `${ name } - ${ APP_NAME }`;
   const pageDescription = t('defaultDescription-msg');
@@ -56,17 +67,17 @@ const EucDetail: React.FC = () => {
 
         { !!wheel && (
           <>
-            <EucDetailHeader
+            <Header
               brandId={ wheel.brandId }
               heroImage={ pictures[0] }
               wheelName={ name }
             >
               { pageDescription }
-            </EucDetailHeader>
+            </Header>
 
-            <EucSpecsHighlighted specs={ highlightedSpecs } wheel={ wheel } />
+            <HighlightedSpecs specs={ highlightedSpecs } wheel={ wheel } />
 
-            <EucDetailPurchaseLinks
+            <SponsoredPurchaseLinks
               expensive={ expensive }
               items={ sponsoredLinks }
               large
@@ -74,9 +85,9 @@ const EucDetail: React.FC = () => {
             />
 
             <Grid container spacing={ 2 }>
-              <EucSpecsMain specs={ mainSpecs } wheel={ wheel } />
+              <MainSpecs specs={ mainSpecs } wheel={ wheel } />
 
-              <EucPictures
+              <Pictures
                 onClick={ handleOpenPicture }
                 onClose={ handleClosePicture }
                 pictureDetail={ pictureDetail }
@@ -84,9 +95,18 @@ const EucDetail: React.FC = () => {
                 wheelName={ name }
               />
 
-              <EucSpecsAdditional specs={ additionalSpecs } wheel={ wheel } />
+              { totalCount > 0 && (
+                <VideosCarousel
+                  handleWatchMoreVideos={ handleWatchMoreVideos }
+                  totalCount={ totalCount }
+                  videos={ videos }
+                />
+              ) }
+              
 
-              <EucAdditionalPurchaseLinks
+              <AdditionalSpecs specs={ additionalSpecs } wheel={ wheel } />
+
+              <AdditionalPurchaseLinks
                 expensive={ expensive }
                 items={ regularLinks }
                 wheel={ id }

@@ -1,8 +1,13 @@
 import { Icon, SpeedDial, SpeedDialAction } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { BOTTOM_NAVIGATION_HEIGHT } from '../../constants';
 
-const Notifications: React.FC = () => {
+interface Props {
+  isTablet: boolean;
+}
+
+const Notifications: React.FC<Props> = ({ isTablet }) => {
   const { t } = useTranslation();
 
   const navigateToGroup = () => {
@@ -16,7 +21,7 @@ const Notifications: React.FC = () => {
       icon={ <Icon >notifications</Icon> }
       sx={ {
         position: 'fixed',
-        bottom: 16,
+        bottom: 16 + (isTablet ? 0 : BOTTOM_NAVIGATION_HEIGHT),
         right: 16
       } }
     >

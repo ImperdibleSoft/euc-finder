@@ -1,4 +1,4 @@
-import { ArenaContextState } from '../context/types';
+import { SettingsState } from '../store/types';
 import { Wheel, WheelFilters } from '../types';
 import { getMaximumValue, getMinimumValue } from './collections';
 import {
@@ -11,7 +11,7 @@ import {
 import { getEstimatedMaxRange } from './range';
 import { getWheelCategory } from './wheels';
 
-export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: ArenaContextState['measureUnits']) => {
+export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: SettingsState['measureUnits']) => {
   const diameter = Number(getConvertedDiameter(wheel.diameter, units.diameter));
   const maxGroundClearance = Number(getConvertedGroundClearance(
     getMaximumValue(wheel.groundClearance),

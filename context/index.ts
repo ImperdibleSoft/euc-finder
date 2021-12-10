@@ -1,32 +1,9 @@
-import React, { useContext, useReducer } from 'react';
-import { getInitialValue } from './models';
-import arenaContextReducer from './reducer';
-import { ArenaContextType } from './types';
+import React, { useContext } from 'react';
+import { ModalsContextType } from './types';
 
 
-const ArenaContext = React.createContext<ArenaContextType>({
-  state: getInitialValue(),
-  dispatch: () => { return; },
-  disclaimer: {}
-});
+const ModalsContext = React.createContext<ModalsContextType>({ initialDisclaimer: {} });
 
-export const ArenaContextProvider = ArenaContext.Provider;
+export const ModalsContextProvider = ModalsContext.Provider;
 
-export const useArenaContext = () => {
-  const { state, dispatch, disclaimer } = useContext(ArenaContext);
-
-  return {
-    ...state,
-    dispatch,
-    disclaimer 
-  };
-};
-
-export const useContextReducer = () => {
-  const [state, dispatch] = useReducer(arenaContextReducer, getInitialValue()); 
-
-  return {
-    state,
-    dispatch
-  };
-};
+export const useModalsContext = () => useContext(ModalsContext);

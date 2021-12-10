@@ -30,6 +30,9 @@
   "copyError-msg": "There was an error. Please, copy the code manually.",
   "appLogo-label": "{{appName}}'s logo",
   "website-label": "Website",
+  "eucs": "EUCs",
+  "influencers": "Content creators",
+  "videos": "Videos",
 
   "defaultDescription-msg": "We will add a small description about this EUC soon.",
   "noWheel-msg": "We don't have this EUC in our database.",
@@ -41,6 +44,7 @@
   "additionalSpecs-title": "Additional specs",
   "highlightedSpecs-title": "Highlighted specs",
   "mainSpecs-title": "Main specs",
+  "watchVideos-label": "Watch all videos",
 
   "stayUpdated-msg": "Stay updated!",
   "joinToTelegram-msg": "Telegram Group",
@@ -116,7 +120,7 @@
   
   "id": "ID",
   "brandId": "Manufacturer",
-  "category-label": "Category",
+  "categories-label": "Categories",
   "starter-label": "Starter",
   "standard-label": "Standard",
   "high-end-label": "High-end",
@@ -159,5 +163,14 @@
   "custom": "Custom",
   "standard": "Standard",
   "white": "White",
-  "black": "Black"
+  "black": "Black",
+
+  "allOptions-label": "All {{option}}",
+  "allElements-label": "All {{element}}",
+  "chatting-label": "Chatting",
+  "commuting-label": "Commuting",
+  "comparision-label": "Comparision",
+  "offroad-label": "Off-road",
+  "reveal-label": "Presentation",
+  "review-label": "Review"
 }

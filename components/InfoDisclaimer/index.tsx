@@ -1,8 +1,9 @@
 import { Box, Button, Dialog, DialogTitle, Typography } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters } from '../../constants';
-import { useArenaContext } from '../../context';
+import { getMeasureUnits } from '../../store/selectors';
 
 interface Props {
   handleClose: () => void
@@ -11,8 +12,8 @@ interface Props {
 
 /* eslint-disable max-len */
 const InfoDisclaimer: React.FC<Props> = ({ handleClose, open }) => {
-  const { measureUnits: { maxSpeed } } = useArenaContext();
   const { t } = useTranslation();
+  const { maxSpeed } = useSelector(getMeasureUnits);
   const speed = wheelFeatureFormatters.maxSpeed(25, t, maxSpeed);
 
   return (

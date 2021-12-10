@@ -1,8 +1,9 @@
 import { Box, Button, Card, CardMedia, Icon, Typography } from '@mui/material';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useArenaContext } from '../../context';
+import { useSelector } from 'react-redux';
 import { useConfirmationModal, useWheelPrice, useWheelPriceStyles } from '../../hooks';
+import { getRegion } from '../../store/selectors';
 import { Store, WheelId } from '../../types';
 import { currency, isDarkTheme, logEvent } from '../../utils';
 
@@ -18,7 +19,7 @@ interface Props {
 // eslint-disable-next-line max-lines-per-function
 const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url, store, wheel }) => {
   const [codeCopied, setCodeCopied] = useState('');
-  const { region } = useArenaContext();
+  const region = useSelector(getRegion);
   const { t } = useTranslation();
   const dark = isDarkTheme();
   const { loadingState, price: rawPrice } = useWheelPrice(store.id, url, expensive);

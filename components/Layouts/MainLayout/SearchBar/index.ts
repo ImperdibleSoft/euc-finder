@@ -7,7 +7,7 @@ export const Search = styled('div')(({ theme }) => ({
   backgroundColor: alpha(theme.palette.common.white , 0.15),
   '&:hover': { backgroundColor: alpha(theme.palette.common.white, 0.25) },
   height: 40,
-  width: 'calc(50% - 8px)',
+  width: 'calc(50% - 4px)',
   [theme.breakpoints.up('sm')]: {
     maxWidth: 'none',
     minWidth: 200,
