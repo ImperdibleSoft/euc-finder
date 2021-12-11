@@ -1,9 +1,9 @@
 import { BottomNavigationAction, BottomNavigation as MuiBottomNavigation, Icon, Paper, Theme } from '@mui/material';
 import { SxProps } from '@mui/system';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BOTTOM_SHEET } from '../../../../constants';
+import { getDesktopNavigation, getMobileNavigation } from '../../../../constants';
 import { BOTTOM_NAVIGATION_HEIGHT, HEADER_HEIGHT, NAV_SIDEBAR_WIDTH } from '../../constants';
 
 interface Props {
@@ -14,6 +14,12 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
   const { t } = useTranslation();
   const { pathname, push } = useRouter();
   const [firstPath] = pathname.replace(/^\//, '').split('/');
+  const navigation = useMemo(() => {
+    const getter = isTablet ? getDesktopNavigation : getMobileNavigation;
+    return getter();
+  }, [isTablet]);
+
+  const minWidth = 100 / navigation.length;
 
   
   const tabletStyles: SxProps<Theme> = {
@@ -63,7 +69,7 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
           showLabels
           value={ `/${ firstPath }` }
         >
-          { BOTTOM_SHEET.map(({ icon, label, path }) => {
+          { navigation.map(({ icon, label, path }) => {
             const isSelected = () => `/${ firstPath }` === path;
 
             return (
@@ -74,6 +80,7 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
                 value={ path }
                 sx={ {
                   my: isTablet ? 2 : 0,
+                  minWidth: isTablet ? undefined : `${ minWidth }%`,
                   '&.Mui-selected': { color: ({ palette }) =>palette.secondary.main } 
                 } }
               />

@@ -1,5 +1,4 @@
-import { BottomNavigationRoute, Wheel } from '../types';
-import { DEALERS, EUCS, SETTINGS, VIDEOS } from './clientRoutes';
+import { Wheel } from '../types';
 
 export const SHOW_PRICE = false;
 
@@ -82,27 +81,4 @@ export const DETAIL_ADDITIONAL_SPECS: (keyof Wheel)[] = [
   'sound',
   'display',
   'color'
-];
-
-export const BOTTOM_SHEET: BottomNavigationRoute[] = [
-  {
-    label: 'eucs',
-    icon: 'radio_button_unchecked',
-    path: EUCS
-  },
-  {
-    label: 'videos',
-    icon: 'smart_display',
-    path: VIDEOS
-  },
-  {
-    label: 'dealers-title',
-    icon: 'storefront',
-    path: DEALERS
-  },
-  {
-    label: 'settings-title',
-    icon: 'settings',
-    path: SETTINGS
-  }
 ];
