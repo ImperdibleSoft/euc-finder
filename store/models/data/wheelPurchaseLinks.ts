@@ -313,7 +313,6 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://myewheel.com/kingsong-s18/',
     'https://www.ewheels.com/product/new-king-song-s18-1110wh-battery-2200w-motor-full-body-suspension/',
     'https://eucsale.com/euc-transport/kingsong/s18.html',
-    'https://eucservice.com/produkt/tesla-t3-2000w-1500wh-84v-copy-copy-copy-copy/',
     'https://www.smartwheel.ca/KingSong-KS-S18-2200W-Electric-Unicycle-EUC-with-Suspension-1110WH-White_p_2007.html',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/king-song-s18-black',
     'https://e-rides.com/product/kingsong-s18/'

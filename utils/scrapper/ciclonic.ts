@@ -1,5 +1,6 @@
 import { JSDOM } from 'jsdom';
 
+const currencyRegExp = /([0-9]{3,}(,[0-9]{2,2})?) euros/;
 const priceRegExp = /([0-9]{3,}(,[0-9]{2,2})?)/;
 
 export const parseCiclonicPrice = (html: string, showExpensive: boolean): number | undefined => {
@@ -10,10 +11,9 @@ export const parseCiclonicPrice = (html: string, showExpensive: boolean): number
     /** Sold out. Out of stock */
 
     /** Final price when released */
-    const [
-      finalPriceElement
     // eslint-disable-next-line max-len
-    ] = Array.from(document.querySelectorAll('.et_pb_row_0_tb_body .et_pb_wc_description .et_pb_module_inner p strong')) ?? [];
+    const descriptionElements = Array.from(document.querySelectorAll('.summary .woocommerce-product-details__short-description > *')) ?? [];
+    const finalPriceElement = descriptionElements.find(elem => currencyRegExp.test(elem.innerHTML.replace(',', '')));
     if (finalPriceElement) {
       const [, rawFinalPrice] = finalPriceElement?.innerHTML?.replace(',', '').match(priceRegExp) ?? [];
       if (rawFinalPrice) {
@@ -22,7 +22,7 @@ export const parseCiclonicPrice = (html: string, showExpensive: boolean): number
     }
 
     /** Sale price */
-    const salePriceElem = document.querySelector('.et_pb_wc_price .price > del+ins > .amount');
+    const salePriceElem = document.querySelector('.summary .price > del+ins > .amount');
     if (salePriceElem) {
       const salePriceString = salePriceElem?.innerHTML?.replace('.', '');
       const [, rawSalePrice] = salePriceString?.match(priceRegExp) ?? [];
@@ -35,7 +35,7 @@ export const parseCiclonicPrice = (html: string, showExpensive: boolean): number
     const [
       cheapPriceElement,
       expensivePriceElement
-    ] = Array.from(document.querySelectorAll('.et_pb_wc_price .price .amount')) ?? [];
+    ] = Array.from(document.querySelectorAll('.summary .price .amount')) ?? [];
 
     /** Expensive version price */
     if (showExpensive && expensivePriceElement) {

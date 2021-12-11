@@ -16,18 +16,12 @@ const convertCurrencyToNumber = (currency: string) => {
     ?? currency?.match(poundsRexExp)
     ?? currency?.match(euroRegExp)
     ?? [];
-    
-  // eslint-disable-next-line no-console
-  console.log('currency', currency);
 
   const optPrice = optionRawPrice
     .replace('£', '')
     .replace('€', '')
     .replace('Inc', '')
     .trim();
-    
-  // eslint-disable-next-line no-console
-  console.log('optPrice', optPrice);
 
   if (optPrice) {
     const num = Number(optPrice);
@@ -69,9 +63,6 @@ export const parseERidesPrice = (html: string, showExpensive: boolean): number |
           .map(opt => convertCurrencyToNumber(opt))
           .filter(opt => !!opt)
           .sort((a = 0, b = 0) => b - a);
-
-        // eslint-disable-next-line no-console
-        console.log('finalPriceNumberOptions', finalPriceNumberOptions);
 
         return finalPriceNumberOptions[0];
       }
