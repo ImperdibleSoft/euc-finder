@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { 
   Box,
   Card,
@@ -5,6 +6,7 @@ import {
   CardMedia,
   Divider,
   Grid,
+  Icon,
   Link,
   List,
   ListItem,
@@ -16,9 +18,9 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getStores } from '../../store/selectors';
-import { isDarkTheme } from '../../utils';
-import { isDealerAvailable } from '../../utils/dealers';
+import { getPurchaseLinksByStore, getStores } from '../../../store/selectors';
+import { isDarkTheme } from '../../../utils';
+import { isDealerAvailable } from '../../../utils/dealers';
 
 const listItemStyles = { px: 0 };
 const listItemIconStyles = { cursor: 'default', minWidth: 24, mr: 2 };
@@ -58,6 +60,7 @@ const DealerCard: React.FC<Props> = ({
   const dark = isDarkTheme();
   const stores = useSelector(getStores);
   const store = stores.find(s => s.name.toLowerCase() === storeName.toLowerCase());
+  const links = useSelector(getPurchaseLinksByStore(store?.id));
   
   if (
     (!negotiations || negotiations === '➖') &&
@@ -127,6 +130,15 @@ const DealerCard: React.FC<Props> = ({
               </ListItem>
             </List>
           ) }
+
+          <List dense>
+            <ListItem sx={ listItemStyles }>
+              <ListItemIcon sx={ listItemIconStyles }>
+                <Icon color="primary">radio_button_unchecked</Icon>
+              </ListItemIcon>
+              <ListItemText primary={ `${ links.length } ${ t('eucs') }` } />
+            </ListItem>
+          </List>
 
           <List dense>
             <ListItem sx={ listItemStyles }>

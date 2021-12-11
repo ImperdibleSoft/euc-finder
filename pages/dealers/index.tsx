@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import DealerCard from '../../components/DealerCard';
+import DealerCard from '../../components/Dealers/DealerCard';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { getRegion } from '../../store/selectors';

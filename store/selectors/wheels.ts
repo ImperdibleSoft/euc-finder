@@ -1,4 +1,4 @@
-import { WheelId } from '../../types';
+import { StoreId, WheelId } from '../../types';
 import { RootState } from '../types';
 
 export const getWheels = ({ wheels }: RootState) =>
@@ -25,6 +25,33 @@ export const getFirstPicture = (id: WheelId) =>
 export const getPurchaseLinks = (id: WheelId) =>
   ({ wheels }: RootState) =>
     wheels.purchaseLinks[id] ?? [];
+
+export const getPurchaseLinksByStore = (storeId?: StoreId) =>
+  ({ wheels }: RootState) => {
+    if (!storeId) {
+      return [];
+    }
+    
+    const store = wheels.stores.find(s => s.id === storeId);
+    if (!store) {
+      return [];
+    }
+
+    return Object
+      .values(wheels.purchaseLinks)
+      .reduce(
+        (acc, wheelLinks) => {
+          const storeLinks = wheelLinks.filter(l => l.includes(store.website));
+
+          if (storeLinks.length) {
+            acc.push(...storeLinks);
+          }
+
+          return acc;
+        },
+        [] as string[]
+      );
+  };
 
 export const getStores = ({ wheels }: RootState) =>
   wheels.stores;
