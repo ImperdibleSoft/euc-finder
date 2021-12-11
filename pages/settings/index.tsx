@@ -3,14 +3,14 @@ import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import Dropdown from '../components/Form/Dropdown';
-import SimpleLayout from '../components/Layouts/SimpleLayout';
-import { APP_NAME, KEYWORDS } from '../constants';
-import { useSettings } from '../hooks';
-import { defaultMeasureUnits, resetMeasureUnits } from '../store/actions';
-import { LOCAL_STORAGE_KEY } from '../types';
-import { removeItem, setItem } from '../utils';
-import { getStaticProps } from '../utils/serverTranslatedResources';
+import Dropdown from '../../components/Form/Dropdown';
+import SimpleLayout from '../../components/Layouts/SimpleLayout';
+import { APP_NAME, KEYWORDS } from '../../constants';
+import { useSettings } from '../../hooks';
+import { defaultMeasureUnits, resetMeasureUnits } from '../../store/actions';
+import { LOCAL_STORAGE_KEY } from '../../types';
+import { removeItem, setItem } from '../../utils';
+import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const Settings: React.FC = () => {
   const { t } = useTranslation();

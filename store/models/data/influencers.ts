@@ -62,11 +62,11 @@ export const influencers: Influencer[] = [
     name: 'A film by OX',
     avatar: 'https://yt3.ggpht.com/ytc/AKedOLSwlGKsiwJvgtmuz298QsPt5ojSWPe42qQxhylUiQ=s88-c-k-c0x00ffffff-no-rj',
     sponsored: true
-  },
-  {
-    channel: 'https://www.youtube.com/channel/UC2RaB95OJ2j3-o-JJubz0qw',
-    id: InfluencerId.wrongWay,
-    name: 'Wrong Way',
-    avatar: 'https://yt3.ggpht.com/ytc/AKedOLQP2W4s93R1YJOiDKaVFVmxQA9oSYdL1SVWMthAHlA=s88-c-k-c0x00ffffff-no-rj'
+  // },
+  // {
+  //   channel: 'https://www.youtube.com/channel/UC2RaB95OJ2j3-o-JJubz0qw',
+  //   id: InfluencerId.wrongWay,
+  //   name: 'Wrong Way',
+  //   avatar: 'https://yt3.ggpht.com/ytc/AKedOLQP2W4s93R1YJOiDKaVFVmxQA9oSYdL1SVWMthAHlA=s88-c-k-c0x00ffffff-no-rj'
   }
 ];

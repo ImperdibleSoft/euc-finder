@@ -24,11 +24,11 @@ export const getDropdownOptions = ({ brands, influencers, wheels }: Params, t: T
 
   const languageOptions: DropdownItem<Lang>[] = [
     {
-      label: t('english-label'),
+      label: t('en-label'),
       value: 'en'
     },
     {
-      label: t('spanish-label'),
+      label: t('es-label'),
       value: 'es'
     }
   ];

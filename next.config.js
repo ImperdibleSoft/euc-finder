@@ -20,7 +20,8 @@ const config = {
       'm.media-amazon.com',
       'i1.wp.com',
       'i2.wp.com',
-      'www.ewheels.com'
+      'www.ewheels.com',
+      'yt3.ggpht.com'
     ]
   },
   i18n,

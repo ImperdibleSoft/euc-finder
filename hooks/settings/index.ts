@@ -211,11 +211,11 @@ export const useSettings = () => {
     onChange: handleChangeLanguage,
     options: [
       {
-        label: t('english-label'),
+        label: t('en-label'),
         value: 'en'
       },
       {
-        label: t('spanish-label'),
+        label: t('es-label'),
         value: 'es'
       }
     ],
