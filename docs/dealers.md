@@ -14,8 +14,8 @@ List of stores/delaers that could potentially be present in the app at some poin
 - e-Rides
   - Store information ✔️
   - Purchase links ✔️
-  - Fetch prices ➖
-  - Negotiations ➖
+  - Fetch prices ✔️
+  - Negotiations 🕑
   - Discount code ➖
 
 - Ciclonic
