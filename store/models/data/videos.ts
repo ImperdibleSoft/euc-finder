@@ -13,7 +13,8 @@ export const videos: Video[] = [
   {
     url: 'https://www.youtube.com/watch?v=84czA_ugr28',
     tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.offroad, WheelId.exnHT],
-    date: new Date('01/Nov/2021')
+    date: new Date('01/Nov/2021'),
+    language: 'en'
   },
   ...eeveesVideos,
   ...electricDreamsVideos,
