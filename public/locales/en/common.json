@@ -24,8 +24,8 @@
   "asia-label": "Asia",
   "interface-title": "User interface",
   "language-label": "Language",
-  "english-label": "English",
-  "spanish-label": "Español",
+  "en-label": "English",
+  "es-label": "Español",
   "copied-msg": "Copied to clipboard.",
   "copyError-msg": "There was an error. Please, copy the code manually.",
   "appLogo-label": "{{appName}}'s logo",
@@ -173,5 +173,7 @@
   "comparision-label": "Comparision",
   "offroad-label": "Off-road",
   "reveal-label": "Presentation",
-  "review-label": "Review"
+  "review-label": "Review",
+
+  "youtubeChannel-label": "Youtube channel"
 }
