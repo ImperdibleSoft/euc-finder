@@ -9,7 +9,8 @@ const electricDreamsVideos: Video[] = [
       WheelId.ks18l,
       WheelId.msx
     ],
-    date: new Date('28/Aug/2018')
+    date: new Date('28/Aug/2018'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=zik7TFIz4ng',
@@ -19,7 +20,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.commuting,
       WheelId.mten
     ],
-    date: new Date('05/Sep/2019')
+    date: new Date('05/Sep/2019'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=P9xwUee8ULY',
@@ -29,7 +31,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.chatting,
       WheelId.v11
     ],
-    date: new Date('04/Apr/2020')
+    date: new Date('04/Apr/2020'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=rEIy8sMa4Hg',
@@ -42,7 +45,8 @@ const electricDreamsVideos: Video[] = [
       WheelId.v11,
       WheelId.ksS18
     ],
-    date: new Date('15/Apr/2020')
+    date: new Date('15/Apr/2020'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=jdaR76AhLRc',
@@ -52,7 +56,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.commuting,
       WheelId.sherman
     ],
-    date: new Date('21/Jun/2020')
+    date: new Date('21/Jun/2020'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=PDqZCfi3LMw',
@@ -62,7 +67,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.commuting,
       WheelId.sherman
     ],
-    date: new Date('08/Jul/2020')
+    date: new Date('08/Jul/2020'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=jNq2J9AdQlg',
@@ -74,7 +80,8 @@ const electricDreamsVideos: Video[] = [
       WheelId.ksS18,
       WheelId.v11
     ],
-    date: new Date('19/Aug/2020')
+    date: new Date('19/Aug/2020'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=Hre7iRQyGlU',
@@ -85,12 +92,14 @@ const electricDreamsVideos: Video[] = [
       WheelId.exnHT,
       WheelId.exnHS
     ],
-    date: new Date('02/Jun/2021')
+    date: new Date('02/Jun/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=lUzNWTBLYcw',
     tags: [InfluencerId.electricDreams, VideoCategory.reveal, WheelId.v12],
-    date: new Date('05/Jun/2021')
+    date: new Date('05/Jun/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=eBRG-9quvZE',
@@ -100,7 +109,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.commuting,
       WheelId.v12
     ],
-    date: new Date('15/Jun/2021')
+    date: new Date('15/Jun/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=wW9WClFfTvE',
@@ -110,7 +120,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.commuting,
       WheelId.v12
     ],
-    date: new Date('16/Jun/2021')
+    date: new Date('16/Jun/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=_q_pb-cTDtA',
@@ -120,7 +131,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.commuting,
       WheelId.v12
     ],
-    date: new Date('18/Jun/2021')
+    date: new Date('18/Jun/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=CdQY9p6dQV0',
@@ -130,7 +142,8 @@ const electricDreamsVideos: Video[] = [
       WheelId.v12,
       WheelId.ks16x
     ],
-    date: new Date('21/Jun/2021')
+    date: new Date('21/Jun/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=dswS1CpXC4Q',
@@ -140,12 +153,14 @@ const electricDreamsVideos: Video[] = [
       WheelId.commanderHS,
       WheelId.commanderHT
     ],
-    date: new Date('21/Sep/2021')
+    date: new Date('21/Sep/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=yOHpV6-nQDI',
     tags: [InfluencerId.electricDreams, VideoCategory.reveal, WheelId.ksS20],
-    date: new Date('02/Oct/2021')
+    date: new Date('02/Oct/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=FtDWsT3XncA',
@@ -155,12 +170,14 @@ const electricDreamsVideos: Video[] = [
       WheelId.commanderHS,
       WheelId.commanderHT
     ],
-    date: new Date('22/Oct/2021')
+    date: new Date('22/Oct/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=ASjM8yjsviU',
     tags: [InfluencerId.electricDreams, VideoCategory.commuting, WheelId.ksS20],
-    date: new Date('29/Oct/2021')
+    date: new Date('29/Oct/2021'),
+    language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=339nsbpbNxk',
@@ -171,7 +188,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.offroad,
       WheelId.hero
     ],
-    date: new Date('25/Nov/2021')
+    date: new Date('25/Nov/2021'),
+    language: 'en'
   }
 ];
 

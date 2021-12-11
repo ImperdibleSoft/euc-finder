@@ -6,6 +6,7 @@ export const getVideosInitialState = (): VideosState => ({
   filters: {
     categories: [],
     influencers: [],
+    languages: [],
     wheels: []
   },
   pagination: { offset: 0 },

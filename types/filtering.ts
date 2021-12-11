@@ -1,16 +1,19 @@
 import React from 'react';
-import { VideoCategory, InfluencerId, Order, WheelId  } from '.';
+import { Order } from '.';
 import { CheckboxProps } from '../components/Form/Checkbox';
 import { DropdownItem } from '../components/Form/Dropdown';
 import { Props as TextProps } from '../components/Form/Text';
 import { BrandId } from './brands';
-import { WheelFeatures } from './wheel';
+import { InfluencerId } from './influencers';
 import { WheelSortingKeys } from './sorting';
+import { VideoCategory, Lang } from './videos';
+import { WheelFeatures, WheelId } from './wheel';
 import { AntiSpin, Category, Color, Display, Kickstand, SoundSystem, TrolleyHandle, Suspension } from './wheelFeatures';
 
 export interface VideoFilters {
   categories: VideoCategory[];
   influencers: InfluencerId[];
+  languages: Lang[]
   wheels: WheelId[];
 }
 
@@ -87,7 +90,7 @@ interface FilterDropdown extends CommonFilterProps {
 }
 
 interface FilterMultipleSelect extends CommonFilterProps {
-  allOptionsLabel: string;
+  allOptionsLabel?: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   Field: React.FC<any>;
   onChange: (value: string[]) => void;

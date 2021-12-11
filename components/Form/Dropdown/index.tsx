@@ -10,10 +10,10 @@ import {
 import React from 'react';
 import { formControlStyles } from '../constants';
 
-export interface DropdownItem {
+export interface DropdownItem<T = string> {
   icon?: string
   label: string
-  value?: string
+  value?: T
 }
 
 export interface Props {

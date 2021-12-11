@@ -23,6 +23,10 @@ const useFilters = () => {
     handleFilterBy('influencers', value);
   };
 
+  const handleChangeLanguage = (value: string[]) => {
+    handleFilterBy('languages', value);
+  };
+
   const handleChangeWheels = (value: string[]) => {
     handleFilterBy('wheels', value);
   };
@@ -35,6 +39,7 @@ const useFilters = () => {
     filters,
     handleChangeCategories,
     handleChangeInfluencers,
+    handleChangeLanguage,
     handleChangeWheels,
     handleResetFilters
   };
@@ -49,12 +54,14 @@ export const useVideoFilterFields = () => {
   const {
     categoryOptions,
     influencersOptions,
+    languageOptions,
     wheelsOptions
   } = getDropdownOptions({ brands, influencers, wheels }, t);
 
   const {
     handleChangeCategories,
     handleChangeInfluencers,
+    handleChangeLanguage,
     handleChangeWheels,
     handleResetFilters,
     filters
@@ -62,6 +69,18 @@ export const useVideoFilterFields = () => {
 
 
   const fields: FilterField[] = [
+    {
+      allOptionsLabel: t('allElements-label', { element: `${ t('language-label') }s` }),
+      Field: MultiSelect,
+      icon: 'language',
+      label: t('language-label'),
+      name: 'languages',
+      onChange: handleChangeLanguage,
+      options: languageOptions,
+      value: filters.languages,
+      space: true
+    },
+
     {
       allOptionsLabel: t('allOptions-label', { option: t('categories-label') }),
       Field: MultiSelect,
@@ -73,6 +92,7 @@ export const useVideoFilterFields = () => {
       value: filters.categories,
       space: true
     },
+
     {
       allOptionsLabel: t('allElements-label', { element: t('influencers') }),
       Field: MultiSelect,
@@ -84,6 +104,7 @@ export const useVideoFilterFields = () => {
       value: filters.influencers,
       space: true
     },
+
     {
       allOptionsLabel: t('allElements-label', { element: t('eucs') }),
       Field: MultiSelect,

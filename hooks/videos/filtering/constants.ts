@@ -1,6 +1,6 @@
 import { TFunction } from 'react-i18next';
 import { DropdownItem } from '../../../components/Form/Dropdown';
-import { Brands, Influencer, Wheel } from '../../../types';
+import { Brands, Influencer, Lang, Wheel } from '../../../types';
 import { formatWheelName, getAllCategories } from '../../../utils';
 
 interface Params {
@@ -22,6 +22,17 @@ export const getDropdownOptions = ({ brands, influencers, wheels }: Params, t: T
       value: influencer.id
     }));
 
+  const languageOptions: DropdownItem<Lang>[] = [
+    {
+      label: t('english-label'),
+      value: 'en'
+    },
+    {
+      label: t('spanish-label'),
+      value: 'es'
+    }
+  ];
+
   const wheelsOptions: DropdownItem[] = wheels
     .map(wheel => ({
       label: formatWheelName(wheel, brands),
@@ -31,6 +42,7 @@ export const getDropdownOptions = ({ brands, influencers, wheels }: Params, t: T
   return {
     categoryOptions,
     influencersOptions,
+    languageOptions,
     wheelsOptions
   };
 };

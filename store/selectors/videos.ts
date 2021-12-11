@@ -45,13 +45,18 @@ export const getFilteredVideos = ({ videos: { collection, filters } }: RootState
         || filters.influencers.some(influencerId => influencerTags.some(id => id === influencerId))
       );
 
+      const matchesAnyLanguage = (
+        !filters.languages.length
+        || filters.languages.some(language => video.language === language)
+      );
+
       const matchesAllWheels = (
         !wheelTags.length
         || !filters.wheels.length
         || filters.wheels.every(wheelId => wheelTags.some(id => id === wheelId))
       );
 
-      if (matchesAllCategories && matchesAnyInfluencers && matchesAllWheels) {
+      if (matchesAllCategories && matchesAnyInfluencers && matchesAnyLanguage && matchesAllWheels) {
         return true;
       }
 

@@ -10,8 +10,11 @@ export enum VideoCategory {
   review = 'review',
 }
 
+export type Lang = 'en' | 'es'
+
 export interface Video {
   url: string;
   tags: (InfluencerId | VideoCategory | WheelId)[];
   date: Date;
+  language: Lang;
 }

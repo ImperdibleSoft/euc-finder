@@ -16,7 +16,7 @@ import {
 import { DropdownItem } from '../Dropdown';
 
 interface Props {
-  allOptionsLabel: string;
+  allOptionsLabel?: string;
   defaultValue?: string[];
   fullWidth?: boolean;
   icon?: string;
@@ -30,6 +30,7 @@ interface Props {
   value?: string[];
 }
 
+// eslint-disable-next-line max-lines-per-function
 const MultiSelect: React.FC<Props> = ({
   allOptionsLabel,
   defaultValue = [],
@@ -45,10 +46,12 @@ const MultiSelect: React.FC<Props> = ({
   const isAllSelected = options.length > 0 && value.length === options.length;
   const isIndeterminate = value.length > 0 && value.length < options.length;
 
-  const allOptions: DropdownItem = {
-    label: allOptionsLabel,
-    value: 'all'
-  };
+  const allOptions: DropdownItem | undefined = allOptionsLabel
+    ? {
+      label: allOptionsLabel,
+      value: 'all'
+    }
+    : undefined;
 
   const renderIcon = () => {
     if (icon) {
@@ -65,7 +68,7 @@ const MultiSelect: React.FC<Props> = ({
   const handleChange = (event: SelectChangeEvent<string[]>) => {
     const val = event.target.value;
       
-    if (allOptions.value && val.includes(allOptions.value)) {
+    if (allOptions?.value && val.includes(allOptions.value)) {
       onChange(isAllSelected ? [] : options.map(o => o.value).filter(o => !!o) as string[]);
       return;
     }
@@ -129,20 +132,22 @@ const MultiSelect: React.FC<Props> = ({
         value={ value }
         variant={ variant }
       >
-        <MenuItem value={ allOptions.value }>
-          <ListItemIcon>
-            <Checkbox
-              sx={ { color: isIndeterminate ? '#f50057' : '' } }
-              checked={ isAllSelected }
-              indeterminate={ isIndeterminate }
-            />
-          </ListItemIcon>
+        { allOptions && (
+          <MenuItem value={ allOptions.value }>
+            <ListItemIcon>
+              <Checkbox
+                sx={ { color: isIndeterminate ? '#f50057' : '' } }
+                checked={ isAllSelected }
+                indeterminate={ isIndeterminate }
+              />
+            </ListItemIcon>
         
-          <ListItemText
-            sx={ { primary: { fontWeight: 500 } } }
-            primary={ allOptions.label }
-          />
-        </MenuItem>
+            <ListItemText
+              sx={ { primary: { fontWeight: 500 } } }
+              primary={ allOptions.label }
+            />
+          </MenuItem>
+        ) }
 
         { options.map((option) => {
           const isChecked = value.findIndex(v => v === option.value) > -1;
