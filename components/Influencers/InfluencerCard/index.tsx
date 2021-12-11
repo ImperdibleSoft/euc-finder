@@ -19,7 +19,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { VIDEOS } from '../../../constants/clientRoutes';
 import { filterVideos, resetVideoFilters } from '../../../store/actions';
 import { getVideosByInfluencer } from '../../../store/selectors';
-import { Influencer } from '../../../types';
+import { Influencer, VideoCategory } from '../../../types';
+import { getCategoryFromTags, getWheelFromTags } from '../../../utils';
 import SmallList from '../../Lists/SmallList';
 
 const size = 108;
@@ -27,25 +28,47 @@ const margin = size / 8 / 2;
 
 const listItemStyles = { px: 0 };
 
+interface InfluencerData {
+  languages: string[],
+  wheels: string[],
+}
+
 interface Props {
   influencer: Influencer;
 }
 
+// eslint-disable-next-line max-lines-per-function
 const InfluencerCard: React.FC<Props> = ({ influencer }) => {
   const { t } = useTranslation();
   const router = useRouter();
   const dispatch = useDispatch();
   const videos = useSelector(getVideosByInfluencer(influencer.id));
-  const languages = useMemo(() =>
-    videos.reduce((acc, curr) => {
-      const langName = t(`${ curr.language }-label`);
+  const { languages, wheels } = useMemo(() =>
+    videos.reduce(
+      (acc, video) => {
+        const langName = t(`${ video.language }-label`);
+        const categories = getCategoryFromTags(video.tags);
+        const usedWheels = getWheelFromTags(video.tags);
 
-      if (!acc.includes(langName)) {
-        acc.push(langName);
-      }
+        if (!acc.languages.includes(langName)) {
+          acc.languages.push(langName);
+        }
 
-      return acc;
-    }, [] as string[]),
+        usedWheels.forEach(wheel => {
+          const wheelName = wheel;
+
+          if (!categories.includes(VideoCategory.chatting) && !acc.wheels.includes(wheelName)) {
+            acc.wheels.push(wheelName);
+          }
+        });
+
+        return acc;
+      },
+      {
+        languages: [],
+        wheels: []
+      } as InfluencerData
+    ),
   [t, videos]
   );
 
@@ -124,14 +147,19 @@ const InfluencerCard: React.FC<Props> = ({ influencer }) => {
           <SmallList
             items={ [
               {
+                icon: 'language',
+                primary: `${ t('language-label') }s`,
+                secondary: languages.join(', ')
+              },
+              {
                 icon: 'smart_display',
                 primary: t('videos'),
                 secondary: `${ videos.length } ${ t('videos') }`
               },
               {
-                icon: 'language',
-                primary: `${ t('language-label') }s`,
-                secondary: languages.join(', ')
+                icon: 'radio_button_unchecked',
+                primary: t('eucs'),
+                secondary: `${ wheels.length } ${ t('eucs') }`
               }
             ] }
           />
