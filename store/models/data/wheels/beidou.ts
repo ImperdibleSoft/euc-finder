@@ -9,7 +9,7 @@ import {
 } from '../../../../types';
 
 const recioWheel: Wheel = {
-  id: WheelId.recio,
+  id: WheelId.recioWheel,
   brandId: BrandId.beidou,
   name: 'RecioWheel',
   price: 0,

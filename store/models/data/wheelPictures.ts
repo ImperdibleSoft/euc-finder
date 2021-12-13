@@ -133,7 +133,7 @@ export const wheelPictures: WheelPictures = {
   ],
 
   // Beidou
-  [WheelId.recio]: [
+  [WheelId.recioWheel]: [
     'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264861084_10161529088270744_1104443254328989048_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=b9115d&_nc_ohc=5n6I6A4CqCQAX_RtuRs&_nc_ht=scontent-cdg2-1.xx&oh=f82636906253aaf95ca5218306d5a4ac&oe=61BD042F',
     'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/265356897_10161529088220744_5371269264439273754_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=b9115d&_nc_ohc=39g4IOgbqSsAX8cY3Gg&_nc_oc=AQm8VOTclSncKJ0m7yvKeIB-ebxAjoHYoLLTzPQorZidZib62uSQz4q2u8ayRi5qmgA&_nc_ht=scontent-cdt1-1.xx&oh=00_AT9toun2cCEId1471KOkRWlKCgubFhXGvb10eaCmZUH9MQ&oe=61BC6894',
     'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264669490_10161529088325744_5415945829956146042_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=b9115d&_nc_ohc=ibOCQyayf9oAX8Sl2Pt&_nc_oc=AQkaLei5wjSe0m5C8EnMhSTLsksAgpvSZdKzNKBMM7YLRhSE3LM6KWMpNLJ2icYtJf0&_nc_ht=scontent-cdg2-1.xx&oh=52520722e31938d054c62cc13d31a0a0&oe=61BC4012',

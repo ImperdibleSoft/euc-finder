@@ -19,6 +19,9 @@ export enum WheelId {
   monster = 'monster',
   monsterPro = 'monsterPro',
 
+  // BeiDou
+  recioWheel = 'recioWheel',
+
   // Extreme bull
   commanderHT = 'commanderHT',
   commanderHS = 'commanderHS',
@@ -44,9 +47,6 @@ export enum WheelId {
   ks18xl = 'ks18xl',
   ksS18 = 'ksS18',
   ksS20 = 'ksS20',
-
-  // Recio
-  recio = 'recio',
 
   // Veteran
   sherman = 'sherman',

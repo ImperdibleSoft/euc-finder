@@ -394,7 +394,7 @@ const wrongWayVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=l0Obvor1w4I',
-    tags: [InfluencerId.wrongWay, VideoCategory.chatting, WheelId.recio],
+    tags: [InfluencerId.wrongWay, VideoCategory.chatting, WheelId.recioWheel],
     date: new Date('08/May/2021'),
     language: 'en'
   },
@@ -483,7 +483,7 @@ const wrongWayVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=xtxUWiFXJnQ',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.offroad, WheelId.recio],
+    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.offroad, WheelId.recioWheel],
     date: new Date('25/Jul/2021'),
     language: 'en'
   },

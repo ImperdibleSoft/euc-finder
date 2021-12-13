@@ -143,6 +143,9 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.smartwheel.ca/gotway-monster-pro-24-3500w-motor-electric-unicycle-with-3600wh-100v-battery/'
   ],
 
+  // BeiDou
+  [WheelId.recioWheel]: [],
+
   // Extreme bull
   [WheelId.commanderHT]: [
     'https://ciclonic.es/tienda/monociclos/monociclos-gotway/begode-extreme-bull-commander/',
