@@ -17,7 +17,7 @@ const recioWheel16: Wheel = {
   ratedPower: 2500,
   peakPower: 0,
   maxGradibility: 0,
-  maxSpeed: 25, // 60
+  maxSpeed: 0, // 60
   battery: {
     capacity: 0,
     parallels: 4,
