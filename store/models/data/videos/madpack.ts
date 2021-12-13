@@ -185,7 +185,7 @@ const madpackVideos: Video[] = [
   {
     url: 'https://www.youtube.com/watch?v=E21-lxEhQto',
     tags: [InfluencerId.madpack, VideoCategory.review, VideoCategory.commuting, WheelId.v11],
-    date: new Date('16/Ago/2021'),
+    date: new Date('16/Aug/2021'),
     language: 'en'
   },
   {
