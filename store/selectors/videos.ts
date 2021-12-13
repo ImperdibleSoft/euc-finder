@@ -88,6 +88,7 @@ export const getPaginatedVideos = (filtered = true) => (rootState: RootState) =>
 export const getVideosByInfluencer = (influencerId: InfluencerId) =>
   ({ videos }: RootState) =>
     videos.collection.filter(v =>
+      !!v.url &&
       v.tags.some(t => t === influencerId)
     )
       .sort(sortBy('date', 'desc'));
@@ -95,6 +96,7 @@ export const getVideosByInfluencer = (influencerId: InfluencerId) =>
 export const getVideosByWheel = (wheelId: WheelId) =>
   ({ videos }: RootState) =>
     videos.collection.filter(v =>
+      !!v.url &&
       v.tags.some(t => t === wheelId)
     )
       .sort(sortBy('date', 'desc'));

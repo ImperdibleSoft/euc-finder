@@ -123,7 +123,7 @@ const hsiangVideos: Video[] = [
     language: 'en'
   },
   {
-    url: 'https://www.youtube.com/watch?v=R7i1CrO1I1I&t=202s',
+    url: 'https://www.youtube.com/watch?v=R7i1CrO1I1I',
     tags: [InfluencerId.hsiang, VideoCategory.review, VideoCategory.commuting, WheelId.v11],
     date: new Date('14/Aug/2020'),
     language: 'en'

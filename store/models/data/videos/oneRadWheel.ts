@@ -26,7 +26,7 @@ const oneradwheelVideos: Video[] = [
     language: 'en'
   },
   {
-    url: 'https://www.youtube.com/watch?v=yo8-FtU2Tvw&t=501s',
+    url: 'https://www.youtube.com/watch?v=yo8-FtU2Tvw',
     tags: [InfluencerId.oneradwheel, VideoCategory.chatting, WheelId.ksS18, WheelId.v11],
     date: new Date('09/Apr/2020'),
     language: 'en'
@@ -62,7 +62,7 @@ const oneradwheelVideos: Video[] = [
     language: 'en'
   },
   {
-    url: 'https://www.youtube.com/watch?v=w41uAv1FYL8&t=76s',
+    url: 'https://www.youtube.com/watch?v=w41uAv1FYL8',
     tags: [InfluencerId.oneradwheel, VideoCategory.reveal, WheelId.v12],
     date: new Date('11/Jun/2021'),
     language: 'en'

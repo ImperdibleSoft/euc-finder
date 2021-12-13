@@ -39,7 +39,7 @@ export const influencers: Influencer[] = [
   //   avatar: 'https://yt3.ggpht.com/704x6BA9Mn1iHIMyg6vB5OUBldL2tg-abdMBOQsXVuSg_1KugHIWM3v4XLaI-mV-L4OPMeND=s88-c-k-c0x00ffffff-no-rj'
   // },
   {
-    channel: 'https://www.youtube.com/channel/UCfsmUHp1lI4s_8qpMJwF6ng',
+    channel: 'https://www.youtube.com/c/KujiRolls',
     id: InfluencerId.kuji,
     name: 'Kuji Roll',
     avatar: 'https://yt3.ggpht.com/ytc/AKedOLQ0cSBFo5yGeC1lU3-qlG8UeNkCvdBzPt6DR6tbLQ=s88-c-k-c0x00ffffff-no-rj'
@@ -62,11 +62,11 @@ export const influencers: Influencer[] = [
     name: 'A film by OX',
     avatar: 'https://yt3.ggpht.com/ytc/AKedOLSwlGKsiwJvgtmuz298QsPt5ojSWPe42qQxhylUiQ=s88-c-k-c0x00ffffff-no-rj',
     sponsored: true
-  // },
-  // {
-  //   channel: 'https://www.youtube.com/channel/UC2RaB95OJ2j3-o-JJubz0qw',
-  //   id: InfluencerId.wrongWay,
-  //   name: 'Wrong Way',
-  //   avatar: 'https://yt3.ggpht.com/ytc/AKedOLQP2W4s93R1YJOiDKaVFVmxQA9oSYdL1SVWMthAHlA=s88-c-k-c0x00ffffff-no-rj'
+  },
+  {
+    channel: 'https://www.youtube.com/c/WrongWayYouTube',
+    id: InfluencerId.wrongWay,
+    name: 'Wrong Way',
+    avatar: 'https://yt3.ggpht.com/ytc/AKedOLQP2W4s93R1YJOiDKaVFVmxQA9oSYdL1SVWMthAHlA=s88-c-k-c0x00ffffff-no-rj'
   }
 ];
