@@ -21,7 +21,10 @@ const config = {
       'i1.wp.com',
       'i2.wp.com',
       'www.ewheels.com',
-      'yt3.ggpht.com'
+      'yt3.ggpht.com',
+      'scontent-cdt1-1.xx.fbcdn.net',
+      'scontent-cdg2-1.xx.fbcdn.net',
+      'scontent-mad1-1.xx.fbcdn.net'
     ]
   },
   i18n,

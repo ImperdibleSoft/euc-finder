@@ -9,25 +9,30 @@ interface Props {
   logo: string;
 }
 
-const BrandLogo: React.FC<Props> = ({ alt, logo }) => (
-  <Box
-    style={ { backgroundColor: '#dcdcdc88' } }
-    sx={ {
-      borderTopLeftRadius: 4,
-      height: size,
-      position: 'absolute',
-      right: 0,
-      top: 240 - size,
-      width: size
-    } }
-  >
-    <Image
-      alt={ alt }
-      height={ `${ size }px` }
-      src={ logo }
-      width={ `${ size }px` }
-    />
-  </Box>
-);
+const BrandLogo: React.FC<Props> = ({ alt, logo }) => {
+  if (!logo) {
+    return null;
+  }
+
+  return (
+    <Box
+      style={ { backgroundColor: '#dcdcdc88' } }
+      sx={ {
+        borderTopLeftRadius: 4,
+        height: size,
+        position: 'absolute',
+        right: 0,
+        top: 240 - size,
+        width: size
+      } }
+    >
+      <Image
+        alt={ alt }
+        height={ `${ size }px` }
+        src={ logo }
+        width={ `${ size }px` }
+      />
+    </Box>
+  );};
 
 export default BrandLogo;

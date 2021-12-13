@@ -1,4 +1,5 @@
 export enum BrandId {
+  beidou = 'beidou',
   begode = 'begode',
   extremeBull = 'extremeBull',
   inmotion = 'inmotion',

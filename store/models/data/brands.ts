@@ -1,5 +1,12 @@
 import { Brand, BrandId, Brands } from '../../../types';
 
+const beidou: Brand = {
+  id: BrandId.beidou,
+  name: 'BeiDou',
+  logo: '',
+  website: ''
+};
+
 const begode: Brand = {
   id: BrandId.begode,
   name: 'Begode',
@@ -50,6 +57,7 @@ const veteran: Brand = {
 };
 
 export const brands: Brands = {
+  [BrandId.beidou]: beidou,
   [BrandId.begode]: begode,
   [BrandId.extremeBull]: extremeBull,
   [BrandId.inmotion]: inmotion,

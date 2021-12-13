@@ -22,6 +22,16 @@ export enum WheelId {
   // Extreme bull
   commanderHT = 'commanderHT',
   commanderHS = 'commanderHS',
+
+  // Inmotion
+  v5 = 'v5',
+  v5f = 'v5f',
+  v8 = 'v8',
+  v8f = 'v8f',
+  v10 = 'v10',
+  v10f = 'v10f',
+  v11 = 'v11',
+  v12 = 'v12',
   
   // Kingsong
   ks14m = 'ks14m',
@@ -35,15 +45,8 @@ export enum WheelId {
   ksS18 = 'ksS18',
   ksS20 = 'ksS20',
 
-  // Inmotion
-  v5 = 'v5',
-  v5f = 'v5f',
-  v8 = 'v8',
-  v8f = 'v8f',
-  v10 = 'v10',
-  v10f = 'v10f',
-  v11 = 'v11',
-  v12 = 'v12',
+  // Recio
+  recio = 'recio',
 
   // Veteran
   sherman = 'sherman',

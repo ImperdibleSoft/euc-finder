@@ -67,12 +67,14 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
 
   return (
     <Card sx={ { position: 'relative' } }>
-      <CardMedia
-        component="img"
-        height="240"
-        image={ firstPicture }
-        alt={ t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
-      />
+      { firstPicture && (
+        <CardMedia
+          component="img"
+          height="240"
+          image={ firstPicture }
+          alt={ t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
+        />
+      ) }
 
       <BrandLogo
         alt={ t('appLogo-label', { appName: brands[wheel.brandId].name }) }

@@ -43,28 +43,34 @@ const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, 
             width: widgetSize
           } }
         >
-          { pictures.map((picture) => (
-            <ImageListItem
-              key={ picture }
-              cols={ 1 }
-              onClick={ () => onClick(picture) }
-              rows={ 1 }
-              sx={ {
-                alignSelf: 'center',
-                alignItems: 'center',
-                cursor: 'pointer',
-                justifyContent: 'center',
-                overflow: 'hidden'
-              } }
-            >
-              <Image
-                alt={ t('wheelPicture-msg', { wheelName }) }
-                loading="lazy"
-                src={ picture }
-                layout="fill"
-              />
-            </ImageListItem>
-          )) }
+          { pictures.map((picture) => {
+            if (!picture) {
+              return null;
+            }
+            
+            return (
+              <ImageListItem
+                key={ picture }
+                cols={ 1 }
+                onClick={ () => onClick(picture) }
+                rows={ 1 }
+                sx={ {
+                  alignSelf: 'center',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  justifyContent: 'center',
+                  overflow: 'hidden'
+                } }
+              >
+                <Image
+                  alt={ t('wheelPicture-msg', { wheelName }) }
+                  loading="lazy"
+                  src={ picture }
+                  layout="fill"
+                />
+              </ImageListItem>
+            );
+          }) }
         </ImageList>
       </Card>
 
