@@ -229,6 +229,12 @@ const madpackVideos: Video[] = [
     tags: [InfluencerId.madpack, VideoCategory.review, VideoCategory.commuting, WheelId.monsterPro],
     date: new Date('06/Dec/2021'),
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=RSHDBEtgkOE',
+    tags: [InfluencerId.madpack, VideoCategory.review, VideoCategory.commuting, VideoCategory.offroad, WheelId.exnHT],
+    date: new Date('13/Dec/2021'),
+    language: 'en'
   }
 ];
 
