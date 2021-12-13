@@ -8,16 +8,16 @@ import {
   WheelId
 } from '../../../../types';
 
-const recioWheel: Wheel = {
-  id: WheelId.recioWheel,
+const recioWheel16: Wheel = {
+  id: WheelId.recioWheel16,
   brandId: BrandId.beidou,
-  name: 'RecioWheel',
+  name: 'RecioWheel 16',
   price: 0,
 
   ratedPower: 2500,
   peakPower: 0,
   maxGradibility: 0,
-  maxSpeed: 0,
+  maxSpeed: 25, // 60
   battery: {
     capacity: 0,
     parallels: 4,
@@ -27,8 +27,8 @@ const recioWheel: Wheel = {
   range: 110,
   voltage: 84,
 
-  diameter: 18,
-  width: 0,
+  diameter: 16,
+  width: 3,
   groundClearance: 0,
   weight: 30,
   trolleyHandle: TrolleyHandle.telescopic,
@@ -41,8 +41,18 @@ const recioWheel: Wheel = {
   display: Display.lcd,
   suspension: undefined,
   color: Color.black
+}
+
+const recioWheel18: Wheel = {
+  ...recioWheel16,
+  id: WheelId.recioWheel18,
+  name: 'RecioWheel 18',
+
+  diameter: 18,
+  width: 2.75
 };
 
 export const beidouWheels = [
-  recioWheel
+  recioWheel16,
+  recioWheel18
 ];

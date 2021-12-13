@@ -133,7 +133,23 @@ export const wheelPictures: WheelPictures = {
   ],
 
   // Beidou
-  [WheelId.recioWheel]: [
+  [WheelId.recioWheel16]: [
+    'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264861084_10161529088270744_1104443254328989048_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=b9115d&_nc_ohc=5n6I6A4CqCQAX_RtuRs&_nc_ht=scontent-cdg2-1.xx&oh=f82636906253aaf95ca5218306d5a4ac&oe=61BD042F',
+    'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/265356897_10161529088220744_5371269264439273754_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=b9115d&_nc_ohc=39g4IOgbqSsAX8cY3Gg&_nc_oc=AQm8VOTclSncKJ0m7yvKeIB-ebxAjoHYoLLTzPQorZidZib62uSQz4q2u8ayRi5qmgA&_nc_ht=scontent-cdt1-1.xx&oh=00_AT9toun2cCEId1471KOkRWlKCgubFhXGvb10eaCmZUH9MQ&oe=61BC6894',
+    'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264669490_10161529088325744_5415945829956146042_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=b9115d&_nc_ohc=ibOCQyayf9oAX8Sl2Pt&_nc_oc=AQkaLei5wjSe0m5C8EnMhSTLsksAgpvSZdKzNKBMM7YLRhSE3LM6KWMpNLJ2icYtJf0&_nc_ht=scontent-cdg2-1.xx&oh=52520722e31938d054c62cc13d31a0a0&oe=61BC4012',
+    'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/264853709_10161529088450744_5435769877087199814_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=b9115d&_nc_ohc=Jo9RQqJAP0sAX-CAWCA&_nc_ht=scontent-cdt1-1.xx&oh=d00b84ad8e510034646d8131bc4921d2&oe=61BC55BA',
+    'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/265944889_10161529088770744_5526242079612710467_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=b9115d&_nc_ohc=oIaAV7bkwaoAX_5MXtB&_nc_ht=scontent-cdt1-1.xx&oh=00_AT8NFE0WOQkfMjZD1uO0-VCHwi1BX1DjK7kKzCVlinXGbw&oe=61BB4105',
+    'https://scontent-mad1-1.xx.fbcdn.net/v/t39.30808-6/265944889_10161529088770744_5526242079612710467_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=b9115d&_nc_ohc=oIaAV7bkwaoAX_5MXtB&_nc_ht=scontent-mad1-1.xx&oh=00_AT_9og08Fs8IyXPyPQICyStgK2TohwIJcTAlFEUCUct-yQ&oe=61BB4105',
+    'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/263476983_10161529089000744_129890138871416528_n.jpg?_nc_cat=106&ccb=1-5&_nc_sid=b9115d&_nc_aid=0&_nc_ohc=0rm25vNm0G8AX-JJnOa&_nc_ht=scontent-cdt1-1.xx&oh=6b3cb817ecf2269955f79f9ef9f0967f&oe=61BBB962',
+    'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/265079595_10161529089030744_5090886888348306172_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=b9115d&_nc_ohc=SdRPk0079aAAX9rD-Xl&_nc_ht=scontent-cdt1-1.xx&oh=c65e1403ad62c273843f1f2c9c65e3cc&oe=61BCC09B',
+    'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264115324_10161529089090744_5053590457405579246_n.jpg?_nc_cat=111&ccb=1-5&_nc_sid=b9115d&_nc_ohc=_Y2-CslPUJIAX940TU3&_nc_ht=scontent-cdg2-1.xx&oh=00_AT9wpnbtd7qkrLCAC1RzoQ5q8Nyn6oR3hOf9bTeAuK2MOA&oe=61BCD463',
+    'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/265575528_10161529089190744_6879661323656965057_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=b9115d&_nc_ohc=3URVh06uVlUAX9_JJFp&_nc_ht=scontent-cdg2-1.xx&oh=0d0a369ed921e221aaf588cef517db41&oe=61BC4999',
+    'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/265428280_10161529089685744_2013413450981635337_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=b9115d&_nc_ohc=eNI64are86EAX9nM7zW&_nc_ht=scontent-cdt1-1.xx&oh=d9839942fd577923bef6a621a655c6b7&oe=61BCF8E8',
+    'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/265717601_10161529089755744_5444682712880002458_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=b9115d&_nc_ohc=Kqfqr559GRwAX9d1tmz&_nc_ht=scontent-cdg2-1.xx&oh=61646de1f85ede2cac45ec870adbdabd&oe=61BC507E',
+    'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/264976404_10161529089835744_3330747933851361488_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=b9115d&_nc_ohc=Tc8vjecv2cIAX8cIiCB&_nc_ht=scontent-cdt1-1.xx&oh=93a255eb57d26d7a8c0980475bb9be6b&oe=61BCD1B3',
+    'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264669490_10161529088325744_5415945829956146042_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=b9115d&_nc_ohc=ibOCQyayf9oAX8Sl2Pt&_nc_oc=AQkaLei5wjSe0m5C8EnMhSTLsksAgpvSZdKzNKBMM7YLRhSE3LM6KWMpNLJ2icYtJf0&_nc_ht=scontent-cdg2-1.xx&oh=52520722e31938d054c62cc13d31a0a0&oe=61BC4012'
+  ],
+  [WheelId.recioWheel18]: [
     'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264861084_10161529088270744_1104443254328989048_n.jpg?_nc_cat=102&ccb=1-5&_nc_sid=b9115d&_nc_ohc=5n6I6A4CqCQAX_RtuRs&_nc_ht=scontent-cdg2-1.xx&oh=f82636906253aaf95ca5218306d5a4ac&oe=61BD042F',
     'https://scontent-cdt1-1.xx.fbcdn.net/v/t39.30808-6/265356897_10161529088220744_5371269264439273754_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=b9115d&_nc_ohc=39g4IOgbqSsAX8cY3Gg&_nc_oc=AQm8VOTclSncKJ0m7yvKeIB-ebxAjoHYoLLTzPQorZidZib62uSQz4q2u8ayRi5qmgA&_nc_ht=scontent-cdt1-1.xx&oh=00_AT9toun2cCEId1471KOkRWlKCgubFhXGvb10eaCmZUH9MQ&oe=61BC6894',
     'https://scontent-cdg2-1.xx.fbcdn.net/v/t39.30808-6/264669490_10161529088325744_5415945829956146042_n.jpg?_nc_cat=100&ccb=1-5&_nc_sid=b9115d&_nc_ohc=ibOCQyayf9oAX8Sl2Pt&_nc_oc=AQkaLei5wjSe0m5C8EnMhSTLsksAgpvSZdKzNKBMM7YLRhSE3LM6KWMpNLJ2icYtJf0&_nc_ht=scontent-cdg2-1.xx&oh=52520722e31938d054c62cc13d31a0a0&oe=61BC4012',

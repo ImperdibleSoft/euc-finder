@@ -144,7 +144,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
   ],
 
   // BeiDou
-  [WheelId.recioWheel]: [],
+  [WheelId.recioWheel16]: [],
+  [WheelId.recioWheel18]: [],
 
   // Extreme bull
   [WheelId.commanderHT]: [

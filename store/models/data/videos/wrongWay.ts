@@ -25,8 +25,7 @@ const wrongWayVideos: Video[] = [
     tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, WheelId.v5f],
     date: new Date('20/Nov/2019'),
     language: 'en'
-  },
-  {
+  },  {
     url: 'https://www.youtube.com/watch?v=RVBEMXTY2aI',
     tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, WheelId.tesla],
     date: new Date('10/Feb/2020'),
@@ -394,7 +393,7 @@ const wrongWayVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=l0Obvor1w4I',
-    tags: [InfluencerId.wrongWay, VideoCategory.chatting, WheelId.recioWheel],
+    tags: [InfluencerId.wrongWay, VideoCategory.chatting, WheelId.recioWheel16, WheelId.recioWheel18],
     date: new Date('08/May/2021'),
     language: 'en'
   },
@@ -483,7 +482,7 @@ const wrongWayVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=xtxUWiFXJnQ',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.offroad, WheelId.recioWheel],
+    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.offroad, WheelId.recioWheel16, WheelId.recioWheel18],
     date: new Date('25/Jul/2021'),
     language: 'en'
   },
