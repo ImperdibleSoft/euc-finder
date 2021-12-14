@@ -4,9 +4,9 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useContainerMargins } from '../../hooks';
-import { getWheelApps, getWheelById } from '../../store/selectors';
+import { getBrands, getWheelApps, getWheelById } from '../../store/selectors';
 import { AvailablePlatforms, WheelId } from '../../types';
-import { isAndroid, isIOS } from '../../utils';
+import { formatWheelName, isAndroid, isIOS } from '../../utils';
 import Dropdown from '../Form/Dropdown';
 import AppCard from './AppCard';
 
@@ -26,7 +26,10 @@ const Apps: React.FC = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const id = router.query.id as WheelId;
+  const brands = useSelector(getBrands);
   const wheel = useSelector(getWheelById(id));
+  const wheelName = wheel ? formatWheelName(wheel, brands) : '';
+  const translationToken = wheel ? 'officialWheelApps' : 'officialApps';
   const compatibleApps = useSelector(getWheelApps(wheel?.brandId));
   const addSpacing = useContainerMargins();
   const [platform, setPlatform] = useState<AvailablePlatforms>('');
@@ -54,31 +57,13 @@ const Apps: React.FC = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return (
-    <Container disableGutters={ !addSpacing }>      
-      <Box
-        sx={ {
-          alignItems: 'flex-end',
-          display: 'flex',
-          flexDirection: { xs: 'column-reverse', sm: 'row' },
-          justifyContent: 'center',
-          mt: 4,
-          mb: 2
-        } }
-      >
-        <Typography
-          sx={ {
-            alignSelf: { xs: 'flex-start', sm: 'center' },
-            display: 'inline-flex',
-            flex: 1,
-            mt: { xs: 1, sm: 0 }
-          } }
-          variant="h6"
-          component="div"
-        >
-          { t('officialApps-title') }
-        </Typography>
+  if (!official.length && !unofficial.length) {
+    return null;
+  }
 
+  return (
+    <Container disableGutters={ !addSpacing }>
+      <Box sx={ { justifyContent: 'flex-end', display: 'flex', mt: 6 } }>
         <Dropdown
           label={ t('filterByPlatform-label') }
           name="platform"
@@ -102,21 +87,35 @@ const Apps: React.FC = () => {
         />
       </Box>
 
-      <Grid container spacing={ 2 }>
-        { official.map(app => (
-          <AppCard key={ app.id } app={ app } platform={ platform } official />
-        )) }
-      </Grid>
+      { !!official.length && (
+        <>
+          <Typography variant="h6" component="div" sx={ { mb: 2, mt: 2 } }>
+            { t(`${ translationToken }-title`, { wheelName }) }
+          </Typography>
 
-      <Typography sx={ { mt: 4, mb: 2 } } variant="h6" component="div">
-        { t('unofficialApps-title') }
-      </Typography>
+          <Grid container spacing={ 2 }>
+            { official.map(app => (
+              <AppCard key={ app.id } app={ app } platform={ platform } official />
+            )) }
+          </Grid>
+        </>
+      ) }
 
-      <Grid container spacing={ 2 } sx={ { mt: 0 } }>
-        { unofficial.map(app => (
-          <AppCard key={ app.id } platform={ platform } app={ app } />
-        )) }
-      </Grid>
+      {
+        !!unofficial.length && (
+          <>
+            <Typography variant="h6" component="div" sx={ { mb: 2, mt: 2 } }>
+              { t('unofficialApps-title') }
+            </Typography>
+    
+            <Grid container spacing={ 2 }>
+              { unofficial.map(app => (
+                <AppCard key={ app.id } platform={ platform } app={ app } />
+              )) }
+            </Grid>
+          </>
+        )
+      }
     </Container>
   );
 };

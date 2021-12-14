@@ -178,7 +178,8 @@
   "youtubeChannel-label": "Youtube channel",
 
   "officialApps-title": "Official Apps",
-  "unofficialApps-title": "Unofficial Apps",
+  "officialWheelApps-title": "{{wheelName}}'s Official Apps",
+  "unofficialApps-title": "Generic Apps",
   "filterByPlatform-label": "Filter by platform",
   "allPlatforms-label": "All platforms",
   "android": "Android",

@@ -178,7 +178,8 @@
   "youtubeChannel-label": "Canal de Youtube",
 
   "officialApps-title": "Apps Oficiales",
-  "unofficialApps-title": "Apps no oficiales",
+  "officialWheelApps-title": "Apps Oficiales para {{wheelName}}",
+  "unofficialApps-title": "Apps Genéricas",
   "filterByPlatform-label": "Filtrar por plataforma",
   "allPlatforms-label": "Todas las plataformas",
   "android": "Android",
