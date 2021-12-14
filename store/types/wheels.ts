@@ -1,4 +1,5 @@
 import {
+  App,
   Brands,
   Store,
   Wheel,
@@ -10,6 +11,10 @@ import {
 
 export interface WheelsState {
   // Main data
+  apps: {
+    official: App[];
+    unofficial: App[];
+  };
   brands: Brands;
   collection: Wheel[];
   pictures: WheelPictures;
