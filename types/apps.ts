@@ -1,11 +1,17 @@
 import { BrandId } from './brands';
 
 interface IOSPlatform {
-  iOS: string;
+  iOS: {
+    logo: string;
+    url: string;
+  };
 }
 
 interface AndroidPlatform {
-  android: string;
+  android: {
+    logo: string;
+    url: string;
+  };
 }
 
 type UniversalPlatform = IOSPlatform & AndroidPlatform;
