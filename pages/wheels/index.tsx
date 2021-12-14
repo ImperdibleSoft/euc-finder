@@ -4,12 +4,13 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Apps from '../../components/Apps';
 import { HEADER_HEIGHT } from '../../components/Layouts/constants';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
 import Columns from '../../components/WheelsList/Columns';
 import Filters from '../../components/WheelsList/Filters';
-import NoWheels from '../../components/WheelsList/NoWheels';
 import GridView from '../../components/WheelsList/GridView';
+import NoWheels from '../../components/WheelsList/NoWheels';
 import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../../hooks';
@@ -133,6 +134,8 @@ const Wheels: React.FC = () => {
             handleResetFilters={ handleResetFilters }
           />
         ) }
+
+        <Apps />
       </LeftSidebarLayout>
     </>
   );

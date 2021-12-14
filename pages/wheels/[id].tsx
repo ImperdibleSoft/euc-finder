@@ -26,6 +26,7 @@ import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 import VideosCarousel from '../../components/WheelDetails/VideosCarousel';
+import Apps from '../../components/Apps';
 
 const EucDetail: React.FC = () => {
   const router = useRouter();
@@ -102,8 +103,11 @@ const EucDetail: React.FC = () => {
                   videos={ videos }
                 />
               ) }
-              
 
+              <Grid item xs={ 12 }>
+                <Apps />
+              </Grid>
+              
               <AdditionalSpecs specs={ additionalSpecs } wheel={ wheel } />
 
               <AdditionalPurchaseLinks

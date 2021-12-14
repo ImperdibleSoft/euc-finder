@@ -31,7 +31,7 @@ const Apps: React.FC = () => {
   const wheelName = wheel ? formatWheelName(wheel, brands) : '';
   const translationToken = wheel ? 'officialWheelApps' : 'officialApps';
   const compatibleApps = useSelector(getWheelApps(wheel?.brandId));
-  const addSpacing = useContainerMargins();
+  const { container, firstItem } = useContainerMargins();
   const [platform, setPlatform] = useState<AvailablePlatforms>('');
 
   const { official, unofficial } = useMemo(() =>
@@ -62,8 +62,8 @@ const Apps: React.FC = () => {
   }
 
   return (
-    <Container disableGutters={ !addSpacing }>
-      <Box sx={ { justifyContent: 'flex-end', display: 'flex', mt: 6 } }>
+    <Container disableGutters={ !container }>
+      <Box sx={ { justifyContent: 'flex-end', display: 'flex', mt: firstItem ? 6 : 0 } }>
         <Dropdown
           label={ t('filterByPlatform-label') }
           name="platform"

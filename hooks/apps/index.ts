@@ -1,11 +1,18 @@
 import { useRouter } from 'next/router';
-import { EUCS, VIDEOS } from '../../constants/clientRoutes';
+import { EUCS, EUC_DETAILS, VIDEOS } from '../../constants/clientRoutes';
+
+const parsePathname = (pathname: string) =>
+  pathname.replace(/\[(.*)\]/, (match, p) => `:${ p }`);
 
 export const useContainerMargins = () => {
   const router = useRouter();
-  const addSpacing = router.pathname === EUCS || router.pathname === VIDEOS;
+  const container = parsePathname(router.pathname) === EUCS || parsePathname(router.pathname) === VIDEOS;
+  const firstItem = parsePathname(router.pathname) !== EUC_DETAILS;
 
-  return addSpacing;
+  return {
+    container,
+    firstItem
+  };
 };
 
 export const useCardSizes = () => {
