@@ -1,4 +1,5 @@
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
+import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCardSizes } from '../../../hooks';
@@ -62,12 +63,14 @@ const AppCard: React.FC<Props> = ({ app, platform }) => {
               </CardActions>
             </Box>
 
-            <CardMedia
-              alt={ t('appPicture-label', { appName: app.name }) }
-              component="img"
-              image={ card.logo }
-              sx={ { height: 80, width: 80 } }
-            />
+            <Box>
+              <Image
+                alt={ t('appPicture-label', { appName: app.name }) }
+                src={ card.logo }
+                height={ 80 }
+                width={ 80 }
+              />
+            </Box>
           </Card>
         </Grid>
       )) }
