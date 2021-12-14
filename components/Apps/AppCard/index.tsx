@@ -2,73 +2,76 @@ import { Box, Button, Card, CardActions, CardContent, CardMedia, Grid, Typograph
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useCardSizes } from '../../../hooks';
-import { App } from '../../../types';
+import { App, AvailablePlatforms } from '../../../types';
 
-const getLink = (app: App, platform: Props['platform']) => {
+const getCards = (app: App, platform: AvailablePlatforms) => {
+  const platforms = [];
+
   // eslint-disable-next-line no-restricted-syntax
-  if (platform === 'Android' && 'android' in app.platforms) {
-    return app.platforms.android;
+  if ('android' in app.platforms && platform !== 'iOS') {
+    platforms.push({ ...app.platforms.android, platform: 'Android' });
   }
 
   // eslint-disable-next-line no-restricted-syntax
-  if (platform === 'iOS' && 'iOS' in app.platforms) {
-    return app.platforms.iOS;
+  if ('iOS' in app.platforms && platform !== 'android') {
+    platforms.push({ ...app.platforms.iOS, platform: 'iOS' });
   }
-
-  return {
-    logo: '',
-    url: ''
-  };
+  
+  return platforms;
 };
 
 interface Props {
   app: App;
+  platform: AvailablePlatforms;
   official?: boolean;
-  platform: 'Android' | 'iOS';
 }
 
 const AppCard: React.FC<Props> = ({ app, platform }) => {
   const { t } = useTranslation();
   const breakpoints = useCardSizes();
-  const { logo, url } = getLink(app, platform);
+  const cards = getCards(app, platform);
 
-  if (!url) {
+  if (!cards.length) {
     return null;
   }
 
   return (
-    <Grid item { ...breakpoints }>
-      <Card sx={ { display: 'flex' } }>
-        <Box sx={ { display: 'flex', flexDirection: 'column', flex: 1 } }>
-          <CardContent sx={ { flex: '1 0 auto' } }>
-            <Typography component="div" variant="h5">
-              { app.name }
-            </Typography>
+    <>
+      { cards.map(card => (
+        <Grid key={ card.url } item { ...breakpoints }>
+          <Card sx={ { display: 'flex' } }>
+            <Box sx={ { display: 'flex', flexDirection: 'column', flex: 1 } }>
+              <CardContent sx={ { flex: '1 0 auto' } }>
+                <Typography component="div" variant="h5">
+                  { app.name }
+                </Typography>
 
-            <Typography variant="subtitle1" color="text.secondary" component="div">
-              { platform }
-            </Typography>
-          </CardContent>
+                <Typography variant="subtitle1" color="text.secondary" component="div">
+                  { card.platform }
+                </Typography>
+              </CardContent>
 
-          <CardActions>
-            <Button
-              LinkComponent="a"
-              href={ url }
-              target="_blank"
-            >
-              { t('download-label') }
-            </Button>
-          </CardActions>
-        </Box>
+              <CardActions>
+                <Button
+                  LinkComponent="a"
+                  href={ card.url }
+                  target="_blank"
+                >
+                  { t('downloadApp-label') }
+                </Button>
+              </CardActions>
+            </Box>
 
-        <CardMedia
-          alt={ t('appPicture-label', { appName: app.name }) }
-          component="img"
-          image={ logo }
-          sx={ { height: 80, width: 80 } }
-        />
-      </Card>
-    </Grid>
+            <CardMedia
+              alt={ t('appPicture-label', { appName: app.name }) }
+              component="img"
+              image={ card.logo }
+              sx={ { height: 80, width: 80 } }
+            />
+          </Card>
+        </Grid>
+      )) }
+    </>
   );
 };
 

@@ -16,6 +16,8 @@ interface AndroidPlatform {
 
 type UniversalPlatform = IOSPlatform & AndroidPlatform;
 
+export type AvailablePlatforms = (keyof UniversalPlatform) | ''
+
 export interface App {
   id: BrandId | string;
   name: string;

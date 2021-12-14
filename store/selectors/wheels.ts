@@ -1,4 +1,4 @@
-import { StoreId, WheelId } from '../../types';
+import { BrandId, StoreId, WheelId } from '../../types';
 import { RootState } from '../types';
 
 export const getWheels = ({ wheels }: RootState) =>
@@ -58,3 +58,11 @@ export const getStores = ({ wheels }: RootState) =>
 
 export const getWheelFilters = ({ wheels }: RootState) =>
   wheels.filters;
+
+export const getWheelApps = (id?: BrandId) =>
+  ({ wheels }: RootState) => ({
+    // eslint-disable-next-line no-restricted-syntax
+    official: wheels.apps.official.filter(app => (!id || app.id === id)),
+    // eslint-disable-next-line no-restricted-syntax
+    unofficial: wheels.apps.unofficial
+  });

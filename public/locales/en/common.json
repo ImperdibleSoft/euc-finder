@@ -175,5 +175,14 @@
   "reveal-label": "Presentation",
   "review-label": "Review",
 
-  "youtubeChannel-label": "Youtube channel"
+  "youtubeChannel-label": "Youtube channel",
+
+  "officialApps-title": "Official Apps",
+  "unofficialApps-title": "Unofficial Apps",
+  "filterByPlatform-label": "Filter by platform",
+  "allPlatforms-label": "All platforms",
+  "android": "Android",
+  "ios": "iOS",
+  "appPicture-label": "{{appName}}'s logo",
+  "downloadApp-label": "Download"
 }

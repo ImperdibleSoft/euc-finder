@@ -3,6 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { APP_NAME, APP_REPO, APP_VERSION, CURRENT_YEAR } from '../../constants';
 import { useModalsContext } from '../../context';
+import Apps from '../Apps';
 
 const yearText = CURRENT_YEAR <= 2021 ? CURRENT_YEAR : `2020-${ CURRENT_YEAR }`;
 
@@ -12,6 +13,8 @@ const Footer: React.FC = () => {
   
   return (
     <>
+      <Apps />
+
       <Divider sx={ { mt: 5 } }  />
 
       <Container sx={ {
