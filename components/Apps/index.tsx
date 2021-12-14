@@ -1,13 +1,26 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useContainerMargins } from '../../hooks';
 import { getWheelApps, getWheelById } from '../../store/selectors';
 import { AvailablePlatforms, WheelId } from '../../types';
+import { isAndroid, isIOS } from '../../utils';
 import Dropdown from '../Form/Dropdown';
 import AppCard from './AppCard';
+
+const getDefaultPlatform = (): AvailablePlatforms => {
+  if (isIOS()) {
+    return 'iOS';
+  }
+
+  if (isAndroid()) {
+    return 'android';
+  }
+
+  return '';
+};
 
 const Apps: React.FC = () => {
   const { t } = useTranslation();
@@ -33,19 +46,36 @@ const Apps: React.FC = () => {
     setPlatform(value as AvailablePlatforms);
   };
 
+  useEffect(() => {
+    const plat = getDefaultPlatform();
+    if (plat !== platform) {
+      setPlatform(plat);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <Container disableGutters={ !addSpacing }>      
       <Box
         sx={ {
-          alignItems: 'center',
+          alignItems: 'flex-end',
           display: 'flex',
-          flexDirection: 'row',
+          flexDirection: { xs: 'column-reverse', sm: 'row' },
           justifyContent: 'center',
           mt: 4,
           mb: 2
         } }
       >
-        <Typography sx={ { display: 'inline-flex', flex: 1 } } variant="h6" component="div">
+        <Typography
+          sx={ {
+            alignSelf: { xs: 'flex-start', sm: 'center' },
+            display: 'inline-flex',
+            flex: 1,
+            mt: { xs: 1, sm: 0 }
+          } }
+          variant="h6"
+          component="div"
+        >
           { t('officialApps-title') }
         </Typography>
 
