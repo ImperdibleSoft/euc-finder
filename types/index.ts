@@ -1,6 +1,7 @@
 import React from 'react';
 import { Store } from './stores';
 
+export * from './apps';
 export * from './brands';
 export * from './filtering';
 export * from './influencers';
