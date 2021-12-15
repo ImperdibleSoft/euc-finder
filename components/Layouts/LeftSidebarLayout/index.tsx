@@ -1,6 +1,7 @@
-import { Box, Drawer, Icon, IconButton, SwipeableDrawer, Theme, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Drawer, Icon, IconButton, SwipeableDrawer, Theme } from '@mui/material';
 import { SxProps } from '@mui/system';
 import React, { PropsWithChildren } from 'react';
+import { useBreakpoints } from '../../../hooks';
 import Footer from '../../Footer';
 import { BOTTOM_NAVIGATION_HEIGHT, FILTERS_SIDEBAR_WIDTH, HEADER_HEIGHT, NAV_SIDEBAR_WIDTH } from '../constants';
 
@@ -30,9 +31,7 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
   open,
   sidebar
 }) => {
-  const theme = useTheme();
-  const isNavSidebar = useMediaQuery(theme.breakpoints.up('md'));
-  const isPermanentSidebar = useMediaQuery(theme.breakpoints.up('sm'));
+  const { sm: isPermanentSidebar, md: isNavSidebar } = useBreakpoints();
 
   const renderSwipableSidebar = (content: React.ReactNode) => (
     <SwipeableDrawer

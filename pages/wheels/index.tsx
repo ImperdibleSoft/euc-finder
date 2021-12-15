@@ -1,6 +1,4 @@
 import { Button, ButtonGroup, Container, Icon, Typography } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
 import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -13,12 +11,11 @@ import GridView from '../../components/WheelsList/GridView';
 import NoWheels from '../../components/WheelsList/NoWheels';
 import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../../hooks';
+import { useBreakpoints, useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../../hooks';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const Wheels: React.FC = () => {
-  const theme = useTheme();
-  const isTablet = useMediaQuery(theme.breakpoints.up('sm'));
+  const { sm: isTablet } = useBreakpoints();
   const { t } = useTranslation();
   const [view, setView] = useState<'grid' | 'table'>('grid');
   const displayTable = view === 'table';

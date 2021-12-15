@@ -1,7 +1,7 @@
-import { Box, CssBaseline, Toolbar, useTheme } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import { Box, CssBaseline, Toolbar } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useModalsContext } from '../../../context';
+import { useBreakpoints } from '../../../hooks';
 import InfoDisclaimer from '../../InfoDisclaimer';
 import { NAV_SIDEBAR_WIDTH } from '../constants';
 import BottomNavigation from './BottomNavigation';
@@ -18,8 +18,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   wheels
 }) => {
   const { initialDisclaimer } = useModalsContext();
-  const { breakpoints } = useTheme();
-  const isTablet = useMediaQuery(breakpoints.up('md'));
+  const { md: isDesktop } = useBreakpoints();
   
   return (
     <Box
@@ -42,7 +41,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
       />
 
       <Box
-        sx={ { display: 'flex', flexDirection: isTablet ? 'row-reverse' : 'column', flex: 1 } }
+        sx={ { display: 'flex', flexDirection: isDesktop ? 'row-reverse' : 'column', flex: 1 } }
       >
         <Box
           component="main"
@@ -63,7 +62,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
           { children }
         </Box>
 
-        <BottomNavigation isTablet={ isTablet } />
+        <BottomNavigation isTablet={ isDesktop } />
       </Box>
 
       { initialDisclaimer.open && initialDisclaimer.handleClose && (
@@ -73,7 +72,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
         />
       ) }
 
-      <Notifications isTablet={ isTablet } />
+      <Notifications isTablet={ isDesktop } />
     </Box>
   );};
 
