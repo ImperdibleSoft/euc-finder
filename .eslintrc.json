@@ -28,6 +28,10 @@
   "plugins": [
     "@typescript-eslint"
   ],
+  "ignorePatterns": [
+    "/public/service-worker.js",
+    "/public/workbox-*.js"
+  ],
   "rules": {
     "@typescript-eslint/indent": "off",
     "indent": ["error", 2, { "SwitchCase": 1 }],

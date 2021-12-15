@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
-const withOffline = require('next-offline');
+const withPWA = require('next-pwa');
 
 const { i18n } = require('./next-i18next.config');
-const { workboxOpts } = require('./next-offline.config');
+const { pwa } = require('./next-pwa.config');
 const { webpack } = require('./next-webpack.config');
 
 const config = {
@@ -28,8 +28,8 @@ const config = {
     ]
   },
   i18n,
-  workboxOpts,
+  pwa,
   webpack
 };
 
-module.exports = withOffline(config);
+module.exports = withPWA(config);
