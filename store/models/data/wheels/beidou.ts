@@ -41,7 +41,7 @@ const recioWheel16: Wheel = {
   display: Display.lcd,
   suspension: undefined,
   color: Color.black
-}
+};
 
 const recioWheel18: Wheel = {
   ...recioWheel16,

@@ -62,7 +62,9 @@ export const getWheelFilters = ({ wheels }: RootState) =>
 export const getWheelApps = (id?: BrandId) =>
   ({ wheels }: RootState) => ({
     // eslint-disable-next-line no-restricted-syntax
-    official: wheels.apps.official.filter(app => (!id || app.id === id)),
+    official: wheels.apps.official.filter(app =>
+      (!id || app.id === id || (id === BrandId.beidou && app.id === BrandId.begode))
+    ),
     // eslint-disable-next-line no-restricted-syntax
     unofficial: wheels.apps.unofficial
   });
