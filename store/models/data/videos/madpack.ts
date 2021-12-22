@@ -235,6 +235,19 @@ const madpackVideos: Video[] = [
     tags: [InfluencerId.madpack, VideoCategory.review, VideoCategory.commuting, VideoCategory.offroad, WheelId.exnHT],
     date: new Date('13/Dec/2021'),
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=CH6fGqWZWas',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.comparision,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.v12,
+      WheelId.exnHT
+    ],
+    date: new Date('20/Dec/2021'),
+    language: 'en'
   }
 ];
 

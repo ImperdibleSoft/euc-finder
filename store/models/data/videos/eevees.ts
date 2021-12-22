@@ -75,6 +75,18 @@ const eeveesVideos: Video[] = [
     ],
     date: new Date('18/Nov/2021'),
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=31hcF-hrK1c',
+    tags: [
+      InfluencerId.eevees,
+      VideoCategory.reveal,
+      VideoCategory.chatting,
+      VideoCategory.commuting,
+      WheelId.hero
+    ],
+    date: new Date('19/Dec/2021'),
+    language: 'en'
   }
 ];
 
