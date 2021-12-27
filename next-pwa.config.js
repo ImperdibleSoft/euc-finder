@@ -56,7 +56,7 @@ const documents = {
 
 module.exports = {
   pwa: {
-    // disable: process.env.NODE_ENV === 'development',
+    disable: process.env.NODE_ENV === 'development',
     dest: 'public',
     sw: 'service-worker.js',
     runtimeCaching: [
