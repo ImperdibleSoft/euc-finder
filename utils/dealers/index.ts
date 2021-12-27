@@ -96,6 +96,32 @@ export const isDealerAvailable = (rawDealerName: string): boolean => {
     fetchPrices === '✔️'
   );
 
-  // Hardcode this in order to help them, because of the fire
-  return available || dealer.dealerName === 'eWheels';
+  return available;
+};
+
+export const isDiscountAvailable = (rawDealerName: string): string => {
+  const [europe, america] = getDealersFromMarkdown();
+  const dealers = [...europe.dealers, ...america.dealers];
+
+  const dealerName = cleanString(rawDealerName.toLowerCase(), { removeLetters: false });
+  const dealer = dealers.find(d => {
+    const name = cleanString(d.dealerName.toLowerCase(), { removeLetters: false });
+    return name === dealerName;
+  });
+
+  if (!dealer) {
+    return '❌';
+  }
+  
+  const { discountCode, negotiations } = dealer;
+
+  if (negotiations === '🕑' || discountCode === '🕑') {
+    return '🕑';
+  }
+
+  if (discountCode === '✔️') {
+    return discountCode;
+  }
+
+  return '❌';
 };

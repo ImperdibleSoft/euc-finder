@@ -113,7 +113,7 @@
   "dealers-fetchPrices-label": "Display prices",
   "dealers-negotiations-label": "Negotiating discounts",
   "dealers-discountCode-label": "Discount code",
-  "dealers-available-label": "Available dealer",
+  "dealers-available-label": "Discount status",
   "✔️-label": "Achieved",
   "❌-label": "Not achieved",
   "🕑-label": "In progress",

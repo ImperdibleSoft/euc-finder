@@ -25,8 +25,8 @@ export const stores: Store[] = [
     logo: '/logos/distributors/ciclonic.png',
     color: '#0075ff',
     meta: {
-      code: '',
-      discount: 5,
+      // code: '',
+      // discount: 5,
       manualDiscount: true,
       sponsor: true
     }
@@ -39,8 +39,8 @@ export const stores: Store[] = [
     logo: '/logos/distributors/urban360.png',
     color: '#76c043',
     meta: {
-      code: 'ref=eucfinder22',
-      discount: 5,
+      // code: 'ref=eucfinder22',
+      // discount: 5,
       manualDiscount: true,
       sponsor: false
     }

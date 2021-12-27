@@ -1,4 +1,4 @@
-import { SHOW_PRICE } from '../constants';
+import { SHOW_PRICE, SHOW_PURCHASE_LINKS } from '../constants';
 import { LOCAL_STORAGE_KEY } from '../types';
 import { getItem } from './localStorage';
 
@@ -9,5 +9,5 @@ export const showPrice = () => {
 
 export const showAllPurchaseLinks = () => {
   const value = getItem(LOCAL_STORAGE_KEY.SHOW_PURCHASE_LINKS) === 'true';
-  return value;
+  return value || SHOW_PURCHASE_LINKS;
 };
