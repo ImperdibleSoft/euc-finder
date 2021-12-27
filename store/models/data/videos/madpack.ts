@@ -248,6 +248,18 @@ const madpackVideos: Video[] = [
     ],
     date: new Date('20/Dec/2021'),
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=X9CxeBHBY64',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.abrams
+    ],
+    date: new Date('27/Dec/2021'),
+    language: 'en'
   }
 ];
 

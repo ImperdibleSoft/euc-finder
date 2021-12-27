@@ -602,7 +602,19 @@ const wrongWayVideos: Video[] = [
     ],
     date: new Date('16/Dec/2021'),
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=Sn5aPz8nAwA',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.reveal,
+      VideoCategory.chatting,
+      WheelId.abrams
+    ],
+    date: new Date('24/Dec/2021'),
+    language: 'en'
   }
 ];
+
 
 export default wrongWayVideos;
