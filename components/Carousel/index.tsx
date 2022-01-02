@@ -6,7 +6,16 @@ const getWrapperStyles = (transparent = false): SxProps<Theme> => ({
   borderBottomLeftRadius: 4,
   borderBottomRightRadius: 4,
   boxShadow: !transparent ? '0px 5px 5px rgba(0, 0, 0, 0.1)' : undefined,
+  pb: 2,
   maxWidth: '100%'
+});
+
+const getScrollableAreaStyles = (align: 'initial' | 'center'): SxProps<Theme> => ({
+  maxWidth: '100%',
+  overflow: 'hidden',
+  overflowX: 'auto',
+  textAlign: align,
+  pb: 3
 });
 
 const getItemsCountStyles = (
@@ -53,7 +62,7 @@ const Carousel: React.FC<Props> = ({
   className,
   counter = true,
   entityName = 'items',
-  skeleton = false,
+  skeleton,
   transparent
 }) => {
   const items = children({ Item: CarouselItem });
@@ -61,60 +70,55 @@ const Carousel: React.FC<Props> = ({
   const grandChildrenCount = (items as React.ReactElement)?.props?.children?.length;
   const itemsCount = typeof counter === 'number' ? counter : (grandChildrenCount ?? childrenCount);
 
-  if (itemsCount <= 0) {
-    return (
-      <Box
-        className={ className }
-        sx={ getWrapperStyles(transparent) }
-      >
-        <Box
-          sx={ getItemsCountStyles(align !== 'center' ? 'flex-start' : align, true) }
-        >
-          No { entityName } found
-        </Box>
-      </Box>
-    );
+  if (skeleton) {
+    return null;
   }
 
   return (
-    <Box
-      className={ className }
-      id="wrapper"
-      sx={ getWrapperStyles(transparent) }
-    >
+    <>
       <Box
-        id="scrollable-area"
-        sx={ {
-          maxWidth: '100%',
-          overflow: 'hidden',
-          overflowX: 'auto',
-          textAlign: align,
-          pb: 3
-        } }
+        className={ `Carousel-wrapper ${ className ?? '' }` }
+        sx={ getWrapperStyles(transparent) }
       >
-        <Box
-          id="scrolled-list"
-          sx={ {
-            display: 'inline-flex',
-            px: 1
-          } }
-        >
-          { items }
-        </Box>
-      </Box>
+        { itemsCount > 0 && (
+          <Box
+            className="Carousel-scrollableArea"
+            sx={ getScrollableAreaStyles(align) }
+          >
+            <Box
+              className="Carousel-scrolledList"
+              sx={ {
+                display: 'inline-flex',
+                px: 1
+              } }
+            >
+              { items }
+            </Box>
+          </Box>
+        ) }
 
-      { !counter && <Box sx={ getItemsCountStyles(align, counter) }/> }
-      
-      { counter && (
-        <Box sx={ getItemsCountStyles(align, counter) }>
-          { !skeleton && (
+        { (counter || !itemsCount) && (
+          <Box
+            className="Carousel-itemsCount"
+            sx={ getItemsCountStyles(align, counter) }
+          >
             <Typography variant="body1">
-              { itemsCount } { entityName }
+              { !!itemsCount && (
+                <>
+                  { itemsCount } { entityName }
+                </>
+              ) }
+
+              { !itemsCount && (
+                <>
+                  No { entityName } found
+                </>
+              ) }
             </Typography>
-          ) }
-        </Box>
-      ) }
-    </Box>
+          </Box>
+        ) }
+      </Box>
+    </>
   );
 };
 
