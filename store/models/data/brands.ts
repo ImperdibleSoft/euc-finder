@@ -1,11 +1,17 @@
 import { Brand, BrandId, Brands } from '../../../types';
 
+// Reference from V12, which I've tested personally
+const kmPerWh = 160 / 1750;
+
 const begode: Brand = {
   id: BrandId.begode,
   name: 'Begode',
   logo: '/logos/manufacturers/begode.png',
   website: 'https://www.begode.com/',
-  misc: { batteryManagement: 0.75 }
+  misc: {
+    // Reference from Monster, commonly used among friends
+    kmPerWh: kmPerWh * 0.75
+  }
 };
 
 const extremeBull: Brand = {
@@ -13,7 +19,10 @@ const extremeBull: Brand = {
   name: 'Extreme Bull',
   logo: '/logos/manufacturers/extremeBull.png',
   website: '',
-  misc: { batteryManagement: begode.misc.batteryManagement }
+  misc: {
+    // Begode controller
+    kmPerWh: begode.misc.kmPerWh
+  }
 };
 
 const beidou: Brand = {
@@ -21,7 +30,10 @@ const beidou: Brand = {
   name: 'BeiDou',
   logo: '',
   website: '',
-  misc: { batteryManagement: begode.misc.batteryManagement }
+  misc: {
+    // Begode controller
+    kmPerWh: begode.misc.kmPerWh
+  }
 };
 
 const veteran: Brand = {
@@ -29,7 +41,10 @@ const veteran: Brand = {
   name: 'Veteran',
   logo: '/logos/manufacturers/veteran.png',
   website: 'https://www.leaperkim.com/',
-  misc: { batteryManagement: 0.8 }
+  misc: {
+    // Not tested yet
+    kmPerWh: kmPerWh * 0.8
+  }
 };
 
 const kingsong: Brand = {
@@ -37,7 +52,10 @@ const kingsong: Brand = {
   name: 'Kingsong',
   logo: '/logos/manufacturers/kingsong.png',
   website: 'https://www.kingsong.com/',
-  misc: { batteryManagement: 0.9 }
+  misc: {
+    // Reference from S18, which I've tested personally
+    kmPerWh: kmPerWh * 0.9
+  }
 };
 
 const inmotion: Brand = {
@@ -45,7 +63,10 @@ const inmotion: Brand = {
   name: 'Inmotion',
   logo: '/logos/manufacturers/inmotion.png',
   website: 'https://www.inmotionworld.com/',
-  misc: { batteryManagement: 1 }
+  misc: {
+    // Reference from V12, which I've tested personally
+    kmPerWh: kmPerWh
+  }
 };
 
 export const brands: Brands = {

@@ -1,5 +1,6 @@
+import { BrandId, Wheel, WheelFilters, WheelSorting } from '../../types';
+import { getRangeFromBattery } from '../../utils';
 import { WheelsState } from '../types';
-import { BrandId, WheelFilters, WheelSorting } from '../../types';
 import {
   begodeApp,
   brands,
@@ -58,13 +59,16 @@ const getSortingInitialValue = (): WheelSorting => ({
   order: 'desc'
 });
 
+const getWheelsInitialValue = (): Wheel[] =>
+  wheels.map(w => ({ ...w, range: getRangeFromBattery(w, brands) }));
+
 export const getWheelsInitialState = (): WheelsState => ({
   apps: {
     official: [begodeApp, inmotionApp, kingsongApp],
     unofficial: [darknessBotApp, eucWorldApp]
   },
   brands,
-  collection: wheels,
+  collection: getWheelsInitialValue(),
   filters: getFiltersInitialValue(),
   pictures: wheelPictures,
   purchaseLinks: wheelPurchaseLinks,

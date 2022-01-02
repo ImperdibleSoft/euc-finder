@@ -13,7 +13,7 @@ export interface Brand {
   logo: string
   website: string,
   misc: {
-    batteryManagement: number;
+    kmPerWh: number;
   }
 }
 
