@@ -1,4 +1,4 @@
-import { Avatar, Card, CardContent, Chip, List, ListItem } from '@mui/material';
+import { Avatar, Box, Card, CardContent, Chip, List, ListItem } from '@mui/material';
 import React from 'react';
 import { useVideoInfo } from '../../../hooks';
 import { Video } from '../../../types';
@@ -32,13 +32,11 @@ const VideoCard: React.FC<Props> = ({ video, ...props }) => {
   const { url } = getEmbedPath(video);
   
   return (
-    <div
-      style={ {
+    <Box
+      sx={ {
         display: 'inline-block',
         maxWidth: cardWidth,
         minWidth: cardWidth,
-        paddingLeft: 16,
-        paddingTop: 16,
         position: 'relative',
         textAlign: 'left',
         verticalAlign: 'top',
@@ -107,7 +105,7 @@ const VideoCard: React.FC<Props> = ({ video, ...props }) => {
           </CardContent>
         ) }
       </Card>
-    </div>
+    </Box>
   );
 };
 

@@ -41,15 +41,15 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
       />
 
       <Box
-        sx={ { display: 'flex', flexDirection: isDesktop ? 'row-reverse' : 'column', flex: 1 } }
+        sx={ { display: 'flex', flexDirection: isDesktop ? 'row-reverse' : 'column', flex: 1, maxWidth: '100%' } }
       >
         <Box
           component="main"
           sx={ {
             flexGrow: 1,
             maxWidth: {
-              xs: '100vw',
-              md: `calc(100vw - ${ NAV_SIDEBAR_WIDTH }px)`
+              xs: '100%',
+              md: `calc(100% - ${ NAV_SIDEBAR_WIDTH }px)`
             },
             py: 3
           } }

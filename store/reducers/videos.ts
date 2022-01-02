@@ -14,9 +14,29 @@ const reducer = (state = getVideosInitialState(), action: VideosAction): VideosS
       };
 
     case 'PAGINATE_VIDEOS':
+      let key: keyof VideosState['pagination'];
+
+      switch (action.payload.type) {
+        case 'sponsored':
+          key = 'sponsoredOffset';
+          break;
+
+        case 'new':
+          key = 'newOffset';
+          break;
+
+        case 'watched':
+        default:
+          key = 'watchedOffset';
+          break;
+      }
+
       return {
         ...state,
-        pagination: { offset: action.payload.offset }
+        pagination: {
+          ...state.pagination,
+          [key]: action.payload.offset
+        }
       };
 
     case 'RESET_VIDEO_FILTERS':

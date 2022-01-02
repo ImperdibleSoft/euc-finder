@@ -101,6 +101,10 @@
   "pounds": "Pounds",
   "milimeters": "Milimeters",
 
+  "sponsoredVideos-title": "Sponsored videos",
+  "newVideos-title": "New videos since your last visit",
+  "watchedVideos-title": "Watched videos",
+
   "dealers-title": "Dealers",
   "dealers1-msg": "One of {{appName}}'s added values is that we gather purchase links from the larger dealers in {{region}}, so you can access to a safe dealers' list in your region.",
   "dealers2-msg": "Also, in order to make it easier to you, our app fetches these distributors' prices and availability, to offer you the best possible purchase.",

@@ -1,5 +1,5 @@
 import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
-import { InfluencerId, WheelId } from '../../types';
+import { Influencer, InfluencerId, Video, WheelId } from '../../types';
 import { RootState } from '../types';
 
 export const getVideos = ({ videos }: RootState) =>
@@ -10,14 +10,6 @@ export const getVideosWithout = ({ influencers, videos }: RootState) =>
     return v.tags
       .some(t => influencers.collection
         .some(i => i.id === t && i.sponsored !== false)
-      );
-  });
-
-export const getSponsoredVideos = ({ influencers, videos }: RootState) =>
-  videos.collection.filter(v => {
-    return v.tags
-      .some(t => influencers.collection
-        .some(i => i.id === t && i.sponsored === true)
       );
   });
 
@@ -67,19 +59,65 @@ export const getFilteredVideos = ({ videos: { collection, filters } }: RootState
 export const getVideoFilters = ({ videos }: RootState) =>
   videos.filters;
 
-export const getPaginatedVideos = (filtered = true) => (rootState: RootState) => {
-  const start = rootState.videos.pagination.offset;
-  const end = rootState.videos.pagination.offset + rootState.config.paginationSize;
+const isSponsored = (video: Video, influencers: Influencer[]) =>
+  influencers
+    .filter(i => video.tags.some(t => t === i.id))
+    .some(i => i.sponsored);
 
-  const allVideos = (filtered ? getFilteredVideos : getVideos)(rootState);
-  const videos = allVideos.slice(start, end);
+export const getSponsoredVideos = () => (rootState: RootState) => {
+  const start = rootState.videos.pagination.sponsoredOffset;
+  const end = rootState.videos.pagination.sponsoredOffset + rootState.config.paginationSize;
+
+  const allVideos = getFilteredVideos(rootState);
+  const sponsoredVideos = allVideos.filter(video => isSponsored(video, rootState.influencers.collection));
+  const videos = sponsoredVideos.slice(start, end);
 
   return {
     videos,
     pagination: {
       ...rootState.videos.pagination,
       count: videos.length,
-      total: allVideos.length
+      total: sponsoredVideos.length
+    }
+  };
+};
+
+export const getNewVideos = (lastVisit?: Date) => (rootState: RootState) => {
+  const start = rootState.videos.pagination.newOffset;
+  const end = rootState.videos.pagination.newOffset + rootState.config.paginationSize;
+
+  const allVideos = getFilteredVideos(rootState);
+  const newVideos = lastVisit
+    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.date > lastVisit)
+    : allVideos;
+  const videos = newVideos.slice(start, end);
+
+  return {
+    videos,
+    pagination: {
+      ...rootState.videos.pagination,
+      count: videos.length,
+      total: newVideos.length
+    }
+  };
+};
+
+export const getWatchedVideos = (lastVisit?: Date) => (rootState: RootState) => {
+  const start = rootState.videos.pagination.watchedOffset;
+  const end = rootState.videos.pagination.watchedOffset + rootState.config.paginationSize;
+
+  const allVideos = getFilteredVideos(rootState);
+  const watchedVideos = lastVisit
+    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.date <= lastVisit)
+    : [];
+  const videos = watchedVideos.slice(start, end);
+
+  return {
+    videos,
+    pagination: {
+      ...rootState.videos.pagination,
+      count: videos.length,
+      total: watchedVideos.length
     }
   };
 };

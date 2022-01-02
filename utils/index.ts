@@ -2,6 +2,7 @@ export * from './analytics';
 export * from './clientTranslatedResources';
 export * from './collections';
 export * from './conversions';
+export * from './dates';
 export * from './dealers';
 export * from './devices';
 export * from './filtering';
