@@ -12,5 +12,5 @@ export const setLastVisit = () => {
 export const getLastVisit = () => {
   const lastVisitStr = getItem(LOCAL_STORAGE_KEY.LAST_VISIT);
 
-  return lastVisitStr ? new Date(lastVisitStr) : new Date('4 Oct 2021');
+  return lastVisitStr ? new Date(lastVisitStr) : new Date('01 Jan 2000');
 };
