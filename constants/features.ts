@@ -4,6 +4,8 @@ export const SHOW_PRICE = false;
 
 export const SHOW_PURCHASE_LINKS = true;
 
+export const SHOW_CALCULATED_RANGE = true;
+
 export const PAGINATION_SIZE = 12;
 
 // Wheels Table
