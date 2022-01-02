@@ -25,7 +25,7 @@ export interface ConfigState {
   /**
    * Main specs in List view
    */
-  listMainSpecs: (keyof Wheel | undefined)[]
+  listMainSpecs: (keyof Wheel)[]
 
   /**
    * Main specs in List view
@@ -35,15 +35,15 @@ export interface ConfigState {
   /**
    * Hightlighted specs in Details view
    */
-   detailHighlightedSpecs: (keyof Wheel | undefined)[]
+   detailHighlightedSpecs: (keyof Wheel)[]
 
   /**
    * Main specs in Details view
    */
-   detailMainSpecs: (keyof Wheel | undefined)[]
+   detailMainSpecs: (keyof Wheel)[]
 
   /**
    * Main specs in Details view
    */
-   detailAdditionalSpecs: (keyof Wheel | undefined)[]
+   detailAdditionalSpecs: (keyof Wheel)[]
 }
