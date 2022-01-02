@@ -1,15 +1,18 @@
 import { SHOW_CALCULATED_RANGE } from '../../constants';
-import { BrandId, StoreId, Wheel, WheelId } from '../../types';
+import { BrandId, Brands, StoreId, Wheel, WheelId } from '../../types';
 import { RootState } from '../types';
 
-const getRange = ({ battery, range }: Wheel) =>
-  SHOW_CALCULATED_RANGE && battery?.wattsHour
+const getRange = ({ battery, brandId, range }: Wheel, brands: Brands) => {
+  const brand = brands[brandId];
+
+  return SHOW_CALCULATED_RANGE && battery?.wattsHour
     // Reference from V12, which I've tested personally
-    ? (160 / 1750) * battery.wattsHour
+    ? (160 / 1750) * battery.wattsHour * brand.misc.batteryManagement
     : range;
+};
 
 export const getWheels = ({ wheels }: RootState) =>
-  wheels.collection.map(w => ({ ...w, range: getRange(w) }));
+  wheels.collection.map(w => ({ ...w, range: getRange(w, wheels.brands) }));
 
 export const getWheelById = (id: WheelId) =>
   (state: RootState) =>
