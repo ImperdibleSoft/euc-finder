@@ -2,6 +2,7 @@ import { Button, ButtonGroup, Container, Icon, Typography } from '@mui/material'
 import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import Apps from '../../components/Apps';
 import { HEADER_HEIGHT } from '../../components/Layouts/constants';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
@@ -12,6 +13,7 @@ import NoWheels from '../../components/WheelsList/NoWheels';
 import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useBreakpoints, useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../../hooks';
+import { getPricesConfig } from '../../store/selectors';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const Wheels: React.FC = () => {
@@ -20,6 +22,7 @@ const Wheels: React.FC = () => {
   const [view, setView] = useState<'grid' | 'table'>('grid');
   const displayTable = view === 'table';
   const ListView = displayTable ? TableView : GridView;
+  const showPrice = useSelector(getPricesConfig);
 
   const { handleHide, handleReset, handleShow, ...columns } = useColumns();
   const { fields, filters, handleResetFilters } = useFilterFields();
@@ -122,6 +125,7 @@ const Wheels: React.FC = () => {
           columns={ columns }
           handleSort={ handleSort }
           records={ sortedWheels }
+          showPrice={ showPrice }
           sorting={ sorting }
         />
 

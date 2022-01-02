@@ -1,8 +1,14 @@
 import { BrandId, StoreId, WheelId } from '../../types';
+import { getRangeFromBattery } from '../../utils';
 import { RootState } from '../types';
 
-export const getWheels = ({ wheels }: RootState) =>
-  wheels.collection;
+export const getWheels = ({ config, wheels }: RootState) => {
+  if (!config.calculatedRange) {
+    return wheels.collection;
+  }
+
+  return wheels.collection.map(w => ({ ...w, range: getRangeFromBattery(w, wheels.brands) }));
+};
 
 export const getWheelById = (id: WheelId) =>
   (state: RootState) =>

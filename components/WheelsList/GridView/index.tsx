@@ -3,17 +3,17 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { wheelFeatureIcons } from '../../../constants';
 import { Wheel, WheelFeatureIcons, WheelSorting, WheelSortingKeys } from '../../../types';
-import { showPrice } from '../../../utils';
 import Dropdown, { DropdownItem } from '../../Form/Dropdown';
 import WheelCard from '../WheelCard';
 
 interface Props {
   handleSort: (key: WheelSortingKeys) => void
   records: Wheel[]
+  showPrice: boolean,
   sorting: WheelSorting
 }
 
-const GridView: React.FC<Props> = ({ handleSort, records, sorting  }) => {
+const GridView: React.FC<Props> = ({ handleSort, records, showPrice, sorting  }) => {
   const { t } = useTranslation();
 
   const [sampleWheel] = records ?? [];
@@ -21,7 +21,7 @@ const GridView: React.FC<Props> = ({ handleSort, records, sorting  }) => {
     .keys(sampleWheel ?? {})
     .filter(key => {
       if (key === 'id' || key === 'peakPower' || key === 'maxGradibility') return false;
-      if (key === 'price') return showPrice();
+      if (key === 'price') return showPrice;
       return true;
     })
     .map((key): DropdownItem => ({

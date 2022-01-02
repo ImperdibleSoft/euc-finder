@@ -1,34 +1,39 @@
-import { LIST_MAIN_SPECS } from '../../../constants';
-import { WheelsTableColumns } from '../../../types';
+import { Wheel, WheelsTableColumns } from '../../../types';
 
-const initialValue: WheelsTableColumns = {
-  diameter: LIST_MAIN_SPECS.some(f => f ===  'diameter'),
-  width: LIST_MAIN_SPECS.some(f => f ===  'width'),
-  maxSpeed: LIST_MAIN_SPECS.some(f => f ===  'maxSpeed'),
-  range: LIST_MAIN_SPECS.some(f => f ===  'range'),
-  weight: LIST_MAIN_SPECS.some(f => f ===  'weight'),
-  
-  ratedPower: LIST_MAIN_SPECS.some(f => f ===  'ratedPower'),
-  battery: LIST_MAIN_SPECS.some(f => f ===  'battery'),
-  voltage: LIST_MAIN_SPECS.some(f => f ===  'voltage'),
-  maxGradibility: LIST_MAIN_SPECS.some(f => f ===  'maxGradibility'),
-  groundClearance: LIST_MAIN_SPECS.some(f => f ===  'groundClearance'),
-  suspension: LIST_MAIN_SPECS.some(f => f ===  'suspension'),
+let initialValue: WheelsTableColumns;
 
-  headlight: LIST_MAIN_SPECS.some(f => f ===  'headlight'),
-  tailLight: LIST_MAIN_SPECS.some(f => f ===  'tailLight'),
-  trolleyHandle: LIST_MAIN_SPECS.some(f => f ===  'trolleyHandle'),
-  antiSpin: LIST_MAIN_SPECS.some(f => f ===  'antiSpin'),
-  kickstand: LIST_MAIN_SPECS.some(f => f ===  'kickstand'),
-  leds: LIST_MAIN_SPECS.some(f => f ===  'leds'),
-  sound: LIST_MAIN_SPECS.some(f => f ===  'sound'),
-  display: LIST_MAIN_SPECS.some(f => f === 'display'),
-  color: LIST_MAIN_SPECS.some(f => f ===  'color')
+export const getInitialValue = (listMainSpecs?: (keyof Wheel | undefined)[]): WheelsTableColumns => {
+  if (listMainSpecs) {
+    initialValue = {
+      diameter: listMainSpecs.some(f => f ===  'diameter'),
+      width: listMainSpecs.some(f => f ===  'width'),
+      maxSpeed: listMainSpecs.some(f => f ===  'maxSpeed'),
+      range: listMainSpecs.some(f => f ===  'range'),
+      weight: listMainSpecs.some(f => f ===  'weight'),
+    
+      ratedPower: listMainSpecs.some(f => f ===  'ratedPower'),
+      battery: listMainSpecs.some(f => f ===  'battery'),
+      voltage: listMainSpecs.some(f => f ===  'voltage'),
+      maxGradibility: listMainSpecs.some(f => f ===  'maxGradibility'),
+      groundClearance: listMainSpecs.some(f => f ===  'groundClearance'),
+      suspension: listMainSpecs.some(f => f ===  'suspension'),
+
+      headlight: listMainSpecs.some(f => f ===  'headlight'),
+      tailLight: listMainSpecs.some(f => f ===  'tailLight'),
+      trolleyHandle: listMainSpecs.some(f => f ===  'trolleyHandle'),
+      antiSpin: listMainSpecs.some(f => f ===  'antiSpin'),
+      kickstand: listMainSpecs.some(f => f ===  'kickstand'),
+      leds: listMainSpecs.some(f => f ===  'leds'),
+      sound: listMainSpecs.some(f => f ===  'sound'),
+      display: listMainSpecs.some(f => f === 'display'),
+      color: listMainSpecs.some(f => f ===  'color')
+    };
+  }
+
+  return initialValue;
 };
 
-export const getInitialValue = () => ({ ...initialValue });
-
-const wheelsTableSettingsReducer = (state: WheelsTableColumns = initialValue, action: any): WheelsTableColumns => {
+const wheelsTableSettingsReducer = (state: WheelsTableColumns, action: any): WheelsTableColumns => {
   switch (action?.type) {
     case 'reset':
       return getInitialValue();

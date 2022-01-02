@@ -7,7 +7,7 @@ import Dropdown from '../../../components/Form/Dropdown';
 import Text from '../../../components/Form/Text';
 import { wheelFeatureIcons } from '../../../constants';
 import { filterWheels, resetWheelFilters } from '../../../store/actions';
-import { getWheelFilters } from '../../../store/selectors';
+import { getPricesConfig, getWheelFilters } from '../../../store/selectors';
 import {
   AntiSpin,
   BrandId,
@@ -21,7 +21,6 @@ import {
   TrolleyHandle,
   WheelFilters
 } from '../../../types';
-import { showPrice } from '../../../utils';
 import { getDropdownOptions } from './constants';
 
 // eslint-disable-next-line max-lines-per-function
@@ -204,6 +203,7 @@ const useFilters = () => {
 // eslint-disable-next-line max-lines-per-function
 export const useFilterFields = () => {
   const { t } = useTranslation();
+  const showPrice = useSelector(getPricesConfig);
 
   const {
     antiSpinOptions,
@@ -488,12 +488,11 @@ export const useFilterFields = () => {
       name:'color',
       onChange: handleChangeColor,
       options: colorOptions,
-      value: filters.color?.toString() ?? '',
-      space: !!showPrice()
+      value: filters.color?.toString() ?? ''
     }
   ];
 
-  if (showPrice()) {
+  if (showPrice) {
     fields.unshift(
       {
         Field: Text,
@@ -511,7 +510,8 @@ export const useFilterFields = () => {
         name: 'maxPrice',
         onChange: handleChange,
         type: 'number',
-        value: filters.maxPrice?.toString() ?? ''
+        value: filters.maxPrice?.toString() ?? '',
+        space: true
       }
     );
   }

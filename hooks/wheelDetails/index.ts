@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useVideoFilterFields } from '..';
-import { DETAIL_ADDITIONAL_SPECS, DETAIL_HIGHLIGHTED_SPECS, DETAIL_MAIN_SPECS } from '../../constants';
 import { VIDEOS } from '../../constants/clientRoutes';
 import {
   getBrands,
+  getDetailViewSpecs,
+  getPricesConfig,
   getPurchaseLinks,
+  getPurchaseLinksConfig,
   getRegion,
   getStores,
   getVideosByWheel,
@@ -14,7 +15,8 @@ import {
   getWheelPictures
 } from '../../store/selectors';
 import { PurchaseLink, Wheel, WheelId } from '../../types';
-import { formatWheelName, getPurchaseLink, showPrice, sortBy } from '../../utils';
+import { formatWheelName, getPurchaseLink, sortBy } from '../../utils';
+import { useVideoFilterFields } from '..';
 
 export * from './confirmationModal';
 export * from './wheelPrice';
@@ -33,11 +35,15 @@ export const useEucDetail = (id: WheelId) => {
   };
 };
 
-export const useEucDetailInformationGroups = () => ({
-  highlightedSpecs: DETAIL_HIGHLIGHTED_SPECS.filter(s => !!s && (s !== 'price' || showPrice())) as (keyof Wheel)[],
-  mainSpecs: DETAIL_MAIN_SPECS.filter(s => !!s) as (keyof Wheel)[],
-  additionalSpecs: DETAIL_ADDITIONAL_SPECS
-});
+export const useEucDetailInformationGroups = () => {
+  const showPrice = useSelector(getPricesConfig);
+  const [highlightedSpecs, mainSpecs, additionalSpecs] = useSelector(getDetailViewSpecs);
+
+  return {
+    highlightedSpecs: highlightedSpecs.filter(s => !!s && (s !== 'price' || showPrice)) as (keyof Wheel)[],
+    mainSpecs: mainSpecs.filter(s => !!s) as (keyof Wheel)[],
+    additionalSpecs
+  };};
 
 export const useEucDetailHandlers = () => {
   const [pictureDetail, setPictureDetail] = useState<undefined | string>();
@@ -61,6 +67,7 @@ export const useEucPurchaseLinks = (id: WheelId) => {
   const wheelLinks = useSelector(getPurchaseLinks(id));
   const region = useSelector(getRegion);
   const stores = useSelector(getStores);
+  const showAllPurchaseLinks = useSelector(getPurchaseLinksConfig);
 
   const options = {
     region,
@@ -68,11 +75,11 @@ export const useEucPurchaseLinks = (id: WheelId) => {
   };
 
   const sponsoredLinks = wheelLinks
-    .map(url => getPurchaseLink({ ...options, url, sponsored: true }))
+    .map(url => getPurchaseLink({ ...options, url, sponsored: true }, showAllPurchaseLinks))
     .filter(link => !!link) as PurchaseLink[];
 
   const regularLinks = wheelLinks
-    .map(url => getPurchaseLink({ ...options, url }))
+    .map(url => getPurchaseLink({ ...options, url }, showAllPurchaseLinks))
     .filter(link => !!link) as PurchaseLink[];
 
   return {

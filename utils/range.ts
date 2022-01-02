@@ -1,10 +1,9 @@
-import { SHOW_CALCULATED_RANGE } from '../constants';
 import { Brands, Wheel } from '../types';
 
 export const getRangeFromBattery = ({ battery, brandId, range }: Wheel, brands: Brands) => {
   const brand = brands[brandId];
 
-  return SHOW_CALCULATED_RANGE && battery?.wattsHour
+  return battery?.wattsHour
     ? brand.misc.kmPerWh * battery.wattsHour
     : range;
 };

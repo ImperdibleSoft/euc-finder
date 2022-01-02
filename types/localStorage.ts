@@ -11,5 +11,6 @@ export enum LOCAL_STORAGE_KEY {
   SHOW_PRICE = 'showPrice',
   SHOW_PURCHASE_LINKS = 'showPurchaseLinks',
   THEME = 'theme',
-  TEST = 'test'
+  TEST = 'test',
+  LAST_VISIT = 'lastVisit'
 }

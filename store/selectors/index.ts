@@ -1,3 +1,4 @@
+export * from './config';
 export * from './influencers';
 export * from './settings';
 export * from './videos';

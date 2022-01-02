@@ -6,16 +6,17 @@ import { useDispatch, useSelector } from 'react-redux';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
 import VideoCard from '../../components/Videos/VideoCard';
 import VideoFilters from '../../components/Videos/VideoFilters';
-import { APP_DESCRIPTION, APP_NAME, KEYWORDS, PAGINATION_SIZE } from '../../constants';
+import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useSidebar, useVideoFilterFields } from '../../hooks';
 import { paginateVideos } from '../../store/actions';
-import { getPaginatedVideos } from '../../store/selectors';
+import { getPaginatedVideos, getPaginationConfig } from '../../store/selectors';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
 const Videos = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const { videos, pagination } = useSelector(getPaginatedVideos(true));
+  const paginationSize = useSelector(getPaginationConfig);
   const { handleCloseSidebar, handleOpenSidebar, open } = useSidebar();
   const {
     fields, 
@@ -26,7 +27,7 @@ const Videos = () => {
   } = useVideoFilterFields();
 
   const handlePaginate = (event: unknown, page: number) => {
-    const newOffset = (page - 1) * PAGINATION_SIZE;
+    const newOffset = (page - 1) * paginationSize;
     dispatch(paginateVideos(newOffset));
   };
 
@@ -91,8 +92,8 @@ const Videos = () => {
 
           <Pagination
             color="secondary"
-            count={ Math.ceil(pagination.total / PAGINATION_SIZE) }
-            page={ Math.ceil((pagination.offset + pagination.count) / PAGINATION_SIZE) }
+            count={ Math.ceil(pagination.total / paginationSize) }
+            page={ Math.ceil((pagination.offset + pagination.count) / paginationSize) }
             onChange={ handlePaginate }
             hidePrevButton={ pagination.offset <= 0 }
             hideNextButton={ (pagination.offset + pagination.count) >= pagination.total }

@@ -1,4 +1,3 @@
-import { showAllPurchaseLinks } from './features';
 import { PurchaseLink, Region, Store, StoreId } from '../types';
 import { stores } from '../store/models/data';
 import { isDealerAvailable } from './dealers';
@@ -22,9 +21,12 @@ const getStoreFromUrl = ({ region, stores: storesData, url, sponsored }: GetStor
       && ((sponsored && meta.sponsor) || (!sponsored && !meta.sponsor))
   ));
 
-export const getPurchaseLink = ({ stores: storesData, ...options }: GetStoreOptions): PurchaseLink | undefined => {
+export const getPurchaseLink = (
+  { stores: storesData, ...options }: GetStoreOptions,
+  showAllPurchaseLinks: boolean
+): PurchaseLink | undefined => {
   const store = getStoreFromUrl({
-    stores: storesData.filter(s => isDealerAvailable(s.name) || showAllPurchaseLinks()),
+    stores: storesData.filter(s => isDealerAvailable(s.name) || showAllPurchaseLinks),
     ...options
   });
 

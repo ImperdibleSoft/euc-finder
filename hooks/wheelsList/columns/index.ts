@@ -1,14 +1,20 @@
 import React, { useReducer } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { SPEC_COLUMNS, wheelFeatureFormatters } from '../../../constants';
-import { getBrands, getMeasureUnits } from '../../../store/selectors';
+import { wheelFeatureFormatters } from '../../../constants';
+import {
+  getBrands,
+  getListViewSpecs,
+  getMeasureUnits,
+  getPricesConfig,
+  getTableViewSpecs
+} from '../../../store/selectors';
 import { Brands, Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
-import { showPrice } from '../../../utils';
 import wheelsTableSettingsReducer, { getInitialValue } from './reducer';
 
 export const useColumns = () => {
-  const [columns, dispatch] = useReducer(wheelsTableSettingsReducer, getInitialValue());
+  const [listMainSpecs] = useSelector(getListViewSpecs);
+  const [columns, dispatch] = useReducer(wheelsTableSettingsReducer, getInitialValue(listMainSpecs));
 
   const handleShow = (key: keyof WheelsTableColumns) => {
     dispatch({
@@ -36,8 +42,8 @@ export const useColumns = () => {
   };
 };
 
-const shouldShowColumn = (columns: WheelsTableColumns, key: keyof Wheel) =>
-  (key === 'price' && showPrice()) || key ==='name' || !!columns[key as keyof WheelsTableColumns];
+const shouldShowColumn = (columns: WheelsTableColumns, key: keyof Wheel, showPrice: boolean) =>
+  (key === 'price' && showPrice) || key ==='name' || !!columns[key as keyof WheelsTableColumns];
 
 const getCellStyles = (key: keyof Wheel): React.CSSProperties => {
   switch (key) {
@@ -66,9 +72,11 @@ export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
   const { t } = useTranslation();
   const brands = useSelector(getBrands);
   const measureUnits = useSelector(getMeasureUnits);
+  const showPrice = useSelector(getPricesConfig);
+  const specColumns = useSelector(getTableViewSpecs);
 
-  const headings = SPEC_COLUMNS
-    .filter(key => shouldShowColumn(columns, key))
+  const headings = specColumns
+    .filter(key => shouldShowColumn(columns, key, showPrice))
     .map(key => ({
       id: key,
       label: t(key)
@@ -77,8 +85,8 @@ export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
   const rows = records
     .map(record => ({
       id: record.id,
-      cells: SPEC_COLUMNS
-        .filter(key => shouldShowColumn(columns, key))
+      cells: specColumns
+        .filter(key => shouldShowColumn(columns, key, showPrice))
         .map(key => ({
           id: key,
           style: getCellStyles(key),

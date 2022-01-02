@@ -4,7 +4,6 @@ export * from './collections';
 export * from './conversions';
 export * from './dealers';
 export * from './devices';
-export * from './features';
 export * from './filtering';
 export * from './formatters';
 export * from './http';

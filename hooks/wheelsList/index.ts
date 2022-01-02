@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
-import { LIST_ADDITIONAL_SPECS, LIST_MAIN_SPECS } from '../../constants';
-import { getBrands, getMeasureUnits, getWheels } from '../../store/selectors';
+import { getBrands, getListViewSpecs, getMeasureUnits, getPricesConfig, getWheels } from '../../store/selectors';
 import { Wheel, WheelFilters, WheelSorting } from '../../types';
-import { customisedSortBy, filterWheels, showPrice } from '../../utils';
+import { customisedSortBy, filterWheels } from '../../utils';
 
 export * from './columns';
 export * from './filtering';
@@ -10,7 +9,10 @@ export * from './sidebar';
 export * from './sorting';
 
 export const useEucListInformationGroups = (sorting: WheelSorting) => {
-  const mainSpecKeys = [ ...LIST_MAIN_SPECS.filter(s => !!s && (s !== 'price' || showPrice())) ] as (keyof Wheel)[];
+  const showPrice = useSelector(getPricesConfig);
+  const [listMainSpecs, listAdditionalSpecs] = useSelector(getListViewSpecs);
+
+  const mainSpecKeys = [ ...listMainSpecs.filter(s => !!s && (s !== 'price' || showPrice)) ] as (keyof Wheel)[];
 
   if (sorting.key !== 'name' && sorting.key !== 'brandId' && !mainSpecKeys.includes(sorting.key)) {
     mainSpecKeys.unshift(sorting.key);
@@ -18,7 +20,7 @@ export const useEucListInformationGroups = (sorting: WheelSorting) => {
 
   return {
     mainSpecs: mainSpecKeys,
-    additionalSpecs: LIST_ADDITIONAL_SPECS
+    additionalSpecs: listAdditionalSpecs
   };
 };
 
