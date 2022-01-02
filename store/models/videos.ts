@@ -9,6 +9,10 @@ export const getVideosInitialState = (): VideosState => ({
     languages: [],
     wheels: []
   },
-  pagination: { offset: 0 },
+  pagination: {
+    sponsoredOffset: 0,
+    newOffset: 0,
+    watchedOffset: 0
+  },
   sorting: undefined
 });

@@ -14,10 +14,10 @@ export const filterVideos = (payload: FilterVideosAction['payload']) =>
     } as FilterVideosAction);
   };
 
-export const paginateVideos = (offset: number) =>
+export const paginateVideos = (type: PaginateVideosAction['payload']['type'], offset: number) =>
   (dispatch: Dispatch) => {
     dispatch({
       type: 'PAGINATE_VIDEOS',
-      payload: { offset }
+      payload: { type, offset }
     } as PaginateVideosAction);
   };

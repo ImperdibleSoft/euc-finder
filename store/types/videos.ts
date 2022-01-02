@@ -8,7 +8,9 @@ export interface VideosState {
   filters: VideoFilters;
   sorting: unknown;
   pagination: {
-    offset: number;
+    sponsoredOffset: number;
+    newOffset: number;
+    watchedOffset: number;
   }
 }
 
@@ -27,6 +29,7 @@ export interface FilterVideosAction {
 export interface PaginateVideosAction {
   type: 'PAGINATE_VIDEOS';
   payload: {
+    type: 'sponsored' | 'new' | 'watched';
     offset: number;
   }
 }
