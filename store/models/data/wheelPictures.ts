@@ -131,6 +131,15 @@ export const wheelPictures: WheelPictures = {
     'https://iwheelsurvive.com/wp-content/uploads/2021/04/Gotway-Monster-Pro-2.jpeg',
     'https://store.urban360.es/wp-content/uploads/2020/12/Gotway-Monster-Pro.jpg'
   ],
+  [WheelId.ex2]: [
+    'http://nwzimg.wezhan.net/contents/sitefiles3603/18019730/images/5302643.jpg',
+    'http://nwzimg.wezhan.net/contents/sitefiles3603/18019730/images/5302647.jpg',
+    'http://nwzimg.wezhan.net/contents/sitefiles3603/18019730/images/5302646.jpg',
+    'http://nwzimg.wezhan.net/contents/sitefiles3603/18019730/images/5302645.jpg',
+    'http://nwzimg.wezhan.net/contents/sitefiles3603/18019730/images/5302644.jpg',
+    'http://nwzimg.wezhan.net/contents/sitefiles3603/18019730/images/5302650.jpg',
+    'http://nwzimg.wezhan.net/contents/sitefiles3603/18019730/images/5302649.jpg'
+  ],
 
   // Beidou
   [WheelId.recioWheel16]: [
@@ -352,6 +361,14 @@ export const wheelPictures: WheelPictures = {
     'https://www.ewheels.com/wp-content/uploads/2021/08/Abrams-3-700x700.jpg',
     'https://www.ewheels.com/wp-content/uploads/2021/08/Abrams-1.jpg',
     'https://www.ewheels.com/wp-content/uploads/2021/08/Abrams-4.jpg'
+  ],
+  [WheelId.shermanMax]: [
+    'https://store.urban360.es/wp-content/uploads/2020/06/VETERAN-SHERMAN-.jpg',
+    'https://store.urban360.es/wp-content/uploads/2020/06/veteran-sherman.jpg',
+    'https://store.urban360.es/wp-content/uploads/2020/06/veteran-sherman-4.jpg',
+    'https://store.urban360.es/wp-content/uploads/2020/06/WhatsApp-Image-2021-08-18-at-12.23.15-PM.jpeg',
+    'https://store.urban360.es/wp-content/uploads/2020/06/WhatsApp-Image-2021-08-18-at-12.23.16-PM.jpeg',
+    'https://store.urban360.es/wp-content/uploads/2020/06/WhatsApp-Image-2021-08-18-at-12.23.16-PM-1.jpeg'
   ]
 };
 /* eslint-enable max-len */

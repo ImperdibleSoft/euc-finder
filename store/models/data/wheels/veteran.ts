@@ -29,7 +29,7 @@ const sherman: Wheel = {
   voltage: 100,
 
   diameter: 20,
-  width: 2.75,
+  width: 3,
   groundClearance: 170,
   weight: 35,
   trolleyHandle: TrolleyHandle.telescopic,
@@ -42,6 +42,26 @@ const sherman: Wheel = {
   display: Display.lcd,
   suspension: undefined,
   color: Color.black
+};
+
+const shermanMax: Wheel = {
+  ...sherman,
+  id: WheelId.shermanMax,
+  name: 'Sherman Max',
+  
+  ratedPower: 2800,
+  peakPower: 3750,
+  maxGradibility: 35,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '18650',
+    wattsHour: 3600
+  },
+  range: 215,
+
+  weight: 38,
+  headlight: 3500
 };
 
 const abrams: Wheel = {
@@ -81,5 +101,6 @@ const abrams: Wheel = {
 
 export const veteranWheels = [
   sherman,
+  shermanMax,
   abrams
 ];

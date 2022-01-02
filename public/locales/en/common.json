@@ -165,6 +165,7 @@
   "standard": "Standard",
   "white": "White",
   "black": "Black",
+  "silver": "Silver",
 
   "allOptions-label": "All {{option}}",
   "allElements-label": "All {{element}}",

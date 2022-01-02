@@ -13,6 +13,7 @@ export enum WheelId {
   msx100 = 'msx100',
   msp = 'msp',
   ex = 'ex',
+  ex2 = 'ex2',
   exnHT = 'exnHT',
   exnHS = 'exnHS',
   hero = 'hero',
@@ -52,6 +53,7 @@ export enum WheelId {
   // Veteran
   sherman = 'sherman',
   abrams = 'abrams',
+  shermanMax = 'shermanMax',
 }
 
 export interface Battery {

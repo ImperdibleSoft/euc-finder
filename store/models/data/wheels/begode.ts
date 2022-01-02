@@ -365,7 +365,7 @@ const hero: Wheel = {
   trolleyHandle: TrolleyHandle.telescopic,
   antiSpin: AntiSpin.position,
   kickstand: Kickstand.dedicated,
-  headlight: true,
+  headlight: 5000,
   tailLight: true,
   leds: false,
   sound: SoundSystem.twoPointO,
@@ -436,6 +436,41 @@ const monsterPro: Wheel = {
   display: Display.led
 };
 
+const ex2: Wheel = {
+  id: WheelId.ex2,
+  brandId: BrandId.begode,
+  name: 'EX2S',
+  price: 0,
+
+  ratedPower: 3000,
+  peakPower: 0,
+  maxGradibility: 0,
+  maxSpeed: 68,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '21700',
+    wattsHour: 3600
+  },
+  range: 190,
+  voltage: 100,
+
+  diameter: 20,
+  width: 3,
+  groundClearance: [160, 240],
+  weight: 47,
+  trolleyHandle: TrolleyHandle.telescopic,
+  antiSpin: undefined,
+  kickstand: Kickstand.dedicated,
+  headlight: 7000,
+  tailLight: true,
+  leds: false,
+  sound: undefined,
+  display: undefined,
+  suspension: Suspension.standard,
+  color: [Color.black, Color.silver]
+};
+
 export const begodeWheels: Wheel[] = [
   mten,
   mcm5,
@@ -451,5 +486,6 @@ export const begodeWheels: Wheel[] = [
   exnHS,
   hero,
   monster,
-  monsterPro
+  monsterPro,
+  ex2
 ];

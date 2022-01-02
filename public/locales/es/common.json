@@ -165,6 +165,7 @@
   "standard": "Estándar",
   "white": "Blanco",
   "black": "Negro",
+  "silver": "Plateado",
 
   "allOptions-label": "Todas las {{option}}",
   "allElements-label": "Todos los {{element}}",

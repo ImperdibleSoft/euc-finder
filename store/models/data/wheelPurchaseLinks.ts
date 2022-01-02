@@ -142,6 +142,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-moster-pro-electric-unicycle',
     'https://www.smartwheel.ca/gotway-monster-pro-24-3500w-motor-electric-unicycle-with-3600wh-100v-battery/'
   ],
+  [WheelId.ex2]: [],
 
   // BeiDou
   [WheelId.recioWheel16]: [],
@@ -349,6 +350,10 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucsale.com/euc-transport/veteran-leaperkim-electric-unicycle/veteran-abrams.html',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/veteran-abrams',
     'https://e-rides.com/product/veteran-abrams-electric-unicycle-22-inch-2700w-pre-order/'
+  ],
+  [WheelId.shermanMax]: [
+    'https://www.ewheels.com/product/new-veteran-sherman-18-100v-3200wh-battery-2500w-motor-1000-deposit/',
+    'https://eevees.com/products/veteran-sherman-vancouver'
   ]
 };
 /* eslint-enable max-len, max-lines */

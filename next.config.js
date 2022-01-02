@@ -24,7 +24,8 @@ const config = {
       'yt3.ggpht.com',
       'scontent-cdt1-1.xx.fbcdn.net',
       'scontent-cdg2-1.xx.fbcdn.net',
-      'scontent-mad1-1.xx.fbcdn.net'
+      'scontent-mad1-1.xx.fbcdn.net',
+      'nwzimg.wezhan.net'
     ]
   },
   i18n,
