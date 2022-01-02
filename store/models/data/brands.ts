@@ -1,7 +1,7 @@
 import { Brand, BrandId, Brands } from '../../../types';
 
 // Reference from V12, which I've tested personally
-const kmPerWh = 160 / 1750;
+const kmPerWh = 136 / 1750;
 
 const begode: Brand = {
   id: BrandId.begode,

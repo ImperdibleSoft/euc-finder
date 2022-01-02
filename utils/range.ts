@@ -8,9 +8,7 @@ export const getRangeFromBattery = ({ battery, brandId, range }: Wheel, brands: 
     : range;
 };
 
-export const getEstimatedMinRange = (range: number) => range * 60 / 100;
-
-export const getEstimatedMaxRange = (range: number) => range * 85 / 100;
+export const getEstimatedMinRange = (maxRange: number) => maxRange * 70.5882 / 100;
 
 export const toDecimals = (num: number, decimals = 2, minDecimals?: number) => num.toLocaleString('en-EN', {
   maximumFractionDigits: decimals,

@@ -28,7 +28,7 @@ import {
   getConvertedSpeed,
   getConvertedWeight
 } from './conversions';
-import { getEstimatedMaxRange, getEstimatedMinRange, toDecimals } from './range';
+import { getEstimatedMinRange, toDecimals } from './range';
 
 export const currency = (value: number, region: Region): string => {
   if (value) {
@@ -95,7 +95,7 @@ export const distance = (
 ): string => {
   if (value) {
     const convertedMin = getConvertedRange(getEstimatedMinRange(value), units);
-    const convertedMax = getConvertedRange(getEstimatedMaxRange(value), units);
+    const convertedMax = getConvertedRange(value, units);
 
     switch (units) {
       case RangeUnits.mi:

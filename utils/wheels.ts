@@ -1,10 +1,9 @@
 import { Category, Wheel } from '../types';
-import { getEstimatedMaxRange } from './range';
 
 export const getWheelCategory = ({ maxSpeed, range, ratedPower, battery }: Wheel): Category => {
   if (
-    (maxSpeed && maxSpeed <=20)
-    || (range && getEstimatedMaxRange(range)  <=25)
+    (maxSpeed && maxSpeed <= 20)
+    || (range && range <= 25)
     || (ratedPower && ratedPower <= 800)
     || (battery.wattsHour && battery.wattsHour <= 500)
   ) {
@@ -12,8 +11,8 @@ export const getWheelCategory = ({ maxSpeed, range, ratedPower, battery }: Wheel
   }
 
   if (
-    (maxSpeed && maxSpeed <=40)
-    || (range && getEstimatedMaxRange(range) <=60)
+    (maxSpeed && maxSpeed <= 40)
+    || (range && range <= 60)
     || (ratedPower && ratedPower < 2000)
     || (battery.wattsHour && battery.wattsHour <= 1000)
   ) {
@@ -22,7 +21,7 @@ export const getWheelCategory = ({ maxSpeed, range, ratedPower, battery }: Wheel
 
   if (
     (maxSpeed && maxSpeed <= 60)
-    || (range && getEstimatedMaxRange(range) <= 100)
+    || (range && range <= 100)
     || (ratedPower && ratedPower < 2000)
     || (battery.wattsHour && battery.wattsHour <= 1500)
   ) {

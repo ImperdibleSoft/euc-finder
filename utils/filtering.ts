@@ -8,7 +8,6 @@ import {
   getConvertedSpeed,
   getConvertedWeight
 } from './conversions';
-import { getEstimatedMaxRange } from './range';
 import { getWheelCategory } from './wheels';
 
 export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: SettingsState['measureUnits']) => {
@@ -22,7 +21,7 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Setting
     getMinimumValue(wheel.groundClearance),
     units.groundClearance
   ));
-  const range = Number(getConvertedRange(getEstimatedMaxRange(wheel.range), units.range));
+  const range = Number(getConvertedRange(wheel.range, units.range));
   const weight = Number(getConvertedWeight(wheel.weight, units.weight));
   const width = Number(getConvertedDiameter(wheel.width, units.diameter));
 
