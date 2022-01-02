@@ -1,22 +1,29 @@
-import { Box, Button, ButtonGroup, Container, Icon, Pagination, Typography } from '@mui/material';
+import { Box, Button, ButtonGroup, Icon, Pagination, Typography } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
-import VideoCard from '../../components/Videos/VideoCard';
+import VideosCarousel from '../../components/Videos/VideosCarousel';
 import VideoFilters from '../../components/Videos/VideoFilters';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { useSidebar, useVideoFilterFields } from '../../hooks';
+import { useSidebar, useVideoFilterFields, useVideos } from '../../hooks';
 import { paginateVideos } from '../../store/actions';
-import { getPaginatedVideos, getPaginationConfig } from '../../store/selectors';
+import { PaginateVideosAction } from '../../store/types';
 import { getStaticProps } from '../../utils/serverTranslatedResources';
 
+// eslint-disable-next-line max-lines-per-function
 const Videos = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { videos, pagination } = useSelector(getPaginatedVideos(true));
-  const paginationSize = useSelector(getPaginationConfig);
+  const {
+    loaded,
+    sponsored,
+    unwatched,
+    watched,
+    paginationSize
+  } = useVideos();
+
   const { handleCloseSidebar, handleOpenSidebar, open } = useSidebar();
   const {
     fields, 
@@ -26,9 +33,9 @@ const Videos = () => {
     handleResetFilters 
   } = useVideoFilterFields();
 
-  const handlePaginate = (event: unknown, page: number) => {
+  const handlePaginate = (event: unknown, page: number, type: PaginateVideosAction['payload']['type']) => {
     const newOffset = (page - 1) * paginationSize;
-    dispatch(paginateVideos(newOffset));
+    dispatch(paginateVideos(type, newOffset));
   };
 
   const title = t('videos');
@@ -65,39 +72,111 @@ const Videos = () => {
           </>
         ) }
       >
-        <Container>
-          <Typography variant="h4" component="h1" sx={ { mb: { sm: 3 } } }>
-            { title }
-          </Typography>
-
+        <Box>
           <ButtonGroup sx={ { display: { xs: 'flex', sm: 'none' }, flex: 1, justifyContent: 'flex-end' } }>
             <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
               { t('filters-title') }
             </Button>
           </ButtonGroup>
-        </Container>
 
-        <Box sx={ { alignItems: 'center', display: 'flex', flexDirection: 'column', pb: 1 } }>
-          <Box sx={ { width: '100%', pr: 2, pb: 2, textAlign: 'center', m: '0 auto' } }>
-            { videos.map(video => (
-              <VideoCard
-                key={ video.url }
+          { sponsored.videos.length > 0 && (
+            <>
+              <Box sx={ { mt: 3, pl: 2 } }>
+                <Typography variant="h4" component="h1" sx={ { mb: { sm: 3 } } }>
+                  { t('sponsoredVideos-title') }
+                </Typography>
+              </Box>
+  
+              <VideosCarousel
                 handleChangeCategories={ handleChangeCategories }
                 handleChangeInfluencers={ handleChangeInfluencers }
                 handleChangeWheels={ handleChangeWheels }
-                video={ video }
+                skeleton={ !loaded }
+                videos={ sponsored.videos }
               />
-            )) }
-          </Box>
+  
+              <Box sx={ { alignItems: 'center', display: 'flex', flexDirection: 'column', pb: 1 } }>
+                <Pagination
+                  color="secondary"
+                  count={ Math.ceil(sponsored.pagination.total / paginationSize) }
+                  hidden={ sponsored.pagination.count >= sponsored.pagination.total }
+                  hideNextButton={
+                    (sponsored.pagination.sponsoredOffset + sponsored.pagination.count) >= sponsored.pagination.total
+                  }
+                  hidePrevButton={ sponsored.pagination.sponsoredOffset <= 0 }
+                  onChange={ (e, p) => { handlePaginate(e, p, 'sponsored'); } }
+                  page={
+                    Math.ceil((sponsored.pagination.sponsoredOffset + sponsored.pagination.count) / paginationSize)
+                  }
+                />
+              </Box>
+            </>
+          ) }
 
-          <Pagination
-            color="secondary"
-            count={ Math.ceil(pagination.total / paginationSize) }
-            page={ Math.ceil((pagination.offset + pagination.count) / paginationSize) }
-            onChange={ handlePaginate }
-            hidePrevButton={ pagination.offset <= 0 }
-            hideNextButton={ (pagination.offset + pagination.count) >= pagination.total }
-          />
+          { unwatched.videos.length > 0 && (
+            <>
+              <Box sx={ { mt: 3, pl: 2 } }>
+                <Typography variant="h4" component="h1" sx={ { mb: { sm: 3 } } }>
+                  { t('newVideos-title') }
+                </Typography>
+              </Box>
+  
+              <VideosCarousel
+                handleChangeCategories={ handleChangeCategories }
+                handleChangeInfluencers={ handleChangeInfluencers }
+                handleChangeWheels={ handleChangeWheels }
+                skeleton={ !loaded }
+                videos={ unwatched.videos }
+              />
+  
+              <Box sx={ { alignItems: 'center', display: 'flex', flexDirection: 'column', pb: 1 } }>
+                <Pagination
+                  color="secondary"
+                  count={ Math.ceil(unwatched.pagination.total / paginationSize) }
+                  hidden={ unwatched.pagination.count >= unwatched.pagination.total }
+                  hideNextButton={
+                    (unwatched.pagination.newOffset + unwatched.pagination.count) >= unwatched.pagination.total
+                  }
+                  hidePrevButton={ unwatched.pagination.newOffset <= 0 }
+                  onChange={ (e, p) => { handlePaginate(e, p, 'new'); } }
+                  page={ Math.ceil((unwatched.pagination.newOffset + unwatched.pagination.count) / paginationSize) }
+                />
+              </Box>
+            </>
+          ) }
+          
+          { watched.videos.length > 0 && (
+            <>
+              <Box sx={ { mt: 3, pl: 2 } }>
+                <Typography variant="h4" component="h1" sx={ { mb: { sm: 3 } } }>
+                  { t('watchedVideos-title') }
+                </Typography>
+              </Box>
+  
+              <VideosCarousel
+                className="watchedVideos"
+                handleChangeCategories={ handleChangeCategories }
+                handleChangeInfluencers={ handleChangeInfluencers }
+                handleChangeWheels={ handleChangeWheels }
+                skeleton={ !loaded }
+                videos={ watched.videos }
+              />
+  
+              <Box sx={ { alignItems: 'center', display: 'flex', flexDirection: 'column', pb: 1 } }>
+                <Pagination
+                  color="secondary"
+                  count={ Math.ceil(watched.pagination.total / paginationSize) }
+                  hidden={ watched.pagination.count >= watched.pagination.total }
+                  hideNextButton={
+                    (watched.pagination.watchedOffset + watched.pagination.count) >= watched.pagination.total
+                  }
+                  hidePrevButton={ watched.pagination.watchedOffset <= 0 }
+                  onChange={ (e, p) => { handlePaginate(e, p, 'watched'); } }
+                  page={ Math.ceil((watched.pagination.watchedOffset + watched.pagination.count) / paginationSize) }
+                />
+              </Box>
+            </>
+          ) }
         </Box>
       </LeftSidebarLayout>
     </>

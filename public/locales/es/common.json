@@ -101,6 +101,10 @@
   "pounds": "Libras",
   "milimeters": "Milímetros",
 
+  "sponsoredVideos-title": "Vídeos patrocinados",
+  "newVideos-title": "Nuevos vídeos desde tu última visita",
+  "watchedVideos-title": "Vídeos que ya has visto",
+
   "dealers-title": "Tiendas",
   "dealers1-msg": "Uno de los valores agregados de {{appName}} es que recopilamos enlaces de compra de las mayores tiendas en {{region}}, de forma que puedes acceder a una lista de tiendas seguras en tu región.",
   "dealers2-msg": "Además, para facilitarte el trabajo, nuestra aplicación recopila los precios y disponibilidad de éstas tiendas para ofrecerte la mejor compra posible.",

@@ -2,7 +2,7 @@ import { setItem } from '.';
 import { LOCAL_STORAGE_KEY } from '../types';
 import { getItem } from './localStorage';
 
-export const getToday = () => new Date(Date.now());
+const getToday = () => new Date(Date.now());
 
 export const setLastVisit = () => {
   const date = getToday();
@@ -12,5 +12,5 @@ export const setLastVisit = () => {
 export const getLastVisit = () => {
   const lastVisitStr = getItem(LOCAL_STORAGE_KEY.LAST_VISIT);
 
-  return lastVisitStr ? new Date(lastVisitStr) : undefined;
+  return lastVisitStr ? new Date(lastVisitStr) : new Date('4 Oct 2021');
 };

@@ -1,5 +1,5 @@
-import { getCategoryFromTags, getInfluencerFromTags, getLastVisit, getWheelFromTags, sortBy } from '../../utils';
-import { InfluencerId, WheelId } from '../../types';
+import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
+import { Influencer, InfluencerId, Video, WheelId } from '../../types';
 import { RootState } from '../types';
 
 export const getVideos = ({ videos }: RootState) =>
@@ -59,15 +59,17 @@ export const getFilteredVideos = ({ videos: { collection, filters } }: RootState
 export const getVideoFilters = ({ videos }: RootState) =>
   videos.filters;
 
-export const getSponsoredVideos = (filtered = true) => (rootState: RootState) => {
+const isSponsored = (video: Video, influencers: Influencer[]) =>
+  influencers
+    .filter(i => video.tags.some(t => t === i.id))
+    .some(i => i.sponsored);
+
+export const getSponsoredVideos = () => (rootState: RootState) => {
   const start = rootState.videos.pagination.sponsoredOffset;
   const end = rootState.videos.pagination.sponsoredOffset + rootState.config.paginationSize;
 
-  const allVideos = (filtered ? getFilteredVideos : getVideos)(rootState);
-  const sponsoredVideos = allVideos.filter(video => {
-    const influencers = rootState.influencers.collection.filter(i => video.tags.some(t => t === i.id));
-    return influencers.some(i => i.sponsored);
-  });
+  const allVideos = getFilteredVideos(rootState);
+  const sponsoredVideos = allVideos.filter(video => isSponsored(video, rootState.influencers.collection));
   const videos = sponsoredVideos.slice(start, end);
 
   return {
@@ -80,13 +82,14 @@ export const getSponsoredVideos = (filtered = true) => (rootState: RootState) =>
   };
 };
 
-export const getNewVideos = (filtered = true) => (rootState: RootState) => {
+export const getNewVideos = (lastVisit?: Date) => (rootState: RootState) => {
   const start = rootState.videos.pagination.newOffset;
   const end = rootState.videos.pagination.newOffset + rootState.config.paginationSize;
-  const lastVisit = getLastVisit();
 
-  const allVideos = (filtered ? getFilteredVideos : getVideos)(rootState);
-  const newVideos = lastVisit ? allVideos.filter(video => video.date > lastVisit) : allVideos;
+  const allVideos = getFilteredVideos(rootState);
+  const newVideos = lastVisit
+    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.date > lastVisit)
+    : allVideos;
   const videos = newVideos.slice(start, end);
 
   return {
@@ -99,13 +102,14 @@ export const getNewVideos = (filtered = true) => (rootState: RootState) => {
   };
 };
 
-export const getWatchedVideos = (filtered = true) => (rootState: RootState) => {
+export const getWatchedVideos = (lastVisit?: Date) => (rootState: RootState) => {
   const start = rootState.videos.pagination.watchedOffset;
   const end = rootState.videos.pagination.watchedOffset + rootState.config.paginationSize;
-  const lastVisit = getLastVisit();
 
-  const allVideos = (filtered ? getFilteredVideos : getVideos)(rootState);
-  const watchedVideos = lastVisit ? allVideos.filter(video => video.date <= lastVisit) : [];
+  const allVideos = getFilteredVideos(rootState);
+  const watchedVideos = lastVisit
+    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.date <= lastVisit)
+    : [];
   const videos = watchedVideos.slice(start, end);
 
   return {
