@@ -80,7 +80,7 @@ const abrams: Wheel = {
   battery: {
     capacity: 0,
     parallels: 0,
-    type: '',
+    type: '21700',
     wattsHour: 2700
   },
   range: 130,
