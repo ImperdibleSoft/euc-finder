@@ -25,6 +25,8 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Setting
   const weight = Number(getConvertedWeight(wheel.weight, units.weight));
   const width = Number(getConvertedDiameter(wheel.width, units.diameter));
 
+  const [pedalType, pedalSurface, retentionPins = false] = wheel.pedals;
+
   return (
     filters.categories.includes(getWheelCategory(wheel))
     && filters.brandId.includes(wheel.brandId)
@@ -57,6 +59,14 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Setting
       || !wheel.groundClearance
       || (minGroundClearance <= Number(filters.maxGroundClearance))
     )
+    && (!filters.pedalType || pedalType === filters.pedalType)
+    && (!filters.pedalSurface || pedalSurface === filters.pedalSurface)
+    && (
+      filters.retentionPins === undefined
+      || (filters.retentionPins && retentionPins)
+      || (!filters.retentionPins && !retentionPins)
+    )
+    
 
     && (!filters.minPower || !wheel.ratedPower || wheel.ratedPower >= Number(filters.minPower))
     && (!filters.minVoltage || !wheel.voltage || wheel.voltage >= Number(filters.minVoltage))

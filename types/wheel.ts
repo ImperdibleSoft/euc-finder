@@ -148,9 +148,9 @@ export interface WheelFeatures {
    */
   antiSpin: undefined | AntiSpin
   /**
-   * Pedals
+   * Pedals [type, surface, retentionpins]
    */
-  pedals: [PedalType, PedalSurface]
+  pedals: [PedalType, PedalSurface, boolean]
   /**
    * Kickstand
    */

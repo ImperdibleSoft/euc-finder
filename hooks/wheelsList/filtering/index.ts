@@ -16,6 +16,8 @@ import {
   Display,
   FilterField,
   Kickstand,
+  PedalSurface,
+  PedalType,
   SoundSystem,
   Suspension,
   TrolleyHandle,
@@ -132,6 +134,47 @@ const useFilters = () => {
     handleFilterBy(name as keyof WheelFilters, value);
   };
 
+  const handleChangePedalType = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const name = event.target.name as keyof WheelFilters;
+    const rawValue = event.target.value;
+
+    let value: undefined | PedalType;
+    if (rawValue === PedalType.plain || rawValue === PedalType.honeycomb) {
+      value = rawValue;
+    }
+
+    handleFilterBy(name as keyof WheelFilters, value);
+  };
+
+  const handleChangePedalSurface = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const name = event.target.name as keyof WheelFilters;
+    const rawValue = event.target.value;
+
+    let value: undefined | PedalSurface;
+    if (
+      rawValue === PedalSurface.metalic ||
+      rawValue === PedalSurface.rubber ||
+      rawValue === PedalSurface.partialGripTape ||
+      rawValue === PedalSurface.fullGripTape
+    ) {
+      value = rawValue;
+    }
+
+    handleFilterBy(name as keyof WheelFilters, value);
+  };
+
+  const handleChangePedalRetentionPins = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const name = event.target.name as keyof WheelFilters;
+    const rawValue = event.target.value;
+
+    let value: undefined | boolean;
+    if (rawValue === 'true' || rawValue === 'false') {
+      value = rawValue === 'true';
+    }
+
+    handleFilterBy(name as keyof WheelFilters, value);
+  };
+
   const handleChangeSound = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const name = event.target.name as keyof WheelFilters;
     const rawValue = event.target.value;
@@ -193,6 +236,9 @@ const useFilters = () => {
     handleChangeDisplay,
     handleChangeKickstand,
     handleChangeLeds,
+    handleChangePedalRetentionPins,
+    handleChangePedalSurface,
+    handleChangePedalType,
     handleChangeSound,
     handleChangeSuspension,
     handleChangeTrolley,
@@ -213,6 +259,9 @@ export const useFilterFields = () => {
     displayOptions,
     kickstandOptions,
     ledOptions,
+    pedalSurfaceOptions,
+    pedalTypeOptions,
+    retentionPinOptions,
     soundSystemOptions,
     suspensionOptions,
     trolleyHandleOptions
@@ -227,6 +276,9 @@ export const useFilterFields = () => {
     handleChangeDisplay,
     handleChangeKickstand,
     handleChangeLeds,
+    handleChangePedalRetentionPins,
+    handleChangePedalSurface,
+    handleChangePedalType,
     handleChangeSound,
     handleChangeSuspension,
     handleChangeTrolley,
@@ -356,7 +408,34 @@ export const useFilterFields = () => {
       name: 'maxGroundClearance',
       onChange: handleChange,
       type: 'number',
-      value: filters.maxGroundClearance?.toString() ?? '',
+      value: filters.maxGroundClearance?.toString() ?? ''
+    },
+    {
+      Field: Dropdown,
+      icon: wheelFeatureIcons.pedals,
+      label: t('pedalType'),
+      name: 'pedalType',
+      onChange: handleChangePedalType,
+      options: pedalTypeOptions,
+      value: filters.pedalType?.toString() ?? ''
+    },
+    {
+      Field: Dropdown,
+      icon: wheelFeatureIcons.pedals,
+      label: t('pedalSurface'),
+      name: 'pedalSurface',
+      onChange: handleChangePedalSurface,
+      options: pedalSurfaceOptions,
+      value: filters.pedalSurface?.toString() ?? ''
+    },
+    {
+      Field: Dropdown,
+      icon: 'grain',
+      label: t('retentionPins'),
+      name: 'retentionPins',
+      onChange: handleChangePedalRetentionPins,
+      options: retentionPinOptions,
+      value: filters.retentionPins?.toString() ?? '',
       space: true
     },
     

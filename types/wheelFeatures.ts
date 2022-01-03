@@ -24,11 +24,10 @@ export enum PedalType {
 export type PedalTypeWeight = Record<PedalType, number>
 
 export enum PedalSurface {
+  metalic = 'metalic',
   rubber = 'rubber',
   partialGripTape = 'partialGripTape',
   fullGripTape = 'fullGripTape',
-  metalicPins = 'metalicPins',
-  gripTapePins = 'gripTapePins'
 }
 export type PedalSurfaceWeight = Record<PedalSurface, number>
 

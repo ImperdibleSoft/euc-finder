@@ -35,7 +35,7 @@ const commanderHT: Wheel = {
   groundClearance: 160,
   weight: 38.5,
   trolleyHandle: TrolleyHandle.telescopic,
-  pedals: [PedalType.honeycomb, PedalSurface.metalicPins],
+  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
   antiSpin: undefined,
   kickstand: undefined,
   headlight: true,

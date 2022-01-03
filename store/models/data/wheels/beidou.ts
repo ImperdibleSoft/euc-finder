@@ -34,7 +34,7 @@ const recioWheel16: Wheel = {
   groundClearance: 0,
   weight: 30,
   trolleyHandle: TrolleyHandle.telescopic,
-  pedals: [PedalType.honeycomb, PedalSurface.metalicPins],
+  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
   antiSpin: undefined,
   kickstand: undefined,
   headlight: true,

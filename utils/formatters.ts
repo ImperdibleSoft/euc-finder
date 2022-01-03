@@ -269,13 +269,19 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string
   }
 };
 
-export const pedals = (value?: [PedalType, PedalSurface], t?: TFunction<'translation'>): string => {
+export const pedals = (value?: [PedalType, PedalSurface, boolean], t?: TFunction<'translation'>): string => {
   if (!value) {
     return t?.('no') ?? getTranslation('no');
   }
 
-  const [pedalType, pedalSurface] = value;
-  return `${ t?.(pedalType) }, ${ t?.(pedalSurface) }`;
+  const [pedalType, pedalSurface, retentionPins] = value;
+  
+  let suffix = '';
+  if (retentionPins) {
+    suffix = `, ${ t?.('with').toLowerCase() } ${ t?.('retentionPins')?.toLowerCase() }`;
+  }
+
+  return `${ t?.(pedalType) }, ${ t?.(pedalSurface)?.toLowerCase() }${ suffix }`;
 };
 
 export const kickstand = (value?: Kickstand, t?: TFunction<'translation'>): string => {

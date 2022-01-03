@@ -10,6 +10,8 @@ import {
   Color,
   Display,
   Kickstand,
+  PedalSurface,
+  PedalType,
   SoundSystem,
   Suspension,
   TrolleyHandle
@@ -33,6 +35,59 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
         name: category,
         onChange: ()=> { return; }
       }));
+
+  const pedalTypeOptions: DropdownItem[] = [
+    {
+      label: t('selectAnOption-label'),
+      value: undefined
+    },
+    {
+      label: t('plain'),
+      value: PedalType.plain
+    },
+    {
+      label: t('honeycomb'),
+      value: PedalType.honeycomb
+    }
+  ];
+
+  const pedalSurfaceOptions: DropdownItem[] = [
+    {
+      label: t('selectAnOption-label'),
+      value: undefined
+    },
+    {
+      label: t('metalic'),
+      value: PedalSurface.metalic
+    },
+    {
+      label: t('rubber'),
+      value: PedalSurface.rubber
+    },
+    {
+      label: t('partialGripTape'),
+      value: PedalSurface.partialGripTape
+    },
+    {
+      label: t('fullGripTape'),
+      value: PedalSurface.fullGripTape
+    }
+  ];
+  
+  const retentionPinOptions: DropdownItem[] = [
+    {
+      label: t('selectAnOption-label'),
+      value: undefined
+    },
+    {
+      label: `${ t('without') } ${ t('retentionPins') }`,
+      value: 'false'
+    },
+    {
+      label: `${ t('with') } ${ t('retentionPins') }`,
+      value: 'true'
+    }
+  ];
   
   const suspensionOptions: DropdownItem[] = [
     {
@@ -201,6 +256,9 @@ export const getDropdownOptions = (t: TFunction<'translation'>) => {
   return {
     brandIdOptions,
     categoryOptions,
+    pedalTypeOptions,
+    pedalSurfaceOptions,
+    retentionPinOptions,
     suspensionOptions,
     antiSpinOptions,
     kickstandOptions,

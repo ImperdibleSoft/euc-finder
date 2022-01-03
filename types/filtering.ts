@@ -1,5 +1,5 @@
 import React from 'react';
-import { Order } from '.';
+import { Order, PedalSurface, PedalType } from '.';
 import { CheckboxProps } from '../components/Form/Checkbox';
 import { DropdownItem } from '../components/Form/Dropdown';
 import { Props as TextProps } from '../components/Form/Text';
@@ -37,6 +37,9 @@ export interface WheelFilters {
   
   maxGroundClearance?: string;
   minGroundClearance?: string;
+  pedalType?: PedalType;
+  pedalSurface?: PedalSurface;
+  retentionPins?: boolean;
 
   minPower?: string;
   minVoltage?: string;
