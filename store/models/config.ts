@@ -28,6 +28,7 @@ export const getConfigInitialState = (): ConfigState => ({
     'headlight',
     'tailLight',
     'trolleyHandle',
+    'pedals',
     'antiSpin',
     'kickstand',
     'leds',
@@ -44,12 +45,12 @@ export const getConfigInitialState = (): ConfigState => ({
     'weight'
   ],
   listAdditionalSpecs: [
-    'suspension',
     'trolleyHandle',
     'antiSpin',
     'sound',
     'leds',
-    'display'
+    'display',
+    'suspension'
   ],
 
   detailHighlightedSpecs: [
@@ -73,6 +74,7 @@ export const getConfigInitialState = (): ConfigState => ({
     'headlight',
     'tailLight',
     'trolleyHandle',
+    'pedals',
     'antiSpin',
     'kickstand',
     'leds',

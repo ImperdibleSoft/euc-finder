@@ -11,6 +11,8 @@ import {
   GroundClearanceUnits,
   Kickstand,
   Lumens,
+  PedalSurface,
+  PedalType,
   RangeUnits,
   Region,
   SoundSystem,
@@ -265,6 +267,15 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string
     default:
       return t?.('no') ?? getTranslation('no');
   }
+};
+
+export const pedals = (value?: [PedalType, PedalSurface], t?: TFunction<'translation'>): string => {
+  if (!value) {
+    return t?.('no') ?? getTranslation('no');
+  }
+
+  const [pedalType, pedalSurface] = value;
+  return `${ t?.(pedalType) }, ${ t?.(pedalSurface) }`;
 };
 
 export const kickstand = (value?: Kickstand, t?: TFunction<'translation'>): string => {

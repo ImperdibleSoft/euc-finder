@@ -3,6 +3,8 @@ import {
   BrandId,
   Color,
   Display,
+  PedalSurface,
+  PedalType,
   TrolleyHandle,
   Wheel,
   WheelId
@@ -32,6 +34,7 @@ const recioWheel16: Wheel = {
   groundClearance: 0,
   weight: 30,
   trolleyHandle: TrolleyHandle.telescopic,
+  pedals: [PedalType.honeycomb, PedalSurface.metalicPins],
   antiSpin: undefined,
   kickstand: undefined,
   headlight: true,

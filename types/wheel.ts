@@ -1,5 +1,16 @@
 import { BrandId } from './brands';
-import { AntiSpin, Color, Display, Kickstand, Lumens, SoundSystem, Suspension, TrolleyHandle } from './wheelFeatures';
+import {
+  AntiSpin,
+  Color,
+  Display,
+  Kickstand,
+  Lumens,
+  PedalSurface,
+  PedalType,
+  SoundSystem,
+  Suspension,
+  TrolleyHandle
+} from './wheelFeatures';
 
 export enum WheelId {
   // Begode / Gotway
@@ -136,6 +147,10 @@ export interface WheelFeatures {
    * Anti-spin button
    */
   antiSpin: undefined | AntiSpin
+  /**
+   * Pedals
+   */
+  pedals: [PedalType, PedalSurface]
   /**
    * Kickstand
    */

@@ -17,6 +17,21 @@ export enum AntiSpin {
 }
 export type AntiSpinWeight = Record<AntiSpin, number>
 
+export enum PedalType {
+  plain = 'plain',
+  honeycomb = 'honeycomb'
+}
+export type PedalTypeWeight = Record<PedalType, number>
+
+export enum PedalSurface {
+  rubber = 'rubber',
+  partialGripTape = 'partialGripTape',
+  fullGripTape = 'fullGripTape',
+  metalicPins = 'metalicPins',
+  gripTapePins = 'gripTapePins'
+}
+export type PedalSurfaceWeight = Record<PedalSurface, number>
+
 export enum Kickstand {
   dedicated = 'dedicated',
   shell = 'shell',

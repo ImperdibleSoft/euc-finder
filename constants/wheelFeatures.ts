@@ -2,6 +2,8 @@ import {
   AntiSpinWeight,
   DisplayWeight,
   KickstandWeight,
+  PedalSurfaceWeight,
+  PedalTypeWeight,
   SoundSystemWeight,
   SuspensionWeight,
   TrolleyHandleWeight,
@@ -33,6 +35,8 @@ export const wheelFeatureIcons: WheelFeatureIcons = {
   headlight: 'highlight',
   tailLight: 'tungsten',
   trolleyHandle: 'pan_tool',
+  // pedals: 'crop_portrait',
+  pedals: 'splitscreen',
   antiSpin: 'autorenew',
   kickstand: 'gavel',
   leds: 'light_mode',
@@ -62,6 +66,7 @@ export const wheelFeatureFormatters: WheelFeatureFormatters = {
   tailLight: formatters.lumens,
   trolleyHandle: formatters.trolleyHandle,
   antiSpin: formatters.antiSpin,
+  pedals: formatters.pedals,
   kickstand: formatters.kickstand,
   leds: formatters.boolean,
   sound: formatters.soundChannels,
@@ -78,6 +83,19 @@ export const antiSpinWeight: AntiSpinWeight = {
   sensor: 3,
   button: 2,
   position: 1
+};
+
+export const pedalTypeWeight: PedalTypeWeight = {
+  honeycomb: 2,
+  plain: 1
+};
+
+export const pedalSurfaceWeight: PedalSurfaceWeight = {
+  gripTapePins: 5,
+  metalicPins: 4,
+  fullGripTape: 3,
+  partialGripTape: 2,
+  rubber: 1
 };
 
 export const kickstandWeight: KickstandWeight = {
