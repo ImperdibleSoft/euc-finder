@@ -2,6 +2,8 @@ import {
   antiSpinWeight,
   displayWeight,
   kickstandWeight,
+  pedalSurfaceWeight,
+  pedalTypeWeight,
   soundSystemWeight,
   suspensionWeight,
   trolleyHandleWeight
@@ -40,6 +42,15 @@ export const customisedSortBy = (brands: Brands) => (key: keyof Wheel, order: Or
       const bTrolleyWeight = b.trolleyHandle ? trolleyHandleWeight[b.trolleyHandle] : 0;
       if (aTrolleyWeight < bTrolleyWeight) return order === 'asc' ? -1 : 1;
       if (aTrolleyWeight > bTrolleyWeight) return order === 'asc' ? 1 : -1;
+      return sortBy(key, order)(a, b);
+
+    case 'pedals':
+      const [aPedalType, aPedalSurface, aRetentionPins] = a.pedals;
+      const [bPedalType, bPedalSurface, bRetentionPins] = b.pedals;
+      const aWeight = (pedalTypeWeight[aPedalType] + pedalSurfaceWeight[aPedalSurface]) * (aRetentionPins ? 2 : 1);
+      const bWeight = (pedalTypeWeight[bPedalType] + pedalSurfaceWeight[bPedalSurface]) * (bRetentionPins ? 2 : 1);
+      if (aWeight < bWeight) return order === 'asc' ? -1 : 1;
+      if (aWeight > bWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
     case 'antiSpin':

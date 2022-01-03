@@ -91,11 +91,10 @@ export const pedalTypeWeight: PedalTypeWeight = {
 };
 
 export const pedalSurfaceWeight: PedalSurfaceWeight = {
-  gripTapePins: 5,
-  metalicPins: 4,
-  fullGripTape: 3,
-  partialGripTape: 2,
-  rubber: 1
+  fullGripTape: 1.4,
+  partialGripTape: 1.3,
+  rubber: 1.2,
+  metalic: 1.1
 };
 
 export const kickstandWeight: KickstandWeight = {
