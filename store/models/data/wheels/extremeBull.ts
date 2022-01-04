@@ -3,6 +3,7 @@ import {
   BrandId,
   Color,
   Display,
+  Kickstand,
   PedalSurface,
   PedalType,
   SoundSystem,
@@ -55,7 +56,53 @@ const commanderHS: Wheel = {
   maxSpeed: 80
 };
 
+const xmenHT: Wheel = {
+  id: WheelId.xmenHT,
+  brandId: BrandId.extremeBull,
+  name: 'X-Men Torque',
+  price: 0,
+
+  ratedPower: 2800,
+  peakPower: 0,
+  maxGradibility: 30,
+  maxSpeed: 68,
+  battery: {
+    capacity: 4890,
+    parallels: 0,
+    type: '21700',
+    wattsHour: 1800
+  },
+  range: 125,
+  voltage: 100,
+
+  diameter: 0,
+  width: 2.75,
+  groundClearance: 160,
+  weight: 31,
+  trolleyHandle: undefined,
+  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
+  antiSpin: undefined,
+  kickstand: Kickstand.dedicated,
+  headlight: 5000,
+  tailLight: true,
+  leds: false,
+  sound: SoundSystem.twoPointO,
+  display: Display.led,
+  suspension: undefined,
+  color: Color.black
+};
+
+const xmenHS: Wheel = {
+  ...xmenHT,
+  id: WheelId.xmenHS,
+  name: 'X-Men Speed',
+
+  maxSpeed: 80
+};
+
 export const extremeBullWheels: Wheel[] = [
   commanderHT,
-  commanderHS
+  commanderHS,
+  xmenHT,
+  xmenHS
 ];

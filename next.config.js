@@ -25,7 +25,8 @@ const config = {
       'scontent-cdt1-1.xx.fbcdn.net',
       'scontent-cdg2-1.xx.fbcdn.net',
       'scontent-mad1-1.xx.fbcdn.net',
-      'nwzimg.wezhan.net'
+      'nwzimg.wezhan.net',
+      'web.telegram.org'
     ]
   },
   i18n,

@@ -180,6 +180,8 @@ export const wheelPictures: WheelPictures = {
     'https://eucsale.com/assets/image-cache/images/EUC-transport/Gotway/Commander/commander-3.21ba5615.jpg',
     'https://eucsale.com/assets/image-cache/images/EUC-transport/Gotway/Commander/commander-1.21ba5615.jpg'
   ],
+  [WheelId.xmenHT]: ['blob:https://web.telegram.org/a8a18c38-46ac-44f2-905d-37ffc9fc7a7c'],
+  [WheelId.xmenHS]: ['blob:https://web.telegram.org/a8a18c38-46ac-44f2-905d-37ffc9fc7a7c'],
   
   // Kingsong
   [WheelId.ks14m]: [

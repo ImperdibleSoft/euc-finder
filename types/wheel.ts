@@ -38,6 +38,8 @@ export enum WheelId {
   // Extreme bull
   commanderHT = 'commanderHT',
   commanderHS = 'commanderHS',
+  xmenHT = 'xmenHT',
+  xmenHS = 'xmenHS',
 
   // Inmotion
   v5 = 'v5',

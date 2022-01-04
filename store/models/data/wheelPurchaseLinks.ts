@@ -167,6 +167,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/extreme-bull-commander?variant=40959280578719',
     'https://e-rides.com/product/extreme-bull-commander-electric-unicycle-deposit/'
   ],
+  [WheelId.xmenHT]: [],
+  [WheelId.xmenHS]: [],
 
   // Inmotion
   [WheelId.v5]: [],
