@@ -19,7 +19,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getPurchaseLinksByStore, getStores } from '../../../store/selectors';
-import { isDarkTheme, isDiscountAvailable } from '../../../utils';
+import { isDarkTheme } from '../../../utils';
+import { isDiscountAvailable } from '../../../utils/dealers';
 
 const listItemStyles = { px: 0 };
 const listItemIconStyles = { cursor: 'default', minWidth: 24, mr: 2 };
