@@ -59,7 +59,8 @@ const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, 
                   alignItems: 'center',
                   cursor: 'pointer',
                   justifyContent: 'center',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  '& > * > img': { objectFit: 'cover' }
                 } }
               >
                 <Image
