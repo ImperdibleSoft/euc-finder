@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import { getStaticProps } from '../utils/serverTranslatedResources';
+import { getStaticProps } from '../utils-server/translatedResources';
 import { EUCS } from '../constants/clientRoutes';
 
 const Root: React.FC = () => {

@@ -2,13 +2,13 @@ import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { wheelFeatureIcons } from '../../../constants';
-import { Wheel, WheelFeatureIcons, WheelSorting, WheelSortingKeys } from '../../../types';
+import { WheelFeatureIcons, WheelSorting, WheelSortingKeys, WheelWithPicture } from '../../../types';
 import Dropdown, { DropdownItem } from '../../Form/Dropdown';
 import WheelCard from '../WheelCard';
 
 interface Props {
   handleSort: (key: WheelSortingKeys) => void
-  records: Wheel[]
+  records: WheelWithPicture[]
   showPrice: boolean,
   sorting: WheelSorting
 }

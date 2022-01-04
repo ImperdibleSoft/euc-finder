@@ -10,7 +10,7 @@ import { useSettings } from '../../hooks';
 import { defaultMeasureUnits, resetMeasureUnits } from '../../store/actions';
 import { LOCAL_STORAGE_KEY } from '../../types';
 import { removeItem, setItem } from '../../utils';
-import { getStaticProps } from '../../utils/serverTranslatedResources';
+import { getStaticProps } from '../../utils-server/translatedResources';
 
 const Settings: React.FC = () => {
   const { t } = useTranslation();

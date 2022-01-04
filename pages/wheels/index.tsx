@@ -13,10 +13,17 @@ import NoWheels from '../../components/WheelsList/NoWheels';
 import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useBreakpoints, useColumns, useEucList, useFilterFields, useSidebar, useSorting } from '../../hooks';
+import { wheels } from '../../store/models/data';
 import { getPricesConfig } from '../../store/selectors';
-import { getStaticProps } from '../../utils/serverTranslatedResources';
+import { WheelId } from '../../types';
+import { getWheelPictures } from '../../utils-server/wheelPictures';
+import { getStaticProps as genericStaticProps, StaticProps } from '../../utils-server/translatedResources';
 
-const Wheels: React.FC = () => {
+interface Props {
+  pictures: Record<WheelId, string>;
+}
+
+const Wheels: React.FC<Props> = ({ pictures }) => {
   const { sm: isTablet } = useBreakpoints();
   const { t } = useTranslation();
   const [view, setView] = useState<'grid' | 'table'>('grid');
@@ -30,7 +37,7 @@ const Wheels: React.FC = () => {
   const { handleCloseSidebar, handleOpenSidebar, open } = useSidebar();
   const { sorting, handleSort } = useSorting();
 
-  const sortedWheels = useEucList(filters, sorting);
+  const sortedWheels = useEucList(filters, sorting, pictures);
 
   const pageTitle = APP_NAME;
   const pageDescription = APP_DESCRIPTION;
@@ -144,4 +151,20 @@ const Wheels: React.FC = () => {
 
 export default Wheels;
 
-export { getStaticProps };
+export async function getStaticProps(staticProps: StaticProps) {
+  const { props } = await genericStaticProps(staticProps);
+  const pictures = wheels.reduce((wheelPictures, wheel) => {
+    if (!wheelPictures[wheel.id]) {
+      wheelPictures[wheel.id] = getWheelPictures(wheel.brandId, wheel.id)[0];
+    }
+
+    return wheelPictures;
+  }, {} as Record<WheelId, string>);
+
+  return {
+    props: {
+      ...props,
+      pictures
+    }
+  };
+}

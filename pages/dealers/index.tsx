@@ -9,7 +9,7 @@ import { APP_NAME, KEYWORDS } from '../../constants';
 import { getRegion } from '../../store/selectors';
 import { Region } from '../../types';
 import { getDealersFromMarkdown } from '../../utils/dealers';
-import { getStaticProps } from '../../utils/serverTranslatedResources';
+import { getStaticProps } from '../../utils-server/translatedResources';
 
 const getRegionId = (regionCode: Region) => {
   switch (regionCode) {
