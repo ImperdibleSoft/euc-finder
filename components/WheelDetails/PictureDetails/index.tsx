@@ -10,14 +10,22 @@ interface Props {
 const PictureDetails: React.FC<Props> = ({ alt, handleClose, picture }) => {
   return (
     <Dialog
+      id="dialog"
       onClose={ handleClose }
       open={ !!picture }
+      maxWidth="xl"
     >
-      <Box sx={ { display: 'flex' } }>
+      <Box id="box" sx={ { display: 'flex' } }>
         <CardMedia
           component="img"
           image={ picture }
           alt={ alt }
+          style={ {
+            height: 'auto',
+            maxHeight: 'calc(100vh - 64px)',
+            maxWidth: 'calc(100vw - 64px)',
+            width: 'auto'
+          } }
         />
       </Box>
     </Dialog>

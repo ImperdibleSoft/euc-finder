@@ -2,7 +2,7 @@ import { Card, Grid, ImageList, ImageListItem, Typography } from '@mui/material'
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import PictureDetails from '../../PictureDetails';
+import PictureDetails from '../PictureDetails';
 
 interface Props {
   onClick: (pictureUrl: string) => void;
