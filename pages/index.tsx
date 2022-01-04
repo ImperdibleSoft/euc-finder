@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
-import { getStaticProps } from '../utils/serverTranslatedResources';
 import { EUCS } from '../constants/clientRoutes';
+import { getStaticProps } from '../utils-server';
 
 const Root: React.FC = () => {
   const router = useRouter();

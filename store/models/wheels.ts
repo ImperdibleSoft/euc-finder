@@ -8,7 +8,6 @@ import {
   inmotionApp,
   kingsongApp,
   stores,
-  wheelPictures,
   wheelPurchaseLinks,
   wheels
 } from './data';
@@ -66,7 +65,6 @@ export const getWheelsInitialState = (): WheelsState => ({
   brands,
   collection: wheels,
   filters: getFiltersInitialValue(),
-  pictures: wheelPictures,
   purchaseLinks: wheelPurchaseLinks,
   sorting: getSortingInitialValue(),
   stores

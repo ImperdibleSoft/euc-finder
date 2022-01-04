@@ -2,7 +2,7 @@ import { Card, Grid, ImageList, ImageListItem, Typography } from '@mui/material'
 import Image from 'next/image';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import PictureDetails from '../../PictureDetails';
+import PictureDetails from '../PictureDetails';
 
 interface Props {
   onClick: (pictureUrl: string) => void;
@@ -59,7 +59,8 @@ const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, 
                   alignItems: 'center',
                   cursor: 'pointer',
                   justifyContent: 'center',
-                  overflow: 'hidden'
+                  overflow: 'hidden',
+                  '& > * > img': { objectFit: 'cover' }
                 } }
               >
                 <Image

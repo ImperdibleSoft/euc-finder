@@ -10,7 +10,7 @@ import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useSidebar, useVideoFilterFields, useVideos } from '../../hooks';
 import { paginateVideos } from '../../store/actions';
 import { PaginateVideosAction } from '../../store/types';
-import { getStaticProps } from '../../utils/serverTranslatedResources';
+import { getStaticProps } from '../../utils-server';
 
 // eslint-disable-next-line max-lines-per-function
 const Videos = () => {

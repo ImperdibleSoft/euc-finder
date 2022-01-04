@@ -73,6 +73,4 @@ interface IconKeys extends WheelFeatures {
 export type WheelFeatureIcons = Record<keyof IconKeys | 'category', string>
 export type WheelFeatureFormatters = Record<keyof WheelFeatures, Function>
 
-export type WheelPictures = Record<WheelId, string[]>
-
 export type WheelPurchaseLinks = Record<WheelId, string[]>

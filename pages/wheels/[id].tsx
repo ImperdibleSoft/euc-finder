@@ -4,15 +4,17 @@ import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import Apps from '../../components/Apps';
 import EmptyCase from '../../components/EmptyCase';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import AdditionalPurchaseLinks from '../../components/WheelDetails/AdditionalPurchaseLinks';
-import Header from '../../components/WheelDetails/Header';
-import SponsoredPurchaseLinks from '../../components/WheelDetails/SponsoredPurchaseLinks';
-import Pictures from '../../components/WheelDetails/Pictures';
 import AdditionalSpecs from '../../components/WheelDetails/AdditionalSpecs';
+import Header from '../../components/WheelDetails/Header';
 import HighlightedSpecs from '../../components/WheelDetails/HighlightedSpecs';
 import MainSpecs from '../../components/WheelDetails/MainSpecs';
+import Pictures from '../../components/WheelDetails/Pictures';
+import SponsoredPurchaseLinks from '../../components/WheelDetails/SponsoredPurchaseLinks';
+import VideosCarousel from '../../components/WheelDetails/VideosCarousel';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import {
   useEucDetail,
@@ -24,18 +26,20 @@ import {
 import { wheels } from '../../store/models/data';
 import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
-import { getStaticProps } from '../../utils/serverTranslatedResources';
-import VideosCarousel from '../../components/WheelDetails/VideosCarousel';
-import Apps from '../../components/Apps';
+import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../../utils-server';
 
-const EucDetail: React.FC = () => {
+interface Props {
+  pictures: string[];
+}
+
+const EucDetail: React.FC<Props> = ({ pictures }) => {
   const router = useRouter();
   const id = router.query.id as WheelId;
   const { t } = useTranslation();
   const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
 
   const brands = useSelector(getBrands);
-  const { name, pictures, wheel } = useEucDetail(id);
+  const { name, wheel } = useEucDetail(id);
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
   const { handleClosePicture, handleOpenPicture, pictureDetail } = useEucDetailHandlers();
   const { sponsoredLinks, regularLinks } = useEucPurchaseLinks(id);
@@ -57,7 +61,7 @@ const EucDetail: React.FC = () => {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={ pageTitle } />
         <meta property="og:description" content={ pageDescription } />
-        <meta property="og:image" content={ pictures?.[0] } />
+        <meta property="og:image" content={ pictures[0] } />
         <meta property="og:image:alt" content={ t('wheelPicture-msg', { wheelName: wheel?.name }) } />
       </Head>
 
@@ -123,7 +127,19 @@ const EucDetail: React.FC = () => {
   );
 };
 
-export { getStaticProps };
+export async function getStaticProps(staticProps: StaticProps) {
+  const { props } = await genericStaticProps(staticProps);
+
+  const { params: { id } } = staticProps;
+  const wheel = wheels.find(w => w.id === id);
+
+  return {
+    props: {
+      ...props,
+      pictures: wheel ? getWheelPictures(wheel.brandId, wheel.id) : []
+    }
+  };
+}
 
 export const getStaticPaths = async () => ({
   paths: [

@@ -13,8 +13,8 @@ import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../constants';
 import { EUC_DETAILS } from '../../../constants/clientRoutes';
 import { useEucListInformationGroups } from '../../../hooks';
-import { getBrands, getFirstPicture, getMeasureUnits } from '../../../store/selectors';
-import { Wheel, WheelFeatureFormatters, WheelFeatureIcons, WheelSorting } from '../../../types';
+import { getBrands, getMeasureUnits } from '../../../store/selectors';
+import { WheelFeatureFormatters, WheelFeatureIcons, WheelSorting, WheelWithPicture } from '../../../types';
 import { formatWheelName } from '../../../utils';
 import BrandLogo from '../../BrandLogo';
 import IconsList from '../../Lists/IconsList';
@@ -22,15 +22,14 @@ import SmallList from '../../Lists/SmallList';
 import { ListItem } from '../../Lists/types';
 
 interface Props {
-  sorting: WheelSorting
-  wheel: Wheel
+  sorting: WheelSorting;
+  wheel: WheelWithPicture;
 }
 
 const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
   const { t } = useTranslation();
   const brands = useSelector(getBrands);
   const measureUnits = useSelector(getMeasureUnits);
-  const firstPicture = useSelector(getFirstPicture(wheel.id));
   const { mainSpecs, additionalSpecs } = useEucListInformationGroups(sorting);
   const link = EUC_DETAILS.replace(':id', wheel.id);
   
@@ -67,14 +66,12 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
 
   return (
     <Card sx={ { position: 'relative' } }>
-      { firstPicture && (
-        <CardMedia
-          component="img"
-          height="240"
-          image={ firstPicture }
-          alt={ t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
-        />
-      ) }
+      <CardMedia
+        component="img"
+        height="240px"
+        image={ wheel.picture }
+        alt={ t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
+      />
 
       <BrandLogo
         alt={ t('appLogo-label', { appName: brands[wheel.brandId].name }) }

@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { getBrands, getListViewSpecs, getMeasureUnits, getPricesConfig, getWheels } from '../../store/selectors';
-import { Wheel, WheelFilters, WheelSorting } from '../../types';
+import { Wheel, WheelFilters, WheelId, WheelSorting, WheelWithPicture } from '../../types';
 import { customisedSortBy, filterWheels } from '../../utils';
 
 export * from './columns';
@@ -24,12 +24,17 @@ export const useEucListInformationGroups = (sorting: WheelSorting) => {
   };
 };
 
-export const useEucList = (filters: WheelFilters, sorting: WheelSorting): Wheel[] => {
+export const useEucList = (
+  filters: WheelFilters,
+  sorting: WheelSorting,
+  pictures: Record<WheelId, string>
+): WheelWithPicture[] => {
   const brands = useSelector(getBrands);
   const measureUnits = useSelector(getMeasureUnits);
   const wheels = useSelector(getWheels);
 
   return wheels
     .filter(wheel => filterWheels(wheel, filters, measureUnits))
+    .map((wheel): WheelWithPicture => ({ ...wheel, picture: pictures?.[wheel.id] }))
     .sort(customisedSortBy(brands)(sorting.key, sorting.order));
 };
