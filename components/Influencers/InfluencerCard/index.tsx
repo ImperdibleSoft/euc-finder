@@ -72,7 +72,6 @@ const InfluencerCard: React.FC<Props> = ({ influencer }) => {
   [t, videos]
   );
 
-
   const handleWatchMoreVideos = () => {
     dispatch(resetVideoFilters());
     dispatch(filterVideos({ key: 'influencers', value: [influencer.id] }));
@@ -149,7 +148,7 @@ const InfluencerCard: React.FC<Props> = ({ influencer }) => {
               {
                 icon: 'language',
                 primary: `${ t('language-label') }s`,
-                secondary: languages.join(', ')
+                secondary: languages.length ? languages.join(', ') : '-'
               },
               {
                 icon: 'smart_display',

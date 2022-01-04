@@ -11,6 +11,7 @@ export enum InfluencerId {
   oneradwheel = 'onerad',
   ox = 'ox',
   wrongWay = 'wrongWay',
+  zenLee = 'zenLee',
 }
 
 export interface Influencer {
