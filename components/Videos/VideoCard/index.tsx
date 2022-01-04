@@ -2,7 +2,7 @@ import { Avatar, Box, Card, CardContent, Chip, List, ListItem } from '@mui/mater
 import React from 'react';
 import { useVideoInfo } from '../../../hooks';
 import { Video } from '../../../types';
-import { getEmbedPath } from '../../../utils/videos';
+import { getEmbedPath } from '../../../utils';
 import YoutubePlayer from '../../YoutubePlayer';
 
 const cardWidth = 314;

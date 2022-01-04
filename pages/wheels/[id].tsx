@@ -26,8 +26,7 @@ import {
 import { wheels } from '../../store/models/data';
 import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
-import { getWheelPictures } from '../../utils-server/wheelPictures';
-import { getStaticProps as genericStaticProps, StaticProps } from '../../utils-server/translatedResources';
+import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../../utils-server';
 
 interface Props {
   pictures: string[];
