@@ -11,8 +11,7 @@ import {
   getRegion,
   getStores,
   getVideosByWheel,
-  getWheelById,
-  getWheelPictures
+  getWheelById
 } from '../../store/selectors';
 import { PurchaseLink, Wheel, WheelId } from '../../types';
 import { formatWheelName, getPurchaseLink, sortBy } from '../../utils';
@@ -23,14 +22,12 @@ export * from './wheelPrice';
 
 export const useEucDetail = (id: WheelId) => {
   const brands = useSelector(getBrands);
-  const pictures = useSelector(getWheelPictures(id));
   const wheel = useSelector(getWheelById(id));
 
   const name = !!wheel ? formatWheelName(wheel, brands) : '';
 
   return {
     name,
-    pictures,
     wheel
   };
 };

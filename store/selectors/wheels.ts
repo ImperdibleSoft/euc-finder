@@ -16,17 +16,6 @@ export const getWheelById = (id: WheelId) =>
 
 export const getBrands = ({ wheels }: RootState) =>
   wheels.brands;
-  
-export const getAllWheelPictures = ({ wheels }: RootState) =>
-  wheels.pictures;
-
-export const getWheelPictures = (id: WheelId) =>
-  ({ wheels }: RootState) =>
-    wheels.pictures[id] ?? [];
-
-export const getFirstPicture = (id: WheelId) =>
-  (rootState: RootState) =>
-    getWheelPictures(id)(rootState)?.[0];
 
 export const getPurchaseLinks = (id: WheelId) =>
   ({ wheels }: RootState) =>

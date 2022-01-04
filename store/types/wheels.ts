@@ -4,7 +4,6 @@ import {
   Store,
   Wheel,
   WheelFilters,
-  WheelPictures,
   WheelPurchaseLinks,
   WheelSorting
 } from '../../types';
@@ -17,7 +16,6 @@ export interface WheelsState {
   };
   brands: Brands;
   collection: Wheel[];
-  pictures: WheelPictures;
   purchaseLinks: WheelPurchaseLinks;
   stores: Store[];
 
