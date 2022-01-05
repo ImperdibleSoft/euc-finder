@@ -21,10 +21,11 @@ const YoutubePlayer: React.FC<Props> = ({ autoplay = false, controls = false, ur
       allowFullScreen
       frameBorder="0"
       height={ height }
-      src={ `${ url }?controls=${ controls ? 1 : 0 }` }
+      src={ `${ url }&controls=${ controls ? 1 : 0 }` }
       title="YouTube video player"
       width={ width }
     />
   );};
+
 
 export default YoutubePlayer;
