@@ -85,7 +85,7 @@ const xmenHT: Wheel = {
   kickstand: Kickstand.dedicated,
   headlight: 5000,
   tailLight: false,
-  leds: false,
+  leds: true,
   sound: SoundSystem.twoPointO,
   display: Display.led,
   suspension: undefined,
