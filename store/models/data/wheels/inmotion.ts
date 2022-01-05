@@ -252,9 +252,9 @@ const v12: Wheel = {
 };
 
 const raptor: Wheel = {
-  id: WheelId.raptor,
+  id: WheelId.v13,
   brandId: BrandId.inmotion,
-  name: 'Raptor',
+  name: 'V13 Raptor',
   price: 0,
 
   ratedPower: 0,

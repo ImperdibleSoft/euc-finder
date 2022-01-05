@@ -301,7 +301,7 @@ const zenLeeVideos: Video[] = [
     tags: [
       InfluencerId.zenLee,
       VideoCategory.chatting,
-      WheelId.raptor,
+      WheelId.v13,
       WheelId.commanderHS,
       WheelId.commanderHT,
       WheelId.shermanMax
