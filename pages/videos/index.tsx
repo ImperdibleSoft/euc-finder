@@ -88,6 +88,7 @@ const Videos = () => {
               </Box>
   
               <VideosCarousel
+                count={ sponsored.pagination.total }
                 handleChangeCategories={ handleChangeCategories }
                 handleChangeInfluencers={ handleChangeInfluencers }
                 handleChangeWheels={ handleChangeWheels }
@@ -122,6 +123,7 @@ const Videos = () => {
               </Box>
   
               <VideosCarousel
+                count={ unwatched.pagination.total }
                 handleChangeCategories={ handleChangeCategories }
                 handleChangeInfluencers={ handleChangeInfluencers }
                 handleChangeWheels={ handleChangeWheels }
@@ -154,6 +156,7 @@ const Videos = () => {
               </Box>
   
               <VideosCarousel
+                count={ watched.pagination.total }
                 className="watchedVideos"
                 handleChangeCategories={ handleChangeCategories }
                 handleChangeInfluencers={ handleChangeInfluencers }
