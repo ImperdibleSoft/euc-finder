@@ -21,7 +21,7 @@ import { setRegion } from '../store/actions';
 import { getBrands, getRegion, getWheels } from '../store/selectors';
 import { darkTheme, lightTheme } from '../styles/theme';
 import { LOCAL_STORAGE_KEY, Region, Wheel } from '../types';
-import { getItem, isDarkTheme, pageview, setItem } from '../utils';
+import { cleanOldCaches, getItem, isDarkTheme, pageview, setItem } from '../utils';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const { t } = useTranslation();
@@ -83,9 +83,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   useEffect(() => {
     const newDark = isDarkTheme();
     setDark(newDark);
+    cleanOldCaches();
   }, []);
 
-  
   useEffect(() => {
     if (price === 'false' || price === 'true') {
       setItem(LOCAL_STORAGE_KEY.SHOW_PRICE, price);

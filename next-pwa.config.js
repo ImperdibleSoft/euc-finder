@@ -55,6 +55,12 @@ const documents = {
 };
 
 module.exports = {
+  caches: {
+    apiRequests,
+    assets,
+    bundles,
+    documents
+  },
   pwa: {
     disable: process.env.NODE_ENV === 'development',
     dest: 'public',
