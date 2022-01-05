@@ -47,8 +47,15 @@ export const customisedSortBy = (brands: Brands) => (key: keyof Wheel, order: Or
     case 'pedals':
       const [aPedalType, aPedalSurface, aRetentionPins] = a.pedals;
       const [bPedalType, bPedalSurface, bRetentionPins] = b.pedals;
-      const aWeight = (pedalTypeWeight[aPedalType] + pedalSurfaceWeight[aPedalSurface]) * (aRetentionPins ? 2 : 1);
-      const bWeight = (pedalTypeWeight[bPedalType] + pedalSurfaceWeight[bPedalSurface]) * (bRetentionPins ? 2 : 1);
+
+      const aPedalTypeWeight = aPedalType ? pedalTypeWeight[aPedalType] : 0;
+      const bPedalTypeWeight = bPedalType ? pedalTypeWeight[bPedalType] : 0;
+
+      const aPedalSurfaceWeight = aPedalSurface ? pedalSurfaceWeight[aPedalSurface] : 0;
+      const bPedalSurfaceWeight = bPedalSurface ? pedalSurfaceWeight[bPedalSurface] : 0;
+
+      const aWeight = (aPedalTypeWeight + aPedalSurfaceWeight) * (aRetentionPins ? 2 : 1);
+      const bWeight = (bPedalTypeWeight + bPedalSurfaceWeight) * (bRetentionPins ? 2 : 1);
       if (aWeight < bWeight) return order === 'asc' ? -1 : 1;
       if (aWeight > bWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
