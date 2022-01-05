@@ -9,6 +9,7 @@ import madpackVideos from './videos/madpack';
 import oneradwheelVideos from './videos/oneRadWheel';
 import oxVideos from './videos/ox';
 import wrongWayVideos from './videos/wrongWay';
+import zenLeeVideos from './videos/zenLee';
 
 export const videos: Video[] = [
   ...eeveesVideos,
@@ -20,5 +21,6 @@ export const videos: Video[] = [
   ...madpackVideos,
   ...oneradwheelVideos,
   ...oxVideos,
-  ...wrongWayVideos
+  ...wrongWayVideos,
+  ...zenLeeVideos
 ];
