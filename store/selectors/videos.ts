@@ -53,7 +53,7 @@ export const getFilteredVideos = ({ videos: { collection, filters } }: RootState
 
       return false;
     })
-    .sort(sortBy('date', 'desc'));
+    .sort(sortBy('publishDate', 'desc'));
 };
 
 export const getVideoFilters = ({ videos }: RootState) =>
@@ -88,7 +88,7 @@ export const getNewVideos = (lastVisit?: Date) => (rootState: RootState) => {
 
   const allVideos = getFilteredVideos(rootState);
   const newVideos = lastVisit
-    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.date > lastVisit)
+    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.releaseDate > lastVisit)
     : allVideos;
   const videos = newVideos.slice(start, end);
 
@@ -108,7 +108,7 @@ export const getWatchedVideos = (lastVisit?: Date) => (rootState: RootState) => 
 
   const allVideos = getFilteredVideos(rootState);
   const watchedVideos = lastVisit
-    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.date <= lastVisit)
+    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.releaseDate <= lastVisit)
     : [];
   const videos = watchedVideos.slice(start, end);
 
@@ -128,7 +128,7 @@ export const getVideosByInfluencer = (influencerId: InfluencerId) =>
       !!v.url &&
       v.tags.some(t => t === influencerId)
     )
-      .sort(sortBy('date', 'desc'));
+      .sort(sortBy('publishDate', 'desc'));
 
 export const getVideosByWheel = (wheelId: WheelId) =>
   ({ videos }: RootState) =>
@@ -136,4 +136,4 @@ export const getVideosByWheel = (wheelId: WheelId) =>
       !!v.url &&
       v.tags.some(t => t === wheelId)
     )
-      .sort(sortBy('date', 'desc'));
+      .sort(sortBy('publishDate', 'desc'));
