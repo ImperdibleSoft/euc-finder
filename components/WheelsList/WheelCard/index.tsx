@@ -44,7 +44,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
 
     return {
       icon,
-      iconProps: { active: !!wheel[key] },
+      iconProps: { active: !!wheel[key] && value && value !== '-' },
       primary: label,
       secondary: value
     };
@@ -58,7 +58,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
 
     return {
       icon,
-      iconProps: { active: !!wheel[key] },
+      iconProps: { active: !!wheel[key] && value && value !== '-' },
       primary: label,
       secondary: value
     };

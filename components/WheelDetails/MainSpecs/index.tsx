@@ -28,7 +28,7 @@ const MainSpecs: React.FC<Props> = ({ specs, wheel }) => {
 
     return {
       icon,
-      iconProps: { active: !!wheel[key] },
+      iconProps: { active: !!wheel[key] && value && value !== '-' },
       primary: value,
       secondary: label
     };

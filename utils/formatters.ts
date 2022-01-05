@@ -156,7 +156,9 @@ export const battery = (value: Battery): string => {
       output += ')';
     }
 
-    return output;
+    if (output.length) {
+      return output;
+    }
   }
 
   return '-';
