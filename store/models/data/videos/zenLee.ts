@@ -295,6 +295,20 @@ const zenLeeVideos: Video[] = [
     publishDate: new Date('13/Dec/2021'),
     releaseDate: new Date('05/Jan/2022'),
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=3j2913JHMMU',
+    tags: [
+      InfluencerId.zenLee,
+      VideoCategory.chatting,
+      WheelId.raptor,
+      WheelId.commanderHS,
+      WheelId.commanderHT,
+      WheelId.shermanMax
+    ],
+    publishDate: new Date('22/Dec/2021'),
+    releaseDate: new Date('05/Jan/2022'),
+    language: 'en'
   }
 ];
 

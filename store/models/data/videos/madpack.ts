@@ -301,6 +301,19 @@ const madpackVideos: Video[] = [
     publishDate: new Date('27/Dec/2021'),
     releaseDate: new Date('07/Dec/2021'),
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=8u0QCrwWtK4',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.abrams
+    ],
+    publishDate: new Date('03/Jan/2022'),
+    releaseDate: new Date('05/Jan/2022'),
+    language: 'en'
   }
 ];
 
