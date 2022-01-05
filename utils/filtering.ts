@@ -26,9 +26,10 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Setting
   const width = Number(getConvertedDiameter(wheel.width, units.diameter));
 
   const [pedalType, pedalSurface, retentionPins = false] = wheel.pedals;
+  const category = getWheelCategory(wheel);
 
   return (
-    filters.categories.includes(getWheelCategory(wheel))
+    (filters.categories.length === 4 || (category && filters.categories.includes(category)))
     && filters.brandId.includes(wheel.brandId)
 
     && (!filters.maxPrice || !wheel.price || wheel.price <= Number(filters.maxPrice))

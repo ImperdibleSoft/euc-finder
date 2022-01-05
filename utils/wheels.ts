@@ -1,6 +1,6 @@
 import { Category, Wheel } from '../types';
 
-export const getWheelCategory = ({ maxSpeed, range, ratedPower, battery }: Wheel): Category => {
+export const getWheelCategory = ({ maxSpeed, range, ratedPower, battery }: Wheel): Category | undefined => {  
   if (
     (maxSpeed && maxSpeed <= 20)
     || (range && range <= 25)
@@ -26,6 +26,11 @@ export const getWheelCategory = ({ maxSpeed, range, ratedPower, battery }: Wheel
     || (battery.wattsHour && battery.wattsHour <= 1500)
   ) {
     return 'high-end';
+  }
+
+  // If there is no available data, don't return any category
+  if (!maxSpeed && !range && !ratedPower && !battery.wattsHour) {
+    return undefined;
   }
 
   return 'extreme';
