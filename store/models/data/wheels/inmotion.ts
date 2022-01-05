@@ -251,6 +251,42 @@ const v12: Wheel = {
   color: Color.black
 };
 
+const raptor: Wheel = {
+  id: WheelId.raptor,
+  brandId: BrandId.inmotion,
+  name: 'Raptor',
+  price: 0,
+
+  ratedPower: 0,
+  peakPower: 0,
+  maxGradibility: 0,
+  maxSpeed: 0,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 0
+  },
+  range: 0,
+  voltage: 0,
+
+  diameter: 0,
+  width: 0,
+  groundClearance: 0,
+  weight: 0,
+  trolleyHandle: undefined,
+  pedals: [undefined, undefined, undefined],
+  antiSpin: undefined,
+  kickstand: undefined,
+  headlight: false,
+  tailLight: false,
+  leds: false,
+  sound: undefined,
+  display: undefined,
+  suspension: undefined,
+  color: undefined
+};
+
 export const inmotionWheels = [
   v5,
   v5f,
@@ -259,5 +295,6 @@ export const inmotionWheels = [
   v10,
   v10f,
   v11,
-  v12
+  v12,
+  raptor
 ];

@@ -50,6 +50,7 @@ export enum WheelId {
   v10f = 'v10f',
   v11 = 'v11',
   v12 = 'v12',
+  raptor = 'raptor',
   
   // Kingsong
   ks14m = 'ks14m',
@@ -152,7 +153,7 @@ export interface WheelFeatures {
   /**
    * Pedals [type, surface, retentionpins]
    */
-  pedals: [PedalType, PedalSurface, boolean]
+  pedals: [PedalType | undefined, PedalSurface | undefined, boolean | undefined]
   /**
    * Kickstand
    */

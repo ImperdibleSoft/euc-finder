@@ -275,13 +275,24 @@ export const pedals = (value?: [PedalType, PedalSurface, boolean], t?: TFunction
   }
 
   const [pedalType, pedalSurface, retentionPins] = value;
-  
-  let suffix = '';
-  if (retentionPins) {
-    suffix = `, ${ t?.('with').toLowerCase() } ${ t?.('retentionPins')?.toLowerCase() }`;
+  let str = '';
+
+  if (pedalType) {
+    str += `${ t?.(pedalType) }, `;
   }
 
-  return `${ t?.(pedalType) }, ${ t?.(pedalSurface)?.toLowerCase() }${ suffix }`;
+  if (pedalSurface) {
+    str += t?.(pedalSurface)?.toLowerCase();
+  }
+
+  if (retentionPins) {
+    if (pedalSurface) {
+      str += `, `;
+    }
+    str += `${ t?.('with').toLowerCase() } ${ t?.('retentionPins')?.toLowerCase() }`;
+  }
+
+  return str || '-';
 };
 
 export const kickstand = (value?: Kickstand, t?: TFunction<'translation'>): string => {
