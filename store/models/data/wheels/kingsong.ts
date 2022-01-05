@@ -273,7 +273,7 @@ const ksS18: Wheel = {
 const ksS20: Wheel = {
   id: WheelId.ksS20,
   brandId: BrandId.kingsong,
-  name: 'S20',
+  name: 'S20 Eagle',
   price: 3300,
 
   ratedPower: 3300,
