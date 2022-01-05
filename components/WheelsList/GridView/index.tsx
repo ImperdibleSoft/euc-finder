@@ -20,7 +20,7 @@ const GridView: React.FC<Props> = ({ handleSort, records, showPrice, sorting  })
   const sortCriteriaOptions = Object
     .keys(sampleWheel ?? {})
     .filter(key => {
-      if (key === 'id' || key === 'peakPower' || key === 'maxGradibility') return false;
+      if (key === 'id' || key === 'peakPower' || key === 'maxGradibility' || key === 'picture') return false;
       if (key === 'price') return showPrice;
       return true;
     })
