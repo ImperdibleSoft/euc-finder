@@ -245,6 +245,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.smartwheel.ca/inmotion-v12-2500w-electric-unicycle-euc/',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/inmotion-v12'
   ],
+  [WheelId.v13]: [],
   
   // Kingsong
   [WheelId.ks14m]: [
