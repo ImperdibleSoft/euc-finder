@@ -6,6 +6,7 @@ export * from './brands';
 export * from './filtering';
 export * from './influencers';
 export * from './localStorage';
+export * from './network';
 export * from './settings';
 export * from './sorting';
 export * from './stores';

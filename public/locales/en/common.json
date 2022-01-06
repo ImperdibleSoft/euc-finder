@@ -46,6 +46,8 @@
   "highlightedSpecs-title": "Highlighted specs",
   "mainSpecs-title": "Main specs",
   "watchVideos-label": "Watch all videos",
+  "loadingComments-msg": "Loading comments...",
+  "errorLoadingComments-msg": "There was an error while loading comments' system. Please, try again later.",
 
   "stayUpdated-msg": "Stay updated!",
   "joinToTelegram-msg": "Telegram Group",

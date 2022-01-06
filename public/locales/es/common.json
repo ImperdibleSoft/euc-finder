@@ -46,6 +46,8 @@
   "highlightedSpecs-title": "Especificaciones destacadas",
   "mainSpecs-title": "Especificaciones principales",
   "watchVideos-label": "Ver todos los vídeos",
+  "loadingComments-msg": "Cargando comentarios...",
+  "errorLoadingComments-msg": "Hubo un error cargando el sistema de comentarios. Por favor, inténtalo en un rato.",
 
   "stayUpdated-msg": "Mantente actualizado",
   "joinToTelegram-msg": "Grupo de Telegram",

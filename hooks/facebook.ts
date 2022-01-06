@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { LoadingState } from '../types';
 
 const APP_ID = '125008404402';
 const version = 'v12.0';
@@ -16,7 +17,13 @@ const getLanguage = (locale?: string) => {
   }
 };
 
-const downloadFacebookSDK = (language: string, callback: Function) => {
+const downloadFacebookSDK = (
+  language: string,
+  setLoadingState: (newState: LoadingState) => void,
+  callback?: Function
+) => {
+  setLoadingState('loading');
+
   const facebookScript = document.createElement('script');
 
   facebookScript.id = 'fb-sdk';
@@ -24,33 +31,27 @@ const downloadFacebookSDK = (language: string, callback: Function) => {
   facebookScript.defer = true;
   facebookScript.crossOrigin = 'anonymous';
   facebookScript.nonce = nonce;
-  // eslint-disable-next-line no-console
-  console.log('useFacebookSDK: downloadFacebookSDK, script created', facebookScript);
+
+  facebookScript.onabort = () => {
+    setLoadingState('error');
+  };
+
+  facebookScript.onerror = () => {
+    setLoadingState('error');
+  };
   
   facebookScript.onload = () => {
-    // eslint-disable-next-line no-console
-    console.log('useFacebookSDK: downloadFacebookSDK, onload');
-    callback();
+    callback?.();
   };
 
   const track = `&appId=${ APP_ID }`;
   facebookScript.src = `//connect.facebook.net/${ language }/sdk.js#xfbml=1&version=${ version }${ track }`;
   document.body.appendChild(facebookScript);
-  // eslint-disable-next-line no-console
-  console.log('useFacebookSDK: downloadFacebookSDK appended to body');
 
   return facebookScript;
 };
 
-const removeFacebookSDKScript = (script: HTMLScriptElement) => {
-  // eslint-disable-next-line no-console
-  console.log('useFacebookSDK: removeFacebookSDKScript');
-  document.body.removeChild(script);
-};
-
 const initFacebookSDK = () => {
-  // eslint-disable-next-line no-console
-  console.log('useFacebookSDK: initFacebookSDK start');
   // @ts-ignore
   window.FB?.init?.({
     appId: APP_ID,
@@ -58,27 +59,31 @@ const initFacebookSDK = () => {
     version,
     nonce
   });
-  // eslint-disable-next-line no-console
-  console.log('useFacebookSDK: initFacebookSDK complete');
+};
+
+const removeFacebookSDKScript = (script: HTMLScriptElement) => {
+  document.body.removeChild(script);
 };
 
 export const useFacebookSDK = () => {
+  const [loadingState, setLoadingState] = useState<LoadingState>('idle');
   const { locale } = useRouter();
 
   useEffect(() => {
-    // eslint-disable-next-line no-console
-    console.log('useFacebookSDK: mounted');
     const language = getLanguage(locale);
-    // eslint-disable-next-line no-console
-    console.log('useFacebookSDK: getLanguage', language);
-    const script = downloadFacebookSDK(language, initFacebookSDK);
-    // eslint-disable-next-line no-console
-    console.log('useFacebookSDK: downloadFacebookSDK', script);
+    const script = downloadFacebookSDK(
+      language,
+      setLoadingState,
+      () => {
+        initFacebookSDK();
+        setLoadingState('success');
+      }
+    );
   
     return () => {
-      // eslint-disable-next-line no-console
-      console.log('useFacebookSDK: unmounting');
       removeFacebookSDKScript(script);
     };
   }, [locale]);
+
+  return { loadingState };
 };
