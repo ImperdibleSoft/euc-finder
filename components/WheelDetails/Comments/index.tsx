@@ -17,7 +17,7 @@ const FacebookComments: React.FC<Props> = ({ dark = isDarkTheme(), numPost = 10,
   useFacebookSDK();
 
   useEffect(() => {
-    setHref(location.href);
+    setHref(location.href.replace('http://localhost:3000', 'https://www.eucfinder.com'));
   }, []);
 
   return (
