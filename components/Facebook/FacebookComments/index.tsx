@@ -1,78 +1,53 @@
 import { Card, SxProps, Theme, Typography } from '@mui/material';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useFacebookSDK, useResize } from '../../../hooks';
-import { LoadingState } from '../../../types';
-import { isDarkTheme } from '../../../utils';
+import { useLoadFacebookContent } from '../../../hooks';
 
 const textStyles: SxProps<Theme> = {
-  py: 2,
+  p: 2,
   textAlign: 'center'
 };
 
 interface Props {
-  dark?: boolean;
   numPost?: number;
   width?: number;
 }
 
-const FacebookComments: React.FC<Props> = ({ dark, numPost = 10, width }) => {
+const FacebookComments: React.FC<Props> = ({ numPost = 10, width }) => {
   const { t } = useTranslation();
-  const { loadingState: sdkLoadingState } = useFacebookSDK();
-
-  const [darkTheme, setDarkTheme] = useState(dark);
-  const [href, setHRef] = useState('');
-  const [commentsLoadingState, setCommentsLoadingState] = useState<LoadingState>('idle');
-  
-  const iframeRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
-  const { rect } = useResize(cardRef);
 
-  useEffect(() => {
-    if (!dark) {
-      setDarkTheme(isDarkTheme());
-    }
-  }, [dark]);
-
-  useEffect(() => {
-    const value = location.href.replace('http://localhost:3000', 'https://www.eucfinder.com');
-    setHRef(value);
-    setCommentsLoadingState('loading');
-  }, [darkTheme]);
-
-  useEffect(() => {
-    if (sdkLoadingState === 'success') {
-      setTimeout(() => {
-        const span = iframeRef.current?.querySelector('span');
-        setCommentsLoadingState(!!span?.offsetHeight ? 'success' : 'error');
-      }, 3000);
-    }
-  }, [sdkLoadingState]);
+  const {
+    loadingState,
+    pathname,
+    rect,
+    shouldRender,
+    theme
+  } = useLoadFacebookContent(cardRef);
 
   return (
     <Card
       ref={ cardRef }
       // TODO: Force white background because FB Comments are not supporting dark theme, even if there is a prop for it
-      sx={ { bgcolor: (theme) => commentsLoadingState === 'success' ? theme.palette.common.white : undefined } }
+      sx={ { bgcolor: ({ palette }) => loadingState === 'success' ? palette.common.white : undefined } }
     >
-      { (sdkLoadingState === 'loading' || commentsLoadingState === 'loading') && (
-        <Typography variant="subtitle1" sx={ textStyles }>
+      { (loadingState === 'loading') && (
+        <Typography variant="subtitle1" component="p" sx={ textStyles }>
           { t('loadingComments-msg') }
         </Typography>
       ) }
 
-      { (sdkLoadingState === 'error' || commentsLoadingState === 'error') && (
-        <Typography variant="subtitle1" sx={ textStyles }>
+      { (loadingState === 'error') && (
+        <Typography variant="subtitle1" component="p" sx={ textStyles }>
           { t('errorLoadingComments-msg') }
         </Typography>
       ) }
 
-      { !!href && commentsLoadingState !== 'error' && (
+      { shouldRender && pathname && loadingState !== 'error' && (
         <div
           className="fb-comments"
-          ref={ iframeRef }
-          data-href={ href }
-          data-colorscheme={ dark ? 'dark' : 'light' }
+          data-href={ pathname }
+          data-colorscheme={ theme }
           data-width={ width ?? rect?.width }
           data-numposts={ numPost }
         />
