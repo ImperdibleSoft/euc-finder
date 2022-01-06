@@ -24,3 +24,5 @@ export const KEYWORDS = [
   'Monociclos',
   'Vehículos'
 ];
+
+export const FB_APP_ID = '125008404402';

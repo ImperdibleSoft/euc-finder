@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { FB_APP_ID } from '../constants';
 import { LoadingState } from '../types';
 
-const APP_ID = '125008404402';
 const version = 'v12.0';
 const nonce = 'chhRkzsL';
 
@@ -44,7 +44,7 @@ const downloadFacebookSDK = (
     callback?.();
   };
 
-  const track = `&appId=${ APP_ID }`;
+  const track = `&appId=${ FB_APP_ID }`;
   facebookScript.src = `//connect.facebook.net/${ language }/sdk.js#xfbml=1&version=${ version }${ track }`;
   document.body.appendChild(facebookScript);
 
@@ -54,7 +54,7 @@ const downloadFacebookSDK = (
 const initFacebookSDK = () => {
   // @ts-ignore
   window.FB?.init?.({
-    appId: APP_ID,
+    appId: FB_APP_ID,
     xfbml: true,
     version,
     nonce

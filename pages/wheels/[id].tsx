@@ -9,7 +9,7 @@ import EmptyCase from '../../components/EmptyCase';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import AdditionalPurchaseLinks from '../../components/WheelDetails/AdditionalPurchaseLinks';
 import AdditionalSpecs from '../../components/WheelDetails/AdditionalSpecs';
-import FacebookComments from '../../components/WheelDetails/Comments';
+import FacebookComments from '../../components/Facebook/FacebookComments';
 import Header from '../../components/WheelDetails/Header';
 import HighlightedSpecs from '../../components/WheelDetails/HighlightedSpecs';
 import MainSpecs from '../../components/WheelDetails/MainSpecs';

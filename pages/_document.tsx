@@ -1,6 +1,7 @@
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
+import { FB_APP_ID } from '../constants';
 
 class MyDocument extends Document {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -24,6 +25,8 @@ class MyDocument extends Document {
             src="https://cdn.jsdelivr.net/npm/pwacompat"
             crossOrigin="anonymous"
           />
+
+          <meta property="fb:app_id" content={ `&#123;${ FB_APP_ID }&#125;` } />
         </Head>
 
         <body>
