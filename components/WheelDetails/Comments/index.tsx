@@ -45,12 +45,16 @@ const FacebookComments: React.FC<Props> = ({ dark, numPost = 10, width }) => {
       setTimeout(() => {
         const span = iframeRef.current?.querySelector('span');
         setCommentsLoadingState(!!span?.offsetHeight ? 'success' : 'error');
-      }, 2000);
+      }, 3000);
     }
   }, [sdkLoadingState]);
 
   return (
-    <Card ref={ cardRef }>
+    <Card
+      ref={ cardRef }
+      // TODO: Force white background because FB Comments are not supporting dark theme, even if there is a prop for it
+      sx={ { bgcolor: (theme) => commentsLoadingState === 'success' ? theme.palette.common.white : undefined } }
+    >
       { (sdkLoadingState === 'loading' || commentsLoadingState === 'loading') && (
         <Typography variant="subtitle1" sx={ textStyles }>
           { t('loadingComments-msg') }
