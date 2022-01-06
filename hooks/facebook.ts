@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 
 const APP_ID = '125008404402';
 const version = 'v12.0';
-const autoLogAppEvents = false;
 const nonce = 'chhRkzsL';
 
 const getLanguage = (locale?: string) => {
@@ -31,7 +30,7 @@ export const useFacebookSDK = () => {
 
     const language = getLanguage(locale);
   
-    const track = `&appId=${ APP_ID }&autoLogAppEvents=${ autoLogAppEvents }`;
+    const track = `&appId=${ APP_ID }`;
     facebookScript.src = `//connect.facebook.net/${ language }/sdk.js#xfbml=1&version=${ version }${ track }`;
     document.body.appendChild(facebookScript);
   
@@ -39,7 +38,6 @@ export const useFacebookSDK = () => {
     const code = `window.fbAsyncInit = function() {
       FB.init({
         appId: '${ APP_ID }',
-        autoLogAppEvents: ${ autoLogAppEvents },
         xfbml: true,
         version: '${ version }',
         nonce: '${ nonce }'
