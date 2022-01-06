@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useResize } from '.';
 import { FB_APP_ID } from '../constants';
+import { useFacebookContext, WAIT_UNTIL_FB_ERROR } from '../context';
 import { LoadingState } from '../types';
 
 const version = 'v12.0';
@@ -65,6 +67,11 @@ const removeFacebookSDKScript = (script: HTMLScriptElement) => {
   document.body.removeChild(script);
 };
 
+export const parseFacebookElements = (querySelector?: string) => {
+  // @ts-ignore
+  window.FB?.XFBML?.parse?.(querySelector);
+};
+
 export const useFacebookSDK = () => {
   const [loadingState, setLoadingState] = useState<LoadingState>('idle');
   const { locale } = useRouter();
@@ -86,4 +93,48 @@ export const useFacebookSDK = () => {
   }, [locale]);
 
   return { loadingState };
+};
+
+const getLoadingState = (sdk: LoadingState, contentLoadingState: LoadingState): LoadingState => {
+  if (sdk === 'error' || contentLoadingState === 'error') {
+    return 'error';
+  }
+
+  if (sdk === 'loading' || contentLoadingState === 'loading') {
+    return 'loading';
+  }
+
+  if (sdk === 'success' && contentLoadingState === 'success') {
+    return 'success';
+  }
+
+  return 'idle';
+};
+
+export const useLoadFacebookContent = (parentRef: React.RefObject<HTMLDivElement>) => {
+  const [contentLoadingState, setContentLoadingState] = useState<LoadingState>('idle');
+  const { rect } = useResize(parentRef);
+  
+  const { generateReRenderHook } = useFacebookContext();
+  const useReRender = generateReRenderHook();
+  const { pathname, sdkLoadingState, shouldRender, theme } = useReRender([rect]);
+  
+  useEffect(() => {
+    if (shouldRender) {
+      setContentLoadingState('loading');
+
+      setTimeout(() => {
+        const span = parentRef?.current?.querySelector('span');
+        setContentLoadingState(!!span?.offsetHeight ? 'success' : 'error');
+      }, WAIT_UNTIL_FB_ERROR);
+    }
+  }, [parentRef, shouldRender]);
+
+  return {
+    loadingState: getLoadingState(sdkLoadingState, contentLoadingState),
+    pathname,
+    rect,
+    shouldRender,
+    theme
+  };
 };
