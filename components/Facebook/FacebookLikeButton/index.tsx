@@ -36,7 +36,7 @@ const FacebookLikeButton: React.FC<Props> = ({ width }) => {
     
       { (loadingState === 'error') && (
         <Typography variant="subtitle1" component="p" sx={ { p: 1 } }>
-          { t('errorLoadingComments-msg') }
+          { t('errorLoadingLikes-msg') }
         </Typography>
       ) }
 

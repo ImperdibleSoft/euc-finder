@@ -47,6 +47,7 @@
   "mainSpecs-title": "Main specs",
   "watchVideos-label": "Watch all videos",
   "loadingLikes-msg": "Loading likes...",
+  "errorLoadingLikes-msg": "There was an error while loading likes' system. Please, try again later.",
   "loadingComments-msg": "Loading comments...",
   "errorLoadingComments-msg": "There was an error while loading comments' system. Please, try again later.",
 
