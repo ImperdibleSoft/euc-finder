@@ -216,6 +216,20 @@ export const stores: Store[] = [
     }
   },
   {
+    id: StoreId.revRides,
+    name: 'REV Rides',
+    website: 'https://revrides.com/',
+    region: 'us',
+    logo: '/logos/distributors/revRides.png',
+    color: '#e21f26',
+    meta: {
+      code: '',
+      discount: 0,
+      manualDiscount: true,
+      sponsor: false
+    }
+  },
+  {
     id: StoreId.alienRides,
     name: 'Alien Rides',
     website: 'https://alienrides.com/',
