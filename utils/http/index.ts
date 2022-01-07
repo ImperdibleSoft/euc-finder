@@ -67,6 +67,13 @@ export const myEWheelHttp = createInstance({
   }
 });
 
+export const revRidesHttp = createInstance({
+  headers: {
+    Origin: 'https://revrides.com/',
+    Referer: 'https://revrides.com/'
+  }
+});
+
 export const smartWheelHttp = createInstance({
   headers: {
     Origin: 'https://www.smartwheel.ca/',

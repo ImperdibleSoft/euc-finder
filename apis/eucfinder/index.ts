@@ -93,6 +93,16 @@ const getMyEWheelPrice = async (url: string): Promise<number | '-' | undefined> 
   }
 };
 
+const getRevRidesPrice = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
+  try {
+    const expensiveParam = expensive ? '?expensive=true' : '';
+    const response = await http.get(`/api/revRides/${ encodeURIComponent(url) }${ expensiveParam }`);
+    return response.data as number | '-' | undefined;
+  } catch {
+    return undefined;
+  }
+};
+
 const getSmartWheelPrice = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
   try {
     const expensiveParam = expensive ? '?expensive=true' : '';
@@ -124,6 +134,7 @@ const eucFinderApi = {
   getEwheelsPrice,
   getInmotionFrancePrice,
   getMyEWheelPrice,
+  getRevRidesPrice,
   getSmartWheelPrice,
   getUrban360Price
 };

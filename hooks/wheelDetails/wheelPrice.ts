@@ -35,6 +35,9 @@ const getApiRequest = (store: StoreId) => {
     case StoreId.myewheel:
       return eucFinderApi.getMyEWheelPrice;
 
+    case StoreId.revRides:
+      return eucFinderApi.getRevRidesPrice;
+
     case StoreId.smartWheel:
       return eucFinderApi.getSmartWheelPrice;
 
