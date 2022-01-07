@@ -1,15 +1,19 @@
 import { LOCAL_STORAGE_KEY } from '../types';
 import { getItem } from './localStorage';
 
-const isDarkModeOS = () => global?.window?.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
+const isDarkModeOS = () =>
+  global?.window?.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
 
-const getLocalStorageTheme = () => getItem(LOCAL_STORAGE_KEY.THEME) ?? 'light';
+const getLocalStorageTheme = () =>
+  getItem(LOCAL_STORAGE_KEY.THEME);
 
 export const isDarkTheme = () => {
-  if (isDarkModeOS() || getLocalStorageTheme() === 'dark') {
-    return true;
+  const hardcodedTheme = getLocalStorageTheme();
+
+  if (hardcodedTheme === 'light' || hardcodedTheme === 'dark') {
+    return hardcodedTheme === 'dark';
   }
 
-  return false;
+  return isDarkModeOS();
 };
 
