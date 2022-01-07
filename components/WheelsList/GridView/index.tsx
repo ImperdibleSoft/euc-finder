@@ -2,18 +2,19 @@ import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { wheelFeatureIcons } from '../../../constants';
-import { WheelFeatureIcons, WheelSorting, WheelSortingKeys, WheelWithPicture } from '../../../types';
+import { WheelFeatureIcons, WheelId, WheelSorting, WheelSortingKeys, WheelWithPicture } from '../../../types';
 import Dropdown, { DropdownItem } from '../../Form/Dropdown';
 import WheelCard from '../WheelCard';
 
 interface Props {
+  handleAddToCompare: (wheelId: WheelId) => void;
   handleSort: (key: WheelSortingKeys) => void
   records: WheelWithPicture[]
   showPrice: boolean,
   sorting: WheelSorting
 }
 
-const GridView: React.FC<Props> = ({ handleSort, records, showPrice, sorting  }) => {
+const GridView: React.FC<Props> = ({ handleAddToCompare, handleSort, records, showPrice, sorting  }) => {
   const { t } = useTranslation();
 
   const [sampleWheel] = records ?? [];
@@ -89,11 +90,16 @@ const GridView: React.FC<Props> = ({ handleSort, records, showPrice, sorting  })
       ) }
 
       <Grid container spacing={ 2 }>
-        { records.map(record => (
-          <Grid item key={ record.id } xs={ 12 } md={ 6 } lg={ 4 } xl={ 3 }>
-            <WheelCard sorting={ sorting } wheel={ record } />
-          </Grid>
-        )) }
+        { records.map(record => {
+          const handleCompareClick = () => {
+            handleAddToCompare(record.id);
+          };
+
+          return (
+            <Grid item key={ record.id } xs={ 12 } md={ 6 } lg={ 4 } xl={ 3 }>
+              <WheelCard handleAddToCompare={ handleCompareClick } sorting={ sorting } wheel={ record } />
+            </Grid>
+          );}) }
       </Grid>
     </Container>
   );

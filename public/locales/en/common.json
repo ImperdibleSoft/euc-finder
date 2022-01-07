@@ -84,6 +84,7 @@
   "descending-label": "Descending",
   "sortBy-label": "Sort by",
   "order-label": "Order",
+  "compare-label": "Compare",
 
   "confirmation-title": "You are navigating out of {{appName}}",
   "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{storeName}}'s site.",

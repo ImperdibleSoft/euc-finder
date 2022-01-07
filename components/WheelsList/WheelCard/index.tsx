@@ -22,11 +22,12 @@ import SmallList from '../../Lists/SmallList';
 import { ListItem } from '../../Lists/types';
 
 interface Props {
+  handleAddToCompare: () => void;
   sorting: WheelSorting;
   wheel: WheelWithPicture;
 }
 
-const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
+const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
   const { t } = useTranslation();
   const brands = useSelector(getBrands);
   const measureUnits = useSelector(getMeasureUnits);
@@ -78,7 +79,7 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
         logo={ brands[wheel.brandId].logo }
       />
 
-      <CardContent>
+      <CardContent sx={ { pb: 0 } }>
         <Typography gutterBottom variant="h5" component="div">
           { wheel.name }
         </Typography>
@@ -90,14 +91,20 @@ const WheelCard: React.FC<Props> = ({ sorting, wheel }) => {
         <SmallList items={ mainSpecItems } />
       </CardContent>
 
-      <CardActions sx={ { pt: 0 } }>
+      <CardActions sx={ { pt: 0, pb: 2 } }>
         <IconsList items={ additionalSpecsItems } />
+      </CardActions>
 
+      <CardActions>
         <Link href={ link } passHref>
-          <Button size="small" variant="outlined" sx={  { marginLeft: 'auto' } }>
+          <Button variant="outlined" sx={  { ml: 'auto', mr: 1 } }>
             { t('details-btn') }
           </Button>
         </Link>
+
+        <Button variant="outlined" color="secondary" onClick={ handleAddToCompare }>
+          { t('compare-label') }
+        </Button>
       </CardActions>
     </Card>
   );
