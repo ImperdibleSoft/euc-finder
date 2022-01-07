@@ -4,6 +4,7 @@ import {
   Store,
   Wheel,
   WheelFilters,
+  WheelId,
   WheelPurchaseLinks,
   WheelSorting
 } from '../../types';
@@ -16,6 +17,7 @@ export interface WheelsState {
   };
   brands: Brands;
   collection: Wheel[];
+  comparing: WheelId[];
   purchaseLinks: WheelPurchaseLinks;
   stores: Store[];
 
@@ -41,4 +43,28 @@ export interface FilterWheelsAction {
   }
 }
 
-export type WheelsAction = SortWheelsAction | ResetWheelsFiltersAction | FilterWheelsAction
+export interface AddWheelToComparisionAction {
+  type: 'ADD_COMPARE_WHEEL',
+  payload: {
+    wheelId: WheelId
+  }
+}
+
+export interface RemoveWheelToComparisionAction {
+  type: 'REMOVE_COMPARE_WHEEL',
+  payload: {
+    wheelId: WheelId
+  }
+}
+
+export interface ResetComparisionAction {
+  type: 'RESET_COMPARE'
+}
+
+export type WheelsAction =
+  | SortWheelsAction
+  | ResetWheelsFiltersAction
+  | FilterWheelsAction
+  | AddWheelToComparisionAction
+  | RemoveWheelToComparisionAction
+  | ResetComparisionAction;

@@ -64,6 +64,7 @@ export const getWheelsInitialState = (): WheelsState => ({
   },
   brands,
   collection: wheels,
+  comparing: [],
   filters: getFiltersInitialValue(),
   purchaseLinks: wheelPurchaseLinks,
   sorting: getSortingInitialValue(),

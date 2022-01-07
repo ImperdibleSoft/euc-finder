@@ -1,5 +1,12 @@
 import { Dispatch } from 'redux';
-import { FilterWheelsAction, ResetWheelsFiltersAction, SortWheelsAction } from '../types';
+import {
+  AddWheelToComparisionAction,
+  FilterWheelsAction,
+  RemoveWheelToComparisionAction,
+  ResetComparisionAction,
+  ResetWheelsFiltersAction,
+  SortWheelsAction
+} from '../types';
 
 export const sortWheels = (payload: SortWheelsAction['payload']) =>
   (dispatch: Dispatch) => {
@@ -20,4 +27,25 @@ export const filterWheels = (payload: FilterWheelsAction['payload']) =>
       type: 'FILTER_WHEELS',
       payload
     } as FilterWheelsAction);
+  };
+
+export const addWheelToComparision = (payload: AddWheelToComparisionAction['payload']) =>
+  (dispatch: Dispatch) => {
+    dispatch({
+      type: 'ADD_COMPARE_WHEEL',
+      payload
+    } as AddWheelToComparisionAction);
+  };
+
+export const removeWheelToComparision = (payload: RemoveWheelToComparisionAction['payload']) =>
+  (dispatch: Dispatch) => {
+    dispatch({
+      type: 'REMOVE_COMPARE_WHEEL',
+      payload
+    } as RemoveWheelToComparisionAction);
+  };
+
+export const resetWheelToComparision = () =>
+  (dispatch: Dispatch) => {
+    dispatch({ type: 'RESET_COMPARE' } as ResetComparisionAction);
   };

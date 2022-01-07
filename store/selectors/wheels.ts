@@ -63,3 +63,7 @@ export const getWheelApps = (id?: BrandId) =>
     // eslint-disable-next-line no-restricted-syntax
     unofficial: wheels.apps.unofficial
   });
+
+export const getComparedWheels = ({ wheels }: RootState) =>
+  wheels.comparing
+    .map(wheel => wheels.collection.find(w => w.id === wheel));
