@@ -12,6 +12,7 @@ import qs from 'query-string';
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Provider, useDispatch, useSelector } from 'react-redux';
+import FacebookWrapper from '../components/Facebook/FacebookWrapper';
 import MainLayout from '../components/Layouts/MainLayout';
 import { APP_NAME, getRegions, MEASUREMENT_ID } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
@@ -135,11 +136,13 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
       <ThemeProvider theme={ theme }>
         <Provider store={ store }>
-          <ModalsContextProvider value={ { initialDisclaimer } }>
-            <EucArenaApp>
-              <Component { ...pageProps }/>
-            </EucArenaApp>
-          </ModalsContextProvider>
+          <FacebookWrapper>
+            <ModalsContextProvider value={ { initialDisclaimer } }>
+              <EucArenaApp>
+                <Component { ...pageProps }/>
+              </EucArenaApp>
+            </ModalsContextProvider>
+          </FacebookWrapper>
         </Provider>
       </ThemeProvider>
 

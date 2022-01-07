@@ -1,11 +1,13 @@
 import { Grid } from '@mui/material';
-import { useRouter } from 'next/dist/client/router';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import Apps from '../../components/Apps';
 import EmptyCase from '../../components/EmptyCase';
+import FacebookComments from '../../components/Facebook/FacebookComments';
+import FacebookLikeButton from '../../components/Facebook/FacebookLikeButton';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import AdditionalPurchaseLinks from '../../components/WheelDetails/AdditionalPurchaseLinks';
 import AdditionalSpecs from '../../components/WheelDetails/AdditionalSpecs';
@@ -77,6 +79,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
               heroImage={ pictures[0] }
               wheelName={ name }
             >
+              <FacebookLikeButton />
               { pageDescription }
             </Header>
 
@@ -119,7 +122,12 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
                 items={ regularLinks }
                 wheel={ id }
               />
+
+              <Grid item xs={ 12 }>
+                <FacebookComments />
+              </Grid>
             </Grid>
+
           </>
         ) }
       </SimpleLayout>

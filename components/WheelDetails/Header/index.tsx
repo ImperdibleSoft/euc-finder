@@ -52,7 +52,7 @@ const Header: React.FC<PropsWithChildren<Props>> = ({
           { wheelName }
         </Typography>
 
-        <Typography variant="body1" component="p" color="text.secondary" style={ { flex: 1 } }>
+        <Typography variant="body1" component="div" color="text.secondary" style={ { flex: 1 } }>
           { children }
         </Typography>
       </Grid>
