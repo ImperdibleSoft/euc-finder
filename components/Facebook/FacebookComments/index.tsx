@@ -43,7 +43,7 @@ const FacebookComments: React.FC<Props> = ({ numPost = 10, width }) => {
         </Typography>
       ) }
 
-      { shouldRender && pathname && loadingState !== 'error' && (
+      { shouldRender && (
         <div
           className="fb-comments"
           data-href={ pathname }

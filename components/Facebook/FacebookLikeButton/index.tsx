@@ -40,7 +40,7 @@ const FacebookLikeButton: React.FC<Props> = ({ width }) => {
         </Typography>
       ) }
 
-      { shouldRender && pathname && loadingState !== 'error' && (
+      { shouldRender && (
         <Box
           sx={ {
             display: 'inline-block !important',

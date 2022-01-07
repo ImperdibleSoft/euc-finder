@@ -43,7 +43,7 @@ const FacebookWrapper: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       return {
         pathname,
         sdkLoadingState: loadingState,
-        shouldRender: loadingState === 'success' && shouldRender,
+        shouldRender: shouldRender && !!pathname && loadingState === 'success',
         theme: (darkTheme ? 'dark' : 'light') as FacebookTheme
       };
     };
