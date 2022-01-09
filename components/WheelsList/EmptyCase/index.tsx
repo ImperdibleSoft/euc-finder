@@ -7,7 +7,7 @@ interface Props {
   handleResetFilters: () => void
 }
 
-const NoWheels: React.FC<Props> = ({ handleOpenFilters, handleResetFilters }) => {
+const EmptyCase: React.FC<Props> = ({ handleOpenFilters, handleResetFilters }) => {
   const { t } = useTranslation();
 
   return (
@@ -43,4 +43,4 @@ const NoWheels: React.FC<Props> = ({ handleOpenFilters, handleResetFilters }) =>
   );
 };
 
-export default NoWheels;
+export default EmptyCase;

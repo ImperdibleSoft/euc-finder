@@ -7,9 +7,9 @@ import Apps from '../../components/Apps';
 import { HEADER_HEIGHT } from '../../components/Layouts/constants';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
 import Columns from '../../components/WheelsList/Columns';
+import EmptyCase from '../../components/WheelsList/EmptyCase';
 import Filters from '../../components/WheelsList/Filters';
 import GridView from '../../components/WheelsList/GridView';
-import NoWheels from '../../components/WheelsList/NoWheels';
 import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import {
@@ -147,7 +147,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
         />
 
         { sortedWheels.length <= 0 && (
-          <NoWheels
+          <EmptyCase
             handleOpenFilters={ handleOpenSidebar }
             handleResetFilters={ handleResetFilters }
           />

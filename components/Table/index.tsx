@@ -14,15 +14,23 @@ import { Wheel, WheelSorting } from '../../types';
 export { TableCell };
 
 interface TableHeadProps {
-  id?: keyof Wheel
-  onClick?: () => void
-  sorting?: WheelSorting
-  style?: React.CSSProperties
+  id?: keyof Wheel;
+  onClick?: () => void;
+  sorting?: WheelSorting;
+  style?: React.CSSProperties;
+  width?: string;
 }
-export const TableHead: React.FC<PropsWithChildren<TableHeadProps>> = ({ children, id, onClick, sorting, style }) => { 
+export const TableHead: React.FC<PropsWithChildren<TableHeadProps>> = ({
+  children,
+  id,
+  onClick,
+  sorting,
+  style,
+  width
+}) => { 
   if (!id || !sorting || !onClick) {
     return (
-      <TableCell style={ style }>
+      <TableCell style={ style } width={ width }>
         { children }
       </TableCell>
     );
