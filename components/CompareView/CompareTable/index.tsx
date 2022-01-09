@@ -9,7 +9,7 @@ import { isCompetingValue, isTopValue } from '../../../utils/comparing';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../Table';
 
 const getBackground = (theme: Theme, index: number, highlighted: boolean) => {
-  const bestBg = 22;
+  const bestBg = 11;
   const highlightedBg = 44;
 
   if (index === 0 && highlighted) {
