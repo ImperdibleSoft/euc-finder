@@ -75,14 +75,14 @@ export const wheelFeatureFormatters: WheelFeatureFormatters = {
 };
 
 export const trolleyHandleWeight: TrolleyHandleWeight = {
-  scorpion: 2,
-  telescopic: 1
+  scorpion: 1.1,
+  telescopic: 1.0
 };
 
 export const antiSpinWeight: AntiSpinWeight = {
-  sensor: 3,
-  button: 2,
-  position: 1
+  sensor: 1.2,
+  button: 1.1,
+  position: 1.0
 };
 
 export const pedalTypeWeight: PedalTypeWeight = {
@@ -91,10 +91,10 @@ export const pedalTypeWeight: PedalTypeWeight = {
 };
 
 export const pedalSurfaceWeight: PedalSurfaceWeight = {
-  fullGripTape: 1.4,
-  partialGripTape: 1.3,
-  rubber: 1.2,
-  metalic: 1.1
+  fullGripTape: 0.4,
+  partialGripTape: 0.3,
+  rubber: 0.2,
+  metalic: 0.1
 };
 
 export const kickstandWeight: KickstandWeight = {
@@ -103,18 +103,18 @@ export const kickstandWeight: KickstandWeight = {
 };
 
 export const soundSystemWeight: SoundSystemWeight = {
-  '5.1': 4,
-  '4.0': 3,
-  '2.1': 2,
-  '2.0': 1
+  '5.1': 1.3,
+  '4.0': 1.2,
+  '2.1': 1.1,
+  '2.0': 1.0
 };
 
 export const displayWeight: DisplayWeight = {
-  lcd: 2,
-  led: 1
+  lcd: 1.5,
+  led: 1.0
 };
 
 export const suspensionWeight: SuspensionWeight = {
-  standard: 2,
-  custom: 1
+  standard: 1.5,
+  custom: 1.0
 };
