@@ -85,6 +85,9 @@
   "sortBy-label": "Ordenar por",
   "order-label": "Órden",
   "compare-label": "Comparar",
+  "compareAll-label": "Comparar las {{wheels}} ruedas",
+
+  "compare-title": "Comparador",
   "score": "Puntuación",
   "addWheel-label": "Añadir rueda",
   "remove-label": "Quitar",

@@ -85,6 +85,9 @@
   "sortBy-label": "Sort by",
   "order-label": "Order",
   "compare-label": "Compare",
+  "compareAll-label": "Compare {{wheels}} EUCs",
+
+  "compare-title": "Comparator",
   "score": "Score",
   "addWheel-label": "Add EUC",
   "remove-label": "Remove",
