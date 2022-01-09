@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { EUC_COMPARE } from '../../constants/clientRoutes';
+import { EUC_COMPARE, SETTINGS } from '../../constants/clientRoutes';
 import { addWheelToComparision, removeWheelToComparision, resetWheelToComparision } from '../../store/actions';
 import { getComparedWheels, getSpecWeights, getWheels } from '../../store/selectors';
 import { Wheel, WheelId } from '../../types';
@@ -11,6 +11,13 @@ import { getAbsoluteMinMaxValues, getAbsoluteWheelsScores, getRelativeMinMaxScor
 export const useCompareActions = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+
+  const handleAddAllToComparision = (wheels: WheelId[]) => {
+    wheels.forEach(wheelId => {
+      dispatch(addWheelToComparision({ wheelId }));
+    });
+    router.push(EUC_COMPARE);
+  };
 
   const handleAddToComparision = (wheelId: WheelId) => {
     dispatch(addWheelToComparision({ wheelId }));
@@ -25,9 +32,20 @@ export const useCompareActions = () => {
     dispatch(resetWheelToComparision());
   };
 
+  const handleOpenComparator = () => {
+    router.push(EUC_COMPARE);
+  };
+
+  const handleOpenSettings = () => {
+    router.push(SETTINGS);
+  };
+
   return {
+    handleAddAllToComparision,
     handleAddToComparision,
+    handleOpenSettings,
     handleRemoveFromComparision,
+    handleOpenComparator,
     handleResetComparision
   };
 };

@@ -1,6 +1,5 @@
 import { Button, ButtonGroup, Container, Icon, Typography } from '@mui/material';
 import Head from 'next/head';
-import Link from 'next/link';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -13,7 +12,6 @@ import Filters from '../../components/WheelsList/Filters';
 import GridView from '../../components/WheelsList/GridView';
 import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { EUC_COMPARE } from '../../constants/clientRoutes';
 import {
   useBreakpoints,
   useColumns,
@@ -32,6 +30,7 @@ interface Props {
   pictures: Record<WheelId, string>;
 }
 
+// eslint-disable-next-line max-lines-per-function
 const Wheels: React.FC<Props> = ({ pictures }) => {
   const { sm: isTablet } = useBreakpoints();
   const { t } = useTranslation();
@@ -48,7 +47,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
 
   const sortedWheels = useEucList(filters, sorting, pictures);
 
-  const { handleAddToComparision } = useCompareActions();
+  const { handleAddAllToComparision, handleAddToComparision, handleOpenComparator } = useCompareActions();
 
   const pageTitle = APP_NAME;
   const pageDescription = APP_DESCRIPTION;
@@ -65,7 +64,6 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
 
     return `calc(50vh - ${ spacing }px)`;
   }, [isTablet, displayTable]);
-
 
   return (
     <>
@@ -135,11 +133,17 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
             </Button>
           </ButtonGroup>
 
-          <Link href={ EUC_COMPARE } passHref>
-            <Button variant="outlined" sx={ { justifySelf: 'flex-end', ml: 1 } }>
-              { t('compare-label') }
+          <ButtonGroup>
+            <Button onClick={ handleOpenComparator } sx={ { justifySelf: 'flex-end', ml: 1 } }>
+              { t('compare-title') }
             </Button>
-          </Link>
+
+            { sortedWheels.length <= 5 && (
+              <Button onClick={ () => handleAddAllToComparision(sortedWheels.map(w => w.id)) }>
+                { t('compareAll-label', { wheels: sortedWheels.length }) }
+              </Button>
+            ) }
+          </ButtonGroup>
         </Container>
 
         <Container maxWidth={ view === 'grid' ? 'lg' : false } sx={ { pb: 2 } }>
