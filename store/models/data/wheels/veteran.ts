@@ -42,7 +42,7 @@ const sherman: Wheel = {
   tailLight: true,
   leds: false,
   sound: undefined,
-  display: Display.lcd,
+  display: Display.led,
   suspension: undefined,
   color: Color.black
 };
@@ -98,7 +98,7 @@ const abrams: Wheel = {
   tailLight: true,
   leds: false,
   sound: undefined,
-  display: Display.lcd,
+  display: Display.led,
   suspension: undefined,
   color: Color.black
 };

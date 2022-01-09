@@ -54,7 +54,7 @@ const kingsong: Brand = {
   website: 'https://www.kingsong.com/',
   misc: {
     // Reference from S18, which I've tested personally
-    kmPerWh: kmPerWh * 0.9
+    kmPerWh: kmPerWh * 0.85
   }
 };
 
