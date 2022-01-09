@@ -9,6 +9,7 @@ import {
   suspensionWeight,
   trolleyHandleWeight
 } from '../../constants';
+import { SpecWeights } from '../../store/types';
 import {
   AntiSpin,
   Display,
@@ -172,27 +173,78 @@ export const getDisplayScore = (value?: Display) => {
 };
 
 
-export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, calculatePrice: boolean): WheelScore => {
-  const price = applyMaxValue(getLowestValueScore(wheel.price, minMaxValues.price), calculatePrice ? 20 : 0);
+export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeights: SpecWeights): WheelScore => {
+  const price = applyMaxValue(
+    getLowestValueScore(wheel.price, minMaxValues.price),
+    specWeights.price
+  );
 
-  const maxSpeed = applyMaxValue(getValueBasedOnMinMax(wheel.maxSpeed, minMaxValues.maxSpeed), 15);
-  const range = applyMaxValue(getValueBasedOnMinMax(wheel.range, minMaxValues.range), 15);
-  const weight = applyMaxValue(getLowestValueScore(wheel.weight, minMaxValues.weight), 10);
+  const maxSpeed = applyMaxValue(
+    getValueBasedOnMinMax(wheel.maxSpeed, minMaxValues.maxSpeed),
+    specWeights.maxSpeed
+  );
+  const range = applyMaxValue(
+    getValueBasedOnMinMax(wheel.range, minMaxValues.range),
+    specWeights.range
+  );
+  const weight = applyMaxValue(
+    getLowestValueScore(wheel.weight, minMaxValues.weight),
+    specWeights.weight
+  );
   
-  const ratedPower = applyMaxValue(getValueBasedOnMinMax(wheel.ratedPower, minMaxValues.ratedPower), 15);
-  const battery = applyMaxValue(getValueBasedOnMinMax(wheel.battery.wattsHour, minMaxValues.battery), 5);
-  const maxGradibility = applyMaxValue(getMaxGradabilityScore(wheel.maxGradibility, minMaxValues.maxGradibility), 10);
-  const suspension = applyMaxValue(getSuspensionScore(wheel.suspension), 5);
+  const ratedPower = applyMaxValue(
+    getValueBasedOnMinMax(wheel.ratedPower, minMaxValues.ratedPower),
+    specWeights.ratedPower
+  );
+  const battery = applyMaxValue(
+    getValueBasedOnMinMax(wheel.battery.wattsHour, minMaxValues.battery),
+    specWeights.range / 4
+  );
+  const maxGradibility = applyMaxValue(
+    getMaxGradabilityScore(wheel.maxGradibility, minMaxValues.maxGradibility),
+    specWeights.maxGradibility
+  );
+  const suspension = applyMaxValue(
+    getSuspensionScore(wheel.suspension),
+    specWeights.suspension
+  );
 
-  const headlight = applyMaxValue(getHeadlightScore(wheel.headlight, minMaxValues.headlight), 10);
-  const tailLight = applyMaxValue(getBooleanScore(wheel.tailLight), 10);
-  const trolleyHandle = applyMaxValue(getTrolleyHandleScore(wheel.trolleyHandle), 10);
-  const pedals = applyMaxValue(getPedalsScore(wheel.pedals), 10);
-  const antiSpin = applyMaxValue(getAntiSpinScore(wheel.antiSpin), 5);
-  const kickstand = applyMaxValue(getKickstandScore(wheel.kickstand), 5);
-  const leds = applyMaxValue(getLedsScore(wheel.leds), 1);
-  const sound = applyMaxValue(getSoundScore(wheel.sound), 3);
-  const display = applyMaxValue(getDisplayScore(wheel.display), 2);
+  const headlight = applyMaxValue(
+    getHeadlightScore(wheel.headlight, minMaxValues.headlight),
+    specWeights.headlight
+  );
+  const tailLight = applyMaxValue(
+    getBooleanScore(wheel.tailLight),
+    specWeights.tailLight
+  );
+  const trolleyHandle = applyMaxValue(
+    getTrolleyHandleScore(wheel.trolleyHandle),
+    specWeights.trolleyHandle
+  );
+  const pedals = applyMaxValue(
+    getPedalsScore(wheel.pedals),
+    specWeights.pedals
+  );
+  const antiSpin = applyMaxValue(
+    getAntiSpinScore(wheel.antiSpin),
+    specWeights.antiSpin
+  );
+  const kickstand = applyMaxValue(
+    getKickstandScore(wheel.kickstand),
+    specWeights.kickstand
+  );
+  const leds = applyMaxValue(
+    getLedsScore(wheel.leds),
+    specWeights.leds
+  );
+  const sound = applyMaxValue(
+    getSoundScore(wheel.sound),
+    specWeights.sound
+  );
+  const display = applyMaxValue(
+    getDisplayScore(wheel.display),
+    specWeights.display
+  );
 
   const score = Number(toDecimals(price + maxSpeed + range + weight + ratedPower + battery + maxGradibility +
     suspension + headlight + tailLight + trolleyHandle + pedals + antiSpin + kickstand + leds + sound + display, 2));

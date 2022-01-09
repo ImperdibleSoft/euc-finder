@@ -1,4 +1,5 @@
 /* eslint-disable max-lines */
+import { SpecWeights } from '../../store/types';
 import { MinMaxScores, MinMaxValues, ScoreCollection, Wheel, WheelId } from '../../types';
 import {
   getAntiSpinScore,
@@ -14,7 +15,7 @@ import {
 } from './wheelScore';
 
 // eslint-disable-next-line max-lines-per-function
-export const getAbsoluteMinMaxValues = (wheels: Wheel[], showPrices: boolean): MinMaxValues => {
+export const getAbsoluteMinMaxValues = (wheels: Wheel[]): MinMaxValues => {
   const minMaxValues: MinMaxValues = {
     price: [0, 0],
   
@@ -47,73 +48,49 @@ export const getAbsoluteMinMaxValues = (wheels: Wheel[], showPrices: boolean): M
 
   // eslint-disable-next-line max-lines-per-function
   wheels.forEach(wheel => {
-    if (showPrices) {
-      if (!minMaxValues.price[0] || (wheel.price && wheel.price < minMaxValues.price[0])) {
-        minMaxValues.price = [wheel.price, minMaxValues.price[1]];
-      }
-      if (!minMaxValues.price[1] || (wheel.price && wheel.price > minMaxValues.price[1])) {
-        minMaxValues.price = [minMaxValues.price[0], wheel.price];
-      }
+    if (!minMaxValues.price[0] || (wheel.price && wheel.price < minMaxValues.price[0])) {
+      minMaxValues.price = [wheel.price, minMaxValues.price[1]];
+    }
+    if (!minMaxValues.price[1] || (wheel.price && wheel.price > minMaxValues.price[1])) {
+      minMaxValues.price = [minMaxValues.price[0], wheel.price];
     }
 
-    // 'diameter',
-    // 'width',
-    // if (!minMaxValues.maxSpeed[0] || (wheel.maxSpeed && wheel.maxSpeed < minMaxValues.maxSpeed[0])) {
-    //   minMaxValues.maxSpeed = [wheel.maxSpeed, minMaxValues.maxSpeed[1]];
-    // }
     if (!minMaxValues.maxSpeed[1] || (wheel.maxSpeed && wheel.maxSpeed > minMaxValues.maxSpeed[1])) {
       minMaxValues.maxSpeed = [minMaxValues.maxSpeed[0], wheel.maxSpeed];
     }
-    // if (!minMaxValues.range[0] || (wheel.range && wheel.range < minMaxValues.range[0])) {
-    //   minMaxValues.range = [wheel.range, minMaxValues.range[1]];
-    // }
+    
     if (!minMaxValues.range[1] || (wheel.range && wheel.range > minMaxValues.range[1])) {
       minMaxValues.range = [minMaxValues.range[0], wheel.range];
     }
+
     if (!minMaxValues.weight[0] || (wheel.weight && wheel.weight < minMaxValues.weight[0])) {
       minMaxValues.weight = [wheel.weight, minMaxValues.weight[1]];
     }
     if (!minMaxValues.weight[1] || (wheel.weight && wheel.weight > minMaxValues.weight[1])) {
       minMaxValues.weight = [minMaxValues.weight[0], wheel.weight];
     }
-  
-    // if (!minMaxValues.ratedPower[0] || (wheel.ratedPower && wheel.ratedPower < minMaxValues.ratedPower[0])) {
-    //   minMaxValues.ratedPower = [wheel.ratedPower, minMaxValues.ratedPower[1]];
-    // }
+
+    
     if (!minMaxValues.ratedPower[1] || (wheel.ratedPower && wheel.ratedPower > minMaxValues.ratedPower[1])) {
       minMaxValues.ratedPower = [minMaxValues.ratedPower[0], wheel.ratedPower];
     }
-    // if (!minMaxValues.peakPower[0] || (wheel.peakPower && wheel.peakPower < minMaxValues.peakPower[0])) {
-    //   minMaxValues.peakPower = [wheel.peakPower, minMaxValues.peakPower[1]];
-    // }
+    
     if (!minMaxValues.peakPower[1] || (wheel.peakPower && wheel.peakPower > minMaxValues.peakPower[1])) {
       minMaxValues.peakPower = [minMaxValues.peakPower[0], wheel.peakPower];
     }
-    // if (!minMaxValues.battery[0] || (wheel.battery && wheel.battery.wattsHour < minMaxValues.battery[0])) {
-    //   minMaxValues.battery = [wheel.battery.wattsHour, minMaxValues.battery[1]];
-    // }
+    
     if (!minMaxValues.battery[1] || (wheel.battery && wheel.battery.wattsHour > minMaxValues.battery[1])) {
       minMaxValues.battery = [minMaxValues.battery[0], wheel.battery.wattsHour];
     }
-    // 'voltage',
-    // if (
-    //   !minMaxValues.maxGradibility[0] ||
-    //   (wheel.maxGradibility && wheel.maxGradibility < minMaxValues.maxGradibility[0])
-    // ) {
-    //   minMaxValues.maxGradibility = [wheel.maxGradibility, minMaxValues.maxGradibility[1]];
-    // }
+    
     if (
       !minMaxValues.maxGradibility[1] ||
     (wheel.maxGradibility && wheel.maxGradibility > minMaxValues.maxGradibility[1])
     ) {
       minMaxValues.maxGradibility = [minMaxValues.maxGradibility[0], wheel.maxGradibility];
     }
-    // 'groundClearance',
 
     const suspensionScore = getSuspensionScore(wheel.suspension);
-    // if (!minMaxValues.suspension[0] || suspensionScore < minMaxValues.suspension[0]) {
-    //   minMaxValues.suspension = [suspensionScore, minMaxValues.suspension[1]];
-    // }
     if (!minMaxValues.suspension[1] || suspensionScore > minMaxValues.suspension[1]) {
       minMaxValues.suspension = [minMaxValues.suspension[0], suspensionScore];
     }
@@ -189,7 +166,6 @@ export const getAbsoluteMinMaxValues = (wheels: Wheel[], showPrices: boolean): M
     if (!minMaxValues.display[1] || displayScore > minMaxValues.display[1]) {
       minMaxValues.display = [minMaxValues.display[0], displayScore];
     }
-    // 'color'
   });
 
   return minMaxValues;
@@ -198,11 +174,11 @@ export const getAbsoluteMinMaxValues = (wheels: Wheel[], showPrices: boolean): M
 export const getAbsoluteWheelsScores = (
   wheels: Wheel[],
   minMaxValues: MinMaxValues,
-  showPrices: boolean
+  specWeights: SpecWeights
 ): ScoreCollection => wheels.reduce(
   (scoreCollection, wheel) => {
     if (!scoreCollection[wheel.id]) {
-      scoreCollection[wheel.id] = getWheelScore(wheel, minMaxValues, showPrices);
+      scoreCollection[wheel.id] = getWheelScore(wheel, minMaxValues, specWeights);
     }
       
     return scoreCollection;
@@ -213,8 +189,7 @@ export const getAbsoluteWheelsScores = (
 // eslint-disable-next-line max-lines-per-function
 export const getRelativeMinMaxScores = (
   scores: ScoreCollection,
-  wheels: WheelId[] = [],
-  showPrices: boolean
+  wheels: WheelId[] = []
 ): MinMaxScores => {
   const minMaxScores: MinMaxScores = {
     price: [0, 0],
@@ -252,17 +227,13 @@ export const getRelativeMinMaxScores = (
   wheels.forEach(wheelId => {
     const wheelScore = scores[wheelId];
 
-    if (showPrices) {
-      if (!minMaxScores.price[0] || (wheelScore.price && wheelScore.price < minMaxScores.price[0])) {
-        minMaxScores.price = [wheelScore.price, minMaxScores.price[1]];
-      }
-      if (!minMaxScores.price[1] || (wheelScore.price && wheelScore.price > minMaxScores.price[1])) {
-        minMaxScores.price = [minMaxScores.price[0], wheelScore.price];
-      }
+    if (!minMaxScores.price[0] || (wheelScore.price && wheelScore.price < minMaxScores.price[0])) {
+      minMaxScores.price = [wheelScore.price, minMaxScores.price[1]];
+    }
+    if (!minMaxScores.price[1] || (wheelScore.price && wheelScore.price > minMaxScores.price[1])) {
+      minMaxScores.price = [minMaxScores.price[0], wheelScore.price];
     }
 
-    // 'diameter',
-    // 'width',
     if (!minMaxScores.maxSpeed[1] || wheelScore.maxSpeed > minMaxScores.maxSpeed[1]) {
       minMaxScores.maxSpeed = [minMaxScores.maxSpeed[0], wheelScore.maxSpeed];
     }
@@ -293,7 +264,6 @@ export const getRelativeMinMaxScores = (
     if (!minMaxScores.maxGradibility[1] || wheelScore.maxGradibility > minMaxScores.maxGradibility[1]) {
       minMaxScores.maxGradibility = [minMaxScores.maxGradibility[0], wheelScore.maxGradibility];
     }
-    // 'groundClearance',
 
     if (!minMaxScores.suspension[1] || wheelScore.suspension > minMaxScores.suspension[1]) {
       minMaxScores.suspension = [minMaxScores.suspension[0], wheelScore.suspension];
@@ -364,7 +334,6 @@ export const getRelativeMinMaxScores = (
     if (!minMaxScores.display[1] || wheelScore.display > minMaxScores.display[1]) {
       minMaxScores.display = [minMaxScores.display[0], wheelScore.display];
     }
-    // 'color'
 
     if (!minMaxScores.score[0] || wheelScore.score < minMaxScores.score[0]) {
       minMaxScores.score = [wheelScore.score, minMaxScores.score[1]];

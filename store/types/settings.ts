@@ -5,6 +5,7 @@ import {
   Region,
   SpeedUnits,
   WeightUnits,
+  WheelFeatures,
   WidthUnits
 } from '../../types';
 
@@ -17,10 +18,17 @@ export interface MeasureUnits {
   width: WidthUnits;
 }
 
+export type SpecWeights = Record<
+  // eslint-disable-next-line max-len
+  keyof Omit<Omit<Omit<Omit<Omit<Omit<Omit<WheelFeatures, 'peakPower'>, 'battery'>, 'voltage'>, 'diameter'>, 'width'>, 'groundClearance'>, 'color'>,
+  number
+>;
+
 export interface SettingsState {
   disclaimer: boolean;
   measureUnits: MeasureUnits;
   region: Region;
+  specWeights: SpecWeights;
 }
 
 export interface DefaultMeasureUnitsAction {

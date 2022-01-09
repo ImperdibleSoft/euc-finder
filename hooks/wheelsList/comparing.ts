@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EUC_COMPARE } from '../../constants/clientRoutes';
 import { addWheelToComparision, removeWheelToComparision, resetWheelToComparision } from '../../store/actions';
-import { getComparedWheels, getPricesConfig, getWheels } from '../../store/selectors';
+import { getComparedWheels, getSpecWeights, getWheels } from '../../store/selectors';
 import { Wheel, WheelId } from '../../types';
 import { sortBy } from '../../utils';
 import { getAbsoluteMinMaxValues, getAbsoluteWheelsScores, getRelativeMinMaxScores } from '../../utils/comparing';
@@ -33,19 +33,19 @@ export const useCompareActions = () => {
 };
 
 export const useComparedWheels = () => {
-  const showPrices = useSelector(getPricesConfig);
   const wheels = useSelector(getWheels);
   const comparedWheels = useSelector(getComparedWheels);
+  const specWeights = useSelector(getSpecWeights);
 
   const scores = useMemo(() => {
-    const absoluteMinMaxValues = getAbsoluteMinMaxValues(wheels, showPrices);
-    const absoluteScores = getAbsoluteWheelsScores(wheels, absoluteMinMaxValues, showPrices);
+    const absoluteMinMaxValues = getAbsoluteMinMaxValues(wheels);
+    const absoluteScores = getAbsoluteWheelsScores(wheels, absoluteMinMaxValues, specWeights);
     return absoluteScores;
-  }, [wheels, showPrices]);
+  }, [wheels, specWeights]);
 
   const minMaxScores = useMemo(() => {
-    return getRelativeMinMaxScores(scores, comparedWheels, showPrices);
-  }, [comparedWheels, scores, showPrices]);
+    return getRelativeMinMaxScores(scores, comparedWheels);
+  }, [comparedWheels, scores]);
 
   const scoredWheels = comparedWheels
     .map(wheelId => {
