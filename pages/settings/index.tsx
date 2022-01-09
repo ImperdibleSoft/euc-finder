@@ -1,9 +1,10 @@
 import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Dropdown from '../../components/Form/Dropdown';
+import Slider from '../../components/Form/Slider';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { useSettings } from '../../hooks';
@@ -15,9 +16,14 @@ import { getStaticProps } from '../../utils-server';
 const Settings: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { languageField, measureUnitFields } = useSettings();
+  const [render, setRender] = useState(false);
+  const { languageField, measureUnitFields, specWeightsFields } = useSettings();
 
-  const handleSave = () => {
+  useEffect(() => {
+    setRender(true);
+  }, []);
+
+  const handleSaveMeasureUnits = () => {
     measureUnitFields.forEach(field => {
       const key = `preference_${ field.name }` as LOCAL_STORAGE_KEY;
 
@@ -29,11 +35,11 @@ const Settings: React.FC = () => {
     });
   };
 
-  const handleDefault = () => {
+  const handleDefaultMeasureUnits = () => {
     dispatch(defaultMeasureUnits());
   };
 
-  const handleReset = () => {
+  const handleResetMeasureUnits = () => {
     dispatch(resetMeasureUnits());
   };
   
@@ -57,51 +63,90 @@ const Settings: React.FC = () => {
           { t('settings-title') }
         </Typography>
 
-        <Grid container spacing={ 2 }>
-          <Grid item xs={ 12 } sm={ 6 } md={ 4 }>
-            <Card>
-              <CardContent>
-                <Typography variant="h5" component="div" sx={ { mb: 3 } }>
-                  { t('interface-title') }
-                </Typography>
+        { render && (
+          <Grid container spacing={ 2 }>
+            <Grid item xs={ 12 } sm={ 6 } md={ 4 }>
+              <Card sx={ { mb: 2 } }>
+                <CardContent>
+                  <Typography variant="h5" component="div" sx={ { mb: 3 } }>
+                    { t('interface-title') }
+                  </Typography>
 
-                <Dropdown { ...languageField }/>
-              </CardContent>
-            </Card>
+                  <Dropdown { ...languageField }/>
+                </CardContent>
+              </Card>
+            
+              <Card>
+                <CardContent>
+                  <Typography variant="h5" component="div" sx={ { mb: 3 } }>
+                    { t('measureUnits-title') }
+                  </Typography>
+
+                  { measureUnitFields.map(field => (
+                    <Dropdown
+                      key={ field.name }
+                      { ...field }
+                      style={ {
+                        marginBottom: 24,
+                        ...field.style
+                      } }
+                    />
+                  )) }
+                </CardContent>
+
+                <CardActions sx={ { alignItems: 'flex-end', justifyContent: 'flex-end' } }>
+                  <Button variant="outlined" size="small" onClick={ handleDefaultMeasureUnits } sx={ { mr: 'auto' } }>
+                    { t('default-btn') }
+                  </Button>
+                  <Button variant="outlined" size="small" onClick={ handleResetMeasureUnits }>
+                    { t('cancel-btn') }
+                  </Button>
+                  <Button variant="outlined" size="small" onClick={ handleSaveMeasureUnits }>
+                    { t('save-btn') }
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+
+            <Grid item xs={ 12 } sm={ 6 } md={ 8 }>
+              <Card>
+                <CardContent>
+                  <Typography variant="h5" component="div" sx={ { mb: 3 } }>
+                    { t('compare-title') }
+                  </Typography>
+                
+                  <Grid container spacing={ { xs: 0, md: 6 } }>
+                    <Grid item xs={ 12 } md={ 6 }>
+                      { specWeightsFields.slice(0, 8).map(field => (
+                        <Slider
+                          key={ field.name }
+                          { ...field }
+                          style={ {
+                            marginBottom: 24,
+                            ...field.style
+                          } }
+                        />
+                      )) }
+                    </Grid>
+
+                    <Grid item xs={ 12 } md={ 6 }>
+                      { specWeightsFields.slice(8).map(field => (
+                        <Slider
+                          key={ field.name }
+                          { ...field }
+                          style={ {
+                            marginBottom: 24,
+                            ...field.style
+                          } }
+                        />
+                      )) }
+                    </Grid>
+                  </Grid>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
-          <Grid item xs={ 12 } sm={ 6 } md={ 4 }>
-            <Card>
-              <CardContent>
-                <Typography variant="h5" component="div" sx={ { mb: 3 } }>
-                  { t('measureUnits-title') }
-                </Typography>
-
-                { measureUnitFields.map(field => (
-                  <Dropdown
-                    key={ field.name }
-                    { ...field }
-                    style={ {
-                      marginBottom: 24,
-                      ...field.style
-                    } }
-                  />
-                )) }
-              </CardContent>
-
-              <CardActions sx={ { alignItems: 'flex-end', justifyContent: 'flex-end' } }>
-                <Button variant="outlined" size="small" onClick={ handleDefault } sx={ { mr: 'auto' } }>
-                  { t('default-btn') }
-                </Button>
-                <Button variant="outlined" size="small" onClick={ handleReset }>
-                  { t('cancel-btn') }
-                </Button>
-                <Button variant="outlined" size="small" onClick={ handleSave }>
-                  { t('save-btn') }
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-        </Grid>
+        ) }
       </SimpleLayout>
     </>
   );

@@ -4,9 +4,10 @@ import { ChangeEvent, useState } from 'react';
 import { useTranslation, TFunction } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { DropdownItem, Props } from '../../components/Form/Dropdown';
+import { Props as SliderProps } from '../../components/Form/Slider';
 import { wheelFeatureIcons } from '../../constants';
 import { setMeasureUnit } from '../../store/actions';
-import { getMeasureUnits } from '../../store/selectors';
+import { getMeasureUnits, getPricesConfig, getSpecWeights } from '../../store/selectors';
 import { LOCAL_STORAGE_KEY } from '../../types';
 import {
   DiameterUnits,
@@ -100,8 +101,35 @@ export const useSettings = () => {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const dispatch = useDispatch();
-  const measureUnits = useSelector(getMeasureUnits);
   const [language, setLanguage] = useState(i18n.language);
+  const measureUnits = useSelector(getMeasureUnits);
+  const showPrices = useSelector(getPricesConfig);
+  const specWeights = useSelector(getSpecWeights);
+
+  const handleChangeLanguage = (event: ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target;
+    setLanguage(value);
+    setItem(LOCAL_STORAGE_KEY.LANGUAGE, value);
+
+    router.push(router.pathname, router.asPath, { locale: value });
+  };
+
+  const languageField: Props = {
+    label: t('language-label'),
+    name: 'language',
+    onChange: handleChangeLanguage,
+    options: [
+      {
+        label: t('en-label'),
+        value: 'en'
+      },
+      {
+        label: t('es-label'),
+        value: 'es'
+      }
+    ],
+    value: language
+  };
 
   const handleChangeDiameter = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
@@ -197,30 +225,128 @@ export const useSettings = () => {
     }
   ];
 
-  const handleChangeLanguage = (event: ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
-    setLanguage(value);
-    setItem(LOCAL_STORAGE_KEY.LANGUAGE, value);
-
-    router.push(router.pathname, router.asPath, { locale: value });
+  const commonOptions = {
+    max: 20,
+    step: 1
   };
 
-  const languageField: Props = {
-    label: t('language-label'),
-    name: 'language',
-    onChange: handleChangeLanguage,
-    options: [
-      {
-        label: t('en-label'),
-        value: 'en'
-      },
-      {
-        label: t('es-label'),
-        value: 'es'
-      }
-    ],
-    value: language
-  };
+  const specWeightsFields: SliderProps[] = [
+    {
+      ...commonOptions,
+      label: t('maxSpeed'),
+      name: 'maxSpeed',
+      onChange: () => { return; },
+      value: specWeights.maxSpeed
+    },
+    {
+      ...commonOptions,
+      label: t('range'),
+      name: 'range',
+      onChange: () => { return; },
+      value: specWeights.range
+    },
+    {
+      ...commonOptions,
+      label: t('weight'),
+      name: 'weight',
+      onChange: () => { return; },
+      value: specWeights.weight
+    },
+    {
+      ...commonOptions,
+      label: t('ratedPower'),
+      name: 'ratedPower',
+      onChange: () => { return; },
+      value: specWeights.ratedPower
+    },
+    {
+      ...commonOptions,
+      label: t('maxGradibility'),
+      name: 'maxGradibility',
+      onChange: () => { return; },
+      value: specWeights.maxGradibility
+    },
+    {
+      ...commonOptions,
+      label: t('suspension'),
+      name: 'suspension',
+      onChange: () => { return; },
+      value: specWeights.suspension
+    },
+    {
+      ...commonOptions,
+      label: t('trolleyHandle'),
+      name: 'trolleyHandle',
+      onChange: () => { return; },
+      value: specWeights.trolleyHandle
+    },
+    {
+      ...commonOptions,
+      label: t('antiSpin'),
+      name: 'antiSpin',
+      onChange: () => { return; },
+      value: specWeights.antiSpin
+    },
+    {
+      ...commonOptions,
+      label: t('pedals'),
+      name: 'pedals',
+      onChange: () => { return; },
+      value: specWeights.pedals
+    },
+    {
+      ...commonOptions,
+      label: t('kickstand'),
+      name: 'kickstand',
+      onChange: () => { return; },
+      value: specWeights.kickstand
+    },
+    {
+      ...commonOptions,
+      label: t('headlight'),
+      name: 'headlight',
+      onChange: () => { return; },
+      value: specWeights.headlight
+    },
+    {
+      ...commonOptions,
+      label: t('tailLight'),
+      name: 'tailLight',
+      onChange: () => { return; },
+      value: specWeights.tailLight
+    },
+    {
+      ...commonOptions,
+      label: t('leds'),
+      name: 'leds',
+      onChange: () => { return; },
+      value: specWeights.leds
+    },
+    {
+      ...commonOptions,
+      label: t('sound'),
+      name: 'sound',
+      onChange: () => { return; },
+      value: specWeights.sound
+    },
+    {
+      ...commonOptions,
+      label: t('display'),
+      name: 'display',
+      onChange: () => { return; },
+      value: specWeights.display
+    }
+  ];
 
-  return { measureUnitFields, languageField };
+  if (showPrices) {
+    specWeightsFields.unshift({
+      ...commonOptions,
+      label: t('price'),
+      name: 'price',
+      onChange: () => { return; },
+      value: specWeights.price
+    });    
+  }
+
+  return { languageField, measureUnitFields, specWeightsFields };
 };
