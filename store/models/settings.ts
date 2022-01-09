@@ -9,9 +9,9 @@ import {
   WidthUnits
 } from '../../types';
 import { getItem } from '../../utils';
-import { SettingsState } from '../types';
+import { MeasureUnits, SettingsState } from '../types';
 
-export const getMeasureUnitsDefaultValue = (): SettingsState['measureUnits'] => ({
+export const getMeasureUnitsDefaultValue = (): MeasureUnits => ({
   diameter: DiameterUnits.in,
   groundClearance: GroundClearanceUnits.mm,
   maxSpeed: SpeedUnits.kmh,

@@ -1,4 +1,4 @@
-import { SettingsState } from '../store/types';
+import { MeasureUnits } from '../store/types';
 import { Wheel, WheelFilters } from '../types';
 import { getMaximumValue, getMinimumValue } from './collections';
 import {
@@ -10,7 +10,7 @@ import {
 } from './conversions';
 import { getWheelCategory } from './wheels';
 
-export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: SettingsState['measureUnits']) => {
+export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: MeasureUnits) => {
   const diameter = Number(getConvertedDiameter(wheel.diameter, units.diameter));
   const maxGroundClearance = Number(getConvertedGroundClearance(
     getMaximumValue(wheel.groundClearance),

@@ -8,16 +8,18 @@ import {
   WidthUnits
 } from '../../types';
 
+export interface MeasureUnits {
+  diameter: DiameterUnits;
+  groundClearance: GroundClearanceUnits;
+  range: RangeUnits;
+  maxSpeed: SpeedUnits;
+  weight: WeightUnits;
+  width: WidthUnits;
+}
+
 export interface SettingsState {
   disclaimer: boolean;
-  measureUnits: {
-    diameter: DiameterUnits;
-    groundClearance: GroundClearanceUnits;
-    range: RangeUnits;
-    maxSpeed: SpeedUnits;
-    weight: WeightUnits;
-    width: WidthUnits;
-  };
+  measureUnits: MeasureUnits;
   region: Region;
 }
 
@@ -32,7 +34,7 @@ export interface ResetMeasureUnitsAction {
 export interface SetMeasureUnitAction {
   type: 'SET_MEASURE_UNIT',
   payload: {
-    key: keyof SettingsState['measureUnits'];
+    key: keyof MeasureUnits;
     value: unknown;
   }
 }

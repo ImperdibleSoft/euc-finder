@@ -2,7 +2,7 @@ import { Button, TableCell, Theme } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { wheelFeatureFormatters } from '../../../constants';
-import { SettingsState } from '../../../store/types';
+import { MeasureUnits } from '../../../store/types';
 import { Brands, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps } from '../../../types';
 import { isCompetingValue, isTopValue } from '../../../utils/comparing';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../Table';
@@ -29,7 +29,7 @@ const getBackground = (theme: Theme, index: number, highlighted: boolean) => {
 interface Props {
   brands: Brands;
   handleRemoveFromComparision: (wheelId: WheelId) => void;
-  measureUnits: SettingsState['measureUnits'];
+  measureUnits: MeasureUnits;
   minMaxScores: MinMaxScores;
   specs: (keyof Wheel)[];
   wheelScores: ScoreCollection;
