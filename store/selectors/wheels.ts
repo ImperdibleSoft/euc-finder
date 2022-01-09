@@ -65,5 +65,4 @@ export const getWheelApps = (id?: BrandId) =>
   });
 
 export const getComparedWheels = ({ wheels }: RootState) =>
-  wheels.comparing
-    .map(wheel => wheels.collection.find(w => w.id === wheel));
+  wheels.comparing;
