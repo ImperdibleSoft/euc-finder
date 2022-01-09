@@ -25,6 +25,9 @@ import {
 } from '../../types';
 import { toDecimals } from '../range';
 
+const applyMaxValue = (value: number, maxValue = 10) => 
+  Number(toDecimals((value / 10) * maxValue, 2));
+
 export const isCompetingValue = (key: keyof WheelScore) =>
   key !== 'brandId' &&
   key !== 'color' &&
@@ -56,11 +59,11 @@ export const getValueBasedOnMinMax = (value: number, minMax: [number, number]) =
   return Number(toDecimals(percentageVal / 10, 2, 2));
 };
 
-
-export const getWeightScore = (value: number, minMax: [number, number]) => {
+export const getLowestValueScore = (value: number, minMax: [number, number]) => {
   const [min, max] = minMax;
-  return (getValueBasedOnMinMax(value, [max, min]) / 10) * 5;
+  return getValueBasedOnMinMax(value, [max, min]);
 };
+
 
 export const getMaxGradabilityScore = (value: number, minMax: [number, number]) =>
   (getValueBasedOnMinMax(value, minMax) / 10) * 5;
@@ -71,7 +74,7 @@ export const getSuspensionScore = (value?: Suspension) => {
   
   const total = value ? suspensionWeight[value] : 0;
 
-  return getValueBasedOnMinMax(total, [min, max]);
+  return (getValueBasedOnMinMax(total, [min, max]) / 10) * 5;
 };
 
 
@@ -88,15 +91,6 @@ export const getTrolleyHandleScore = (value?: TrolleyHandle) => {
   const max = trolleyHandleWeight.scorpion;
   
   const total = value ? trolleyHandleWeight[value] : 0;
-
-  return getValueBasedOnMinMax(total, [min, max]);
-};
-
-export const getAntiSpinScore = (value?: AntiSpin) => {
-  const min = 0;
-  const max = antiSpinWeight.sensor;
-  
-  const total = value ? antiSpinWeight[value] : 0;
 
   return getValueBasedOnMinMax(total, [min, max]);
 };
@@ -138,17 +132,26 @@ export const getPedalsScore = (value?: WheelFeatures['pedals']) => {
   return getValueBasedOnMinMax(total, [min, max]);
 };
 
+export const getAntiSpinScore = (value?: AntiSpin) => {
+  const min = 0;
+  const max = antiSpinWeight.sensor;
+  
+  const total = value ? antiSpinWeight[value] : 0;
+
+  return getValueBasedOnMinMax(total, [min, max]);
+};
+
 export const getKickstandScore = (value?: Kickstand) => {
   const min = 0;
   const max = kickstandWeight.dedicated;
   
   const total = value ? kickstandWeight[value] : 0;
 
-  return (getValueBasedOnMinMax(total, [min, max]) / 10) * 5;
+  return getValueBasedOnMinMax(total, [min, max]);
 };
 
 export const getLedsScore = (value?: boolean) =>
-  (getBooleanScore(value) / 10) * 1;
+  getBooleanScore(value);
 
 export const getSoundScore = (value?: SoundSystem) => {
   const min = 0;
@@ -156,7 +159,7 @@ export const getSoundScore = (value?: SoundSystem) => {
   
   const total = value ? soundSystemWeight[value] : 0;
 
-  return (getValueBasedOnMinMax(total, [min, max]) / 10) * 3;
+  return getValueBasedOnMinMax(total, [min, max]);
 };
 
 export const getDisplayScore = (value?: Display) => {
@@ -165,52 +168,34 @@ export const getDisplayScore = (value?: Display) => {
   
   const total = value ? displayWeight[value] : 0;
 
-  return (getValueBasedOnMinMax(total, [min, max]) / 10) * 2;
+  return getValueBasedOnMinMax(total, [min, max]);
 };
 
 
 export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, calculatePrice: boolean): WheelScore => {
-  const price = calculatePrice ? getValueBasedOnMinMax(wheel.price, minMaxValues.price) : 0;
+  const price = applyMaxValue(getLowestValueScore(wheel.price, minMaxValues.price), calculatePrice ? 20 : 0);
 
-  const maxSpeed = Number(toDecimals(getValueBasedOnMinMax(wheel.maxSpeed, minMaxValues.maxSpeed), 2));
-  const range = Number(toDecimals(getValueBasedOnMinMax(wheel.range, minMaxValues.range), 2));
-  const weight = Number(toDecimals(getWeightScore(wheel.weight, minMaxValues.weight), 2));
+  const maxSpeed = applyMaxValue(getValueBasedOnMinMax(wheel.maxSpeed, minMaxValues.maxSpeed), 15);
+  const range = applyMaxValue(getValueBasedOnMinMax(wheel.range, minMaxValues.range), 15);
+  const weight = applyMaxValue(getLowestValueScore(wheel.weight, minMaxValues.weight), 10);
   
-  const ratedPower = Number(toDecimals(getValueBasedOnMinMax(wheel.ratedPower, minMaxValues.ratedPower), 2));
-  const battery = Number(toDecimals(getValueBasedOnMinMax(wheel.battery.wattsHour, minMaxValues.battery), 2));
-  const maxGradibility = Number(toDecimals(
-    getMaxGradabilityScore(wheel.maxGradibility, minMaxValues.maxGradibility),
-    2
-  ));
-  const suspension = Number(toDecimals(getSuspensionScore(wheel.suspension), 2));
+  const ratedPower = applyMaxValue(getValueBasedOnMinMax(wheel.ratedPower, minMaxValues.ratedPower), 15);
+  const battery = applyMaxValue(getValueBasedOnMinMax(wheel.battery.wattsHour, minMaxValues.battery), 5);
+  const maxGradibility = applyMaxValue(getMaxGradabilityScore(wheel.maxGradibility, minMaxValues.maxGradibility), 10);
+  const suspension = applyMaxValue(getSuspensionScore(wheel.suspension), 5);
 
-  const headlight = Number(toDecimals(getHeadlightScore(wheel.headlight, minMaxValues.headlight), 2));
-  const tailLight = Number(toDecimals(getBooleanScore(wheel.tailLight), 2));
-  const trolleyHandle = Number(toDecimals(getTrolleyHandleScore(wheel.trolleyHandle), 2));
-  const pedals = Number(toDecimals(getPedalsScore(wheel.pedals), 2));
-  const antiSpin = Number(toDecimals(getAntiSpinScore(wheel.antiSpin), 2));
-  const kickstand = Number(toDecimals(getKickstandScore(wheel.kickstand), 2));
-  const leds = Number(toDecimals(getLedsScore(wheel.leds), 2));
-  const sound = Number(toDecimals(getSoundScore(wheel.sound), 2));
-  const display = Number(toDecimals(getDisplayScore(wheel.display), 2));
+  const headlight = applyMaxValue(getHeadlightScore(wheel.headlight, minMaxValues.headlight), 10);
+  const tailLight = applyMaxValue(getBooleanScore(wheel.tailLight), 10);
+  const trolleyHandle = applyMaxValue(getTrolleyHandleScore(wheel.trolleyHandle), 10);
+  const pedals = applyMaxValue(getPedalsScore(wheel.pedals), 10);
+  const antiSpin = applyMaxValue(getAntiSpinScore(wheel.antiSpin), 5);
+  const kickstand = applyMaxValue(getKickstandScore(wheel.kickstand), 5);
+  const leds = applyMaxValue(getLedsScore(wheel.leds), 1);
+  const sound = applyMaxValue(getSoundScore(wheel.sound), 3);
+  const display = applyMaxValue(getDisplayScore(wheel.display), 2);
 
-  const score = price +
-    maxSpeed +
-    range +
-    weight +
-    ratedPower +
-    battery +
-    maxGradibility +
-    suspension +
-    headlight +
-    tailLight +
-    trolleyHandle +
-    pedals +
-    antiSpin +
-    kickstand +
-    leds +
-    sound +
-    display;
+  const score = Number(toDecimals(price + maxSpeed + range + weight + ratedPower + battery + maxGradibility +
+    suspension + headlight + tailLight + trolleyHandle + pedals + antiSpin + kickstand + leds + sound + display, 2));
 
   return {
     brandId: 0,
@@ -241,7 +226,7 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, calculat
     display,
     color: 0,
     
-    score: Number(toDecimals(score, 2, 2))
+    score
   };
 };
 
@@ -250,8 +235,8 @@ export const isTopValue = (
   score: number,
   minMaxValue?: [number, number]
 // eslint-disable-next-line max-params
-) => {
+): boolean => {
   const [, max] = minMaxValue ?? [];
   
-  return max !== undefined && score && score >= max;
+  return max !== undefined && !!score && score >= max;
 };
