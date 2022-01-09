@@ -2,6 +2,7 @@ import { Button, TableCell, Theme } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { wheelFeatureFormatters } from '../../../constants';
+import { useBreakpoints } from '../../../hooks';
 import { MeasureUnits } from '../../../store/types';
 import { Brands, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps } from '../../../types';
 import { isCompetingValue, isTopValue } from '../../../utils/comparing';
@@ -26,6 +27,18 @@ const getBackground = (theme: Theme, index: number, highlighted: boolean) => {
   return undefined;
 };
 
+const getMinimumColums = (sm: boolean, md: boolean) => {
+  if (md) {
+    return 5;
+  }
+
+  if (sm) {
+    return 3;
+  }
+
+  return 0;
+};
+
 interface Props {
   brands: Brands;
   handleRemoveFromComparision: (wheelId: WheelId) => void;
@@ -46,21 +59,33 @@ const CompareTable: React.FC<Props> = ({
   wheels
 }) => {
   const { t } = useTranslation();
-
-  const columns = wheels.length + 1;
+  const { sm, md } = useBreakpoints();
+  
+  const columnsCount = getMinimumColums(sm, md) - wheels.length;
+  const emptyColumns = Array
+    .from(Array(columnsCount >= 0 ? columnsCount : 0).keys())
+    .map((val, index) => wheels.length + index + 1);
+  const columns = 1 + wheels.length + emptyColumns.length;
+  const colsWidth = `${ 100 / columns }%`;
 
   return (
     <Table>
       <TableHeading>
-        <TableHead width={ `${ 100 / columns }%` } />
+        <TableHead width={ colsWidth } />
 
         { wheels.map(({ id, name }) => (
           <TableHead
             key={ id }
             id={ 'id' }
-            width={ `${ 100 / columns }%` }
+            width={ colsWidth }
           >
             { name }
+          </TableHead>
+        )) }
+
+        { emptyColumns.map(val => (
+          <TableHead key={ `emptyHead-${ val }` } width={ colsWidth }>
+            { t('eucs').replace(/s$/, '') } { val }
           </TableHead>
         )) }
       </TableHeading>
@@ -70,7 +95,7 @@ const CompareTable: React.FC<Props> = ({
           <TableRow key={ key }>
             <TableCell
               sx={ { fontWeight: 700 } }
-              width={ `${ 100 / columns }%` }
+              width={ colsWidth }
             >
               { t(key) }
             </TableCell>
@@ -105,18 +130,22 @@ const CompareTable: React.FC<Props> = ({
                     // color: (theme) => highlighted ? theme.palette.common.white : undefined,
                     fontWeight: key === 'score' ? 700 : undefined
                   } }
-                  width={ `${ 100 / columns }%` }
+                  width={ colsWidth }
                 >
                   { formattedValue }
                 </TableCell>
               );
             }
             ) }
+            
+            { emptyColumns.map(val => (
+              <TableCell key={ `emptyCell-${ key }-${ val }` } width={ colsWidth } />
+            )) }
           </TableRow>
         )) }
-            
+
         <TableRow>
-          <TableCell width={ `${ 100 / columns }%` }/>
+          <TableCell width={ colsWidth }/>
 
           { wheels.map(wheel => (
             <TableCell key={ `${ wheel.id }-actions` } sx={ { textAlign: 'center' } }>
@@ -129,6 +158,10 @@ const CompareTable: React.FC<Props> = ({
                 { t('remove-label') }
               </Button>
             </TableCell>
+          )) }
+            
+          { emptyColumns.map(val => (
+            <TableCell key={ `emptyCell-actions-${ val }` } width={ colsWidth } />
           )) }
         </TableRow>
       </TableBody>
