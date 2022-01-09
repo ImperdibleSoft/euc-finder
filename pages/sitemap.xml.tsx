@@ -1,5 +1,6 @@
 import { ServerResponse } from 'http';
 import React from 'react';
+import { DEALERS, EUC_COMPARE, EUC_DETAILS, INFLUENCERS, SETTINGS, VIDEOS } from '../constants/clientRoutes';
 import { wheels } from '../store/models/data';
 
 const Sitemap: React.FC = () => null;
@@ -22,8 +23,9 @@ export const getServerSideProps = ({ res }: Props) => {
 
   const baseUrl = getBaseUrl();
 
-  const mainPages = ['', 'dealers', 'settings'].map((staticPagePath) => `${ baseUrl }/${ staticPagePath }`);
-  const wheelsPages = wheels.map((wheel) => `${ baseUrl }/wheels/${ wheel.id }`);
+  const mainPages = ['', EUC_COMPARE, VIDEOS, INFLUENCERS, DEALERS, SETTINGS]
+    .map((staticPagePath) => `${ baseUrl }${ staticPagePath }`);
+  const wheelsPages = wheels.map((wheel) => `${ baseUrl }${ EUC_DETAILS.replace(':id', wheel.id) }`);
 
   const staticPages = [...mainPages, ...wheelsPages];
 
