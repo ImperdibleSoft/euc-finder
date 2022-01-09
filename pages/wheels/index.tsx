@@ -12,7 +12,15 @@ import GridView from '../../components/WheelsList/GridView';
 import NoWheels from '../../components/WheelsList/NoWheels';
 import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { useBreakpoints, useColumns, useCompareActions, useEucList, useFilterFields, useSidebar, useSorting } from '../../hooks';
+import {
+  useBreakpoints,
+  useColumns,
+  useCompareActions,
+  useEucList,
+  useFilterFields,
+  useSidebar,
+  useSorting
+} from '../../hooks';
 import { wheels } from '../../store/models/data';
 import { getPricesConfig } from '../../store/selectors';
 import { WheelId } from '../../types';
