@@ -85,6 +85,9 @@
   "sortBy-label": "Ordenar por",
   "order-label": "Órden",
   "compare-label": "Comparar",
+  "score": "Puntuación",
+  "addWheel-label": "Añadir rueda",
+  "remove-label": "Quitar",
 
   "confirmation-title": "Vas a abandonar {{appName}}",
   "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{storeName}}.",

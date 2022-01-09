@@ -85,6 +85,9 @@
   "sortBy-label": "Sort by",
   "order-label": "Order",
   "compare-label": "Compare",
+  "score": "Score",
+  "addWheel-label": "Add wheel",
+  "remove-label": "Remove",
 
   "confirmation-title": "You are navigating out of {{appName}}",
   "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{storeName}}'s site.",
