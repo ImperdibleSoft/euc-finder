@@ -88,6 +88,8 @@
   "score": "Puntuación",
   "addWheel-label": "Añadir rueda",
   "remove-label": "Quitar",
+  "noWheelsToCompare-msg": "No hay suficientes ruedas para comparar.",
+  "addWheelsToCompare-msg": "Por favor, añade más ruedas a tu comparación para ver los resultados.",
 
   "confirmation-title": "Vas a abandonar {{appName}}",
   "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{storeName}}.",
