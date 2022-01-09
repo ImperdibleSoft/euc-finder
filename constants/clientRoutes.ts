@@ -1,6 +1,7 @@
 export const ROOT = '/';
 
 export const EUCS = '/wheels';
+export const EUC_COMPARE = `${ EUCS }/compare`;
 export const EUC_DETAILS = `${ EUCS }/:id`;
 
 export const VIDEOS = '/videos';

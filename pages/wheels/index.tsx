@@ -1,5 +1,6 @@
 import { Button, ButtonGroup, Container, Icon, Typography } from '@mui/material';
 import Head from 'next/head';
+import Link from 'next/link';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -12,6 +13,7 @@ import Filters from '../../components/WheelsList/Filters';
 import GridView from '../../components/WheelsList/GridView';
 import TableView from '../../components/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
+import { EUC_COMPARE } from '../../constants/clientRoutes';
 import {
   useBreakpoints,
   useColumns,
@@ -106,25 +108,22 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
       >
         <Container
           maxWidth={ view === 'grid' ? 'lg' : false }
-          sx={ { alignItems: 'center', display: 'flex', flexDirection: 'row', pb: 1 } }
+          sx={ {
+            alignItems: 'center',
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: {
+              xs: 'normal',
+              sm: 'flex-end'
+            },
+            pb: 2
+          } }
         >
           <ButtonGroup sx={ { display: { xs: 'inline-flex', sm: 'none' }, flex: 1 } }>
             <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
               { t('filters-title') }
             </Button>
           </ButtonGroup>
-
-          <Typography
-            variant="body1"
-            component="span"
-            sx={ {
-              display: 'flex',
-              flex: 1,
-              justifyContent: { xs: 'flex-end', sm: 'flex-start' }
-            } }
-          >
-            { t('unicycles-label', { quantity: sortedWheels.length }) }
-          </Typography>
 
           <ButtonGroup sx={ { display: { xs: 'none', lg: 'flex' } } }>
             <Button onClick={ () => { setView('grid'); } }>
@@ -135,6 +134,18 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
               <Icon color={ view === 'table' ? 'primary' : 'disabled' }>table_rows</Icon>
             </Button>
           </ButtonGroup>
+
+          <Link href={ EUC_COMPARE } passHref>
+            <Button variant="outlined" sx={ { justifySelf: 'flex-end', ml: 1 } }>
+              { t('compare-label') }
+            </Button>
+          </Link>
+        </Container>
+
+        <Container maxWidth={ view === 'grid' ? 'lg' : false } sx={ { pb: 2 } }>
+          <Typography variant="body1" component="p">
+            { t('unicycles-label', { quantity: sortedWheels.length }) }
+          </Typography>
         </Container>
       
         <ListView
