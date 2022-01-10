@@ -74,8 +74,8 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Negotiations ➖
   - Discount code ➖
 
-- Madrid Rueda, ES
-  - Store information ➖
+- Madrid Rueda
+  - Store information ✔️
   - Purchase links ➖
   - Fetch prices ➖
   - Negotiations ➖

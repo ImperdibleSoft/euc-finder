@@ -143,20 +143,20 @@ export const stores: Store[] = [
   //     sponsor: false
   //   }
   // },
-  // {
-  //   id: StoreId.madridrueda,
-  //   name: 'Madrid Rueda',
-  //   website: 'madridrueda.es',
-  //   region: 'eu',
-  //   logo: '',
-  //   color: '',
-  //   meta: {
-  //     code: '',
-  //     discount: 0,
-  //     manualDiscount: true,
-  //     sponsor: false
-  //   }
-  // },
+  {
+    id: StoreId.madridrueda,
+    name: 'Madrid Rueda',
+    website: 'https://madridrueda.es/',
+    region: 'eu',
+    logo: '/logos/distributors/madridRueda.png',
+    color: '#2fb5d2',
+    meta: {
+      code: '',
+      discount: 0,
+      manualDiscount: true,
+      sponsor: false
+    }
+  },
   // {
   //   id: StoreId.rodandoEs,
   //   name: 'Rodando.es',

@@ -12,7 +12,7 @@ export enum StoreId {
   // green220 = 'green220',
   // imoveblue = 'imoveblue',
   // eptv = 'eptv',
-  // madridrueda = 'madridrueda',
+  madridrueda = 'madridrueda',
   // rodandoEs = 'rodando.es',
   // solorueda = 'solorueda',
 
