@@ -76,10 +76,10 @@ List of stores/delaers that could potentially be present in the app at some poin
 
 - Madrid Rueda
   - Store information ✔️
-  - Purchase links ➖
+  - Purchase links ✔️
   - Fetch prices ➖
-  - Negotiations ➖
-  - Discount code ➖
+  - Negotiations ✔️
+  - Discount code ❌
 
 - Rodando.es, ES
   - Store information ➖
@@ -101,7 +101,7 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Store information ✔️
   - Purchase links ✔️
   - Fetch prices ✔️
-  - Negotiations ❌
+  - Negotiations ✔️
   - Discount code ❌
 
 - eWheels
@@ -122,7 +122,7 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Store information ✔️
   - Purchase links ✔️
   - Fetch prices ✔️
-  - Negotiations ❌
+  - Negotiations ✔️
   - Discount code ❌
 
 - Smart Wheel
