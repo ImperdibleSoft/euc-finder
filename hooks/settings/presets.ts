@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Props as SliderProps } from '../../components/Form/Slider';
+import { wheelFeatureIcons } from '../../constants';
 import { setCustomSpecWeight, setSpecWeightsPreset } from '../../store/actions';
 import { getPricesConfig, getSpecWeights, getSpecWeightsActivePreset } from '../../store/selectors';
 import { SpecWeights, SpecWeightsPreset } from '../../store/types';
@@ -41,6 +42,7 @@ export const usePresets = () => {
   const specWeightsFields: SliderProps[] = [
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.maxSpeed,
       label: t('maxSpeed'),
       name: 'maxSpeed',
       onChange: handleChangeCustomValue,
@@ -48,6 +50,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.range,
       label: t('range'),
       name: 'range',
       onChange: handleChangeCustomValue,
@@ -55,6 +58,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.weight,
       label: t('weight'),
       name: 'weight',
       onChange: handleChangeCustomValue,
@@ -62,6 +66,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.ratedPower,
       label: t('ratedPower'),
       name: 'ratedPower',
       onChange: handleChangeCustomValue,
@@ -69,6 +74,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.maxGradibility,
       label: t('maxGradibility'),
       name: 'maxGradibility',
       onChange: handleChangeCustomValue,
@@ -76,6 +82,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.suspension,
       label: t('suspension'),
       name: 'suspension',
       onChange: handleChangeCustomValue,
@@ -83,6 +90,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.trolleyHandle,
       label: t('trolleyHandle'),
       name: 'trolleyHandle',
       onChange: handleChangeCustomValue,
@@ -90,6 +98,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.antiSpin,
       label: t('antiSpin'),
       name: 'antiSpin',
       onChange: handleChangeCustomValue,
@@ -97,6 +106,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.pedals,
       label: t('pedals'),
       name: 'pedals',
       onChange: handleChangeCustomValue,
@@ -104,6 +114,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.kickstand,
       label: t('kickstand'),
       name: 'kickstand',
       onChange: handleChangeCustomValue,
@@ -111,6 +122,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.headlight,
       label: t('headlight'),
       name: 'headlight',
       onChange: handleChangeCustomValue,
@@ -118,6 +130,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.tailLight,
       label: t('tailLight'),
       name: 'tailLight',
       onChange: handleChangeCustomValue,
@@ -125,6 +138,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.leds,
       label: t('leds'),
       name: 'leds',
       onChange: handleChangeCustomValue,
@@ -132,6 +146,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.sound,
       label: t('sound'),
       name: 'sound',
       onChange: handleChangeCustomValue,
@@ -139,6 +154,7 @@ export const usePresets = () => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.display,
       label: t('display'),
       name: 'display',
       onChange: handleChangeCustomValue,
@@ -149,6 +165,7 @@ export const usePresets = () => {
   if (showPrices) {
     specWeightsFields.unshift({
       ...commonOptions,
+      icon: wheelFeatureIcons.price,
       label: t('price'),
       name: 'price',
       onChange: handleChangeCustomValue,

@@ -14,8 +14,6 @@ import { getBrands, getMeasureUnits, getTableViewSpecs, getWheels } from '../../
 import { WheelId } from '../../types';
 import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../../utils-server';
 
-const MAX_WHEELS = 5;
-
 interface Props {
   pictures: Record<WheelId, string>;
 }
@@ -23,6 +21,7 @@ interface Props {
 const CompareWheels: React.FC<Props> = ({ pictures }) => {
   const { t } = useTranslation();
   const {
+    canCompareMoreWheels,
     handleAddToComparision,
     handleOpenSettings,
     handleRemoveFromComparision,
@@ -39,14 +38,16 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
   const { minMaxScores, specWeights, wheelScores, wheels: comparedWheels } = useComparedWheels();
 
   const renderWheelDropdown = (name: string) => {
-    if (comparedWheels.length >= MAX_WHEELS) {
+    const handleChange = canCompareMoreWheels()
+      ? (event: React.ChangeEvent<HTMLSelectElement>) => {
+        const wheelId = event.target.value as WheelId;
+        handleAddToComparision(wheelId);
+      }
+      : undefined;
+
+    if (!handleChange) {
       return null;
     }
-
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-      const wheelId = event.target.value as WheelId;
-      handleAddToComparision(wheelId);
-    };
 
     return (
       <Dropdown

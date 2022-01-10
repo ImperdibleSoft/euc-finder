@@ -49,16 +49,16 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const { handleWatchMoreVideos, totalCount, videos } = useEucVideos(id);
   const { canCompareMoreWheels, handleAddToComparision } = useCompareActions();
 
-  const canCompare = canCompareMoreWheels();
-
   const pageTitle = `${ name } - ${ APP_NAME }`;
   const pageDescription = t('defaultDescription-msg');
   const newKeywords = wheel ? [brands[wheel.brandId].name, wheel.name, name]: [];
   const keywords = KEYWORDS.concat(newKeywords).join(', ');
 
-  const handleCompare = () => {
-    handleAddToComparision(id);
-  };
+  const handleCompare = canCompareMoreWheels()
+    ? () => {
+      handleAddToComparision(id);
+    }
+    : undefined;
 
   return (
     <>
@@ -89,7 +89,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
             >
               <FacebookLikeButton />
 
-              { canCompare && (
+              { !!handleCompare && (
                 <Box sx={ { mb: 1 } }>
                   <ButtonGroup variant="contained">
                     <Button color="primary" onClick={ handleCompare }>

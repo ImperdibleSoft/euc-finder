@@ -212,7 +212,6 @@ const CompareTable: React.FC<Props> = ({
                     key={ `${ typeof wheel === 'number' ? `emptyCell-${ wheel }` : wheel.id }-${ key }` }
                     sx={ {
                       bgcolor: (theme) => getCellBackground(theme, index, highlighted),
-                      // color: (theme) => highlighted ? theme.palette.common.white : undefined,
                       fontWeight: key === 'score' ? 700 : undefined
                     } }
                     width={ colsWidth }

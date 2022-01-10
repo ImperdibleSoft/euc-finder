@@ -1,11 +1,11 @@
-import { Box, Grid, Input, Slider as MuiSlider, Typography } from '@mui/material';
+import { Box, Grid, Icon, Input, Slider as MuiSlider, Typography } from '@mui/material';
 import React from 'react';
 
 export interface Props {
   defaultValue?: string;
   disabled?: boolean;
   fullWidth?: boolean;
-  // icon?: string;
+  icon?: string;
   label?: string;
   max?: number;
   min?: number;
@@ -20,7 +20,7 @@ const Slider: React.FC<Props> = ({
   defaultValue,
   disabled = false,
   fullWidth = true,
-  // icon,
+  icon,
   label,
   max = 100,
   min = 0,
@@ -59,6 +59,12 @@ const Slider: React.FC<Props> = ({
       </Typography>
 
       <Grid container spacing={ 2 } alignItems="center">
+        { !!icon && (
+          <Grid item>
+            <Icon color={ disabled ? 'disabled' : 'action' }>{ icon }</Icon>
+          </Grid>
+        ) }
+
         <Grid item xs>
           <MuiSlider
             aria-labelledby={ `${ name }-label` }
