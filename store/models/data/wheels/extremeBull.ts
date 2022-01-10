@@ -11,8 +11,10 @@ import {
   Wheel,
   WheelId
 } from '../../../../types';
+import { speedMotor, torqueMotor } from './motors';
 
 const commanderHT: Wheel = {
+  ...torqueMotor,
   id: WheelId.commanderHT,
   brandId: BrandId.extremeBull,
   name: 'Commander Torque',
@@ -20,8 +22,6 @@ const commanderHT: Wheel = {
 
   ratedPower: 2800,
   peakPower: 0,
-  maxGradibility: 30,
-  maxSpeed: 68,
   battery: {
     capacity: 0,
     parallels: 0,
@@ -50,13 +50,13 @@ const commanderHT: Wheel = {
 
 const commanderHS: Wheel = {
   ...commanderHT,
+  ...speedMotor,
   id: WheelId.commanderHS,
-  name: 'Commander Speed',
-
-  maxSpeed: 80
+  name: 'Commander Speed'
 };
 
 const xmenHT: Wheel = {
+  ...torqueMotor,
   id: WheelId.xmenHT,
   brandId: BrandId.extremeBull,
   name: 'X-Men Torque',
@@ -64,8 +64,6 @@ const xmenHT: Wheel = {
 
   ratedPower: 2800,
   peakPower: 0,
-  maxGradibility: 30,
-  maxSpeed: 68,
   battery: {
     capacity: 4890,
     parallels: 0,
@@ -94,10 +92,9 @@ const xmenHT: Wheel = {
 
 const xmenHS: Wheel = {
   ...xmenHT,
+  ...speedMotor,
   id: WheelId.xmenHS,
-  name: 'X-Men Speed',
-
-  maxSpeed: 80
+  name: 'X-Men Speed'
 };
 
 export const extremeBullWheels: Wheel[] = [

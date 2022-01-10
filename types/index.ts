@@ -12,6 +12,7 @@ export * from './sorting';
 export * from './stores';
 export * from './videos';
 export * from './wheel';
+export * from './wheelComparision';
 export * from './wheelFeatures';
 
 export interface ClientRoute {

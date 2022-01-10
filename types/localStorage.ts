@@ -1,16 +1,86 @@
 export enum LOCAL_STORAGE_KEY {
-  PREFERENCE_DIAMETER = 'preference_diameter',
-  PREFERENCE_GROUND_CLEARANCE = 'preference_groundClearance',
-  PREFERENCE_MAX_SPEED = 'preference_maxSpeed',
-  PREFERENCE_RANGE = 'preference_range',
-  PREFERENCE_WEIGHT = 'preference_weight',
-  PREFERENCE_WIDTH = 'preference_width',
-  RANGE_DISCLAIMER = 'rangeDisclaimer',
-  REGION = 'preference_region',
+  // Generics
+
+  /**
+   * UI Language
+   */
   LANGUAGE = 'i18nextLng',
-  SHOW_PRICE = 'showPrice',
-  SHOW_PURCHASE_LINKS = 'showPurchaseLinks',
-  THEME = 'theme',
-  TEST = 'test',
-  LAST_VISIT = 'lastVisit'
+
+  /**
+   * User has already accepted initial 
+   * info disclaimer
+   */
+  INITIAL_DISCLAIMER = 'eucFinder_initialDisclaimer',
+
+  /**
+   * User selected region
+   */
+  REGION = 'eucFinder_region',
+
+  // Videos
+
+  /**
+   * Last time user visited video page
+   */
+  VIDEO_LASTVISIT = 'eucFinder_videoLastVisit',
+
+  // Settings: Measure units
+
+  /**
+   * Store selected measure unit for Diameter
+   */
+  MEASUREUNIT_DIAMETER = 'eucFinder_diameterMeasureUnit',
+  /**
+   * Store selected measure unit for Ground Clearance
+   */
+  MEASUREUNIT_GROUNDCLEARANCE = 'eucFinder_groundClearanceMeasureUnit',
+  /**
+   * Store selected measure unit for Max Speed
+   */
+  MEASUREUNIT_MAXSPEED = 'eucFinder_maxSpeedMeasureUnit',
+  /**
+   * Store selected measure unit for Range
+   */
+  MEASUREUNIT_RANGE = 'eucFinder_rangeMeasureUnit',
+  /**
+   * Store selected measure unit for Weight
+   */
+  MEASUREUNIT_WEIGHT = 'eucFinder_weightMeasureUnit',
+  /**
+   * Store selected measure unit for Width
+   */
+  MEASUREUNIT_WIDTH = 'eucFinder_widthMeasureUnit',
+
+  // Settings: Spec weights' presets
+
+  /**
+   * Store selected measure unit for Spec weights' presets
+   */
+  SPECWEIGHT_PRESET = 'eucFinder_specWeightPreset',
+
+  // Feature flags
+
+  /**
+   * Should display generic prices
+   * and use them as filters and calculations
+   */
+  ENABLE_PRICE = 'eucFinder_enablePrice',
+
+  /**
+   * Should display always all purchase
+   * links, even if there is no agreement
+   * with the dealer
+   */
+  ENABLE_PURCHASELINKS = 'eucFinder_enablePurchaseLinks',
+
+  /**
+   * Should force a particular theme
+   */
+  SHOW_THEME = 'eucFinder_theme',
+
+  /**
+   * Disable any interaction with GA
+   * so statistics are not compromised
+   */
+  DISABLE_ANALYTICS = 'eucFinder_disableAnalytics',
 }

@@ -1,16 +1,16 @@
-import { Grid } from '@mui/material';
+import { Box, Button, ButtonGroup, Grid } from '@mui/material';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import Apps from '../../components/Apps';
-import EmptyCase from '../../components/EmptyCase';
 import FacebookComments from '../../components/Facebook/FacebookComments';
 import FacebookLikeButton from '../../components/Facebook/FacebookLikeButton';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import AdditionalPurchaseLinks from '../../components/WheelDetails/AdditionalPurchaseLinks';
 import AdditionalSpecs from '../../components/WheelDetails/AdditionalSpecs';
+import EmptyCase from '../../components/WheelDetails/EmptyCase';
 import Header from '../../components/WheelDetails/Header';
 import HighlightedSpecs from '../../components/WheelDetails/HighlightedSpecs';
 import MainSpecs from '../../components/WheelDetails/MainSpecs';
@@ -19,6 +19,7 @@ import SponsoredPurchaseLinks from '../../components/WheelDetails/SponsoredPurch
 import VideosCarousel from '../../components/WheelDetails/VideosCarousel';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import {
+  useCompareActions,
   useEucDetail,
   useEucDetailHandlers,
   useEucDetailInformationGroups,
@@ -46,11 +47,18 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const { handleClosePicture, handleOpenPicture, pictureDetail } = useEucDetailHandlers();
   const { sponsoredLinks, regularLinks } = useEucPurchaseLinks(id);
   const { handleWatchMoreVideos, totalCount, videos } = useEucVideos(id);
+  const { canCompareMoreWheels, handleAddToComparision } = useCompareActions();
 
   const pageTitle = `${ name } - ${ APP_NAME }`;
   const pageDescription = t('defaultDescription-msg');
   const newKeywords = wheel ? [brands[wheel.brandId].name, wheel.name, name]: [];
   const keywords = KEYWORDS.concat(newKeywords).join(', ');
+
+  const handleCompare = canCompareMoreWheels()
+    ? () => {
+      handleAddToComparision(id);
+    }
+    : undefined;
 
   return (
     <>
@@ -80,6 +88,17 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
               wheelName={ name }
             >
               <FacebookLikeButton />
+
+              { !!handleCompare && (
+                <Box sx={ { mb: 1 } }>
+                  <ButtonGroup variant="contained">
+                    <Button color="primary" onClick={ handleCompare }>
+                      { t('compare-label') }
+                    </Button>
+                  </ButtonGroup>
+                </Box>
+              ) }
+              
               { pageDescription }
             </Header>
 

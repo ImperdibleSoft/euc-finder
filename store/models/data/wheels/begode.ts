@@ -13,6 +13,7 @@ import {
   Wheel,
   WheelId
 } from '../../../../types';
+import { speedMotor, torqueMotor } from './motors';
 
 const mten: Wheel = {
   id: WheelId.mten,
@@ -159,6 +160,7 @@ const nikola: Wheel = {
 };
 
 const rsHT: Wheel = {
+  ...torqueMotor,
   id: WheelId.rsHT,
   brandId: BrandId.begode,
   name: 'RS Torque',
@@ -166,8 +168,6 @@ const rsHT: Wheel = {
 
   ratedPower: 2600,
   peakPower: 0,
-  maxGradibility: 25,
-  maxSpeed: 68,
   battery: {
     capacity: 5000,
     parallels: 4,
@@ -196,10 +196,9 @@ const rsHT: Wheel = {
 
 const rsHS: Wheel = {
   ...rsHT,
+  ...speedMotor,
   id: WheelId.rsHS,
-  name: 'RS Speed',
-
-  maxSpeed: 80
+  name: 'RS Speed'
 };
 
 const msx: Wheel = {
@@ -328,12 +327,12 @@ const ex: Wheel = {
 
 const exnHT: Wheel = {
   ...ex,
+  ...torqueMotor,
   id: WheelId.exnHT,
   name: 'EX.N Torque',
   price: 3000,
 
   ratedPower: 2800,
-  maxSpeed: 68,
   range: 190,
 
   groundClearance: 160,
@@ -344,12 +343,13 @@ const exnHT: Wheel = {
 
 const exnHS: Wheel = {
   ...exnHT,
+  ...speedMotor,
   id: WheelId.exnHS,
-  name: 'EX.N Speed',
-  maxSpeed: 80
+  name: 'EX.N Speed'
 };
 
 const hero: Wheel = {
+  ...torqueMotor,
   id: WheelId.hero,
   brandId: BrandId.begode,
   name: 'Hero',
@@ -357,8 +357,6 @@ const hero: Wheel = {
 
   ratedPower: 2800,
   peakPower: 0,
-  maxGradibility: 35,
-  maxSpeed: 65,
   battery: {
     capacity: 0,
     parallels: 0,
@@ -450,6 +448,7 @@ const monsterPro: Wheel = {
 };
 
 const ex2: Wheel = {
+  ...torqueMotor,
   id: WheelId.ex2,
   brandId: BrandId.begode,
   name: 'EX2S',
@@ -457,8 +456,6 @@ const ex2: Wheel = {
 
   ratedPower: 3000,
   peakPower: 0,
-  maxGradibility: 0,
-  maxSpeed: 68,
   battery: {
     capacity: 0,
     parallels: 0,

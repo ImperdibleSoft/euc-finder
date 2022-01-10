@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, Store, Action, compose, StoreEnhancer, Mi
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger';
 import thunk from 'redux-thunk';
+import { migrateOldPreferences } from '../utils/localStorageMigration';
 import rootReducer from './reducers';
 import { RootState } from './types';
 
@@ -28,6 +29,10 @@ const createEnhacer = (): StoreEnhancer => {
 };
 
 export const configureStore = (initialState?: Partial<RootState>): Store<RootState, Action> => {
+  if (migrateOldPreferences()) {
+    location.reload();
+  }
+
   const store = createStore(rootReducer, initialState as RootState, createEnhacer());
   return store;
 };

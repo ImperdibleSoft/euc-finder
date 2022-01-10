@@ -27,6 +27,34 @@ const reducer = (state = getWheelsInitialState(), action: WheelsAction): WheelsS
           order: action.payload.order
         }
       };
+
+    case 'ADD_COMPARE_WHEEL':
+      const isPresentA = state.comparing.includes(action.payload.wheelId);
+      if (isPresentA) {
+        return state;
+      }
+
+      return {
+        ...state,
+        comparing: [...state.comparing, action.payload.wheelId]
+      };
+
+    case 'REMOVE_COMPARE_WHEEL':
+      const isPresentR = state.comparing.includes(action.payload.wheelId);
+      if (!isPresentR) {
+        return state;
+      }
+
+      return {
+        ...state,
+        comparing: state.comparing.filter(w => w !== action.payload.wheelId)
+      };
+
+    case 'RESET_COMPARE':
+      return {
+        ...state,
+        comparing: getWheelsInitialState().comparing
+      };
       
     default:
       return state;

@@ -5,20 +5,41 @@ import {
   Region,
   SpeedUnits,
   WeightUnits,
+  WheelFeatures,
   WidthUnits
 } from '../../types';
 
+export interface MeasureUnits {
+  diameter: DiameterUnits;
+  groundClearance: GroundClearanceUnits;
+  range: RangeUnits;
+  maxSpeed: SpeedUnits;
+  weight: WeightUnits;
+  width: WidthUnits;
+}
+
+export enum SpecWeightsPreset {
+  generic = 'generic',
+  comfy = 'comfy',
+  safe = 'safe',
+  performant = 'performant',
+  custom = 'custom'
+}
+
+export type SpecWeights = Record<
+  // eslint-disable-next-line max-len
+  keyof Omit<Omit<Omit<Omit<Omit<Omit<WheelFeatures, 'peakPower'>, 'voltage'>, 'diameter'>, 'width'>, 'groundClearance'>, 'color'>,
+  number
+>;
+
 export interface SettingsState {
   disclaimer: boolean;
-  measureUnits: {
-    diameter: DiameterUnits;
-    groundClearance: GroundClearanceUnits;
-    range: RangeUnits;
-    maxSpeed: SpeedUnits;
-    weight: WeightUnits;
-    width: WidthUnits;
-  };
+  measureUnits: MeasureUnits;
   region: Region;
+  specWeights: {
+    preset: SpecWeightsPreset;
+    customValues: SpecWeights
+  };
 }
 
 export interface DefaultMeasureUnitsAction {
@@ -32,7 +53,7 @@ export interface ResetMeasureUnitsAction {
 export interface SetMeasureUnitAction {
   type: 'SET_MEASURE_UNIT',
   payload: {
-    key: keyof SettingsState['measureUnits'];
+    key: keyof MeasureUnits;
     value: unknown;
   }
 }
@@ -44,8 +65,25 @@ export interface SetRegionAction {
   }
 }
 
+export interface SetSpecWeightsPresetAction {
+  type: 'SET_SPECWEIGHTS_PRESET',
+  payload: {
+    preset: SpecWeightsPreset
+  };
+}
+
+export interface SetCustomSpecWeightAction {
+  type: 'SET_CUSTOM_SPECWEIGHT',
+  payload: {
+    key: keyof SpecWeights,
+    value: number,
+  }
+}
+
 export type SettingsAction =
   | DefaultMeasureUnitsAction
   | ResetMeasureUnitsAction
   | SetMeasureUnitAction
-  | SetRegionAction;
+  | SetRegionAction
+  | SetSpecWeightsPresetAction
+  | SetCustomSpecWeightAction;

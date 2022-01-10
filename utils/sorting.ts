@@ -1,15 +1,14 @@
-import {
-  antiSpinWeight,
-  displayWeight,
-  kickstandWeight,
-  pedalSurfaceWeight,
-  pedalTypeWeight,
-  soundSystemWeight,
-  suspensionWeight,
-  trolleyHandleWeight
-} from '../constants';
 import { Brands, Order, Wheel } from '../types';
 import { getMaximumValue, getMinimumValue, sortBy } from './collections';
+import {
+  getAntiSpinScore,
+  getDisplayScore,
+  getKickstandScore,
+  getPedalsScore,
+  getSoundScore,
+  getSuspensionScore,
+  getTrolleyHandleScore
+} from './comparing';
 
 export const customisedSortBy = (brands: Brands) => (key: keyof Wheel, order: Order) => (a: Wheel, b: Wheel) => {
   switch (key) {
@@ -38,59 +37,50 @@ export const customisedSortBy = (brands: Brands) => (key: keyof Wheel, order: Or
       return sortBy(key, order)(a, b);
 
     case 'trolleyHandle':
-      const aTrolleyWeight = a.trolleyHandle ? trolleyHandleWeight[a.trolleyHandle] : 0;
-      const bTrolleyWeight = b.trolleyHandle ? trolleyHandleWeight[b.trolleyHandle] : 0;
+      const aTrolleyWeight = a.trolleyHandle ? getTrolleyHandleScore(a.trolleyHandle) : 0;
+      const bTrolleyWeight = b.trolleyHandle ? getTrolleyHandleScore(b.trolleyHandle) : 0;
       if (aTrolleyWeight < bTrolleyWeight) return order === 'asc' ? -1 : 1;
       if (aTrolleyWeight > bTrolleyWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
     case 'pedals':
-      const [aPedalType, aPedalSurface, aRetentionPins] = a.pedals;
-      const [bPedalType, bPedalSurface, bRetentionPins] = b.pedals;
-
-      const aPedalTypeWeight = aPedalType ? pedalTypeWeight[aPedalType] : 0;
-      const bPedalTypeWeight = bPedalType ? pedalTypeWeight[bPedalType] : 0;
-
-      const aPedalSurfaceWeight = aPedalSurface ? pedalSurfaceWeight[aPedalSurface] : 0;
-      const bPedalSurfaceWeight = bPedalSurface ? pedalSurfaceWeight[bPedalSurface] : 0;
-
-      const aWeight = (aPedalTypeWeight + aPedalSurfaceWeight) * (aRetentionPins ? 2 : 1);
-      const bWeight = (bPedalTypeWeight + bPedalSurfaceWeight) * (bRetentionPins ? 2 : 1);
+      const aWeight = getPedalsScore(a.pedals);
+      const bWeight = getPedalsScore(b.pedals);
       if (aWeight < bWeight) return order === 'asc' ? -1 : 1;
       if (aWeight > bWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
     case 'antiSpin':
-      const aAntiSpinWeight = a.antiSpin ? antiSpinWeight[a.antiSpin] : 0;
-      const bAntiSpinWeight = b.antiSpin ? antiSpinWeight[b.antiSpin] : 0;
+      const aAntiSpinWeight = a.antiSpin ? getAntiSpinScore(a.antiSpin) : 0;
+      const bAntiSpinWeight = b.antiSpin ? getAntiSpinScore(b.antiSpin) : 0;
       if (aAntiSpinWeight < bAntiSpinWeight) return order === 'asc' ? -1 : 1;
       if (aAntiSpinWeight > bAntiSpinWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
     case 'kickstand':
-      const aKickstandWeight = a.kickstand ? kickstandWeight[a.kickstand] : 0;
-      const bKickstandWeight = b.kickstand ? kickstandWeight[b.kickstand] : 0;
+      const aKickstandWeight = a.kickstand ? getKickstandScore(a.kickstand) : 0;
+      const bKickstandWeight = b.kickstand ? getKickstandScore(b.kickstand) : 0;
       if (aKickstandWeight < bKickstandWeight) return order === 'asc' ? -1 : 1;
       if (aKickstandWeight > bKickstandWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
     case 'sound':
-      const aSoundWeight = a.sound ? soundSystemWeight[a.sound] : 0;
-      const bSoundWeight = b.sound ? soundSystemWeight[b.sound] : 0;
+      const aSoundWeight = a.sound ? getSoundScore(a.sound) : 0;
+      const bSoundWeight = b.sound ? getSoundScore(b.sound) : 0;
       if (aSoundWeight < bSoundWeight) return order === 'asc' ? -1 : 1;
       if (aSoundWeight > bSoundWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
     case 'display':
-      const aDisplayWeight = a.display ? displayWeight[a.display] : 0;
-      const bDisplayWeight = b.display ? displayWeight[b.display] : 0;
+      const aDisplayWeight = a.display ? getDisplayScore(a.display) : 0;
+      const bDisplayWeight = b.display ? getDisplayScore(b.display) : 0;
       if (aDisplayWeight < bDisplayWeight) return order === 'asc' ? -1 : 1;
       if (aDisplayWeight > bDisplayWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
     case 'suspension':
-      const aSuspensionWeight = a.suspension ? suspensionWeight[a.suspension] : 0;
-      const bSuspensionWeight = b.suspension ? suspensionWeight[b.suspension] : 0;
+      const aSuspensionWeight = a.suspension ? getSuspensionScore(a.suspension) : 0;
+      const bSuspensionWeight = b.suspension ? getSuspensionScore(b.suspension) : 0;
       if (aSuspensionWeight < bSuspensionWeight) return order === 'asc' ? -1 : 1;
       if (aSuspensionWeight > bSuspensionWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);

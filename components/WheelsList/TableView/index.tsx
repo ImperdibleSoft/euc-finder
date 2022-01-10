@@ -4,7 +4,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { EUC_DETAILS } from '../../../constants/clientRoutes';
 import { useTableData } from '../../../hooks';
-import { WheelSorting, WheelSortingKeys, WheelsTableColumns, WheelWithPicture } from '../../../types';
+import { WheelId, WheelSorting, WheelSortingKeys, WheelsTableColumns, WheelWithPicture } from '../../../types';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../Table';
 
 const cellStyles: React.CSSProperties = {
@@ -20,14 +20,18 @@ const headingStyles: React.CSSProperties = {
 
 interface Props {
   columns: WheelsTableColumns;
+  handleAddToCompare?: (wheelId: WheelId) => void;
   handleSort: (key: WheelSortingKeys) => void;
+  isBeingCompared: (wheelId: WheelId) => boolean;
   records: WheelWithPicture[];
   sorting: WheelSorting;
 }
 
 const TableView: React.FC<Props> = ({
   columns,
+  handleAddToCompare,
   handleSort,
+  isBeingCompared,
   records,
   sorting
 }) => {
@@ -60,6 +64,14 @@ const TableView: React.FC<Props> = ({
         <TableBody>
           { rows.map(row => {
             const wheel = records.find(w => w.id === row.id);
+
+            if (!wheel) {
+              return null;
+            }
+            
+            const handleCompareClick = handleAddToCompare !== undefined && !isBeingCompared(wheel.id)
+              ? () => handleAddToCompare(wheel.id)
+              : undefined;
 
             return (
               <TableRow key={ row.id } >
@@ -101,10 +113,22 @@ const TableView: React.FC<Props> = ({
 
                 <TableCell style={ { ...cellStyles, textAlign: 'right' } }>
                   <Link href={ EUC_DETAILS.replace(':id', row.id) } passHref>
-                    <Button size="small" variant="outlined">
+                    <Button size="small" variant="outlined" sx={ { mb: 1, display: 'flex', width: '100%' } }>
                       { t('details-btn') }
                     </Button>
                   </Link>
+
+                  { !!handleCompareClick && (
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="secondary"
+                      onClick={ handleCompareClick }
+                      sx={ { display: 'flex', width: '100%' } }
+                    >
+                      { t('compare-label') }
+                    </Button>
+                  ) }
                 </TableCell>
               </TableRow>
             );}) }

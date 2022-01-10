@@ -4,7 +4,9 @@ import { Wheel, WheelFilters, WheelId, WheelSorting, WheelWithPicture } from '..
 import { customisedSortBy, filterWheels } from '../../utils';
 
 export * from './columns';
+export * from './comparing';
 export * from './filtering';
+export * from './headingButtons';
 export * from './sidebar';
 export * from './sorting';
 

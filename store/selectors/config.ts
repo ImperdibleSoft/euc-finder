@@ -12,11 +12,36 @@ export const getPricesConfig = ({ config }: RootState) =>
 export const getPurchaseLinksConfig = ({ config }: RootState) =>
   config.purchaseLinks;
 
-export const getTableViewSpecs = ({ config }: RootState) =>
-  config.specColumns;
+export const getMaxComparedWheels = ({ config }: RootState) =>
+  config.maxComparedWheels;
 
-export const getListViewSpecs = ({ config }: RootState) =>
-  [config.listMainSpecs, config.listAdditionalSpecs];
+export const getTableViewSpecs = ({ config }: RootState) => {
+  if (!config.prices) {
+    return config.specColumns.filter(k => k !== 'price');
+  }
 
-export const getDetailViewSpecs = ({ config }: RootState) =>
-  [config.detailHighlightedSpecs, config.detailMainSpecs, config.detailAdditionalSpecs];
+  return config.specColumns;
+};
+
+export const getListViewSpecs = ({ config }: RootState) => {
+  if (!config.prices) {
+    return [
+      config.listMainSpecs.filter(k => k !== 'price'),
+      config.listAdditionalSpecs.filter(k => k !== 'price')
+    ];
+  }
+  
+  return [config.listMainSpecs, config.listAdditionalSpecs];
+};
+
+export const getDetailViewSpecs = ({ config }: RootState) => {
+  if (!config.prices) {
+    return [
+      config.detailHighlightedSpecs.filter(k => k !== 'price'),
+      config.detailMainSpecs.filter(k => k !== 'price'),
+      config.detailAdditionalSpecs.filter(k => k !== 'price')
+    ];
+  }
+  
+  return [config.detailHighlightedSpecs, config.detailMainSpecs, config.detailAdditionalSpecs];
+};

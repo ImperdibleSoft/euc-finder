@@ -18,6 +18,11 @@ export interface ConfigState {
   purchaseLinks: boolean,
 
   /**
+   * How many wheels can be compared at the same time
+   */
+  maxComparedWheels: number,
+
+  /**
    * Available columns in Table view
    */
   specColumns: Array<keyof Wheel>
@@ -30,20 +35,20 @@ export interface ConfigState {
   /**
    * Main specs in List view
    */
-   listAdditionalSpecs: (keyof Wheel)[]
+  listAdditionalSpecs: (keyof Wheel)[]
 
   /**
    * Hightlighted specs in Details view
    */
-   detailHighlightedSpecs: (keyof Wheel)[]
+  detailHighlightedSpecs: (keyof Wheel)[]
 
   /**
    * Main specs in Details view
    */
-   detailMainSpecs: (keyof Wheel)[]
+  detailMainSpecs: (keyof Wheel)[]
 
   /**
    * Main specs in Details view
    */
-   detailAdditionalSpecs: (keyof Wheel)[]
+  detailAdditionalSpecs: (keyof Wheel)[]
 }

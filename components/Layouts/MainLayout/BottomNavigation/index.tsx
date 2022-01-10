@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getDesktopNavigation, getMobileNavigation } from '../../../../constants';
+import { EUCS_PREFIX } from '../../../../constants/clientRoutes';
 import { BOTTOM_NAVIGATION_HEIGHT, HEADER_HEIGHT, NAV_SIDEBAR_WIDTH } from '../../constants';
 
 interface Props {
@@ -13,15 +14,15 @@ interface Props {
 const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
   const { t } = useTranslation();
   const { pathname, push } = useRouter();
-  const [firstPath] = pathname.replace(/^\//, '').split('/');
+  const [firstPathSection] = pathname.replace(/^\//, '').split('/');
   const navigation = useMemo(() => {
     const getter = isTablet ? getDesktopNavigation : getMobileNavigation;
     return getter();
   }, [isTablet]);
 
-  const minWidth = 100 / navigation.length;
+  const currentPathFirstSection = firstPathSection === '' ? EUCS_PREFIX.replace(/^\//, '') : firstPathSection;
 
-  
+  const minWidth = 100 / navigation.length;
   const tabletStyles: SxProps<Theme> = {
     alignItems: 'flex-start',
     borderRadius: 0,
@@ -67,21 +68,33 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
         <MuiBottomNavigation
           onChange={ handleChange }
           showLabels
-          value={ `/${ firstPath }` }
+          value={ `/${ currentPathFirstSection }` }
         >
-          { navigation.map(({ icon, label, path }) => {
-            const isSelected = () => `/${ firstPath }` === path;
+          { navigation.map(bottomNavItem => {
+            const currentItemPath = bottomNavItem.path === '/' ? EUCS_PREFIX : bottomNavItem.path;
+            const isSelected = () => `/${ currentPathFirstSection }` === currentItemPath;
 
             return (
               <BottomNavigationAction
-                key={ label }
-                icon={ <Icon color={ isSelected() ? 'secondary' : 'action' }>{ icon }</Icon> }
-                label={ t(label) }
-                value={ path }
+                key={ bottomNavItem.label }
+                icon={ (
+                  <Icon color={ isSelected() ? 'secondary' : 'action' }>
+                    { bottomNavItem.icon }
+                  </Icon>
+                ) }
+                label={ t(bottomNavItem.label) }
+                value={ bottomNavItem.path }
                 sx={ {
                   my: isTablet ? 2 : 0,
                   minWidth: isTablet ? undefined : `${ minWidth }%`,
-                  '&.Mui-selected': { color: ({ palette }) =>palette.secondary.main } 
+                  
+                  color: ({ palette }) => isSelected() ? palette.secondary.main : undefined,
+                  '&.Mui-selected': { color: ({ palette }) => palette.secondary.main },
+
+                  '& .MuiBottomNavigationAction-label': {
+                    color: 'inherit !important',
+                    fontSize: isSelected() ? 14 : undefined
+                  }
                 } }
               />
             );

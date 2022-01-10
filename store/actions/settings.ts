@@ -1,6 +1,14 @@
 import { Dispatch } from 'redux';
 import { Region } from '../../types';
-import { DefaultMeasureUnitsAction, ResetMeasureUnitsAction, SetMeasureUnitAction, SetRegionAction } from '../types';
+import {
+  DefaultMeasureUnitsAction,
+  ResetMeasureUnitsAction,
+  SetCustomSpecWeightAction,
+  SetMeasureUnitAction,
+  SetRegionAction,
+  SetSpecWeightsPresetAction,
+  SpecWeightsPreset
+} from '../types';
 
 export const defaultMeasureUnits = () => (dispatch: Dispatch) => {
   dispatch({ type: 'DEFAULT_MEASURE_UNITS' } as DefaultMeasureUnitsAction);
@@ -22,4 +30,18 @@ export const setRegion = (region: Region) => (dispatch: Dispatch) => {
     type: 'SET_REGION',
     payload: { region }
   } as SetRegionAction);
+};
+
+export const setSpecWeightsPreset = (preset: SpecWeightsPreset) => (dispatch: Dispatch) => {
+  dispatch({
+    type: 'SET_SPECWEIGHTS_PRESET',
+    payload: { preset }
+  } as SetSpecWeightsPresetAction);
+};
+
+export const setCustomSpecWeight = (payload: SetCustomSpecWeightAction['payload']) => (dispatch: Dispatch) => {
+  dispatch({
+    type: 'SET_CUSTOM_SPECWEIGHT',
+    payload
+  } as SetCustomSpecWeightAction);
 };
