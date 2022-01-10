@@ -5,8 +5,8 @@ import { ConfigState } from '../types';
 export const getConfigInitialState = (): ConfigState => ({
   calculatedRange: true,
   paginationSize: 12,
-  prices: getItem(LOCAL_STORAGE_KEY.SHOW_PRICE) === 'true' || false,
-  purchaseLinks: getItem(LOCAL_STORAGE_KEY.SHOW_PURCHASE_LINKS) === 'true' || true,
+  prices: getItem(LOCAL_STORAGE_KEY.ENABLE_PRICE) === 'true' || false,
+  purchaseLinks: getItem(LOCAL_STORAGE_KEY.ENABLE_PURCHASELINKS) === 'true' || true,
   maxComparedWheels: 5,
 
   specColumns: [

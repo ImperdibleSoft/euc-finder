@@ -3,7 +3,7 @@ import { LOCAL_STORAGE_KEY } from '../types';
 import { getItem } from './localStorage';
 
 export const shouldTrackUser = () => {
-  if (process.env.NODE_ENV === 'production' && getItem(LOCAL_STORAGE_KEY.TEST) === '') {
+  if (process.env.NODE_ENV === 'production' && getItem(LOCAL_STORAGE_KEY.DISABLE_ANALYTICS) === '') {
     return true;
   }
 

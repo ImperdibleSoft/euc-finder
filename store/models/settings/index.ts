@@ -22,27 +22,26 @@ export const getMeasureUnitsDefaultValue = (): MeasureUnits => ({
 });
 const measureUnitsDefaultValue = getMeasureUnitsDefaultValue();
 
-
 export const getSettingsInitialState = (): SettingsState => ({
-  disclaimer: getItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER) === 'true',
+  disclaimer: getItem(LOCAL_STORAGE_KEY.INITIAL_DISCLAIMER) === 'true',
   measureUnits: {
     diameter:
-      getItem(LOCAL_STORAGE_KEY.PREFERENCE_DIAMETER) as DiameterUnits
+      getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_DIAMETER) as DiameterUnits
       || measureUnitsDefaultValue.diameter,
     groundClearance:
-      getItem(LOCAL_STORAGE_KEY.PREFERENCE_GROUND_CLEARANCE) as GroundClearanceUnits
+      getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_GROUNDCLEARANCE) as GroundClearanceUnits
       || measureUnitsDefaultValue.groundClearance,
     maxSpeed:
-      getItem(LOCAL_STORAGE_KEY.PREFERENCE_MAX_SPEED) as SpeedUnits
+      getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_MAXSPEED) as SpeedUnits
       || measureUnitsDefaultValue.maxSpeed,
     range:
-      getItem(LOCAL_STORAGE_KEY.PREFERENCE_RANGE) as RangeUnits
+      getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_RANGE) as RangeUnits
       || measureUnitsDefaultValue.range,
     weight:
-      getItem(LOCAL_STORAGE_KEY.PREFERENCE_WEIGHT) as WeightUnits
+      getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_WEIGHT) as WeightUnits
       || measureUnitsDefaultValue.weight,
     width:
-      getItem(LOCAL_STORAGE_KEY.PREFERENCE_WIDTH) as WidthUnits
+      getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_WIDTH) as WidthUnits
       || measureUnitsDefaultValue.width
   },
   region: (getItem(LOCAL_STORAGE_KEY.REGION) || 'eu') as Region,

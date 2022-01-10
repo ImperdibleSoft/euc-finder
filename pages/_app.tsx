@@ -61,7 +61,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   );
 };
 
-const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER) !== 'true';
+const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.INITIAL_DISCLAIMER) !== 'true';
 const store = configureStore();
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -77,7 +77,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   };
 
   const handleCloseDisclaimer = () => {
-    setItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER, 'true');
+    setItem(LOCAL_STORAGE_KEY.INITIAL_DISCLAIMER, 'true');
     setOpenDisclaimer(false);
   };
 
@@ -89,15 +89,15 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   useEffect(() => {
     if (price === 'false' || price === 'true') {
-      setItem(LOCAL_STORAGE_KEY.SHOW_PRICE, price);
+      setItem(LOCAL_STORAGE_KEY.ENABLE_PRICE, price);
     }
     
     if (purchaseLinks === 'false' || purchaseLinks === 'true') {
-      setItem(LOCAL_STORAGE_KEY.SHOW_PURCHASE_LINKS, purchaseLinks);
+      setItem(LOCAL_STORAGE_KEY.ENABLE_PURCHASELINKS, purchaseLinks);
     }
 
     if (test === 'false' || test === 'true') {
-      setItem(LOCAL_STORAGE_KEY.TEST, test);
+      setItem(LOCAL_STORAGE_KEY.DISABLE_ANALYTICS, test);
     }
   }, [price, purchaseLinks, test]);
 
