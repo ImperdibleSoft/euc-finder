@@ -77,7 +77,7 @@ List of stores/delaers that could potentially be present in the app at some poin
 - Madrid Rueda
   - Store information ✔️
   - Purchase links ✔️
-  - Fetch prices ➖
+  - Fetch prices ✔️
   - Negotiations ✔️
   - Discount code ❌
 
