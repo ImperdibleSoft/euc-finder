@@ -60,6 +60,19 @@ export const inmotionFranceHttp = createInstance({
   }
 });
 
+export const madridRuedaHttp = createInstance({
+  headers: {
+    // eslint-disable-next-line max-len
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+    'accept-encoding': 'gzip, deflate, br',
+    Origin: 'https://madridrueda.es/',
+    Referer: 'https://madridrueda.es/',
+    // eslint-disable-next-line max-len
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36',
+    'upgrade-insecure-requests': '1'
+  }
+});
+
 export const myEWheelHttp = createInstance({
   headers: {
     Origin: 'https://myewheel.com/',

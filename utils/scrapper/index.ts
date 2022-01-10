@@ -7,6 +7,7 @@ export * from './eucSale';
 export * from './eucService';
 export * from './ewheels';
 export * from './inmotionFrance';
+export * from './madridRueda';
 export * from './myewheel';
 export * from './revRides';
 export * from './smartWheel';

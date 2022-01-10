@@ -32,6 +32,9 @@ const getApiRequest = (store: StoreId) => {
       // case StoreId.inmotionFrance:
       //   return eucFinderApi.getInmotionFrancePrice;
 
+    case StoreId.madridrueda:
+      return eucFinderApi.getMadridRuedaPrice;
+
     case StoreId.myewheel:
       return eucFinderApi.getMyEWheelPrice;
 
