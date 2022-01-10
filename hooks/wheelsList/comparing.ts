@@ -3,7 +3,7 @@ import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EUC_COMPARE, SETTINGS } from '../../constants/clientRoutes';
 import { addWheelToComparision, removeWheelToComparision, resetWheelToComparision } from '../../store/actions';
-import { getComparedWheels, getSpecWeights, getWheels } from '../../store/selectors';
+import { getComparedWheels, getMaxComparedWheels, getSpecWeights, getWheels } from '../../store/selectors';
 import { Wheel, WheelId } from '../../types';
 import { sortBy } from '../../utils';
 import { getAbsoluteMinMaxValues, getAbsoluteWheelsScores, getRelativeMinMaxScores } from '../../utils/comparing';
@@ -11,11 +11,12 @@ import { getAbsoluteMinMaxValues, getAbsoluteWheelsScores, getRelativeMinMaxScor
 export const useCompareActions = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const maxComparedWheels = useSelector(getMaxComparedWheels);
   const comparedWheels = useSelector(getComparedWheels);
 
   const canCompareMoreWheels = useCallback(
-    (wheelsToAdd = 1) => (comparedWheels.length + wheelsToAdd) <= 5,
-    [comparedWheels]
+    (wheelsToAdd = 1) => (comparedWheels.length + wheelsToAdd) <= maxComparedWheels,
+    [maxComparedWheels, comparedWheels]
   );
 
   const isBeingCompared = useCallback(

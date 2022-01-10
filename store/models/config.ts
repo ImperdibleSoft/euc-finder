@@ -7,6 +7,7 @@ export const getConfigInitialState = (): ConfigState => ({
   paginationSize: 12,
   prices: getItem(LOCAL_STORAGE_KEY.SHOW_PRICE) === 'true' || false,
   purchaseLinks: getItem(LOCAL_STORAGE_KEY.SHOW_PURCHASE_LINKS) === 'true' || true,
+  maxComparedWheels: 5,
 
   specColumns: [
     'name',

@@ -12,6 +12,9 @@ export const getPricesConfig = ({ config }: RootState) =>
 export const getPurchaseLinksConfig = ({ config }: RootState) =>
   config.purchaseLinks;
 
+export const getMaxComparedWheels = ({ config }: RootState) =>
+  config.maxComparedWheels;
+
 export const getTableViewSpecs = ({ config }: RootState) => {
   if (!config.prices) {
     return config.specColumns.filter(k => k !== 'price');
