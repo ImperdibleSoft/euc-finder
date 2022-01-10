@@ -20,7 +20,7 @@ export interface MeasureUnits {
 
 export type SpecWeights = Record<
   // eslint-disable-next-line max-len
-  keyof Omit<Omit<Omit<Omit<Omit<Omit<Omit<WheelFeatures, 'peakPower'>, 'battery'>, 'voltage'>, 'diameter'>, 'width'>, 'groundClearance'>, 'color'>,
+  keyof Omit<Omit<Omit<Omit<Omit<Omit<WheelFeatures, 'peakPower'>, 'voltage'>, 'diameter'>, 'width'>, 'groundClearance'>, 'color'>,
   number
 >;
 

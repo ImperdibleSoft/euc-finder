@@ -11,5 +11,6 @@ export const getMeasureUnits = ({ settings }: RootState) =>
 
 export const getSpecWeights = ({ config, settings }: RootState): SpecWeights => ({
   ...settings.specWeights,
+  battery: settings.specWeights.range / 4,
   price: config.prices ? settings.specWeights.price : 0
 });

@@ -7,6 +7,9 @@ export const getGenericSpecWheights = (): SpecWeights => ({
   maxGradibility: 10,
   maxSpeed: 15,
   range: 15,
+  // This value is automatically calculated.
+  // It is declared here in order to match Types
+  battery: 0,
 
   weight: 10,
   trolleyHandle: 10,
@@ -28,6 +31,9 @@ export const getComfortableSpecWheights = (): SpecWeights => ({
   maxGradibility: 10,
   maxSpeed: 5,
   range: 15,
+  // This value is automatically calculated.
+  // It is declared here in order to match Types
+  battery: 0,
 
   weight: 15,
   trolleyHandle: 15,
@@ -49,6 +55,9 @@ export const getSafetySpecWheights = (): SpecWeights => ({
   maxGradibility: 10,
   maxSpeed: 8,
   range: 10,
+  // This value is automatically calculated.
+  // It is declared here in order to match Types
+  battery: 0,
 
   weight: 10,
   trolleyHandle: 10,
@@ -70,6 +79,9 @@ export const getPerformanceSpecWheights = (): SpecWeights => ({
   maxGradibility: 5,
   maxSpeed: 20,
   range: 10,
+  // This value is automatically calculated.
+  // It is declared here in order to match Types
+  battery: 0,
 
   weight: 15,
   trolleyHandle: 0,

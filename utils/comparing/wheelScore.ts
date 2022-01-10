@@ -198,7 +198,7 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
   );
   const battery = applyMaxValue(
     getValueBasedOnMinMax(wheel.battery.wattsHour, minMaxValues.battery),
-    specWeights.range / 4
+    specWeights.battery
   );
   const maxGradibility = applyMaxValue(
     getMaxGradabilityScore(wheel.maxGradibility, minMaxValues.maxGradibility),

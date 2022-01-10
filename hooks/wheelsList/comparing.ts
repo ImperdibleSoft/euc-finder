@@ -92,6 +92,7 @@ export const useComparedWheels = () => {
 
   return {
     minMaxScores,
+    specWeights,
     wheelScores: scores,
     wheels: scoredWheels
   };

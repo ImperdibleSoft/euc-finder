@@ -1,4 +1,5 @@
 import { Box, Button, ButtonGroup } from '@mui/material';
+import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -6,6 +7,7 @@ import CompareTable from '../../components/CompareView/CompareTable';
 import EmptyCase from '../../components/CompareView/EmptyCase';
 import Dropdown, { DropdownItem } from '../../components/Form/Dropdown';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
+import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useCompareActions, useComparedWheels } from '../../hooks';
 import { getBrands, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
 import { WheelId } from '../../types';
@@ -29,7 +31,7 @@ const CompareWheels: React.FC = () => {
       label: w.name,
       value: w.id
     }));
-  const { minMaxScores, wheelScores, wheels } = useComparedWheels();
+  const { minMaxScores, specWeights, wheelScores, wheels } = useComparedWheels();
 
   const renderWheelDropdown = (name: string) => {
     if (wheels.length >= MAX_WHEELS) {
@@ -53,47 +55,66 @@ const CompareWheels: React.FC = () => {
     );
   };
 
+  const pageTitle = `${ t('compare-title') } - ${ APP_NAME }`;
+  const pageDescription = APP_DESCRIPTION;
+
   return (
-    <SimpleLayout>
-      { renderWheelDropdown('addWheel') }
+    <>
+      <Head>
+        <title>{ pageTitle }</title>
+        <meta name="description" content={ pageDescription } />
 
-      <Box sx={ { alignItems: 'center', display: 'flex', justifyContent: 'flex-end', pb: 2 } }>
-        <ButtonGroup>
-          <Button
-            onClick={ handleOpenSettings }
-            variant="outlined"
-          >
-            { t('settings-title') }
-          </Button>
+        <meta name="keywords" content={ KEYWORDS.join(', ') } />
 
-          <Button
-            color="error"
-            onClick={ handleResetComparision }
-            variant="outlined"
-          >
-            { t('reset-btn') }
-          </Button>
-        </ButtonGroup>
-      </Box>
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content={ pageTitle } />
+        <meta property="og:description" content={ pageDescription } />
+        <meta property="og:image" content={ require('/public/assets/ogImage.png').default?.src } />
+        <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
+      </Head>
 
-      { wheels.length > 0 && (
-        <CompareTable
-          brands={ brands }
-          handleRemoveFromComparision={ handleRemoveFromComparision }
-          measureUnits={ measureUnits }
-          minMaxScores={ minMaxScores }
-          specs={ specs }
-          wheelScores={ wheelScores }
-          wheels={ wheels }
-        />
-      ) }
+      <SimpleLayout>
+        { renderWheelDropdown('addWheel') }
 
-      { wheels.length <= 0 && (
-        <EmptyCase>
-          { renderWheelDropdown('addWheel-emptyCase') }
-        </EmptyCase>
-      ) }
-    </SimpleLayout>
+        <Box sx={ { alignItems: 'center', display: 'flex', justifyContent: 'flex-end', pb: 2 } }>
+          <ButtonGroup>
+            <Button
+              onClick={ handleOpenSettings }
+              variant="outlined"
+            >
+              { t('settings-title') }
+            </Button>
+
+            <Button
+              color="error"
+              onClick={ handleResetComparision }
+              variant="outlined"
+            >
+              { t('reset-btn') }
+            </Button>
+          </ButtonGroup>
+        </Box>
+
+        { wheels.length > 0 && (
+          <CompareTable
+            brands={ brands }
+            handleRemoveFromComparision={ handleRemoveFromComparision }
+            measureUnits={ measureUnits }
+            minMaxScores={ minMaxScores }
+            specWeights={ specWeights }
+            specs={ specs }
+            wheelScores={ wheelScores }
+            wheels={ wheels }
+          />
+        ) }
+
+        { wheels.length <= 0 && (
+          <EmptyCase>
+            { renderWheelDropdown('addWheel-emptyCase') }
+          </EmptyCase>
+        ) }
+      </SimpleLayout>
+    </>
   );
 };
 
