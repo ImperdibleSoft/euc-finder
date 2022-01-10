@@ -19,6 +19,7 @@ import {
   useCompareActions,
   useEucList,
   useFilterFields,
+  useHeadingStyles,
   useSidebar,
   useSorting
 } from '../hooks';
@@ -57,6 +58,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
   } = useCompareActions();
   const canCompareAllWheels = canCompareMoreWheels(sortedWheels.length);
   const canCompareOneWheel = canCompareMoreWheels();
+  const styles = useHeadingStyles(canCompareAllWheels, view);
 
   const pageTitle = APP_NAME;
   const pageDescription = APP_DESCRIPTION;
@@ -113,26 +115,32 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
           </>
         ) }
       >
-        <Container
-          maxWidth={ view === 'grid' ? 'lg' : false }
-          sx={ {
-            alignItems: 'center',
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: {
-              xs: 'normal',
-              sm: 'flex-end'
-            },
-            pb: 2
-          } }
-        >
-          <ButtonGroup sx={ { display: { xs: 'inline-flex', sm: 'none' }, flex: 1 } }>
+        <Container maxWidth={ styles.containerMaxWidth } sx={ styles.buttonsContainer }>
+          { /* Filters */ }
+          <ButtonGroup sx={ styles.filtersGroup }>
             <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
               { t('filters-title') }
             </Button>
           </ButtonGroup>
 
-          <ButtonGroup sx={ { display: { xs: 'none', lg: 'flex' } } }>
+          { /* Comparator */ }
+          <ButtonGroup sx={ styles.comparatorGroup }>
+            <Button onClick={ handleOpenComparator }>
+              { t('compare-title') }
+            </Button>
+
+            { canCompareAllWheels && (
+              <Button
+                onClick={ () => handleAddAllToComparision(sortedWheels.map(w => w.id)) }
+                sx={ styles.compareAllWheels }
+              >
+                { t('compareAll-label', { wheels: sortedWheels.length }) }
+              </Button>
+            ) }
+          </ButtonGroup>
+
+          { /* View toggles */ }
+          <ButtonGroup sx={ styles.viewTogglesGroup }>
             <Button onClick={ () => { setView('grid'); } }>
               <Icon color={ view === 'grid' ? 'primary' : 'disabled' }>grid_view</Icon>
             </Button>
@@ -141,21 +149,9 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
               <Icon color={ view === 'table' ? 'primary' : 'disabled' }>table_rows</Icon>
             </Button>
           </ButtonGroup>
-
-          <ButtonGroup>
-            <Button onClick={ handleOpenComparator } sx={ { justifySelf: 'flex-end', ml: 1 } }>
-              { t('compare-title') }
-            </Button>
-
-            { canCompareAllWheels && (
-              <Button onClick={ () => handleAddAllToComparision(sortedWheels.map(w => w.id)) }>
-                { t('compareAll-label', { wheels: sortedWheels.length }) }
-              </Button>
-            ) }
-          </ButtonGroup>
         </Container>
 
-        <Container maxWidth={ view === 'grid' ? 'lg' : false } sx={ { pb: 2 } }>
+        <Container maxWidth={ styles.containerMaxWidth } sx={ styles.commonContainer }>
           <Typography variant="body1" component="p">
             { t('unicycles-label', { quantity: sortedWheels.length }) }
           </Typography>
