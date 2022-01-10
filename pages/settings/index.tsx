@@ -34,7 +34,7 @@ const Settings: React.FC = () => {
 
   const handleSaveMeasureUnits = () => {
     measureUnitFields.forEach(field => {
-      const key = `preference_${ field.name }` as LOCAL_STORAGE_KEY;
+      const key = `eucFinder_${ field.name }MeasureUnit` as LOCAL_STORAGE_KEY;
 
       if (field.value) {
         setItem(key, field.value);

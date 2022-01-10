@@ -91,10 +91,7 @@ export const useMeasureUnits = () => {
 
   const handleChangeDiameter = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    dispatch({
-      type: 'setMeasureUnit',
-      payload: { diameter: value as DiameterUnits }
-    });
+    dispatch(setMeasureUnit({ key: 'diameter', value }));
   };
 
   const handleChangeWidth = (event: ChangeEvent<HTMLSelectElement>) => {
