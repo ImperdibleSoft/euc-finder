@@ -20,8 +20,9 @@ const headingStyles: React.CSSProperties = {
 
 interface Props {
   columns: WheelsTableColumns;
-  handleAddToCompare: (wheelId: WheelId) => void;
+  handleAddToCompare?: (wheelId: WheelId) => void;
   handleSort: (key: WheelSortingKeys) => void;
+  isBeingCompared: (wheelId: WheelId) => boolean;
   records: WheelWithPicture[];
   sorting: WheelSorting;
 }
@@ -30,6 +31,7 @@ const TableView: React.FC<Props> = ({
   columns,
   handleAddToCompare,
   handleSort,
+  isBeingCompared,
   records,
   sorting
 }) => {
@@ -67,9 +69,9 @@ const TableView: React.FC<Props> = ({
               return null;
             }
             
-            const handleCompareClick = () => {
-              handleAddToCompare(wheel.id);
-            };
+            const handleCompareClick = handleAddToCompare !== undefined && !isBeingCompared(wheel.id)
+              ? () => handleAddToCompare(wheel.id)
+              : undefined;
 
             return (
               <TableRow key={ row.id } >
@@ -116,15 +118,17 @@ const TableView: React.FC<Props> = ({
                     </Button>
                   </Link>
 
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    color="secondary"
-                    onClick={ handleCompareClick }
-                    sx={ { display: 'flex', width: '100%' } }
-                  >
-                    { t('compare-label') }
-                  </Button>
+                  { !!handleCompareClick && (
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      color="secondary"
+                      onClick={ handleCompareClick }
+                      sx={ { display: 'flex', width: '100%' } }
+                    >
+                      { t('compare-label') }
+                    </Button>
+                  ) }
                 </TableCell>
               </TableRow>
             );}) }

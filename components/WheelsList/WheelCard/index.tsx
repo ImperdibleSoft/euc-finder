@@ -22,7 +22,7 @@ import SmallList from '../../Lists/SmallList';
 import { ListItem } from '../../Lists/types';
 
 interface Props {
-  handleAddToCompare: () => void;
+  handleAddToCompare?: () => void;
   sorting: WheelSorting;
   wheel: WheelWithPicture;
 }
@@ -97,14 +97,16 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
 
       <CardActions>
         <Link href={ link } passHref>
-          <Button variant="outlined" sx={  { ml: 'auto', mr: 1 } }>
+          <Button variant="outlined" sx={  { ml: 'auto' } }>
             { t('details-btn') }
           </Button>
         </Link>
 
-        <Button variant="outlined" color="secondary" onClick={ handleAddToCompare }>
-          { t('compare-label') }
-        </Button>
+        { !!handleAddToCompare && (
+          <Button variant="outlined" color="secondary" onClick={ handleAddToCompare } sx={ { ml: 1 } }>
+            { t('compare-label') }
+          </Button>
+        ) }
       </CardActions>
     </Card>
   );

@@ -7,14 +7,22 @@ import Dropdown, { DropdownItem } from '../../Form/Dropdown';
 import WheelCard from '../WheelCard';
 
 interface Props {
-  handleAddToCompare: (wheelId: WheelId) => void;
+  handleAddToCompare?: (wheelId: WheelId) => void;
   handleSort: (key: WheelSortingKeys) => void
+  isBeingCompared: (wheelId: WheelId) => boolean;
   records: WheelWithPicture[]
   showPrice: boolean,
   sorting: WheelSorting
 }
 
-const GridView: React.FC<Props> = ({ handleAddToCompare, handleSort, records, showPrice, sorting  }) => {
+const GridView: React.FC<Props> = ({
+  handleAddToCompare,
+  handleSort,
+  isBeingCompared,
+  records,
+  showPrice,
+  sorting
+}) => {
   const { t } = useTranslation();
 
   const [sampleWheel] = records ?? [];
@@ -91,15 +99,20 @@ const GridView: React.FC<Props> = ({ handleAddToCompare, handleSort, records, sh
 
       <Grid container spacing={ 2 }>
         { records.map(record => {
-          const handleCompareClick = () => {
-            handleAddToCompare(record.id);
-          };
+          const handleCompareClick = handleAddToCompare !== undefined && !isBeingCompared(record.id)
+            ? () => handleAddToCompare(record.id)
+            : undefined;
 
           return (
             <Grid item key={ record.id } xs={ 12 } md={ 6 } lg={ 4 } xl={ 3 }>
-              <WheelCard handleAddToCompare={ handleCompareClick } sorting={ sorting } wheel={ record } />
+              <WheelCard
+                handleAddToCompare={ handleCompareClick }
+                sorting={ sorting }
+                wheel={ record }
+              />
             </Grid>
-          );}) }
+          );
+        }) }
       </Grid>
     </Container>
   );

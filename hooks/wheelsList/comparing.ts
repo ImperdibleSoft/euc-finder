@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { EUC_COMPARE, SETTINGS } from '../../constants/clientRoutes';
 import { addWheelToComparision, removeWheelToComparision, resetWheelToComparision } from '../../store/actions';
@@ -11,6 +11,17 @@ import { getAbsoluteMinMaxValues, getAbsoluteWheelsScores, getRelativeMinMaxScor
 export const useCompareActions = () => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const comparedWheels = useSelector(getComparedWheels);
+
+  const canCompareMoreWheels = useCallback(
+    (wheelsToAdd = 1) => (comparedWheels.length + wheelsToAdd) <= 5,
+    [comparedWheels]
+  );
+
+  const isBeingCompared = useCallback(
+    (wheelId: WheelId) => comparedWheels.includes(wheelId),
+    [comparedWheels]
+  );
 
   const handleAddAllToComparision = (wheels: WheelId[]) => {
     wheels.forEach(wheelId => {
@@ -41,12 +52,14 @@ export const useCompareActions = () => {
   };
 
   return {
+    canCompareMoreWheels,
     handleAddAllToComparision,
     handleAddToComparision,
     handleOpenSettings,
     handleRemoveFromComparision,
     handleOpenComparator,
-    handleResetComparision
+    handleResetComparision,
+    isBeingCompared
   };
 };
 
