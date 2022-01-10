@@ -93,6 +93,8 @@
   "remove-label": "Quitar",
   "noWheelsToCompare-msg": "No hay suficientes ruedas para comparar.",
   "addWheelsToCompare-msg": "Por favor, añade más ruedas a tu comparación para ver los resultados.",
+  "maxSpecValue-msg": "Prioridad: {{value}}/20",
+  "unusedSpec-msg": "Esto no se usa para los cálculos",
 
   "confirmation-title": "Vas a abandonar {{appName}}",
   "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{storeName}}.",

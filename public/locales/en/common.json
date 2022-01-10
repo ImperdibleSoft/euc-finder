@@ -93,6 +93,8 @@
   "remove-label": "Remove",
   "noWheelsToCompare-msg": "There are not enough EUCs to compare.",
   "addWheelsToCompare-msg": "Please, add more EUCs to your comparison to see the results.",
+  "maxSpecValue-msg": "Priority: {{value}}/20",
+  "unusedSpec-msg": "This is not used for calculations",
 
   "confirmation-title": "You are navigating out of {{appName}}",
   "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{storeName}}'s site.",
