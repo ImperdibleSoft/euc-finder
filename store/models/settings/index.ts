@@ -9,7 +9,7 @@ import {
   WidthUnits
 } from '../../../types';
 import { getItem } from '../../../utils';
-import { MeasureUnits, SettingsState } from '../../types';
+import { MeasureUnits, SettingsState, SpecWeightsPreset } from '../../types';
 import { getGenericSpecWheights } from './specWeights';
 
 export const getMeasureUnitsDefaultValue = (): MeasureUnits => ({
@@ -46,5 +46,8 @@ export const getSettingsInitialState = (): SettingsState => ({
       || measureUnitsDefaultValue.width
   },
   region: (getItem(LOCAL_STORAGE_KEY.REGION) || 'eu') as Region,
-  specWeights: getGenericSpecWheights()
+  specWeights: {
+    preset: SpecWeightsPreset.generic,
+    customValues: getGenericSpecWheights()
+  }
 });

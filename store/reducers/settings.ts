@@ -29,6 +29,27 @@ const reducer = (state = getSettingsInitialState(), action: SettingsAction): Set
         ...state,
         region: action.payload.region
       };
+
+    case 'SET_SPECWEIGHTS_PRESET':
+      return {
+        ...state,
+        specWeights: {
+          ...state.specWeights,
+          preset: action.payload.preset
+        }
+      };
+
+    case 'SET_CUSTOM_SPECWEIGHT':
+      return {
+        ...state,
+        specWeights: {
+          ...state.specWeights,
+          customValues: {
+            ...state.specWeights.customValues,
+            [action.payload.key]: action.payload.value
+          }
+        }
+      };
         
     default:
       return state;
