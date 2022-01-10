@@ -31,7 +31,7 @@ const getNegotiationsStatus = (discountCode: string) => {
       return '✔️';
 
     case '❌':
-      return '❌';
+      return '✔️';
 
     default:
       return undefined;
