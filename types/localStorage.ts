@@ -1,6 +1,4 @@
 export enum LOCAL_STORAGE_KEY {
-  // Development
-
   // Generics
 
   /**
@@ -84,5 +82,5 @@ export enum LOCAL_STORAGE_KEY {
    * Disable any interaction with GA
    * so statistics are not compromised
    */
-  DISABLE_ANALYTICS = 'test',
+  DISABLE_ANALYTICS = 'eucFinder_disableAnalytics',
 }
