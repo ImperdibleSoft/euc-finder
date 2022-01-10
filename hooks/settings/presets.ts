@@ -5,6 +5,8 @@ import { Props as SliderProps } from '../../components/Form/Slider';
 import { setCustomSpecWeight, setSpecWeightsPreset } from '../../store/actions';
 import { getPricesConfig, getSpecWeights, getSpecWeightsActivePreset } from '../../store/selectors';
 import { SpecWeights, SpecWeightsPreset } from '../../store/types';
+import { LOCAL_STORAGE_KEY } from '../../types';
+import { setItem } from '../../utils';
 
 // eslint-disable-next-line max-lines-per-function
 export const usePresets = () => {
@@ -16,6 +18,7 @@ export const usePresets = () => {
 
   const handleChangePreset = (preset: SpecWeightsPreset) => {
     dispatch(setSpecWeightsPreset(preset));
+    setItem(LOCAL_STORAGE_KEY.SPECWEIGHT_PRESET, preset);
   };
 
   let timeout: NodeJS.Timeout;
