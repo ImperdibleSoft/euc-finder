@@ -42,14 +42,32 @@ export const useHeadingStyles = (canCompareAllWheels: boolean, view: 'grid' | 't
     pb: {
       xs: displayCompareAllWheelsBtn ? 2 : 0,
       sm: 0
+    },
+    '& > button': {
+      display: {
+        xs: displayCompareAllWheelsBtn ? 'inline-block' : undefined,
+        sm: undefined
+      },
+      maxWidth: {
+        xs: displayCompareAllWheelsBtn ? '60%' : undefined,
+        sm: undefined
+      },
+      overflow: {
+        xs: displayCompareAllWheelsBtn ? 'hidden' : undefined,
+        sm: undefined
+      },
+      textOverflow: {
+        xs: displayCompareAllWheelsBtn ? 'ellipsis' : undefined,
+        sm: undefined
+      },
+      whiteSpace: {
+        xs: displayCompareAllWheelsBtn ? 'nowrap' : undefined,
+        sm: undefined
+      }
     }
   };
 
-  const compareAllWheels: SxProps<Theme> = { 
-    textOverflow: { xs: 'ellipsis', sm: undefined },
-    whiteSpace: { xs: 'nowrap', sm: undefined },
-    overflow: { xs: 'hidden', sm: undefined }
-  };
+  const compareAllWheels: SxProps<Theme> = {};
 
   const viewTogglesGroup: SxProps<Theme> = { display: { xs: 'none', lg: 'flex' } };
 
