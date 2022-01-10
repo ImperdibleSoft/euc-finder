@@ -7,9 +7,10 @@ import {
   SpeedUnits,
   WeightUnits,
   WidthUnits
-} from '../../types';
-import { getItem } from '../../utils';
-import { MeasureUnits, SettingsState, SpecWeights } from '../types';
+} from '../../../types';
+import { getItem } from '../../../utils';
+import { MeasureUnits, SettingsState } from '../../types';
+import { getGenericSpecWheights } from './specWeights';
 
 export const getMeasureUnitsDefaultValue = (): MeasureUnits => ({
   diameter: DiameterUnits.in,
@@ -21,26 +22,6 @@ export const getMeasureUnitsDefaultValue = (): MeasureUnits => ({
 });
 const measureUnitsDefaultValue = getMeasureUnitsDefaultValue();
 
-export const getInitialSpecWeights = (): SpecWeights => ({
-  price: 20,
-
-  ratedPower: 15,
-  maxGradibility: 10,
-  maxSpeed: 15,
-  range: 15,
-
-  weight: 10,
-  trolleyHandle: 10,
-  antiSpin: 5,
-  pedals: 10,
-  kickstand: 5,
-  headlight: 10,
-  tailLight: 10,
-  leds: 1,
-  sound: 3,
-  display: 2,
-  suspension: 5
-});
 
 export const getSettingsInitialState = (): SettingsState => ({
   disclaimer: getItem(LOCAL_STORAGE_KEY.RANGE_DISCLAIMER) === 'true',
@@ -65,5 +46,5 @@ export const getSettingsInitialState = (): SettingsState => ({
       || measureUnitsDefaultValue.width
   },
   region: (getItem(LOCAL_STORAGE_KEY.REGION) || 'eu') as Region,
-  specWeights: getInitialSpecWeights()
+  specWeights: getGenericSpecWheights()
 });
