@@ -1,8 +1,10 @@
 /* eslint-disable max-lines */
 import { Box, Button, Icon, TableCell, Theme, Tooltip } from '@mui/material';
+import Link from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { wheelFeatureFormatters } from '../../../constants';
+import { EUC_DETAILS } from '../../../constants/clientRoutes';
 import { useBreakpoints } from '../../../hooks';
 import { MeasureUnits, SpecWeights } from '../../../store/types';
 import { Brands, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps } from '../../../types';
@@ -234,14 +236,26 @@ const CompareTable: React.FC<Props> = ({
               width={ colsWidth }
             >
               { typeof wheel !== 'number' && (
-                <Button
-                  color="error"
-                  size="small"
-                  variant="outlined"
-                  onClick={ () => handleRemoveFromComparision(wheel.id) }
-                >
-                  { t('remove-label') }
-                </Button>
+                <Box sx={ { display: 'flex', flexDirection: 'column' } }>
+                  <Link href={ EUC_DETAILS.replace(':id', wheel.id) } passHref>
+                    <Button
+                      size="small"
+                      sx={ { mb: 1 } }
+                      variant="outlined"
+                    >
+                      { t('details-btn') }
+                    </Button>
+                  </Link>
+                
+                  <Button
+                    color="error"
+                    size="small"
+                    variant="outlined"
+                    onClick={ () => handleRemoveFromComparision(wheel.id) }
+                  >
+                    { t('remove-label') }
+                  </Button>
+                </Box>
               ) }
             </TableCell>
           )) }
