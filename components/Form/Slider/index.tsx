@@ -3,6 +3,7 @@ import React from 'react';
 
 export interface Props {
   defaultValue?: string;
+  disabled?: boolean;
   fullWidth?: boolean;
   // icon?: string;
   label?: string;
@@ -17,6 +18,7 @@ export interface Props {
 
 const Slider: React.FC<Props> = ({
   defaultValue,
+  disabled = false,
   fullWidth = true,
   // icon,
   label,
@@ -28,20 +30,16 @@ const Slider: React.FC<Props> = ({
   style,
   value
 }) => {
-  let timeout: NodeJS.Timeout;
   const handleSliderChange = (event: Event) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => {
-      const parsedEvent = event as unknown as React.ChangeEvent<HTMLInputElement>;
+    const parsedEvent = event as unknown as React.ChangeEvent<HTMLInputElement>;
 
-      onChange({
-        ...parsedEvent,
-        target: {
-          ...parsedEvent.target,
-          name
-        }
-      });
-    }, 300);
+    onChange({
+      ...parsedEvent,
+      target: {
+        ...parsedEvent.target,
+        name
+      }
+    });
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -56,7 +54,7 @@ const Slider: React.FC<Props> = ({
 
   return (
     <Box sx={ { width: fullWidth ? '100%' : 250 } } style={ { ...style } }>
-      <Typography id={ `${ name }-label` } gutterBottom>
+      <Typography id={ `${ name }-label` } variant="caption" gutterBottom>
         { label }
       </Typography>
 
@@ -64,6 +62,7 @@ const Slider: React.FC<Props> = ({
         <Grid item xs>
           <MuiSlider
             aria-labelledby={ `${ name }-label` }
+            disabled={ disabled }
             max={ max }
             min={ min }
             onChange={ handleSliderChange }
@@ -78,6 +77,7 @@ const Slider: React.FC<Props> = ({
             id={ name }
             inputProps={ {
               'aria-labelledby': `${ name }-label`,
+              disabled,
               max,
               min,
               step,
