@@ -1,4 +1,5 @@
-import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
+/* eslint-disable max-lines */
+import { Box, Button, ButtonGroup, Card, CardActions, CardContent, Divider, Grid, Typography } from '@mui/material';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -9,15 +10,23 @@ import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { useSettings } from '../../hooks';
 import { defaultMeasureUnits, resetMeasureUnits } from '../../store/actions';
+import { SpecWeightsPreset } from '../../store/types';
 import { LOCAL_STORAGE_KEY } from '../../types';
 import { removeItem, setItem } from '../../utils';
 import { getStaticProps } from '../../utils-server';
 
+// eslint-disable-next-line max-lines-per-function
 const Settings: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const [render, setRender] = useState(false);
-  const { languageField, measureUnitFields, specWeightsFields } = useSettings();
+  const {
+    languageField,
+    measureUnitFields,
+    activePreset,
+    handleChangePreset,
+    specWeightsFields
+  } = useSettings();
 
   useEffect(() => {
     setRender(true);
@@ -111,8 +120,51 @@ const Settings: React.FC = () => {
             <Grid item xs={ 12 } sm={ 6 } md={ 8 }>
               <Card>
                 <CardContent>
-                  <Typography variant="h5" component="div" sx={ { mb: 3 } }>
+                  <Typography variant="h5" component="div" gutterBottom>
                     { t('compare-title') }
+                  </Typography>
+
+                  <Typography variant="body1" component="p" gutterBottom>
+                    { t('settingsSpecWeights-msg') }
+                  </Typography>
+                  <Divider />
+                  
+                  <Typography variant="body1" component="p" sx={ { my: 2 } }>
+                    { t('settingsSpecWeightsPresets-msg') }
+                  </Typography>
+
+                  <Box sx={ {
+                    alignItems: 'center',
+                    textAlign: 'center',
+                    justifyContent: 'center',
+                    maxWidth: '100%',
+                    mt: 2,
+                    overflow: 'hidden',
+                    overflowX: 'auto',
+                    pb: 2,
+                    pr: '1px'
+                  } }
+                  >
+                    <ButtonGroup variant="outlined" disableElevation>
+                      { Object.values(SpecWeightsPreset).map(preset =>
+                        preset === SpecWeightsPreset.custom
+                          ? null
+                          : (
+                            <Button
+                              key={ `${ preset }-preset` }
+                              variant={ activePreset === preset ? 'contained' : undefined }
+                              onClick={ () => handleChangePreset(preset) }
+                            >
+                              { t(`${ preset }Preset-label`) }
+                            </Button>
+                          )
+                      ) }
+                    </ButtonGroup>
+                  </Box>
+                  <Divider />
+
+                  <Typography variant="body1" component="p" sx={ { my: 2 } }>
+                    { t('settingsSpecWeightsCustom-msg') }
                   </Typography>
                 
                   <Grid container spacing={ { xs: 0, md: 6 } }>
