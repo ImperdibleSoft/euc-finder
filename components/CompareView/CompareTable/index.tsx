@@ -9,6 +9,8 @@ import { Brands, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps 
 import { isCompetingValue, isTopValue } from '../../../utils/comparing';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../Table';
 
+const WHEEL_THUM_SIZE = 64;
+
 const getRowBackground = (theme: Theme, key: WheelScoreProps, specWeights: SpecWeights) => {
   // @ts-ignore
   if (key !== 'score' && !specWeights[key]) {
@@ -73,6 +75,7 @@ interface Props {
   minMaxScores: MinMaxScores;
   specWeights: SpecWeights;
   specs: (keyof Wheel)[];
+  wheelPictures: Record<WheelId, string>;
   wheelScores: ScoreCollection;
   wheels: Wheel[];
 }
@@ -85,6 +88,7 @@ const CompareTable: React.FC<Props> = ({
   minMaxScores,
   specWeights,
   specs,
+  wheelPictures,
   wheelScores,
   wheels
 }) => {
@@ -98,24 +102,43 @@ const CompareTable: React.FC<Props> = ({
   const columns = 1 + wheels.length + emptyColumns.length;
   const colsWidth = `${ 100 / columns }%`;
 
+  const cells = [...wheels, ...emptyColumns];
+
   return (
     <Table>
       <TableHeading>
         <TableHead width={ colsWidth } />
 
-        { wheels.map(({ id, name }) => (
+        { cells.map((wheel) => (
           <TableHead
-            key={ id }
+            key={ typeof wheel === 'number' ? wheel : wheel.id }
             id={ 'id' }
             width={ colsWidth }
+            style={ { textAlign: 'center' } }
           >
-            { name }
-          </TableHead>
-        )) }
+            <div style={ {
+              alignItems: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              marginBottom: 8,
+              textAlign: 'center',
+              width: '100%'
+            } }>
+              <div
+                style={ {
+                  backgroundImage: typeof wheel === 'number' ? undefined : `url(${ wheelPictures[wheel.id] })`,
+                  backgroundPosition: '50%',
+                  backgroundRepeat: 'no-repeat',
+                  backgroundSize: `auto ${ WHEEL_THUM_SIZE }px`,
+                  height: WHEEL_THUM_SIZE,
+                  width: WHEEL_THUM_SIZE
+                } }
+              />
+            </div>
 
-        { emptyColumns.map(val => (
-          <TableHead key={ `emptyHead-${ val }` } width={ colsWidth }>
-            { t('eucs').replace(/s$/, '') } { val }
+            <p style={ { margin: 0, marginTop: 0 } }>
+              { typeof wheel === 'number' ? `${ t('eucs').replace(/s$/, '') } ${ wheel }` : wheel.name }
+            </p>
           </TableHead>
         )) }
       </TableHeading>
@@ -152,31 +175,39 @@ const CompareTable: React.FC<Props> = ({
                 </Box>
               </TableCell>
 
-              { wheels.map((wheel, index) => {
+              { cells.map((wheel, index) => {
                 // @ts-ignore
                 // eslint-disable-next-line no-restricted-syntax
                 const units = key in measureUnits ? measureUnits[key] : undefined;
-                const formatter = key !== 'brandId' && key !== 'score' ? wheelFeatureFormatters[key] : undefined;
-                const value = key !== 'brandId' && key !== 'score' ? wheel[key] : undefined;
+                const formatter = typeof wheel !== 'number' && key !== 'brandId' && key !== 'score'
+                  ? wheelFeatureFormatters[key]
+                  : undefined;
+                const value = typeof wheel !== 'number' && key !== 'brandId' && key !== 'score'
+                  ? wheel[key]
+                  : undefined;
                 let formattedValue = formatter?.(value, t, units, key === 'width' ? 2 : 0) ?? value;
 
                 const minMax = key !== 'brandId' ? minMaxScores[key] : undefined;
-                const score = wheelScores[wheel.id][key];
+                const score = typeof wheel !== 'number' ?
+                  wheelScores[wheel.id][key]
+                  : 0;
                 const highlighted = isCompetingValue(key) && isTopValue(score, minMax);
 
-                switch (key) {
-                  case 'brandId':
-                    formattedValue = brands[wheel.brandId]?.name;
-                    break;
-
-                  case 'score':
-                    formattedValue = score;
-                    break;
+                if (typeof wheel !== 'number') {
+                  switch (key) {
+                    case 'brandId':
+                      formattedValue = brands[wheel.brandId]?.name;
+                      break;
+                      
+                    case 'score':
+                      formattedValue = score;
+                      break;
+                  }
                 }
 
                 return (
                   <TableCell
-                    key={ `${ wheel.id }-${ key }` }
+                    key={ `${ typeof wheel === 'number' ? `emptyCell-${ wheel }` : wheel.id }-${ key }` }
                     sx={ {
                       bgcolor: (theme) => getCellBackground(theme, index, highlighted),
                       // color: (theme) => highlighted ? theme.palette.common.white : undefined,
@@ -189,10 +220,6 @@ const CompareTable: React.FC<Props> = ({
                 );
               }
               ) }
-              
-              { emptyColumns.map(val => (
-                <TableCell key={ `emptyCell-${ key }-${ val }` } width={ colsWidth } />
-              )) }
             </TableRow>
           );
         }) }
@@ -200,21 +227,23 @@ const CompareTable: React.FC<Props> = ({
         <TableRow>
           <TableCell width={ colsWidth }/>
 
-          { wheels.map(wheel => (
-            <TableCell key={ `${ wheel.id }-actions` } sx={ { textAlign: 'center' } }>
-              <Button
-                color="error"
-                size="small"
-                variant="outlined"
-                onClick={ () => handleRemoveFromComparision(wheel.id) }
-              >
-                { t('remove-label') }
-              </Button>
+          { cells.map(wheel => (
+            <TableCell
+              key={ `${ typeof wheel === 'number' ? `emptyCell-${ wheel }` : wheel.id }-actions` }
+              sx={ { textAlign: 'center' } }
+              width={ colsWidth }
+            >
+              { typeof wheel !== 'number' && (
+                <Button
+                  color="error"
+                  size="small"
+                  variant="outlined"
+                  onClick={ () => handleRemoveFromComparision(wheel.id) }
+                >
+                  { t('remove-label') }
+                </Button>
+              ) }
             </TableCell>
-          )) }
-            
-          { emptyColumns.map(val => (
-            <TableCell key={ `emptyCell-actions-${ val }` } width={ colsWidth } />
           )) }
         </TableRow>
       </TableBody>

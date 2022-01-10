@@ -9,13 +9,18 @@ import Dropdown, { DropdownItem } from '../../components/Form/Dropdown';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useCompareActions, useComparedWheels } from '../../hooks';
+import { wheels } from '../../store/models/data';
 import { getBrands, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
 import { WheelId } from '../../types';
-import { getStaticProps } from '../../utils-server';
+import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../../utils-server';
 
 const MAX_WHEELS = 5;
 
-const CompareWheels: React.FC = () => {
+interface Props {
+  pictures: Record<WheelId, string>;
+}
+
+const CompareWheels: React.FC<Props> = ({ pictures }) => {
   const { t } = useTranslation();
   const {
     handleAddToComparision,
@@ -31,10 +36,10 @@ const CompareWheels: React.FC = () => {
       label: w.name,
       value: w.id
     }));
-  const { minMaxScores, specWeights, wheelScores, wheels } = useComparedWheels();
+  const { minMaxScores, specWeights, wheelScores, wheels: comparedWheels } = useComparedWheels();
 
   const renderWheelDropdown = (name: string) => {
-    if (wheels.length >= MAX_WHEELS) {
+    if (comparedWheels.length >= MAX_WHEELS) {
       return null;
     }
 
@@ -95,7 +100,7 @@ const CompareWheels: React.FC = () => {
           </ButtonGroup>
         </Box>
 
-        { wheels.length > 0 && (
+        { comparedWheels.length > 0 && (
           <CompareTable
             brands={ brands }
             handleRemoveFromComparision={ handleRemoveFromComparision }
@@ -103,12 +108,13 @@ const CompareWheels: React.FC = () => {
             minMaxScores={ minMaxScores }
             specWeights={ specWeights }
             specs={ specs }
+            wheelPictures={ pictures }
             wheelScores={ wheelScores }
-            wheels={ wheels }
+            wheels={ comparedWheels }
           />
         ) }
 
-        { wheels.length <= 0 && (
+        { comparedWheels.length <= 0 && (
           <EmptyCase>
             { renderWheelDropdown('addWheel-emptyCase') }
           </EmptyCase>
@@ -120,4 +126,21 @@ const CompareWheels: React.FC = () => {
 
 export default CompareWheels;
 
-export { getStaticProps };
+export async function getStaticProps(staticProps: StaticProps) {
+  const { props } = await genericStaticProps(staticProps);
+
+  const pictures = wheels.reduce((wheelPictures, wheel) => {
+    if (!wheelPictures[wheel.id]) {
+      wheelPictures[wheel.id] = getWheelPictures(wheel.brandId, wheel.id)[0];
+    }
+
+    return wheelPictures;
+  }, {} as Record<WheelId, string>);
+
+  return {
+    props: {
+      ...props,
+      pictures
+    }
+  };
+}
