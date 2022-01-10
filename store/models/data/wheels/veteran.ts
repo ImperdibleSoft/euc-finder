@@ -20,7 +20,7 @@ const sherman: Wheel = {
   ratedPower: 2500,
   peakPower: 0,
   maxGradibility: 30,
-  maxSpeed: 70,
+  maxSpeed: 80,
   battery: {
     capacity: 3500,
     parallels: 10,

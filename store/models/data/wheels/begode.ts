@@ -22,7 +22,7 @@ const mten: Wheel = {
 
   ratedPower: 800,
   peakPower: 0,
-  maxGradibility: 20,
+  maxGradibility: 30,
   maxSpeed: 35,
   battery: {
     capacity: 0,
@@ -58,7 +58,7 @@ const mcm5: Wheel = {
 
   ratedPower: 1500,
   peakPower: 2250,
-  maxGradibility: 20,
+  maxGradibility: 30,
   maxSpeed: 40,
   battery: {
     capacity: 0,
@@ -94,7 +94,7 @@ const tesla: Wheel = {
 
   ratedPower: 2000,
   peakPower: 4000,
-  maxGradibility: 20,
+  maxGradibility: 30,
   maxSpeed: 50,
   battery: {
     capacity: 0,
@@ -210,7 +210,7 @@ const msx: Wheel = {
 
   ratedPower: 2000,
   peakPower: 4000,
-  maxGradibility: 20,
+  maxGradibility: 35,
   maxSpeed: 60,
   battery: {
     capacity: 3500,
@@ -262,7 +262,7 @@ const msp: Wheel = {
 
   ratedPower: 2500,
   peakPower: 0,
-  maxGradibility: 20,
+  maxGradibility: 35,
   maxSpeed: 50,
   battery: {
     capacity: 5000,
