@@ -1,12 +1,14 @@
 import {
   Paper,
+  SxProps,
   Table as MaterialTable,
   TableBody as MaterialTableBody,
   TableCell,
   TableContainer,
   TableHead as MaterialTableHead,
   TableRow as MaterialTableRow,
-  TableSortLabel
+  TableSortLabel,
+  Theme
 } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { Wheel, WheelSorting } from '../../types';
@@ -48,8 +50,11 @@ export const TableHead: React.FC<PropsWithChildren<TableHeadProps>> = ({
     </TableCell>
   );};
 
-export const TableRow: React.FC<PropsWithChildren<{}>> = ({ children }) => (
-  <MaterialTableRow>
+interface TableRowProps {
+  sx?: SxProps<Theme>;
+}
+export const TableRow: React.FC<PropsWithChildren<TableRowProps>> = ({ children, sx }) => (
+  <MaterialTableRow sx={ sx }>
     { children }
   </MaterialTableRow>
 );
