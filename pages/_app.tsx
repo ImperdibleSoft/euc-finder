@@ -59,11 +59,11 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       selectedRegion={ region }
       wheels={ wheels }
     >
-      { loadingStates.configData === 'loading' && (
+      { loadingStates.initialData === 'loading' && (
         <LoadingScreen />
       ) }
       
-      { loadingStates.configData === 'success' && children }
+      { loadingStates.initialData === 'success' && children }
     </MainLayout>
   );
 };
