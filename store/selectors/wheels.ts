@@ -5,10 +5,11 @@ import { getRangeConfig } from './config';
 
 export const getWheels = (rootState: RootState) => {
   const { wheels: { brands, collection } } = rootState;
+  const shouldCalculateRange = getRangeConfig(rootState);
 
   return collection.map(w => ({
     ...w,
-    range: getRangeConfig(rootState)
+    range: shouldCalculateRange
       ? getRangeFromBattery(w, brands)
       : w.range * 0.85
   }));

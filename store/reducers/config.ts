@@ -6,7 +6,7 @@ import { ConfigActions, ConfigState } from '../types';
 const reducer = (state = getConfigInitialState(), action: ConfigActions): ConfigState => {
   switch (action.type) {
     case 'SET_INITIALDATA':
-      const localCalculatedRange = '';
+      const localHardcodedRange = getItem(LOCAL_STORAGE_KEY.DISABLE_CALCULATEDRANGE);
       const localPrices = getItem(LOCAL_STORAGE_KEY.ENABLE_PRICE);
       const localPurchaseLinks = getItem(LOCAL_STORAGE_KEY.ENABLE_PURCHASELINKS);
 
@@ -15,8 +15,8 @@ const reducer = (state = getConfigInitialState(), action: ConfigActions): Config
         ...action.payload.config,
         featureFlags: {
           ...state.featureFlags,
-          calculatedRange: localCalculatedRange
-            ? localCalculatedRange === 'true'
+          calculatedRange: localHardcodedRange
+            ? localHardcodedRange !== 'true'
             : action.payload.config.featureFlags.calculatedRange,
           prices: localPrices
             ? localPrices === 'true'
