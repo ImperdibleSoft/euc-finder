@@ -51,8 +51,7 @@ export const getWheelsInitialState = (): WheelsState => ({
     official: [],
     unofficial: []
   },
-  // @ts-ignore
-  brands: {},
+  brands: [],
   collection: [],
   comparing: [],
   filters: getFiltersInitialValue(),
