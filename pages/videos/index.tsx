@@ -13,7 +13,7 @@ import { PaginateVideosAction } from '../../store/types';
 import { getStaticProps } from '../../utils-server';
 
 // eslint-disable-next-line max-lines-per-function
-const Videos = () => {
+const Videos: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const {
@@ -72,8 +72,8 @@ const Videos = () => {
           </>
         ) }
       >
-        <Box>
-          <ButtonGroup sx={ { display: { xs: 'flex', sm: 'none' }, flex: 1, justifyContent: 'flex-end' } }>
+        <Box id="videos">
+          <ButtonGroup sx={ { display: { xs: 'flex', sm: 'none' }, flex: 1, justifyContent: 'flex-end', px: 2 } }>
             <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
               { t('filters-title') }
             </Button>
@@ -81,7 +81,7 @@ const Videos = () => {
 
           { sponsored.videos.length > 0 && (
             <>
-              <Box sx={ { mt: 3, pl: 2 } }>
+              <Box sx={ { mt: 3, px: 2 } }>
                 <Typography variant="h4" component="h1" sx={ { mb: { sm: 3 } } }>
                   { t('sponsoredVideos-title') }
                 </Typography>
@@ -116,7 +116,7 @@ const Videos = () => {
 
           { unwatched.videos.length > 0 && (
             <>
-              <Box sx={ { mt: 3, pl: 2 } }>
+              <Box sx={ { mt: 3, px: 2 } }>
                 <Typography variant="h4" component="h1" sx={ { mb: { sm: 3 } } }>
                   { t('newVideos-title') }
                 </Typography>
@@ -149,7 +149,7 @@ const Videos = () => {
           
           { watched.videos.length > 0 && (
             <>
-              <Box sx={ { mt: 3, pl: 2 } }>
+              <Box sx={ { mt: 3, px: 2 } }>
                 <Typography variant="h4" component="h1" sx={ { mb: { sm: 3 } } }>
                   { t('watchedVideos-title') }
                 </Typography>

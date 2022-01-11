@@ -16,6 +16,6 @@ export interface Video {
   url: string;
   tags: (InfluencerId | VideoCategory | WheelId)[];
   language: Lang;
-  publishDate: Date;
-  releaseDate: Date;
+  publishDate: string;
+  releaseDate: string;
 }

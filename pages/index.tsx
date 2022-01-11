@@ -23,10 +23,9 @@ import {
   useSidebar,
   useSorting
 } from '../hooks';
-import { wheels } from '../store/models/data';
 import { getPricesConfig } from '../store/selectors';
 import { WheelId } from '../types';
-import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../utils-server';
+import { getFirstWheelPicture, getStaticProps as genericStaticProps, StaticProps } from '../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string>;
@@ -184,13 +183,7 @@ export default Wheels;
 
 export async function getStaticProps(staticProps: StaticProps) {
   const { props } = await genericStaticProps(staticProps);
-  const pictures = wheels.reduce((wheelPictures, wheel) => {
-    if (!wheelPictures[wheel.id]) {
-      wheelPictures[wheel.id] = getWheelPictures(wheel.brandId, wheel.id)[0];
-    }
-
-    return wheelPictures;
-  }, {} as Record<WheelId, string>);
+  const pictures = getFirstWheelPicture();
 
   return {
     props: {

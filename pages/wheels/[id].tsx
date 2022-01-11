@@ -1,9 +1,11 @@
 import { Box, Button, ButtonGroup, Grid } from '@mui/material';
+import { GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import eucFinderApi from '../../apis/eucfinder';
 import Apps from '../../components/Apps';
 import FacebookComments from '../../components/Facebook/FacebookComments';
 import FacebookLikeButton from '../../components/Facebook/FacebookLikeButton';
@@ -26,13 +28,13 @@ import {
   useEucPurchaseLinks,
   useEucVideos
 } from '../../hooks';
-import { wheels } from '../../store/models/data';
 import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
+import { cleanWheelId } from '../../utils';
 import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../../utils-server';
 
 interface Props {
-  pictures: string[];
+  pictures: Record<WheelId, string[]>;
 }
 
 const EucDetail: React.FC<Props> = ({ pictures }) => {
@@ -40,6 +42,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const id = router.query.id as WheelId;
   const { t } = useTranslation();
   const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
+  const wheelPictures = pictures[cleanWheelId(id)];
 
   const brands = useSelector(getBrands);
   const { name, wheel } = useEucDetail(id);
@@ -53,6 +56,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const pageDescription = t('defaultDescription-msg');
   const newKeywords = wheel ? [brands[wheel.brandId].name, wheel.name, name]: [];
   const keywords = KEYWORDS.concat(newKeywords).join(', ');
+
 
   const handleCompare = canCompareMoreWheels()
     ? () => {
@@ -71,7 +75,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={ pageTitle } />
         <meta property="og:description" content={ pageDescription } />
-        <meta property="og:image" content={ pictures[0] } />
+        <meta property="og:image" content={ wheelPictures[0] } />
         <meta property="og:image:alt" content={ t('wheelPicture-msg', { wheelName: wheel?.name }) } />
       </Head>
 
@@ -84,7 +88,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
           <>
             <Header
               brandId={ wheel.brandId }
-              heroImage={ pictures[0] }
+              heroImage={ wheelPictures[0] }
               wheelName={ name }
             >
               <FacebookLikeButton />
@@ -118,7 +122,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
                 onClick={ handleOpenPicture }
                 onClose={ handleClosePicture }
                 pictureDetail={ pictureDetail }
-                pictures={ pictures }
+                pictures={ wheelPictures }
                 wheelName={ name }
               />
 
@@ -156,24 +160,26 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
 
 export async function getStaticProps(staticProps: StaticProps) {
   const { props } = await genericStaticProps(staticProps);
-
-  const { params: { id } } = staticProps;
-  const wheel = wheels.find(w => w.id === id);
+  const pictures = getWheelPictures();
 
   return {
     props: {
       ...props,
-      pictures: wheel ? getWheelPictures(wheel.brandId, wheel.id) : []
+      pictures
     }
   };
 }
 
-export const getStaticPaths = async () => ({
-  paths: [
-    ...wheels.map(wheel => ({ params: { id: wheel.id } })),
-    ...wheels.map(wheel => ({ params: { id: wheel.id }, locale: 'es' }))
-  ],
-  fallback:'blocking'
-});
+export const getStaticPaths: GetStaticPaths = async () => {
+  const { wheels } = await eucFinderApi.config.getInitialData();
+
+  return {
+    paths: [
+      ...wheels.map(wheel => ({ params: { id: wheel.id } })),
+      ...wheels.map(wheel => ({ params: { id: wheel.id }, locale: 'es' }))
+    ],
+    fallback:'blocking'
+  };
+};
 
 export default EucDetail;

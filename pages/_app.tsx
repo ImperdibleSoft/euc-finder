@@ -33,7 +33,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const brands = useSelector(getBrands);
   const region = useSelector(getRegion);
   const wheels = useSelector(getWheels);
-  const initialDataState = useInitialData();
+  const loadingStates = useInitialData();
 
   const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
     if (value?.id) {
@@ -59,10 +59,11 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       selectedRegion={ region }
       wheels={ wheels }
     >
-      { initialDataState === 'loading' && (
+      { loadingStates.initialData === 'loading' && (
         <LoadingScreen />
       ) }
-      { initialDataState === 'success' && children }
+      
+      { loadingStates.initialData === 'success' && children }
     </MainLayout>
   );
 };

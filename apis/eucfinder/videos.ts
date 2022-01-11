@@ -6,12 +6,15 @@ export interface ReturnType {
   videos: Video[];
 }
 
-const getVideos = async (): Promise<ReturnType | undefined> => {
+const getVideos = async (): Promise<ReturnType> => {
   try {
     const response = await http.get<ReturnType>('/api/videos');
     return response.data;
   } catch {
-    return undefined;
+    return {
+      influencers: [],
+      videos: []
+    };
   }
 };
 

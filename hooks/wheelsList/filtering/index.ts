@@ -7,7 +7,7 @@ import Dropdown from '../../../components/Form/Dropdown';
 import Text from '../../../components/Form/Text';
 import { wheelFeatureIcons } from '../../../constants';
 import { filterWheels, resetWheelFilters } from '../../../store/actions';
-import { getPricesConfig, getWheelFilters } from '../../../store/selectors';
+import { getBrands, getPricesConfig, getWheelFilters } from '../../../store/selectors';
 import {
   AntiSpin,
   BrandId,
@@ -249,6 +249,7 @@ const useFilters = () => {
 // eslint-disable-next-line max-lines-per-function
 export const useFilterFields = () => {
   const { t } = useTranslation();
+  const brands = useSelector(getBrands);
   const showPrice = useSelector(getPricesConfig);
 
   const {
@@ -265,7 +266,7 @@ export const useFilterFields = () => {
     soundSystemOptions,
     suspensionOptions,
     trolleyHandleOptions
-  } = getDropdownOptions(t);
+  } = getDropdownOptions(t, brands);
 
   const {
     handleChange,

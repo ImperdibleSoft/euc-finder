@@ -1,6 +1,8 @@
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getInitialData } from '../store/actions';
+import { EUC_DETAILS, INFLUENCERS, VIDEOS } from '../constants/clientRoutes';
+import { getInitialData, getVideos } from '../store/actions';
 import { LoadingState } from '../types';
 
 export * from './apps';
@@ -13,19 +15,48 @@ export * from './wheelDetails';
 export * from './wheelsList';
 
 export const useInitialData = () => {
+  const { pathname } = useRouter();
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState<LoadingState>('idle');
+  const [initialData, setInitialData] = useState<LoadingState>('idle');
+  const [videosData, setVideosData] = useState<LoadingState>('idle');
+  const [wheelData, setWheelData] = useState<LoadingState>('idle');
   
-  const handleDownloadInitialData = async () => {
-    setLoading('loading');
+  const downloadInitialData = async () => {
+    setInitialData('loading');
     await dispatch(getInitialData());
-    setLoading('success');
+    setInitialData('success');
+  };
+
+  const downloadVideosData = async () => {
+    setVideosData('loading');
+    await dispatch(getVideos());
+    setVideosData('success');
+  };
+
+  const downloadWheelData = async () => {
+    setWheelData('loading');
+    // await dispatch(getInitialData());
+    setWheelData('success');
   };
 
   useEffect(() => {
-    handleDownloadInitialData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    if (initialData === 'idle') {
+      downloadInitialData();
+    }
 
-  return loading;
+    if ((pathname === EUC_DETAILS || pathname === INFLUENCERS || pathname === VIDEOS) && videosData === 'idle') {
+      downloadVideosData();
+    }
+    
+    if (pathname === EUC_DETAILS && wheelData === 'idle') {
+      downloadWheelData();
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathname, initialData, videosData, wheelData]);
+
+  return {
+    initialData,
+    videosData,
+    wheelData
+  };
 };

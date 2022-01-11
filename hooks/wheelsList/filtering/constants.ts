@@ -2,10 +2,10 @@
 import { TFunction } from 'react-i18next';
 import { CheckboxProps } from '../../../components/Form/Checkbox';
 import { DropdownItem } from '../../../components/Form/Dropdown';
-import { brands } from '../../../store/models/data';
 import {
   AntiSpin,
   BrandId,
+  Brands,
   Category,
   Color,
   Display,
@@ -19,7 +19,7 @@ import {
 import * as formatters from '../../../utils/formatters';
 
 // eslint-disable-next-line max-lines-per-function
-export const getDropdownOptions = (t: TFunction<'translation'>) => {
+export const getDropdownOptions = (t: TFunction<'translation'>, brands: Brands) => {
   const brandIdOptions: CheckboxProps[] = Object
     .values(BrandId)
     .map(brand => ({

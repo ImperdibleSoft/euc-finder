@@ -2,33 +2,38 @@ import fs from 'fs';
 import path from 'path';
 import { BrandId, WheelId } from '../types';
 
-export const getWheelPictures = (brandId: BrandId, id: WheelId): string[] => {
-  try {
-    const cleanWheelId = id
-      // HT or HS
-      .replace(/H(T|S)$/, '')
+export const getWheelPictures = (): Record<WheelId, string[]> => {
+  const relativePath = `/pictures/wheels`;
+  const absolutePath = path.join(process.cwd(), 'public', relativePath);
+  
+  const pictures = {};
+  
+  const brandFolders = fs.readdirSync(absolutePath) as BrandId[];
+  brandFolders.forEach(brandFolder => {
+    const folderPath = `${ absolutePath }/${ brandFolder }`;
+    const wheelFolders = fs.readdirSync(folderPath) as WheelId[];
+  
+    wheelFolders.forEach(wheelFolder => {
+      const wheelPath = `${ folderPath }/${ wheelFolder }`;
+      const wheelPictures = fs.readdirSync(wheelPath);
+  
+      (pictures as Record<WheelId, string[]>)[wheelFolder] = wheelPictures.length
+        ? wheelPictures.map(fileName => `${ relativePath }/${ brandFolder }/${ wheelFolder }/${ fileName }`)
+        : ['/favicon/maskable_icon_x512.png'];
+    });
+  });
+  
+  return pictures as Record<WheelId, string[]>;
+};
 
-      // 100v versions
-      .replace(/100$/, '')
+export const getFirstWheelPicture = (): Record<WheelId, string> => {
+  const pictures = {};
+  const allPictures = getWheelPictures();
 
-      // 16 or 18 inches
-      .replace(/recioWheel1(6|8)$/, 'recioWheel')
+  Object.keys(allPictures).forEach(key => {
+    const wheelId = key as WheelId;
+    (pictures as Record<WheelId, string>)[wheelId] = allPictures[wheelId][0];
+  });
 
-      // 16xs and 16x
-      .replace(/16xs$/, '16x')
-
-      // vXX and vXXf versions
-      .replace(/f$/, '')
-      
-      // Max versions
-      .replace(/Max$/, '');
-    const relativePath = `/pictures/wheels/${ brandId }/${ cleanWheelId }/`;
-    const absolutePath = path.join(process.cwd(), 'public', relativePath);
-
-    const fileNames = fs.readdirSync(absolutePath);
-
-    return fileNames.map(file => `${ relativePath }${ file }`);
-  } catch (error) {
-    return ['/favicon/maskable_icon_x512.png'];
-  }
+  return pictures as Record<WheelId, string>;
 };

@@ -88,7 +88,10 @@ export const getNewVideos = (lastVisit?: Date) => (rootState: RootState) => {
 
   const allVideos = getFilteredVideos(rootState);
   const newVideos = lastVisit
-    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.releaseDate > lastVisit)
+    ? allVideos.filter(video =>
+      !isSponsored(video, rootState.influencers.collection) &&
+      new Date(video.releaseDate) > lastVisit
+    )
     : allVideos;
   const videos = newVideos.slice(start, end);
 
@@ -108,7 +111,10 @@ export const getWatchedVideos = (lastVisit?: Date) => (rootState: RootState) => 
 
   const allVideos = getFilteredVideos(rootState);
   const watchedVideos = lastVisit
-    ? allVideos.filter(video => !isSponsored(video, rootState.influencers.collection) && video.releaseDate <= lastVisit)
+    ? allVideos.filter(video =>
+      !isSponsored(video, rootState.influencers.collection) &&
+      new Date(video.releaseDate) <= lastVisit
+    )
     : [];
   const videos = watchedVideos.slice(start, end);
 

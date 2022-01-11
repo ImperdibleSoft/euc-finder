@@ -1,7 +1,7 @@
 import { ServerResponse } from 'http';
 import React from 'react';
+import { wheels } from '../apis/database/data';
 import { DEALERS, EUC_COMPARE, EUC_DETAILS, INFLUENCERS, SETTINGS, VIDEOS } from '../constants/clientRoutes';
-import { wheels } from '../store/models/data';
 
 const Sitemap: React.FC = () => null;
 

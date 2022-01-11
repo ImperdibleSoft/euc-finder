@@ -1,45 +1,47 @@
 import { PurchaseLink, Region, Store, StoreId } from '../types';
-import { stores } from '../store/models/data';
 import { isDealerAvailable } from './dealers';
 
-interface GetStoreOptions {
+
+const getStoreDiscount = (dealerId: StoreId, dealers: Store[]) =>
+  dealers.find(d => d.id === dealerId)?.meta.discount ?? 0;
+
+const getStoreCode = (dealerId: StoreId, dealers: Store[]) =>
+  dealers.find(d => d.id === dealerId)?.meta?.code ?? '';
+
+interface GetDealerParams {
   stores: Store[]
   region: Region
   url: string
   sponsored?: boolean
 }
 
-const getStoreDiscount = (storeId: StoreId) => stores.find(s => s.id === storeId)?.meta.discount ?? 0;
-
-const getStoreCode = (storeId: StoreId) => stores.find(s => s.id === storeId)?.meta?.code ?? '';
-
-const getStoreFromUrl = ({ region, stores: storesData, url, sponsored }: GetStoreOptions) =>
-  storesData.find(({ meta, region: storeRegion, website }) => (
-    region === storeRegion
+const getStoreFromUrl = ({ region, stores: dealers, url, sponsored }: GetDealerParams) =>
+  dealers.find(({ meta, region: dealerRegion, website }) => (
+    region === dealerRegion
       && website
       && url.includes(website)
       && ((sponsored && meta.sponsor) || (!sponsored && !meta.sponsor))
   ));
 
 export const getPurchaseLink = (
-  { stores: storesData, ...options }: GetStoreOptions,
+  { stores: dealers, ...options }: GetDealerParams,
   showAllPurchaseLinks: boolean
 ): PurchaseLink | undefined => {
-  const store = getStoreFromUrl({
-    stores: storesData.filter(s => isDealerAvailable(s.name) || showAllPurchaseLinks),
+  const dealer = getStoreFromUrl({
+    stores: dealers.filter(s => isDealerAvailable(s.name) || showAllPurchaseLinks),
     ...options
   });
 
-  if (!store) {
+  if (!dealer) {
     return undefined;
   }
 
-  const discount = getStoreDiscount(store.id);
-  const code = getStoreCode(store.id);
+  const discount = getStoreDiscount(dealer.id, dealers);
+  const code = getStoreCode(dealer.id, dealers);
 
   return {
     discount,
-    store,
+    store: dealer,
     url: code ? `${ options.url }?${ code }` : options.url
   };
 };

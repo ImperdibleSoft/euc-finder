@@ -17,13 +17,13 @@ import {
   getInfluencerFromTags,
   getLastVisit,
   getWheelFromTags,
-  setLastVisit
+  setLastVisit as updateLastVisit
 } from '../../utils';
 
 export * from './filtering';
 
 export const useVideos = () => {
-  const [lastVisit, updateLastVisit] = useState<Date>();
+  const [lastVisit, setLastVisit] = useState<Date>();
   const sponsored = useSelector(getSponsoredVideos());
   const unwatched = useSelector(getNewVideos(lastVisit));
   const watched = useSelector(getWatchedVideos(lastVisit));
@@ -32,8 +32,8 @@ export const useVideos = () => {
   useEffect(() => {
     if (localStorage) {
       const lastDate = getLastVisit();
-      updateLastVisit(new Date(lastDate));
-      setLastVisit();
+      setLastVisit(new Date(lastDate));
+      updateLastVisit();
     }
   }, []);
 

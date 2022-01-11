@@ -1,4 +1,4 @@
-import { Video, VideoFilters } from '../../types';
+import { Influencer, Video, VideoFilters } from '../../types';
 
 export interface VideosState {
   // Main data
@@ -11,6 +11,14 @@ export interface VideosState {
     sponsoredOffset: number;
     newOffset: number;
     watchedOffset: number;
+  }
+}
+
+export interface SetVideosAction {
+  type: 'SET_VIDEOS';
+  payload: {
+    influencers: Influencer[];
+    videos: Video[];
   }
 }
 
@@ -34,4 +42,8 @@ export interface PaginateVideosAction {
   }
 }
 
-export type VideosAction = ResetVideosFiltersAction | FilterVideosAction | PaginateVideosAction;
+export type VideosAction =
+  | SetVideosAction
+  | ResetVideosFiltersAction
+  | FilterVideosAction
+  | PaginateVideosAction;
