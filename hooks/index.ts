@@ -40,15 +40,28 @@ export const useInitialData = () => {
   };
 
   useEffect(() => {
+    // Only download this information if it has not loaded previously
     if (initialData === 'idle') {
       downloadInitialData();
     }
 
-    if ((pathname === INFLUENCERS || pathname === VIDEOS) && videosData === 'idle') {
+    if (
+      // Only load this information on these pages
+      (pathname === INFLUENCERS || pathname === VIDEOS) &&
+      // Only load this information if it has not been loaded previously
+      // Also, if wheelData has been loaded: do not load it (because wheelData
+      // loads the same information)
+      (videosData === 'idle' && wheelData === 'idle')
+    ) {
       downloadVideosData();
     }
     
-    if (pathname === EUC_DETAILS.replace(':id', '[id]') && wheelData === 'idle') {
+    if (
+      // Only load this information on these pages
+      pathname === EUC_DETAILS.replace(':id', '[id]') &&
+      // Only load this information if it has not been loaded previously
+      wheelData === 'idle'
+    ) {
       downloadWheelData();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
