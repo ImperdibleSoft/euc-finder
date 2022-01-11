@@ -1,4 +1,4 @@
-import { Alert, Box, Button, FormControl, Icon, Input, Snackbar  } from '@mui/material';
+import { Alert, Box, Button, FormControl, Icon, Input, Snackbar } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -30,18 +30,25 @@ const TextToCopy: React.FC<Props> = ({ callback, text }) => {
     <Box sx={ { display: 'flex', justifyContent: 'center', width: '100%' } }>
       <FormControl sx={ {
         flexDirection: 'row',
-        m: 1,
-        width: '250px'
+        my: 1,
+        mx: { xs: 0, sm: 1 },
+        width: { xs: '100%', sm: 300 }
       } } variant="outlined">
-        <Input readOnly sx={ { pl: 2 } } type="text" value={ text } />
+        <Input readOnly sx={ { pl: { xs: 0, sm: 2 } } } type="text" value={ text } />
 
         { canCopy && (
           <Button
-            sx={ { borderTopLeftRadius: 0, borderBottomLeftRadius: 0, py: 1 } }
+            sx={ {
+              borderTopLeftRadius: 0,
+              borderBottomLeftRadius: 0,
+              py: 1,
+              width: 120
+            } }
             onClick={ handleCopy }
             variant="outlined"
           >
-            <Icon>content_copy</Icon>
+            <Icon sx={ { mr: 1 } }>content_copy</Icon>
+            { t('copy-label') }
           </Button>
         ) }
       </FormControl>

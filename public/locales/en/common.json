@@ -26,6 +26,7 @@
   "language-label": "Language",
   "en-label": "English",
   "es-label": "Español",
+  "copy-label": "Copy",
   "copied-msg": "Copied to clipboard.",
   "copyError-msg": "There was an error. Please, copy the code manually.",
   "appLogo-label": "{{appName}}'s logo",
