@@ -2,7 +2,7 @@ import { Box, Drawer, Icon, IconButton, SwipeableDrawer, Theme } from '@mui/mate
 import { SxProps } from '@mui/system';
 import React, { PropsWithChildren } from 'react';
 import { useBreakpoints } from '../../../hooks';
-import Footer from '../../Footer';
+import Footer from '../Footer';
 import { BOTTOM_NAVIGATION_HEIGHT, FILTERS_SIDEBAR_WIDTH, HEADER_HEIGHT, NAV_SIDEBAR_WIDTH } from '../constants';
 
 const sidebarStyles: SxProps<Theme> = {

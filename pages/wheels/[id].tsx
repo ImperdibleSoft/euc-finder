@@ -10,15 +10,15 @@ import Apps from '../../components/Apps';
 import FacebookComments from '../../components/Facebook/FacebookComments';
 import FacebookLikeButton from '../../components/Facebook/FacebookLikeButton';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
-import AdditionalPurchaseLinks from '../../components/WheelDetails/AdditionalPurchaseLinks';
-import AdditionalSpecs from '../../components/WheelDetails/AdditionalSpecs';
-import EmptyCase from '../../components/WheelDetails/EmptyCase';
-import Header from '../../components/WheelDetails/Header';
-import HighlightedSpecs from '../../components/WheelDetails/HighlightedSpecs';
-import MainSpecs from '../../components/WheelDetails/MainSpecs';
-import Pictures from '../../components/WheelDetails/Pictures';
-import SponsoredPurchaseLinks from '../../components/WheelDetails/SponsoredPurchaseLinks';
-import VideosCarousel from '../../components/WheelDetails/VideosCarousel';
+import AdditionalPurchaseLinks from '../../components/Screens/WheelDetails/AdditionalPurchaseLinks';
+import AdditionalSpecs from '../../components/Screens/WheelDetails/AdditionalSpecs';
+import EmptyCase from '../../components/Screens/WheelDetails/EmptyCase';
+import Header from '../../components/Screens/WheelDetails/Header';
+import HighlightedSpecs from '../../components/Screens/WheelDetails/HighlightedSpecs';
+import MainSpecs from '../../components/Screens/WheelDetails/MainSpecs';
+import Pictures from '../../components/Screens/WheelDetails/Pictures';
+import SponsoredPurchaseLinks from '../../components/Screens/WheelDetails/SponsoredPurchaseLinks';
+import VideosCarousel from '../../components/Screens/WheelDetails/VideosCarousel';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import {
   useCompareActions,

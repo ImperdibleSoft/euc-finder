@@ -4,14 +4,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
-import VideosCarousel from '../../components/Videos/VideosCarousel';
-import VideoFilters from '../../components/Videos/VideoFilters';
+import VideosCarousel from '../../components/Screens/Videos/VideosCarousel';
+import VideoFilters from '../../components/Screens/Videos/VideoFilters';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useSidebar, useVideoFilterFields, useVideos } from '../../hooks';
 import { paginateVideos } from '../../store/actions';
 import { PaginateVideosAction } from '../../store/types';
 import { getStaticProps } from '../../utils-server';
-import EmptyCase from '../../components/Videos/EmptyCase';
+import EmptyCase from '../../components/Screens/Videos/EmptyCase';
 
 // eslint-disable-next-line max-lines-per-function
 const Videos: React.FC = () => {

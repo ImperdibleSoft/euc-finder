@@ -7,11 +7,11 @@ import { useSelector } from 'react-redux';
 import Apps from '../components/Apps';
 import { HEADER_HEIGHT } from '../components/Layouts/constants';
 import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
-import Columns from '../components/WheelsList/Columns';
-import EmptyCase from '../components/WheelsList/EmptyCase';
-import Filters from '../components/WheelsList/Filters';
-import GridView from '../components/WheelsList/GridView';
-import TableView from '../components/WheelsList/TableView';
+import Columns from '../components/Screens/WheelsList/Columns';
+import EmptyCase from '../components/Screens/WheelsList/EmptyCase';
+import Filters from '../components/Screens/WheelsList/Filters';
+import GridView from '../components/Screens/WheelsList/GridView';
+import TableView from '../components/Screens/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../constants';
 import {
   useBreakpoints,
