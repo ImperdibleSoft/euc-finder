@@ -46,6 +46,8 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
         <Box
           component="main"
           sx={ {
+            display: 'flex',
+            flexDirection: 'column',
             flexGrow: 1,
             maxWidth: {
               xs: '100%',

@@ -35,6 +35,8 @@
   "influencers-label": "Influencers",
   "videos": "Videos",
 
+  "loading-msg": "Loading data...",
+
   "defaultDescription-msg": "We will add a small description about this EUC soon.",
   "noWheel-msg": "We don't have this EUC in our database.",
   "sponsoredStores-title": "Sponsored stores",

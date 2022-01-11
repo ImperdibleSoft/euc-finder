@@ -52,3 +52,10 @@ export interface ConfigState {
    */
   detailAdditionalSpecs: (keyof Wheel)[]
 }
+
+export interface SetConfigInitialDataAction {
+  type: 'SET_CONFIG_INITIALDATA';
+  payload: ConfigState;
+}
+
+export type ConfigActions = SetConfigInitialDataAction;

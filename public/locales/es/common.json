@@ -35,6 +35,8 @@
   "influencers-label": "Influencers",
   "videos": "Vídeos",
 
+  "loading-msg": "Cargando datos...",
+
   "defaultDescription-msg": "En breve añadiremos una pequeña descripción sobre esta rueda.",
   "noWheel-msg": "No tenemos esa rueda en nuestra base de datos.",
   "sponsoredStores-title": "Tiendas patrocinadas",

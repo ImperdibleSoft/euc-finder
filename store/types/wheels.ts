@@ -26,6 +26,16 @@ export interface WheelsState {
   sorting: WheelSorting;
 }
 
+export interface SetWheelsInitialData {
+  type: 'SET_WHEELS_INITIALDATA',
+  payload: {
+    apps: App[],
+    brands: Brands,
+    dealers: Store[];
+    wheels: Wheel[]
+  }
+}
+
 export interface SortWheelsAction {
   type: 'SORT_WHEELS';
   payload: WheelSorting;
@@ -62,6 +72,7 @@ export interface ResetComparisionAction {
 }
 
 export type WheelsAction =
+  | SetWheelsInitialData
   | SortWheelsAction
   | ResetWheelsFiltersAction
   | FilterWheelsAction
