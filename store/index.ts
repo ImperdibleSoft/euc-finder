@@ -29,7 +29,7 @@ const createEnhacer = (): StoreEnhancer => {
 };
 
 export const configureStore = (initialState?: Partial<RootState>): Store<RootState, Action> => {
-  if (migrateOldPreferences()) {
+  if (process.env.NODE_ENV === 'production' && migrateOldPreferences()) {
     location.reload();
   }
 
