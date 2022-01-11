@@ -110,7 +110,7 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
         ) }
 
         <Link href={ link } passHref>
-          <Button variant="outlined">
+          <Button variant="outlined" sx={ { ml: handleAddToCompare ? undefined : 'auto' } }>
             { t('details-btn') }
           </Button>
         </Link>
