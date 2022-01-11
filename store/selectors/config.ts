@@ -24,7 +24,7 @@ export const getRangeConfig = ({ config }: RootState) =>
 export const getTableViewSpecs = (rootState: RootState) => {
   const { config } = rootState;
 
-  if (getPricesConfig(rootState)) {
+  if (!getPricesConfig(rootState)) {
     return config.specColumns.filter(k => k !== 'price');
   }
 
@@ -35,7 +35,7 @@ export const getTableViewSpecs = (rootState: RootState) => {
 export const getListViewSpecs = (rootState: RootState) => {
   const { config: { wheelsListInfo } } = rootState;
 
-  if (getPricesConfig(rootState)) {
+  if (!getPricesConfig(rootState)) {
     return [
       wheelsListInfo.mainSpecs.filter(k => k !== 'price'),
       wheelsListInfo.additionalSpecs.filter(k => k !== 'price')
@@ -52,7 +52,7 @@ export const getListViewSpecs = (rootState: RootState) => {
 export const getDetailViewSpecs = (rootState: RootState) => {
   const { config: { wheelDetailsInfo } } = rootState;
 
-  if (getPricesConfig(rootState)) {
+  if (!getPricesConfig(rootState)) {
     return [
       wheelDetailsInfo.highlightedSpecs.filter(k => k !== 'price'),
       wheelDetailsInfo.mainSpecs.filter(k => k !== 'price'),

@@ -8,7 +8,7 @@ import { EUC_DETAILS } from '../../../../constants/clientRoutes';
 import { useBreakpoints } from '../../../../hooks';
 import { MeasureUnits, SpecWeights } from '../../../../store/types';
 import { Brand, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps } from '../../../../types';
-import { getBrandInfo } from '../../../../utils';
+import { cleanWheelId, getBrandInfo } from '../../../../utils';
 import { isCompetingValue, isTopValue } from '../../../../utils/comparing';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../../Table';
 
@@ -129,7 +129,9 @@ const CompareTable: React.FC<Props> = ({
             } }>
               <div
                 style={ {
-                  backgroundImage: typeof wheel === 'number' ? undefined : `url(${ wheelPictures[wheel.id] })`,
+                  backgroundImage: typeof wheel === 'number'
+                    ? undefined
+                    : `url(${ wheelPictures[cleanWheelId(wheel.id)] })`,
                   backgroundPosition: '50%',
                   backgroundRepeat: 'no-repeat',
                   backgroundSize: `auto ${ WHEEL_THUM_SIZE }px`,
