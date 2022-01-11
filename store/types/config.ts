@@ -54,8 +54,10 @@ export interface ConfigState {
 }
 
 export interface SetConfigInitialDataAction {
-  type: 'SET_CONFIG_INITIALDATA';
-  payload: ConfigState;
+  type: 'SET_INITIALDATA';
+  payload: {
+    config: ConfigState
+  };
 }
 
 export type ConfigActions = SetConfigInitialDataAction;

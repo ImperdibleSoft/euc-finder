@@ -23,8 +23,8 @@ export const getDropdownOptions = (t: TFunction<'translation'>, brands: Brands) 
   const brandIdOptions: CheckboxProps[] = Object
     .values(BrandId)
     .map(brand => ({
-      label: brands[brand].name,
-      name: brands[brand].id,
+      label: brands[brand]?.name,
+      name: brands[brand]?.id,
       onChange: ()=> { return; }
     }));
 

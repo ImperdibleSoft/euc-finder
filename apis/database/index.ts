@@ -8,10 +8,6 @@ import { videos } from './videos';
 import { wheels } from './wheels';
 
 /**
- * - config
- */
-
-/**
  * Abstracted client for future DDBB used
  * to store information.
  * 

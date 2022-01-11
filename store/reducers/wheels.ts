@@ -4,7 +4,7 @@ import { WheelsAction, WheelsState } from '../types';
 
 const reducer = (state = getWheelsInitialState(), action: WheelsAction): WheelsState => {
   switch (action.type) {
-    case 'SET_WHEELS_INITIALDATA':
+    case 'SET_INITIALDATA':
       const { apps, brands, dealers, wheels } = action.payload;
       return {
         ...state,
@@ -15,6 +15,12 @@ const reducer = (state = getWheelsInitialState(), action: WheelsAction): WheelsS
         brands,
         collection: wheels,
         stores: dealers
+      };
+
+    case 'SET_WHEELDATA':
+      return {
+        ...state,
+        purchaseLinks: action.payload.purchaseLinks
       };
 
     case 'FILTER_WHEELS':

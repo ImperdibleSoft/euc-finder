@@ -1,4 +1,4 @@
-import { Influencer, Video, VideoFilters } from '../../types';
+import { Video, VideoFilters } from '../../types';
 
 export interface VideosState {
   // Main data
@@ -15,9 +15,8 @@ export interface VideosState {
 }
 
 export interface SetVideosAction {
-  type: 'SET_VIDEOS';
+  type: 'SET_VIDEOS' | 'SET_WHEELDATA';
   payload: {
-    influencers: Influencer[];
     videos: Video[];
   }
 }

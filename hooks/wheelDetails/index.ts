@@ -63,12 +63,12 @@ export const useEucDetailHandlers = () => {
 export const useEucPurchaseLinks = (id: WheelId) => {
   const wheelLinks = useSelector(getPurchaseLinks(id));
   const region = useSelector(getRegion);
-  const stores = useSelector(getStores);
+  const dealers = useSelector(getStores);
   const showAllPurchaseLinks = useSelector(getPurchaseLinksConfig);
 
   const options = {
     region,
-    stores
+    stores: dealers
   };
 
   const sponsoredLinks = wheelLinks

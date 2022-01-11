@@ -3,6 +3,7 @@ import { VideosAction, VideosState } from '../types';
 
 const reducer = (state = getVideosInitialState(), action: VideosAction): VideosState => {
   switch (action.type) {
+    case 'SET_WHEELDATA':
     case 'SET_VIDEOS':
       return {
         ...state,

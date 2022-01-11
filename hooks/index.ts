@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { EUC_DETAILS, INFLUENCERS, VIDEOS } from '../constants/clientRoutes';
-import { getInitialData, getVideos } from '../store/actions';
+import { getInitialData, getVideos, getWheelData } from '../store/actions';
 import { LoadingState } from '../types';
 
 export * from './apps';
@@ -35,7 +35,7 @@ export const useInitialData = () => {
 
   const downloadWheelData = async () => {
     setWheelData('loading');
-    // await dispatch(getInitialData());
+    await dispatch(getWheelData());
     setWheelData('success');
   };
 
@@ -44,11 +44,11 @@ export const useInitialData = () => {
       downloadInitialData();
     }
 
-    if ((pathname === EUC_DETAILS || pathname === INFLUENCERS || pathname === VIDEOS) && videosData === 'idle') {
+    if ((pathname === INFLUENCERS || pathname === VIDEOS) && videosData === 'idle') {
       downloadVideosData();
     }
     
-    if (pathname === EUC_DETAILS && wheelData === 'idle') {
+    if (pathname === EUC_DETAILS.replace(':id', '[id]') && wheelData === 'idle') {
       downloadWheelData();
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
