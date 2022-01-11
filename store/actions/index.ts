@@ -8,27 +8,11 @@ export * from './videos';
 export * from './wheels';
 
 export const getInitialData = () => async (dispatch: Dispatch) => {
-  const {
-    apps,
-    brands,
-    dealers,
-    influencers,
-    purchaseLinks,
-    videos,
-    wheels
-  } = await eucFinderApi.data.getInitialData();
+  const payload = await eucFinderApi.data.getInitialData();
 
   // @ts-ignore
   dispatch({
     type: 'SET_APP_DATA',
-    payload: {
-      apps,
-      brands,
-      dealers,
-      influencers,
-      purchaseLinks,
-      videos,
-      wheels
-    }
+    payload
   } as SetInitialDataAction);
 };

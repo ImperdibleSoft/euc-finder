@@ -1,4 +1,4 @@
-import { BrandId, StoreId, WheelId } from '../../types';
+import { BrandId, Region, StoreId, WheelId } from '../../types';
 import { getRangeFromBattery } from '../../utils';
 import { RootState } from '../types';
 import { getRangeConfig } from './config';
@@ -55,6 +55,10 @@ export const getPurchaseLinksByStore = (storeId?: StoreId) =>
 
 export const getDealers = ({ wheels }: RootState) =>
   wheels.stores;
+
+export const getDealersByRegion = (regionId: Region) =>
+  ({ wheels }: RootState) =>
+    wheels.stores.filter(dealer => dealer.region === regionId);
 
 export const getWheelFilters = ({ wheels }: RootState) =>
   wheels.filters;

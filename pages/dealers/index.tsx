@@ -1,4 +1,4 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import DealerCard from '../../components/Dealers/DealerCard';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import { getRegion } from '../../store/selectors';
+import { getDealersByRegion, getRegion } from '../../store/selectors';
 import { Region } from '../../types';
 import { getDealersFromMarkdown } from '../../utils/dealers';
 import { getStaticProps } from '../../utils-server';
@@ -28,6 +28,7 @@ const getRegionId = (regionCode: Region) => {
 const Dealers: React.FC = () => {
   const { t } = useTranslation();
   const regionCode = useSelector(getRegion);
+  const dealers = useSelector(getDealersByRegion(regionCode));
   const regionId = getRegionId(regionCode);
 
   const regions = getDealersFromMarkdown();
@@ -57,47 +58,49 @@ const Dealers: React.FC = () => {
           { pageTitle }
         </Typography>
 
-        <Typography variant="body1" component="p" sx={ { mb: 3 } }>
-          { pageDescription }
-        </Typography>
+        { !!dealers.length && (
+          <>
+            <Typography variant="body1" component="p" sx={ { mb: 3 } }>
+              { pageDescription }
+            </Typography>
 
-        <Typography variant="body1" component="p" sx={ { mb: 3 } }>
-          { t('dealers2-msg') }
-        </Typography>
+            <Typography variant="body1" component="p" sx={ { mb: 3 } }>
+              { t('dealers2-msg') }
+            </Typography>
 
-        <Typography variant="h4" component="h2" sx={ { mb: 3 } }>
-          { t('discounts-title') }
-        </Typography>
+            <Typography variant="h4" component="h2" sx={ { mb: 3 } }>
+              { t('discounts-title') }
+            </Typography>
 
-        <Typography variant="body1" component="p" sx={ { mb: 3 } }>
-          { t('discounts1-msg') }
-        </Typography>
+            <Typography variant="body1" component="p" sx={ { mb: 3 } }>
+              { t('discounts1-msg') }
+            </Typography>
 
-        <Typography variant="body1" component="p" sx={ { mb: 3 } }>
-          { t('discounts2-msg') }
-        </Typography>
+            <Typography variant="body1" component="p" sx={ { mb: 3 } }>
+              { t('discounts2-msg') }
+            </Typography>
 
-        <Box>
-          <Typography variant="h5" component="h4" sx={ { mb: 2 } }>
-            { regionName }
-          </Typography>
+            <Typography variant="h5" component="h4" sx={ { mb: 2 } }>
+              { regionName }
+            </Typography>
+          </>
+        ) }
 
-          <Grid container spacing={ 2 }>
-            { !region?.dealers.length && (
-              <Grid item xs={ 12 } sm={ 12 } md={ 12 } lg={ 12 } xl={ 12 }>
-                { t('noDealers-msg', { region: regionName }) }
-              </Grid>
-            ) }
+        <Grid container spacing={ 2 }>
+          { (!dealers.length || !region?.dealers.length) && (
+            <Grid item xs={ 12 } sm={ 12 } md={ 12 } lg={ 12 } xl={ 12 }>
+              { t('noDealers-msg', { region: regionName }) }
+            </Grid>
+          ) }
 
-            { region?.dealers?.map(({ dealerName, ...props }) => (
-              <DealerCard
-                key={ dealerName }
-                storeName={ dealerName }
-                { ...props }
-              />
-            )) }
-          </Grid>
-        </Box>
+          { !!dealers.length && region?.dealers?.map(({ dealerName, ...props }) => (
+            <DealerCard
+              key={ dealerName }
+              storeName={ dealerName }
+              { ...props }
+            />
+          )) }
+        </Grid>
       </SimpleLayout>
     </>
   );

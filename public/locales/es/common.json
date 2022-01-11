@@ -129,6 +129,8 @@
   "sponsoredVideos-title": "Vídeos patrocinados",
   "newVideos-title": "Nuevos vídeos desde tu última visita",
   "watchedVideos-title": "Vídeos que ya has visto",
+  "noVideos-msg": "No hay vídeos que coincidan con tus criterios de búsqueda.",
+  "changeVideoFilters-msg": "Relaja o reinicia los filtros para encontrar alguna opción que se acerque a lo que estás buscando.",
 
   "dealers-title": "Tiendas",
   "dealers1-msg": "Uno de los valores agregados de {{appName}} es que recopilamos enlaces de compra de las mayores tiendas en {{region}}, de forma que puedes acceder a una lista de tiendas seguras en tu región.",
@@ -216,6 +218,7 @@
   "review-label": "Review",
 
   "youtubeChannel-label": "Canal de Youtube",
+  "noInfluencers-msg": "Todavía no hay creadores de contenido.",
 
   "officialApps-title": "Apps Oficiales",
   "officialWheelApps-title": "Apps Oficiales para {{wheelName}}",
