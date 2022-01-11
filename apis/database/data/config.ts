@@ -1,15 +1,15 @@
-import { ConfigState } from '../../../store/types';
+import { ConfigState, SpecWeightsPreset } from '../../../store/types';
 import { Wheel } from '../../../types';
 
-const calculatedRange = true;
-
+// Config values
+const defaultPreset = SpecWeightsPreset.generic;
+const maxComparedWheels = 5;
 const paginationSize = 12;
 
+// Feature flags
+const calculatedRange = true;
 const prices = false;
-
 const purchaseLinks = true;
-
-const maxComparedWheels = 5;
 
 const specColumns: (keyof Wheel)[] =  [
   'name',
@@ -40,6 +40,7 @@ const specColumns: (keyof Wheel)[] =  [
   'color'
 ];
 
+// Wheels list info
 const listMainSpecs: (keyof Wheel)[] =  [
   'price',
   'diameter',
@@ -47,7 +48,6 @@ const listMainSpecs: (keyof Wheel)[] =  [
   'range',
   'weight'
 ];
-
 const listAdditionalSpecs: (keyof Wheel)[] =  [
   'trolleyHandle',
   'antiSpin',
@@ -57,6 +57,7 @@ const listAdditionalSpecs: (keyof Wheel)[] =  [
   'suspension'
 ];
 
+// Wheel details info
 const detailHighlightedSpecs: (keyof Wheel)[] =  [
   'price',
   'diameter',
@@ -65,7 +66,6 @@ const detailHighlightedSpecs: (keyof Wheel)[] =  [
   'range',
   'weight'
 ];
-
 const detailMainSpecs: (keyof Wheel)[] =  [
   'ratedPower',
   'peakPower',
@@ -75,7 +75,6 @@ const detailMainSpecs: (keyof Wheel)[] =  [
   'groundClearance',
   'suspension'
 ];
-
 const detailAdditionalSpecs: (keyof Wheel)[] =  [
   'headlight',
   'tailLight',
@@ -90,15 +89,24 @@ const detailAdditionalSpecs: (keyof Wheel)[] =  [
 ];
 
 export const config: ConfigState = {
-  calculatedRange,
-  paginationSize,
-  prices,
-  purchaseLinks,
-  maxComparedWheels,
+  configValues: {
+    defaultPreset,
+    maxComparedWheels,
+    paginationSize
+  },
+  featureFlags: {
+    calculatedRange,
+    prices,
+    purchaseLinks
+  },
   specColumns,
-  listMainSpecs,
-  listAdditionalSpecs,
-  detailHighlightedSpecs,
-  detailMainSpecs,
-  detailAdditionalSpecs
+  wheelsListInfo: {
+    mainSpecs: listMainSpecs,
+    additionalSpecs: listAdditionalSpecs
+  },
+  wheelDetailsInfo: {
+    highlightedSpecs: detailHighlightedSpecs,
+    mainSpecs: detailMainSpecs,
+    additionalSpecs: detailAdditionalSpecs
+  }
 };

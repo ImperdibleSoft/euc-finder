@@ -6,14 +6,25 @@ import { ConfigActions, ConfigState } from '../types';
 const reducer = (state = getConfigInitialState(), action: ConfigActions): ConfigState => {
   switch (action.type) {
     case 'SET_INITIALDATA':
+      const localCalculatedRange = '';
       const localPrices = getItem(LOCAL_STORAGE_KEY.ENABLE_PRICE);
       const localPurchaseLinks = getItem(LOCAL_STORAGE_KEY.ENABLE_PURCHASELINKS);
 
       return {
         ...state,
         ...action.payload.config,
-        prices: localPrices ? localPrices === 'true' : action.payload.config.prices,
-        purchaseLinks: localPurchaseLinks ? localPurchaseLinks === 'true' : action.payload.config.purchaseLinks
+        featureFlags: {
+          ...state.featureFlags,
+          calculatedRange: localCalculatedRange
+            ? localCalculatedRange === 'true'
+            : action.payload.config.featureFlags.calculatedRange,
+          prices: localPrices
+            ? localPrices === 'true'
+            : action.payload.config.featureFlags.prices,
+          purchaseLinks: localPurchaseLinks
+            ? localPurchaseLinks === 'true'
+            : action.payload.config.featureFlags.purchaseLinks
+        }
       };
 
     default:

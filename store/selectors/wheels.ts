@@ -1,14 +1,18 @@
 import { BrandId, StoreId, WheelId } from '../../types';
 import { getRangeFromBattery } from '../../utils';
 import { RootState } from '../types';
+import { getRangeConfig } from './config';
 
-export const getWheels = ({ config, wheels }: RootState) =>
-  wheels.collection.map(w => ({
+export const getWheels = (rootState: RootState) => {
+  const { wheels: { brands, collection } } = rootState;
+
+  return collection.map(w => ({
     ...w,
-    range: config.calculatedRange
-      ? getRangeFromBattery(w, wheels.brands)
+    range: getRangeConfig(rootState)
+      ? getRangeFromBattery(w, brands)
       : w.range * 0.85
   }));
+};
 
 export const getWheelById = (id: WheelId) =>
   (state: RootState) =>
@@ -22,18 +26,18 @@ export const getPurchaseLinks = (id: WheelId) =>
     wheels.purchaseLinks[id] ?? [];
 
 export const getPurchaseLinksByStore = (storeId?: StoreId) =>
-  ({ wheels }: RootState) => {
+  ({ wheels: { purchaseLinks, stores } }: RootState) => {
     if (!storeId) {
       return [];
     }
     
-    const store = wheels.stores.find(s => s.id === storeId);
+    const store = stores.find(s => s.id === storeId);
     if (!store) {
       return [];
     }
 
     return Object
-      .values(wheels.purchaseLinks)
+      .values(purchaseLinks)
       .reduce(
         (acc, wheelLinks) => {
           const storeLinks = wheelLinks.filter(l => l.includes(store.website));
@@ -48,7 +52,7 @@ export const getPurchaseLinksByStore = (storeId?: StoreId) =>
       );
   };
 
-export const getStores = ({ wheels }: RootState) =>
+export const getDealers = ({ wheels }: RootState) =>
   wheels.stores;
 
 export const getWheelFilters = ({ wheels }: RootState) =>

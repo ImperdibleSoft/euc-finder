@@ -4,12 +4,12 @@ import { useSelector } from 'react-redux';
 import { VIDEOS } from '../../constants/clientRoutes';
 import {
   getBrands,
+  getDealers,
   getDetailViewSpecs,
   getPricesConfig,
   getPurchaseLinks,
   getPurchaseLinksConfig,
   getRegion,
-  getStores,
   getVideosByWheel,
   getWheelById
 } from '../../store/selectors';
@@ -63,7 +63,7 @@ export const useEucDetailHandlers = () => {
 export const useEucPurchaseLinks = (id: WheelId) => {
   const wheelLinks = useSelector(getPurchaseLinks(id));
   const region = useSelector(getRegion);
-  const dealers = useSelector(getStores);
+  const dealers = useSelector(getDealers);
   const showAllPurchaseLinks = useSelector(getPurchaseLinksConfig);
 
   const options = {

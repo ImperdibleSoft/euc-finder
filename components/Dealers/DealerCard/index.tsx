@@ -18,7 +18,7 @@ import {
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getPurchaseLinksByStore, getStores } from '../../../store/selectors';
+import { getDealers, getPurchaseLinksByStore } from '../../../store/selectors';
 import { isDarkTheme } from '../../../utils';
 import { isDiscountAvailable } from '../../../utils/dealers';
 
@@ -58,7 +58,7 @@ const DealerCard: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
   const dark = isDarkTheme();
-  const stores = useSelector(getStores);
+  const stores = useSelector(getDealers);
   const store = stores.find(s => s.name.toLowerCase() === storeName.toLowerCase());
   const links = useSelector(getPurchaseLinksByStore(store?.id));
   

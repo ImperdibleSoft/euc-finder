@@ -5,6 +5,7 @@ import {
   getSafetySpecWheights
 } from '../models/settings/specWeights';
 import { RootState, SpecWeights, SpecWeightsPreset } from '../types';
+import { getPresetDefaultConfig, getPricesConfig } from './config';
 
 export const getDisclaimer = ({ settings }: RootState) =>
   settings.disclaimer;
@@ -15,16 +16,18 @@ export const getRegion = ({ settings }: RootState) =>
 export const getMeasureUnits = ({ settings }: RootState) =>
   settings.measureUnits;
 
-export const getSpecWeightsActivePreset = ({ settings }: RootState): SpecWeightsPreset =>
-  settings.specWeights.preset;
+export const getSpecWeightsActivePreset = (rootState: RootState): SpecWeightsPreset =>
+  rootState.settings.specWeights.preset ?? getPresetDefaultConfig(rootState);
 
 export const getSpecWeightsCustomValues = ({ settings }: RootState): SpecWeights =>
   settings.specWeights.customValues;
 
 export const getSpecWeights = (rootState: RootState): SpecWeights => {
   let specWeights: SpecWeights;
+  const showPrices = getPricesConfig(rootState);
+  const activePreset = getSpecWeightsActivePreset(rootState);
 
-  switch (rootState.settings.specWeights.preset) {
+  switch (activePreset) {
     case SpecWeightsPreset.generic:
       specWeights = getGenericSpecWheights();
       break;
@@ -48,7 +51,7 @@ export const getSpecWeights = (rootState: RootState): SpecWeights => {
 
   return {
     ...specWeights,
-    battery: rootState.settings.specWeights.customValues.range / 4,
-    price: rootState.config.prices ? rootState.settings.specWeights.customValues.price : 0
+    battery: specWeights.range / 4,
+    price: showPrices ? specWeights.price : 0
   };
 };

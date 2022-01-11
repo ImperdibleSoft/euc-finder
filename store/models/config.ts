@@ -1,18 +1,24 @@
-import { ConfigState } from '../types';
+import { ConfigState, SpecWeightsPreset } from '../types';
 
 export const getConfigInitialState = (): ConfigState => ({
-  calculatedRange: false,
-  paginationSize: 0,
-  prices: false,
-  purchaseLinks: false,
-  maxComparedWheels: 0,
-
+  configValues: {
+    defaultPreset: SpecWeightsPreset.generic,
+    maxComparedWheels: 0,
+    paginationSize: 0
+  },
+  featureFlags: {
+    calculatedRange: false,
+    prices: false,
+    purchaseLinks: false
+  },
   specColumns: [],
-
-  listMainSpecs: [],
-  listAdditionalSpecs: [],
-
-  detailHighlightedSpecs: [],
-  detailMainSpecs: [],
-  detailAdditionalSpecs: []
+  wheelsListInfo: {
+    mainSpecs: [],
+    additionalSpecs: []
+  },
+  wheelDetailsInfo: {
+    highlightedSpecs: [],
+    mainSpecs: [],
+    additionalSpecs: []
+  }
 });
