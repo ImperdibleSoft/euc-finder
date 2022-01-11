@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { APP_NAME, APP_REPO, APP_VERSION, CURRENT_YEAR } from '../../constants';
 import { useModalsContext } from '../../context';
 
-const yearText = CURRENT_YEAR <= 2021 ? CURRENT_YEAR : `2020-${ CURRENT_YEAR }`;
+const launchYear = 2021;
+const yearText = CURRENT_YEAR <= launchYear ? CURRENT_YEAR : `${ launchYear }-${ CURRENT_YEAR }`;
 
 const Footer: React.FC = () => {
   const { t } = useTranslation();
   const { initialDisclaimer } = useModalsContext();
+  const [major, minor] = APP_VERSION.split('.');
   
   return (
     <>
@@ -20,7 +22,7 @@ const Footer: React.FC = () => {
         textAlign: 'center'
       } }>
         <Box sx={ { mb: 4 } }>
-          { APP_NAME } { yearText } — v{ APP_VERSION } { `${ t('at') } ` }
+          { APP_NAME } { yearText } — v{ `${ major }.${ minor }` } { `${ t('at') } ` }
 
           <Link href={ APP_REPO } target="_blank" rel="noreferrer">
             Github
