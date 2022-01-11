@@ -1,4 +1,5 @@
 export * from './analytics';
+export * from './brands';
 export * from './caches';
 export * from './clientTranslatedResources';
 export * from './collections';

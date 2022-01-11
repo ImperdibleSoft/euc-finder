@@ -7,7 +7,8 @@ import { wheelFeatureFormatters } from '../../../constants';
 import { EUC_DETAILS } from '../../../constants/clientRoutes';
 import { useBreakpoints } from '../../../hooks';
 import { MeasureUnits, SpecWeights } from '../../../store/types';
-import { Brands, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps } from '../../../types';
+import { Brand, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps } from '../../../types';
+import { getBrandInfo } from '../../../utils';
 import { isCompetingValue, isTopValue } from '../../../utils/comparing';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../Table';
 
@@ -71,7 +72,7 @@ const getSortedKeys = (specs: (keyof Wheel)[], specWeights: SpecWeights): WheelS
 };
 
 interface Props {
-  brands: Brands;
+  brands: Brand[];
   handleRemoveFromComparision: (wheelId: WheelId) => void;
   measureUnits: MeasureUnits;
   minMaxScores: MinMaxScores;
@@ -198,7 +199,7 @@ const CompareTable: React.FC<Props> = ({
                 if (typeof wheel !== 'number') {
                   switch (key) {
                     case 'brandId':
-                      formattedValue = brands[wheel.brandId]?.name;
+                      formattedValue = getBrandInfo(wheel.brandId, brands)?.name;
                       break;
                       
                     case 'score':

@@ -32,8 +32,8 @@ export const getPurchaseLinksByStore = (storeId?: StoreId) =>
       return [];
     }
     
-    const store = stores.find(s => s.id === storeId);
-    if (!store) {
+    const dealers = stores.find(s => s.id === storeId);
+    if (!dealers) {
       return [];
     }
 
@@ -41,7 +41,7 @@ export const getPurchaseLinksByStore = (storeId?: StoreId) =>
       .values(purchaseLinks)
       .reduce(
         (acc, wheelLinks) => {
-          const storeLinks = wheelLinks.filter(l => l.includes(store.website));
+          const storeLinks = wheelLinks.filter(l => l.includes(dealers.website));
 
           if (storeLinks.length) {
             acc.push(...storeLinks);

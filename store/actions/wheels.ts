@@ -1,28 +1,12 @@
 import { Dispatch } from 'redux';
-import eucFinderApi from '../../apis/eucfinder';
 import {
   AddWheelToComparisionAction,
   FilterWheelsAction,
   RemoveWheelToComparisionAction,
   ResetComparisionAction,
   ResetWheelsFiltersAction,
-  SetWheelData,
   SortWheelsAction
 } from '../types';
-
-export const getWheelData = () =>
-  async (dispatch: Dispatch) => {
-    const { influencers, purchaseLinks, videos } = await eucFinderApi.wheel.getWheel();
-
-    dispatch({
-      type: 'SET_WHEELDATA',
-      payload: {
-        influencers,
-        purchaseLinks,
-        videos
-      }
-    } as SetWheelData);
-  };
 
 export const sortWheels = (payload: SortWheelsAction['payload']) =>
   (dispatch: Dispatch) => {

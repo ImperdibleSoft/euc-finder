@@ -15,7 +15,7 @@ import { EUC_DETAILS } from '../../../constants/clientRoutes';
 import { useEucListInformationGroups } from '../../../hooks';
 import { getBrands, getMeasureUnits } from '../../../store/selectors';
 import { WheelFeatureFormatters, WheelFeatureIcons, WheelSorting, WheelWithPicture } from '../../../types';
-import { formatWheelName } from '../../../utils';
+import { formatWheelName, getBrandInfo } from '../../../utils';
 import BrandLogo from '../../BrandLogo';
 import IconsList from '../../Lists/IconsList';
 import SmallList from '../../Lists/SmallList';
@@ -30,6 +30,7 @@ interface Props {
 const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
   const { t } = useTranslation();
   const brands = useSelector(getBrands);
+  const brand = getBrandInfo(wheel.brandId, brands);
   const measureUnits = useSelector(getMeasureUnits);
   const { mainSpecs, additionalSpecs } = useEucListInformationGroups(sorting);
   const link = EUC_DETAILS.replace(':id', wheel.id);
@@ -74,10 +75,12 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
         alt={ t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
       />
 
-      <BrandLogo
-        alt={ t('appLogo-label', { appName: brands[wheel.brandId].name }) }
-        logo={ brands[wheel.brandId].logo }
-      />
+      { !!brand && (
+        <BrandLogo
+          alt={ t('appLogo-label', { appName: brand.name }) }
+          logo={ brand.logo }
+        />
+      ) }
 
       <CardContent sx={ { pb: 0 } }>
         <Typography gutterBottom variant="h5" component="div">
@@ -85,7 +88,7 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
         </Typography>
 
         <Typography variant="body2" color="text.secondary">
-          { brands[wheel.brandId].name }
+          { brand?.name }
         </Typography>
 
         <SmallList items={ mainSpecItems } />

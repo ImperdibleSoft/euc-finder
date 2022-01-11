@@ -1,6 +1,6 @@
 import {
   App,
-  Brands,
+  Brand,
   Store,
   Wheel,
   WheelFilters,
@@ -15,7 +15,7 @@ export interface WheelsState {
     official: App[];
     unofficial: App[];
   };
-  brands: Brands;
+  brands: Brand[];
   collection: Wheel[];
   comparing: WheelId[];
   purchaseLinks: WheelPurchaseLinks;
@@ -24,23 +24,6 @@ export interface WheelsState {
   // Misc
   filters: WheelFilters;
   sorting: WheelSorting;
-}
-
-export interface SetWheelsInitialData {
-  type: 'SET_INITIALDATA',
-  payload: {
-    apps: App[],
-    brands: Brands,
-    dealers: Store[];
-    wheels: Wheel[]
-  }
-}
-
-export interface SetWheelData {
-  type: 'SET_WHEELDATA',
-  payload: {
-    purchaseLinks: WheelPurchaseLinks
-  }
 }
 
 export interface SortWheelsAction {
@@ -79,8 +62,6 @@ export interface ResetComparisionAction {
 }
 
 export type WheelsAction =
-  | SetWheelsInitialData
-  | SetWheelData
   | SortWheelsAction
   | ResetWheelsFiltersAction
   | FilterWheelsAction

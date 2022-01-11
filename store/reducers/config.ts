@@ -5,7 +5,7 @@ import { ConfigActions, ConfigState } from '../types';
 
 const reducer = (state = getConfigInitialState(), action: ConfigActions): ConfigState => {
   switch (action.type) {
-    case 'SET_INITIALDATA':
+    case 'SET_CONFIG':
       const localHardcodedRange = getItem(LOCAL_STORAGE_KEY.DISABLE_CALCULATEDRANGE);
       const localPrices = getItem(LOCAL_STORAGE_KEY.ENABLE_PRICE);
       const localPurchaseLinks = getItem(LOCAL_STORAGE_KEY.ENABLE_PURCHASELINKS);

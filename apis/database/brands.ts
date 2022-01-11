@@ -1,7 +1,7 @@
-import { Brands } from '../../types';
+import { Brand } from '../../types';
 import { brands as availableBrands } from './data';
 
-const getAllBrands = async (): Promise<Brands> => availableBrands;
+const getAllBrands = async (): Promise<Brand[]> => availableBrands;
 
 export const brands = {
   /**

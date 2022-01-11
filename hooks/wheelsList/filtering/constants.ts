@@ -4,8 +4,7 @@ import { CheckboxProps } from '../../../components/Form/Checkbox';
 import { DropdownItem } from '../../../components/Form/Dropdown';
 import {
   AntiSpin,
-  BrandId,
-  Brands,
+  Brand,
   Category,
   Color,
   Display,
@@ -19,14 +18,12 @@ import {
 import * as formatters from '../../../utils/formatters';
 
 // eslint-disable-next-line max-lines-per-function
-export const getDropdownOptions = (t: TFunction<'translation'>, brands: Brands) => {
-  const brandIdOptions: CheckboxProps[] = Object
-    .values(BrandId)
-    .map(brand => ({
-      label: brands[brand]?.name,
-      name: brands[brand]?.id,
-      onChange: ()=> { return; }
-    }));
+export const getDropdownOptions = (t: TFunction<'translation'>, brands: Brand[]) => {
+  const brandIdOptions: CheckboxProps[] = brands.map(brand => ({
+    label: brand.name,
+    name: brand.id,
+    onChange: ()=> { return; }
+  }));
 
   const categoryOptions: CheckboxProps[] =
     (['extreme', 'high-end', 'standard', 'starter'] as Category[])

@@ -1,9 +1,10 @@
-import { Brands, Wheel } from '../types';
+import { Brand, Wheel } from '../types';
+import { getBrandInfo } from './brands';
 
-export const getRangeFromBattery = ({ battery, brandId, range }: Wheel, brands: Brands) => {
-  const brand = brands[brandId];
+export const getRangeFromBattery = ({ battery, brandId, range }: Wheel, brands: Brand[]) => {
+  const brand = getBrandInfo(brandId, brands);
 
-  return battery?.wattsHour
+  return brand && battery?.wattsHour
     ? brand.misc.kmPerWh * battery.wattsHour
     : range;
 };

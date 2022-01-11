@@ -14,13 +14,6 @@ export interface VideosState {
   }
 }
 
-export interface SetVideosAction {
-  type: 'SET_VIDEOS' | 'SET_WHEELDATA';
-  payload: {
-    videos: Video[];
-  }
-}
-
 export interface ResetVideosFiltersAction {
   type: 'RESET_VIDEO_FILTERS'
 }
@@ -42,7 +35,6 @@ export interface PaginateVideosAction {
 }
 
 export type VideosAction =
-  | SetVideosAction
   | ResetVideosFiltersAction
   | FilterVideosAction
   | PaginateVideosAction;

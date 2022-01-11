@@ -1,3 +1,4 @@
+import { App, Brand, Influencer, Store, Video, Wheel, WheelPurchaseLinks } from '../../types';
 import { ConfigState } from './config';
 import { InfluencersState } from './influencers';
 import { SettingsState } from './settings';
@@ -16,4 +17,17 @@ export interface RootState {
   settings: SettingsState;
   videos: VideosState;
   wheels: WheelsState;
+}
+
+export interface SetInitialDataAction {
+  type: 'SET_APP_DATA',
+  payload: {
+    apps: App[],
+    brands: Brand[],
+    dealers: Store[];
+    influencers: Influencer[],
+    purchaseLinks: WheelPurchaseLinks
+    videos: Video[];
+    wheels: Wheel[];
+  }
 }

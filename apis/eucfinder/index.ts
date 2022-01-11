@@ -1,5 +1,5 @@
 import { config } from './config';
-import { videos } from './videos';
+import { data } from './data';
 import { wheel } from './wheel';
 
 /**
@@ -16,10 +16,9 @@ const eucFinderApi = {
    */
   config,
   /**
-   * Any request related to videos and influencers available
-   * in EUC Finder.
+   * Any request related to app's data.
    */
-  videos,
+  data,
   /**
    * Any request related to a particular wheel.
    */

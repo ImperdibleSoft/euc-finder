@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getBrands } from '../../../store/selectors';
 import { BrandId } from '../../../types';
+import { getBrandInfo } from '../../../utils';
 import BrandLogo from '../../BrandLogo';
 
 interface Props {
@@ -20,6 +21,7 @@ const Header: React.FC<PropsWithChildren<Props>> = ({
 }) => {
   const { t } = useTranslation();
   const brands = useSelector(getBrands);
+  const brand = getBrandInfo(brandId, brands);
   
   return (
     <Grid container>
@@ -31,10 +33,12 @@ const Header: React.FC<PropsWithChildren<Props>> = ({
           alt={ t('wheelPicture-msg', { wheelName }) }
         />
 
-        <BrandLogo
-          alt={ t('appLogo-label', { appName: brands[brandId].name }) }
-          logo={ brands[brandId].logo }
-        />
+        { !!brand && (
+          <BrandLogo
+            alt={ t('appLogo-label', { appName: brand.name }) }
+            logo={ brand.logo }
+          />
+        ) }
       </Grid>
 
       <Grid

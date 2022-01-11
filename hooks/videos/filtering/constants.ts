@@ -1,10 +1,10 @@
 import { TFunction } from 'react-i18next';
 import { DropdownItem } from '../../../components/Form/Dropdown';
-import { Brands, Influencer, Lang, Wheel } from '../../../types';
+import { Brand, Influencer, Lang, Wheel } from '../../../types';
 import { formatWheelName, getAllCategories } from '../../../utils';
 
 interface Params {
-  brands: Brands;
+  brands: Brand[];
   influencers: Influencer[];
   wheels: Wheel[];
 }

@@ -1,6 +1,5 @@
 import { Dispatch } from 'redux';
-import eucFinderApi from '../../apis/eucfinder';
-import { FilterVideosAction, PaginateVideosAction, ResetVideosFiltersAction, SetVideosAction } from '../types';
+import { FilterVideosAction, PaginateVideosAction, ResetVideosFiltersAction } from '../types';
 
 export const resetVideoFilters = () =>
   (dispatch: Dispatch) => {
@@ -21,17 +20,4 @@ export const paginateVideos = (type: PaginateVideosAction['payload']['type'], of
       type: 'PAGINATE_VIDEOS',
       payload: { type, offset }
     } as PaginateVideosAction);
-  };
-
-export const getVideos = () =>
-  async (dispatch: Dispatch) => {
-    const { influencers, videos } = await eucFinderApi.videos.getVideos();
-
-    dispatch({
-      type: 'SET_VIDEOS',
-      payload: {
-        influencers,
-        videos
-      }
-    } as SetVideosAction);
   };

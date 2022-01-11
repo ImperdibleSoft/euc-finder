@@ -58,17 +58,17 @@ const DealerCard: React.FC<Props> = ({
 }) => {
   const { t } = useTranslation();
   const dark = isDarkTheme();
-  const stores = useSelector(getDealers);
-  const store = stores.find(s => s.name.toLowerCase() === storeName.toLowerCase());
-  const links = useSelector(getPurchaseLinksByStore(store?.id));
+  const dealers = useSelector(getDealers);
+  const dealer = dealers.find(s => s.name.toLowerCase() === storeName.toLowerCase());
+  const links = useSelector(getPurchaseLinksByStore(dealer?.id));
   
-  if (
+  if (!dealer || (
     (!negotiations || negotiations === '➖') &&
     (!discountCode || discountCode === '➖') &&
     (!storeInformation || storeInformation === '➖') &&
     (!purchaseLinks || purchaseLinks === '➖') &&
     (!fetchPrices || fetchPrices === '➖')
-  ) {
+  )) {
     return null;
   }
 
@@ -76,9 +76,9 @@ const DealerCard: React.FC<Props> = ({
   const parsedNegotiations = getNegotiationsStatus(discountCode) ?? negotiations;
 
   const logoSize = 156;
-  const [logoPath, extension] = store?.logo.split('.') ?? [];
+  const [logoPath, extension] = dealer?.logo.split('.') ?? [];
   const logoVersion = dark ? 'dark' : 'light';
-  const logo = store ? `${ logoPath }-${ logoVersion }.${ extension }` : undefined;
+  const logo = dealer ? `${ logoPath }-${ logoVersion }.${ extension }` : undefined;
 
   return (
     <Grid
@@ -113,16 +113,16 @@ const DealerCard: React.FC<Props> = ({
             { storeName }
           </Typography>
 
-          { !!store?.website && (
+          { !!dealer?.website && (
             <List dense>
               <ListItem sx={ listItemStyles }>
                 <ListItemText
                   primary={ (
                     <Link
-                      href={ `${ store.website }${ store.meta.code ? `?${ store.meta.code }` : '' }` }
+                      href={ `${ dealer.website }${ dealer.meta.code ? `?${ dealer.meta.code }` : '' }` }
                       target="_blank"
                     >
-                      { store.website }
+                      { dealer.website }
                     </Link>
                   ) }
                   secondary={ t('website-label') }

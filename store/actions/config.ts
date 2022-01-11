@@ -1,24 +1,12 @@
 import { Dispatch } from 'redux';
 import eucFinderApi from '../../apis/eucfinder';
-import { SetConfigInitialDataAction } from '../types';
+import { SetConfigAction } from '../types';
 
-export const getInitialData = () => async (dispatch: Dispatch) => {
-  const {
-    apps,
-    brands,
-    config,
-    dealers,
-    wheels
-  } = await eucFinderApi.config.getInitialData();
+export const getConfig = () => async (dispatch: Dispatch) => {
+  const { config } = await eucFinderApi.config.getConfig();
 
   dispatch({
-    type: 'SET_INITIALDATA',
-    payload: {
-      apps,
-      brands,
-      config,
-      dealers,
-      wheels
-    }
-  } as SetConfigInitialDataAction);
+    type: 'SET_CONFIG',
+    payload: { config }
+  } as SetConfigAction);
 };

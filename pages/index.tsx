@@ -55,7 +55,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
     handleOpenComparator,
     isBeingCompared
   } = useCompareActions();
-  const canCompareAllWheels = canCompareMoreWheels(sortedWheels.length);
+  const canCompareAllWheels = !!sortedWheels.length && canCompareMoreWheels(sortedWheels.length);
   const canCompareOneWheel = canCompareMoreWheels();
   const styles = useHeadingStyles(canCompareAllWheels, view);
 

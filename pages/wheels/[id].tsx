@@ -30,7 +30,7 @@ import {
 } from '../../hooks';
 import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
-import { cleanWheelId } from '../../utils';
+import { cleanWheelId, getBrandInfo } from '../../utils';
 import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../../utils-server';
 
 interface Props {
@@ -44,7 +44,6 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
   const wheelPictures = pictures[cleanWheelId(id)];
 
-  const brands = useSelector(getBrands);
   const { name, wheel } = useEucDetail(id);
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
   const { handleClosePicture, handleOpenPicture, pictureDetail } = useEucDetailHandlers();
@@ -52,11 +51,15 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const { handleWatchMoreVideos, totalCount, videos } = useEucVideos(id);
   const { canCompareMoreWheels, handleAddToComparision } = useCompareActions();
 
+  const brands = useSelector(getBrands);
+  const brand = wheel ? getBrandInfo(wheel.brandId, brands) : undefined;
+
   const pageTitle = `${ name } - ${ APP_NAME }`;
   const pageDescription = t('defaultDescription-msg');
-  const newKeywords = wheel ? [brands[wheel.brandId].name, wheel.name, name]: [];
-  const keywords = KEYWORDS.concat(newKeywords).join(', ');
 
+  const brandKeywords = brand ? [brand.name] : [];
+  const newKeywords = wheel ? [...brandKeywords, wheel.name, name] : [];
+  const keywords = KEYWORDS.concat(newKeywords).join(', ');
 
   const handleCompare = canCompareMoreWheels()
     ? () => {
@@ -171,7 +174,7 @@ export async function getStaticProps(staticProps: StaticProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { wheels } = await eucFinderApi.config.getInitialData();
+  const { wheels } = await eucFinderApi.data.getInitialData();
 
   return {
     paths: [

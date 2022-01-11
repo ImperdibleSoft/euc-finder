@@ -1,7 +1,6 @@
 import { Wheel } from '../../types';
 import { SpecWeightsPreset } from './settings';
 
-
 interface ConfigValues {
   /**
    * If the user has not selected any specific preset,
@@ -91,11 +90,12 @@ export interface ConfigState {
   wheelDetailsInfo: WheelDetailsInfo;
 }
 
-export interface SetConfigInitialDataAction {
-  type: 'SET_INITIALDATA';
+export interface SetConfigAction {
+  type: 'SET_CONFIG';
   payload: {
     config: ConfigState
   };
 }
 
-export type ConfigActions = SetConfigInitialDataAction;
+export type ConfigActions =
+  | SetConfigAction;

@@ -1,9 +1,9 @@
 import { getInfluencersInitialState } from '../models';
-import { InfluencerActions, InfluencersState } from '../types';
+import { InfluencersState, SetInitialDataAction } from '../types';
 
-const reducer = (state = getInfluencersInitialState(), action: InfluencerActions): InfluencersState => {
+const reducer = (state = getInfluencersInitialState(), action: SetInitialDataAction): InfluencersState => {
   switch (action.type) {
-    case 'SET_VIDEOS':
+    case 'SET_APP_DATA':
       return {
         ...state,
         collection: action.payload.influencers

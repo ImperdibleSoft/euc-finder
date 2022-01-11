@@ -1,4 +1,4 @@
-import { Brand, BrandId, Brands } from '../../../types';
+import { Brand, BrandId } from '../../../types';
 
 // Reference from V12, which I've tested personally
 const kmPerWh = 136 / 1750;
@@ -69,11 +69,11 @@ const inmotion: Brand = {
   }
 };
 
-export const brands: Brands = {
-  [BrandId.beidou]: beidou,
-  [BrandId.begode]: begode,
-  [BrandId.extremeBull]: extremeBull,
-  [BrandId.inmotion]: inmotion,
-  [BrandId.kingsong]: kingsong,
-  [BrandId.veteran]: veteran
-};
+export const brands: Brand[] = [
+  beidou,
+  begode,
+  extremeBull,
+  inmotion,
+  kingsong,
+  veteran
+];

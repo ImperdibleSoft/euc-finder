@@ -1,6 +1,7 @@
 import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
 import { Influencer, InfluencerId, Video, WheelId } from '../../types';
 import { RootState } from '../types';
+import { getPaginationConfig } from './config';
 
 export const getVideos = ({ videos }: RootState) =>
   videos.collection;
@@ -66,7 +67,7 @@ const isSponsored = (video: Video, influencers: Influencer[]) =>
 
 export const getSponsoredVideos = () => (rootState: RootState) => {
   const start = rootState.videos.pagination.sponsoredOffset;
-  const end = rootState.videos.pagination.sponsoredOffset + rootState.config.paginationSize;
+  const end = rootState.videos.pagination.sponsoredOffset + getPaginationConfig(rootState);
 
   const allVideos = getFilteredVideos(rootState);
   const sponsoredVideos = allVideos.filter(video => isSponsored(video, rootState.influencers.collection));
@@ -84,7 +85,7 @@ export const getSponsoredVideos = () => (rootState: RootState) => {
 
 export const getNewVideos = (lastVisit?: Date) => (rootState: RootState) => {
   const start = rootState.videos.pagination.newOffset;
-  const end = rootState.videos.pagination.newOffset + rootState.config.paginationSize;
+  const end = rootState.videos.pagination.newOffset + getPaginationConfig(rootState);
 
   const allVideos = getFilteredVideos(rootState);
   const newVideos = lastVisit
@@ -107,7 +108,7 @@ export const getNewVideos = (lastVisit?: Date) => (rootState: RootState) => {
 
 export const getWatchedVideos = (lastVisit?: Date) => (rootState: RootState) => {
   const start = rootState.videos.pagination.watchedOffset;
-  const end = rootState.videos.pagination.watchedOffset + rootState.config.paginationSize;
+  const end = rootState.videos.pagination.watchedOffset + getPaginationConfig(rootState);
 
   const allVideos = getFilteredVideos(rootState);
   const watchedVideos = lastVisit

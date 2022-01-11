@@ -1,10 +1,15 @@
 import { App, BrandId } from '../../../types';
+import { getBrandInfo } from '../../../utils';
 import { brands } from './brands';
+
+const begodeBrand = getBrandInfo(BrandId.begode, brands);
+const inmotionBrand = getBrandInfo(BrandId.inmotion, brands);
+const kingsongBrand = getBrandInfo(BrandId.kingsong, brands);
 
 const begodeApp: App = {
   id: BrandId.begode,
-  name: brands.begode.name,
-  url: brands.begode.website,
+  name: begodeBrand?.name ?? '',
+  url: begodeBrand?.website ?? '',
   platforms: {
     android: {
       logo: '/logos/apps/begode-android.png',
@@ -19,8 +24,8 @@ const begodeApp: App = {
 
 const inmotionApp: App = {
   id: BrandId.inmotion,
-  name: brands.inmotion.name,
-  url: brands.inmotion.website,
+  name: inmotionBrand?.name ?? '',
+  url: inmotionBrand?.website ?? '',
   platforms: {
     android: {
       logo: '/logos/apps/inmotion-android.webp',
@@ -35,8 +40,8 @@ const inmotionApp: App = {
 
 const kingsongApp: App = {
   id: BrandId.kingsong,
-  name: brands.kingsong.name,
-  url: brands.kingsong.website,
+  name: kingsongBrand?.name ?? '',
+  url: kingsongBrand?.website ?? '',
   platforms: {
     android: {
       logo: '/logos/apps/kingsong-android.webp',

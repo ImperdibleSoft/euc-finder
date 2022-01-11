@@ -18,7 +18,7 @@ import LoadingScreen from '../components/Screens/LoadingScreen';
 import { APP_NAME, getRegions, MEASUREMENT_ID } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
 import { ModalsContextProvider } from '../context';
-import { useInitialData } from '../hooks';
+import { useAppData } from '../hooks';
 import { configureStore } from '../store';
 import { setRegion } from '../store/actions';
 import { getBrands, getRegion, getWheels } from '../store/selectors';
@@ -33,7 +33,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const brands = useSelector(getBrands);
   const region = useSelector(getRegion);
   const wheels = useSelector(getWheels);
-  const loadingStates = useInitialData();
+  const loadingStates = useAppData();
 
   const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
     if (value?.id) {
@@ -59,11 +59,11 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       selectedRegion={ region }
       wheels={ wheels }
     >
-      { loadingStates.initialData === 'loading' && (
+      { loadingStates.configData === 'loading' && (
         <LoadingScreen />
       ) }
       
-      { loadingStates.initialData === 'success' && children }
+      { loadingStates.configData === 'success' && children }
     </MainLayout>
   );
 };
