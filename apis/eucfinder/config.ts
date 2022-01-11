@@ -1,21 +1,29 @@
 import { ConfigState } from '../../store/types';
 import { App, Brands, Store, Wheel } from '../../types';
 import { http } from '../../utils';
+import { config as defaultConfig } from '../database/data/config';
 
 interface ReturnType {
   apps: App[];
-  config: ConfigState;
   brands: Brands;
+  config: ConfigState;
   dealers: Store[];
   wheels: Wheel[];
 }
 
-const getConfig = async (): Promise<ReturnType | undefined> => {
+const getInitialData = async (): Promise<ReturnType> => {
   try {
-    const response = await http.get<ReturnType>('/api/config');
+    const response = await http.get<ReturnType>('/api/initialData');
     return response.data;
   } catch {
-    return undefined;
+    return {
+      apps: [],
+      // @ts-ignore
+      brands: {},
+      config: defaultConfig,
+      dealers: [],
+      wheels: []
+    };
   }
 };
 
@@ -29,5 +37,5 @@ export const config = {
    * - dealers
    * - wheels
    */
-  getConfig
+  getInitialData
 };
