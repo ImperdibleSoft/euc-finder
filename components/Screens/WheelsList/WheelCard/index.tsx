@@ -99,17 +99,21 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
       </CardActions>
 
       <CardActions>
-        <Link href={ link } passHref>
-          <Button variant="outlined" sx={  { ml: 'auto' } }>
-            { t('details-btn') }
-          </Button>
-        </Link>
-
         { !!handleAddToCompare && (
-          <Button variant="outlined" color="secondary" onClick={ handleAddToCompare } sx={ { ml: 1 } }>
+          <Button
+            variant="outlined"
+            onClick={ handleAddToCompare }
+            sx={ { ml: 'auto', mr: 1 } }
+          >
             { t('compare-label') }
           </Button>
         ) }
+
+        <Link href={ link } passHref>
+          <Button variant="outlined">
+            { t('details-btn') }
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
