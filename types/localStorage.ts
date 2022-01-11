@@ -61,6 +61,18 @@ export enum LOCAL_STORAGE_KEY {
   // Feature flags
 
   /**
+   * Disable any interaction with GA
+   * so statistics are not compromised
+   */
+  DISABLE_ANALYTICS = 'eucFinder_disableAnalytics',
+
+  /**
+   * Should display calculated range based
+   * on EUC's battery
+   */
+  DISABLE_CALCULATEDRANGE = 'eucFinder_disableCalculatedRange',
+
+  /**
    * Should display generic prices
    * and use them as filters and calculations
    */
@@ -77,10 +89,4 @@ export enum LOCAL_STORAGE_KEY {
    * Should force a particular theme
    */
   SHOW_THEME = 'eucFinder_theme',
-
-  /**
-   * Disable any interaction with GA
-   * so statistics are not compromised
-   */
-  DISABLE_ANALYTICS = 'eucFinder_disableAnalytics',
 }

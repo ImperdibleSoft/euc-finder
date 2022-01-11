@@ -1,8 +1,14 @@
 import { getVideosInitialState } from '../models';
-import { VideosAction, VideosState } from '../types';
+import { SetInitialDataAction, VideosAction, VideosState } from '../types';
 
-const reducer = (state = getVideosInitialState(), action: VideosAction): VideosState => {
+const reducer = (state = getVideosInitialState(), action: VideosAction | SetInitialDataAction): VideosState => {
   switch (action.type) {
+    case 'SET_APP_DATA':
+      return {
+        ...state,
+        collection: action.payload.videos
+      };
+
     case 'FILTER_VIDEOS':
       return {
         ...state,

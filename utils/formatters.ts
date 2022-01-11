@@ -3,7 +3,7 @@ import { TFunction } from 'react-i18next';
 import {
   AntiSpin,
   Battery,
-  Brands,
+  Brand,
   Color,
   DiameterUnits,
   Display,
@@ -22,6 +22,7 @@ import {
   WeightUnits,
   Wheel
 } from '../types';
+import { getBrandInfo } from './brands';
 import { getTranslation } from './clientTranslatedResources';
 import {
   getConvertedDiameter,
@@ -391,5 +392,12 @@ export const color = (
   return '-';
 };
 
-export const formatWheelName = ({ brandId, name }: Wheel, brands: Brands) =>
-  `${ brands[brandId].name } ${ name }`;
+export const formatWheelName = ({ brandId, name }: Wheel, brands: Brand[]) => {
+  const brand = getBrandInfo(brandId, brands);
+
+  if (brand) {
+    return `${ brand.name } ${ name }`;
+  }
+
+  return name;
+};

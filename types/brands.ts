@@ -16,5 +16,3 @@ export interface Brand {
     kmPerWh: number;
   }
 }
-
-export type Brands = Record<BrandId, Brand>

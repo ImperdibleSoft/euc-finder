@@ -1,9 +1,14 @@
-import { AnyAction } from 'redux';
 import { getInfluencersInitialState } from '../models';
-import { InfluencersState } from '../types';
+import { InfluencersState, SetInitialDataAction } from '../types';
 
-const reducer = (state = getInfluencersInitialState(), action: AnyAction): InfluencersState => {
+const reducer = (state = getInfluencersInitialState(), action: SetInitialDataAction): InfluencersState => {
   switch (action.type) {
+    case 'SET_APP_DATA':
+      return {
+        ...state,
+        collection: action.payload.influencers
+      };
+
     default:
       return state;
   }

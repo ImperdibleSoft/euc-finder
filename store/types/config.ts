@@ -1,54 +1,101 @@
 import { Wheel } from '../../types';
+import { SpecWeightsPreset } from './settings';
 
-export interface ConfigState {
+interface ConfigValues {
   /**
-   * Should calculate range based on wheel's Wh
+   * If the user has not selected any specific preset,
+   * this preset will be loaded by default
    */
-  calculatedRange: boolean,
-  paginationSize: number,
-
-  /**
-   * Should display hardcoded prices
-   */
-  prices: boolean,
-
-  /**
-   * Should display all purchase links (even if agreement is in progress)
-   */
-  purchaseLinks: boolean,
+  defaultPreset: SpecWeightsPreset.generic;
 
   /**
    * How many wheels can be compared at the same time
    */
-  maxComparedWheels: number,
+  maxComparedWheels: number;
 
   /**
-   * Available columns in Table view
+   * Controls how many items will be displayed on each pagination.
+   * 
+   * This applies for the following lists:
+   * - Videos
    */
-  specColumns: Array<keyof Wheel>
+  paginationSize: number;
+}
+
+interface FeatureFlags {
+  /**
+   * Should calculate range based on wheel's Wh
+   */
+  calculatedRange: boolean;
+
+  /**
+   * Should display hardcoded prices
+   */
+  prices: boolean;
+
+  /**
+   * Should display all purchase links (even if agreement is in progress)
+   */
+  purchaseLinks: boolean;
+}
+
+interface WheelsListInfo {
+  /**
+   * Main specs in List view
+   */
+  mainSpecs: (keyof Wheel)[];
 
   /**
    * Main specs in List view
    */
-  listMainSpecs: (keyof Wheel)[]
+  additionalSpecs: (keyof Wheel)[];
+}
 
-  /**
-   * Main specs in List view
-   */
-  listAdditionalSpecs: (keyof Wheel)[]
-
+interface WheelDetailsInfo {
   /**
    * Hightlighted specs in Details view
    */
-  detailHighlightedSpecs: (keyof Wheel)[]
+  highlightedSpecs: (keyof Wheel)[];
 
   /**
    * Main specs in Details view
    */
-  detailMainSpecs: (keyof Wheel)[]
+  mainSpecs: (keyof Wheel)[];
 
   /**
    * Main specs in Details view
    */
-  detailAdditionalSpecs: (keyof Wheel)[]
+  additionalSpecs: (keyof Wheel)[];
 }
+
+export interface ConfigState {
+  configValues: ConfigValues;
+  featureFlags: FeatureFlags;
+  
+  /**
+   * Available columns in Table view
+   */
+  specColumns: Array<keyof Wheel>;
+
+  /**
+   * Controls what specs are going to be displayed
+   * in Wheels List view
+   */
+  wheelsListInfo: WheelsListInfo;
+
+  /**
+   * Controls what specs are going to be displayed
+   * in Wheel Details view
+   */
+  wheelDetailsInfo: WheelDetailsInfo;
+}
+
+export interface SetConfigAction {
+  type: 'SET_CONFIG';
+  payload: {
+    config: ConfigState
+  };
+}
+
+export type ConfigActions =
+  | SetConfigAction;

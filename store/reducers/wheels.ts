@@ -1,8 +1,23 @@
+import { BrandId } from '../../types';
 import { getWheelsInitialState } from '../models';
-import { WheelsAction, WheelsState } from '../types';
+import { SetInitialDataAction, WheelsAction, WheelsState } from '../types';
 
-const reducer = (state = getWheelsInitialState(), action: WheelsAction): WheelsState => {
+const reducer = (state = getWheelsInitialState(), action: WheelsAction | SetInitialDataAction): WheelsState => {
   switch (action.type) {
+    case 'SET_APP_DATA':
+      const { apps, brands, dealers, purchaseLinks, wheels } = action.payload;
+      return {
+        ...state,
+        apps: {
+          official: apps.filter(app => Object.values(BrandId).some(brandId => app.id === brandId)),
+          unofficial: apps.filter(app => !Object.values(BrandId).some(brandId => app.id === brandId))
+        },
+        brands,
+        collection: wheels,
+        purchaseLinks,
+        stores: dealers
+      };
+
     case 'FILTER_WHEELS':
       return {
         ...state,

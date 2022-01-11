@@ -11,7 +11,7 @@ export const getSettingsInitialState = (): SettingsState => ({
   measureUnits: getInitialMeasureUnits(),
   region: (getItem(LOCAL_STORAGE_KEY.REGION) || 'eu') as Region,
   specWeights: {
-    preset: (getItem(LOCAL_STORAGE_KEY.SPECWEIGHT_PRESET) || SpecWeightsPreset.generic) as SpecWeightsPreset,
+    preset: (getItem(LOCAL_STORAGE_KEY.SPECWEIGHT_PRESET) as SpecWeightsPreset) || undefined,
     customValues: getGenericSpecWheights()
   }
 });

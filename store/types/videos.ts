@@ -34,4 +34,7 @@ export interface PaginateVideosAction {
   }
 }
 
-export type VideosAction = ResetVideosFiltersAction | FilterVideosAction | PaginateVideosAction;
+export type VideosAction =
+  | ResetVideosFiltersAction
+  | FilterVideosAction
+  | PaginateVideosAction;

@@ -1,6 +1,6 @@
 import {
   App,
-  Brands,
+  Brand,
   Store,
   Wheel,
   WheelFilters,
@@ -15,7 +15,7 @@ export interface WheelsState {
     official: App[];
     unofficial: App[];
   };
-  brands: Brands;
+  brands: Brand[];
   collection: Wheel[];
   comparing: WheelId[];
   purchaseLinks: WheelPurchaseLinks;

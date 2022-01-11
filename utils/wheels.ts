@@ -1,4 +1,24 @@
-import { Category, Wheel } from '../types';
+import { Category, Wheel, WheelId } from '../types';
+
+export const cleanWheelId = (wheelId: WheelId): WheelId =>
+  wheelId
+    // HT or HS
+    .replace(/H(T|S)$/, '')
+
+    // 100v versions
+    .replace(/100$/, '')
+
+    // 16 or 18 inches
+    .replace(/recioWheel1(6|8)$/, 'recioWheel')
+
+    // 16xs and 16x
+    .replace(/16xs$/, '16x')
+
+    // vXX and vXXf versions
+    .replace(/f$/, '')
+  
+    // Max versions
+    .replace(/Max$/, '') as WheelId;
 
 export const getWheelCategory = ({ maxSpeed, range, ratedPower, battery }: Wheel): Category | undefined => {  
   if (

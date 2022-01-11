@@ -1,16 +1,5 @@
 import { BrandId, WheelFilters, WheelSorting } from '../../types';
 import { WheelsState } from '../types';
-import {
-  begodeApp,
-  brands,
-  darknessBotApp,
-  eucWorldApp,
-  inmotionApp,
-  kingsongApp,
-  stores,
-  wheelPurchaseLinks,
-  wheels
-} from './data';
 
 const getFiltersInitialValue = (): WheelFilters => ({
   categories: ['starter', 'standard', 'high-end', 'extreme'],
@@ -59,14 +48,15 @@ const getSortingInitialValue = (): WheelSorting => ({
 
 export const getWheelsInitialState = (): WheelsState => ({
   apps: {
-    official: [begodeApp, inmotionApp, kingsongApp],
-    unofficial: [darknessBotApp, eucWorldApp]
+    official: [],
+    unofficial: []
   },
-  brands,
-  collection: wheels,
+  brands: [],
+  collection: [],
   comparing: [],
   filters: getFiltersInitialValue(),
-  purchaseLinks: wheelPurchaseLinks,
+  // @ts-ignore
+  purchaseLinks: {},
   sorting: getSortingInitialValue(),
-  stores
+  stores: []
 });

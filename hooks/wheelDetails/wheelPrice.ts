@@ -6,46 +6,46 @@ import { LoadingState, StoreId } from '../../types';
 const getApiRequest = (store: StoreId) => {
   switch (store) {
     case StoreId.alienRides:
-      return eucFinderApi.getAlienRidesPrice;
+      return eucFinderApi.wheel.price.getAlienRidesPrice;
 
     case StoreId.ciclonic:
-      return eucFinderApi.getCiclonicPrice;
+      return eucFinderApi.wheel.price.getCiclonicPrice;
 
     case StoreId.eevees:
-      return eucFinderApi.getEeveesPrice;
+      return eucFinderApi.wheel.price.getEeveesPrice;
     
     case StoreId.eRides:
-      return eucFinderApi.getERidesPrice;
+      return eucFinderApi.wheel.price.getERidesPrice;
 
     case StoreId.euco:
-      return eucFinderApi.getEucoPrice;
+      return eucFinderApi.wheel.price.getEucoPrice;
 
     case StoreId.eucSale:
-      return eucFinderApi.getEucSalePrice;
+      return eucFinderApi.wheel.price.getEucSalePrice;
 
     case StoreId.eucService:
-      return eucFinderApi.getEucServicePrice;
+      return eucFinderApi.wheel.price.getEucServicePrice;
 
     case StoreId.ewheels:
-      return eucFinderApi.getEwheelsPrice;
+      return eucFinderApi.wheel.price.getEwheelsPrice;
 
       // case StoreId.inmotionFrance:
-      //   return eucFinderApi.getInmotionFrancePrice;
+      //   return eucFinderApi.wheel.price.getInmotionFrancePrice;
 
     case StoreId.madridrueda:
-      return eucFinderApi.getMadridRuedaPrice;
+      return eucFinderApi.wheel.price.getMadridRuedaPrice;
 
     case StoreId.myewheel:
-      return eucFinderApi.getMyEWheelPrice;
+      return eucFinderApi.wheel.price.getMyEWheelPrice;
 
     case StoreId.revRides:
-      return eucFinderApi.getRevRidesPrice;
+      return eucFinderApi.wheel.price.getRevRidesPrice;
 
     case StoreId.smartWheel:
-      return eucFinderApi.getSmartWheelPrice;
+      return eucFinderApi.wheel.price.getSmartWheelPrice;
 
     case StoreId.urban360:
-      return eucFinderApi.getUrban360Price;
+      return eucFinderApi.wheel.price.getUrban360Price;
 
     default:
       return undefined;

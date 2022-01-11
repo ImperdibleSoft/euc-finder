@@ -26,6 +26,7 @@
   "language-label": "Language",
   "en-label": "English",
   "es-label": "Español",
+  "copy-label": "Copy",
   "copied-msg": "Copied to clipboard.",
   "copyError-msg": "There was an error. Please, copy the code manually.",
   "appLogo-label": "{{appName}}'s logo",
@@ -34,6 +35,8 @@
   "influencers": "Content creators",
   "influencers-label": "Influencers",
   "videos": "Videos",
+
+  "loading-msg": "Loading data...",
 
   "defaultDescription-msg": "We will add a small description about this EUC soon.",
   "noWheel-msg": "We don't have this EUC in our database.",
@@ -127,6 +130,8 @@
   "sponsoredVideos-title": "Sponsored videos",
   "newVideos-title": "New videos since your last visit",
   "watchedVideos-title": "Watched videos",
+  "noVideos-msg": "There are no videos that match your search criterias.",
+  "changeVideoFilters-msg": "Relax or reset the filters to find some options that is close to what you are looking for.",
 
   "dealers-title": "Dealers",
   "dealers1-msg": "One of {{appName}}'s added values is that we gather purchase links from the larger dealers in {{region}}, so you can access to a safe dealers' list in your region.",
@@ -214,6 +219,7 @@
   "review-label": "Review",
 
   "youtubeChannel-label": "Youtube channel",
+  "noInfluencers-msg": "There are no influencers yet.",
 
   "officialApps-title": "Official Apps",
   "officialWheelApps-title": "{{wheelName}}'s Official Apps",

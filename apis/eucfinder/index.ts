@@ -1,153 +1,28 @@
-import { http } from '../../utils';
+import { config } from './config';
+import { data } from './data';
+import { wheel } from './wheel';
 
-const getAlienRidesPrice = async (url: string, expensive: boolean): Promise<number | undefined> => {
-  try {
-    const expensiveParam = expensive ? '?expensive=true' : '';
-    const response = await http.get(`/api/alienRides/${ encodeURIComponent(url) }${ expensiveParam }`);
-    return response.data as number | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getCiclonicPrice = async (url: string, expensive: boolean): Promise<number | undefined> => {
-  try {
-    const expensiveParam = expensive ? '?expensive=true' : '';
-    const response = await http.get(`/api/ciclonic/${ encodeURIComponent(url) }${ expensiveParam }`);
-    return response.data as number | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getEeveesPrice = async (url: string): Promise<number | '-' | undefined> => {
-  try {
-    const response = await http.get(`/api/eevees/${ encodeURIComponent(url) }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getERidesPrice = async (url: string): Promise<number | '-' | undefined> => {
-  try {
-    const response = await http.get(`/api/eRides/${ encodeURIComponent(url) }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getEucoPrice = async (url: string): Promise<number | '-' | undefined> => {
-  try {
-    const response = await http.get(`/api/euco/${ encodeURIComponent(url) }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getEucSalePrice = async (url: string): Promise<number | '-' | undefined> => {
-  try {
-    const response = await http.get(`/api/eucSale/${ encodeURIComponent(url) }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getEucServicePrice = async (url: string): Promise<number | '-' | undefined> => {
-  try {
-    const response = await http.get(`/api/eucService/${ encodeURIComponent(url) }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getEwheelsPrice = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
-  try {
-    const expensiveParam = expensive ? '?expensive=true' : '';
-    const response = await http.get(`/api/ewheels/${ encodeURIComponent(url) }}${ expensiveParam }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getInmotionFrancePrice = async (url: string): Promise<number | undefined> => {
-  try {
-    const response = await http.get(`/api/inmotionFrance/${ encodeURIComponent(url) }`);
-    return response.data as number | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getMadridRuedaPrice = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
-  try {
-    const expensiveParam = expensive ? '?expensive=true' : '';
-    const response = await http.get(`/api/madridRueda/${ encodeURIComponent(url) }${ expensiveParam }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getMyEWheelPrice = async (url: string): Promise<number | '-' | undefined> => {
-  try {
-    const response = await http.get(`/api/myewheel/${ encodeURIComponent(url) }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getRevRidesPrice = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
-  try {
-    const expensiveParam = expensive ? '?expensive=true' : '';
-    const response = await http.get(`/api/revRides/${ encodeURIComponent(url) }${ expensiveParam }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getSmartWheelPrice = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
-  try {
-    const expensiveParam = expensive ? '?expensive=true' : '';
-    const response = await http.get(`/api/smartWheel/${ encodeURIComponent(url) }${ expensiveParam }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
-const getUrban360Price = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
-  try {
-    const expensiveParam = expensive ? '?expensive=true' : '';
-    const response = await http.get(`/api/urban360/${ encodeURIComponent(url) }${ expensiveParam }`);
-    return response.data as number | '-' | undefined;
-  } catch {
-    return undefined;
-  }
-};
-
+/**
+ * An API client that will help the client app to comunicate
+ * with EUC Finder's api.
+ * 
+ * Since the app is readonly (at the moment), this APIs will
+ * always return needed information to render any page SSR-like
+ */
 const eucFinderApi = {
-  getAlienRidesPrice,
-  getCiclonicPrice,
-  getEeveesPrice,
-  getERidesPrice,
-  getEucoPrice,
-  getEucSalePrice,
-  getEucServicePrice,
-  getEwheelsPrice,
-  getInmotionFrancePrice,
-  getMadridRuedaPrice,
-  getMyEWheelPrice,
-  getRevRidesPrice,
-  getSmartWheelPrice,
-  getUrban360Price
+  /**
+   * Any request related to the app's config.
+   * This request NEEDs to be executed before app inits.
+   */
+  config,
+  /**
+   * Any request related to app's data.
+   */
+  data,
+  /**
+   * Any request related to a particular wheel.
+   */
+  wheel
 };
 
 export default eucFinderApi;

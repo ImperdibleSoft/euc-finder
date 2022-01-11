@@ -1,47 +1,68 @@
 import { RootState } from '../types';
 
-export const getRangeConfig = ({ config }: RootState) =>
-  config.calculatedRange;
-
-export const getPaginationConfig = ({ config }: RootState) =>
-  config.paginationSize;
-
-export const getPricesConfig = ({ config }: RootState) =>
-  config.prices;
-
-export const getPurchaseLinksConfig = ({ config }: RootState) =>
-  config.purchaseLinks;
+// Config Values
+export const getPresetDefaultConfig = ({ config }: RootState) =>
+  config.configValues.defaultPreset;
 
 export const getMaxComparedWheels = ({ config }: RootState) =>
-  config.maxComparedWheels;
+  config.configValues.maxComparedWheels;
+  
+export const getPaginationConfig = ({ config }: RootState) =>
+  config.configValues.paginationSize;
 
-export const getTableViewSpecs = ({ config }: RootState) => {
-  if (!config.prices) {
+// Feature Flags
+export const getPricesConfig = ({ config }: RootState) =>
+  config.featureFlags.prices;
+
+export const getPurchaseLinksConfig = ({ config }: RootState) =>
+  config.featureFlags.purchaseLinks;
+
+export const getRangeConfig = ({ config }: RootState) =>
+  config.featureFlags.calculatedRange;
+
+// Column specs
+export const getTableViewSpecs = (rootState: RootState) => {
+  const { config } = rootState;
+
+  if (getPricesConfig(rootState)) {
     return config.specColumns.filter(k => k !== 'price');
   }
 
   return config.specColumns;
 };
 
-export const getListViewSpecs = ({ config }: RootState) => {
-  if (!config.prices) {
+// Wheels List view
+export const getListViewSpecs = (rootState: RootState) => {
+  const { config: { wheelsListInfo } } = rootState;
+
+  if (getPricesConfig(rootState)) {
     return [
-      config.listMainSpecs.filter(k => k !== 'price'),
-      config.listAdditionalSpecs.filter(k => k !== 'price')
+      wheelsListInfo.mainSpecs.filter(k => k !== 'price'),
+      wheelsListInfo.additionalSpecs.filter(k => k !== 'price')
     ];
   }
   
-  return [config.listMainSpecs, config.listAdditionalSpecs];
+  return [
+    wheelsListInfo.mainSpecs,
+    wheelsListInfo.additionalSpecs
+  ];
 };
 
-export const getDetailViewSpecs = ({ config }: RootState) => {
-  if (!config.prices) {
+// Wheel Detail view
+export const getDetailViewSpecs = (rootState: RootState) => {
+  const { config: { wheelDetailsInfo } } = rootState;
+
+  if (getPricesConfig(rootState)) {
     return [
-      config.detailHighlightedSpecs.filter(k => k !== 'price'),
-      config.detailMainSpecs.filter(k => k !== 'price'),
-      config.detailAdditionalSpecs.filter(k => k !== 'price')
+      wheelDetailsInfo.highlightedSpecs.filter(k => k !== 'price'),
+      wheelDetailsInfo.mainSpecs.filter(k => k !== 'price'),
+      wheelDetailsInfo.additionalSpecs.filter(k => k !== 'price')
     ];
   }
   
-  return [config.detailHighlightedSpecs, config.detailMainSpecs, config.detailAdditionalSpecs];
+  return [
+    wheelDetailsInfo.highlightedSpecs,
+    wheelDetailsInfo.mainSpecs,
+    wheelDetailsInfo.additionalSpecs
+  ];
 };

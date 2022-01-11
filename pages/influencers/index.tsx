@@ -4,7 +4,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getStaticProps } from '..';
-import InfluencerCard from '../../components/Influencers/InfluencerCard';
+import EmptyCase from '../../components/Screens/Influencers/EmptyCase';
+import InfluencerCard from '../../components/Screens/Influencers/InfluencerCard';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { getInfluencers } from '../../store/selectors';
@@ -32,18 +33,26 @@ const Influencers: React.FC = () => {
       </Head>
 
       <SimpleLayout>
-        <Typography variant="h4" sx={ { mb: 2 } }>
-          { pageTitle }
-        </Typography>
+        { !!influencers.length && (
+          <>
+            <Typography variant="h4" sx={ { mb: 2 } }>
+              { pageTitle }
+            </Typography>
 
-        <Grid container spacing={ 2 }>
-          { influencers.map(influencer => (
-            <InfluencerCard
-              key={ influencer.id }
-              influencer={ influencer }
-            />
-          )) }
-        </Grid>
+            <Grid container spacing={ 2 }>
+              { influencers.map(influencer => (
+                <InfluencerCard
+                  key={ influencer.id }
+                  influencer={ influencer }
+                />
+              )) }
+            </Grid>
+          </>
+        ) }
+
+        { !influencers.length && (
+          <EmptyCase />
+        ) }
       </SimpleLayout>
     </>
   );

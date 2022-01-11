@@ -9,7 +9,8 @@ import {
   getPricesConfig,
   getTableViewSpecs
 } from '../../../store/selectors';
-import { Brands, Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
+import { Brand, Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
+import { formatWheelName } from '../../../utils';
 import wheelsTableSettingsReducer, { getInitialValue } from './reducer';
 
 export const useColumns = () => {
@@ -58,10 +59,10 @@ const getCellStyles = (key: keyof Wheel): React.CSSProperties => {
   }
 };
 
-const getColumnValue = (key: keyof Wheel, record: Wheel, brands: Brands) => {
+const getColumnValue = (key: keyof Wheel, record: Wheel, brands: Brand[]) => {
   switch (key) {
     case 'name':
-      return `${ brands[record.brandId].name } ${ record.name }`;
+      return formatWheelName(record, brands);
 
     default:
       return record[key];

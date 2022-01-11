@@ -14,12 +14,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { APP_NAME } from '../../../../constants';
 import { ROOT } from '../../../../constants/clientRoutes';
-import { Brands, Region, Wheel } from '../../../../types';
+import { Brand, Region, Wheel } from '../../../../types';
+import { getBrandInfo } from '../../../../utils';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
 import { Search, SearchIconWrapper, StyledInputBase } from '../SearchBar';
 
 export interface Props {
-  brands: Brands
+  brands: Brand[];
   handleSelectRegion: (event: React.ChangeEvent<HTMLSelectElement>) => void
   handleSelectWheel: (
     event: React.SyntheticEvent<Element, Event>,
@@ -106,7 +107,7 @@ const Header: React.FC<Props> = ({
               onChange={ handleSelectWheel }
               options={ wheels }
               getOptionLabel={ wheel => wheel.name }
-              groupBy={ wheel => brands[wheel.brandId].name }
+              groupBy={ wheel => getBrandInfo(wheel.brandId, brands)?.name ?? '' }
               renderInput={ ({ InputLabelProps, InputProps, ...params }) => (
                 <StyledInputBase
                   { ...InputProps }

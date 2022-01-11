@@ -7,11 +7,11 @@ import { useSelector } from 'react-redux';
 import Apps from '../components/Apps';
 import { HEADER_HEIGHT } from '../components/Layouts/constants';
 import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
-import Columns from '../components/WheelsList/Columns';
-import EmptyCase from '../components/WheelsList/EmptyCase';
-import Filters from '../components/WheelsList/Filters';
-import GridView from '../components/WheelsList/GridView';
-import TableView from '../components/WheelsList/TableView';
+import Columns from '../components/Screens/WheelsList/Columns';
+import EmptyCase from '../components/Screens/WheelsList/EmptyCase';
+import Filters from '../components/Screens/WheelsList/Filters';
+import GridView from '../components/Screens/WheelsList/GridView';
+import TableView from '../components/Screens/WheelsList/TableView';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../constants';
 import {
   useBreakpoints,
@@ -23,10 +23,9 @@ import {
   useSidebar,
   useSorting
 } from '../hooks';
-import { wheels } from '../store/models/data';
 import { getPricesConfig } from '../store/selectors';
 import { WheelId } from '../types';
-import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../utils-server';
+import { getFirstWheelPicture, getStaticProps as genericStaticProps, StaticProps } from '../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string>;
@@ -56,7 +55,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
     handleOpenComparator,
     isBeingCompared
   } = useCompareActions();
-  const canCompareAllWheels = canCompareMoreWheels(sortedWheels.length);
+  const canCompareAllWheels = !!sortedWheels.length && canCompareMoreWheels(sortedWheels.length);
   const canCompareOneWheel = canCompareMoreWheels();
   const styles = useHeadingStyles(canCompareAllWheels, view);
 
@@ -184,13 +183,7 @@ export default Wheels;
 
 export async function getStaticProps(staticProps: StaticProps) {
   const { props } = await genericStaticProps(staticProps);
-  const pictures = wheels.reduce((wheelPictures, wheel) => {
-    if (!wheelPictures[wheel.id]) {
-      wheelPictures[wheel.id] = getWheelPictures(wheel.brandId, wheel.id)[0];
-    }
-
-    return wheelPictures;
-  }, {} as Record<WheelId, string>);
+  const pictures = getFirstWheelPicture();
 
   return {
     props: {

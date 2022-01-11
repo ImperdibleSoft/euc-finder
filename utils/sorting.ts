@@ -1,4 +1,4 @@
-import { Brands, Order, Wheel } from '../types';
+import { Order, Wheel } from '../types';
 import { getMaximumValue, getMinimumValue, sortBy } from './collections';
 import {
   getAntiSpinScore,
@@ -10,11 +10,11 @@ import {
   getTrolleyHandleScore
 } from './comparing';
 
-export const customisedSortBy = (brands: Brands) => (key: keyof Wheel, order: Order) => (a: Wheel, b: Wheel) => {
+export const customisedSortBy = (key: keyof Wheel, order: Order) => (a: Wheel, b: Wheel) => {
   switch (key) {
     case 'name':
-      const aNameWeight = `${ a.name } ${ brands[a.brandId].name }`;
-      const bNameWeight = `${ b.name } ${ brands[b.brandId].name }`;
+      const aNameWeight = a.name;
+      const bNameWeight = b.name;
       if (aNameWeight < bNameWeight) return order === 'asc' ? -1 : 1;
       if (aNameWeight > bNameWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);

@@ -37,7 +37,7 @@ export interface SettingsState {
   measureUnits: MeasureUnits;
   region: Region;
   specWeights: {
-    preset: SpecWeightsPreset;
+    preset?: SpecWeightsPreset;
     customValues: SpecWeights
   };
 }

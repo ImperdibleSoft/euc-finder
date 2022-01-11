@@ -14,9 +14,11 @@ import { useTranslation } from 'react-i18next';
 import { Provider, useDispatch, useSelector } from 'react-redux';
 import FacebookWrapper from '../components/Facebook/FacebookWrapper';
 import MainLayout from '../components/Layouts/MainLayout';
+import LoadingScreen from '../components/Screens/LoadingScreen';
 import { APP_NAME, getRegions, MEASUREMENT_ID } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
 import { ModalsContextProvider } from '../context';
+import { useAppData } from '../hooks';
 import { configureStore } from '../store';
 import { setRegion } from '../store/actions';
 import { getBrands, getRegion, getWheels } from '../store/selectors';
@@ -31,6 +33,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const brands = useSelector(getBrands);
   const region = useSelector(getRegion);
   const wheels = useSelector(getWheels);
+  const loadingStates = useAppData();
 
   const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
     if (value?.id) {
@@ -56,7 +59,11 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
       selectedRegion={ region }
       wheels={ wheels }
     >
-      { children }
+      { loadingStates.initialData === 'loading' && (
+        <LoadingScreen />
+      ) }
+      
+      { loadingStates.initialData === 'success' && children }
     </MainLayout>
   );
 };
