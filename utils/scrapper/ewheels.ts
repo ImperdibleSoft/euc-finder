@@ -11,16 +11,20 @@ export const parseEWheelsPrice = (html: string, showExpensive: boolean): number 
     /** Sold out. Out of stock */
 
     /** Final price when released */
+    const regularPriceElems = Array.from(document.querySelectorAll('.summary .summary-container .price .amount'));
     // eslint-disable-next-line max-len
-    const finalPriceElems = Array.from(document.querySelectorAll('.summary .summary-container .woocommerce-product-details__short-description span')) ?? [];
+    const descriptionPriceElems = Array.from(document.querySelectorAll('.summary .summary-container .woocommerce-product-details__short-description span'));
 
+    const finalPriceElems = [...regularPriceElems, ...descriptionPriceElems] ?? [];
     if (finalPriceElems.length) {
-      const finalPriceStringOptions = finalPriceElems.reduce((acc, curr) => {
+      const finalPriceStringOptions = finalPriceElems.reduce((acc, curr, index) => {
+        const isRegularPrice = index < regularPriceElems.length;
+
         const string = curr?.innerHTML?.replace(/\,/g, '');
-        const rawFinalPriceOptions = string?.match(currencyRegExp) ?? [];
+        const rawFinalPriceOptions = string?.match(isRegularPrice ? priceRegExp : currencyRegExp) ?? [];
         
         if (rawFinalPriceOptions.length) {
-          acc.push(...rawFinalPriceOptions);
+          acc.push(...rawFinalPriceOptions.map(price => isRegularPrice ? `$${ price }` : price));
         }
 
         return acc;
@@ -46,11 +50,7 @@ export const parseEWheelsPrice = (html: string, showExpensive: boolean): number 
     }
 
     /** Sale price */
-    
-    const [
-      cheapPriceElement,
-      expensivePriceElement
-    ] = Array.from(document.querySelectorAll('.summary .price .amount')) ?? [];
+    const [cheapPriceElement, expensivePriceElement] = regularPriceElems ?? [];
 
     /** Expensive version price */
     if (showExpensive && expensivePriceElement) {
