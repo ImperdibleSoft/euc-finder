@@ -1,3 +1,6 @@
+@import url('./dropdownOverride.css');
+@import url('./EucPicturesOverride.css');
+
 html,
 body {
   padding: 0;

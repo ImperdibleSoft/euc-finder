@@ -22,6 +22,7 @@ import { useAppData } from '../hooks';
 import { configureStore } from '../store';
 import { setRegion } from '../store/actions';
 import { getBrands, getRegion, getWheels } from '../store/selectors';
+import '../styles/globals.css';
 import { darkTheme, lightTheme } from '../styles/theme';
 import { LOCAL_STORAGE_KEY, Region, Wheel } from '../types';
 import { cleanOldCaches, getItem, isDarkTheme, pageview, setItem } from '../utils';
