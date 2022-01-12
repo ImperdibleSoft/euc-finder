@@ -34,8 +34,21 @@ export const parseEucoPrice = (html: string): number | '-' | undefined => {
       const salePriceString = salePriceElem?.innerHTML?.replace(',', '');
       const [, rawSalePrice] = salePriceString?.match(priceRegExp) ?? [];
       const salePrice = rawSalePrice;
-      if (salePrice) {
+
+      const isPrePurchase = Number(salePrice) < 500;
+      if (salePrice && !isPrePurchase) {
         return Number(salePrice);
+      }
+
+      // eslint-disable-next-line max-len
+      const regularPriceElem = document.querySelector('.price--on-sale > .price__pricing-group > .price__sale .price-item--regular');
+      if (regularPriceElem) {
+        const regularPriceString = regularPriceElem?.innerHTML?.replace(',', '');
+        const [, rawRegularPrice] = regularPriceString?.match(priceRegExp) ?? [];
+        const regularPrice = rawRegularPrice;
+        if (regularPrice) {
+          return Number(regularPrice);
+        }
       }
     }
     
