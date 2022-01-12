@@ -1,6 +1,7 @@
 import { Box, Card, Typography } from '@mui/material';
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { isFacebookEnabled } from '../../../constants';
 import { useLoadFacebookContent } from '../../../hooks';
 
 interface Props {
@@ -17,6 +18,10 @@ const FacebookLikeButton: React.FC<Props> = ({ width }) => {
     rect,
     shouldRender
   } = useLoadFacebookContent(cardRef);
+
+  if (!isFacebookEnabled()) {
+    return null;
+  }
 
   return (
     <Card

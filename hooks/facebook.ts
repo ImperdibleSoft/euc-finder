@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useResize } from '.';
-import { FB_APP_ID } from '../constants';
+import { FB_APP_ID, isFacebookEnabled } from '../constants';
 import { useFacebookContext, WAIT_UNTIL_FB_ERROR } from '../context';
 import { LoadingState } from '../types';
 
@@ -77,18 +77,24 @@ export const useFacebookSDK = () => {
   const { locale } = useRouter();
 
   useEffect(() => {
-    const language = getLanguage(locale);
-    const script = downloadFacebookSDK(
-      language,
-      setLoadingState,
-      () => {
-        initFacebookSDK();
-        setLoadingState('success');
-      }
-    );
-  
+    if (isFacebookEnabled()) {
+      const language = getLanguage(locale);
+      const script = downloadFacebookSDK(
+        language,
+        setLoadingState,
+        () => {
+          initFacebookSDK();
+          setLoadingState('success');
+        }
+      );
+
+      return () => {
+        removeFacebookSDKScript(script);
+      };
+    }
+
     return () => {
-      removeFacebookSDKScript(script);
+      return;
     };
   }, [locale]);
 

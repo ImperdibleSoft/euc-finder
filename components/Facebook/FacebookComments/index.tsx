@@ -1,6 +1,7 @@
 import { Card, SxProps, Theme, Typography } from '@mui/material';
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { isFacebookEnabled } from '../../../constants';
 import { useLoadFacebookContent } from '../../../hooks';
 
 const textStyles: SxProps<Theme> = {
@@ -24,6 +25,10 @@ const FacebookComments: React.FC<Props> = ({ numPost = 10, width }) => {
     shouldRender,
     theme
   } = useLoadFacebookContent(cardRef);
+
+  if (!isFacebookEnabled()) {
+    return null;
+  }
 
   return (
     <Card
