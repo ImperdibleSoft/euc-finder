@@ -1,3 +1,4 @@
+import { getLastVisit } from '../../utils';
 import { VideosState } from '../types';
 
 export const getVideosInitialState = (): VideosState => ({
@@ -8,6 +9,7 @@ export const getVideosInitialState = (): VideosState => ({
     languages: [],
     wheels: []
   },
+  lastVisit: getLastVisit(),
   pagination: {
     sponsoredOffset: 0,
     newOffset: 0,

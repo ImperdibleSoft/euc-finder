@@ -51,7 +51,13 @@ const reducer = (state = getVideosInitialState(), action: VideosAction | SetInit
         filters: { ...getVideosInitialState().filters },
         pagination: { ...getVideosInitialState().pagination }
       };
-    
+
+    case 'SET_LASTVISIT':
+      return {
+        ...state,
+        lastVisit: action.payload.lastVisit
+      };
+      
     default:
       return state;
   }

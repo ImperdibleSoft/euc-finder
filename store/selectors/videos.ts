@@ -6,6 +6,9 @@ import { getPaginationConfig } from './config';
 export const getVideos = ({ videos }: RootState) =>
   videos.collection;
 
+export const getVideosLastVisit = ({ videos }: RootState) =>
+  videos.lastVisit;
+
 export const getVideosWithout = ({ influencers, videos }: RootState) =>
   videos.collection.filter(v => {
     return v.tags
@@ -83,7 +86,8 @@ export const getSponsoredVideos = () => (rootState: RootState) => {
   };
 };
 
-export const getNewVideos = (lastVisit?: Date) => (rootState: RootState) => {
+export const getNewVideos = (rootState: RootState) => {
+  const lastVisit = getVideosLastVisit(rootState);
   const start = rootState.videos.pagination.newOffset;
   const end = rootState.videos.pagination.newOffset + getPaginationConfig(rootState);
 
@@ -106,7 +110,11 @@ export const getNewVideos = (lastVisit?: Date) => (rootState: RootState) => {
   };
 };
 
-export const getWatchedVideos = (lastVisit?: Date) => (rootState: RootState) => {
+export const getNewVideosLength = (rootState: RootState) =>
+  getNewVideos(rootState).videos.length;
+
+export const getWatchedVideos = (rootState: RootState) => {
+  const lastVisit = getVideosLastVisit(rootState);
   const start = rootState.videos.pagination.watchedOffset;
   const end = rootState.videos.pagination.watchedOffset + getPaginationConfig(rootState);
 

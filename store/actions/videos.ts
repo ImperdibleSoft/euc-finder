@@ -1,5 +1,5 @@
 import { Dispatch } from 'redux';
-import { FilterVideosAction, PaginateVideosAction, ResetVideosFiltersAction } from '../types';
+import { FilterVideosAction, PaginateVideosAction, ResetVideosFiltersAction, SetLastVisitAction } from '../types';
 
 export const resetVideoFilters = () =>
   (dispatch: Dispatch) => {
@@ -20,4 +20,12 @@ export const paginateVideos = (type: PaginateVideosAction['payload']['type'], of
       type: 'PAGINATE_VIDEOS',
       payload: { type, offset }
     } as PaginateVideosAction);
+  };
+  
+export const setLastVisit = (payload: SetLastVisitAction['payload']) =>
+  (dispatch: Dispatch) => {
+    dispatch({
+      type: 'SET_LASTVISIT',
+      payload
+    } as SetLastVisitAction);
   };

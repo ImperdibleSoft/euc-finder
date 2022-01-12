@@ -2,11 +2,11 @@ import { setItem } from '.';
 import { LOCAL_STORAGE_KEY } from '../types';
 import { getItem } from './localStorage';
 
-const getToday = () => new Date(Date.now());
+export const getToday = () => new Date(Date.now());
 
-export const setLastVisit = () => {
-  const date = getToday();
+export const setLastVisit = (date = getToday()) => {
   setItem(LOCAL_STORAGE_KEY.VIDEO_LASTVISIT, date.toISOString());
+  return date;
 };
 
 export const getLastVisit = () => {

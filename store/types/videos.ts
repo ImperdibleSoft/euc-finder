@@ -4,6 +4,8 @@ export interface VideosState {
   // Main data
   collection: Video[];
 
+  lastVisit: Date;
+
   // Misc
   filters: VideoFilters;
   sorting: unknown;
@@ -34,7 +36,15 @@ export interface PaginateVideosAction {
   }
 }
 
+export interface SetLastVisitAction {
+  type: 'SET_LASTVISIT';
+  payload: {
+    lastVisit: Date;
+  }
+}
+
 export type VideosAction =
   | ResetVideosFiltersAction
   | FilterVideosAction
-  | PaginateVideosAction;
+  | PaginateVideosAction
+  | SetLastVisitAction;

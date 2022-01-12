@@ -1,12 +1,14 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLastVisit } from '../../store/actions';
 import {
   getBrands,
   getInfluencers,
   getNewVideos,
   getPaginationConfig,
   getSponsoredVideos,
+  getVideosLastVisit,
   getWatchedVideos,
   getWheels
 } from '../../store/selectors';
@@ -15,7 +17,7 @@ import {
   formatWheelName,
   getCategoryFromTags,
   getInfluencerFromTags,
-  getLastVisit,
+  getToday,
   getWheelFromTags,
   setLastVisit as updateLastVisit
 } from '../../utils';
@@ -23,18 +25,22 @@ import {
 export * from './filtering';
 
 export const useVideos = () => {
-  const [lastVisit, setLastVisit] = useState<Date>();
+  const dispatch = useDispatch();
+  const lastVisit = useSelector(getVideosLastVisit);
   const sponsored = useSelector(getSponsoredVideos());
-  const unwatched = useSelector(getNewVideos(lastVisit));
-  const watched = useSelector(getWatchedVideos(lastVisit));
+  const unwatched = useSelector(getNewVideos);
+  const watched = useSelector(getWatchedVideos);
   const paginationSize = useSelector(getPaginationConfig);
 
   useEffect(() => {
+    const lastDate = getToday();
+
     if (localStorage) {
-      const lastDate = getLastVisit();
-      setLastVisit(new Date(lastDate));
-      updateLastVisit();
+      updateLastVisit(lastDate);
     }
+    
+    dispatch(setLastVisit({ lastVisit: lastDate }));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

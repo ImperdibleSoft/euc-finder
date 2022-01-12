@@ -1,10 +1,19 @@
-import { BottomNavigationAction, BottomNavigation as MuiBottomNavigation, Icon, Paper, Theme } from '@mui/material';
+import {
+  Badge,
+  BottomNavigation as MuiBottomNavigation,
+  BottomNavigationAction,
+  Icon,
+  Paper,
+  Theme
+} from '@mui/material';
 import { SxProps } from '@mui/system';
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { getDesktopNavigation, getMobileNavigation } from '../../../../constants';
-import { EUCS_PREFIX } from '../../../../constants/clientRoutes';
+import { EUCS_PREFIX, VIDEOS } from '../../../../constants/clientRoutes';
+import { getNewVideosLength } from '../../../../store/selectors';
 import { BOTTOM_NAVIGATION_HEIGHT, HEADER_HEIGHT, NAV_SIDEBAR_WIDTH } from '../../constants';
 
 interface Props {
@@ -19,6 +28,7 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
     const getter = isTablet ? getDesktopNavigation : getMobileNavigation;
     return getter();
   }, [isTablet]);
+  const newVideos = useSelector(getNewVideosLength);
 
   const currentPathFirstSection = firstPathSection === '' ? EUCS_PREFIX.replace(/^\//, '') : firstPathSection;
 
@@ -73,14 +83,17 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
           { navigation.map(bottomNavItem => {
             const currentItemPath = bottomNavItem.path === '/' ? EUCS_PREFIX : bottomNavItem.path;
             const isSelected = () => `/${ currentPathFirstSection }` === currentItemPath;
+            const badge = bottomNavItem.path === VIDEOS ? newVideos : undefined;
 
             return (
               <BottomNavigationAction
                 key={ bottomNavItem.label }
                 icon={ (
-                  <Icon color={ isSelected() ? 'secondary' : 'action' }>
-                    { bottomNavItem.icon }
-                  </Icon>
+                  <Badge badgeContent={ badge } color="secondary">
+                    <Icon color={ isSelected() ? 'secondary' : 'action' }>
+                      { bottomNavItem.icon }
+                    </Icon>
+                  </Badge>
                 ) }
                 label={ t(bottomNavItem.label) }
                 value={ bottomNavItem.path }
