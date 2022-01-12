@@ -86,56 +86,59 @@ export const getSponsoredVideos = () => (rootState: RootState) => {
   };
 };
 
-export const getNewVideos = (rootState: RootState) => {
-  const lastVisit = getVideosLastVisit(rootState);
-  const start = rootState.videos.pagination.newOffset;
-  const end = rootState.videos.pagination.newOffset + getPaginationConfig(rootState);
+export const getNewVideos = (fromDate?: Date) =>
+  (rootState: RootState) => {
+    const lastVisit = fromDate ?? getVideosLastVisit(rootState);
+    const start = rootState.videos.pagination.newOffset;
+    const end = rootState.videos.pagination.newOffset + getPaginationConfig(rootState);
 
-  const allVideos = getFilteredVideos(rootState);
-  const newVideos = lastVisit
-    ? allVideos.filter(video =>
-      !isSponsored(video, rootState.influencers.collection) &&
+    const allVideos = getFilteredVideos(rootState);
+    const newVideos = lastVisit
+      ? allVideos.filter(video =>
+        !isSponsored(video, rootState.influencers.collection) &&
       new Date(video.releaseDate) > lastVisit
-    )
-    : allVideos;
-  const videos = newVideos.slice(start, end);
+      )
+      : allVideos;
+    const videos = newVideos.slice(start, end);
 
-  return {
-    videos,
-    pagination: {
-      ...rootState.videos.pagination,
-      count: videos.length,
-      total: newVideos.length
-    }
+    return {
+      videos,
+      pagination: {
+        ...rootState.videos.pagination,
+        count: videos.length,
+        total: newVideos.length
+      }
+    };
   };
-};
 
-export const getNewVideosLength = (rootState: RootState) =>
-  getNewVideos(rootState).videos.length;
+export const getNewVideosLength = (fromDate?: Date) =>
+  (rootState: RootState) =>
+    getNewVideos(fromDate)(rootState).videos.length;
 
-export const getWatchedVideos = (rootState: RootState) => {
-  const lastVisit = getVideosLastVisit(rootState);
-  const start = rootState.videos.pagination.watchedOffset;
-  const end = rootState.videos.pagination.watchedOffset + getPaginationConfig(rootState);
+export const getWatchedVideos = (fromDate?: Date) =>
+  (rootState: RootState) => {
+    const lastVisit = fromDate ?? getVideosLastVisit(rootState);
+    const start = rootState.videos.pagination.watchedOffset;
+    const end = rootState.videos.pagination.watchedOffset + getPaginationConfig(rootState);
 
-  const allVideos = getFilteredVideos(rootState);
-  const watchedVideos = lastVisit
-    ? allVideos.filter(video =>
-      !isSponsored(video, rootState.influencers.collection) &&
+    const allVideos = getFilteredVideos(rootState);
+    const watchedVideos = lastVisit
+      ? allVideos.filter(video =>
+        !isSponsored(video, rootState.influencers.collection) &&
       new Date(video.releaseDate) <= lastVisit
-    )
-    : [];
-  const videos = watchedVideos.slice(start, end);
+      )
+      : [];
+    const videos = watchedVideos.slice(start, end);
 
-  return {
-    videos,
-    pagination: {
-      ...rootState.videos.pagination,
-      count: videos.length,
-      total: watchedVideos.length
-    }
+    return {
+      videos,
+      pagination: {
+        ...rootState.videos.pagination,
+        count: videos.length,
+        total: watchedVideos.length
+      }
+    };
   };
-};
 
 export const getVideosByInfluencer = (influencerId: InfluencerId) =>
   ({ videos }: RootState) =>

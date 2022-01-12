@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLastVisit } from '../../store/actions';
@@ -17,6 +17,7 @@ import {
   formatWheelName,
   getCategoryFromTags,
   getInfluencerFromTags,
+  getLastVisit,
   getToday,
   getWheelFromTags,
   setLastVisit as updateLastVisit
@@ -26,10 +27,11 @@ export * from './filtering';
 
 export const useVideos = () => {
   const dispatch = useDispatch();
-  const lastVisit = useSelector(getVideosLastVisit);
+  const [lastVisit] = useState(getLastVisit());
+  const liveLastVisit = useSelector(getVideosLastVisit);
   const sponsored = useSelector(getSponsoredVideos());
-  const unwatched = useSelector(getNewVideos);
-  const watched = useSelector(getWatchedVideos);
+  const unwatched = useSelector(getNewVideos(lastVisit));
+  const watched = useSelector(getWatchedVideos(lastVisit));
   const paginationSize = useSelector(getPaginationConfig);
 
   useEffect(() => {
@@ -44,7 +46,7 @@ export const useVideos = () => {
   }, []);
 
   return {
-    loaded: !!lastVisit,
+    loaded: !!liveLastVisit,
     sponsored,
     unwatched,
     watched,

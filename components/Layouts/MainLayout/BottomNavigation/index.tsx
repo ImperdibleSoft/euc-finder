@@ -28,7 +28,7 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
     const getter = isTablet ? getDesktopNavigation : getMobileNavigation;
     return getter();
   }, [isTablet]);
-  const newVideos = useSelector(getNewVideosLength);
+  const newVideos = useSelector(getNewVideosLength());
 
   const currentPathFirstSection = firstPathSection === '' ? EUCS_PREFIX.replace(/^\//, '') : firstPathSection;
 
