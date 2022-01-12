@@ -177,7 +177,7 @@ const rsHT: Wheel = {
   range: 130,
   voltage: 100,
 
-  diameter: 18,
+  diameter: 19,
   width: 3,
   groundClearance: 165,
   weight: 27,
@@ -348,6 +348,41 @@ const exnHS: Wheel = {
   name: 'EX.N Speed'
 };
 
+const ex2: Wheel = {
+  ...torqueMotor,
+  id: WheelId.ex2,
+  brandId: BrandId.begode,
+  name: 'EX2S',
+  price: 0,
+
+  ratedPower: 3000,
+  peakPower: 0,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '21700',
+    wattsHour: 3600
+  },
+  range: 190,
+  voltage: 100,
+
+  diameter: 20,
+  width: 3,
+  groundClearance: [160, 240],
+  weight: 47,
+  trolleyHandle: TrolleyHandle.telescopic,
+  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
+  antiSpin: undefined,
+  kickstand: Kickstand.dedicated,
+  headlight: 7000,
+  tailLight: true,
+  leds: false,
+  sound: undefined,
+  display: undefined,
+  suspension: Suspension.standard,
+  color: [Color.black, Color.silver]
+};
+
 const hero: Wheel = {
   ...torqueMotor,
   id: WheelId.hero,
@@ -447,41 +482,6 @@ const monsterPro: Wheel = {
   display: Display.led
 };
 
-const ex2: Wheel = {
-  ...torqueMotor,
-  id: WheelId.ex2,
-  brandId: BrandId.begode,
-  name: 'EX2S',
-  price: 0,
-
-  ratedPower: 3000,
-  peakPower: 0,
-  battery: {
-    capacity: 0,
-    parallels: 0,
-    type: '21700',
-    wattsHour: 3600
-  },
-  range: 190,
-  voltage: 100,
-
-  diameter: 20,
-  width: 3,
-  groundClearance: [160, 240],
-  weight: 47,
-  trolleyHandle: TrolleyHandle.telescopic,
-  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
-  antiSpin: undefined,
-  kickstand: Kickstand.dedicated,
-  headlight: 7000,
-  tailLight: true,
-  leds: false,
-  sound: undefined,
-  display: undefined,
-  suspension: Suspension.standard,
-  color: [Color.black, Color.silver]
-};
-
 export const begodeWheels: Wheel[] = [
   mten,
   mcm5,
@@ -495,8 +495,8 @@ export const begodeWheels: Wheel[] = [
   ex,
   exnHT,
   exnHS,
+  ex2,
   hero,
   monster,
-  monsterPro,
-  ex2
+  monsterPro
 ];
