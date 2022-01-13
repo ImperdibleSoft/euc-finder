@@ -73,7 +73,7 @@ const xmenHT: Wheel = {
   range: 125,
   voltage: 100,
 
-  diameter: 0,
+  diameter: 20,
   width: 2.75,
   groundClearance: 160,
   weight: 31,
