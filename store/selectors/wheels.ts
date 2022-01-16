@@ -1,9 +1,9 @@
-import { BrandId, Region, StoreId, WheelId } from '../../types';
+import { BrandId, Region, StoreId, Wheel, WheelId } from '../../types';
 import { getRangeFromBattery } from '../../utils';
 import { RootState } from '../types';
 import { getRangeConfig } from './config';
 
-export const getWheels = (rootState: RootState) => {
+export const getWheels = (rootState: RootState): Wheel[] => {
   const { wheels: { brands, collection } } = rootState;
   const shouldCalculateRange = getRangeConfig(rootState);
 

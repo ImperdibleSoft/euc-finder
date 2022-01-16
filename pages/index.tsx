@@ -4,7 +4,6 @@ import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import Apps from '../components/Apps';
 import { HEADER_HEIGHT } from '../components/Layouts/constants';
 import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
 import Columns from '../components/Screens/WheelsList/Columns';
@@ -172,8 +171,6 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
             handleResetFilters={ handleResetFilters }
           />
         ) }
-
-        <Apps />
       </LeftSidebarLayout>
     </>
   );
