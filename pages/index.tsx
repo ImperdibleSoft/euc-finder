@@ -22,7 +22,7 @@ import {
   useSidebar,
   useSorting
 } from '../hooks';
-import { getPricesConfig } from '../store/selectors';
+import { getMaxComparedWheels, getPricesConfig } from '../store/selectors';
 import { WheelId } from '../types';
 import { getFirstWheelPicture, getStaticProps as genericStaticProps, StaticProps } from '../utils-server';
 
@@ -38,6 +38,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
   const displayTable = view === 'table';
   const ListView = displayTable ? TableView : GridView;
   const showPrice = useSelector(getPricesConfig);
+  const maxComparedWheels = useSelector(getMaxComparedWheels);
 
   const { handleHide, handleReset, handleShow, ...columns } = useColumns();
   const { fields, filters, handleResetFilters } = useFilterFields();
@@ -54,7 +55,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
     handleOpenComparator,
     isBeingCompared
   } = useCompareActions();
-  const canCompareAllWheels = !!sortedWheels.length && canCompareMoreWheels(sortedWheels.length);
+  const canCompareAllWheels = sortedWheels.length <= maxComparedWheels;
   const canCompareOneWheel = canCompareMoreWheels();
   const styles = useHeadingStyles(canCompareAllWheels, view);
 

@@ -25,9 +25,12 @@ export const useCompareActions = () => {
   );
 
   const handleAddAllToComparision = (wheels: WheelId[]) => {
+    dispatch(resetWheelToComparision());
+
     wheels.forEach(wheelId => {
       dispatch(addWheelToComparision({ wheelId }));
     });
+    
     router.push(EUC_COMPARE);
   };
 
