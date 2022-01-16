@@ -32,34 +32,22 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Measure
     (filters.categories.length === 4 || (category && filters.categories.includes(category)))
     && filters.brandId.includes(wheel.brandId)
 
-    && (!filters.maxPrice || !wheel.price || wheel.price <= Number(filters.maxPrice))
-    && (!filters.minPrice || !wheel.price || wheel.price >= Number(filters.minPrice))
+    && (!filters.maxPrice || wheel.price <= Number(filters.maxPrice))
+    && (!filters.minPrice || wheel.price >= Number(filters.minPrice))
 
-    && (!filters.maxMaxSpeed || !wheel.maxSpeed || maxSpeed <= Number(filters.maxMaxSpeed))
-    && (!filters.minMaxSpeed || !wheel.maxSpeed || maxSpeed >= Number(filters.minMaxSpeed))
+    && (!filters.maxMaxSpeed || maxSpeed <= Number(filters.maxMaxSpeed))
+    && (!filters.minMaxSpeed || maxSpeed >= Number(filters.minMaxSpeed))
 
-    && (!filters.maxDiameter || !wheel.diameter || diameter <= Number(filters.maxDiameter))
-    && (!filters.minDiameter || !wheel.diameter || diameter >= Number(filters.minDiameter))
-    && (!filters.maxWidth || !wheel.width || width <= Number(filters.maxWidth))
-    && (!filters.minWidth || !wheel.width || width >= Number(filters.minWidth))
+    && (!filters.maxDiameter || diameter <= Number(filters.maxDiameter))
+    && (!filters.minDiameter || diameter >= Number(filters.minDiameter))
+    && (!filters.maxWidth || width <= Number(filters.maxWidth))
+    && (!filters.minWidth || width >= Number(filters.minWidth))
 
-    && (
-      !filters.minRange
-      || !wheel.range
-      || range >= Number(filters.minRange)
-    )
+    && (!filters.minRange || range >= Number(filters.minRange))
     && (!filters.maxWeight || weight <= Number(filters.maxWeight))
 
-    && (
-      !filters.minGroundClearance
-      || !wheel.groundClearance
-      || (maxGroundClearance >= Number(filters.minGroundClearance))
-    )
-    && (
-      !filters.maxGroundClearance
-      || !wheel.groundClearance
-      || (minGroundClearance <= Number(filters.maxGroundClearance))
-    )
+    && (!filters.minGroundClearance || (maxGroundClearance >= Number(filters.minGroundClearance)))
+    && (!filters.maxGroundClearance || (minGroundClearance <= Number(filters.maxGroundClearance)))
     && (!filters.pedalType || pedalType === filters.pedalType)
     && (!filters.pedalSurface || pedalSurface === filters.pedalSurface)
     && (
@@ -69,25 +57,13 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Measure
     )
     
 
-    && (!filters.minPower || !wheel.ratedPower || wheel.ratedPower >= Number(filters.minPower))
-    && (!filters.minVoltage || !wheel.voltage || wheel.voltage >= Number(filters.minVoltage))
+    && (!filters.minPower || wheel.ratedPower >= Number(filters.minPower))
+    && (!filters.minVoltage || wheel.voltage >= Number(filters.minVoltage))
     
-    && (
-      !filters.minBatteryParallels
-      || wheel.battery.parallels >= Number(filters.minBatteryParallels)
-    )
-    && (
-      !filters.maxBatteryParallels
-      || wheel.battery.parallels <= Number(filters.maxBatteryParallels)
-    )
-    && (
-      !filters.minBatteryOutput
-      || wheel.battery.wattsHour >= Number(filters.minBatteryOutput)
-    )
-    && (
-      !filters.batteryType
-      || wheel.battery.type.includes(filters.batteryType)
-    )
+    && (!filters.minBatteryParallels || wheel.battery.parallels >= Number(filters.minBatteryParallels))
+    && (!filters.maxBatteryParallels || wheel.battery.parallels <= Number(filters.maxBatteryParallels))
+    && (!filters.minBatteryOutput || wheel.battery.wattsHour >= Number(filters.minBatteryOutput))
+    && (!filters.batteryType || wheel.battery.type.includes(filters.batteryType))
     
     && (
       !filters.color
