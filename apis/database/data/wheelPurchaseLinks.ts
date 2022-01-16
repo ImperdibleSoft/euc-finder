@@ -258,6 +258,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/inmotion-v12',
     'https://madridrueda.es/inmotion/6-inmotion-v12.html'
   ],
+  [WheelId.v12HT]: [],
   [WheelId.v13]: [],
   
   // Kingsong
