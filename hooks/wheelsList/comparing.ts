@@ -31,9 +31,12 @@ export const useCompareActions = () => {
     router.push(EUC_COMPARE);
   };
 
-  const handleAddToComparision = (wheelId: WheelId) => {
+  const handleAddToComparision = (wheelId: WheelId, shouldRedirect = false) => {
     dispatch(addWheelToComparision({ wheelId }));
-    router.push(EUC_COMPARE);
+    
+    if (shouldRedirect) {
+      router.push(EUC_COMPARE);
+    }
   };
 
   const handleRemoveFromComparision = (wheelId: WheelId) => {

@@ -63,7 +63,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
 
   const handleCompare = canCompareMoreWheels()
     ? () => {
-      handleAddToComparision(id);
+      handleAddToComparision(id, true);
     }
     : undefined;
 
