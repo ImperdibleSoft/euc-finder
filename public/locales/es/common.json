@@ -98,6 +98,8 @@
   "addWheelsToCompare-msg": "Por favor, añade más ruedas a tu comparación para ver los resultados.",
   "maxSpecValue-msg": "Prioridad: {{value}}/20",
   "unusedSpec-msg": "Esto no se usa para los cálculos",
+  "checkResults-btn": "Ver resultados",
+  "wheelAddedToComparator-msg": "Se ha añadido la {{wheel}} al Comparador.",
 
   "confirmation-title": "Vas a abandonar {{appName}}",
   "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{storeName}}.",

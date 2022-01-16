@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { Button, ButtonGroup, Container, Icon, Typography } from '@mui/material';
+import { Alert, Button, ButtonGroup, Container, Icon, Snackbar, Typography } from '@mui/material';
 import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -22,8 +22,9 @@ import {
   useSidebar,
   useSorting
 } from '../hooks';
-import { getMaxComparedWheels, getPricesConfig } from '../store/selectors';
+import { getBrands, getMaxComparedWheels, getPricesConfig } from '../store/selectors';
 import { WheelId } from '../types';
+import { formatWheelName } from '../utils';
 import { getFirstWheelPicture, getStaticProps as genericStaticProps, StaticProps } from '../utils-server';
 
 interface Props {
@@ -39,6 +40,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
   const ListView = displayTable ? TableView : GridView;
   const showPrice = useSelector(getPricesConfig);
   const maxComparedWheels = useSelector(getMaxComparedWheels);
+  const brands = useSelector(getBrands);
 
   const { handleHide, handleReset, handleShow, ...columns } = useColumns();
   const { fields, filters, handleResetFilters } = useFilterFields();
@@ -50,11 +52,14 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
 
   const {
     canCompareMoreWheels,
+    comparedWheels,
     handleAddAllToComparision,
     handleAddToComparision,
+    handleNavigateToComparator,
     handleOpenComparator,
     isBeingCompared
   } = useCompareActions();
+
   const canCompareAllWheels = sortedWheels.length <= maxComparedWheels;
   const canCompareOneWheel = canCompareMoreWheels();
   const styles = useHeadingStyles(canCompareAllWheels, view);
@@ -165,6 +170,35 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
           showPrice={ showPrice }
           sorting={ sorting }
         />
+
+        { comparedWheels.map((wheelId, index) => {
+          const isLastSnackbar = index >= comparedWheels.length - 1;
+          const wheel = sortedWheels.find(w => w.id === wheelId);
+
+          return (
+            <Snackbar
+              key={ wheelId }
+              anchorOrigin={ { horizontal: 'center', vertical: 'bottom' } }
+              autoHideDuration={ 6000 }
+              open={ isLastSnackbar }
+            >
+              <Alert
+                action={
+                  <Button color="inherit" onClick={ handleNavigateToComparator } size="small">
+                    { t('checkResults-btn') }
+                  </Button>
+                }
+                severity="success"
+                sx={ { width: '100%' } }
+              >
+                { t(
+                  'wheelAddedToComparator-msg',
+                  { wheel: wheel ? formatWheelName(wheel, brands) : wheelId }
+                ) }
+              </Alert>
+            </Snackbar>
+          );
+        }) }
 
         { sortedWheels.length <= 0 && (
           <EmptyCase

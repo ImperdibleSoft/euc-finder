@@ -98,6 +98,8 @@
   "addWheelsToCompare-msg": "Please, add more EUCs to your comparison to see the results.",
   "maxSpecValue-msg": "Priority: {{value}}/20",
   "unusedSpec-msg": "This is not used for calculations",
+  "checkResults-btn": "Check results",
+  "wheelAddedToComparator-msg": "{{wheel}} has been added to the Comparator.",
 
   "confirmation-title": "You are navigating out of {{appName}}",
   "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{storeName}}'s site.",

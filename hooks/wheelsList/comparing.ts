@@ -34,11 +34,15 @@ export const useCompareActions = () => {
     router.push(EUC_COMPARE);
   };
 
+  const handleNavigateToComparator = () => {
+    router.push(EUC_COMPARE);
+  };
+
   const handleAddToComparision = (wheelId: WheelId, shouldRedirect = false) => {
     dispatch(addWheelToComparision({ wheelId }));
     
     if (shouldRedirect) {
-      router.push(EUC_COMPARE);
+      handleNavigateToComparator();
     }
   };
 
@@ -60,8 +64,10 @@ export const useCompareActions = () => {
 
   return {
     canCompareMoreWheels,
+    comparedWheels,
     handleAddAllToComparision,
     handleAddToComparision,
+    handleNavigateToComparator,
     handleOpenSettings,
     handleRemoveFromComparision,
     handleOpenComparator,
