@@ -1,5 +1,4 @@
-import { Box, Typography } from '@mui/material';
-import { SxProps, Theme } from '@mui/system';
+import { Box, SxProps, Theme, Typography } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 
 const getWrapperStyles = (transparent = false): SxProps<Theme> => ({

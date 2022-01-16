@@ -34,7 +34,7 @@ const FacebookComments: React.FC<Props> = ({ numPost = 10, width }) => {
     <Card
       ref={ cardRef }
       // TODO: Force white background because FB Comments are not supporting dark theme, even if there is a prop for it
-      sx={ { bgcolor: ({ palette }) => loadingState === 'success' ? palette.common.white : undefined } }
+      sx={ { bgcolor: ({ palette }: Theme) => loadingState === 'success' ? palette.common.white : undefined } }
     >
       { (loadingState === 'loading') && (
         <Typography variant="subtitle1" component="p" sx={ textStyles }>

@@ -1,4 +1,4 @@
-import { Box, Card, Typography } from '@mui/material';
+import { Box, Card, Theme, Typography } from '@mui/material';
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { isFacebookEnabled } from '../../../constants';
@@ -28,7 +28,7 @@ const FacebookLikeButton: React.FC<Props> = ({ width }) => {
       ref={ cardRef }
       // TODO: Force white background because FB Likes are not supporting dark theme, even if there is a prop for it
       sx={ {
-        bgcolor: ({ palette }) => loadingState === 'success' ? palette.common.white : undefined,
+        bgcolor: ({ palette }: Theme) => loadingState === 'success' ? palette.common.white : undefined,
         mb: 1,
         p: 1
       } }

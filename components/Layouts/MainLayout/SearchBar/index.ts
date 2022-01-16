@@ -1,5 +1,4 @@
-import { InputBase } from '@mui/material';
-import { styled, alpha } from '@mui/system';
+import { alpha, InputBase, styled } from '@mui/material';
 
 export const Search = styled('div')(({ theme }) => ({
   position: 'relative',

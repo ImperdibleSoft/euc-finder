@@ -34,7 +34,25 @@ export const getInitialValue = (listMainSpecs?: (keyof Wheel | undefined)[]): Wh
   return initialValue;
 };
 
-const wheelsTableSettingsReducer = (state: WheelsTableColumns, action: any): WheelsTableColumns => {
+interface ResetColumns {
+  type: 'reset';
+}
+
+interface ShowColumn {
+  type: 'show';
+  payload: {
+    key: keyof WheelsTableColumns;
+  }
+}
+
+interface HideColumn {
+  type: 'hide';
+  payload: ShowColumn['payload'];
+}
+
+type TableActions = ResetColumns | ShowColumn | HideColumn;
+
+const wheelsTableSettingsReducer = (state: WheelsTableColumns, action: TableActions): WheelsTableColumns => {
   switch (action?.type) {
     case 'reset':
       return getInitialValue();

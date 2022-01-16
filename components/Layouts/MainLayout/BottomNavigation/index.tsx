@@ -4,9 +4,9 @@ import {
   BottomNavigationAction,
   Icon,
   Paper,
+  SxProps,
   Theme
 } from '@mui/material';
-import { SxProps } from '@mui/system';
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -101,8 +101,8 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
                   my: isTablet ? 2 : 0,
                   minWidth: isTablet ? undefined : `${ minWidth }%`,
                   
-                  color: ({ palette }) => isSelected() ? palette.secondary.main : undefined,
-                  '&.Mui-selected': { color: ({ palette }) => palette.secondary.main },
+                  color: ({ palette }: Theme) => isSelected() ? palette.secondary.main : undefined,
+                  '&.Mui-selected': { color: ({ palette }: Theme) => palette.secondary.main },
 
                   '& .MuiBottomNavigationAction-label': {
                     color: 'inherit !important',

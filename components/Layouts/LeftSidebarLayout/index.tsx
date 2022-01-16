@@ -1,5 +1,4 @@
-import { Box, Drawer, Icon, IconButton, SwipeableDrawer, Theme } from '@mui/material';
-import { SxProps } from '@mui/system';
+import { Box, Drawer, Icon, IconButton, SwipeableDrawer, SxProps, Theme } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useBreakpoints } from '../../../hooks';
 import Footer from '../Footer';

@@ -14,4 +14,3 @@ export async function getStaticProps({ locale }: StaticProps) {
   const translations = await serverSideTranslations(locale, ['common'], nextI18NextConfig);
   return { props: { ...translations } };
 }
-
