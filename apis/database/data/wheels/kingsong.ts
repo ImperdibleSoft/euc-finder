@@ -14,7 +14,6 @@ import {
   WheelId
 } from '../../../../types';
 
-
 const ks14m: Wheel = {
   id: WheelId.ks14m,
   brandId: BrandId.kingsong,
@@ -204,7 +203,7 @@ const ks18l: Wheel = {
   weight: 21.6,
   trolleyHandle: TrolleyHandle.telescopic,
   pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
-  antiSpin: undefined,
+  antiSpin: AntiSpin.sensor,
   kickstand: undefined,
   headlight: true,
   tailLight: true,
