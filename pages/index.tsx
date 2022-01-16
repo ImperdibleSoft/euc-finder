@@ -128,7 +128,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
           </ButtonGroup>
 
           { /* Comparator */ }
-          <ButtonGroup sx={ styles.comparatorGroup }>
+          <ButtonGroup sx={ styles.comparatorGroup } orientation={ styles.comparatorGroupOrientation }>
             <Button onClick={ handleOpenComparator }>
               { t('compare-title') }
             </Button>

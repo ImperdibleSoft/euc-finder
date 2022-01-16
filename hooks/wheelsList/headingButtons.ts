@@ -1,8 +1,9 @@
 import { Breakpoint, SxProps, Theme } from '@mui/material';
-import { useBreakpoints } from '../theme';
+import { useBreakpoints, useResize } from '../theme';
 
 export const useHeadingStyles = (canCompareAllWheels: boolean, view: 'grid' | 'table') => {
   const { lg } = useBreakpoints();
+  const { screenWidth } = useResize();
 
   const displayCompareAllWheelsBtn = canCompareAllWheels;
   const displayViewToggleBtns = !!lg;
@@ -35,9 +36,14 @@ export const useHeadingStyles = (canCompareAllWheels: boolean, view: 'grid' | 't
     }
   };
 
+  const shouldDisplayHorizontal = screenWidth >= 400;
+  const comparatorGroupOrientation: 'horizontal' | 'vertical' = shouldDisplayHorizontal
+    ? 'horizontal'
+    : 'vertical';
+
   const comparatorGroup: SxProps<Theme> = {
-    display: { xs: displayCompareAllWheelsBtn ? 'flex' : 'inline-flex' },
-    justifyContent: { xs: 'flex-end' },
+    display: displayCompareAllWheelsBtn ? 'flex' : 'inline-flex',
+    justifyContent: 'flex-end',
     mr: displayViewToggleBtns ? 1 : 0,
     pb: {
       xs: displayCompareAllWheelsBtn ? 2 : 0,
@@ -49,8 +55,8 @@ export const useHeadingStyles = (canCompareAllWheels: boolean, view: 'grid' | 't
         sm: undefined
       },
       maxWidth: {
-        xs: displayCompareAllWheelsBtn ? '60%' : undefined,
-        sm: undefined
+        xs: displayCompareAllWheelsBtn && shouldDisplayHorizontal ? '60%' : undefined,
+        sm: 'initial'
       },
       overflow: {
         xs: displayCompareAllWheelsBtn ? 'hidden' : undefined,
@@ -77,6 +83,7 @@ export const useHeadingStyles = (canCompareAllWheels: boolean, view: 'grid' | 't
     buttonsContainer,
     filtersGroup,
     comparatorGroup,
+    comparatorGroupOrientation,
     compareAllWheels,
     viewTogglesGroup
   };

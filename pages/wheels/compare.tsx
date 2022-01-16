@@ -85,8 +85,6 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
       </Head>
 
       <SimpleLayout>
-        { renderWheelDropdown('addWheel') }
-
         <Box sx={ { alignItems: 'center', display: 'flex', justifyContent: 'flex-end', pb: 2 } }>
           <ButtonGroup>
             <Button
@@ -105,6 +103,8 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
             </Button>
           </ButtonGroup>
         </Box>
+
+        { renderWheelDropdown('addWheel') }
 
         { comparedWheels.length > 0 && (
           <CompareTable
