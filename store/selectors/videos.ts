@@ -1,6 +1,7 @@
 import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
 import { Influencer, InfluencerId, Video, WheelId } from '../../types';
 import { RootState } from '../types';
+import { getSponsoredInfluencers } from './influencers';
 import { getPaginationConfig } from './config';
 
 export const getVideos = ({ videos }: RootState) =>
@@ -9,13 +10,17 @@ export const getVideos = ({ videos }: RootState) =>
 export const getVideosLastVisit = ({ videos }: RootState) =>
   videos.lastVisit;
 
-export const getVideosWithout = ({ influencers, videos }: RootState) =>
-  videos.collection.filter(v => {
-    return v.tags
-      .some(t => influencers.collection
-        .some(i => i.id === t && i.sponsored !== false)
-      );
-  });
+export const getVideosWithout = (rootState: RootState) => {
+  const influencers = getSponsoredInfluencers(rootState);
+
+  return getVideos(rootState).filter(v =>
+    v.tags.some(t =>
+      influencers.some(i =>
+        i.id === t && i.sponsored !== false
+      )
+    )
+  );
+};
 
 export const getFilteredVideos = ({ videos: { collection, filters } }: RootState) => {
   return collection

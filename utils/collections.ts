@@ -22,7 +22,10 @@ export const sortBy = <T extends Collection>(
       }
     }
 
-    if (typeof a[key] === 'string') {
+    if ((key as string).toLowerCase().includes('date') && typeof a[key] === 'string') {
+      if (new Date(a[key]) < new Date(b[key])) return order === 'asc' ? -1 : 1;
+      if (new Date(a[key]) > new Date(b[key])) return order === 'asc' ? 1 : -1;
+    } else if (typeof a[key] === 'string') {
       if (a[key].toLowerCase() < b[key].toLowerCase()) return order === 'asc' ? -1 : 1;
       if (a[key].toLowerCase() > b[key].toLowerCase()) return order === 'asc' ? 1 : -1;
     } else {
