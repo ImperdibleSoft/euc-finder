@@ -50,6 +50,7 @@ export enum WheelId {
   v10f = 'v10f',
   v11 = 'v11',
   v12 = 'v12',
+  v12HT = 'v12HT',
   v13 = 'v13',
   
   // Kingsong
