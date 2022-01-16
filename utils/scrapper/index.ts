@@ -9,6 +9,7 @@ export * from './ewheels';
 export * from './inmotionFrance';
 export * from './madridRueda';
 export * from './myewheel';
+export * from './oneRide';
 export * from './revRides';
 export * from './smartWheel';
 export * from './urban360';

@@ -103,6 +103,16 @@ const getMyEWheelPrice = async (url: string): Promise<number | '-' | undefined> 
   }
 };
 
+const getOneRidePrice = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
+  try {
+    const expensiveParam = expensive ? '?expensive=true' : '';
+    const response = await http.get(`/api/externals/oneRide/${ encodeURIComponent(url) }${ expensiveParam }`);
+    return response.data as number | '-' | undefined;
+  } catch {
+    return undefined;
+  }
+};
+
 const getRevRidesPrice = async (url: string, expensive: boolean): Promise<number | '-' | undefined> => {
   try {
     const expensiveParam = expensive ? '?expensive=true' : '';
@@ -178,6 +188,10 @@ export const price = {
    * Get wheel's parsed price from MyEWheel
    */
   getMyEWheelPrice,
+  /**
+   * Get wheel's parsed price from OneRide
+   */
+  getOneRidePrice,
   /**
    * Get wheel's parsed price from RevRides
    */
