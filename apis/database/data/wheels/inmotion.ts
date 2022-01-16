@@ -215,16 +215,16 @@ const v11: Wheel = {
   color: Color.black
 };
 
-const v12: Wheel = {
-  id: WheelId.v12,
+const v12HT: Wheel = {
+  id: WheelId.v12HT,
   brandId: BrandId.inmotion,
-  name: 'V12',
+  name: 'V12 Torque',
   price: 2500,
 
-  ratedPower: 2500,
+  ratedPower: 2800,
   peakPower: 5000,
-  maxGradibility: 35,
-  maxSpeed: 70,
+  maxGradibility: 45,
+  maxSpeed: 60,
   battery: {
     capacity: 0,
     parallels: 0,
@@ -251,14 +251,14 @@ const v12: Wheel = {
   color: Color.black
 };
 
-const v12HT: Wheel = {
-  ...v12,
-  id: WheelId.v12HT,
-  name: 'V12 Torque',
+const v12HS: Wheel = {
+  ...v12HT,
+  id: WheelId.v12,
+  name: 'V12 Speed',
 
-  ratedPower: 2800,
-  maxGradibility: 45,
-  maxSpeed: 60
+  ratedPower: 2500,
+  maxGradibility: 35,
+  maxSpeed: 70
 };
 
 const raptor: Wheel = {
@@ -305,7 +305,7 @@ export const inmotionWheels = [
   v10,
   v10f,
   v11,
-  v12,
   v12HT,
+  v12HS,
   raptor
 ];
