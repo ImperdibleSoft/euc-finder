@@ -295,7 +295,7 @@ const ksS20: Wheel = {
   trolleyHandle: TrolleyHandle.telescopic,
   pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
   antiSpin: AntiSpin.position,
-  kickstand: Kickstand.dedicated,
+  kickstand: Kickstand.shell,
   headlight: true,
   tailLight: true,
   leds: false,

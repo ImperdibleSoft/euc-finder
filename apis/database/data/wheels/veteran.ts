@@ -93,7 +93,7 @@ const abrams: Wheel = {
   trolleyHandle: TrolleyHandle.telescopic,
   pedals: [PedalType.plain, PedalSurface.metalic, true],
   antiSpin: undefined,
-  kickstand: Kickstand.dedicated,
+  kickstand: Kickstand.shell,
   headlight: 2800,
   tailLight: true,
   leds: false,
