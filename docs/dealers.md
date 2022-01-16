@@ -81,6 +81,13 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Negotiations ✔️
   - Discount code ❌
 
+- One Ride
+  - Store information ✔️
+  - Purchase links ➖
+  - Fetch prices ➖
+  - Negotiations ➖
+  - Discount code ➖
+
 - Rodando.es, ES
   - Store information ➖
   - Purchase links ➖

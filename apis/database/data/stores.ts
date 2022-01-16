@@ -87,6 +87,20 @@ export const stores: Store[] = [
       sponsor: false
     }
   },
+  {
+    id: StoreId.oneRide,
+    name: 'One Ride',
+    website: 'https://oneride.eu/',
+    region: 'eu',
+    logo: '/logos/distributors/oneRide.png',
+    color: '#fedc11',
+    meta: {
+      code: '',
+      discount: 0,
+      manualDiscount: true,
+      sponsor: false
+    }
+  },
   // {
   //   id: StoreId.inmotionFrance,
   //   name: 'Inmotion France',

@@ -8,6 +8,7 @@ export enum StoreId {
   eucSale = 'eucsale',
   eucService = 'eucservice',
   eRides = 'eRides',
+  oneRide = 'oneRide',
   // inmotionFrance = 'inmotionFrance',
   // green220 = 'green220',
   // imoveblue = 'imoveblue',
