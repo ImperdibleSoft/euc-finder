@@ -314,6 +314,28 @@ const madpackVideos: Video[] = [
     publishDate: '03/Jan/2022',
     releaseDate: '05/Jan/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=t-y3D80wJ5I',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.chatting,
+      WheelId.v12HT
+    ],
+    publishDate: '06/Jan/2022',
+    releaseDate: '16/Jan/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=TClnCs9_S7A',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.chatting,
+      WheelId.v13
+    ],
+    publishDate: '10/Jan/2022',
+    releaseDate: '16/Jan/2022',
+    language: 'en'
   }
 ];
 

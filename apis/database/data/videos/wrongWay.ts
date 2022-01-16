@@ -702,6 +702,31 @@ const wrongWayVideos: Video[] = [
     publishDate: '24/Dec/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=9iVM5IRFaeA',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.reveal,
+      VideoCategory.chatting,
+      WheelId.ks18l
+    ],
+    publishDate: '16/Jan/2022',
+    releaseDate: '12/Jan/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=R3Acms21qlE',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.offroad,
+      WheelId.commanderHT,
+      WheelId.commanderHS
+    ],
+    publishDate: '16/Jan/2022',
+    releaseDate: '15/Jan/2022',
+    language: 'en'
   }
 ];
 
