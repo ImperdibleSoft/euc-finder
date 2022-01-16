@@ -83,7 +83,7 @@ List of stores/delaers that could potentially be present in the app at some poin
 
 - One Ride
   - Store information ✔️
-  - Purchase links ➖
+  - Purchase links ✔️
   - Fetch prices ➖
   - Negotiations ➖
   - Discount code ➖
