@@ -24,8 +24,8 @@ const commanderHT: Wheel = {
   peakPower: 0,
   battery: {
     capacity: 0,
-    parallels: 0,
-    type: '',
+    parallels: 8,
+    type: '21700',
     wattsHour: 3600
   },
   range: 170,
