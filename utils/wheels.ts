@@ -33,16 +33,16 @@ export const getWheelCategory = ({ maxSpeed, range, ratedPower, battery }: Wheel
   if (
     (maxSpeed && maxSpeed <= 40)
     || (range && range <= 60)
-    || (ratedPower && ratedPower < 2000)
+    || (ratedPower && ratedPower < 1750)
     || (battery.wattsHour && battery.wattsHour <= 1000)
   ) {
     return 'standard';
   }
 
   if (
-    (maxSpeed && maxSpeed <= 60)
+    (maxSpeed && maxSpeed <= 55)
     || (range && range <= 100)
-    || (ratedPower && ratedPower < 2000)
+    || (ratedPower && ratedPower < 2100)
     || (battery.wattsHour && battery.wattsHour <= 1500)
   ) {
     return 'high-end';
