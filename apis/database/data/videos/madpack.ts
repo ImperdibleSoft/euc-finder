@@ -336,7 +336,21 @@ const madpackVideos: Video[] = [
     publishDate: '10/Jan/2022',
     releaseDate: '16/Jan/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=45-vG1oBGFY',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.review,
+      VideoCategory.comparision,
+      WheelId.commanderHS,
+      WheelId.commanderHT
+    ],
+    publishDate: '17/Jan/2022',
+    releaseDate: '17/Jan/2022',
+    language: 'en'
   }
 ];
+
 
 export default madpackVideos;
