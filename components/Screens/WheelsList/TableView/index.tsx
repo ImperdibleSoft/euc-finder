@@ -112,23 +112,22 @@ const TableView: React.FC<Props> = ({
                 )) }
 
                 <TableCell style={ { ...cellStyles, textAlign: 'right' } }>
-                  <Link href={ EUC_DETAILS.replace(':id', row.id) } passHref>
-                    <Button size="small" variant="outlined" sx={ { mb: 1, display: 'flex', width: '100%' } }>
-                      { t('details-btn') }
-                    </Button>
-                  </Link>
-
                   { !!handleCompareClick && (
                     <Button
                       size="small"
                       variant="outlined"
-                      color="secondary"
                       onClick={ handleCompareClick }
-                      sx={ { display: 'flex', width: '100%' } }
+                      sx={ { display: 'flex', mb: 1, width: '100%' } }
                     >
                       { t('compare-label') }
                     </Button>
                   ) }
+
+                  <Link href={ EUC_DETAILS.replace(':id', row.id) } passHref>
+                    <Button size="small" variant="outlined" sx={ { display: 'flex', width: '100%' } }>
+                      { t('details-btn') }
+                    </Button>
+                  </Link>
                 </TableCell>
               </TableRow>
             );}) }
