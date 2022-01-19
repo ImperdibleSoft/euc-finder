@@ -4,7 +4,7 @@ import React from 'react';
 import { TFunction, useTranslation } from 'react-i18next';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import nextI18nextConfig from '../../next-i18next.config';
-import { getStaticProps, StaticProps } from '../../utils-server';
+import { StaticProps } from '../../utils-server';
 import { getChangelogFromMarkdown, Version } from '../../utils/changelog';
 
 const changeTypes = ['major', 'minor', 'patch'] as (keyof Version)[];
