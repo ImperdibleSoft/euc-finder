@@ -1,7 +1,18 @@
 import { ConfigState } from '../../store/types';
 import { config as availableConfig } from './data';
+import fetchDataFromDB from './dataBaseApi';
 
-const getConfig = async (): Promise<ConfigState> => availableConfig;
+const getConfig = async (): Promise<ConfigState> => {
+  try {
+    const data = await fetchDataFromDB('SELECT * FROM config');
+    // eslint-disable-next-line no-console
+    console.log('data', data);
+  } catch (err) {
+    console.error('error', err);
+  }
+
+  return availableConfig;
+};
 
 export const config = {
   /**
