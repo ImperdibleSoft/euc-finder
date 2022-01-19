@@ -189,7 +189,7 @@ const rsHT: Wheel = {
   tailLight: true,
   leds: true,
   sound: SoundSystem.twoPointOne,
-  display: undefined,
+  display: Display.lcd,
   suspension: undefined,
   color: Color.black
 };
