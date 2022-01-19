@@ -13,3 +13,5 @@ export const INFLUENCERS = '/influencers';
 export const DEALERS = '/dealers';
 
 export const SETTINGS = '/settings';
+
+export const CHANGELOG = '/changelog';
