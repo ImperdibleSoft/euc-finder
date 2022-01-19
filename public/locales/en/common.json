@@ -231,5 +231,11 @@
   "android": "Android",
   "ios": "iOS",
   "appPicture-label": "{{appName}}'s logo",
-  "downloadApp-label": "Download"
+  "downloadApp-label": "Download",
+
+  "changelog-title": "Changes history",
+  "changes-title": "{{changeType}} changes",
+  "majorChange": "Awesome",
+  "minorChange": "Interesting",
+  "patchChange": "Small"
 }

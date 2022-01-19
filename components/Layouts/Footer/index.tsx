@@ -1,7 +1,9 @@
 import { Box, Container, Divider, Link, Typography } from '@mui/material';
+import NextLink from 'next/link';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { APP_NAME, APP_REPO, APP_VERSION, CURRENT_YEAR } from '../../../constants';
+import { CHANGELOG } from '../../../constants/clientRoutes';
 import { useModalsContext } from '../../../context';
 
 const launchYear = 2021;
@@ -22,7 +24,15 @@ const Footer: React.FC = () => {
         textAlign: 'center'
       } }>
         <Box sx={ { mb: 4 } }>
-          { APP_NAME } { yearText } — v{ `${ major }.${ minor }` } { `${ t('at') } ` }
+          { APP_NAME } { yearText } { '— ' } 
+          
+          <NextLink href={ CHANGELOG } passHref>
+            <Link>
+              v{ `${ major }.${ minor }` }
+            </Link>
+          </NextLink>
+
+          { ` ${ t('at') } ` }
 
           <Link href={ APP_REPO } target="_blank" rel="noreferrer">
             Github
