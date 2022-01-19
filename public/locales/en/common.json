@@ -236,6 +236,6 @@
   "changelog-title": "Changes history",
   "changes-title": "{{changeType}} changes",
   "majorChange": "Awesome",
-  "minorChange": "Nice",
+  "minorChange": "Interesting",
   "patchChange": "Small"
 }
