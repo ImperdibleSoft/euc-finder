@@ -10,6 +10,7 @@ export const APP_DESCRIPTION = description;
 
 export const APP_VERSION = version;
 export const APP_REPO = repository;
+export const APP_URL = 'https://www.eucfinder.com';
 export const CURRENT_YEAR = new Date(Date.now()).getFullYear();
 
 export const KEYWORDS = [

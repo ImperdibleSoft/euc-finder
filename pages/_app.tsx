@@ -15,7 +15,7 @@ import { Provider, useDispatch, useSelector } from 'react-redux';
 import FacebookWrapper from '../components/Facebook/FacebookWrapper';
 import MainLayout from '../components/Layouts/MainLayout';
 import LoadingScreen from '../components/Screens/LoadingScreen';
-import { APP_NAME, getRegions, MEASUREMENT_ID } from '../constants';
+import { APP_NAME, APP_URL, getRegions, MEASUREMENT_ID } from '../constants';
 import { EUC_DETAILS } from '../constants/clientRoutes';
 import { ModalsContextProvider } from '../context';
 import { useAppData } from '../hooks';
@@ -74,7 +74,7 @@ const store = configureStore();
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { price, purchaseLinks, test } = qs.parse(global?.location?.search);
-  const { events } = useRouter();
+  const { asPath, events } = useRouter();
   const [dark, setDark] = useState(false);
   const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer);
 
@@ -134,6 +134,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        <link rel="canonical" href={ `${ APP_URL }${ asPath }` } />
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />

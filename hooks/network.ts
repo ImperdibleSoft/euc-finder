@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { APP_URL } from '../constants';
 
 export const removeLocale = (pathname: string) =>
   pathname
@@ -12,7 +13,7 @@ export const useCurrentPath = () => {
 
   useEffect(() => {
     const { origin } = location;
-    const domain = /localhost/.test(origin) ? 'https://www.eucfinder.com' : origin;
+    const domain = /localhost/.test(origin) ? APP_URL : origin;
   
     setCurrentPath(`${ domain }${ asPath }`);
   // eslint-disable-next-line react-hooks/exhaustive-deps

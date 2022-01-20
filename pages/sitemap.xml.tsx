@@ -1,6 +1,7 @@
 import { ServerResponse } from 'http';
 import React from 'react';
 import { wheels } from '../apis/database/data';
+import { APP_URL } from '../constants';
 import {
   CHANGELOG,
   DEALERS,
@@ -25,7 +26,7 @@ export const getServerSideProps = ({ res }: Props) => {
 
       case 'production':
       default:
-        return 'https://www.eucfinder.com';
+        return APP_URL;
     }
   };
 
