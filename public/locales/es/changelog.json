@@ -1,4 +1,9 @@
 {
+  "Add automated changelog to the project": "Añadido un histórico de cambios automatizado al proyecto",
+
   "Add a changelog page to the applicaction, accessible from the version's link, in the Footer": "Añadida una página de histórico de cambios a la aplicación, accesible desde el link de la versión (disponible en el pié de página)",
-  "Add automated changelog to the project": "Añadido un histórico de cambios automatizado al proyecto"
+  
+  "Support for fixed discounts in addition to percentage discounts": "Soporte para descuentos fijos además de descuentos porcentuales",
+  "Add discounts for REV Rides store": "Añadidos descuentos para la tienda REV Rides",
+  "Bugfixs in Changelog page": "Corrección de errores en la página del histórico de cambios"
 }

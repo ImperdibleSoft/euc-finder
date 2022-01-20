@@ -6,6 +6,7 @@
 
 - Support for fixed discounts in addition to percentage discounts
 - Add discounts for REV Rides store
+- Bugfixs in Changelog page
 
 ## 2.2.0
 

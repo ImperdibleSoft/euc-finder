@@ -29,7 +29,9 @@ export const getChangelogFromMarkdown = () => {
     }
 
     if (isVersionLine(line)) {
-      const versionName = line.replace('## ', '');
+      const versionName = line
+        .replace('## ', '')
+        .replace('\r', '');
       const newVersion: Version = {
         versionName,
         major: [],
@@ -45,6 +47,7 @@ export const getChangelogFromMarkdown = () => {
     if (isChangeTypeLine(line)) {
       const ct = line
         .replace('### ', '')
+        .replace('\r', '')
         .replace(' Changes', '')
         .toLowerCase();
 
@@ -53,12 +56,14 @@ export const getChangelogFromMarkdown = () => {
     }
 
     if (isChangeLine(line)) {
-      const msg = line.replace('- ', '');
+      const msg = line
+        .replace('- ', '')
+        .replace('\r', '');
       const versionIndex = versions.findIndex(v => v.versionName === currVersion);
 
       if (versionIndex >= 0) {
         versions[versionIndex] = {
-          ...versions[versionIndex],
+          ...versions[versionIndex] ?? {},
           [changeType]: [
             ...versions[versionIndex][changeType],
             msg

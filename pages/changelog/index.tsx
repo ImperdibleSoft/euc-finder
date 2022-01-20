@@ -1,4 +1,4 @@
-import { Card, CardContent, Container, Divider, Typography } from '@mui/material';
+import { Box, Card, CardContent, Container, Divider, Typography } from '@mui/material';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import React from 'react';
 import { TFunction, useTranslation } from 'react-i18next';
@@ -35,39 +35,45 @@ const Changelog: React.FC = () => {
         { t('changelog-title') }
       </Typography>
       
-      <Container maxWidth="md">
-        { versions.map(version => (
-          <Card key={ version.versionName }>
-            <CardContent>
-              <Typography variant="h5" component="h3" sx={ { mb: 1 } }>
-                v{ version.versionName }
-              </Typography>
+      <Container maxWidth="md" sx={ { px: { xs: 0, sm: 0, md: 0, lg: 0, xl: 0 } } }>
+        <Card>
+          <CardContent>
+            { versions.map((version, index) => (
+              <Box
+                key={ version.versionName }
+                sx={ { mb: index >= (versions.length - 1) ? 0 : 2 } }
+              >
+                <Typography variant="h5" component="h3" sx={ { mb: 1 } }>
+                  v{ version.versionName }
+                </Typography>
 
-              { changeTypes.map((key, index) => {
-                if (!version[key].length) {
-                  return null;
-                }
+                { changeTypes.map(key => {
+                  if (!version[key].length) {
+                    return null;
+                  }
                 
-                return (
-                  <React.Fragment key={ `${ version.versionName }-${ key }` }>
-                    <Typography variant="h6" component="p" sx={ { mb: 1, mt: 2 } }>
-                      { t('changes-title', { changeType: getChangeTypeTitle(key, t) }) }
-                    </Typography>
+                  return (
+                    <React.Fragment key={ `${ version.versionName }-${ key }` }>
+                      <Typography variant="h6" component="p" sx={ { mb: 1, mt: 2 } }>
+                        { t('changes-title', { changeType: getChangeTypeTitle(key, t) }) }
+                      </Typography>
     
-                    <ul>
-                      { (version[key] as string[]).map(change => (
-                        <li key={ change }>{ changesT(change) }.</li>
-                      )) }
-                    </ul>
+                      <ul>
+                        { (version[key] as string[]).map(change => (
+                          <li key={ change }>{ changesT(change) }.</li>
+                        )) }
+                      </ul>
     
-                    { index < changeTypes.length - 1 && (
-                      <Divider />
-                    ) }
-                  </React.Fragment>
-                );}) }
-            </CardContent>
-          </Card>
-        )) }
+                      { index < changeTypes.length - 1 && (
+                        <Divider />
+                      ) }
+                    </React.Fragment>
+                  );
+                }) }
+              </Box>
+            )) }
+          </CardContent>
+        </Card>
       </Container>
     </SimpleLayout>
   );
