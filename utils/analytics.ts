@@ -3,6 +3,9 @@ import { LOCAL_STORAGE_KEY } from '../types';
 import { getItem } from './localStorage';
 
 export const shouldTrackUser = () => {
+  // eslint-disable-next-line no-console
+  console.log('Should', process.env.NODE_ENV, getItem(LOCAL_STORAGE_KEY.DISABLE_ANALYTICS));
+
   if (process.env.NODE_ENV === 'production' && getItem(LOCAL_STORAGE_KEY.DISABLE_ANALYTICS) === '') {
     return true;
   }
