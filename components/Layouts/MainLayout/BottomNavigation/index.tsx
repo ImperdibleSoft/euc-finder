@@ -100,6 +100,7 @@ const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
                 sx={ {
                   my: isTablet ? 2 : 0,
                   minWidth: isTablet ? undefined : `${ minWidth }%`,
+                  py: 1.5,
                   
                   color: ({ palette }: Theme) => isSelected() ? palette.secondary.main : undefined,
                   '&.Mui-selected': { color: ({ palette }: Theme) => palette.secondary.main },
