@@ -1,5 +1,12 @@
 # euc-finder
 
+## 2.2.1
+
+### Patch Changes
+
+- Support for fixed discounts in addition to percentage discounts
+- Add discounts for REV Rides store
+
 ## 2.2.0
 
 ### Minor Changes
