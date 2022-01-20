@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { getConvertedCAD } from '../conversions';
+import { convertCADsToUSDs } from '../conversions';
 
 const priceRegExp = /\$([0-9]{3,}(\.[0-9]{2,2})?)/g;
 
@@ -28,7 +28,7 @@ export const parseSmartWheelPrice = (html: string): number | '-' | undefined => 
       const [rawCheap] = cheapString?.match(priceRegExp) ?? [];
       const cheapVersionPrice = rawCheap?.replace(',', '.').replace('$', '');
       if (cheapVersionPrice) {
-        return getConvertedCAD(Number(cheapVersionPrice));
+        return convertCADsToUSDs(Number(cheapVersionPrice));
       }
     }
 

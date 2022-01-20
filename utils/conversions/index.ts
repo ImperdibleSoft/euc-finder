@@ -1,5 +1,7 @@
-import { DiameterUnits, GroundClearanceUnits, RangeUnits, SpeedUnits, WeightUnits } from '../types';
-import { toDecimals } from './range';
+import { DiameterUnits, GroundClearanceUnits, RangeUnits, SpeedUnits, WeightUnits } from '../../types';
+import { toDecimals } from '../range';
+
+export * from './currencies';
 
 const inchesToCentimeters = (inches: number) => inches * 2.54;
 
@@ -63,7 +65,3 @@ export const getConvertedWeight = (value: number, units?: WeightUnits): string =
       return toDecimals(value, 2);
   }
 };
-
-export const getConvertedCAD = (canadianDolars: number) => canadianDolars * 0.79;
-
-export const getConvertedPounds = (pounds: number) => pounds * 1.19;

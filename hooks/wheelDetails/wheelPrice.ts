@@ -1,7 +1,8 @@
 import { Variant } from '@mui/material/styles/createTypography';
 import { useEffect, useState } from 'react';
 import eucFinderApi from '../../apis/eucfinder';
-import { LoadingState, StoreId } from '../../types';
+import { LoadingState, Region, StoreId } from '../../types';
+import { currency } from '../../utils';
 
 const getApiRequest = (store: StoreId) => {
   switch (store) {
@@ -100,5 +101,48 @@ export const useWheelPriceStyles = (isMain: boolean, large: boolean) => {
     variant,
     fontWeight,
     textDecoration
+  };
+};
+
+interface ReturnType {
+  price: string;
+  discount?: string;
+  discountedPrice?: string;
+}
+
+export const useDiscountPrice = (
+  region: Region,
+  rawPrice: number | '-' | undefined,
+  discount?: number
+): ReturnType | undefined => {
+  if (!rawPrice || rawPrice === '-') {
+    return undefined;
+  }
+
+  const p = currency(rawPrice, region);
+  if (!discount) {
+    return { price: p };
+  }
+
+  // Work with absolute values
+  if (discount > 1) {
+    const absoluteDiscountedPrice = rawPrice - discount;
+    
+    return {
+      price: p,
+      discountedPrice: currency(absoluteDiscountedPrice, region),
+      discount: currency(discount, region)
+    };
+  }
+
+  // Work with proportional values
+  const proportionalDiscount = (rawPrice * discount);
+  const proportionalDiscountedPrice = rawPrice - proportionalDiscount;
+  
+  return {
+    price: p,
+    discountedPrice: currency(proportionalDiscountedPrice, region),
+    discount: `${ discount * 100 }%`
+    // discount: currency(proportionalDiscount, region)
   };
 };

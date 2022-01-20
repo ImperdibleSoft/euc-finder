@@ -1,11 +1,11 @@
 import { Box, Button, Card, CardMedia, Icon, Typography } from '@mui/material';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useConfirmationModal, useWheelPrice, useWheelPriceStyles } from '../../../../hooks';
+import { useConfirmationModal, useDiscountPrice, useWheelPrice, useWheelPriceStyles } from '../../../../hooks';
 import { getRegion } from '../../../../store/selectors';
 import { Store, WheelId } from '../../../../types';
-import { currency, isDarkTheme, logEvent } from '../../../../utils';
+import { isDarkTheme, logEvent } from '../../../../utils';
 
 interface Props {
   discount?: number;
@@ -17,27 +17,14 @@ interface Props {
 }
 
 // eslint-disable-next-line max-lines-per-function
-const PurchaseLink: React.FC<Props> = ({ discount, expensive, large = false, url, store, wheel }) => {
+const PurchaseLink: React.FC<Props> = ({ discount: d, expensive, large = false, url, store, wheel }) => {
   const [codeCopied, setCodeCopied] = useState('');
   const region = useSelector(getRegion);
   const { t } = useTranslation();
   const dark = isDarkTheme();
   const { loadingState, price: rawPrice } = useWheelPrice(store.id, url, expensive);
   const [, discountCode] = store?.meta?.code?.split('=') ?? [];
-
-  const [price, discountedPrice] = useMemo(() => {
-    if (!rawPrice || rawPrice === '-') {
-      return [];
-    }
-
-    const p = currency(rawPrice, region);
-    if (!discount) {
-      return [p];
-    }
-
-    const dp = rawPrice - (rawPrice * discount / 100);
-    return [p, currency(dp, region)];
-  }, [discount, rawPrice, region]);
+  const { price, discount, discountedPrice } = useDiscountPrice(region, rawPrice, d) ?? {};
 
   const mainStyles = useWheelPriceStyles(true, large);
   const secondaryStyles = useWheelPriceStyles(false, large);

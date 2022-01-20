@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { getConvertedPounds } from '..';
+import { convertPoundsToEuros } from '..';
 
 const poundsIncRegExp = /\£([0-9]{3,}(\.[0-9]{2,2})? Inc)/g;
 const euroIncRegExp = /\€([0-9]{3,}(\.[0-9]{2,2})? Inc)/g;
@@ -25,7 +25,7 @@ const convertCurrencyToNumber = (currency: string) => {
 
   if (optPrice) {
     const num = Number(optPrice);
-    return isPounds ? getConvertedPounds(num) : num;
+    return isPounds ? convertPoundsToEuros(num) : num;
   }
 
   return undefined;

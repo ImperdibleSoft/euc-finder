@@ -12,7 +12,7 @@ export const stores: Store[] = [
     color: '#34c1f0',
     meta: {
       code: 'ref=eucfinder',
-      discount: 5,
+      discount: 0.05,
       manualDiscount: true,
       sponsor: false
     }
@@ -26,7 +26,7 @@ export const stores: Store[] = [
     color: '#0075ff',
     meta: {
       // code: '',
-      // discount: 5,
+      // discount: 0.05,
       manualDiscount: true,
       sponsor: true
     }
@@ -39,8 +39,8 @@ export const stores: Store[] = [
     logo: '/logos/distributors/urban360.png',
     color: '#76c043',
     meta: {
-      // code: 'ref=eucfinder22',
-      // discount: 5,
+      code: 'ref=eucfinder22',
+      discount: 5,
       manualDiscount: true,
       sponsor: false
     }
@@ -226,7 +226,7 @@ export const stores: Store[] = [
       code: '',
       discount: 0,
       manualDiscount: true,
-      sponsor: true
+      sponsor: false
     }
   },
   {
@@ -237,8 +237,8 @@ export const stores: Store[] = [
     logo: '/logos/distributors/revRides.png',
     color: '#e21f26',
     meta: {
-      code: '',
-      discount: 0,
+      code: 'eucfinder',
+      discount: 50,
       manualDiscount: true,
       sponsor: false
     }
@@ -266,7 +266,7 @@ export const stores: Store[] = [
     color: '#01c3b7',
     meta: {
       // code: 'ref=eucfinder',
-      // discount: 5,
+      // discount: 0.05,
       manualDiscount: true,
       sponsor: false
     }
