@@ -30,7 +30,7 @@ List of stores/delaers that could potentially be present in the app at some poin
   - Purchase links ✔️
   - Fetch prices ✔️
   - Negotiations ✔️
-  - Discount code 🕑
+  - Discount code ✔️
 
 - EUC Sale
   - Store information ✔️

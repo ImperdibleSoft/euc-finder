@@ -33,14 +33,15 @@ import {
 } from './conversions';
 import { getEstimatedMinRange, toDecimals } from './range';
 
-export const currency = (value: number, region: Region): string => {
+// eslint-disable-next-line max-params
+export const currency = (value: number, region: Region, decimals = 2, minDecimals = undefined): string => {
   if (value) {
     switch (region) {
       case 'us':
-        return `US$ ${ toDecimals(value, 2) }`;
+        return `US$ ${ toDecimals(value, decimals, minDecimals) }`;
 
       default:
-        return `${ toDecimals(value, 2) } €`;
+        return `${ toDecimals(value, decimals, minDecimals) } €`;
     }
   }
 

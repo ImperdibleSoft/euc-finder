@@ -131,7 +131,7 @@ export const useDiscountPrice = (
     return {
       price: p,
       discountedPrice: currency(absoluteDiscountedPrice, region),
-      discount: currency(discount, region)
+      discount: currency(discount, region, 0)
     };
   }
 
