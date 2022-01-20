@@ -91,7 +91,7 @@ export const getSponsoredVideos = () => (rootState: RootState) => {
   };
 };
 
-export const getNewVideos = (fromDate?: Date) =>
+export const getNewVideos = (fromDate?: Date, shouldPaginate = true) =>
   (rootState: RootState) => {
     const lastVisit = fromDate ?? getVideosLastVisit(rootState);
     const start = rootState.videos.pagination.newOffset;
@@ -104,7 +104,7 @@ export const getNewVideos = (fromDate?: Date) =>
       new Date(video.releaseDate) > lastVisit
       )
       : allVideos;
-    const videos = newVideos.slice(start, end);
+    const videos = shouldPaginate ? newVideos.slice(start, end) : newVideos;
 
     return {
       videos,
@@ -118,7 +118,7 @@ export const getNewVideos = (fromDate?: Date) =>
 
 export const getNewVideosLength = (fromDate?: Date) =>
   (rootState: RootState) =>
-    getNewVideos(fromDate)(rootState).videos.length;
+    getNewVideos(fromDate, false)(rootState).videos.length;
 
 export const getWatchedVideos = (fromDate?: Date) =>
   (rootState: RootState) => {
