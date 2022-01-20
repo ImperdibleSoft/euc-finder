@@ -14,6 +14,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { APP_NAME } from '../../../../constants';
 import { ROOT } from '../../../../constants/clientRoutes';
+import { BRAND_COLOR } from '../../../../styles/theme';
 import { Brand, Region, Wheel } from '../../../../types';
 import { getBrandInfo } from '../../../../utils';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
@@ -47,6 +48,7 @@ const Header: React.FC<Props> = ({
     <AppBar
       position="fixed"
       sx={ {
+        backgroundColor: BRAND_COLOR,
         ml: 0,
         width: '100%'
       } }
