@@ -451,6 +451,15 @@ export const useFilterFields = () => {
     },
     {
       Field: Text,
+      icon: wheelFeatureIcons.ratedPower,
+      label: t('maximum', { property: t('ratedPower') }),
+      name: 'maxPower',
+      onChange: handleChange,
+      type:'number',
+      value: filters.maxPower?.toString() ?? ''
+    },
+    {
+      Field: Text,
       icon: wheelFeatureIcons.voltage,
       label: t('minimum', { property: t('voltage') }),
       name: 'minVoltage',

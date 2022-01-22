@@ -58,6 +58,7 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Measure
     
 
     && (!filters.minPower || wheel.ratedPower >= Number(filters.minPower))
+    && (!filters.maxPower || wheel.ratedPower <= Number(filters.maxPower))
     && (!filters.minVoltage || wheel.voltage >= Number(filters.minVoltage))
     
     && (!filters.minBatteryParallels || wheel.battery.parallels >= Number(filters.minBatteryParallels))

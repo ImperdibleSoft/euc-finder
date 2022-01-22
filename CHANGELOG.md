@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.2.2
+
+### Patch Changes
+
+- Add a new filter for the maximum rated power
+
 ## 2.2.1
 
 ### Patch Changes

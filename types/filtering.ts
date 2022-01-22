@@ -41,6 +41,7 @@ export interface WheelFilters {
   pedalSurface?: PedalSurface;
   retentionPins?: boolean;
 
+  maxPower?: string;
   minPower?: string;
   minVoltage?: string;
   suspension?: Suspension | boolean;

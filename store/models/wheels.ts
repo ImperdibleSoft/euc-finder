@@ -22,6 +22,7 @@ const getFiltersInitialValue = (): WheelFilters => ({
   maxGroundClearance: undefined,
   minGroundClearance: undefined,
 
+  maxPower: undefined,
   minPower: undefined,
   minVoltage: undefined,
   suspension: undefined,
