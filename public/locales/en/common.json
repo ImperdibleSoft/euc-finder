@@ -219,6 +219,8 @@
   "standard": "Standard",
   "white": "White",
   "black": "Black",
+  "blackAndRed": "Black and Red",
+  "blackAndYellow": "Black and Yellow",
   "silver": "Silver",
 
   "allOptions-label": "All {{option}}",

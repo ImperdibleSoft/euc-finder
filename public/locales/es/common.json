@@ -219,6 +219,8 @@
   "standard": "Estándar",
   "white": "Blanco",
   "black": "Negro",
+  "blackAndRed": "Negro y Rojo",
+  "blackAndYellow": "Negro y Amarillo",
   "silver": "Plateado",
 
   "allOptions-label": "Todas las {{option}}",
