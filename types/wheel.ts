@@ -192,7 +192,8 @@ export interface WheelFeatures {
 export interface Wheel extends WheelFeatures {
   id: WheelId;
   brandId: BrandId;
-  name: string
+  name: string;
+  availability: boolean;
 }
 
 export interface WheelWithPicture extends Wheel {

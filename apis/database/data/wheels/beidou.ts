@@ -15,6 +15,7 @@ const recioWheel16: Wheel = {
   brandId: BrandId.beidou,
   name: 'RecioWheel 16',
   price: 0,
+  availability: false,
 
   ratedPower: 2500,
   peakPower: 0,
