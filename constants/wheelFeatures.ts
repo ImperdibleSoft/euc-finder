@@ -47,9 +47,9 @@ export const wheelFeatureIcons: WheelFeatureIcons = {
   color: 'water_drop'
 };
 
-export const AvailabilityIcons: Record<Availability, string> = {
-  filtered: 'buble_chart',
-  announced: 'announcement',
+export const availabilityIcons: Record<Availability, string> = {
+  filtered: 'bubble_chart',
+  announced: 'campaign',
   preorder: 'confirmation_number',
   available: 'event_available',
   discontinued: 'event_busy'
