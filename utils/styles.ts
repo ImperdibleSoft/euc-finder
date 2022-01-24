@@ -5,7 +5,7 @@ const isDarkModeOS = () =>
   global?.window?.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
 
 const getLocalStorageTheme = () =>
-  getItem(LOCAL_STORAGE_KEY.SHOW_THEME);
+  getItem(LOCAL_STORAGE_KEY.THEME);
 
 export const getUserSelectedTheme = () => {
   const hardcodedTheme = getLocalStorageTheme();

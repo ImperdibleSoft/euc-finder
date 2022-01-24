@@ -88,5 +88,5 @@ export enum LOCAL_STORAGE_KEY {
   /**
    * Should force a particular theme
    */
-  SHOW_THEME = 'eucFinder_theme',
+  THEME = 'eucFinder_theme',
 }

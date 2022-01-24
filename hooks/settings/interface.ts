@@ -26,7 +26,7 @@ export const useInterface = () => {
   const handleChangeTheme = (event: ChangeEvent<HTMLSelectElement>) => {
     const theme = event.target.value as AvailableTheme;
     dispatch(setTheme({ theme }));
-    setItem(LOCAL_STORAGE_KEY.SHOW_THEME, theme);
+    setItem(LOCAL_STORAGE_KEY.THEME, theme);
   };
 
   const fields: Props[] = [
