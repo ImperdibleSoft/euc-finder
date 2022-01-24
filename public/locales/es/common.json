@@ -159,6 +159,12 @@
   
   "id": "ID",
   "brandId": "Fabricante",
+  "availability-label": "Disponibilidad",
+  "filtered-label": "Filtrada",
+  "announced-label": "Anunciada",
+  "preorder-label": "Reservas abiertas",
+  "available-label": "Disponible",
+  "discontinued-label": "Descatalogada",
   "categories-label": "Categorías",
   "starter-label": "Inicial",
   "standard-label": "Estándar",
@@ -213,7 +219,9 @@
   "standard": "Estándar",
   "white": "Blanco",
   "black": "Negro",
-  "silver": "Plateado",
+  "blackAndRed": "Negro y Rojo",
+  "blackAndYellow": "Negro y Amarillo",
+  "blackAndSilver": "Negro y Plateado",
 
   "allOptions-label": "Todas las {{option}}",
   "allElements-label": "Todos los {{element}}",

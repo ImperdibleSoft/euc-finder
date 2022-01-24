@@ -2,6 +2,7 @@ import { BrandId, WheelFilters, WheelSorting } from '../../types';
 import { WheelsState } from '../types';
 
 const getFiltersInitialValue = (): WheelFilters => ({
+  availability: ['announced', 'preorder', 'available'],
   categories: ['starter', 'standard', 'high-end', 'extreme'],
   brandId: Object.values(BrandId),
 

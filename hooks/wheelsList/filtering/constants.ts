@@ -4,6 +4,7 @@ import { CheckboxProps } from '../../../components/Form/Checkbox';
 import { DropdownItem } from '../../../components/Form/Dropdown';
 import {
   AntiSpin,
+  Availability,
   Brand,
   Category,
   Color,
@@ -19,6 +20,14 @@ import * as formatters from '../../../utils/formatters';
 
 // eslint-disable-next-line max-lines-per-function
 export const getDropdownOptions = (t: TFunction<'translation'>, brands: Brand[]) => {
+  const availabilityOptions: CheckboxProps[] =
+    (['filtered', 'announced', 'preorder', 'available', 'discontinued'] as Availability[])
+      .map(category => ({
+        label: t(`${ category }-label`),
+        name: category,
+        onChange: ()=> { return; }
+      }));
+
   const brandIdOptions: CheckboxProps[] = brands.map(brand => ({
     label: brand.name,
     name: brand.id,
@@ -247,10 +256,23 @@ export const getDropdownOptions = (t: TFunction<'translation'>, brands: Brand[])
     {
       label: formatters.color(Color.black, t),
       value: Color.black
+    },
+    {
+      label: formatters.color(Color.blackAndRed, t),
+      value: Color.blackAndRed
+    },
+    {
+      label: formatters.color(Color.blackAndYellow, t),
+      value: Color.blackAndYellow
+    },
+    {
+      label: formatters.color(Color.blackAndSilver, t),
+      value: Color.blackAndSilver
     }
   ];
 
   return {
+    availabilityOptions,
     brandIdOptions,
     categoryOptions,
     pedalTypeOptions,

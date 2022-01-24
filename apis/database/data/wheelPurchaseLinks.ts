@@ -131,7 +131,6 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://revrides.com/collections/all-vehicles/products/gotway-ex-n',
     'https://oneride.eu/electric-unicycles/227-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html'
   ],
-  [WheelId.ex2]: [],
   [WheelId.hero]: [
     'https://ciclonic.es/tienda/monociclos/monociclos-gotway/reserva-begode-hero/',
     'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
@@ -143,6 +142,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://e-rides.com/product/begode-hero-suspension-electric-unicycle-deposit/',
     'https://oneride.eu/electric-unicycles/200--preorder-begode-hero-1800wh-100v-electric-unicycle.html'
   ],
+  [WheelId.ex2]: [],
+  [WheelId.master]: [],
   [WheelId.monster]: [
     'https://ciclonic.es/tienda/gotway/monociclos-gotway/gotway-monster-100v/',
     'https://store.urban360.es/product/sample-product/nuevo-gotway-monster-v3-100v-1854wh/',

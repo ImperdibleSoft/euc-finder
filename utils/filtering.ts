@@ -29,7 +29,8 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Measure
   const category = getWheelCategory(wheel);
 
   return (
-    (filters.categories.length === 4 || (category && filters.categories.includes(category)))
+    filters.availability.includes(wheel.availability)
+    && (filters.categories.length === 4 || (category && filters.categories.includes(category)))
     && filters.brandId.includes(wheel.brandId)
 
     && (!filters.maxPrice || wheel.price <= Number(filters.maxPrice))

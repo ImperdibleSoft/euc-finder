@@ -1,6 +1,7 @@
 import { BrandId } from './brands';
 import {
   AntiSpin,
+  Availability,
   Color,
   Display,
   Kickstand,
@@ -18,16 +19,17 @@ export enum WheelId {
   mcm5 = 'mcm5',
   tesla = 'tesla',
   nikola = 'nikola',
-  rsHT = 'rsHT',
-  rsHS = 'rsHS',
   msx = 'msx',
   msx100 = 'msx100',
   msp = 'msp',
+  rsHT = 'rsHT',
+  rsHS = 'rsHS',
   ex = 'ex',
-  ex2 = 'ex2',
   exnHT = 'exnHT',
   exnHS = 'exnHS',
   hero = 'hero',
+  ex2 = 'ex2',
+  master = 'master',
   monster = 'monster',
   monsterPro = 'monsterPro',
 
@@ -192,7 +194,8 @@ export interface WheelFeatures {
 export interface Wheel extends WheelFeatures {
   id: WheelId;
   brandId: BrandId;
-  name: string
+  name: string;
+  availability: Availability;
 }
 
 export interface WheelWithPicture extends Wheel {

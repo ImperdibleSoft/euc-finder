@@ -19,6 +19,7 @@ const ks14m: Wheel = {
   brandId: BrandId.kingsong,
   name: '14M',
   price: 500,
+  availability: 'available',
 
   ratedPower: 500,
   peakPower: 1500,
@@ -92,6 +93,7 @@ const ks16s: Wheel = {
   brandId: BrandId.kingsong,
   name: '16S',
   price: 1650,
+  availability: 'available',
 
   ratedPower: 1200,
   peakPower: 3000,
@@ -128,6 +130,7 @@ const ks16xs: Wheel = {
   brandId: BrandId.kingsong,
   name: '16XS',
   price: 1800,
+  availability: 'available',
 
   ratedPower: 2200,
   peakPower: 4200,
@@ -183,6 +186,7 @@ const ks18l: Wheel = {
   brandId: BrandId.kingsong,
   name: '18L',
   price: 2000,
+  availability: 'available',
 
   ratedPower: 2000,
   peakPower: 4000,
@@ -238,6 +242,7 @@ const ksS18: Wheel = {
   brandId: BrandId.kingsong,
   name: 'S18',
   price: 2300,
+  availability: 'available',
 
   ratedPower: 2200,
   peakPower: 4000,
@@ -274,6 +279,7 @@ const ksS20: Wheel = {
   brandId: BrandId.kingsong,
   name: 'S20 Eagle',
   price: 3300,
+  availability: 'preorder',
 
   ratedPower: 3300,
   peakPower: 7500,
@@ -302,7 +308,7 @@ const ksS20: Wheel = {
   sound: undefined,
   display: Display.led,
   suspension: Suspension.standard,
-  color: Color.black
+  color: Color.blackAndRed
 };
 
 export const kingsongWheels = [

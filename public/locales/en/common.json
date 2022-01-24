@@ -159,6 +159,12 @@
   
   "id": "ID",
   "brandId": "Manufacturer",
+  "availability-label": "Availability",
+  "filtered-label": "Filtered",
+  "announced-label": "Announced",
+  "preorder-label": "Preorder available",
+  "available-label": "Available",
+  "discontinued-label": "Discontinued",
   "categories-label": "Categories",
   "starter-label": "Starter",
   "standard-label": "Standard",
@@ -213,7 +219,9 @@
   "standard": "Standard",
   "white": "White",
   "black": "Black",
-  "silver": "Silver",
+  "blackAndRed": "Black and Red",
+  "blackAndYellow": "Black and Yellow",
+  "blackAndSilver": "Black and Silver",
 
   "allOptions-label": "All {{option}}",
   "allElements-label": "All {{element}}",

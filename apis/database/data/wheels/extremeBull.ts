@@ -19,6 +19,7 @@ const commanderHT: Wheel = {
   brandId: BrandId.extremeBull,
   name: 'Commander Torque',
   price: 3400,
+  availability: 'available',
 
   ratedPower: 2800,
   peakPower: 0,
@@ -61,6 +62,7 @@ const xmenHT: Wheel = {
   brandId: BrandId.extremeBull,
   name: 'X-Men Torque',
   price: 0,
+  availability: 'announced',
 
   ratedPower: 2800,
   peakPower: 0,
@@ -87,14 +89,16 @@ const xmenHT: Wheel = {
   sound: SoundSystem.twoPointO,
   display: Display.led,
   suspension: undefined,
-  color: Color.black
+  color: Color.blackAndYellow
 };
 
 const xmenHS: Wheel = {
   ...xmenHT,
   ...speedMotor,
   id: WheelId.xmenHS,
-  name: 'X-Men Speed'
+  name: 'X-Men Speed',
+
+  color: Color.blackAndRed
 };
 
 export const extremeBullWheels: Wheel[] = [

@@ -1,8 +1,10 @@
 import { WheelFeatures, WheelId } from './wheel';
 
-export type Category = 'starter' | 'standard' | 'high-end' | 'extreme'
+export type Availability = 'filtered' | 'announced' | 'preorder' | 'available' | 'discontinued';
 
-export type GroundClearance = number | number[]
+export type Category = 'starter' | 'standard' | 'high-end' | 'extreme';
+
+export type GroundClearance = number | number[];
 
 export enum TrolleyHandle {
   scorpion = 'scorpion',
@@ -62,15 +64,18 @@ export type SuspensionWeight = Record<Suspension, number>
 export enum Color {
   white = 'white',
   black = 'black',
-  silver = 'silver'
+  blackAndRed = 'blackAndRed',
+  blackAndYellow = 'blackAndYellow',
+  blackAndSilver = 'blackAndSilver',
 }
 
 interface IconKeys extends WheelFeatures {
-  brandId: string
-  name: string
+  brandId: string;
+  name: string;
+  availability: string;
 }
 
-export type WheelFeatureIcons = Record<keyof IconKeys | 'category', string>
-export type WheelFeatureFormatters = Record<keyof WheelFeatures, Function>
+export type WheelFeatureIcons = Record<keyof IconKeys | 'category', string>;
+export type WheelFeatureFormatters = Record<keyof WheelFeatures, Function>;
 
-export type WheelPurchaseLinks = Record<WheelId, string[]>
+export type WheelPurchaseLinks = Record<WheelId, string[]>;

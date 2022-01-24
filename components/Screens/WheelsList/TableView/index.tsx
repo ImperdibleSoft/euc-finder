@@ -5,9 +5,11 @@ import { useTranslation } from 'react-i18next';
 import { EUC_DETAILS } from '../../../../constants/clientRoutes';
 import { useTableData } from '../../../../hooks';
 import { WheelId, WheelSorting, WheelSortingKeys, WheelsTableColumns, WheelWithPicture } from '../../../../types';
+import AvailabilityIcon from '../../../AvailabilityIcon';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../../Table';
 
 const cellStyles: React.CSSProperties = {
+  position: 'relative',
   textAlign: 'center',
   verticalAlign: 'middle'
 };
@@ -105,6 +107,8 @@ const TableView: React.FC<Props> = ({
                           />
 
                           { cell.formatter?.(cell.value, t) ?? cell.value }
+
+                          <AvailabilityIcon availability={ wheel?.availability } />
                         </div>
                       </TableCell>
                     ) }

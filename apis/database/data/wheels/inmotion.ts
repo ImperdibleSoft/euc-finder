@@ -19,6 +19,7 @@ const v5: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V5',
   price: 550,
+  availability: 'available',
 
   ratedPower: 450,
   peakPower: 0,
@@ -74,6 +75,7 @@ const v8: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V8',
   price: 1000,
+  availability: 'available',
 
   ratedPower: 800,
   peakPower: 0,
@@ -132,6 +134,7 @@ const v10: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V10',
   price: 1099,
+  availability: 'available',
 
   ratedPower: 1800,
   peakPower: 0,
@@ -184,6 +187,7 @@ const v11: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V11',
   price: 2300,
+  availability: 'available',
 
   ratedPower: 2200,
   peakPower: 0,
@@ -220,6 +224,7 @@ const v12HT: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V12 Torque',
   price: 2500,
+  availability: 'announced',
 
   ratedPower: 2800,
   peakPower: 5000,
@@ -255,17 +260,19 @@ const v12HS: Wheel = {
   ...v12HT,
   id: WheelId.v12,
   name: 'V12 Speed',
+  availability: 'available',
 
   ratedPower: 2500,
   maxGradibility: 35,
   maxSpeed: 70
 };
 
-const raptor: Wheel = {
+const v13: Wheel = {
   id: WheelId.v13,
   brandId: BrandId.inmotion,
   name: 'V13 Raptor',
   price: 0,
+  availability: 'announced',
 
   ratedPower: 0,
   peakPower: 0,
@@ -307,5 +314,5 @@ export const inmotionWheels = [
   v11,
   v12HT,
   v12HS,
-  raptor
+  v13
 ];

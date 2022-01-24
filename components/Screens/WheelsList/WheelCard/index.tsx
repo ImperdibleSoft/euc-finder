@@ -16,6 +16,7 @@ import { useEucListInformationGroups } from '../../../../hooks';
 import { getBrands, getMeasureUnits } from '../../../../store/selectors';
 import { WheelFeatureFormatters, WheelFeatureIcons, WheelSorting, WheelWithPicture } from '../../../../types';
 import { formatWheelName, getBrandInfo } from '../../../../utils';
+import AvailabilityIcon from '../../../AvailabilityIcon';
 import BrandLogo from '../../../BrandLogo';
 import IconsList from '../../../Lists/IconsList';
 import SmallList from '../../../Lists/SmallList';
@@ -82,7 +83,9 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
         />
       ) }
 
-      <CardContent sx={ { pb: 0 } }>
+      <CardContent sx={ { pb: 0, position: 'relative' } }>
+        <AvailabilityIcon availability={ wheel.availability } />
+        
         <Typography gutterBottom variant="h5" component="div">
           { wheel.name }
         </Typography>

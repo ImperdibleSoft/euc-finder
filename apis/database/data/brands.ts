@@ -54,7 +54,7 @@ const kingsong: Brand = {
   website: 'https://www.kingsong.com/',
   misc: {
     // Reference from S18, which I've tested personally
-    kmPerWh: kmPerWh * 0.85
+    kmPerWh: kmPerWh * 0.825
   }
 };
 
@@ -65,7 +65,7 @@ const inmotion: Brand = {
   website: 'https://www.inmotionworld.com/',
   misc: {
     // Reference from V12, which I've tested personally
-    kmPerWh: kmPerWh
+    kmPerWh: kmPerWh * 0.85
   }
 };
 
