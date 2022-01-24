@@ -77,8 +77,5 @@ export const getChangelogFromMarkdown = () => {
     return versions;
   }, [] as Version[]);
 
-  // eslint-disable-next-line no-console
-  console.log(changelog);
-
   return changelog;
 };

@@ -81,8 +81,9 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         __html: `
         (function() {
           if (window.localStorage && window.localStorage.getItem) {
-            var testValue=window.localStorage.getItem('test');var isTestUser=(testValue!==undefined && testValue!==null && testValue!=='');
-            if (!isTestUser) {
+            var shouldTrackUser = ${ process.env.NODE_ENV === 'production' } && localStorage?.getItem('${ LOCAL_STORAGE_KEY.DISABLE_ANALYTICS }') !== 'true';
+            console.log('Hardcoded should', shouldTrackUser);
+            if (!shouldTrackUser) {
               function initialize(){
                 var init=document.createElement('script');init.innerHTML="window.dataLayer=window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${ MEASUREMENT_ID }')";document.head.append(init);
               }
