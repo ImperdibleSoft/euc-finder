@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.4.0
+
+### Minor Changes
+
+- Add charts to the Comparator
+
 ## 2.3.0
 
 ### Minor Changes
