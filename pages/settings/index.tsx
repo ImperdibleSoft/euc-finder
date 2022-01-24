@@ -151,19 +151,15 @@ const Settings: React.FC = () => {
                   } }
                   >
                     <ButtonGroup variant="outlined" disableElevation>
-                      { Object.values(SpecWeightsPreset).map(preset =>
-                        preset === SpecWeightsPreset.custom
-                          ? null
-                          : (
-                            <Button
-                              key={ `${ preset }-preset` }
-                              variant={ activePreset === preset ? 'contained' : undefined }
-                              onClick={ () => handleChangePreset(preset) }
-                            >
-                              { t(`${ preset }Preset-label`) }
-                            </Button>
-                          )
-                      ) }
+                      { Object.values(SpecWeightsPreset).map(preset => (
+                        <Button
+                          key={ `${ preset }-preset` }
+                          variant={ activePreset === preset ? 'contained' : undefined }
+                          onClick={ () => handleChangePreset(preset) }
+                        >
+                          { t(`${ preset }Preset-label`) }
+                        </Button>
+                      )) }
                     </ButtonGroup>
                   </Box>
                   <Divider />

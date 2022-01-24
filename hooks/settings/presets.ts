@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Props as SliderProps } from '../../components/Form/Slider';
@@ -16,6 +16,12 @@ export const usePresets = () => {
   const showPrices = useSelector(getPricesConfig);
   const activePreset = useSelector(getSpecWeightsActivePreset);
   const specWeights = useSelector(getSpecWeights);
+
+  useEffect(() => {
+    if (activePreset === SpecWeightsPreset.custom) {
+      setItem(LOCAL_STORAGE_KEY.SPECWEIGHT_CUSTOMVALUES, JSON.stringify(specWeights));
+    }
+  }, [activePreset, specWeights]);
 
   const handleChangePreset = (preset: SpecWeightsPreset) => {
     dispatch(setSpecWeightsPreset(preset));

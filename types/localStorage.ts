@@ -58,6 +58,11 @@ export enum LOCAL_STORAGE_KEY {
    */
   SPECWEIGHT_PRESET = 'eucFinder_specWeightPreset',
 
+  /**
+   * Store custom values for custom preset
+   */
+  SPECWEIGHT_CUSTOMVALUES = 'eucFinder_specWeightCustomValues',
+
   // Feature flags
 
   /**
