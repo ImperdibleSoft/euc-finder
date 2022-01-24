@@ -40,6 +40,7 @@ export interface SettingsState {
     preset?: SpecWeightsPreset;
     customValues: SpecWeights
   };
+  theme: 'dark' | 'light';
 }
 
 export interface DefaultMeasureUnitsAction {
@@ -80,10 +81,18 @@ export interface SetCustomSpecWeightAction {
   }
 }
 
+export interface SetThemeAction {
+  type: 'SET_THEME',
+  payload: {
+    theme: SettingsState['theme'],
+  }
+}
+
 export type SettingsAction =
   | DefaultMeasureUnitsAction
   | ResetMeasureUnitsAction
   | SetMeasureUnitAction
   | SetRegionAction
   | SetSpecWeightsPresetAction
-  | SetCustomSpecWeightAction;
+  | SetCustomSpecWeightAction
+  | SetThemeAction;

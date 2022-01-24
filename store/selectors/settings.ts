@@ -55,3 +55,6 @@ export const getSpecWeights = (rootState: RootState): SpecWeights => {
     price: showPrices ? specWeights.price : 0
   };
 };
+
+export const getTheme = ({ settings }: RootState) =>
+  settings.theme;

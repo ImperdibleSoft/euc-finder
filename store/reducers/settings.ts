@@ -50,6 +50,12 @@ const reducer = (state = getSettingsInitialState(), action: SettingsAction): Set
           }
         }
       };
+
+    case 'SET_THEME':
+      return {
+        ...state,
+        theme: action.payload.theme
+      };
         
     default:
       return state;

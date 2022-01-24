@@ -13,5 +13,6 @@ export const getSettingsInitialState = (): SettingsState => ({
   specWeights: {
     preset: (getItem(LOCAL_STORAGE_KEY.SPECWEIGHT_PRESET) as SpecWeightsPreset) || undefined,
     customValues: getGenericSpecWheights()
-  }
+  },
+  theme: 'light'
 });

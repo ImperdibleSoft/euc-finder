@@ -2,96 +2,29 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { ThemeProvider } from '@mui/material';
 import { appWithTranslation } from 'next-i18next';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import qs from 'query-string';
-import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Provider, useDispatch, useSelector } from 'react-redux';
-import FacebookWrapper from '../components/Facebook/FacebookWrapper';
-import MainLayout from '../components/Layouts/MainLayout';
-import LoadingScreen from '../components/Screens/LoadingScreen';
-import { APP_NAME, APP_URL, getRegions, MEASUREMENT_ID } from '../constants';
-import { EUC_DETAILS } from '../constants/clientRoutes';
-import { ModalsContextProvider } from '../context';
-import { useAppData } from '../hooks';
+import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import AppWithStore from '../components/Screens/_app/AppWithStore';
+import { APP_NAME, APP_URL, MEASUREMENT_ID } from '../constants';
 import { configureStore } from '../store';
-import { setRegion } from '../store/actions';
-import { getBrands, getRegion, getWheels } from '../store/selectors';
 import '../styles/globals.css';
-import { darkTheme, lightTheme } from '../styles/theme';
-import { LOCAL_STORAGE_KEY, Region, Wheel } from '../types';
-import { cleanOldCaches, getItem, isDarkTheme, pageview, setItem } from '../utils';
+import { LOCAL_STORAGE_KEY } from '../types';
+import { cleanOldCaches, pageview, setItem } from '../utils';
 
-const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
-  const { t } = useTranslation();
-  const dispatch = useDispatch();
-  const router = useRouter();
-  const brands = useSelector(getBrands);
-  const region = useSelector(getRegion);
-  const wheels = useSelector(getWheels);
-  const loadingStates = useAppData();
 
-  const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
-    if (value?.id) {
-      router.push(EUC_DETAILS.replace(':id', value.id));
-    }
-  };
-
-  const handleSelectRegion = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
-
-    if (value) {
-      dispatch(setRegion(value as Region));
-      setItem(LOCAL_STORAGE_KEY.REGION, value);
-    }
-  };
-
-  return (
-    <MainLayout
-      brands={ brands }
-      handleSelectRegion={ handleSelectRegion }
-      handleSelectWheel={ handleSelectWheel }
-      regions={ getRegions(t) }
-      selectedRegion={ region }
-      wheels={ wheels }
-    >
-      { loadingStates.initialData === 'loading' && (
-        <LoadingScreen />
-      ) }
-      
-      { loadingStates.initialData === 'success' && children }
-    </MainLayout>
-  );
-};
-
-const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.INITIAL_DISCLAIMER) !== 'true';
 const store = configureStore();
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { price, purchaseLinks, test } = qs.parse(global?.location?.search);
   const { asPath, events } = useRouter();
-  const [dark, setDark] = useState(false);
-  const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer);
-
-  const theme = useMemo(() => dark ? darkTheme : lightTheme, [dark]); 
-
-  const handleOpenDisclaimer = () => {
-    setOpenDisclaimer(true);
-  };
-
-  const handleCloseDisclaimer = () => {
-    setItem(LOCAL_STORAGE_KEY.INITIAL_DISCLAIMER, 'true');
-    setOpenDisclaimer(false);
-  };
 
   useEffect(() => {
-    const newDark = isDarkTheme();
-    setDark(newDark);
     cleanOldCaches();
   }, []);
 
@@ -125,12 +58,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
     };
   }, [events]);
 
-  const initialDisclaimer = {
-    open: openDisclaimer,
-    handleOpen: handleOpenDisclaimer,
-    handleClose: handleCloseDisclaimer
-  };
-
   return (
     <>
       <Head>
@@ -143,17 +70,11 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <meta property="og:site_name" content={ APP_NAME } />
       </Head>
 
-      <ThemeProvider theme={ theme }>
-        <Provider store={ store }>
-          <FacebookWrapper>
-            <ModalsContextProvider value={ { initialDisclaimer } }>
-              <EucArenaApp>
-                <Component { ...pageProps }/>
-              </EucArenaApp>
-            </ModalsContextProvider>
-          </FacebookWrapper>
-        </Provider>
-      </ThemeProvider>
+      <Provider store={ store }>
+        <AppWithStore>
+          <Component { ...pageProps }/>
+        </AppWithStore>
+      </Provider>
 
       { /* eslint-disable max-len */ }
       <Script id="init-analytics" dangerouslySetInnerHTML={ {

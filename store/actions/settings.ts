@@ -7,6 +7,7 @@ import {
   SetMeasureUnitAction,
   SetRegionAction,
   SetSpecWeightsPresetAction,
+  SetThemeAction,
   SpecWeightsPreset
 } from '../types';
 
@@ -45,3 +46,11 @@ export const setCustomSpecWeight = (payload: SetCustomSpecWeightAction['payload'
     payload
   } as SetCustomSpecWeightAction);
 };
+
+export const setTheme = (payload: SetThemeAction['payload']) =>
+  (dispatch: Dispatch) => {
+    dispatch({
+      type: 'SET_THEME',
+      payload
+    } as SetThemeAction);
+  };
