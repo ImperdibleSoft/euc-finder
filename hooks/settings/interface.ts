@@ -54,14 +54,17 @@ export const useInterface = () => {
       options: [
         {
           label: t(`${ AvailableTheme.auto }-label`),
+          icon: 'brightness_medium',
           value: AvailableTheme.auto
         },
         {
           label: t(`${ AvailableTheme.light }-label`),
+          icon: 'light_mode',
           value: AvailableTheme.light
         },
         {
           label: t(`${ AvailableTheme.dark }-label`),
+          icon: 'dark_mode',
           value: AvailableTheme.dark
         }
       ],
