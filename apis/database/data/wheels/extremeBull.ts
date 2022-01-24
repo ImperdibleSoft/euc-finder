@@ -19,7 +19,7 @@ const commanderHT: Wheel = {
   brandId: BrandId.extremeBull,
   name: 'Commander Torque',
   price: 3400,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2800,
   peakPower: 0,
@@ -62,7 +62,7 @@ const xmenHT: Wheel = {
   brandId: BrandId.extremeBull,
   name: 'X-Men Torque',
   price: 0,
-  availability: false,
+  availability: 'announced',
 
   ratedPower: 2800,
   peakPower: 0,

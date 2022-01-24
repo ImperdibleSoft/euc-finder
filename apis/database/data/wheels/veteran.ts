@@ -16,7 +16,7 @@ const sherman: Wheel = {
   brandId: BrandId.veteran,
   name: 'Sherman',
   price: 4400,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2500,
   peakPower: 0,
@@ -52,7 +52,7 @@ const shermanMax: Wheel = {
   ...sherman,
   id: WheelId.shermanMax,
   name: 'Sherman Max',
-  availability: false,
+  availability: 'preorder',
   
   ratedPower: 2800,
   peakPower: 3750,
@@ -74,7 +74,7 @@ const abrams: Wheel = {
   brandId: BrandId.veteran,
   name: 'Abrams',
   price: 3700,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 3500,
   peakPower: 6500,

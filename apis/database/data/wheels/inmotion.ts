@@ -19,7 +19,7 @@ const v5: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V5',
   price: 550,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 450,
   peakPower: 0,
@@ -75,7 +75,7 @@ const v8: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V8',
   price: 1000,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 800,
   peakPower: 0,
@@ -134,7 +134,7 @@ const v10: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V10',
   price: 1099,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 1800,
   peakPower: 0,
@@ -187,7 +187,7 @@ const v11: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V11',
   price: 2300,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2200,
   peakPower: 0,
@@ -224,7 +224,7 @@ const v12HT: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V12 Torque',
   price: 2500,
-  availability: false,
+  availability: 'announced',
 
   ratedPower: 2800,
   peakPower: 5000,
@@ -260,7 +260,7 @@ const v12HS: Wheel = {
   ...v12HT,
   id: WheelId.v12,
   name: 'V12 Speed',
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2500,
   maxGradibility: 35,
@@ -272,7 +272,7 @@ const v13: Wheel = {
   brandId: BrandId.inmotion,
   name: 'V13 Raptor',
   price: 0,
-  availability: false,
+  availability: 'announced',
 
   ratedPower: 0,
   peakPower: 0,

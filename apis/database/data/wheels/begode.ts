@@ -20,7 +20,7 @@ const mten: Wheel = {
   brandId: BrandId.begode,
   name: 'Mten 3',
   price: 1000,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 800,
   peakPower: 0,
@@ -57,7 +57,7 @@ const mcm5: Wheel = {
   brandId: BrandId.begode,
   name: 'MCM 5',
   price: 1400,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 1500,
   peakPower: 2250,
@@ -94,7 +94,7 @@ const tesla: Wheel = {
   brandId: BrandId.begode,
   name: 'Tesla',
   price: 1650,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2000,
   peakPower: 4000,
@@ -131,7 +131,7 @@ const nikola: Wheel = {
   brandId: BrandId.begode,
   name: 'Nikola Plus',
   price: 2800,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2000,
   peakPower: 0,
@@ -168,7 +168,7 @@ const msx: Wheel = {
   brandId: BrandId.begode,
   name: 'MSuper X',
   price: 3400,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2000,
   peakPower: 4000,
@@ -205,7 +205,7 @@ const msx100: Wheel = {
   id: WheelId.msx100,
   name: 'MSuper X (100v)',
   price: 2500,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2350,
   peakPower: 5700,
@@ -222,7 +222,7 @@ const msp: Wheel = {
   brandId: BrandId.begode,
   name: 'MSuper Pro',
   price: 2500,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2500,
   peakPower: 0,
@@ -260,7 +260,7 @@ const rsHT: Wheel = {
   brandId: BrandId.begode,
   name: 'RS Torque',
   price: 2300,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2600,
   peakPower: 0,
@@ -302,7 +302,7 @@ const ex: Wheel = {
   brandId: BrandId.begode,
   name: 'EX',
   price: 4000,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 3500,
   peakPower: 0,
@@ -340,7 +340,7 @@ const exnHT: Wheel = {
   id: WheelId.exnHT,
   name: 'EX.N Torque',
   price: 3000,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2800,
   range: 190,
@@ -364,7 +364,7 @@ const ex2: Wheel = {
   brandId: BrandId.begode,
   name: 'EX2S',
   price: 0,
-  availability: false,
+  availability: 'announced',
 
   ratedPower: 3000,
   peakPower: 0,
@@ -400,7 +400,7 @@ const hero: Wheel = {
   brandId: BrandId.begode,
   name: 'Hero',
   price: 3000,
-  availability: false,
+  availability: 'preorder',
 
   ratedPower: 2800,
   peakPower: 0,
@@ -435,7 +435,7 @@ const monster: Wheel = {
   brandId: BrandId.begode,
   name: 'Monster',
   price: 3500,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 2500,
   peakPower: 0,
@@ -472,7 +472,7 @@ const monsterPro: Wheel = {
   id: WheelId.monsterPro,
   name: 'Monster Pro',
   price: 3900,
-  availability: true,
+  availability: 'available',
 
   ratedPower: 3500,
   maxSpeed: 80,

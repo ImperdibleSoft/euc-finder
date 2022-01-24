@@ -1,6 +1,7 @@
 import { BrandId } from './brands';
 import {
   AntiSpin,
+  Availability,
   Color,
   Display,
   Kickstand,
@@ -193,7 +194,7 @@ export interface Wheel extends WheelFeatures {
   id: WheelId;
   brandId: BrandId;
   name: string;
-  availability: boolean;
+  availability: Availability;
 }
 
 export interface WheelWithPicture extends Wheel {
