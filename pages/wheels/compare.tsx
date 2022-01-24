@@ -3,10 +3,11 @@ import Head from 'next/head';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import CompareTable from '../../components/Screens/CompareView/CompareTable';
-import EmptyCase from '../../components/Screens/CompareView/EmptyCase';
 import Dropdown, { DropdownItem } from '../../components/Form/Dropdown';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
+import CompareCharts from '../../components/Screens/CompareView/CompareCharts';
+import CompareTable from '../../components/Screens/CompareView/CompareTable';
+import EmptyCase from '../../components/Screens/CompareView/EmptyCase';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useCompareActions, useComparedWheels } from '../../hooks';
 import { getBrands, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
@@ -107,17 +108,25 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
         { renderWheelDropdown('addWheel') }
 
         { comparedWheels.length > 0 && (
-          <CompareTable
-            brands={ brands }
-            handleRemoveFromComparision={ handleRemoveFromComparision }
-            measureUnits={ measureUnits }
-            minMaxScores={ minMaxScores }
-            specWeights={ specWeights }
-            specs={ specs }
-            wheelPictures={ pictures }
-            wheelScores={ wheelScores }
-            wheels={ comparedWheels }
-          />
+          <>
+            <CompareTable
+              brands={ brands }
+              handleRemoveFromComparision={ handleRemoveFromComparision }
+              measureUnits={ measureUnits }
+              minMaxScores={ minMaxScores }
+              specWeights={ specWeights }
+              specs={ specs }
+              wheelPictures={ pictures }
+              wheelScores={ wheelScores }
+              wheels={ comparedWheels }
+            />
+
+            <CompareCharts
+              measureUnits={ measureUnits }
+              t={ t }
+              wheels={ comparedWheels }
+            />
+          </>
         ) }
 
         { comparedWheels.length <= 0 && (
