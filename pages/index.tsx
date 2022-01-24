@@ -60,7 +60,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
     isBeingCompared
   } = useCompareActions();
 
-  const canCompareAllWheels = sortedWheels.length <= maxComparedWheels;
+  const canCompareAllWheels = sortedWheels.length > 0 && sortedWheels.length <= maxComparedWheels;
   const canCompareOneWheel = canCompareMoreWheels();
   const styles = useHeadingStyles(canCompareAllWheels, view);
 
