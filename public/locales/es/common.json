@@ -223,6 +223,8 @@
   "offroad-label": "Off-road",
   "reveal-label": "Presentación",
   "review-label": "Review",
+  "higherBetter-msg": "Cuanto más alto, mejor",
+  "lowerBetter-msg": "Cuanto más bajo, mejor",
 
   "youtubeChannel-label": "Canal de Youtube",
   "noInfluencers-msg": "Todavía no hay creadores de contenido.",

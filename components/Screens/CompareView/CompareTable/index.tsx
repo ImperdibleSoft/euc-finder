@@ -203,7 +203,7 @@ const CompareTable: React.FC<Props> = ({
                     case 'brandId':
                       formattedValue = getBrandInfo(wheel.brandId, brands)?.name;
                       break;
-                      
+                        
                     case 'score':
                       formattedValue = score;
                       break;
@@ -248,7 +248,7 @@ const CompareTable: React.FC<Props> = ({
                       { t('details-btn') }
                     </Button>
                   </Link>
-                
+                  
                   <Button
                     color="error"
                     size="small"
