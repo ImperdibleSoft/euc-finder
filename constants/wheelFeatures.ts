@@ -1,5 +1,6 @@
 import {
   AntiSpinWeight,
+  Availability,
   DisplayWeight,
   KickstandWeight,
   PedalSurfaceWeight,
@@ -14,6 +15,7 @@ import * as formatters from '../utils/formatters';
 
 export const wheelFeatureIcons: WheelFeatureIcons = {
   brandId: 'business',
+  availability: 'event_available',
   category: 'exposure',
   name: 'sort_by_alpha',
   price: 'euro',
@@ -43,6 +45,14 @@ export const wheelFeatureIcons: WheelFeatureIcons = {
   sound: 'volume_up',
   display: 'smart_screen',
   color: 'water_drop'
+};
+
+export const AvailabilityIcons: Record<Availability, string> = {
+  filtered: 'buble_chart',
+  announced: 'announcement',
+  preorder: 'confirmation_number',
+  available: 'event_available',
+  discontinued: 'event_busy'
 };
 
 export const wheelFeatureFormatters: WheelFeatureFormatters = {

@@ -315,7 +315,7 @@ export const useFilterFields = () => {
   const fields: FilterField[] = [
     {
       Field: CheckboxGroup,
-      icon: 'event_available',
+      icon: wheelFeatureIcons.availability,
       label: t('availability-label'),
       name: 'availability',
       options: availabilityOptions.map(option => ({

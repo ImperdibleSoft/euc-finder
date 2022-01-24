@@ -70,11 +70,12 @@ export enum Color {
 }
 
 interface IconKeys extends WheelFeatures {
-  brandId: string
-  name: string
+  brandId: string;
+  name: string;
+  availability: string;
 }
 
-export type WheelFeatureIcons = Record<keyof IconKeys | 'category', string>
-export type WheelFeatureFormatters = Record<keyof WheelFeatures, Function>
+export type WheelFeatureIcons = Record<keyof IconKeys | 'category', string>;
+export type WheelFeatureFormatters = Record<keyof WheelFeatures, Function>;
 
-export type WheelPurchaseLinks = Record<WheelId, string[]>
+export type WheelPurchaseLinks = Record<WheelId, string[]>;
