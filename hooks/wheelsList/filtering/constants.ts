@@ -256,6 +256,18 @@ export const getDropdownOptions = (t: TFunction<'translation'>, brands: Brand[])
     {
       label: formatters.color(Color.black, t),
       value: Color.black
+    },
+    {
+      label: formatters.color(Color.blackAndRed, t),
+      value: Color.blackAndRed
+    },
+    {
+      label: formatters.color(Color.blackAndYellow, t),
+      value: Color.blackAndYellow
+    },
+    {
+      label: formatters.color(Color.blackAndSilver, t),
+      value: Color.blackAndSilver
     }
   ];
 

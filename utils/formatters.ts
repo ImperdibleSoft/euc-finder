@@ -379,7 +379,9 @@ export const color = (
       switch (value) {
         case Color.white:
         case Color.black:
-        case Color.silver:
+        case Color.blackAndRed:
+        case Color.blackAndYellow:
+        case Color.blackAndSilver:
           return t?.(value) ?? getTranslation(value);
 
         default:

@@ -221,7 +221,7 @@
   "black": "Negro",
   "blackAndRed": "Negro y Rojo",
   "blackAndYellow": "Negro y Amarillo",
-  "silver": "Plateado",
+  "blackAndSilver": "Negro y Plateado",
 
   "allOptions-label": "Todas las {{option}}",
   "allElements-label": "Todos los {{element}}",

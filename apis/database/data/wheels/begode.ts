@@ -427,7 +427,7 @@ const ex2: Wheel = {
   sound: undefined,
   display: undefined,
   suspension: Suspension.standard,
-  color: [Color.black, Color.silver]
+  color: Color.blackAndSilver
 };
 
 const master: Wheel = {

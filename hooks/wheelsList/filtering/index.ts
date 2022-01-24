@@ -102,7 +102,13 @@ const useFilters = () => {
     const rawValue = event.target.value;
 
     let value: undefined | Color;
-    if (rawValue === Color.black || rawValue === Color.white) {
+    if (
+      rawValue === Color.white
+      || rawValue === Color.black
+      || rawValue === Color.blackAndRed
+      || rawValue === Color.blackAndYellow
+      || rawValue === Color.blackAndSilver
+    ) {
       value = rawValue;
     }
 
