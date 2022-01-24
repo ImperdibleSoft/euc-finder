@@ -435,7 +435,7 @@ const master: Wheel = {
   id: WheelId.master,
   brandId: BrandId.begode,
   name: 'Master',
-  price: 0,
+  price: 2900,
   availability: 'filtered',
 
   ratedPower: 3500,
