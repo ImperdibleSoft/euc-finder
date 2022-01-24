@@ -4,12 +4,19 @@ import { getItem } from './localStorage';
 
 export const shouldTrackUser = () => {
   // eslint-disable-next-line no-console
-  console.log('Should', process.env.NODE_ENV, getItem(LOCAL_STORAGE_KEY.DISABLE_ANALYTICS));
+  console.log('Should', {
+    env: process.env.NODE_ENV,
+    disabled: getItem(LOCAL_STORAGE_KEY.DISABLE_ANALYTICS)
+  });
 
-  if (process.env.NODE_ENV === 'production' && getItem(LOCAL_STORAGE_KEY.DISABLE_ANALYTICS) === '') {
+  if (process.env.NODE_ENV === 'production' && getItem(LOCAL_STORAGE_KEY.DISABLE_ANALYTICS) !== 'true') {
+    // eslint-disable-next-line no-console
+    console.log('Yes');
     return true;
   }
 
+  // eslint-disable-next-line no-console
+  console.log('No');
   return false;
 };
 
