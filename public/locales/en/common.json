@@ -159,6 +159,12 @@
   
   "id": "ID",
   "brandId": "Manufacturer",
+  "availability-label": "Availability",
+  "filtered-label": "Filtered",
+  "announced-label": "Announced",
+  "preorder-label": "Preorder available",
+  "available-label": "Available",
+  "discontinued-label": "Discontinued",
   "categories-label": "Categories",
   "starter-label": "Starter",
   "standard-label": "Standard",

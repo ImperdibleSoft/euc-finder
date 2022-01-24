@@ -10,6 +10,7 @@ import { filterWheels, resetWheelFilters } from '../../../store/actions';
 import { getBrands, getPricesConfig, getWheelFilters } from '../../../store/selectors';
 import {
   AntiSpin,
+  Availability,
   BrandId,
   Category,
   Color,
@@ -38,6 +39,20 @@ const useFilters = () => {
     const name = event.target.name as keyof WheelFilters;
     const { value } = event.target;
     handleFilterBy(name as keyof WheelFilters, value);
+  };
+
+  const handleChangeAvailability = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const name = event.target.name as Availability;
+    const value = event.target.checked;
+
+    let enabledAvailabilities = [...filters.availability];
+    if (!value) {
+      enabledAvailabilities = [...filters.availability].filter(b => b !== name);
+    } else if (value && !enabledAvailabilities.includes(name)) {
+      enabledAvailabilities.push(name);
+    }
+
+    handleFilterBy('availability', enabledAvailabilities);
   };
 
   const handleChangeBrandId = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -230,6 +245,7 @@ const useFilters = () => {
     filters,
     handleChange,
     handleChangeAntispin,
+    handleChangeAvailability,
     handleChangeBrandId,
     handleChangeCategory,
     handleChangeColor,
@@ -254,6 +270,7 @@ export const useFilterFields = () => {
 
   const {
     antiSpinOptions,
+    availabilityOptions,
     brandIdOptions,
     categoryOptions,
     colorOptions,
@@ -271,6 +288,7 @@ export const useFilterFields = () => {
   const {
     handleChange,
     handleChangeAntispin,
+    handleChangeAvailability,
     handleChangeBrandId,
     handleChangeCategory,
     handleChangeColor,
@@ -289,6 +307,19 @@ export const useFilterFields = () => {
 
 
   const fields: FilterField[] = [
+    {
+      Field: CheckboxGroup,
+      icon: 'event_available',
+      label: t('availability-label'),
+      name: 'availability',
+      options: availabilityOptions.map(option => ({
+        ...option,
+        onChange: handleChangeAvailability,
+        checked: filters.availability.includes(option.name as Availability)
+      })),
+      space: true
+    },
+    
     {
       Field: CheckboxGroup,
       icon: wheelFeatureIcons.category,

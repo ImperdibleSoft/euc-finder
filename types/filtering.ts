@@ -8,7 +8,17 @@ import { InfluencerId } from './influencers';
 import { WheelSortingKeys } from './sorting';
 import { VideoCategory, Lang } from './videos';
 import { WheelFeatures, WheelId } from './wheel';
-import { AntiSpin, Category, Color, Display, Kickstand, SoundSystem, TrolleyHandle, Suspension } from './wheelFeatures';
+import {
+  AntiSpin,
+  Availability,
+  Category,
+  Color,
+  Display,
+  Kickstand,
+  SoundSystem,
+  TrolleyHandle,
+  Suspension
+} from './wheelFeatures';
 
 export interface VideoFilters {
   categories: VideoCategory[];
@@ -18,6 +28,7 @@ export interface VideoFilters {
 }
 
 export interface WheelFilters {
+  availability: Availability[];
   categories: Category[];
   brandId: BrandId[];
 

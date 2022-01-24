@@ -1,8 +1,10 @@
 import { WheelFeatures, WheelId } from './wheel';
 
-export type Category = 'starter' | 'standard' | 'high-end' | 'extreme'
+export type Availability = 'filtered' | 'announced' | 'preorder' | 'available' | 'discontinued';
 
-export type GroundClearance = number | number[]
+export type Category = 'starter' | 'standard' | 'high-end' | 'extreme';
+
+export type GroundClearance = number | number[];
 
 export enum TrolleyHandle {
   scorpion = 'scorpion',
