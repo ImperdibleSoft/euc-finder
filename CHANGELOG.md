@@ -1,5 +1,12 @@
 # euc-finder
 
+## 2.3.0
+
+### Minor Changes
+
+- Allows the user to select the desired color scheme
+- Allows the user to select custom values for the weight of each specification
+
 ## 2.2.2
 
 ### Patch Changes

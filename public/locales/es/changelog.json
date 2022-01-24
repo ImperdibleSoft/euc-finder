@@ -7,5 +7,8 @@
   "Add discounts for REV Rides store": "Añadidos descuentos para la tienda REV Rides",
   "Bugfixs in Changelog page": "Corrección de errores en la página del histórico de cambios",
 
-  "Add a new filter for the maximum rated power": "Añadido un nuevo filtro para la potencia del motor máxima"
+  "Add a new filter for the maximum rated power": "Añadido un nuevo filtro para la potencia del motor máxima",
+
+  "Allows the user to select the desired color scheme": "Permite al usuario seleccionar el esquema de colores deseado",
+  "Allows the user to select custom values for the weight of each specification": "Permite al usuario seleccionar valores personalizados para el peso de cada especificación"
 }

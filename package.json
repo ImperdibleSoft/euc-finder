@@ -1,6 +1,6 @@
 {
   "name": "euc-finder",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "displayName": "EUC Finder",
   "description": "Find the best EUC for you",
   "private": false,
