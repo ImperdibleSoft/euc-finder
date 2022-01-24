@@ -349,7 +349,19 @@ const madpackVideos: Video[] = [
     publishDate: '17/Jan/2022',
     releaseDate: '17/Jan/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=dpsf2NnNBbg',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.chatting,
+      WheelId.hero
+    ],
+    publishDate: '24/Jan/2022',
+    releaseDate: '24/Jan/2022',
+    language: 'en'
   }
+  
 ];
 
 

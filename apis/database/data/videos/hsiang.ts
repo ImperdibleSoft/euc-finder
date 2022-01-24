@@ -260,7 +260,25 @@ const hsiangVideos: Video[] = [
     publishDate: '18/Sep/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=AlJdbn6jgq4',
+    tags: [
+      InfluencerId.hsiang,
+      VideoCategory.chatting,
+      WheelId.hero,
+      WheelId.ex2,
+      WheelId.xmenHT,
+      WheelId.xmenHS,
+      WheelId.ksS20,
+      WheelId.v13
+    ],
+    publishDate: '22/Sep/2021',
+    releaseDate: '24/Dec/2021',
+    language: 'en'
   }
+
+  
 ];
 
 export default hsiangVideos;
