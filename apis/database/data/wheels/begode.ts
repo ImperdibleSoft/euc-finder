@@ -464,7 +464,7 @@ const master: Wheel = {
   sound: undefined,
   display: Display.lcd,
   suspension: Suspension.standard,
-  color: [Color.blackAndRed]
+  color: Color.blackAndRed
 };
 
 const monster: Wheel = {

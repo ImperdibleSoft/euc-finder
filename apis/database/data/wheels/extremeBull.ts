@@ -89,14 +89,16 @@ const xmenHT: Wheel = {
   sound: SoundSystem.twoPointO,
   display: Display.led,
   suspension: undefined,
-  color: Color.black
+  color: Color.blackAndYellow
 };
 
 const xmenHS: Wheel = {
   ...xmenHT,
   ...speedMotor,
   id: WheelId.xmenHS,
-  name: 'X-Men Speed'
+  name: 'X-Men Speed',
+
+  color: Color.blackAndRed
 };
 
 export const extremeBullWheels: Wheel[] = [

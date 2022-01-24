@@ -308,7 +308,7 @@ const ksS20: Wheel = {
   sound: undefined,
   display: Display.led,
   suspension: Suspension.standard,
-  color: Color.black
+  color: Color.blackAndRed
 };
 
 export const kingsongWheels = [
