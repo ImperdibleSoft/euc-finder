@@ -53,6 +53,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
               xs: '100%',
               md: `calc(100% - ${ NAV_SIDEBAR_WIDTH }px)`
             },
+            position: 'relative',
             py: 3
           } }
         >
