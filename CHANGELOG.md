@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.4.1
+
+### Patch Changes
+
+- Add availability filter
+
 ## 2.4.0
 
 ### Minor Changes
