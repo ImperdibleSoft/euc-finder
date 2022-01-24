@@ -358,6 +358,42 @@ const exnHS: Wheel = {
   name: 'EX.N Speed'
 };
 
+const hero: Wheel = {
+  ...torqueMotor,
+  id: WheelId.hero,
+  brandId: BrandId.begode,
+  name: 'Hero',
+  price: 3000,
+  availability: 'preorder',
+
+  ratedPower: 2800,
+  peakPower: 0,
+  battery: {
+    capacity: 0,
+    parallels: 0,
+    type: '',
+    wattsHour: 1800
+  },
+  range: 125,
+  voltage: 100,
+
+  diameter: 18,
+  width: 3,
+  groundClearance: [90, 170],
+  weight: 36.5,
+  trolleyHandle: TrolleyHandle.telescopic,
+  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
+  antiSpin: AntiSpin.position,
+  kickstand: Kickstand.shell,
+  headlight: 5000,
+  tailLight: true,
+  leds: false,
+  sound: SoundSystem.twoPointO,
+  display: Display.led,
+  suspension: Suspension.standard,
+  color: Color.black
+};
+
 const ex2: Wheel = {
   ...torqueMotor,
   id: WheelId.ex2,
@@ -394,40 +430,41 @@ const ex2: Wheel = {
   color: [Color.black, Color.silver]
 };
 
-const hero: Wheel = {
+const master: Wheel = {
   ...torqueMotor,
-  id: WheelId.hero,
+  id: WheelId.master,
   brandId: BrandId.begode,
-  name: 'Hero',
-  price: 3000,
-  availability: 'preorder',
+  name: 'Master',
+  price: 0,
+  availability: 'filtered',
 
-  ratedPower: 2800,
+  ratedPower: 3500,
   peakPower: 0,
+  maxSpeed: 90,
   battery: {
     capacity: 0,
     parallels: 0,
     type: '',
-    wattsHour: 1800
+    wattsHour: 2400
   },
-  range: 125,
-  voltage: 100,
+  range: 150,
+  voltage: 134,
 
-  diameter: 18,
-  width: 3,
-  groundClearance: [90, 170],
-  weight: 36.5,
+  diameter: 20,
+  width: 2.75,
+  groundClearance: [140, 220],
+  weight: 36,
   trolleyHandle: TrolleyHandle.telescopic,
   pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
-  antiSpin: AntiSpin.position,
+  antiSpin: AntiSpin.button,
   kickstand: Kickstand.shell,
-  headlight: 5000,
+  headlight: 7000,
   tailLight: true,
   leds: false,
-  sound: SoundSystem.twoPointO,
-  display: Display.led,
+  sound: undefined,
+  display: Display.lcd,
   suspension: Suspension.standard,
-  color: Color.black
+  color: [Color.blackAndRed]
 };
 
 const monster: Wheel = {
@@ -501,16 +538,17 @@ export const begodeWheels: Wheel[] = [
   mcm5,
   tesla,
   nikola,
-  rsHT,
-  rsHS,
   msx,
   msx100,
   msp,
+  rsHT,
+  rsHS,
   ex,
   exnHT,
   exnHS,
-  ex2,
   hero,
+  ex2,
+  master,
   monster,
   monsterPro
 ];

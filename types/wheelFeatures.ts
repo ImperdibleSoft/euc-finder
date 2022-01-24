@@ -64,7 +64,9 @@ export type SuspensionWeight = Record<Suspension, number>
 export enum Color {
   white = 'white',
   black = 'black',
-  silver = 'silver'
+  silver = 'silver',
+  blackAndRed = 'blackAndRed',
+  blackAndYellow = 'blackAndYellow'
 }
 
 interface IconKeys extends WheelFeatures {
