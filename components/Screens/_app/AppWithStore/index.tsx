@@ -6,7 +6,7 @@ import { setTheme } from '../../../../store/actions';
 import { getTheme } from '../../../../store/selectors';
 import { darkTheme, lightTheme } from '../../../../styles/theme';
 import { LOCAL_STORAGE_KEY } from '../../../../types';
-import { getItem, isDarkTheme, setItem } from '../../../../utils';
+import { getItem, getUserSelectedTheme, isDarkTheme, setItem } from '../../../../utils';
 import FacebookWrapper from '../../../Facebook/FacebookWrapper';
 import EucArenaApp from '../EucArenaApp';
 
@@ -15,12 +15,16 @@ const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.INITIAL_DISCLAIMER) !== '
 const AppWithStore: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const dispatch = useDispatch();
   const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer);
-  const selectedTheme = useSelector(getTheme);
-  const theme = useMemo(() => selectedTheme === 'dark' ? darkTheme : lightTheme, [selectedTheme]); 
+  const themeName = useSelector(getTheme);
+  const themeColorPalette = useMemo(() => {
+    return isDarkTheme(themeName)
+      ? darkTheme
+      : lightTheme;
+  }, [themeName]);
 
   useEffect(() => {
-    const newDark = isDarkTheme();
-    dispatch(setTheme({ theme: newDark ? 'dark' : 'light' }));
+    const theme = getUserSelectedTheme();
+    dispatch(setTheme({ theme }));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -40,7 +44,7 @@ const AppWithStore: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   };
 
   return (
-    <ThemeProvider theme={ theme }>
+    <ThemeProvider theme={ themeColorPalette }>
       <FacebookWrapper>
         <ModalsContextProvider value={ { initialDisclaimer } }>
           <EucArenaApp>

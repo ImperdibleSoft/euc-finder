@@ -21,7 +21,7 @@ const Settings: React.FC = () => {
   const dispatch = useDispatch();
   const [render, setRender] = useState(false);
   const {
-    languageField,
+    interfaceFields,
     measureUnitFields,
     activePreset,
     handleChangePreset,
@@ -81,7 +81,12 @@ const Settings: React.FC = () => {
                     { t('interface-title') }
                   </Typography>
 
-                  <Dropdown { ...languageField }/>
+                  { interfaceFields.map(field => (
+                    <Dropdown
+                      key={ field.name }
+                      { ...field }
+                    />
+                  )) }
                 </CardContent>
               </Card>
             

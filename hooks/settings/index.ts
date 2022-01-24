@@ -3,12 +3,12 @@ import { useMeasureUnits } from './measureUnits';
 import { usePresets } from './presets';
 
 export const useSettings = () => {
-  const { languageField } = useInterface();
+  const { interfaceFields } = useInterface();
   const { measureUnitFields } = useMeasureUnits();
   const { activePreset, handleChangePreset, specWeightsFields } = usePresets();
 
   return {
-    languageField,
+    interfaceFields,
     measureUnitFields,
     activePreset,
     handleChangePreset,

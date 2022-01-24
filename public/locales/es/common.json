@@ -128,6 +128,10 @@
   "safePreset-label": "Seguridad",
   "performantPreset-label": "Rendimiento",
   "customPreset-label": "Personalizado",
+  "theme-label": "Esquema de colores",
+  "auto-label": "Auto",
+  "dark-label": "Oscuro",
+  "light-label": "Claro",
 
   "sponsoredVideos-title": "Vídeos patrocinados",
   "newVideos-title": "Nuevos vídeos desde tu última visita",

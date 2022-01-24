@@ -1,4 +1,4 @@
-import { LOCAL_STORAGE_KEY } from '../types';
+import { AvailableTheme, LOCAL_STORAGE_KEY } from '../types';
 import { getItem } from './localStorage';
 
 const isDarkModeOS = () =>
@@ -7,13 +7,34 @@ const isDarkModeOS = () =>
 const getLocalStorageTheme = () =>
   getItem(LOCAL_STORAGE_KEY.SHOW_THEME);
 
-export const isDarkTheme = () => {
+export const getUserSelectedTheme = () => {
   const hardcodedTheme = getLocalStorageTheme();
 
-  if (hardcodedTheme === 'light' || hardcodedTheme === 'dark') {
-    return hardcodedTheme === 'dark';
-  }
+  switch (hardcodedTheme) {
+    case 'dark':
+      return AvailableTheme.dark;
 
-  return isDarkModeOS();
+    case 'light':
+      return AvailableTheme.light;
+
+    case 'auto':
+    default:
+      return AvailableTheme.auto;
+  }
 };
 
+export const isDarkTheme = (theme?: AvailableTheme) => {
+  const hardcodedTheme = theme ?? getUserSelectedTheme();
+
+  switch (hardcodedTheme) {
+    case AvailableTheme.dark:
+      return true;
+
+    case AvailableTheme.light:
+      return false;
+
+    case AvailableTheme.auto:
+    default:
+      return isDarkModeOS();
+  }
+};

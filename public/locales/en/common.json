@@ -128,6 +128,10 @@
   "safePreset-label": "Safety",
   "performantPreset-label": "Performance",
   "customPreset-label": "Custom",
+  "theme-label": "Color schema",
+  "auto-label": "Auto",
+  "dark-label": "Dark",
+  "light-label": "Light",
 
   "sponsoredVideos-title": "Sponsored videos",
   "newVideos-title": "New videos since your last visit",

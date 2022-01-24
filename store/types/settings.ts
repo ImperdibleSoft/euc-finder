@@ -1,4 +1,5 @@
 import {
+  AvailableTheme,
   DiameterUnits,
   GroundClearanceUnits,
   RangeUnits,
@@ -40,7 +41,7 @@ export interface SettingsState {
     preset?: SpecWeightsPreset;
     customValues: SpecWeights
   };
-  theme: 'dark' | 'light';
+  theme: AvailableTheme;
 }
 
 export interface DefaultMeasureUnitsAction {

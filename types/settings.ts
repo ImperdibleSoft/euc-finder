@@ -27,3 +27,9 @@ export enum GroundClearanceUnits {
   mm = 'mm',
   in = 'in',
 }
+
+export enum AvailableTheme {
+  auto = 'auto',
+  dark = 'dark',
+  light = 'light',
+}
