@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.4.2
+
+### Patch Changes
+
+- Add availability information to all wheels
+
 ## 2.4.1
 
 ### Patch Changes
