@@ -273,10 +273,37 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string
   }
 };
 
-export const sizes = (value?: [number, number, number], t?: TFunction<'translation'>): string => {
-  // eslint-disable-next-line no-console
-  console.log(value, t);
-  return '';
+export const sizes = (
+  value?: [number, number, number],
+  t?: TFunction<'translation'>,
+  units?: GroundClearanceUnits
+  // eslint-disable-next-line max-params
+): string => {
+  if (!value) {
+    return '-';
+  }
+
+  const [height, width, deep] = value;
+
+  if (!height && !width && !deep) {
+    return '-';
+  }
+
+  const convertedVal = [
+    getConvertedGroundClearance(height, units),
+    getConvertedGroundClearance(width, units),
+    getConvertedGroundClearance(deep, units)
+  ];
+  
+  const [convertedH, convertedW, convertedD] = convertedVal;
+  switch (units) {
+    case GroundClearanceUnits.mm:
+      return `${ convertedH } mm x ${ convertedW } mm x ${ convertedD } mm`;
+  
+    case GroundClearanceUnits.in:
+    default:
+      return `${ convertedH }'' x ${ convertedW }'' x ${ convertedD }''`;
+  }
 };
 
 export const pedals = (value?: [PedalType, PedalSurface, boolean], t?: TFunction<'translation'>): string => {
