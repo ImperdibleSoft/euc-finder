@@ -296,15 +296,19 @@ export const size = (
     getConvertedSize(width, units),
     getConvertedSize(deep, units)
   ];
+
+  const transH = t?.('height-label') ?? getTranslation('height-label');
+  const transW = t?.('width-label') ?? getTranslation('width-label');
+  const transL = t?.('long-label') ?? getTranslation('long-label');
   
   const [convertedH, convertedW, convertedD] = convertedVal;
   switch (units) {
     case SizeUnits.in:
-      return `${ convertedH }'' x ${ convertedW }'' x ${ convertedD }''`;
+      return `${ transH } ${ convertedH }'' x ${ transW } ${ convertedW }'' x ${ transL } ${ convertedD }''`;
       
     case SizeUnits.mm:
     default:
-      return `${ convertedH }mm x ${ convertedW }mm x ${ convertedD }mm`;
+      return `${ transH } ${ convertedH }mm x ${ transW } ${ convertedW }mm x ${ transL } ${ convertedD }mm`;
   }
 };
 
