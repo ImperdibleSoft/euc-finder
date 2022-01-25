@@ -21,7 +21,7 @@ export const getInitialValue = (listMainSpecs?: (keyof Wheel | undefined)[]): Wh
       headlight: listMainSpecs.some(f => f ===  'headlight'),
       tailLight: listMainSpecs.some(f => f ===  'tailLight'),
       trolleyHandle: listMainSpecs.some(f => f ===  'trolleyHandle'),
-      size: listMainSpecs.some(f => f?.includes('size')),
+      size: listMainSpecs.some(f => f === 'size'),
       pedals: listMainSpecs.some(f => f === 'pedals'),
       antiSpin: listMainSpecs.some(f => f ===  'antiSpin'),
       kickstand: listMainSpecs.some(f => f ===  'kickstand'),

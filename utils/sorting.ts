@@ -43,6 +43,15 @@ export const customisedSortBy = (key: keyof Wheel, order: Order) => (a: Wheel, b
       if (aTrolleyWeight > bTrolleyWeight) return order === 'asc' ? 1 : -1;
       return sortBy(key, order)(a, b);
 
+    case 'size':
+      const [aHeight, aWidth, aDeep] = a.size;
+      const [bHeight, bWidth, bDeep] = b.size;
+      const aSizeWeight = aHeight * aWidth * aDeep;
+      const bSizeWeight = bHeight * bWidth * bDeep;
+      if (aSizeWeight < bSizeWeight) return order === 'asc' ? -1 : 1;
+      if (aSizeWeight > bSizeWeight) return order === 'asc' ? 1 : -1;
+      return sortBy(key, order)(a, b);
+
     case 'pedals':
       const aWeight = getPedalsScore(a.pedals);
       const bWeight = getPedalsScore(b.pedals);
