@@ -273,12 +273,10 @@ const hsiangVideos: Video[] = [
       WheelId.ksS20,
       WheelId.v13
     ],
-    publishDate: '22/Sep/2021',
-    releaseDate: '24/Dec/2021',
+    publishDate: '22/Jan/2022',
+    releaseDate: '24/Jan/2022',
     language: 'en'
-  }
-
-  
+  }  
 ];
 
 export default hsiangVideos;
