@@ -156,7 +156,7 @@ export interface WheelFeatures {
   /**
    * Wheel sizes front-faced [height, width, deep]
    */
-  sizes: [number, number, number],
+  size: [number, number, number],
   /**
    * Pedals [type, surface, retentionpins]
    */

@@ -15,6 +15,7 @@ import {
   PedalType,
   RangeUnits,
   Region,
+  SizeUnits,
   SoundSystem,
   SpeedUnits,
   Suspension,
@@ -28,6 +29,7 @@ import {
   getConvertedDiameter,
   getConvertedGroundClearance,
   getConvertedRange,
+  getConvertedSize,
   getConvertedSpeed,
   getConvertedWeight
 } from './conversions';
@@ -273,10 +275,10 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string
   }
 };
 
-export const sizes = (
+export const size = (
   value?: [number, number, number],
   t?: TFunction<'translation'>,
-  units?: GroundClearanceUnits
+  units?: SizeUnits
   // eslint-disable-next-line max-params
 ): string => {
   if (!value) {
@@ -290,19 +292,19 @@ export const sizes = (
   }
 
   const convertedVal = [
-    getConvertedGroundClearance(height, units),
-    getConvertedGroundClearance(width, units),
-    getConvertedGroundClearance(deep, units)
+    getConvertedSize(height, units),
+    getConvertedSize(width, units),
+    getConvertedSize(deep, units)
   ];
   
   const [convertedH, convertedW, convertedD] = convertedVal;
   switch (units) {
-    case GroundClearanceUnits.mm:
-      return `${ convertedH } mm x ${ convertedW } mm x ${ convertedD } mm`;
-  
-    case GroundClearanceUnits.in:
-    default:
+    case SizeUnits.in:
       return `${ convertedH }'' x ${ convertedW }'' x ${ convertedD }''`;
+      
+    case SizeUnits.mm:
+    default:
+      return `${ convertedH }mm x ${ convertedW }mm x ${ convertedD }mm`;
   }
 };
 
