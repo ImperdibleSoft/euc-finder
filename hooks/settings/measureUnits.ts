@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { ChangeEvent } from 'react';
 import { TFunction, useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -5,7 +6,15 @@ import { DropdownItem, Props } from '../../components/Form/Dropdown';
 import { wheelFeatureIcons } from '../../constants';
 import { setMeasureUnit } from '../../store/actions';
 import { getMeasureUnits } from '../../store/selectors';
-import { DiameterUnits, GroundClearanceUnits, RangeUnits, SpeedUnits, WeightUnits, WidthUnits } from '../../types';
+import {
+  DiameterUnits,
+  GroundClearanceUnits,
+  RangeUnits,
+  SizeUnits,
+  SpeedUnits,
+  WeightUnits,
+  WidthUnits
+} from '../../types';
 
 const getOptions = (t: TFunction<'translation'>) => {
   const diameterOptions: DropdownItem[] = [
@@ -38,6 +47,17 @@ const getOptions = (t: TFunction<'translation'>) => {
     {
       label: t('miles'),
       value: RangeUnits.mi
+    }
+  ];
+
+  const sizeOptions: DropdownItem[] = [
+    {
+      label: t('milimeters'),
+      value: SizeUnits.mm
+    },
+    {
+      label: t('inches'),
+      value: SizeUnits.in
     }
   ];
 
@@ -78,6 +98,7 @@ const getOptions = (t: TFunction<'translation'>) => {
     diameterOptions,
     widthOptions,
     rangeOptions,
+    sizeOptions,
     speedOptions,
     weightOptions,
     groundClearanceOptions
@@ -104,6 +125,11 @@ export const useMeasureUnits = () => {
     dispatch(setMeasureUnit({ key: 'range', value }));
   };
 
+  const handleChangeSize = (event: ChangeEvent<HTMLSelectElement>) => {
+    const { value } = event.target;
+    dispatch(setMeasureUnit({ key: 'size', value }));
+  };
+
   const handleChangeSpeed = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
     dispatch(setMeasureUnit({ key: 'maxSpeed', value }));
@@ -123,6 +149,7 @@ export const useMeasureUnits = () => {
     diameterOptions,
     groundClearanceOptions,
     rangeOptions,
+    sizeOptions,
     speedOptions,
     weightOptions,
     widthOptions
@@ -160,6 +187,14 @@ export const useMeasureUnits = () => {
       onChange: handleChangeRange,
       options: rangeOptions,
       value: measureUnits.range
+    },
+    {
+      icon: wheelFeatureIcons.size,
+      label: t('size'),
+      name: 'size',
+      onChange: handleChangeSize,
+      options: sizeOptions,
+      value: measureUnits.size
     },
     {
       icon: wheelFeatureIcons.weight,
