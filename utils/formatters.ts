@@ -273,6 +273,12 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string
   }
 };
 
+export const sizes = (value?: [number, number, number], t?: TFunction<'translation'>): string => {
+  // eslint-disable-next-line no-console
+  console.log(value, t);
+  return '';
+};
+
 export const pedals = (value?: [PedalType, PedalSurface, boolean], t?: TFunction<'translation'>): string => {
   if (!value) {
     return t?.('no') ?? getTranslation('no');
