@@ -43,9 +43,9 @@ export enum LOCAL_STORAGE_KEY {
    */
   MEASUREUNIT_RANGE = 'eucFinder_rangeMeasureUnit',
   /**
-   * Store selected measure unit for Wheel's size
+   * Store selected measure unit for Wheel's dimensions
    */
-  MEASUREUNIT_SIZE = 'eucFinder_sizeMeasureUnit',
+  MEASUREUNIT_DIMENSIONS = 'eucFinder_dimensionsMeasureUnit',
   /**
    * Store selected measure unit for Weight
    */

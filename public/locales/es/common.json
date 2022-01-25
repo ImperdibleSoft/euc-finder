@@ -187,7 +187,7 @@
   "groundClearance": "Distancia al suelo",
   "weight": "Peso",
   "trolleyHandle": "Trolley",
-  "size": "Tamaño",
+  "dimensions": "Tamaño",
   "height-label": "(Alto)",
   "width-label": "(Ancho)",
   "long-label": "(Largo)",

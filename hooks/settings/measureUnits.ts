@@ -10,7 +10,7 @@ import {
   DiameterUnits,
   GroundClearanceUnits,
   RangeUnits,
-  SizeUnits,
+  DimensionsUnits,
   SpeedUnits,
   WeightUnits,
   WidthUnits
@@ -50,14 +50,14 @@ const getOptions = (t: TFunction<'translation'>) => {
     }
   ];
 
-  const sizeOptions: DropdownItem[] = [
+  const dimensionsOptions: DropdownItem[] = [
     {
       label: t('milimeters'),
-      value: SizeUnits.mm
+      value: DimensionsUnits.mm
     },
     {
       label: t('inches'),
-      value: SizeUnits.in
+      value: DimensionsUnits.in
     }
   ];
 
@@ -98,7 +98,7 @@ const getOptions = (t: TFunction<'translation'>) => {
     diameterOptions,
     widthOptions,
     rangeOptions,
-    sizeOptions,
+    dimensionsOptions,
     speedOptions,
     weightOptions,
     groundClearanceOptions
@@ -125,9 +125,9 @@ export const useMeasureUnits = () => {
     dispatch(setMeasureUnit({ key: 'range', value }));
   };
 
-  const handleChangeSize = (event: ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeDimensions = (event: ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
-    dispatch(setMeasureUnit({ key: 'size', value }));
+    dispatch(setMeasureUnit({ key: 'dimensions', value }));
   };
 
   const handleChangeSpeed = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -149,7 +149,7 @@ export const useMeasureUnits = () => {
     diameterOptions,
     groundClearanceOptions,
     rangeOptions,
-    sizeOptions,
+    dimensionsOptions,
     speedOptions,
     weightOptions,
     widthOptions
@@ -189,12 +189,12 @@ export const useMeasureUnits = () => {
       value: measureUnits.range
     },
     {
-      icon: wheelFeatureIcons.size,
-      label: t('size'),
-      name: 'size',
-      onChange: handleChangeSize,
-      options: sizeOptions,
-      value: measureUnits.size
+      icon: wheelFeatureIcons.dimensions,
+      label: t('dimensions'),
+      name: 'dimensions',
+      onChange: handleChangeDimensions,
+      options: dimensionsOptions,
+      value: measureUnits.dimensions
     },
     {
       icon: wheelFeatureIcons.weight,

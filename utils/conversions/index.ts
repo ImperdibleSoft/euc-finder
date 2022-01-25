@@ -1,4 +1,4 @@
-import { DiameterUnits, GroundClearanceUnits, RangeUnits, SizeUnits, SpeedUnits, WeightUnits } from '../../types';
+import { DiameterUnits, GroundClearanceUnits, RangeUnits, DimensionsUnits, SpeedUnits, WeightUnits } from '../../types';
 import { toDecimals } from '../range';
 
 export * from './currencies';
@@ -66,12 +66,12 @@ export const getConvertedWeight = (value: number, units?: WeightUnits): string =
   }
 };
 
-export const getConvertedSize = (value: number, units?: SizeUnits): string => {
+export const getConvertedSize = (value: number, units?: DimensionsUnits): string => {
   switch (units) {
-    case SizeUnits.in:
+    case DimensionsUnits.in:
       return toDecimals(milimetersToInches(value), 1);
 
-    case SizeUnits.mm:
+    case DimensionsUnits.mm:
     default:
       return toDecimals(value, 0);
   }

@@ -15,7 +15,7 @@ import {
   PedalType,
   RangeUnits,
   Region,
-  SizeUnits,
+  DimensionsUnits,
   SoundSystem,
   SpeedUnits,
   Suspension,
@@ -275,10 +275,10 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string
   }
 };
 
-export const size = (
+export const dimensions = (
   value?: [number, number, number],
   t?: TFunction<'translation'>,
-  units?: SizeUnits
+  units?: DimensionsUnits
   // eslint-disable-next-line max-params
 ): string => {
   if (!value) {
@@ -303,10 +303,10 @@ export const size = (
   
   const [convertedH, convertedW, convertedD] = convertedVal;
   switch (units) {
-    case SizeUnits.in:
+    case DimensionsUnits.in:
       return `${ transH } ${ convertedH }'' x ${ transW } ${ convertedW }'' x ${ transL } ${ convertedD }''`;
       
-    case SizeUnits.mm:
+    case DimensionsUnits.mm:
     default:
       return `${ transH } ${ convertedH }mm x ${ transW } ${ convertedW }mm x ${ transL } ${ convertedD }mm`;
   }

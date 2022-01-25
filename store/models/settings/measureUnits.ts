@@ -3,7 +3,7 @@ import {
   GroundClearanceUnits,
   LOCAL_STORAGE_KEY,
   RangeUnits,
-  SizeUnits,
+  DimensionsUnits,
   SpeedUnits,
   WeightUnits,
   WidthUnits
@@ -16,7 +16,7 @@ export const getMeasureUnitsDefaultValue = (): MeasureUnits => ({
   groundClearance: GroundClearanceUnits.mm,
   maxSpeed: SpeedUnits.kmh,
   range: RangeUnits.km,
-  size: SizeUnits.mm,
+  dimensions: DimensionsUnits.mm,
   weight: WeightUnits.kg,
   width: WidthUnits.in
 });
@@ -36,9 +36,9 @@ export const getInitialMeasureUnits = (): MeasureUnits => ({
   range:
     getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_RANGE) as RangeUnits
     || measureUnitsDefaultValue.range,
-  size:
-    getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_SIZE) as SizeUnits
-    || measureUnitsDefaultValue.size,
+  dimensions:
+    getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_DIMENSIONS) as DimensionsUnits
+    || measureUnitsDefaultValue.dimensions,
   weight:
     getItem(LOCAL_STORAGE_KEY.MEASUREUNIT_WEIGHT) as WeightUnits
     || measureUnitsDefaultValue.weight,

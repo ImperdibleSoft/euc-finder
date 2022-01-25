@@ -28,7 +28,7 @@ export enum GroundClearanceUnits {
   in = 'in',
 }
 
-export enum SizeUnits {
+export enum DimensionsUnits {
   mm = 'mm',
   in = 'in',
 }

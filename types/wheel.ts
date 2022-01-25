@@ -154,9 +154,9 @@ export interface WheelFeatures {
    */
   antiSpin: undefined | AntiSpin
   /**
-   * Wheel sizes front-faced [height, width, deep]
+   * Wheel dimensions front-faced [height, width, deep]
    */
-  size: [number, number, number],
+  dimensions: [number, number, number],
   /**
    * Pedals [type, surface, retentionpins]
    */
