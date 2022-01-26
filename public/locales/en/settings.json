@@ -1,0 +1,40 @@
+{
+  "settings-title": "Settings",
+
+  "interface-title": "User interface",
+  
+  "language-label": "Language",
+  "en-label": "English",
+  "es-label": "Español",
+  
+  "theme-label": "Color schema",
+  "auto-label": "Auto",
+  "dark-label": "Dark",
+  "light-label": "Light",
+
+  "measureUnits-title": "Measure units",
+  "centimeters-label": "Centimeters",
+  "inches-label": "Inches",
+  "kilometers-label": "Kilometers",
+  "miles-label": "Miles",
+  "perHour-label": "per hour",
+  "kilograms-label": "Kilograms",
+  "pounds-label": "Pounds",
+  "milimeters-label": "Milimeters",
+  
+  "default-btn": "Default",
+  "cancel-btn": "Cancel",
+  "save-btn": "Save",
+  
+  "settingsSpecWeights-msg": "Here you can modify your priorities regarding the EUCs features. These changes will change how each EUC is scored in the comparator.",
+  "settingsSpecWeightsPresets-msg": "You can choose one of the predefined settings that best suits your preferences.",
+  "settingsSpecWeightsCustom-msg": "If none of the presets suit your preferences, here you can meticulously customize how each feature is scored.",
+
+  "compare-title": "Comparator",
+  
+  "genericPreset-label": "Generic",
+  "comfyPreset-label": "Comfort",
+  "safePreset-label": "Safety",
+  "performantPreset-label": "Performance",
+  "customPreset-label": "Custom"
+}

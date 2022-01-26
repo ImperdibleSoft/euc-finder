@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import { ChangeEvent } from 'react';
-import { TFunction, useTranslation } from 'react-i18next';
+import { TFunction } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { DropdownItem, Props } from '../../components/Form/Dropdown';
 import { wheelFeatureIcons } from '../../constants';
@@ -19,77 +19,77 @@ import {
 const getOptions = (t: TFunction<'translation'>) => {
   const diameterOptions: DropdownItem[] = [
     {
-      label: t('centimeters'),
+      label: t('centimeters-label'),
       value: DiameterUnits.cm
     },
     {
-      label: t('inches'),
+      label: t('inches-label'),
       value: DiameterUnits.in
     }
   ];
 
   const widthOptions: DropdownItem[] = [
     {
-      label: t('centimeters'),
+      label: t('centimeters-label'),
       value: WidthUnits.cm
     },
     {
-      label: t('inches'),
+      label: t('inches-label'),
       value: WidthUnits.in
     }
   ];
 
   const rangeOptions: DropdownItem[] = [
     {
-      label: t('kilometers'),
+      label: t('kilometers-label'),
       value: RangeUnits.km
     },
     {
-      label: t('miles'),
+      label: t('miles-label'),
       value: RangeUnits.mi
     }
   ];
 
   const dimensionsOptions: DropdownItem[] = [
     {
-      label: t('milimeters'),
+      label: t('milimeters-label'),
       value: DimensionsUnits.mm
     },
     {
-      label: t('inches'),
+      label: t('inches-label'),
       value: DimensionsUnits.in
     }
   ];
 
   const speedOptions: DropdownItem[] = [
     {
-      label: `${ t('kilometers') } ${ t('perHour') }`,
+      label: `${ t('kilometers-label') } ${ t('perHour-label') }`,
       value: SpeedUnits.kmh
     },
     {
-      label: `${ t('miles') } ${ t('perHour') }`,
+      label: `${ t('miles-label') } ${ t('perHour-label') }`,
       value: SpeedUnits.mih
     }
   ];
 
   const weightOptions: DropdownItem[] = [
     {
-      label: t('kilograms'),
+      label: t('kilograms-label'),
       value: WeightUnits.kg
     },
     {
-      label: t('pounds'),
+      label: t('pounds-label'),
       value: WeightUnits.lb
     }
   ];
 
   const groundClearanceOptions: DropdownItem[] = [
     {
-      label: t('milimeters'),
+      label: t('milimeters-label'),
       value: GroundClearanceUnits.mm
     },
     {
-      label: t('inches'),
+      label: t('inches-label'),
       value: GroundClearanceUnits.in
     }
   ];
@@ -105,8 +105,7 @@ const getOptions = (t: TFunction<'translation'>) => {
   };
 };
 
-export const useMeasureUnits = () => {
-  const { t } = useTranslation();
+export const useMeasureUnits = (t: TFunction<'translation'>) => {
   const dispatch = useDispatch();
   const measureUnits = useSelector(getMeasureUnits);
 

@@ -1,6 +1,7 @@
+import { i18n } from 'i18next';
 import { useRouter } from 'next/router';
 import { ChangeEvent, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { TFunction } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Props } from '../../components/Form/Dropdown';
 import { setTheme } from '../../store/actions';
@@ -8,11 +9,10 @@ import { getTheme } from '../../store/selectors';
 import { AvailableTheme, LOCAL_STORAGE_KEY } from '../../types';
 import { setItem } from '../../utils';
 
-export const useInterface = () => {
-  const { t, i18n } = useTranslation();
+export const useInterface = (t: TFunction<'translation'>, i18nFunc: i18n) => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const [language, setLanguage] = useState(i18n.language);
+  const [language, setLanguage] = useState(i18nFunc.language);
   const selectedTheme = useSelector(getTheme);
 
   const handleChangeLanguage = (event: ChangeEvent<HTMLSelectElement>) => {
