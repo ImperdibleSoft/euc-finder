@@ -1,0 +1,22 @@
+{
+  "compare-title": "Comparador",
+  
+  "settings-btn": "Opciones",
+  "reset-btn": "Reiniciar",
+
+  "addWheel-label": "Añadir rueda",
+  
+  "noWheelsToCompare-title": "",
+  "noWheelsToCompare-msg": "No hay suficientes ruedas para comparar.",
+  "addWheelsToCompare-msg": "Por favor, añade más ruedas a tu comparación para ver los resultados.",
+
+  "score": "Puntuación",
+  "maxSpecValue-msg": "Prioridad: {{value}}/20",
+  "unusedSpec-msg": "Esto no se usa para los cálculos",
+
+  "details-btn": "Detalles",
+  "remove-label": "Quitar",
+  
+  "higherBetter-msg": "Cuanto más alto, mejor",
+  "lowerBetter-msg": "Cuanto más bajo, mejor"
+}

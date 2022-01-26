@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { useCommonTranslations, useVideosTranslations } from '../../translations';
 import MultiSelect from '../../../components/Form/MultiSelect';
 import { wheelFeatureIcons } from '../../../constants';
 import { filterVideos, resetVideoFilters } from '../../../store/actions';
@@ -46,7 +46,8 @@ const useFilters = () => {
 };
 
 export const useVideoFilterFields = () => {
-  const { t } = useTranslation();
+  const common = useCommonTranslations();
+  const { t } = useVideosTranslations();
   const brands = useSelector(getBrands);
   const influencers = useSelector(getInfluencers);
   const wheels = useSelector(getWheels);
@@ -56,7 +57,7 @@ export const useVideoFilterFields = () => {
     influencersOptions,
     languageOptions,
     wheelsOptions
-  } = getDropdownOptions({ brands, influencers, wheels }, t);
+  } = getDropdownOptions({ brands, influencers, wheels }, common.t, t);
 
   const {
     handleChangeCategories,
@@ -97,7 +98,7 @@ export const useVideoFilterFields = () => {
       allOptionsLabel: t('allElements-label', { element: t('influencers') }),
       Field: MultiSelect,
       icon: 'person',
-      label: t('influencers'),
+      label: t('influencers-label'),
       name: 'influencers',
       onChange: handleChangeInfluencers,
       options: influencersOptions,
@@ -109,7 +110,7 @@ export const useVideoFilterFields = () => {
       allOptionsLabel: t('allElements-label', { element: t('eucs') }),
       Field: MultiSelect,
       icon: wheelFeatureIcons.diameter,
-      label: t('eucs'),
+      label: t('eucs-label'),
       name: 'wheels',
       onChange: handleChangeWheels,
       options: wheelsOptions,

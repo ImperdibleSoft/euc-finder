@@ -1,13 +1,11 @@
 import { Box, Container, Grid, Typography } from '@mui/material';
-import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useContainerMargins } from '../../hooks';
-import { getBrands, getWheelApps, getWheelById } from '../../store/selectors';
-import { AvailablePlatforms, WheelId } from '../../types';
-import { formatWheelName, isAndroid, isIOS } from '../../utils';
-import Dropdown from '../Form/Dropdown';
+import { useContainerMargins, useWheelsDetailsTranslations } from '../../../../hooks';
+import { getBrands, getWheelApps } from '../../../../store/selectors';
+import { AvailablePlatforms, Wheel } from '../../../../types';
+import { formatWheelName, isAndroid, isIOS } from '../../../../utils';
+import Dropdown from '../../../Form/Dropdown';
 import AppCard from './AppCard';
 
 const getDefaultPlatform = (): AvailablePlatforms => {
@@ -22,15 +20,15 @@ const getDefaultPlatform = (): AvailablePlatforms => {
   return '';
 };
 
-const Apps: React.FC = () => {
-  const { t } = useTranslation();
-  const router = useRouter();
-  const id = router.query.id as WheelId;
+interface Props {
+  wheel: Wheel;
+}
+
+const Apps: React.FC<Props> = ({ wheel }) => {
+  const { t } = useWheelsDetailsTranslations();
   const brands = useSelector(getBrands);
-  const wheel = useSelector(getWheelById(id));
-  const wheelName = wheel ? formatWheelName(wheel, brands) : '';
-  const translationToken = wheel ? 'officialWheelApps' : 'officialApps';
-  const compatibleApps = useSelector(getWheelApps(wheel?.brandId));
+  const wheelName = formatWheelName(wheel, brands);
+  const compatibleApps = useSelector(getWheelApps(wheel.brandId));
   const { container, firstItem } = useContainerMargins();
   const [platform, setPlatform] = useState<AvailablePlatforms>('');
 
@@ -74,11 +72,11 @@ const Apps: React.FC = () => {
               value: ''
             },
             {
-              label: t('android'),
+              label: t('android-label'),
               value: 'android'
             },
             {
-              label: t('ios'),
+              label: t('ios-label'),
               value: 'iOS'
             }
           ] }
@@ -90,7 +88,7 @@ const Apps: React.FC = () => {
       { !!official.length && (
         <>
           <Typography variant="h6" component="div" sx={ { mb: 2, mt: 2 } }>
-            { t(`${ translationToken }-title`, { wheelName }) }
+            { t(`officialWheelApps-title`, { wheelName }) }
           </Typography>
 
           <Grid container spacing={ 2 }>

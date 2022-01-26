@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useCommonTranslations, useWheelsListTranslations } from '../../../../hooks';
 import { WheelsTableColumns } from '../../../../types';
 import Collapsable from '../../../Collapsable';
 import Checkbox from '../../../Form/Checkbox';
@@ -20,10 +20,11 @@ const Columns: React.FC<Props> = ({
   handleReset,
   handleShow
 }) => {
-  const { t } = useTranslation();
+  const common = useCommonTranslations();
+  const { t } = useWheelsListTranslations();
 
   const renderColumnCheckbox = (key: string) => {
-    const label = t(key);
+    const label = common.t(key);
     const value = columns[key as keyof WheelsTableColumns];
 
     const action = value ? handleHide : handleShow;
@@ -58,7 +59,7 @@ const Columns: React.FC<Props> = ({
             type="button"
             sx={ { justifySelf: 'flex-end' } }
           >
-            { t('reset-btn') }
+            { t('resetColumns-btn') }
           </Button>
         </form>
       </Collapsable>

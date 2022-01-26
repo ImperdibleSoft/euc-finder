@@ -7,15 +7,15 @@ import {
   DialogTitle
 } from '@mui/material';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import TextToCopy from '../../components/TextToCopy';
 import { APP_NAME } from '../../constants';
+import { useWheelsDetailsTranslations } from '../translations';
 
 interface Props {
   callback: () => void;
   copyCallback?: () => void;
   code?: string;
-  discount?: number;
+  discount?: string;
   storeName: string;
 }
 
@@ -28,7 +28,7 @@ interface Props {
  * applied
  */
 export const useConfirmationModal = ({ callback, code, copyCallback, discount, storeName }: Props) => {
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -70,8 +70,8 @@ export const useConfirmationModal = ({ callback, code, copyCallback, discount, s
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={ handleDismiss }>{ t('confirmationStay-label') }</Button>
-          <Button onClick={ handleConfirm } variant="contained">{ t('confirmationVisit-label') }</Button>
+          <Button onClick={ handleDismiss }>{ t('confirmationStay-btn') }</Button>
+          <Button onClick={ handleConfirm } variant="contained">{ t('confirmationVisit-btn') }</Button>
         </DialogActions>
       </Dialog>
     );

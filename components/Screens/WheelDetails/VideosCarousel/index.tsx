@@ -1,5 +1,5 @@
 import { Button, Card, CardActions, Grid, Typography } from '@mui/material';
-import { useTranslation } from 'react-i18next';
+import { useCommonTranslations, useWheelsDetailsTranslations } from '../../../../hooks';
 import { Video } from '../../../../types';
 import Carousel from '../../../Carousel';
 import VideoCard from '../../Videos/VideoCard';
@@ -10,13 +10,14 @@ interface Props {
   videos: Video[]
 }
 
-const VideosCarousel: React.FC<Props> = ({ handleWatchMoreVideos, totalCount, videos }) =>{
-  const { t } = useTranslation();
+const VideosCarousel: React.FC<Props> = ({ handleWatchMoreVideos, totalCount, videos }) => {
+  const common = useCommonTranslations();
+  const { t } = useWheelsDetailsTranslations();
   
   return (
     <Grid item xs={ 12 } sm={ 12 } md={ 12 }>
       <Typography sx={ { mt: 4, mb: 2 } } variant="h6" component="div">
-        { t('videos') }
+        { t('videos-title') }
       </Typography>
 
       <Card
@@ -24,7 +25,7 @@ const VideosCarousel: React.FC<Props> = ({ handleWatchMoreVideos, totalCount, vi
       >
         <Carousel
           counter={ totalCount }
-          entityName={ t(`videos`) }    
+          entityName={ common.t(`videos`) }    
           transparent              
         >
           { ({ Item }) => videos.map(video => (
@@ -36,7 +37,7 @@ const VideosCarousel: React.FC<Props> = ({ handleWatchMoreVideos, totalCount, vi
 
         <CardActions sx={ { justifyContent: 'flex-end', pb: 2, pr: 2, pt: 0, width: '100%' } }>
           <Button onClick={ handleWatchMoreVideos } variant="outlined">
-            { t('watchVideos-label') }
+            { t('watchVideos-btn') }
           </Button>
         </CardActions>
       </Card>

@@ -1,5 +1,5 @@
 import { ChangeEvent, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
+import { TFunction } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Props as SliderProps } from '../../components/Form/Slider';
 import { wheelFeatureIcons } from '../../constants';
@@ -10,8 +10,7 @@ import { LOCAL_STORAGE_KEY } from '../../types';
 import { setItem } from '../../utils';
 
 // eslint-disable-next-line max-lines-per-function
-export const usePresets = () => {
-  const { t } = useTranslation();
+export const usePresets = (t: TFunction<'translation'>) => {
   const dispatch = useDispatch();
   const showPrices = useSelector(getPricesConfig);
   const activePreset = useSelector(getSpecWeightsActivePreset);

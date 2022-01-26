@@ -1,7 +1,7 @@
 import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { wheelFeatureIcons } from '../../../../constants';
+import { useCommonTranslations, useWheelsListTranslations } from '../../../../hooks';
 import { WheelFeatureIcons, WheelId, WheelSorting, WheelSortingKeys, WheelWithPicture } from '../../../../types';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
 import WheelCard from '../WheelCard';
@@ -23,7 +23,8 @@ const GridView: React.FC<Props> = ({
   showPrice,
   sorting
 }) => {
-  const { t } = useTranslation();
+  const common = useCommonTranslations();
+  const { t } = useWheelsListTranslations();
 
   const [sampleWheel] = records ?? [];
   const sortCriteriaOptions = Object
@@ -35,7 +36,7 @@ const GridView: React.FC<Props> = ({
     })
     .map((key): DropdownItem => ({
       icon: wheelFeatureIcons[key as keyof WheelFeatureIcons],
-      label: t(key),
+      label: common.t(key),
       value: key
     }));
 

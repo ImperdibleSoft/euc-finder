@@ -1,0 +1,28 @@
+{
+  "filters-title": "Filters",
+  "columns-title": "Columns",
+
+  "compare-btn": "Compare",
+  "compareAll-btn": "Compare {{wheels}} EUCs",
+
+  "wheelAddedToComparator-msg": "{{wheel}} has been added to the Comparator.",
+  "checkResults-btn": "Check results",
+
+  "noWheels-title": "",
+  "noWheels-msg": "There are no EUCs that match your search criterias.",
+  
+  "changeFilters-msg": "Relax or reset the filters to find some options that is close to what you are looking for.",
+  "changeFilters-btn": "Change filters",
+  "resetFilters-btn": "Reset filters",
+
+  "resetColumns-btn": "Reset columns",
+
+  "unicycles-label": "{{quantity}} EUCs",
+
+  "ascending-label": "Ascending",
+  "descending-label": "Descending",
+  "sortBy-label": "Sort by",
+  "order-label": "Order",
+  
+  "details-btn": "Details"
+}

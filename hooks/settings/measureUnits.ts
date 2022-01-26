@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 import { ChangeEvent } from 'react';
-import { TFunction, useTranslation } from 'react-i18next';
+import { TFunction } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { DropdownItem, Props } from '../../components/Form/Dropdown';
 import { wheelFeatureIcons } from '../../constants';
@@ -19,77 +19,77 @@ import {
 const getOptions = (t: TFunction<'translation'>) => {
   const diameterOptions: DropdownItem[] = [
     {
-      label: t('centimeters'),
+      label: t('centimeters-label'),
       value: DiameterUnits.cm
     },
     {
-      label: t('inches'),
+      label: t('inches-label'),
       value: DiameterUnits.in
     }
   ];
 
   const widthOptions: DropdownItem[] = [
     {
-      label: t('centimeters'),
+      label: t('centimeters-label'),
       value: WidthUnits.cm
     },
     {
-      label: t('inches'),
+      label: t('inches-label'),
       value: WidthUnits.in
     }
   ];
 
   const rangeOptions: DropdownItem[] = [
     {
-      label: t('kilometers'),
+      label: t('kilometers-label'),
       value: RangeUnits.km
     },
     {
-      label: t('miles'),
+      label: t('miles-label'),
       value: RangeUnits.mi
     }
   ];
 
   const dimensionsOptions: DropdownItem[] = [
     {
-      label: t('milimeters'),
+      label: t('milimeters-label'),
       value: DimensionsUnits.mm
     },
     {
-      label: t('inches'),
+      label: t('inches-label'),
       value: DimensionsUnits.in
     }
   ];
 
   const speedOptions: DropdownItem[] = [
     {
-      label: `${ t('kilometers') } ${ t('perHour') }`,
+      label: `${ t('kilometers-label') } ${ t('perHour-label') }`,
       value: SpeedUnits.kmh
     },
     {
-      label: `${ t('miles') } ${ t('perHour') }`,
+      label: `${ t('miles-label') } ${ t('perHour-label') }`,
       value: SpeedUnits.mih
     }
   ];
 
   const weightOptions: DropdownItem[] = [
     {
-      label: t('kilograms'),
+      label: t('kilograms-label'),
       value: WeightUnits.kg
     },
     {
-      label: t('pounds'),
+      label: t('pounds-label'),
       value: WeightUnits.lb
     }
   ];
 
   const groundClearanceOptions: DropdownItem[] = [
     {
-      label: t('milimeters'),
+      label: t('milimeters-label'),
       value: GroundClearanceUnits.mm
     },
     {
-      label: t('inches'),
+      label: t('inches-label'),
       value: GroundClearanceUnits.in
     }
   ];
@@ -105,8 +105,7 @@ const getOptions = (t: TFunction<'translation'>) => {
   };
 };
 
-export const useMeasureUnits = () => {
-  const { t } = useTranslation();
+export const useMeasureUnits = (t: TFunction<'translation'>, commonT: TFunction<'translation'>) => {
   const dispatch = useDispatch();
   const measureUnits = useSelector(getMeasureUnits);
 
@@ -158,7 +157,7 @@ export const useMeasureUnits = () => {
   const measureUnitFields: Props[] = [
     {
       icon: wheelFeatureIcons.diameter,
-      label: t('diameter'),
+      label: commonT('diameter'),
       name: 'diameter',
       onChange: handleChangeDiameter,
       options: diameterOptions,
@@ -166,7 +165,7 @@ export const useMeasureUnits = () => {
     },
     {
       icon: wheelFeatureIcons.width,
-      label: t('width'),
+      label: commonT('width'),
       name: 'width',
       onChange: handleChangeWidth,
       options: widthOptions,
@@ -174,7 +173,7 @@ export const useMeasureUnits = () => {
     },
     {
       icon: wheelFeatureIcons.maxSpeed,
-      label: t('maxSpeed'),
+      label: commonT('maxSpeed'),
       name: 'maxSpeed',
       onChange: handleChangeSpeed,
       options: speedOptions,
@@ -182,7 +181,7 @@ export const useMeasureUnits = () => {
     },
     {
       icon: wheelFeatureIcons.range,
-      label: t('range'),
+      label: commonT('range'),
       name: 'range',
       onChange: handleChangeRange,
       options: rangeOptions,
@@ -190,7 +189,7 @@ export const useMeasureUnits = () => {
     },
     {
       icon: wheelFeatureIcons.dimensions,
-      label: t('dimensions'),
+      label: commonT('dimensions'),
       name: 'dimensions',
       onChange: handleChangeDimensions,
       options: dimensionsOptions,
@@ -198,7 +197,7 @@ export const useMeasureUnits = () => {
     },
     {
       icon: wheelFeatureIcons.weight,
-      label: t('weight'),
+      label: commonT('weight'),
       name: 'weight',
       onChange: handleChangeWeight,
       options: weightOptions,
@@ -206,7 +205,7 @@ export const useMeasureUnits = () => {
     },
     {
       icon: wheelFeatureIcons.groundClearance,
-      label: t('groundClearance'),
+      label: commonT('groundClearance'),
       name: 'groundClearance',
       onChange: handleChangeGroundClearance,
       options: groundClearanceOptions,

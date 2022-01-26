@@ -1,12 +1,12 @@
 import { Box, Card, CardContent, Container, Divider, Typography } from '@mui/material';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
-import { TFunction, useTranslation } from 'react-i18next';
+import { TFunction } from 'react-i18next';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import nextI18nextConfig from '../../next-i18next.config';
-import { StaticProps } from '../../utils-server';
+import { useChangelogTranslations } from '../../hooks';
+import { TranslationFile } from '../../types';
+import { getTranslationsFromFiles } from '../../utils-server';
 import { getChangelogFromMarkdown, Version } from '../../utils/changelog';
 
 const changeTypes = ['major', 'minor', 'patch'] as (keyof Version)[];
@@ -26,8 +26,7 @@ const getChangeTypeTitle = (changeType: keyof Version, t: TFunction<'translate'>
 };
 
 const Changelog: React.FC = () => {
-  const { t } = useTranslation();
-  const { t: changesT } = useTranslation('changelog');
+  const { t } = useChangelogTranslations();
   
   const versions = getChangelogFromMarkdown();
 
@@ -76,7 +75,7 @@ const Changelog: React.FC = () => {
       
                         <ul>
                           { (version[key] as string[]).map(change => (
-                            <li key={ change }>{ changesT(change) }.</li>
+                            <li key={ change }>{ t(change) }.</li>
                           )) }
                         </ul>
       
@@ -98,7 +97,4 @@ const Changelog: React.FC = () => {
 
 export default Changelog;
 
-export async function getStaticProps({ locale }: StaticProps) {
-  const translations = await serverSideTranslations(locale, ['common', 'changelog'], nextI18nextConfig);
-  return { props: { ...translations } };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.changelog], 'none');

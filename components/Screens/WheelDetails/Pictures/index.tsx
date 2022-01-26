@@ -1,7 +1,7 @@
 import { Card, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useCommonTranslations } from '../../../../hooks';
 import PictureDetails from '../PictureDetails';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelName }) => {
-  const { t } = useTranslation();
+  const { t } = useCommonTranslations();
 
   if (!pictures?.length) {
     return null;

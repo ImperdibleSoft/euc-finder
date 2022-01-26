@@ -1,6 +1,6 @@
 import { Alert, Box, Button, FormControl, Icon, Input, Snackbar } from '@mui/material';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useCommonTranslations } from '../../hooks';
 
 type CopyState = 'idle' | 'success' | 'error'
 
@@ -10,7 +10,7 @@ interface Props {
 }
 
 const TextToCopy: React.FC<Props> = ({ callback, text }) => {
-  const { t } = useTranslation();
+  const { t } = useCommonTranslations();
   const canCopy = !!navigator?.clipboard?.writeText;
   const [copied, setCopied] = useState<CopyState>('idle');
 
@@ -48,7 +48,7 @@ const TextToCopy: React.FC<Props> = ({ callback, text }) => {
             variant="outlined"
           >
             <Icon sx={ { mr: 1 } }>content_copy</Icon>
-            { t('copy-label') }
+            { t('copy-btn') }
           </Button>
         ) }
       </FormControl>

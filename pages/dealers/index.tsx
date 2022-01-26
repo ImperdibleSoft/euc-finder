@@ -1,15 +1,15 @@
 import { Grid, Typography } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import DealerCard from '../../components/Screens/Dealers/DealerCard';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
+import DealerCard from '../../components/Screens/Dealers/DealerCard';
 import { APP_NAME, KEYWORDS } from '../../constants';
+import { useCommonTranslations, useDealersTranslations } from '../../hooks';
 import { getDealersByRegion, getRegion } from '../../store/selectors';
-import { Region } from '../../types';
+import { Region, TranslationFile } from '../../types';
 import { getDealersFromMarkdown } from '../../utils/dealers';
-import { getStaticProps } from '../../utils-server';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 const getRegionId = (regionCode: Region) => {
   switch (regionCode) {
@@ -26,14 +26,15 @@ const getRegionId = (regionCode: Region) => {
 };
 
 const Dealers: React.FC = () => {
-  const { t } = useTranslation();
+  const common = useCommonTranslations();
+  const { t } = useDealersTranslations();
   const regionCode = useSelector(getRegion);
   const dealers = useSelector(getDealersByRegion(regionCode));
   const regionId = getRegionId(regionCode);
 
   const regions = getDealersFromMarkdown();
   const region = regions.find(r => r.name === regionId);
-  const regionName = t(`${ regionId }-label`);
+  const regionName = common.t(`${ regionId }-label`);
 
   const pageTitle = t('dealers-title');
   const pageDescription = t('dealers1-msg', { appName: APP_NAME, region: regionName });
@@ -108,4 +109,4 @@ const Dealers: React.FC = () => {
 
 export default Dealers;
 
-export { getStaticProps };
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.dealers], 'none');

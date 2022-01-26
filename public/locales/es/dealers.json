@@ -1,0 +1,25 @@
+{
+  "dealers-title": "Tiendas",
+
+  "dealers1-msg": "Uno de los valores agregados de {{appName}} es que recopilamos enlaces de compra de las mayores tiendas en {{region}}, de forma que puedes acceder a una lista de tiendas seguras en tu región.",
+  "dealers2-msg": "Además, para facilitarte el trabajo, nuestra aplicación recopila los precios y disponibilidad de éstas tiendas para ofrecerte la mejor compra posible.",
+  
+  "noDealers-msg": "No tenemos acuerdos ni tiendas en {{region}}",
+  
+  "discounts-title": "Descuentos",
+  "discounts1-msg": "Por si no fuera suficiente, tenemos acuerdos con algunas de estas tiendas para ofrecerte descuentos si utilizas nuestros códigos.",
+  "discounts2-msg": "Éstos códigos se te mostrarán siempre que estén disponibles, cuando hagas click en el botón de <Comprar> de cada tienda.",
+  
+  "website-label": "Página web",
+  "dealers-storeInformation-label": "Información de la tienda",
+  "dealers-purchaseLinks-label": "Enlaces de compra obtenidos",
+  "dealers-fetchPrices-label": "Mostrar precios",
+  "dealers-negotiations-label": "Negociando descuentos",
+  "dealers-discountCode-label": "Código de descuento",
+  "dealers-available-label": "Estado del descuento",
+  
+  "✔️-label": "Conseguido",
+  "❌-label": "No conseguido",
+  "🕑-label": "En proceso",
+  "➖-label": "Sin iniciar"
+}

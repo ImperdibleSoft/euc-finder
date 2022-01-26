@@ -8,11 +8,10 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../../constants';
 import { EUC_DETAILS } from '../../../../constants/clientRoutes';
-import { useEucListInformationGroups } from '../../../../hooks';
+import { useCommonTranslations, useEucListInformationGroups, useWheelsListTranslations } from '../../../../hooks';
 import { getBrands, getMeasureUnits } from '../../../../store/selectors';
 import { WheelFeatureFormatters, WheelFeatureIcons, WheelSorting, WheelWithPicture } from '../../../../types';
 import { formatWheelName, getBrandInfo } from '../../../../utils';
@@ -29,7 +28,8 @@ interface Props {
 }
 
 const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
-  const { t } = useTranslation();
+  const common = useCommonTranslations();
+  const { t } = useWheelsListTranslations();
   const brands = useSelector(getBrands);
   const brand = getBrandInfo(wheel.brandId, brands);
   const measureUnits = useSelector(getMeasureUnits);
@@ -38,12 +38,12 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
   
   const mainSpecItems: ListItem[] = mainSpecs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
-    const label = t(key);
+    const label = common.t(key);
     const formatter = wheelFeatureFormatters[key as keyof WheelFeatureFormatters];
     // @ts-ignore
     // eslint-disable-next-line no-restricted-syntax
     const convertTo = key in measureUnits ? measureUnits[key] : undefined;
-    const value = formatter?.(wheel[key], t, convertTo, key === 'width' ? 2 : 0) ??  wheel[key];
+    const value = formatter?.(wheel[key], common.t, convertTo, key === 'width' ? 2 : 0) ??  wheel[key];
 
     return {
       icon,
@@ -55,9 +55,9 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
 
   const additionalSpecsItems: ListItem[] = additionalSpecs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
-    const label = t(key);
+    const label = common.t(key);
     const formatter = wheelFeatureFormatters[key as keyof WheelFeatureFormatters];
-    const value = formatter?.(wheel[key], t) ??  wheel[key];
+    const value = formatter?.(wheel[key], common.t) ??  wheel[key];
 
     return {
       icon,
@@ -73,12 +73,12 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
         component="img"
         height="240px"
         image={ wheel.picture }
-        alt={ t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
+        alt={ common.t('wheelPicture-msg', { wheelName: formatWheelName(wheel, brands) }) }
       />
 
       { !!brand && (
         <BrandLogo
-          alt={ t('appLogo-label', { appName: brand.name }) }
+          alt={ common.t('appLogo-label', { appName: brand.name }) }
           logo={ brand.logo }
         />
       ) }
@@ -108,7 +108,7 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
             onClick={ handleAddToCompare }
             sx={ { ml: 'auto', mr: 1 } }
           >
-            { t('compare-label') }
+            { t('compare-btn') }
           </Button>
         ) }
 

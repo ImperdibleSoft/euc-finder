@@ -1,0 +1,28 @@
+{
+  "filters-title": "Filtros",
+  "columns-title": "Columnas",
+
+  "compare-btn": "Comparar",
+  "compareAll-btn": "Comparar las {{wheels}} ruedas",
+
+  "wheelAddedToComparator-msg": "Se ha añadido la {{wheel}} al Comparador.",
+  "checkResults-btn": "Ver resultados",
+  
+  "noWheels-title": "",
+  "noWheels-msg": "No hay ruedas que coincidan con tus criterios de búsqueda.",
+  
+  "changeFilters-msg": "Relax or reset the filters to find some options that is close to what you are looking for.",
+  "changeFilters-btn": "Cambiar filtros",
+  "resetFilters-btn": "Reinciar filtros",
+
+  "resetColumns-btn": "Reinciar columnas",
+
+  "unicycles-label": "{{quantity}} ruedas",
+
+  "ascending-label": "Ascendente",
+  "descending-label": "Descendente",
+  "sortBy-label": "Ordenar por",
+  "order-label": "Órden",
+
+  "details-btn": "Detalles"
+}

@@ -1,8 +1,8 @@
 import { Card, Grid, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../../constants';
+import { useCommonTranslations, useWheelsDetailsTranslations } from '../../../../hooks';
 import { getMeasureUnits } from '../../../../store/selectors';
 import { Wheel, WheelFeatureFormatters, WheelFeatureIcons } from '../../../../types';
 import RegularList from '../../../Lists/RegularList';
@@ -14,17 +14,18 @@ interface Props {
 }
 
 const MainSpecs: React.FC<Props> = ({ specs, wheel }) => {
-  const { t } = useTranslation();
+  const common = useCommonTranslations();
+  const { t } = useWheelsDetailsTranslations();
   const measureUnits = useSelector(getMeasureUnits);
 
   const listItems: ListItem[] = specs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
-    const label = t(key);
+    const label = common.t(key);
     const formatter = wheelFeatureFormatters[key as keyof WheelFeatureFormatters];
     // @ts-ignore
     // eslint-disable-next-line no-restricted-syntax
     const convertTo = key in measureUnits ? measureUnits[key] : undefined;
-    const value = formatter(wheel[key], t, convertTo, key === 'width' ? 2 : 0);
+    const value = formatter(wheel[key], common.t, convertTo, key === 'width' ? 2 : 0);
 
     return {
       icon,

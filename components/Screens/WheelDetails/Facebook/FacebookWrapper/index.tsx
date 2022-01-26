@@ -1,8 +1,8 @@
 import React, { PropsWithChildren, useEffect, useState } from 'react';
-import { FacebookContextProvider } from '../../../context';
-import { FacebookData, FacebookTheme } from '../../../context/types';
-import { parseFacebookElements, useCurrentPath, useFacebookSDK } from '../../../hooks';
-import { isDarkTheme } from '../../../utils';
+import { FacebookContextProvider } from '../../../../../context';
+import { FacebookData, FacebookTheme } from '../../../../../context/types';
+import { parseFacebookElements, useCurrentPath, useFacebookSDK } from '../../../../../hooks';
+import { isDarkTheme } from '../../../../../utils';
 
 const FacebookWrapper: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const [darkTheme, setDarkTheme] = useState(false);

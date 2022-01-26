@@ -1,6 +1,5 @@
 /* eslint-disable max-lines */
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import CheckboxGroup from '../../../components/Form/CheckboxGroup';
 import Dropdown from '../../../components/Form/Dropdown';
@@ -24,6 +23,7 @@ import {
   TrolleyHandle,
   WheelFilters
 } from '../../../types';
+import { useCommonTranslations } from '../../translations';
 import { getDropdownOptions } from './constants';
 
 // eslint-disable-next-line max-lines-per-function
@@ -270,7 +270,7 @@ const useFilters = () => {
 
 // eslint-disable-next-line max-lines-per-function
 export const useFilterFields = () => {
-  const { t } = useTranslation();
+  const { t } = useCommonTranslations();
   const brands = useSelector(getBrands);
   const showPrice = useSelector(getPricesConfig);
 

@@ -10,6 +10,7 @@ export * from './network';
 export * from './settings';
 export * from './sorting';
 export * from './stores';
+export * from './translations';
 export * from './videos';
 export * from './wheel';
 export * from './wheelComparision';

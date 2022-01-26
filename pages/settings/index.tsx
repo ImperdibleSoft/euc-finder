@@ -2,22 +2,21 @@
 import { Box, Button, ButtonGroup, Card, CardActions, CardContent, Divider, Grid, Typography } from '@mui/material';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Dropdown from '../../components/Form/Dropdown';
 import Slider from '../../components/Form/Slider';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import { useSettings } from '../../hooks';
+import { useSettings, useSettingsTranslations } from '../../hooks';
 import { defaultMeasureUnits, resetMeasureUnits } from '../../store/actions';
 import { SpecWeightsPreset } from '../../store/types';
-import { LOCAL_STORAGE_KEY } from '../../types';
+import { LOCAL_STORAGE_KEY, TranslationFile } from '../../types';
 import { removeItem, setItem } from '../../utils';
-import { getStaticProps } from '../../utils-server';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 // eslint-disable-next-line max-lines-per-function
 const Settings: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useSettingsTranslations();
   const dispatch = useDispatch();
   const [render, setRender] = useState(false);
   const {
@@ -52,7 +51,7 @@ const Settings: React.FC = () => {
     dispatch(resetMeasureUnits());
   };
   
-  const pageTitle = `Opciones - ${ APP_NAME }`;
+  const pageTitle = `${ t('settings-title') } - ${ APP_NAME }`;
 
   return (
     <>
@@ -207,4 +206,4 @@ const Settings: React.FC = () => {
 
 export default Settings;
 
-export { getStaticProps };
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.settings], 'none');

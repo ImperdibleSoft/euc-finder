@@ -1,7 +1,7 @@
 import { CardMedia, Grid, Typography } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useCommonTranslations } from '../../../../hooks';
 import { getBrands } from '../../../../store/selectors';
 import { Availability, BrandId } from '../../../../types';
 import { getBrandInfo } from '../../../../utils';
@@ -22,7 +22,7 @@ const Header: React.FC<PropsWithChildren<Props>> = ({
   heroImage,
   wheelName
 }) => {
-  const { t } = useTranslation();
+  const { t } = useCommonTranslations();
   const brands = useSelector(getBrands);
   const brand = getBrandInfo(brandId, brands);
   

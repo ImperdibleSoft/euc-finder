@@ -1,6 +1,6 @@
 import { Box, Button, Collapse } from '@mui/material';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useCommonTranslations } from '../../hooks';
 
 interface Props {
   collapsedSize?: number | string;
@@ -8,7 +8,7 @@ interface Props {
 
 const Collapsable: React.FC<Props> = ({ children, collapsedSize }) => {
   const [collapsed, setCollapsed] = useState(true);
-  const { t } = useTranslation();
+  const { t } = useCommonTranslations();
 
   const toggleCollapse = () => {
     setCollapsed(!collapsed);

@@ -2,31 +2,31 @@ import { BottomNavigationRoute } from '../types';
 import { DEALERS, EUCS, INFLUENCERS, SETTINGS, VIDEOS } from './clientRoutes';
 
 const dealers: BottomNavigationRoute = {
-  label: 'dealers-title',
+  label: 'bottomNav-dealers',
   icon: 'storefront',
   path: DEALERS
 };
 
 const eucs: BottomNavigationRoute = {
-  label: 'eucs',
+  label: 'bottomNav-eucs',
   icon: 'radio_button_unchecked',
   path: EUCS
 };
 
 const influencers: BottomNavigationRoute = {
-  label: 'influencers-label',
+  label: 'bottomNav-influencers',
   icon: 'person',
   path: INFLUENCERS
 };
 
 const settings: BottomNavigationRoute = {
-  label: 'settings-title',
+  label: 'bottomNav-settings',
   icon: 'settings',
   path: SETTINGS
 };
 
 const videos: BottomNavigationRoute = {
-  label: 'videos',
+  label: 'bottomNav-videos',
   icon: 'smart_display',
   path: VIDEOS
 };

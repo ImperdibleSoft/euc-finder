@@ -1,5 +1,4 @@
 import React, { useReducer } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters } from '../../../constants';
 import {
@@ -11,6 +10,7 @@ import {
 } from '../../../store/selectors';
 import { Brand, Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
 import { formatWheelName } from '../../../utils';
+import { useCommonTranslations } from '../../translations';
 import wheelsTableSettingsReducer, { getInitialValue } from './reducer';
 
 export const useColumns = () => {
@@ -70,7 +70,7 @@ const getColumnValue = (key: keyof Wheel, record: Wheel, brands: Brand[]) => {
 };
 
 export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
-  const { t } = useTranslation();
+  const { t } = useCommonTranslations();
   const brands = useSelector(getBrands);
   const measureUnits = useSelector(getMeasureUnits);
   const showPrice = useSelector(getPricesConfig);

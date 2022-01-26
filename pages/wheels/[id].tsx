@@ -3,16 +3,15 @@ import { GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import eucFinderApi from '../../apis/eucfinder';
-import Apps from '../../components/Apps';
-import FacebookComments from '../../components/Facebook/FacebookComments';
-import FacebookLikeButton from '../../components/Facebook/FacebookLikeButton';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import AdditionalPurchaseLinks from '../../components/Screens/WheelDetails/AdditionalPurchaseLinks';
 import AdditionalSpecs from '../../components/Screens/WheelDetails/AdditionalSpecs';
+import Apps from '../../components/Screens/WheelDetails/Apps';
 import EmptyCase from '../../components/Screens/WheelDetails/EmptyCase';
+import FacebookComments from '../../components/Screens/WheelDetails/Facebook/FacebookComments';
+import FacebookLikeButton from '../../components/Screens/WheelDetails/Facebook/FacebookLikeButton';
 import Header from '../../components/Screens/WheelDetails/Header';
 import HighlightedSpecs from '../../components/Screens/WheelDetails/HighlightedSpecs';
 import MainSpecs from '../../components/Screens/WheelDetails/MainSpecs';
@@ -26,12 +25,13 @@ import {
   useEucDetailHandlers,
   useEucDetailInformationGroups,
   useEucPurchaseLinks,
-  useEucVideos
+  useEucVideos,
+  useWheelsDetailsTranslations
 } from '../../hooks';
 import { getBrands } from '../../store/selectors';
-import { WheelId } from '../../types';
+import { TranslationFile, WheelId } from '../../types';
 import { cleanWheelId, getBrandInfo } from '../../utils';
-import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../../utils-server';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string[]>;
@@ -40,7 +40,7 @@ interface Props {
 const EucDetail: React.FC<Props> = ({ pictures }) => {
   const router = useRouter();
   const id = router.query.id as WheelId;
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
   const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
   const wheelPictures = pictures[cleanWheelId(id)];
 
@@ -101,7 +101,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
                 <Box sx={ { mb: 1 } }>
                   <ButtonGroup variant="contained">
                     <Button color="primary" onClick={ handleCompare }>
-                      { t('compare-label') }
+                      { t('compare-btn') }
                     </Button>
                   </ButtonGroup>
                 </Box>
@@ -139,7 +139,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
               ) }
 
               <Grid item xs={ 12 }>
-                <Apps />
+                <Apps wheel={ wheel } />
               </Grid>
               
               <AdditionalSpecs specs={ additionalSpecs } wheel={ wheel } />
@@ -162,17 +162,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   );
 };
 
-export async function getStaticProps(staticProps: StaticProps) {
-  const { props } = await genericStaticProps(staticProps);
-  const pictures = getWheelPictures();
-
-  return {
-    props: {
-      ...props,
-      pictures
-    }
-  };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.wheelDetails], 'all');
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { wheels } = await eucFinderApi.data.getInitialData();

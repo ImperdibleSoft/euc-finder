@@ -9,10 +9,10 @@ import {
 } from '@mui/material';
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getDesktopNavigation, getMobileNavigation } from '../../../../constants';
 import { EUCS_PREFIX, VIDEOS } from '../../../../constants/clientRoutes';
+import { useLayoutTranslations } from '../../../../hooks';
 import { getNewVideosLength } from '../../../../store/selectors';
 import { BOTTOM_NAVIGATION_HEIGHT, HEADER_HEIGHT, NAV_SIDEBAR_WIDTH } from '../../constants';
 
@@ -21,7 +21,7 @@ interface Props {
 }
 
 const BottomNavigation: React.FC<Props> = ({ isTablet }) => {
-  const { t } = useTranslation();
+  const { t } = useLayoutTranslations();
   const { pathname, push } = useRouter();
   const [firstPathSection] = pathname.replace(/^\//, '').split('/');
   const navigation = useMemo(() => {
