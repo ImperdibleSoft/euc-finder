@@ -1,21 +1,23 @@
 import { Grid, Typography } from '@mui/material';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getStaticProps } from '..';
+import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import EmptyCase from '../../components/Screens/Influencers/EmptyCase';
 import InfluencerCard from '../../components/Screens/Influencers/InfluencerCard';
-import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
+import { useInfluencersTranslations } from '../../hooks';
+import nextI18nextConfig from '../../next-i18next.config';
 import { getInfluencers } from '../../store/selectors';
+import { StaticProps } from '../../utils-server/translatedResources';
 
 const Influencers: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useInfluencersTranslations();
   const influencers = useSelector(getInfluencers);
 
-  const pageTitle = t('influencers');
-  const pageDescription = t('influencers1-msg', { appName: APP_NAME });
+  const pageTitle = t('influencers-title');
+  const pageDescription = t('influencers-description', { appName: APP_NAME });
 
   return (
     <>
@@ -39,6 +41,10 @@ const Influencers: React.FC = () => {
               { pageTitle }
             </Typography>
 
+            <Typography variant="body1" sx={ { mb: 2 } }>
+              { t('influencers-msg') }
+            </Typography>
+
             <Grid container spacing={ 2 }>
               { influencers.map(influencer => (
                 <InfluencerCard
@@ -60,4 +66,7 @@ const Influencers: React.FC = () => {
 
 export default Influencers;
 
-export { getStaticProps };
+export async function getStaticProps({ locale }: StaticProps) {
+  const translations = await serverSideTranslations(locale, ['influencers'], nextI18nextConfig);
+  return { props: { ...translations } };
+}

@@ -3,10 +3,6 @@
 
   "interface-title": "User interface",
   
-  "language-label": "Language",
-  "en-label": "English",
-  "es-label": "Español",
-  
   "theme-label": "Color schema",
   "auto-label": "Auto",
   "dark-label": "Dark",

@@ -25,10 +25,6 @@
   "copyError-msg": "Hubo un error. Por favor, copia el código manualmente.",
   "appLogo-label": "Logo de {{appName}}",
   "website-label": "Página web",
-  "eucs": "Ruedas",
-  "influencers": "Creadores de contendido",
-  "influencers-label": "Influencers",
-  "videos": "Vídeos",
 
   "loading-msg": "Cargando datos...",
 
@@ -42,7 +38,6 @@
   "additionalSpecs-title": "Especificaciones adicionales",
   "highlightedSpecs-title": "Especificaciones destacadas",
   "mainSpecs-title": "Especificaciones principales",
-  "watchVideos-label": "Ver todos los vídeos",
   "loadingLikes-msg": "Cargando likes...",
   "errorLoadingLikes-msg": "Hubo un error cargando el sistema de likes. Por favor, inténtalo en un rato.",
   "loadingComments-msg": "Cargando comentarios...",
@@ -126,7 +121,22 @@
   "❌-label": "No conseguido",
   "🕑-label": "En proceso",
   "➖-label": "Sin iniciar",
+
+
+
+
+
+
+
+
   
+  "eucs": "Ruedas",
+  "videos": "Vídeos",
+  
+  "language-label": "Idioma",
+  "en-label": "English",
+  "es-label": "Español",
+
   "id": "ID",
   "brandId": "Fabricante",
   "availability-label": "Disponibilidad",
@@ -208,8 +218,6 @@
   "higherBetter-msg": "Cuanto más alto, mejor",
   "lowerBetter-msg": "Cuanto más bajo, mejor",
 
-  "youtubeChannel-label": "Canal de Youtube",
-  "noInfluencers-msg": "Todavía no hay creadores de contenido.",
 
   "officialApps-title": "Apps Oficiales",
   "officialWheelApps-title": "Apps Oficiales para {{wheelName}}",

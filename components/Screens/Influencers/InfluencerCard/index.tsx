@@ -14,9 +14,9 @@ import {
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { VIDEOS } from '../../../../constants/clientRoutes';
+import { useInfluencersTranslations } from '../../../../hooks';
 import { filterVideos, resetVideoFilters } from '../../../../store/actions';
 import { getVideosByInfluencer } from '../../../../store/selectors';
 import { Influencer, VideoCategory } from '../../../../types';
@@ -39,10 +39,11 @@ interface Props {
 
 // eslint-disable-next-line max-lines-per-function
 const InfluencerCard: React.FC<Props> = ({ influencer }) => {
-  const { t } = useTranslation();
+  const { t } = useInfluencersTranslations();
   const router = useRouter();
   const dispatch = useDispatch();
   const videos = useSelector(getVideosByInfluencer(influencer.id));
+
   const { languages, wheels } = useMemo(() =>
     videos.reduce(
       (acc, video) => {
@@ -166,7 +167,7 @@ const InfluencerCard: React.FC<Props> = ({ influencer }) => {
 
         <CardActions sx={ { alignItems: 'flex-end', justifyContent: 'flex-end', width: '100%' } }>
           <Button onClick={ handleWatchMoreVideos } variant="outlined">
-            { t('watchVideos-label') }
+            { t('watchVideos-btn') }
           </Button>
         </CardActions>
       </Card>

@@ -25,10 +25,8 @@
   "copyError-msg": "There was an error. Please, copy the code manually.",
   "appLogo-label": "{{appName}}'s logo",
   "website-label": "Website",
-  "eucs": "EUCs",
   "influencers": "Content creators",
   "influencers-label": "Influencers",
-  "videos": "Videos",
 
   "loading-msg": "Loading data...",
 
@@ -42,7 +40,6 @@
   "additionalSpecs-title": "Additional specs",
   "highlightedSpecs-title": "Highlighted specs",
   "mainSpecs-title": "Main specs",
-  "watchVideos-label": "Watch all videos",
   "loadingLikes-msg": "Loading likes...",
   "errorLoadingLikes-msg": "There was an error while loading likes' system. Please, try again later.",
   "loadingComments-msg": "Loading comments...",
@@ -126,6 +123,51 @@
   "❌-label": "Not achieved",
   "🕑-label": "In progress",
   "➖-label": "Not initiated",
+
+  "allOptions-label": "All {{option}}",
+  "allElements-label": "All {{element}}",
+  "chatting-label": "Chatting",
+  "commuting-label": "Commuting",
+  "comparision-label": "Comparision",
+  "offroad-label": "Off-road",
+  "reveal-label": "Presentation",
+  "review-label": "Review",
+  "higherBetter-msg": "The higher, the better",
+  "lowerBetter-msg": "The lower, the better",
+
+  "youtubeChannel-label": "Youtube channel",
+  "noInfluencers-msg": "There are no influencers yet.",
+
+  "officialApps-title": "Official Apps",
+  "officialWheelApps-title": "{{wheelName}}'s Official Apps",
+  "unofficialApps-title": "Generic Apps",
+  "filterByPlatform-label": "Filter by platform",
+  "allPlatforms-label": "All platforms",
+  "android": "Android",
+  "ios": "iOS",
+  "appPicture-label": "{{appName}}'s logo",
+  "downloadApp-label": "Download",
+
+  "changelog-title": "Changes history",
+  "changes-title": "{{changeType}} changes",
+  "majorChange": "Awesome",
+  "minorChange": "Interesting",
+  "patchChange": "Small",
+
+
+
+
+
+
+
+
+  
+  "eucs": "EUCs",
+  "videos": "Videos",
+  
+  "language-label": "Language",
+  "en-label": "English",
+  "es-label": "Español",
   
   "id": "ID",
   "brandId": "Manufacturer",
@@ -195,35 +237,5 @@
   "black": "Black",
   "blackAndRed": "Black and Red",
   "blackAndYellow": "Black and Yellow",
-  "blackAndSilver": "Black and Silver",
-
-  "allOptions-label": "All {{option}}",
-  "allElements-label": "All {{element}}",
-  "chatting-label": "Chatting",
-  "commuting-label": "Commuting",
-  "comparision-label": "Comparision",
-  "offroad-label": "Off-road",
-  "reveal-label": "Presentation",
-  "review-label": "Review",
-  "higherBetter-msg": "The higher, the better",
-  "lowerBetter-msg": "The lower, the better",
-
-  "youtubeChannel-label": "Youtube channel",
-  "noInfluencers-msg": "There are no influencers yet.",
-
-  "officialApps-title": "Official Apps",
-  "officialWheelApps-title": "{{wheelName}}'s Official Apps",
-  "unofficialApps-title": "Generic Apps",
-  "filterByPlatform-label": "Filter by platform",
-  "allPlatforms-label": "All platforms",
-  "android": "Android",
-  "ios": "iOS",
-  "appPicture-label": "{{appName}}'s logo",
-  "downloadApp-label": "Download",
-
-  "changelog-title": "Changes history",
-  "changes-title": "{{changeType}} changes",
-  "majorChange": "Awesome",
-  "minorChange": "Interesting",
-  "patchChange": "Small"
+  "blackAndSilver": "Black and Silver"
 }
