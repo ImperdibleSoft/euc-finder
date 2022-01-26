@@ -1,7 +1,7 @@
 import { Box, Button, ButtonGroup } from '@mui/material';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import Dropdown, { DropdownItem } from '../../components/Form/Dropdown';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
@@ -9,23 +9,18 @@ import CompareCharts from '../../components/Screens/CompareView/CompareCharts';
 import CompareTable from '../../components/Screens/CompareView/CompareTable';
 import EmptyCase from '../../components/Screens/CompareView/EmptyCase';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { useCompareActions, useComparedWheels } from '../../hooks';
+import { useComparatorTranslations, useCompareActions, useComparedWheels } from '../../hooks';
+import nextI18nextConfig from '../../next-i18next.config';
 import { getBrands, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
 import { WheelId } from '../../types';
-import {
-  getFirstWheelPicture,
-  getStaticProps
-  as
-  genericStaticProps,
-  StaticProps
-} from '../../utils-server';
+import { getFirstWheelPicture, StaticProps } from '../../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string>;
 }
 
 const CompareWheels: React.FC<Props> = ({ pictures }) => {
-  const { t } = useTranslation();
+  const { t } = useComparatorTranslations();
   const {
     canCompareMoreWheels,
     handleAddToComparision,
@@ -92,7 +87,7 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
               onClick={ handleOpenSettings }
               variant="outlined"
             >
-              { t('settings-title') }
+              { t('settings-btn') }
             </Button>
 
             <Button
@@ -141,13 +136,13 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
 
 export default CompareWheels;
 
-export async function getStaticProps(staticProps: StaticProps) {
-  const { props } = await genericStaticProps(staticProps);
+export async function getStaticProps({ locale }: StaticProps) {
+  const translations = await serverSideTranslations(locale, ['comparator'], nextI18nextConfig);
   const pictures = getFirstWheelPicture();
 
   return {
     props: {
-      ...props,
+      ...translations,
       pictures
     }
   };

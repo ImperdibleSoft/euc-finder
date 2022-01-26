@@ -2,10 +2,9 @@
 import { Box, Button, Icon, TableCell, Theme, Tooltip } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { wheelFeatureFormatters } from '../../../../constants';
 import { EUC_DETAILS } from '../../../../constants/clientRoutes';
-import { useBreakpoints } from '../../../../hooks';
+import { useBreakpoints, useComparatorTranslations } from '../../../../hooks';
 import { MeasureUnits, SpecWeights } from '../../../../store/types';
 import { Brand, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps } from '../../../../types';
 import { cleanWheelId, getBrandInfo } from '../../../../utils';
@@ -95,7 +94,7 @@ const CompareTable: React.FC<Props> = ({
   wheelScores,
   wheels
 }) => {
-  const { t } = useTranslation();
+  const { t } = useComparatorTranslations();
   const { sm, md } = useBreakpoints();
   
   const columnsCount = getMinimumColums(sm, md) - wheels.length;

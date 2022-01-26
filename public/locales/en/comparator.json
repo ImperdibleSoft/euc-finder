@@ -1,0 +1,22 @@
+{
+  "compare-title": "Comparator",
+  
+  "settings-btn": "Settings",
+  "reset-btn": "Reset",
+
+  "addWheel-label": "Add EUC",
+
+  "noWheelsToCompare-title": "",
+  "noWheelsToCompare-msg": "There are not enough EUCs to compare.",
+  "addWheelsToCompare-msg": "Please, add more EUCs to your comparison to see the results.",
+
+  "score": "Score",
+  "maxSpecValue-msg": "Priority: {{value}}/20",
+  "unusedSpec-msg": "This is not used for calculations",
+  
+  "details-btn": "Details",
+  "remove-btn": "Remove",
+
+  "higherBetter-msg": "The higher, the better",
+  "lowerBetter-msg": "The lower, the better"
+}

@@ -74,15 +74,7 @@
   "order-label": "Órden",
   "compare-label": "Comparar",
   "compareAll-label": "Comparar las {{wheels}} ruedas",
-
-  "compare-title": "Comparador",
-  "score": "Puntuación",
-  "addWheel-label": "Añadir rueda",
-  "remove-label": "Quitar",
-  "noWheelsToCompare-msg": "No hay suficientes ruedas para comparar.",
-  "addWheelsToCompare-msg": "Por favor, añade más ruedas a tu comparación para ver los resultados.",
-  "maxSpecValue-msg": "Prioridad: {{value}}/20",
-  "unusedSpec-msg": "Esto no se usa para los cálculos",
+  
   "checkResults-btn": "Ver resultados",
   "wheelAddedToComparator-msg": "Se ha añadido la {{wheel}} al Comparador.",
 
@@ -179,9 +171,6 @@
   "blackAndRed": "Negro y Rojo",
   "blackAndYellow": "Negro y Amarillo",
   "blackAndSilver": "Negro y Plateado",
-  "higherBetter-msg": "Cuanto más alto, mejor",
-  "lowerBetter-msg": "Cuanto más bajo, mejor",
-
 
   "officialApps-title": "Apps Oficiales",
   "officialWheelApps-title": "Apps Oficiales para {{wheelName}}",

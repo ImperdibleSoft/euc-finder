@@ -76,15 +76,6 @@
   "order-label": "Order",
   "compare-label": "Compare",
   "compareAll-label": "Compare {{wheels}} EUCs",
-
-  "compare-title": "Comparator",
-  "score": "Score",
-  "addWheel-label": "Add EUC",
-  "remove-label": "Remove",
-  "noWheelsToCompare-msg": "There are not enough EUCs to compare.",
-  "addWheelsToCompare-msg": "Please, add more EUCs to your comparison to see the results.",
-  "maxSpecValue-msg": "Priority: {{value}}/20",
-  "unusedSpec-msg": "This is not used for calculations",
   "checkResults-btn": "Check results",
   "wheelAddedToComparator-msg": "{{wheel}} has been added to the Comparator.",
 
@@ -95,8 +86,6 @@
   "confirmationStay-label": "Stay here",
   "soldOut-msg": "Sold out!",
   "loadingPrice-msg": "Looking for {{storeName}}'s price",
-  "higherBetter-msg": "The higher, the better",
-  "lowerBetter-msg": "The lower, the better",
 
   "officialApps-title": "Official Apps",
   "officialWheelApps-title": "{{wheelName}}'s Official Apps",
