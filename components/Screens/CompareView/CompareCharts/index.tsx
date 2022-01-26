@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, Grid } from '@mui/material';
 import React from 'react';
-import { TFunction } from 'react-i18next';
+import { useCommonTranslations, useComparatorTranslations } from '../../../../hooks';
 import { MeasureUnits } from '../../../../store/types';
 import { Wheel } from '../../../../types';
 import * as formatters from '../../../../utils/formatters';
@@ -10,11 +10,12 @@ type ChartEntity = Wheel;
 
 interface Props {
   measureUnits: MeasureUnits;
-  t: TFunction<'translation'>;
   wheels: Wheel[];
 }
 
-const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
+const CompareCharts: React.FC<Props> = ({ measureUnits, wheels }) => {
+  const common = useCommonTranslations();
+  const { t } = useComparatorTranslations();
   const commonGridProps = {
     item: true,
     xs: 12,
@@ -27,14 +28,14 @@ const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
   };
 
   const customFormatter = (formatter: Function) =>
-    (value: unknown, units?: string) => formatter(value, t, units);
+    (value: unknown, units?: string) => formatter(value, common.t, units);
 
   return (
     <Grid className="CompareCharts" container spacing={ 2 } sx={ { mt: 0.5 } }>
       <Grid { ...commonGridProps }>
         <Card>
           <CardHeader
-            title={ t('maxSpeed') }
+            title={ common.t('maxSpeed') }
             subheader={ t('higherBetter-msg') }
           />
 
@@ -42,7 +43,7 @@ const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
             <BarChart<ChartEntity>
               { ...commonChartProps }
               dataValue="maxSpeed"
-              dimensionName={ t('maxSpeed') }
+              dimensionName={ common.t('maxSpeed') }
               formatter={ customFormatter(formatters.speed) }
               units={ measureUnits.maxSpeed }
             />
@@ -53,7 +54,7 @@ const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
       <Grid { ...commonGridProps }>
         <Card>
           <CardHeader
-            title={ t('battery') }
+            title={ common.t('battery') }
             subheader={ t('higherBetter-msg') }
           />
 
@@ -61,7 +62,7 @@ const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
             <BarChart<ChartEntity>
               { ...commonChartProps }
               dataValue="battery"
-              dimensionName={ t('battery') }
+              dimensionName={ common.t('battery') }
               formatter={ customFormatter(formatters.battery) }
             />
           </CardContent>
@@ -71,7 +72,7 @@ const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
       <Grid { ...commonGridProps }>
         <Card>
           <CardHeader
-            title={ t('ratedPower') }
+            title={ common.t('ratedPower') }
             subheader={ t('higherBetter-msg') }
           />
 
@@ -79,7 +80,7 @@ const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
             <BarChart<ChartEntity>
               { ...commonChartProps }
               dataValue="ratedPower"
-              dimensionName={ t('ratedPower') }
+              dimensionName={ common.t('ratedPower') }
               formatter={ customFormatter(formatters.power) }
             />
           </CardContent>
@@ -89,7 +90,7 @@ const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
       <Grid { ...commonGridProps }>
         <Card>
           <CardHeader
-            title={ t('weight') }
+            title={ common.t('weight') }
             subheader={ t('lowerBetter-msg') }
           />
 
@@ -97,7 +98,7 @@ const CompareCharts: React.FC<Props> = ({ measureUnits, t, wheels }) => {
             <BarChart<ChartEntity>
               { ...commonChartProps }
               dataValue="weight"
-              dimensionName={ t('weight') }
+              dimensionName={ common.t('weight') }
               formatter={ customFormatter(formatters.weight) }
               units={ measureUnits.weight }
             />

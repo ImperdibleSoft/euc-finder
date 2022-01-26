@@ -1,8 +1,8 @@
 import { Box, Button, Dialog, DialogTitle, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters } from '../../constants';
+import { useLayoutTranslations } from '../../hooks';
 import { getMeasureUnits } from '../../store/selectors';
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
 
 /* eslint-disable max-len */
 const InfoDisclaimer: React.FC<Props> = ({ handleClose, open }) => {
-  const { t } = useTranslation();
+  const { t } = useLayoutTranslations();
   const { maxSpeed } = useSelector(getMeasureUnits);
   const speed = wheelFeatureFormatters.maxSpeed(25, t, maxSpeed);
 
@@ -58,7 +58,7 @@ const InfoDisclaimer: React.FC<Props> = ({ handleClose, open }) => {
 
       <Box sx={ { px: 3, pb: 3, alignItems: 'flex-end', display: 'flex', justifyContent: 'flex-end' } }>
         <Button onClick={ handleClose } variant="contained">
-          { t('ok-label') }
+          { t('ok-btn') }
         </Button>
       </Box>
     </Dialog>

@@ -23,7 +23,7 @@ import {
   TrolleyHandle,
   WheelFilters
 } from '../../../types';
-import { useWheelsListTranslations } from '../../translations';
+import { useCommonTranslations } from '../../translations';
 import { getDropdownOptions } from './constants';
 
 // eslint-disable-next-line max-lines-per-function
@@ -270,7 +270,7 @@ const useFilters = () => {
 
 // eslint-disable-next-line max-lines-per-function
 export const useFilterFields = () => {
-  const { t } = useWheelsListTranslations();
+  const { t } = useCommonTranslations();
   const brands = useSelector(getBrands);
   const showPrice = useSelector(getPricesConfig);
 

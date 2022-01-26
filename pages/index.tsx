@@ -1,6 +1,5 @@
 /* eslint-disable max-lines */
 import { Alert, Button, ButtonGroup, Container, Icon, Snackbar, Typography } from '@mui/material';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -23,11 +22,10 @@ import {
   useSorting,
   useWheelsListTranslations
 } from '../hooks';
-import nextI18nextConfig from '../next-i18next.config';
 import { getBrands, getMaxComparedWheels, getPricesConfig } from '../store/selectors';
-import { WheelId } from '../types';
+import { TranslationFile, WheelId } from '../types';
 import { formatWheelName } from '../utils';
-import { getFirstWheelPicture, StaticProps } from '../utils-server';
+import { getTranslationsFromFiles } from '../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string>;
@@ -215,14 +213,4 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
 
 export default Wheels;
 
-export async function getStaticProps({ locale }: StaticProps) {
-  const translations = await serverSideTranslations(locale, ['wheelsList'], nextI18nextConfig);
-  const pictures = getFirstWheelPicture();
-
-  return {
-    props: {
-      ...translations,
-      pictures
-    }
-  };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.wheelsList], 'first');

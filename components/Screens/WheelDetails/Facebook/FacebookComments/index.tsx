@@ -1,8 +1,7 @@
 import { Card, SxProps, Theme, Typography } from '@mui/material';
 import React, { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
-import { isFacebookEnabled } from '../../../constants';
-import { useLoadFacebookContent } from '../../../hooks';
+import { isFacebookEnabled } from '../../../../../constants';
+import { useLoadFacebookContent, useWheelsDetailsTranslations } from '../../../../../hooks';
 
 const textStyles: SxProps<Theme> = {
   p: 2,
@@ -15,7 +14,7 @@ interface Props {
 }
 
 const FacebookComments: React.FC<Props> = ({ numPost = 10, width }) => {
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
   const cardRef = useRef<HTMLDivElement>(null);
 
   const {

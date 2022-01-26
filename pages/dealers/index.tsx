@@ -1,17 +1,15 @@
 import { Grid, Typography } from '@mui/material';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import DealerCard from '../../components/Screens/Dealers/DealerCard';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import { useDealersTranslations } from '../../hooks';
-import nextI18nextConfig from '../../next-i18next.config';
+import { useCommonTranslations, useDealersTranslations } from '../../hooks';
 import { getDealersByRegion, getRegion } from '../../store/selectors';
-import { Region } from '../../types';
-import { StaticProps } from '../../utils-server';
+import { Region, TranslationFile } from '../../types';
 import { getDealersFromMarkdown } from '../../utils/dealers';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 const getRegionId = (regionCode: Region) => {
   switch (regionCode) {
@@ -28,6 +26,7 @@ const getRegionId = (regionCode: Region) => {
 };
 
 const Dealers: React.FC = () => {
+  const common = useCommonTranslations();
   const { t } = useDealersTranslations();
   const regionCode = useSelector(getRegion);
   const dealers = useSelector(getDealersByRegion(regionCode));
@@ -35,7 +34,7 @@ const Dealers: React.FC = () => {
 
   const regions = getDealersFromMarkdown();
   const region = regions.find(r => r.name === regionId);
-  const regionName = t(`${ regionId }-label`);
+  const regionName = common.t(`${ regionId }-label`);
 
   const pageTitle = t('dealers-title');
   const pageDescription = t('dealers1-msg', { appName: APP_NAME, region: regionName });
@@ -110,7 +109,4 @@ const Dealers: React.FC = () => {
 
 export default Dealers;
 
-export async function getStaticProps({ locale }: StaticProps) {
-  const translations = await serverSideTranslations(locale, ['dealers'], nextI18nextConfig);
-  return { props: { ...translations } };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.dealers], 'none');

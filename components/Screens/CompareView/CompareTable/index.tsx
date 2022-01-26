@@ -4,7 +4,7 @@ import Link from 'next/link';
 import React from 'react';
 import { wheelFeatureFormatters } from '../../../../constants';
 import { EUC_DETAILS } from '../../../../constants/clientRoutes';
-import { useBreakpoints, useComparatorTranslations } from '../../../../hooks';
+import { useBreakpoints, useCommonTranslations, useComparatorTranslations } from '../../../../hooks';
 import { MeasureUnits, SpecWeights } from '../../../../store/types';
 import { Brand, MinMaxScores, ScoreCollection, Wheel, WheelId, WheelScoreProps } from '../../../../types';
 import { cleanWheelId, getBrandInfo } from '../../../../utils';
@@ -94,6 +94,7 @@ const CompareTable: React.FC<Props> = ({
   wheelScores,
   wheels
 }) => {
+  const common = useCommonTranslations();
   const { t } = useComparatorTranslations();
   const { sm, md } = useBreakpoints();
   
@@ -141,7 +142,7 @@ const CompareTable: React.FC<Props> = ({
             </div>
 
             <p style={ { margin: 0, marginTop: 0 } }>
-              { typeof wheel === 'number' ? `${ t('eucs').replace(/s$/, '') } ${ wheel }` : wheel.name }
+              { typeof wheel === 'number' ? `${ common.t('eucs').replace(/s$/, '') } ${ wheel }` : wheel.name }
             </p>
           </TableHead>
         )) }
@@ -152,6 +153,7 @@ const CompareTable: React.FC<Props> = ({
           const showTooltip = key !== 'score' && key !== 'brandId';
           const specWeight = specWeights[key as keyof SpecWeights] ?? 0;
           const title = t(specWeight ? `maxSpecValue-msg` : 'unusedSpec-msg', { value: specWeight });
+          const translator = key === 'score' ? t : common.t;
 
           return (
             <TableRow key={ key } sx={ { backgroundColor: (theme) => getRowBackground(theme, key, specWeights) } }>
@@ -168,7 +170,7 @@ const CompareTable: React.FC<Props> = ({
                   } }
                 >
                   <span>
-                    { t(key) }
+                    { translator(key) }
                   </span>
 
                   { showTooltip && (
@@ -189,7 +191,7 @@ const CompareTable: React.FC<Props> = ({
                 const value = typeof wheel !== 'number' && key !== 'brandId' && key !== 'score'
                   ? wheel[key]
                   : undefined;
-                let formattedValue = formatter?.(value, t, units, key === 'width' ? 2 : 0) ?? value;
+                let formattedValue = formatter?.(value, common.t, units, key === 'width' ? 2 : 0) ?? value;
 
                 const minMax = key !== 'brandId' ? minMaxScores[key] : undefined;
                 const score = typeof wheel !== 'number' ?

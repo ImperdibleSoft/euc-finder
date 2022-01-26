@@ -1,6 +1,6 @@
 import { Fab, Icon } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useLayoutTranslations } from '../../../../hooks';
 import { BOTTOM_NAVIGATION_HEIGHT } from '../../constants';
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Notifications: React.FC<Props> = ({ isTablet }) => {
-  const { t } = useTranslation();
+  const { t } = useLayoutTranslations();
 
   const navigateToGroup = () => {
     window.open('https://t.me/EUCFinder');

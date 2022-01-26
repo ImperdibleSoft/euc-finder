@@ -7,7 +7,7 @@ import { getTheme } from '../../../../store/selectors';
 import { darkTheme, lightTheme } from '../../../../styles/theme';
 import { LOCAL_STORAGE_KEY } from '../../../../types';
 import { getItem, getUserSelectedTheme, isDarkTheme, setItem } from '../../../../utils';
-import FacebookWrapper from '../../../Facebook/FacebookWrapper';
+import FacebookWrapper from '../../WheelDetails/Facebook/FacebookWrapper';
 import EucArenaApp from '../EucArenaApp';
 
 const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.INITIAL_DISCLAIMER) !== 'true';

@@ -1,7 +1,7 @@
 import { Box, Icon, Theme, Tooltip, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { availabilityIcons } from '../../constants';
+import { useCommonTranslations } from '../../hooks';
 import { Availability } from '../../types';
 import { HEADER_HEIGHT } from '../Layouts/constants';
 
@@ -40,22 +40,10 @@ interface Props {
   showLabel?: boolean;
 }
 
-const AvailabilityIcon: React.FC<Props> = ({ availability, showLabel }) => {
-  const { t } = useTranslation();
+const AvailabilityIcon: React.FC<Props> = ({ availability, showLabel = false }) => {
+  const { t } = useCommonTranslations();
   const description = t(`${ availability }-label`);
   const color = getAvailabilityColor(availability);
-
-  const renderTooltip = (children: JSX.Element) => {
-    if (showLabel) {
-      return children;
-    }
-
-    return (
-      <Tooltip title={ <span>{ description }</span> }>
-        { children }
-      </Tooltip>
-    );
-  };
 
   return (
     <Box
@@ -80,12 +68,12 @@ const AvailabilityIcon: React.FC<Props> = ({ availability, showLabel }) => {
         zIndex: { md: showLabel ? 1099 : undefined }
       } }
     >
-      { renderTooltip((
+      <Tooltip open={ showLabel ? false : undefined } title={ <span>{ description }</span> }>
         <>
           <Icon color={ color }>
             { availabilityIcons[availability] }
           </Icon>
-          
+        
           { showLabel && (
             <Typography
               color={ ({ palette }: Theme) => color ? palette[color].main : undefined }
@@ -96,7 +84,7 @@ const AvailabilityIcon: React.FC<Props> = ({ availability, showLabel }) => {
             </Typography>
           ) }
         </>
-      )) }
+      </Tooltip>
     </Box>
   );
 };

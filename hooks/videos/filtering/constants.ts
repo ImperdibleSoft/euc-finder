@@ -9,7 +9,11 @@ interface Params {
   wheels: Wheel[];
 }
 
-export const getDropdownOptions = ({ brands, influencers, wheels }: Params, t: TFunction<'translation'>) => {
+export const getDropdownOptions = (
+  { brands, influencers, wheels }: Params,
+  commonT: TFunction<'translation'>,
+  t: TFunction<'translation'>
+) => {
   const categoryOptions: DropdownItem[] = getAllCategories()
     .map(category => ({
       label: t(`${ category }-label`),
@@ -24,11 +28,11 @@ export const getDropdownOptions = ({ brands, influencers, wheels }: Params, t: T
 
   const languageOptions: DropdownItem<Lang>[] = [
     {
-      label: t('en-label'),
+      label: commonT('en-label'),
       value: 'en'
     },
     {
-      label: t('es-label'),
+      label: commonT('es-label'),
       value: 'es'
     }
   ];

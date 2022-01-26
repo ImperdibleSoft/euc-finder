@@ -10,7 +10,7 @@ import {
 } from '../../../store/selectors';
 import { Brand, Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
 import { formatWheelName } from '../../../utils';
-import { useWheelsListTranslations } from '../../translations';
+import { useCommonTranslations } from '../../translations';
 import wheelsTableSettingsReducer, { getInitialValue } from './reducer';
 
 export const useColumns = () => {
@@ -70,7 +70,7 @@ const getColumnValue = (key: keyof Wheel, record: Wheel, brands: Brand[]) => {
 };
 
 export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
-  const { t } = useWheelsListTranslations();
+  const { t } = useCommonTranslations();
   const brands = useSelector(getBrands);
   const measureUnits = useSelector(getMeasureUnits);
   const showPrice = useSelector(getPricesConfig);

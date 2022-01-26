@@ -1,0 +1,35 @@
+{
+  "bottomNav-eucs": "Ruedas",
+  "bottomNav-videos": "Vídeos",
+  "bottomNav-dealers": "Tiendas",
+  "bottomNav-influencers": "Influencers",
+  "bottomNav-settings": "Opciones",
+  
+  "search-label": "Buscar...",
+
+  "stayUpdated-msg": "Mantente actualizado",
+  "joinToTelegram-msg": "Grupo de Telegram",
+
+  "importantInfo-title": "Información importante",
+  
+  "models-title": "Modelos",
+  "newModels-msg": "Esta web sólo muestra las versiones más nuevas y potentes de cada modelo proporcionado por el fabricante.",
+  "olderVersions-msg": "Es decir, versiones anteriores y/o con menos prestaciones (aunque sean actuales) no se mostrarán en esta web.",
+  
+  "speed-title": "Velocidades",
+  "displayedSpeed-msg": "Todas las ruedas aquí mencionadas se venden limitadas a una velocidad de {{speed}}.",
+  "modifySpeed-msg": "Para alcanzar las velocidades aquí mencionadas son necesarias modificaciones personalizadas para dicha rueda.",
+  
+  "range-title": "Autonomía",
+  "displayedRange-msg": "La autonomía mostrada en esta página está basada en un uso más realista de las ruedas.",
+  "usageExamples-msg": "Esto incluye acelerones, frenadas intensas, subir pendientes, saltar o mantener altas velocidades de forma prolongada.",
+  
+  "ok-btn": "OK",
+  
+  "createdBy-msg": "Creado por",
+  "information-label": "Información",
+  
+  "information-msg": "sobre los modelos, velocidad y autonomías mostradas.",
+  "disclaimer1-msg": "Esta página no está relacionada ni depende de ninguna de las tiendas que puedan ser mostradas.",
+  "disclaimer2-msg": "Sin embargo, algunos de los enlaces mostrados pueden estar patrocinados por algunas de estas tiendas."
+}

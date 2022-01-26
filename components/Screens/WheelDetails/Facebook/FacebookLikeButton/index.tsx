@@ -1,8 +1,8 @@
 import { Box, Card, Theme, Typography } from '@mui/material';
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { isFacebookEnabled } from '../../../constants';
-import { useLoadFacebookContent } from '../../../hooks';
+import { isFacebookEnabled } from '../../../../../constants';
+import { useLoadFacebookContent } from '../../../../../hooks';
 
 interface Props {
   width?: number;

@@ -11,9 +11,9 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { APP_NAME } from '../../../../constants';
 import { ROOT } from '../../../../constants/clientRoutes';
+import { useCommonTranslations, useLayoutTranslations } from '../../../../hooks';
 import { BRAND_COLOR } from '../../../../styles/theme';
 import { Brand, Region, Wheel } from '../../../../types';
 import { getBrandInfo } from '../../../../utils';
@@ -42,7 +42,8 @@ const Header: React.FC<Props> = ({
   selectedRegion,
   wheels
 }) => {
-  const { t } = useTranslation();
+  const common = useCommonTranslations();
+  const { t } = useLayoutTranslations();
   
   return (
     <AppBar
@@ -70,7 +71,7 @@ const Header: React.FC<Props> = ({
               display: 'flex' 
             } }>
               <Image
-                alt={ t('appLogo-label', { appName: APP_NAME }) }
+                alt={ common.t('appLogo-label', { appName: APP_NAME }) }
                 height="48px"
                 src="/logos/eucfinder-dark.png"
                 width="48px"

@@ -105,7 +105,7 @@ const getOptions = (t: TFunction<'translation'>) => {
   };
 };
 
-export const useMeasureUnits = (t: TFunction<'translation'>) => {
+export const useMeasureUnits = (t: TFunction<'translation'>, commonT: TFunction<'translation'>) => {
   const dispatch = useDispatch();
   const measureUnits = useSelector(getMeasureUnits);
 
@@ -157,7 +157,7 @@ export const useMeasureUnits = (t: TFunction<'translation'>) => {
   const measureUnitFields: Props[] = [
     {
       icon: wheelFeatureIcons.diameter,
-      label: t('diameter'),
+      label: commonT('diameter'),
       name: 'diameter',
       onChange: handleChangeDiameter,
       options: diameterOptions,
@@ -165,7 +165,7 @@ export const useMeasureUnits = (t: TFunction<'translation'>) => {
     },
     {
       icon: wheelFeatureIcons.width,
-      label: t('width'),
+      label: commonT('width'),
       name: 'width',
       onChange: handleChangeWidth,
       options: widthOptions,
@@ -173,7 +173,7 @@ export const useMeasureUnits = (t: TFunction<'translation'>) => {
     },
     {
       icon: wheelFeatureIcons.maxSpeed,
-      label: t('maxSpeed'),
+      label: commonT('maxSpeed'),
       name: 'maxSpeed',
       onChange: handleChangeSpeed,
       options: speedOptions,
@@ -181,7 +181,7 @@ export const useMeasureUnits = (t: TFunction<'translation'>) => {
     },
     {
       icon: wheelFeatureIcons.range,
-      label: t('range'),
+      label: commonT('range'),
       name: 'range',
       onChange: handleChangeRange,
       options: rangeOptions,
@@ -189,7 +189,7 @@ export const useMeasureUnits = (t: TFunction<'translation'>) => {
     },
     {
       icon: wheelFeatureIcons.dimensions,
-      label: t('dimensions'),
+      label: commonT('dimensions'),
       name: 'dimensions',
       onChange: handleChangeDimensions,
       options: dimensionsOptions,
@@ -197,7 +197,7 @@ export const useMeasureUnits = (t: TFunction<'translation'>) => {
     },
     {
       icon: wheelFeatureIcons.weight,
-      label: t('weight'),
+      label: commonT('weight'),
       name: 'weight',
       onChange: handleChangeWeight,
       options: weightOptions,
@@ -205,7 +205,7 @@ export const useMeasureUnits = (t: TFunction<'translation'>) => {
     },
     {
       icon: wheelFeatureIcons.groundClearance,
-      label: t('groundClearance'),
+      label: commonT('groundClearance'),
       name: 'groundClearance',
       onChange: handleChangeGroundClearance,
       options: groundClearanceOptions,

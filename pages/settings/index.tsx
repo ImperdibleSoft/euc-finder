@@ -1,6 +1,5 @@
 /* eslint-disable max-lines */
 import { Box, Button, ButtonGroup, Card, CardActions, CardContent, Divider, Grid, Typography } from '@mui/material';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -9,12 +8,11 @@ import Slider from '../../components/Form/Slider';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { useSettings, useSettingsTranslations } from '../../hooks';
-import nextI18nextConfig from '../../next-i18next.config';
 import { defaultMeasureUnits, resetMeasureUnits } from '../../store/actions';
 import { SpecWeightsPreset } from '../../store/types';
-import { LOCAL_STORAGE_KEY } from '../../types';
+import { LOCAL_STORAGE_KEY, TranslationFile } from '../../types';
 import { removeItem, setItem } from '../../utils';
-import { StaticProps } from '../../utils-server';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 // eslint-disable-next-line max-lines-per-function
 const Settings: React.FC = () => {
@@ -208,7 +206,4 @@ const Settings: React.FC = () => {
 
 export default Settings;
 
-export async function getStaticProps({ locale }: StaticProps) {
-  const translations = await serverSideTranslations(locale, ['settings'], nextI18nextConfig);
-  return { props: { ...translations } };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.settings], 'none');

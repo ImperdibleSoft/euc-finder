@@ -1,18 +1,17 @@
 import { Box, Button, ButtonGroup, Grid } from '@mui/material';
 import { GetStaticPaths } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import eucFinderApi from '../../apis/eucfinder';
-import Apps from '../../components/Screens/WheelDetails/Apps';
-import FacebookComments from '../../components/Facebook/FacebookComments';
-import FacebookLikeButton from '../../components/Facebook/FacebookLikeButton';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import AdditionalPurchaseLinks from '../../components/Screens/WheelDetails/AdditionalPurchaseLinks';
 import AdditionalSpecs from '../../components/Screens/WheelDetails/AdditionalSpecs';
+import Apps from '../../components/Screens/WheelDetails/Apps';
 import EmptyCase from '../../components/Screens/WheelDetails/EmptyCase';
+import FacebookComments from '../../components/Screens/WheelDetails/Facebook/FacebookComments';
+import FacebookLikeButton from '../../components/Screens/WheelDetails/Facebook/FacebookLikeButton';
 import Header from '../../components/Screens/WheelDetails/Header';
 import HighlightedSpecs from '../../components/Screens/WheelDetails/HighlightedSpecs';
 import MainSpecs from '../../components/Screens/WheelDetails/MainSpecs';
@@ -29,11 +28,10 @@ import {
   useEucVideos,
   useWheelsDetailsTranslations
 } from '../../hooks';
-import nextI18nextConfig from '../../next-i18next.config';
 import { getBrands } from '../../store/selectors';
-import { WheelId } from '../../types';
+import { TranslationFile, WheelId } from '../../types';
 import { cleanWheelId, getBrandInfo } from '../../utils';
-import { getWheelPictures, StaticProps } from '../../utils-server';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string[]>;
@@ -164,17 +162,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   );
 };
 
-export async function getStaticProps({ locale }: StaticProps) {
-  const translations = await serverSideTranslations(locale, ['wheelDetails'], nextI18nextConfig);
-  const pictures = getWheelPictures();
-
-  return {
-    props: {
-      ...translations,
-      pictures
-    }
-  };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.wheelDetails], 'all');
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { wheels } = await eucFinderApi.data.getInitialData();

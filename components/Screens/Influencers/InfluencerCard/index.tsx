@@ -16,7 +16,7 @@ import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { VIDEOS } from '../../../../constants/clientRoutes';
-import { useInfluencersTranslations } from '../../../../hooks';
+import { useCommonTranslations, useInfluencersTranslations } from '../../../../hooks';
 import { filterVideos, resetVideoFilters } from '../../../../store/actions';
 import { getVideosByInfluencer } from '../../../../store/selectors';
 import { Influencer, VideoCategory } from '../../../../types';
@@ -39,6 +39,7 @@ interface Props {
 
 // eslint-disable-next-line max-lines-per-function
 const InfluencerCard: React.FC<Props> = ({ influencer }) => {
+  const common = useCommonTranslations();
   const { t } = useInfluencersTranslations();
   const router = useRouter();
   const dispatch = useDispatch();
@@ -47,7 +48,7 @@ const InfluencerCard: React.FC<Props> = ({ influencer }) => {
   const { languages, wheels } = useMemo(() =>
     videos.reduce(
       (acc, video) => {
-        const langName = t(`${ video.language }-label`);
+        const langName = common.t(`${ video.language }-label`);
         const categories = getCategoryFromTags(video.tags);
         const usedWheels = getWheelFromTags(video.tags);
 
@@ -70,7 +71,7 @@ const InfluencerCard: React.FC<Props> = ({ influencer }) => {
         wheels: []
       } as InfluencerData
     ),
-  [t, videos]
+  [common, videos]
   );
 
   const handleWatchMoreVideos = () => {
@@ -148,17 +149,17 @@ const InfluencerCard: React.FC<Props> = ({ influencer }) => {
             items={ [
               {
                 icon: 'language',
-                primary: `${ t('language-label') }s`,
+                primary: `${ common.t('language-label') }s`,
                 secondary: languages.length ? languages.join(', ') : '-'
               },
               {
                 icon: 'smart_display',
-                primary: t('videos'),
+                primary: common.t('videos'),
                 secondary: `${ videos.length } ${ t('videos') }`
               },
               {
                 icon: 'radio_button_unchecked',
-                primary: t('eucs'),
+                primary: common.t('eucs'),
                 secondary: `${ wheels.length } ${ t('eucs') }`
               }
             ] }

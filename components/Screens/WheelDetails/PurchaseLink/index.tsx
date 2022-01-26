@@ -56,7 +56,7 @@ const PurchaseLink: React.FC<Props> = ({ discount: d, expensive, large = false, 
   const discountProps = !!store.meta.manualDiscount
     ? {
       code: discountCode,
-      discount: store.meta.discount
+      discount
     }
     : {};
 

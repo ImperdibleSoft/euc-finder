@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLastVisit } from '../../store/actions';
 import {
@@ -22,6 +21,7 @@ import {
   getWheelFromTags,
   setLastVisit as updateLastVisit
 } from '../../utils';
+import { useVideosTranslations } from '../translations';
 
 export * from './filtering';
 
@@ -55,7 +55,7 @@ export const useVideos = () => {
 };
 
 export const useVideoInfo = ({ tags }: Video) => {
-  const { t } = useTranslation();
+  const { t } = useVideosTranslations();
   const brands = useSelector(getBrands);
   const influencers = useSelector(getInfluencers);
   const wheels = useSelector(getWheels);

@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useVideosTranslations } from '../../../../hooks';
 import { FilterField } from '../../../../types';
 import Clear from '../../../Clear';
 import Collapsable from '../../../Collapsable';
@@ -16,7 +16,7 @@ const VideoFilters: React.FC<Props> = ({
   fields,
   handleResetFilters
 }) => {
-  const { t } = useTranslation();
+  const { t } = useVideosTranslations();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -43,7 +43,7 @@ const VideoFilters: React.FC<Props> = ({
             type="button"
             sx={ { justifySelf: 'flex-end' } }
           >
-            { t('reset-btn') }
+            { t('resetFilters-btn') }
           </Button>
         </form>
       </Collapsable>

@@ -1,5 +1,4 @@
 import { Box, Button, ButtonGroup } from '@mui/material';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -10,10 +9,9 @@ import CompareTable from '../../components/Screens/CompareView/CompareTable';
 import EmptyCase from '../../components/Screens/CompareView/EmptyCase';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useComparatorTranslations, useCompareActions, useComparedWheels } from '../../hooks';
-import nextI18nextConfig from '../../next-i18next.config';
 import { getBrands, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
-import { WheelId } from '../../types';
-import { getFirstWheelPicture, StaticProps } from '../../utils-server';
+import { TranslationFile, WheelId } from '../../types';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string>;
@@ -118,7 +116,6 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
 
             <CompareCharts
               measureUnits={ measureUnits }
-              t={ t }
               wheels={ comparedWheels }
             />
           </>
@@ -136,14 +133,4 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
 
 export default CompareWheels;
 
-export async function getStaticProps({ locale }: StaticProps) {
-  const translations = await serverSideTranslations(locale, ['comparator'], nextI18nextConfig);
-  const pictures = getFirstWheelPicture();
-
-  return {
-    props: {
-      ...translations,
-      pictures
-    }
-  };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.comparator], 'first');

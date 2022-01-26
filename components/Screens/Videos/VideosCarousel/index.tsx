@@ -6,6 +6,7 @@ import VideoCard from '../VideoCard';
 interface Props {
   className?: string;
   count: number;
+  entityName?: string;
   handleChangeCategories: (id: string) => void;
   handleChangeInfluencers: (id: string) => void;
   handleChangeWheels: (id: string) => void;
@@ -16,6 +17,7 @@ interface Props {
 const VideosCarousel: React.FC<Props> = ({
   className,
   count,
+  entityName,
   handleChangeCategories,
   handleChangeInfluencers,
   handleChangeWheels,
@@ -28,7 +30,7 @@ const VideosCarousel: React.FC<Props> = ({
     <Carousel
       className={ className }
       counter={ count }
-      entityName="videos"
+      entityName={ entityName }
       skeleton={ skeleton }
       transparent              
     >

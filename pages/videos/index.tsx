@@ -1,5 +1,4 @@
 import { Box, Button, ButtonGroup, Icon, Pagination, Typography } from '@mui/material';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
 import { useDispatch } from 'react-redux';
@@ -8,14 +7,15 @@ import EmptyCase from '../../components/Screens/Videos/EmptyCase';
 import VideoFilters from '../../components/Screens/Videos/VideoFilters';
 import VideosCarousel from '../../components/Screens/Videos/VideosCarousel';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { useSidebar, useVideoFilterFields, useVideos, useVideosTranslations } from '../../hooks';
-import nextI18nextConfig from '../../next-i18next.config';
+import { useCommonTranslations, useSidebar, useVideoFilterFields, useVideos, useVideosTranslations } from '../../hooks';
 import { paginateVideos } from '../../store/actions';
 import { PaginateVideosAction } from '../../store/types';
-import { StaticProps } from '../../utils-server';
+import { TranslationFile } from '../../types';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 // eslint-disable-next-line max-lines-per-function
 const Videos: React.FC = () => {
+  const common = useCommonTranslations();
   const { t } = useVideosTranslations();
   const dispatch = useDispatch();
   const {
@@ -90,6 +90,7 @@ const Videos: React.FC = () => {
 
             <VideosCarousel
               count={ sponsored.pagination.total }
+              entityName={ common.t('videos') }
               handleChangeCategories={ handleChangeCategories }
               handleChangeInfluencers={ handleChangeInfluencers }
               handleChangeWheels={ handleChangeWheels }
@@ -125,6 +126,7 @@ const Videos: React.FC = () => {
 
             <VideosCarousel
               count={ unwatched.pagination.total }
+              entityName={ common.t('videos') }
               handleChangeCategories={ handleChangeCategories }
               handleChangeInfluencers={ handleChangeInfluencers }
               handleChangeWheels={ handleChangeWheels }
@@ -158,6 +160,7 @@ const Videos: React.FC = () => {
 
             <VideosCarousel
               count={ watched.pagination.total }
+              entityName={ common.t('videos') }
               className="watchedVideos"
               handleChangeCategories={ handleChangeCategories }
               handleChangeInfluencers={ handleChangeInfluencers }
@@ -195,7 +198,4 @@ const Videos: React.FC = () => {
 
 export default Videos;
 
-export async function getStaticProps({ locale }: StaticProps) {
-  const translations = await serverSideTranslations(locale, ['videos'], nextI18nextConfig);
-  return { props: { ...translations } };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.videos], 'none');

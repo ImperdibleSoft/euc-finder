@@ -1,5 +1,4 @@
 import { Grid, Typography } from '@mui/material';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
 import { useSelector } from 'react-redux';
@@ -8,9 +7,9 @@ import EmptyCase from '../../components/Screens/Influencers/EmptyCase';
 import InfluencerCard from '../../components/Screens/Influencers/InfluencerCard';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { useInfluencersTranslations } from '../../hooks';
-import nextI18nextConfig from '../../next-i18next.config';
 import { getInfluencers } from '../../store/selectors';
-import { StaticProps } from '../../utils-server/translatedResources';
+import { TranslationFile } from '../../types';
+import { getTranslationsFromFiles } from '../../utils-server';
 
 const Influencers: React.FC = () => {
   const { t } = useInfluencersTranslations();
@@ -66,7 +65,4 @@ const Influencers: React.FC = () => {
 
 export default Influencers;
 
-export async function getStaticProps({ locale }: StaticProps) {
-  const translations = await serverSideTranslations(locale, ['influencers'], nextI18nextConfig);
-  return { props: { ...translations } };
-}
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.influencers], 'none');
