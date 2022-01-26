@@ -1,9 +1,8 @@
 import { Box, Button, TableCell } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { EUC_DETAILS } from '../../../../constants/clientRoutes';
-import { useTableData } from '../../../../hooks';
+import { useTableData, useWheelsListTranslations } from '../../../../hooks';
 import { WheelId, WheelSorting, WheelSortingKeys, WheelsTableColumns, WheelWithPicture } from '../../../../types';
 import AvailabilityIcon from '../../../AvailabilityIcon';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../../Table';
@@ -37,7 +36,7 @@ const TableView: React.FC<Props> = ({
   records,
   sorting
 }) => {
-  const { t } = useTranslation();
+  const { t } = useWheelsListTranslations();
   const { headings, rows } = useTableData(records, columns);
 
   if (records.length <= 0) {
@@ -123,7 +122,7 @@ const TableView: React.FC<Props> = ({
                       onClick={ handleCompareClick }
                       sx={ { display: 'flex', mb: 1, width: '100%' } }
                     >
-                      { t('compare-label') }
+                      { t('compare-btn') }
                     </Button>
                   ) }
 

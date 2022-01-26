@@ -1,8 +1,8 @@
 /* eslint-disable max-lines */
 import { Alert, Button, ButtonGroup, Container, Icon, Snackbar, Typography } from '@mui/material';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { HEADER_HEIGHT } from '../components/Layouts/constants';
 import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
@@ -20,12 +20,14 @@ import {
   useFilterFields,
   useHeadingStyles,
   useSidebar,
-  useSorting
+  useSorting,
+  useWheelsListTranslations
 } from '../hooks';
+import nextI18nextConfig from '../next-i18next.config';
 import { getBrands, getMaxComparedWheels, getPricesConfig } from '../store/selectors';
 import { WheelId } from '../types';
 import { formatWheelName } from '../utils';
-import { getFirstWheelPicture, getStaticProps as genericStaticProps, StaticProps } from '../utils-server';
+import { getFirstWheelPicture, StaticProps } from '../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string>;
@@ -34,7 +36,7 @@ interface Props {
 // eslint-disable-next-line max-lines-per-function
 const Wheels: React.FC<Props> = ({ pictures }) => {
   const { sm: isTablet } = useBreakpoints();
-  const { t } = useTranslation();
+  const { t } = useWheelsListTranslations();
   const [view, setView] = useState<'grid' | 'table'>('grid');
   const displayTable = view === 'table';
   const ListView = displayTable ? TableView : GridView;
@@ -130,7 +132,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
           { /* Comparator */ }
           <ButtonGroup sx={ styles.comparatorGroup } orientation={ styles.comparatorGroupOrientation }>
             <Button onClick={ handleOpenComparator }>
-              { t('compare-title') }
+              { t('compare-btn') }
             </Button>
 
             { canCompareAllWheels && (
@@ -138,7 +140,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
                 onClick={ () => handleAddAllToComparision(sortedWheels.map(w => w.id)) }
                 sx={ styles.compareAllWheels }
               >
-                { t('compareAll-label', { wheels: sortedWheels.length }) }
+                { t('compareAll-btn', { wheels: sortedWheels.length }) }
               </Button>
             ) }
           </ButtonGroup>
@@ -213,13 +215,13 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
 
 export default Wheels;
 
-export async function getStaticProps(staticProps: StaticProps) {
-  const { props } = await genericStaticProps(staticProps);
+export async function getStaticProps({ locale }: StaticProps) {
+  const translations = await serverSideTranslations(locale, ['wheelsList'], nextI18nextConfig);
   const pictures = getFirstWheelPicture();
 
   return {
     props: {
-      ...props,
+      ...translations,
       pictures
     }
   };

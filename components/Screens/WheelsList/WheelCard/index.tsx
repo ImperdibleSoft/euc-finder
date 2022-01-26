@@ -8,11 +8,10 @@ import {
 } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../../constants';
 import { EUC_DETAILS } from '../../../../constants/clientRoutes';
-import { useEucListInformationGroups } from '../../../../hooks';
+import { useEucListInformationGroups, useWheelsListTranslations } from '../../../../hooks';
 import { getBrands, getMeasureUnits } from '../../../../store/selectors';
 import { WheelFeatureFormatters, WheelFeatureIcons, WheelSorting, WheelWithPicture } from '../../../../types';
 import { formatWheelName, getBrandInfo } from '../../../../utils';
@@ -29,7 +28,7 @@ interface Props {
 }
 
 const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
-  const { t } = useTranslation();
+  const { t } = useWheelsListTranslations();
   const brands = useSelector(getBrands);
   const brand = getBrandInfo(wheel.brandId, brands);
   const measureUnits = useSelector(getMeasureUnits);
@@ -108,7 +107,7 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
             onClick={ handleAddToCompare }
             sx={ { ml: 'auto', mr: 1 } }
           >
-            { t('compare-label') }
+            { t('compare-btn') }
           </Button>
         ) }
 

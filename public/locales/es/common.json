@@ -1,12 +1,9 @@
 {
-  "columns-title": "Columnas",
-
   "yes": "Sí",
   "no": "No",
   "at": "en",
   "more": "Más",
   "less": "Menos",
-  "unicycles-label": "{{quantity}} ruedas",
   "search-label": "Buscar...",
   "selectAnOption-label": "Selecciona una opción",
   "reset-btn": "Reiniciar",
@@ -57,26 +54,13 @@
   "usageExamples-msg": "Esto incluye acelerones, frenadas intensas, subir pendientes, saltar o mantener altas velocidades de forma prolongada.",
   "ok-label": "OK",
 
-  "filters-title": "Filtros",
-
   "createdBy-msg": "Creado por",
   "information-label": "Información",
   "information-msg": "sobre los modelos, velocidad y autonomías mostradas.",
   "disclaimer1-msg": "Esta página no está relacionada ni depende de ninguna de las tiendas que puedan ser mostradas.",
   "disclaimer2-msg": "Sin embargo, algunos de los enlaces mostrados pueden estar patrocinados por algunas de estas tiendas.",
 
-  "emptyCase-title": "¡Ooops!",
-  "noWheels-msg": "No hay ruedas que coincidan con tus criterios de búsqueda.",
-  "details-btn": "Detalles",
-  "ascending-label": "Ascendente",
-  "descending-label": "Descendente",
-  "sortBy-label": "Ordenar por",
-  "order-label": "Órden",
-  "compare-label": "Comparar",
-  "compareAll-label": "Comparar las {{wheels}} ruedas",
   
-  "checkResults-btn": "Ver resultados",
-  "wheelAddedToComparator-msg": "Se ha añadido la {{wheel}} al Comparador.",
 
   "confirmation-title": "Vas a abandonar {{appName}}",
   "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{storeName}}.",
