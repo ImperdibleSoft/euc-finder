@@ -1,0 +1,29 @@
+{
+  "videos-title": "Videos",
+  "videos-description": "",
+
+  "filters-title": "Filtros",
+  "language-label": "Idioma",
+  "categories-label": "Categorías",
+  "influencers-label": "Creadores",
+  "eucs-label": "Ruedas",
+
+  "allOptions-label": "Todas las {{option}}",
+  "allElements-label": "Todos los {{element}}",
+  "chatting-label": "Conversando",
+  "commuting-label": "Desplazamientos",
+  "comparision-label": "Comparación",
+  "offroad-label": "Off-road",
+  "reveal-label": "Presentación",
+  "review-label": "Review",
+
+  "sponsoredVideos-title": "Vídeos patrocinados",
+  "newVideos-title": "Nuevos vídeos desde tu última visita",
+  "watchedVideos-title": "Vídeos que ya has visto",
+
+  "noVideos-title": "",
+  "noVideos-msg": "No hay vídeos que coincidan con tus criterios de búsqueda.",
+  "changeVideoFilters-msg": "Relaja o reinicia los filtros para encontrar alguna opción que se acerque a lo que estás buscando.",
+  "changeFilters-btn": "Cambiar filtros",
+  "resetFilters-btn": "Reinicar filtros"
+}

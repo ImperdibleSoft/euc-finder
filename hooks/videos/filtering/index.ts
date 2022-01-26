@@ -1,5 +1,5 @@
-import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { useVideosTranslations } from '../../translations';
 import MultiSelect from '../../../components/Form/MultiSelect';
 import { wheelFeatureIcons } from '../../../constants';
 import { filterVideos, resetVideoFilters } from '../../../store/actions';
@@ -46,7 +46,7 @@ const useFilters = () => {
 };
 
 export const useVideoFilterFields = () => {
-  const { t } = useTranslation();
+  const { t } = useVideosTranslations();
   const brands = useSelector(getBrands);
   const influencers = useSelector(getInfluencers);
   const wheels = useSelector(getWheels);

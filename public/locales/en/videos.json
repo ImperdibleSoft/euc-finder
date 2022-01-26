@@ -1,0 +1,29 @@
+{
+  "videos-title": "Videos",
+  "videos-description": "",
+
+  "filters-title": "Filters",
+  "language-label": "Language",
+  "categories-label": "Categories",
+  "influencers-label": "Content creators",
+  "eucs-label": "EUCs",
+
+  "allOptions-label": "All {{option}}",
+  "allElements-label": "All {{element}}",
+  "chatting-label": "Chatting",
+  "commuting-label": "Commuting",
+  "comparision-label": "Comparision",
+  "offroad-label": "Off-road",
+  "reveal-label": "Presentation",
+  "review-label": "Review",
+
+  "sponsoredVideos-title": "Sponsored videos",
+  "newVideos-title": "New videos since your last visit",
+  "watchedVideos-title": "Watched videos",
+
+  "noVideos-title": "",
+  "noVideos-msg": "There are no videos that match your search criterias.",
+  "changeVideoFilters-msg": "Relax or reset the filters to find some options that is close to what you are looking for.",
+  "changeFilters-btn": "CHange filters",
+  "resetFilters-btn": "Reset filters"
+}

@@ -69,9 +69,6 @@
 
   "emptyCase-title": "Ooops!",
   "noWheels-msg": "There are no EUCs that match your search criterias.",
-  "changeFilters-msg": "Relax or reset the filters to find some options that is close to what you are looking for.",
-  "changeFilters-btn": "Change filters",
-  "resetFilters-btn": "Reset filters",
   "details-btn": "Details",
   "ascending-label": "Ascending",
   "descending-label": "Descending",
@@ -98,27 +95,8 @@
   "confirmationStay-label": "Stay here",
   "soldOut-msg": "Sold out!",
   "loadingPrice-msg": "Looking for {{storeName}}'s price",
-
-  "sponsoredVideos-title": "Sponsored videos",
-  "newVideos-title": "New videos since your last visit",
-  "watchedVideos-title": "Watched videos",
-  "noVideos-msg": "There are no videos that match your search criterias.",
-  "changeVideoFilters-msg": "Relax or reset the filters to find some options that is close to what you are looking for.",
-
-
-  "allOptions-label": "All {{option}}",
-  "allElements-label": "All {{element}}",
-  "chatting-label": "Chatting",
-  "commuting-label": "Commuting",
-  "comparision-label": "Comparision",
-  "offroad-label": "Off-road",
-  "reveal-label": "Presentation",
-  "review-label": "Review",
   "higherBetter-msg": "The higher, the better",
   "lowerBetter-msg": "The lower, the better",
-
-  "youtubeChannel-label": "Youtube channel",
-  "noInfluencers-msg": "There are no influencers yet.",
 
   "officialApps-title": "Official Apps",
   "officialWheelApps-title": "{{wheelName}}'s Official Apps",

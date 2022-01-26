@@ -1,6 +1,6 @@
 import { Button, Container, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useVideosTranslations } from '../../../../hooks';
 
 interface Props {
   handleOpenFilters: () => void
@@ -8,12 +8,12 @@ interface Props {
 }
 
 const EmptyCase: React.FC<Props> = ({ handleOpenFilters, handleResetFilters }) => {
-  const { t } = useTranslation();
+  const { t } = useVideosTranslations();
 
   return (
     <Container sx={ { py: 4, textAlign: 'center' } }>
       <Typography variant="h3" component="p" sx={ { mb: 2 } }>
-        { t('emptyCase-title') }
+        { t('noVideos-title') }
       </Typography>
 
       <Typography variant="body1" component="p" sx={ { mb: 2 } }>
