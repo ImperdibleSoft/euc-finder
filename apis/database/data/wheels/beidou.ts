@@ -35,6 +35,7 @@ const recioWheel16: Wheel = {
   groundClearance: 0,
   weight: 30,
   trolleyHandle: TrolleyHandle.telescopic,
+  dimensions: [0, 0, 0],
   pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
   antiSpin: undefined,
   kickstand: undefined,
@@ -53,7 +54,9 @@ const recioWheel18: Wheel = {
   name: 'RecioWheel 18',
 
   diameter: 18,
-  width: 2.75
+  width: 2.75,
+  
+  dimensions: [0, 0, 0]
 };
 
 export const beidouWheels = [

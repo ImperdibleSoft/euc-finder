@@ -36,6 +36,7 @@ const sherman: Wheel = {
   groundClearance: 170,
   weight: 35,
   trolleyHandle: TrolleyHandle.telescopic,
+  dimensions: [592, 195, 500],
   pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
   antiSpin: undefined,
   kickstand: undefined,
@@ -66,6 +67,7 @@ const shermanMax: Wheel = {
   range: 215,
 
   weight: 38,
+  dimensions: [605, 195, 500],
   headlight: 3500
 };
 
@@ -94,6 +96,7 @@ const abrams: Wheel = {
   groundClearance: 180,
   weight: 40,
   trolleyHandle: TrolleyHandle.telescopic,
+  dimensions: [660, 215, 620],
   pedals: [PedalType.plain, PedalSurface.metalic, true],
   antiSpin: undefined,
   kickstand: Kickstand.shell,

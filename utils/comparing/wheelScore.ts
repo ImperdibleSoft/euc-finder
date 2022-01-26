@@ -270,6 +270,7 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
     headlight,
     tailLight,
     trolleyHandle,
+    dimensions: 0,
     pedals,
     antiSpin,
     kickstand,

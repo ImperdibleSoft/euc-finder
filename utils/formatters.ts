@@ -15,6 +15,7 @@ import {
   PedalType,
   RangeUnits,
   Region,
+  DimensionsUnits,
   SoundSystem,
   SpeedUnits,
   Suspension,
@@ -26,6 +27,7 @@ import { getBrandInfo } from './brands';
 import { getTranslation } from './clientTranslatedResources';
 import {
   getConvertedDiameter,
+  getConvertedDimensions,
   getConvertedGroundClearance,
   getConvertedRange,
   getConvertedSpeed,
@@ -270,6 +272,43 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string
 
     default:
       return t?.('no') ?? getTranslation('no');
+  }
+};
+
+export const dimensions = (
+  value?: [number, number, number],
+  t?: TFunction<'translation'>,
+  units?: DimensionsUnits
+  // eslint-disable-next-line max-params
+): string => {
+  if (!value) {
+    return '-';
+  }
+
+  const [height, width, deep] = value;
+
+  if (!height && !width && !deep) {
+    return '-';
+  }
+
+  const convertedVal = [
+    getConvertedDimensions(height, units),
+    getConvertedDimensions(width, units),
+    getConvertedDimensions(deep, units)
+  ];
+
+  const transH = t?.('height-label') ?? getTranslation('height-label');
+  const transW = t?.('width-label') ?? getTranslation('width-label');
+  const transL = t?.('long-label') ?? getTranslation('long-label');
+  
+  const [convertedH, convertedW, convertedD] = convertedVal;
+  switch (units) {
+    case DimensionsUnits.in:
+      return `${ transH } ${ convertedH }'' x ${ transW } ${ convertedW }'' x ${ transL } ${ convertedD }''`;
+      
+    case DimensionsUnits.mm:
+    default:
+      return `${ transH } ${ convertedH }mm x ${ transW } ${ convertedW }mm x ${ transL } ${ convertedD }mm`;
   }
 };
 

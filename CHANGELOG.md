@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.4.7
+
+### Patch Changes
+
+- Add wheels' dimensions to the app
+
 ## 2.4.2
 
 ### Patch Changes

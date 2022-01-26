@@ -4,6 +4,7 @@ import {
   GroundClearanceUnits,
   RangeUnits,
   Region,
+  DimensionsUnits,
   SpeedUnits,
   WeightUnits,
   WheelFeatures,
@@ -15,6 +16,7 @@ export interface MeasureUnits {
   groundClearance: GroundClearanceUnits;
   range: RangeUnits;
   maxSpeed: SpeedUnits;
+  dimensions: DimensionsUnits;
   weight: WeightUnits;
   width: WidthUnits;
 }
