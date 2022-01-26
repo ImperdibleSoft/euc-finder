@@ -66,7 +66,7 @@ export const getConvertedWeight = (value: number, units?: WeightUnits): string =
   }
 };
 
-export const getConvertedSize = (value: number, units?: DimensionsUnits): string => {
+export const getConvertedDimensions = (value: number, units?: DimensionsUnits): string => {
   switch (units) {
     case DimensionsUnits.in:
       return toDecimals(milimetersToInches(value), 1);

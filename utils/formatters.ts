@@ -27,9 +27,9 @@ import { getBrandInfo } from './brands';
 import { getTranslation } from './clientTranslatedResources';
 import {
   getConvertedDiameter,
+  getConvertedDimensions,
   getConvertedGroundClearance,
   getConvertedRange,
-  getConvertedSize,
   getConvertedSpeed,
   getConvertedWeight
 } from './conversions';
@@ -292,9 +292,9 @@ export const dimensions = (
   }
 
   const convertedVal = [
-    getConvertedSize(height, units),
-    getConvertedSize(width, units),
-    getConvertedSize(deep, units)
+    getConvertedDimensions(height, units),
+    getConvertedDimensions(width, units),
+    getConvertedDimensions(deep, units)
   ];
 
   const transH = t?.('height-label') ?? getTranslation('height-label');
