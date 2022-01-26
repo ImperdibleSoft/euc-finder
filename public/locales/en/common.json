@@ -10,7 +10,6 @@
   "without": "Without",
   "with": "With",
   "withAny": "With any",
-  "discount": "{{discount}} off",
   "maximum": "Maximum {{property}}",
   "minimum": "Minimum {{property}}",
   "region-label": "Region",
@@ -21,29 +20,9 @@
   "copied-msg": "Copied to clipboard.",
   "copyError-msg": "There was an error. Please, copy the code manually.",
   "appLogo-label": "{{appName}}'s logo",
-  "influencers": "Content creators",
-  "influencers-label": "Influencers",
-
   "loading-msg": "Loading data...",
-
-  "defaultDescription-msg": "We will add a small description about this EUC soon.",
-  "noWheel-msg": "We don't have this EUC in our database.",
-  "sponsoredStores-title": "Sponsored stores",
-  "otherStores-title": "Other available stores",
-  "buy-label": "Buy",
-  "pictures-title": "Pictures",
-  "wheelPicture-msg": "{{wheelName}}'s picture",
-  "additionalSpecs-title": "Additional specs",
-  "highlightedSpecs-title": "Highlighted specs",
-  "mainSpecs-title": "Main specs",
-  "loadingLikes-msg": "Loading likes...",
-  "errorLoadingLikes-msg": "There was an error while loading likes' system. Please, try again later.",
-  "loadingComments-msg": "Loading comments...",
-  "errorLoadingComments-msg": "There was an error while loading comments' system. Please, try again later.",
-
   "stayUpdated-msg": "Stay updated!",
   "joinToTelegram-msg": "Telegram Group",
-
   "importantInfo-title": "Important information",
   "models-title": "Models",
   "newModels-msg": "This website only shows the newest and most powerful versions of each EUC provided by the manufacturer.",
@@ -55,52 +34,22 @@
   "displayedRange-msg": "Displayed range in this website is based in a more realistic EUCs usage.",
   "usageExamples-msg": "This includes hard accelerations, hard breaking, go up ramps, jumping or keeping hight speeds during prolonged periods of time.",
   "ok-label": "OK",
-
   "createdBy-msg": "Created by",
   "information-label": "Information",
   "information-msg": "about models, speed and ranges displayed.",
   "disclaimer1-msg": "This website is not related nor depends on any of the stores that can be shown.",
   "disclaimer2-msg": "However, some of the links shown can be sponsored by some of these stores.",
-
-  "confirmation-title": "You are navigating out of {{appName}}",
-  "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{storeName}}'s site.",
-  "manualDiscount-msg": "If you want to get a {{discount}}% discount, you need to manually enter this code when you are proccesing your payment:",
-  "confirmationVisit-label": "Visit",
-  "confirmationStay-label": "Stay here",
-  "soldOut-msg": "Sold out!",
-  "loadingPrice-msg": "Looking for {{storeName}}'s price",
-
-  "officialApps-title": "Official Apps",
-  "officialWheelApps-title": "{{wheelName}}'s Official Apps",
-  "unofficialApps-title": "Generic Apps",
-  "filterByPlatform-label": "Filter by platform",
-  "allPlatforms-label": "All platforms",
-  "android": "Android",
-  "ios": "iOS",
-  "appPicture-label": "{{appName}}'s logo",
-  "downloadApp-label": "Download",
-
+  "wheelPicture-msg": "{{wheelName}}'s picture",
   "changelog-title": "Changes history",
   "changes-title": "{{changeType}} changes",
   "majorChange": "Awesome",
   "minorChange": "Interesting",
   "patchChange": "Small",
-
-
-
-
-
-
-
-
-  
   "eucs": "EUCs",
   "videos": "Videos",
-  
   "language-label": "Language",
   "en-label": "English",
   "es-label": "Español",
-  
   "id": "ID",
   "brandId": "Manufacturer",
   "availability-label": "Availability",

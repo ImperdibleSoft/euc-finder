@@ -1,0 +1,46 @@
+{
+  "noWheel-title": "",
+  "noWheel-msg": "No tenemos esa rueda en nuestra base de datos.",
+
+  "compare-btn": "Comparar",
+  
+  "defaultDescription-msg": "En breve añadiremos una pequeña descripción sobre esta rueda.",
+  
+  "highlightedSpecs-title": "Especificaciones destacadas",
+
+  "sponsoredStores-title": "Tiendas patrocinadas",
+  "loadingPrice-msg": "Buscando el precio de {{storeName}}",
+  "soldOut-msg": "¡Agotado!",
+  "discount-msg": "{{discount}} de descuento",
+  "buy-btn": "Comprar",
+  "confirmation-title": "Vas a abandonar {{appName}}",
+  "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{storeName}}.",
+  "manualDiscount-msg": "Si quieres obtener un {{discount}}% de descuento, tienes que introducir este código manualmente, cuando estés procesando tu pedido:",
+  "confirmationStay-btn": "Quedarme aquí",
+  "confirmationVisit-btn": "Visitar",
+
+  "mainSpecs-title": "Especificaciones principales",
+
+  "pictures-title": "Imágenes",
+
+  "videos-title": "Vídeos",
+  "watchVideos-btn": "Ver todos los vídeos",
+
+  "officialWheelApps-title": "Apps Oficiales para {{wheelName}}",
+  "unofficialApps-title": "Apps Genéricas",
+  "filterByPlatform-label": "Filtrar por plataforma",
+  "allPlatforms-label": "Todas las plataformas",
+  "android-label": "Android",
+  "ios-label": "iOS",
+  "appPicture-label": "Logo de {{appName}}",
+  "downloadApp-btn": "Descargar",
+
+  "additionalSpecs-title": "Especificaciones adicionales",
+
+  "otherStores-title": "Otras tiendas disponibles",
+
+  "loadingLikes-msg": "Cargando likes...",
+  "errorLoadingLikes-msg": "Hubo un error cargando el sistema de likes. Por favor, inténtalo en un rato.",
+  "loadingComments-msg": "Cargando comentarios...",
+  "errorLoadingComments-msg": "Hubo un error cargando el sistema de comentarios. Por favor, inténtalo en un rato."
+}

@@ -1,8 +1,13 @@
 import { Box, Button, Card, CardMedia, Icon, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useConfirmationModal, useDiscountPrice, useWheelPrice, useWheelPriceStyles } from '../../../../hooks';
+import {
+  useConfirmationModal,
+  useDiscountPrice,
+  useWheelPrice,
+  useWheelPriceStyles,
+  useWheelsDetailsTranslations
+} from '../../../../hooks';
 import { getRegion } from '../../../../store/selectors';
 import { Store, WheelId } from '../../../../types';
 import { isDarkTheme, logEvent } from '../../../../utils';
@@ -20,7 +25,7 @@ interface Props {
 const PurchaseLink: React.FC<Props> = ({ discount: d, expensive, large = false, url, store, wheel }) => {
   const [codeCopied, setCodeCopied] = useState('');
   const region = useSelector(getRegion);
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
   const dark = isDarkTheme();
   const { loadingState, price: rawPrice } = useWheelPrice(store.id, url, expensive);
   const [, discountCode] = store?.meta?.code?.split('=') ?? [];
@@ -96,7 +101,7 @@ const PurchaseLink: React.FC<Props> = ({ discount: d, expensive, large = false, 
 
         { displayDiscount && (
           <Typography variant="body1" component="span" sx={ { alignItems: 'center', display: 'flex', mb: 2 } }>
-            <Icon sx={ { mr: 1 } } color="secondary">local_offer</Icon> { t('discount', { discount }) }
+            <Icon sx={ { mr: 1 } } color="secondary">local_offer</Icon> { t('discount-msg', { discount }) }
           </Typography>
         ) }
 
@@ -163,7 +168,7 @@ const PurchaseLink: React.FC<Props> = ({ discount: d, expensive, large = false, 
           size={ large ? 'large' : 'medium' }
           variant="contained"
         >
-          { t('buy-label') }
+          { t('buy-btn') }
         </Button>
       </Card>
 

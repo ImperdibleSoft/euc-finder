@@ -1,6 +1,6 @@
 import {  Grid, Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useWheelsDetailsTranslations } from '../../../../hooks';
 import { PurchaseLink, WheelId } from '../../../../types';
 import SponsoredPurchaseLinks from '../SponsoredPurchaseLinks';
 
@@ -11,7 +11,7 @@ interface Props {
 }
 
 const AdditionalPurchaseLinks: React.FC<Props> = ({ expensive, items, wheel }) => {
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
 
   if (items.length <= 0) {
     return null;

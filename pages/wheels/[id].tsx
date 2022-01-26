@@ -1,12 +1,12 @@
 import { Box, Button, ButtonGroup, Grid } from '@mui/material';
 import { GetStaticPaths } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import eucFinderApi from '../../apis/eucfinder';
-import Apps from '../../components/Apps';
+import Apps from '../../components/Screens/WheelDetails/Apps';
 import FacebookComments from '../../components/Facebook/FacebookComments';
 import FacebookLikeButton from '../../components/Facebook/FacebookLikeButton';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
@@ -26,12 +26,14 @@ import {
   useEucDetailHandlers,
   useEucDetailInformationGroups,
   useEucPurchaseLinks,
-  useEucVideos
+  useEucVideos,
+  useWheelsDetailsTranslations
 } from '../../hooks';
+import nextI18nextConfig from '../../next-i18next.config';
 import { getBrands } from '../../store/selectors';
 import { WheelId } from '../../types';
 import { cleanWheelId, getBrandInfo } from '../../utils';
-import { getStaticProps as genericStaticProps, getWheelPictures, StaticProps } from '../../utils-server';
+import { getWheelPictures, StaticProps } from '../../utils-server';
 
 interface Props {
   pictures: Record<WheelId, string[]>;
@@ -40,7 +42,7 @@ interface Props {
 const EucDetail: React.FC<Props> = ({ pictures }) => {
   const router = useRouter();
   const id = router.query.id as WheelId;
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
   const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
   const wheelPictures = pictures[cleanWheelId(id)];
 
@@ -101,7 +103,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
                 <Box sx={ { mb: 1 } }>
                   <ButtonGroup variant="contained">
                     <Button color="primary" onClick={ handleCompare }>
-                      { t('compare-label') }
+                      { t('compare-btn') }
                     </Button>
                   </ButtonGroup>
                 </Box>
@@ -139,7 +141,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
               ) }
 
               <Grid item xs={ 12 }>
-                <Apps />
+                <Apps wheel={ wheel } />
               </Grid>
               
               <AdditionalSpecs specs={ additionalSpecs } wheel={ wheel } />
@@ -162,13 +164,13 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   );
 };
 
-export async function getStaticProps(staticProps: StaticProps) {
-  const { props } = await genericStaticProps(staticProps);
+export async function getStaticProps({ locale }: StaticProps) {
+  const translations = await serverSideTranslations(locale, ['wheelDetails'], nextI18nextConfig);
   const pictures = getWheelPictures();
 
   return {
     props: {
-      ...props,
+      ...translations,
       pictures
     }
   };

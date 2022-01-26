@@ -38,7 +38,7 @@ export const useWheelsListTranslations = () => {
 };
 
 export const useWheelsDetailsTranslations = () => {
-  const { t, i18n } = useTranslation('wheelsDetails');
+  const { t, i18n } = useTranslation('wheelDetails');
 
   return { t, i18n };
 };

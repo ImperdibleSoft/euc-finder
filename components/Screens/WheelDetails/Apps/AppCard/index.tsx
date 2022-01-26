@@ -1,9 +1,8 @@
 import { Box, Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useCardSizes } from '../../../hooks';
-import { App, AvailablePlatforms } from '../../../types';
+import { useCardSizes, useWheelsDetailsTranslations } from '../../../../../hooks';
+import { App, AvailablePlatforms } from '../../../../../types';
 
 const getCards = (app: App, platform: AvailablePlatforms) => {
   const platforms = [];
@@ -28,7 +27,7 @@ interface Props {
 }
 
 const AppCard: React.FC<Props> = ({ app, platform }) => {
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
   const breakpoints = useCardSizes();
   const cards = getCards(app, platform);
 
@@ -58,7 +57,7 @@ const AppCard: React.FC<Props> = ({ app, platform }) => {
                   href={ card.url }
                   target="_blank"
                 >
-                  { t('downloadApp-label') }
+                  { t('downloadApp-btn') }
                 </Button>
               </CardActions>
             </Box>

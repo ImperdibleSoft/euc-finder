@@ -1,14 +1,14 @@
 import { Typography } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+import { useWheelsDetailsTranslations } from '../../../../hooks';
 
 const EmptyCase: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
   
   return (
     <>
       <Typography variant="h5" component="h1" sx={ { mb: 3 } }>
-        { t('emptyCase-title') }
+        { t('noWheel-title') }
       </Typography>
 
       <Typography variant="body1" component="p">

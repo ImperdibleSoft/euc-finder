@@ -1,0 +1,46 @@
+{
+  "noWheel-title": "",
+  "noWheel-msg": "We don't have this EUC in our database.",
+  
+  "compare-btn": "Compare",
+
+  "defaultDescription-msg": "We will add a small description about this EUC soon.",
+
+  "highlightedSpecs-title": "Highlighted specs",
+  
+  "sponsoredStores-title": "Sponsored stores",
+  "loadingPrice-msg": "Looking for {{storeName}}'s price",
+  "soldOut-msg": "Sold out!",
+  "discount-msg": "{{discount}} off",
+  "buy-btn": "Buy",
+  "confirmation-title": "You are navigating out of {{appName}}",
+  "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{storeName}}'s site.",
+  "manualDiscount-msg": "If you want to get a {{discount}}% discount, you need to manually enter this code when you are proccesing your payment:",
+  "confirmationStay-btn": "Stay here",
+  "confirmationVisit-btn": "Visit",
+  
+  "mainSpecs-title": "Main specs",
+  
+  "pictures-title": "Pictures",
+  
+  "videos-title": "Videos",
+  "watchVideos-btn": "Watch all videos",
+
+  "officialWheelApps-title": "{{wheelName}}'s Official Apps",
+  "unofficialApps-title": "Generic Apps",
+  "filterByPlatform-label": "Filter by platform",
+  "allPlatforms-label": "All platforms",
+  "android-label": "Android",
+  "ios-label": "iOS",
+  "appPicture-label": "{{appName}}'s logo",
+  "downloadApp-btn": "Download",
+
+  "additionalSpecs-title": "Additional specs",
+
+  "otherStores-title": "Other available stores",
+  
+  "loadingLikes-msg": "Loading likes...",
+  "errorLoadingLikes-msg": "There was an error while loading likes' system. Please, try again later.",
+  "loadingComments-msg": "Loading comments...",
+  "errorLoadingComments-msg": "There was an error while loading comments' system. Please, try again later."
+}
