@@ -1,15 +1,17 @@
 import { Grid, Typography } from '@mui/material';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import DealerCard from '../../components/Screens/Dealers/DealerCard';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
+import DealerCard from '../../components/Screens/Dealers/DealerCard';
 import { APP_NAME, KEYWORDS } from '../../constants';
+import { useDealersTranslations } from '../../hooks';
+import nextI18nextConfig from '../../next-i18next.config';
 import { getDealersByRegion, getRegion } from '../../store/selectors';
 import { Region } from '../../types';
+import { StaticProps } from '../../utils-server';
 import { getDealersFromMarkdown } from '../../utils/dealers';
-import { getStaticProps } from '../../utils-server';
 
 const getRegionId = (regionCode: Region) => {
   switch (regionCode) {
@@ -26,7 +28,7 @@ const getRegionId = (regionCode: Region) => {
 };
 
 const Dealers: React.FC = () => {
-  const { t } = useTranslation();
+  const { t } = useDealersTranslations();
   const regionCode = useSelector(getRegion);
   const dealers = useSelector(getDealersByRegion(regionCode));
   const regionId = getRegionId(regionCode);
@@ -108,4 +110,7 @@ const Dealers: React.FC = () => {
 
 export default Dealers;
 
-export { getStaticProps };
+export async function getStaticProps({ locale }: StaticProps) {
+  const translations = await serverSideTranslations(locale, ['dealers'], nextI18nextConfig);
+  return { props: { ...translations } };
+}

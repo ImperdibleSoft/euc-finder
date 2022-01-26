@@ -16,8 +16,8 @@ import {
   Typography
 } from '@mui/material';
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useDealersTranslations } from '../../../../hooks';
 import { getDealers, getPurchaseLinksByStore } from '../../../../store/selectors';
 import { isDarkTheme } from '../../../../utils';
 import { isDiscountAvailable } from '../../../../utils/dealers';
@@ -56,7 +56,7 @@ const DealerCard: React.FC<Props> = ({
   purchaseLinks,
   fetchPrices
 }) => {
-  const { t } = useTranslation();
+  const { t } = useDealersTranslations();
   const dark = isDarkTheme();
   const dealers = useSelector(getDealers);
   const dealer = dealers.find(s => s.name.toLowerCase() === storeName.toLowerCase());
