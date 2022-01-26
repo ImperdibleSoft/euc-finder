@@ -3,13 +3,12 @@ import { Box, Button, ButtonGroup, Card, CardActions, CardContent, Divider, Grid
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Dropdown from '../../components/Form/Dropdown';
 import Slider from '../../components/Form/Slider';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import { useSettings } from '../../hooks';
+import { useSettings, useSettingsTranslations } from '../../hooks';
 import nextI18nextConfig from '../../next-i18next.config';
 import { defaultMeasureUnits, resetMeasureUnits } from '../../store/actions';
 import { SpecWeightsPreset } from '../../store/types';
@@ -19,7 +18,7 @@ import { StaticProps } from '../../utils-server';
 
 // eslint-disable-next-line max-lines-per-function
 const Settings: React.FC = () => {
-  const { t } = useTranslation('settings');
+  const { t } = useSettingsTranslations();
   const dispatch = useDispatch();
   const [render, setRender] = useState(false);
   const {
