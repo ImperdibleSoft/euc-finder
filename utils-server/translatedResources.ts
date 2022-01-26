@@ -1,3 +1,4 @@
+import { SSRConfig } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import nextI18NextConfig from '../next-i18next.config.js';
 import { TranslationFile } from '../types';
@@ -13,6 +14,10 @@ export interface StaticProps {
   locales: string[];
   locale: string;
   defaultLocale: string;
+}
+
+interface ReturnType {
+  props: SSRConfig & { pictures?: Record<WheelId, string | string[]> };
 }
 
 export const getTranslationsFromFiles = (files: TranslationFile[], pictures: WheelPictures) => {
@@ -31,8 +36,7 @@ export const getTranslationsFromFiles = (files: TranslationFile[], pictures: Whe
     default:
   }
 
-
-  return async function getStaticProps({ locale }: StaticProps) {
+  const getStaticProps = async ({ locale }: StaticProps): Promise<ReturnType> => {
     const translations = await serverSideTranslations(locale, ['common', 'layout', ...files], nextI18NextConfig);
 
     const props = { ...translations };
@@ -44,4 +48,6 @@ export const getTranslationsFromFiles = (files: TranslationFile[], pictures: Whe
     
     return { props };
   };
+
+  return getStaticProps;
 };
