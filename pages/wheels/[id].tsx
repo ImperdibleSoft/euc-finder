@@ -2,7 +2,7 @@ import { Box, Button, ButtonGroup, Grid } from '@mui/material';
 import { GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import eucFinderApi from '../../apis/eucfinder';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
@@ -44,6 +44,13 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const { t } = useWheelsDetailsTranslations();
   const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
   const wheelPictures = pictures[cleanWheelId(id)];
+
+  useEffect(() => {
+    // eslint-disable-next-line no-console
+    console.log({ t, test: t('defaultDescription-msg') });
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const { name, wheel } = useEucDetail(id);
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
