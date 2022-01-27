@@ -12,6 +12,7 @@ import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import AppWithStore from '../components/Screens/_app/AppWithStore';
 import { APP_NAME, APP_URL, MEASUREMENT_ID } from '../constants';
+import nextI18NextConfig from '../next-i18next.config.js';
 import { configureStore } from '../store';
 import '../styles/globals.css';
 import { LOCAL_STORAGE_KEY } from '../types';
@@ -98,4 +99,4 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   );
 };
 
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, nextI18NextConfig);
