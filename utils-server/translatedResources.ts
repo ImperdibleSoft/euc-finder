@@ -27,8 +27,6 @@ interface ReturnType {
 export const getTranslationsFromFiles = (files: TranslationFile[], pictures: WheelPictures) => {
   const getStaticProps = async ({ locale }: StaticProps): Promise<ReturnType> => {
     const translations = await serverSideTranslations(locale, ['common', 'layout', ...files], nextI18NextConfig);
-    // eslint-disable-next-line no-console
-    console.log('Translations', translations);
     const props: Props = { ...translations };
 
     let pictureGetter: undefined | (() => Record<WheelId, string | string[]>);
@@ -46,14 +44,10 @@ export const getTranslationsFromFiles = (files: TranslationFile[], pictures: Whe
       default:
     }
 
-    // eslint-disable-next-line no-console
-    console.log('PictureGetter', pictureGetter);
     if (pictureGetter) {
       props.pictures = pictureGetter();
     }
 
-    // eslint-disable-next-line no-console
-    console.log('Pictures', props.pictures);
     return { props };
   };
 
