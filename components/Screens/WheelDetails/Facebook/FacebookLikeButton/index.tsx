@@ -1,15 +1,14 @@
 import { Box, Card, Theme, Typography } from '@mui/material';
 import React, { useRef } from 'react';
-import { useTranslation } from 'react-i18next';
 import { isFacebookEnabled } from '../../../../../constants';
-import { useLoadFacebookContent } from '../../../../../hooks';
+import { useLoadFacebookContent, useWheelsDetailsTranslations } from '../../../../../hooks';
 
 interface Props {
   width?: number;
 }
 
 const FacebookLikeButton: React.FC<Props> = ({ width }) => {
-  const { t } = useTranslation();
+  const { t } = useWheelsDetailsTranslations();
   const cardRef = useRef<HTMLDivElement>(null);
 
   const {
