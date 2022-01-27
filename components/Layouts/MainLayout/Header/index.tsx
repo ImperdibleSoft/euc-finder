@@ -13,7 +13,7 @@ import Link from 'next/link';
 import React from 'react';
 import { APP_NAME } from '../../../../constants';
 import { ROOT } from '../../../../constants/clientRoutes';
-import { useCommonTranslations, useLayoutTranslations } from '../../../../hooks';
+import { commonNs, useLayoutTranslations } from '../../../../hooks';
 import { BRAND_COLOR } from '../../../../styles/theme';
 import { Brand, Region, Wheel } from '../../../../types';
 import { getBrandInfo } from '../../../../utils';
@@ -42,7 +42,6 @@ const Header: React.FC<Props> = ({
   selectedRegion,
   wheels
 }) => {
-  const common = useCommonTranslations();
   const { t } = useLayoutTranslations();
   
   return (
@@ -71,7 +70,7 @@ const Header: React.FC<Props> = ({
               display: 'flex' 
             } }>
               <Image
-                alt={ common.t('appLogo-label', { appName: APP_NAME }) }
+                alt={ t('appLogo-label', { ...commonNs, appName: APP_NAME }) }
                 height="48px"
                 src="/logos/eucfinder-dark.png"
                 width="48px"

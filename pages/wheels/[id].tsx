@@ -20,6 +20,7 @@ import SponsoredPurchaseLinks from '../../components/Screens/WheelDetails/Sponso
 import VideosCarousel from '../../components/Screens/WheelDetails/VideosCarousel';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import {
+  commonNs,
   useCompareActions,
   useEucDetail,
   useEucDetailHandlers,
@@ -79,7 +80,10 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
         <meta property="og:title" content={ pageTitle } />
         <meta property="og:description" content={ pageDescription } />
         <meta property="og:image" content={ wheelPictures[0] } />
-        <meta property="og:image:alt" content={ t('wheelPicture-msg', { wheelName: wheel?.name }) } />
+        <meta
+          property="og:image:alt"
+          content={ t('wheelPicture-msg', { ...commonNs, wheelName: wheel?.name }) }
+        />
       </Head>
 
       <SimpleLayout>

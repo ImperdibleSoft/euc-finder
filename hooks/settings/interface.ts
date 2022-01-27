@@ -8,8 +8,9 @@ import { setTheme } from '../../store/actions';
 import { getTheme } from '../../store/selectors';
 import { AvailableTheme, LOCAL_STORAGE_KEY } from '../../types';
 import { setItem } from '../../utils';
+import { commonNs } from '../translations';
 
-export const useInterface = (t: TFunction<'translation'>, i18nFunc: i18n, commonT: TFunction<'translation'>) => {
+export const useInterface = (t: TFunction<'translation'>, i18nFunc: i18n) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [language, setLanguage] = useState(i18nFunc.language);
@@ -31,16 +32,16 @@ export const useInterface = (t: TFunction<'translation'>, i18nFunc: i18n, common
 
   const fields: Props[] = [
     {
-      label: commonT('language-label'),
+      label: t('language-label', commonNs),
       name: 'language',
       onChange: handleChangeLanguage,
       options: [
         {
-          label: commonT('en-label'),
+          label: t('en-label', commonNs),
           value: 'en'
         },
         {
-          label: commonT('es-label'),
+          label: t('es-label', commonNs),
           value: 'es'
         }
       ],

@@ -8,6 +8,7 @@ import { getPricesConfig, getSpecWeights, getSpecWeightsActivePreset } from '../
 import { SpecWeights, SpecWeightsPreset } from '../../store/types';
 import { LOCAL_STORAGE_KEY } from '../../types';
 import { setItem } from '../../utils';
+import { commonNs } from '../translations';
 
 // eslint-disable-next-line max-lines-per-function
 export const usePresets = (t: TFunction<'translation'>) => {
@@ -48,7 +49,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.maxSpeed,
-      label: t('maxSpeed'),
+      label: t('maxSpeed', commonNs),
       name: 'maxSpeed',
       onChange: handleChangeCustomValue,
       value: specWeights.maxSpeed
@@ -56,7 +57,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.range,
-      label: t('range'),
+      label: t('range', commonNs),
       name: 'range',
       onChange: handleChangeCustomValue,
       value: specWeights.range
@@ -64,7 +65,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.weight,
-      label: t('weight'),
+      label: t('weight', commonNs),
       name: 'weight',
       onChange: handleChangeCustomValue,
       value: specWeights.weight
@@ -72,7 +73,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.ratedPower,
-      label: t('ratedPower'),
+      label: t('ratedPower', commonNs),
       name: 'ratedPower',
       onChange: handleChangeCustomValue,
       value: specWeights.ratedPower
@@ -80,7 +81,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.maxGradibility,
-      label: t('maxGradibility'),
+      label: t('maxGradibility', commonNs),
       name: 'maxGradibility',
       onChange: handleChangeCustomValue,
       value: specWeights.maxGradibility
@@ -88,7 +89,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.suspension,
-      label: t('suspension'),
+      label: t('suspension', commonNs),
       name: 'suspension',
       onChange: handleChangeCustomValue,
       value: specWeights.suspension
@@ -96,7 +97,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.trolleyHandle,
-      label: t('trolleyHandle'),
+      label: t('trolleyHandle', commonNs),
       name: 'trolleyHandle',
       onChange: handleChangeCustomValue,
       value: specWeights.trolleyHandle
@@ -104,7 +105,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.antiSpin,
-      label: t('antiSpin'),
+      label: t('antiSpin', commonNs),
       name: 'antiSpin',
       onChange: handleChangeCustomValue,
       value: specWeights.antiSpin
@@ -112,7 +113,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.pedals,
-      label: t('pedals'),
+      label: t('pedals', commonNs),
       name: 'pedals',
       onChange: handleChangeCustomValue,
       value: specWeights.pedals
@@ -120,7 +121,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.kickstand,
-      label: t('kickstand'),
+      label: t('kickstand', commonNs),
       name: 'kickstand',
       onChange: handleChangeCustomValue,
       value: specWeights.kickstand
@@ -128,7 +129,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.headlight,
-      label: t('headlight'),
+      label: t('headlight', commonNs),
       name: 'headlight',
       onChange: handleChangeCustomValue,
       value: specWeights.headlight
@@ -136,7 +137,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.tailLight,
-      label: t('tailLight'),
+      label: t('tailLight', commonNs),
       name: 'tailLight',
       onChange: handleChangeCustomValue,
       value: specWeights.tailLight
@@ -144,7 +145,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.leds,
-      label: t('leds'),
+      label: t('leds', commonNs),
       name: 'leds',
       onChange: handleChangeCustomValue,
       value: specWeights.leds
@@ -152,7 +153,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.sound,
-      label: t('sound'),
+      label: t('sound', commonNs),
       name: 'sound',
       onChange: handleChangeCustomValue,
       value: specWeights.sound
@@ -160,7 +161,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     {
       ...commonOptions,
       icon: wheelFeatureIcons.display,
-      label: t('display'),
+      label: t('display', commonNs),
       name: 'display',
       onChange: handleChangeCustomValue,
       value: specWeights.display
@@ -171,7 +172,7 @@ export const usePresets = (t: TFunction<'translation'>) => {
     specWeightsFields.unshift({
       ...commonOptions,
       icon: wheelFeatureIcons.price,
-      label: t('price'),
+      label: t('price', commonNs),
       name: 'price',
       onChange: handleChangeCustomValue,
       value: specWeights.price

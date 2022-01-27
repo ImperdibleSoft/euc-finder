@@ -1,5 +1,5 @@
 import { Button, Card, CardActions, Grid, Typography } from '@mui/material';
-import { useCommonTranslations, useWheelsDetailsTranslations } from '../../../../hooks';
+import { commonNs, useWheelsDetailsTranslations } from '../../../../hooks';
 import { Video } from '../../../../types';
 import Carousel from '../../../Carousel';
 import VideoCard from '../../Videos/VideoCard';
@@ -11,7 +11,6 @@ interface Props {
 }
 
 const VideosCarousel: React.FC<Props> = ({ handleWatchMoreVideos, totalCount, videos }) => {
-  const common = useCommonTranslations();
   const { t } = useWheelsDetailsTranslations();
   
   return (
@@ -25,7 +24,7 @@ const VideosCarousel: React.FC<Props> = ({ handleWatchMoreVideos, totalCount, vi
       >
         <Carousel
           counter={ totalCount }
-          entityName={ common.t(`videos`) }    
+          entityName={ t('videos', commonNs) }    
           transparent              
         >
           { ({ Item }) => videos.map(video => (

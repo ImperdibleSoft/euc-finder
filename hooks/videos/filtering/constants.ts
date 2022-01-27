@@ -2,6 +2,7 @@ import { TFunction } from 'react-i18next';
 import { DropdownItem } from '../../../components/Form/Dropdown';
 import { Brand, Influencer, Lang, Wheel } from '../../../types';
 import { formatWheelName, getAllCategories } from '../../../utils';
+import { commonNs } from '../../translations';
 
 interface Params {
   brands: Brand[];
@@ -11,7 +12,6 @@ interface Params {
 
 export const getDropdownOptions = (
   { brands, influencers, wheels }: Params,
-  commonT: TFunction<'translation'>,
   t: TFunction<'translation'>
 ) => {
   const categoryOptions: DropdownItem[] = getAllCategories()
@@ -28,11 +28,11 @@ export const getDropdownOptions = (
 
   const languageOptions: DropdownItem<Lang>[] = [
     {
-      label: commonT('en-label'),
+      label: t('en-label', commonNs),
       value: 'en'
     },
     {
-      label: commonT('es-label'),
+      label: t('es-label', commonNs),
       value: 'es'
     }
   ];

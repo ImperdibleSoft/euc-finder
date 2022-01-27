@@ -1,11 +1,13 @@
 /* eslint-disable max-lines */
 import { TFunction } from 'react-i18next';
+import { commonNs } from '../hooks';
 import {
   AntiSpin,
   Battery,
   Brand,
   Color,
   DiameterUnits,
+  DimensionsUnits,
   Display,
   GroundClearance,
   GroundClearanceUnits,
@@ -15,7 +17,6 @@ import {
   PedalType,
   RangeUnits,
   Region,
-  DimensionsUnits,
   SoundSystem,
   SpeedUnits,
   Suspension,
@@ -256,10 +257,10 @@ export const trolleyHandle = (
   switch (value) {
     case TrolleyHandle.scorpion:
     case TrolleyHandle.telescopic:
-      return t?.(value) ?? getTranslation(value);
+      return t?.(value, commonNs) ?? getTranslation(value);
 
     default:
-      return t?.('no') ?? getTranslation('no');
+      return t?.('no', commonNs) ?? getTranslation('no');
   }
 };
 
@@ -268,10 +269,10 @@ export const antiSpin = (value?: AntiSpin, t?: TFunction<'translation'>): string
     case AntiSpin.sensor:
     case AntiSpin.button:
     case AntiSpin.position:
-      return t?.(value) ?? getTranslation(value);
+      return t?.(value, commonNs) ?? getTranslation(value);
 
     default:
-      return t?.('no') ?? getTranslation('no');
+      return t?.('no', commonNs) ?? getTranslation('no');
   }
 };
 
@@ -297,9 +298,9 @@ export const dimensions = (
     getConvertedDimensions(deep, units)
   ];
 
-  const transH = t?.('height-label') ?? getTranslation('height-label');
-  const transW = t?.('width-label') ?? getTranslation('width-label');
-  const transL = t?.('long-label') ?? getTranslation('long-label');
+  const transH = t?.('height-label', commonNs) ?? getTranslation('height-label');
+  const transW = t?.('width-label', commonNs) ?? getTranslation('width-label');
+  const transL = t?.('long-label', commonNs) ?? getTranslation('long-label');
   
   const [convertedH, convertedW, convertedD] = convertedVal;
   switch (units) {
@@ -314,25 +315,25 @@ export const dimensions = (
 
 export const pedals = (value?: [PedalType, PedalSurface, boolean], t?: TFunction<'translation'>): string => {
   if (!value) {
-    return t?.('no') ?? getTranslation('no');
+    return t?.('no', commonNs) ?? getTranslation('no');
   }
 
   const [pedalType, pedalSurface, retentionPins] = value;
   let str = '';
 
   if (pedalType) {
-    str += `${ t?.(pedalType) }, `;
+    str += `${ t?.(pedalType, commonNs) }, `;
   }
 
   if (pedalSurface) {
-    str += t?.(pedalSurface)?.toLowerCase();
+    str += t?.(pedalSurface, commonNs)?.toLowerCase();
   }
 
   if (retentionPins) {
     if (pedalSurface) {
       str += `, `;
     }
-    str += `${ t?.('with').toLowerCase() } ${ t?.('retentionPins')?.toLowerCase() }`;
+    str += `${ t?.('with', commonNs).toLowerCase() } ${ t?.('retentionPins', commonNs)?.toLowerCase() }`;
   }
 
   return str || '-';
@@ -342,20 +343,20 @@ export const kickstand = (value?: Kickstand, t?: TFunction<'translation'>): stri
   switch (value) {
     case Kickstand.dedicated:
     case Kickstand.shell:
-      return t?.(value) ?? getTranslation(value);
+      return t?.(value, commonNs) ?? getTranslation(value);
 
     default:
-      return t?.('no') ?? getTranslation('no');
+      return t?.('no', commonNs) ?? getTranslation('no');
   }
 };
 
 export const lumens = (value: Lumens, t?: TFunction<'translation'>): string => {
   if (value === true) {
-    return t?.('yes') ?? getTranslation('yes');
+    return t?.('yes', commonNs) ?? getTranslation('yes');
   }
 
   if (value === false) {
-    return t?.('no') ?? getTranslation('no');
+    return t?.('no', commonNs) ?? getTranslation('no');
   }
 
   if (value) {
@@ -367,10 +368,10 @@ export const lumens = (value: Lumens, t?: TFunction<'translation'>): string => {
 
 export const boolean = (value: boolean, t?: TFunction<'translation'>): string => {
   if (value) {
-    return t?.('yes') ?? getTranslation('yes');
+    return t?.('yes', commonNs) ?? getTranslation('yes');
   }
 
-  return t?.('no') ?? getTranslation('no');
+  return t?.('no', commonNs) ?? getTranslation('no');
 };
 
 export const soundChannels = (
@@ -381,17 +382,17 @@ export const soundChannels = (
     return `${ value } ch`;
   }
 
-  return t?.('no') ?? getTranslation('no');
+  return t?.('no', commonNs) ?? getTranslation('no');
 };
 
 export const display = (value?: Display, t?: TFunction<'translation'>): string => {
   switch (value) {
     case Display.lcd:
     case Display.led:
-      return t?.(value) ?? getTranslation(value);
+      return t?.(value, commonNs) ?? getTranslation(value);
 
     default:
-      return t?.('no') ?? getTranslation('no');
+      return t?.('no', commonNs) ?? getTranslation('no');
   }
 };
 
@@ -402,10 +403,10 @@ export const suspension = (
   switch (value) {
     case Suspension.custom:
     case Suspension.standard:
-      return t?.(value) ?? getTranslation(value);
+      return t?.(value, commonNs) ?? getTranslation(value);
 
     default:
-      return t?.('no') ?? getTranslation('no');
+      return t?.('no', commonNs) ?? getTranslation('no');
   }
 };
 
@@ -421,7 +422,7 @@ export const color = (
         case Color.blackAndRed:
         case Color.blackAndYellow:
         case Color.blackAndSilver:
-          return t?.(value) ?? getTranslation(value);
+          return t?.(value, commonNs) ?? getTranslation(value);
 
         default:
           return value;

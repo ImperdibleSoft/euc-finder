@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import DealerCard from '../../components/Screens/Dealers/DealerCard';
 import { APP_NAME, KEYWORDS } from '../../constants';
-import { useCommonTranslations, useDealersTranslations } from '../../hooks';
+import { commonNs, useDealersTranslations } from '../../hooks';
 import { getDealersByRegion, getRegion } from '../../store/selectors';
 import { Region, TranslationFile } from '../../types';
 import { getDealersFromMarkdown } from '../../utils/dealers';
@@ -26,7 +26,6 @@ const getRegionId = (regionCode: Region) => {
 };
 
 const Dealers: React.FC = () => {
-  const common = useCommonTranslations();
   const { t } = useDealersTranslations();
   const regionCode = useSelector(getRegion);
   const dealers = useSelector(getDealersByRegion(regionCode));
@@ -34,7 +33,7 @@ const Dealers: React.FC = () => {
 
   const regions = getDealersFromMarkdown();
   const region = regions.find(r => r.name === regionId);
-  const regionName = common.t(`${ regionId }-label`);
+  const regionName = t(`${ regionId }-label`, commonNs);
 
   const pageTitle = t('dealers-title');
   const pageDescription = t('dealers1-msg', { appName: APP_NAME, region: regionName });

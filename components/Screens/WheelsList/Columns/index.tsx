@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
 import React from 'react';
-import { useCommonTranslations, useWheelsListTranslations } from '../../../../hooks';
+import { commonNs, useWheelsListTranslations } from '../../../../hooks';
 import { WheelsTableColumns } from '../../../../types';
 import Collapsable from '../../../Collapsable';
 import Checkbox from '../../../Form/Checkbox';
@@ -20,11 +20,10 @@ const Columns: React.FC<Props> = ({
   handleReset,
   handleShow
 }) => {
-  const common = useCommonTranslations();
   const { t } = useWheelsListTranslations();
 
   const renderColumnCheckbox = (key: string) => {
-    const label = common.t(key);
+    const label = t(key, commonNs);
     const value = columns[key as keyof WheelsTableColumns];
 
     const action = value ? handleHide : handleShow;

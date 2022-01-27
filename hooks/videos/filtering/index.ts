@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useCommonTranslations, useVideosTranslations } from '../../translations';
+import { useVideosTranslations } from '../../translations';
 import MultiSelect from '../../../components/Form/MultiSelect';
 import { wheelFeatureIcons } from '../../../constants';
 import { filterVideos, resetVideoFilters } from '../../../store/actions';
@@ -46,7 +46,6 @@ const useFilters = () => {
 };
 
 export const useVideoFilterFields = () => {
-  const common = useCommonTranslations();
   const { t } = useVideosTranslations();
   const brands = useSelector(getBrands);
   const influencers = useSelector(getInfluencers);
@@ -57,7 +56,7 @@ export const useVideoFilterFields = () => {
     influencersOptions,
     languageOptions,
     wheelsOptions
-  } = getDropdownOptions({ brands, influencers, wheels }, common.t, t);
+  } = getDropdownOptions({ brands, influencers, wheels }, t);
 
   const {
     handleChangeCategories,

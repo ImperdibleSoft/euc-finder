@@ -26,7 +26,11 @@ interface ReturnType {
 
 export const getTranslationsFromFiles = (files: TranslationFile[], pictures: WheelPictures) => {
   const getStaticProps = async ({ locale }: StaticProps): Promise<ReturnType> => {
-    const translations = await serverSideTranslations(locale, ['common', 'layout', ...files], nextI18NextConfig);
+    const translations = await serverSideTranslations(
+      locale,
+      [TranslationFile.common, TranslationFile.layout, ...files],
+      nextI18NextConfig
+    );
     const props: Props = { ...translations };
 
     let pictureGetter: undefined | (() => Record<WheelId, string | string[]>);

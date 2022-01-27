@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { useCommonTranslations, useDealersTranslations } from '../../../../hooks';
+import { commonNs, useDealersTranslations } from '../../../../hooks';
 import { getDealers, getPurchaseLinksByStore } from '../../../../store/selectors';
 import { isDarkTheme } from '../../../../utils';
 import { isDiscountAvailable } from '../../../../utils/dealers';
@@ -56,7 +56,6 @@ const DealerCard: React.FC<Props> = ({
   purchaseLinks,
   fetchPrices
 }) => {
-  const common = useCommonTranslations();
   const { t } = useDealersTranslations();
   const dark = isDarkTheme();
   const dealers = useSelector(getDealers);
@@ -137,7 +136,7 @@ const DealerCard: React.FC<Props> = ({
               <ListItemIcon sx={ listItemIconStyles }>
                 <Icon color="primary">radio_button_unchecked</Icon>
               </ListItemIcon>
-              <ListItemText primary={ `${ links.length } ${ common.t('eucs') }` } />
+              <ListItemText primary={ `${ links.length } ${ t('eucs', commonNs) }` } />
             </ListItem>
           </List>
 
