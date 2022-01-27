@@ -7,7 +7,7 @@ import { getFirstWheelPicture, getWheelPictures } from './wheelPictures';
 
 type WheelPictures = 'none' | 'first' | 'all';
 
-export interface StaticProps {
+interface StaticProps {
   params: {
     id?: string;
   };
@@ -16,20 +16,24 @@ export interface StaticProps {
   defaultLocale: string;
 }
 
+interface Props extends SSRConfig {
+  pictures?: Record<WheelId, string | string[]>;
+}
+
 interface ReturnType {
-  props: SSRConfig & { pictures?: Record<WheelId, string | string[]> };
+  props: Props;
 }
 
 export const getTranslationsFromFiles = (files: TranslationFile[], pictures: WheelPictures) => {
-  let pictureCollection: Record<WheelId, string | string[]>;
+  let pictureGetter: undefined | (() => Record<WheelId, string | string[]>);
 
   switch (pictures) {
     case 'all':
-      pictureCollection = getWheelPictures();
+      pictureGetter = getWheelPictures;
       break;
 
     case 'first':
-      pictureCollection = getFirstWheelPicture();
+      pictureGetter = getFirstWheelPicture;
       break;
 
     case 'none':
@@ -39,11 +43,10 @@ export const getTranslationsFromFiles = (files: TranslationFile[], pictures: Whe
   const getStaticProps = async ({ locale }: StaticProps): Promise<ReturnType> => {
     const translations = await serverSideTranslations(locale, ['common', 'layout', ...files], nextI18NextConfig);
 
-    const props = { ...translations };
+    const props: Props = { ...translations };
 
-    if (pictureCollection) {
-      // @ts-ignore `pictures` is not present in `props`
-      props.pictures = pictureCollection;
+    if (pictureGetter) {
+      props.pictures = pictureGetter?.();
     }
     
     return { props };
