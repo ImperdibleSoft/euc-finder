@@ -25,30 +25,35 @@ interface ReturnType {
 }
 
 export const getTranslationsFromFiles = (files: TranslationFile[], pictures: WheelPictures) => {
-  let pictureGetter: undefined | (() => Record<WheelId, string | string[]>);
-
-  switch (pictures) {
-    case 'all':
-      pictureGetter = getWheelPictures;
-      break;
-
-    case 'first':
-      pictureGetter = getFirstWheelPicture;
-      break;
-
-    case 'none':
-    default:
-  }
-
   const getStaticProps = async ({ locale }: StaticProps): Promise<ReturnType> => {
     const translations = await serverSideTranslations(locale, ['common', 'layout', ...files], nextI18NextConfig);
-
+    // eslint-disable-next-line no-console
+    console.log('Translations', translations);
     const props: Props = { ...translations };
 
-    if (pictureGetter) {
-      props.pictures = pictureGetter?.();
+    let pictureGetter: undefined | (() => Record<WheelId, string | string[]>);
+
+    switch (pictures) {
+      case 'all':
+        pictureGetter = getWheelPictures;
+        break;
+
+      case 'first':
+        pictureGetter = getFirstWheelPicture;
+        break;
+
+      case 'none':
+      default:
     }
-    
+
+    // eslint-disable-next-line no-console
+    console.log('PictureGetter', pictureGetter);
+    if (pictureGetter) {
+      props.pictures = pictureGetter();
+    }
+
+    // eslint-disable-next-line no-console
+    console.log('Pictures', props.pictures);
     return { props };
   };
 
