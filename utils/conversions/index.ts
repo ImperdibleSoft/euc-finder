@@ -1,15 +1,9 @@
 import { DiameterUnits, GroundClearanceUnits, RangeUnits, DimensionsUnits, SpeedUnits, WeightUnits } from '../../types';
 import { toDecimals } from '../range';
+import { inchesToCentimeters, kilogramsToPounds, kilometersToMiles, milimetersToInches } from './decimalMetricSystem';
 
 export * from './currencies';
-
-const inchesToCentimeters = (inches: number) => inches * 2.54;
-
-const kilometersToMiles = (kilometers: number) => kilometers * 0.621371;
-
-const kilogramsToPounds = (kilograms: number) => kilograms * 2.20462;
-
-const milimetersToInches = (milimeters: number) => milimeters * 0.0393701;
+export * from './decimalMetricSystem';
 
 export const getConvertedDiameter = (value: number, units?: DiameterUnits, decimals = 0): string => {
   switch (units) {
