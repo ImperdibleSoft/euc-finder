@@ -1,7 +1,7 @@
 import { Card, Grid, ImageList, ImageListItem, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
-import { useCommonTranslations } from '../../../../hooks';
+import { commonNs, useWheelsDetailsTranslations } from '../../../../hooks';
 import PictureDetails from '../PictureDetails';
 
 interface Props {
@@ -13,7 +13,7 @@ interface Props {
 }
 
 const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, wheelName }) => {
-  const { t } = useCommonTranslations();
+  const { t } = useWheelsDetailsTranslations();
 
   if (!pictures?.length) {
     return null;
@@ -64,7 +64,7 @@ const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, 
                 } }
               >
                 <Image
-                  alt={ t('wheelPicture-msg', { wheelName }) }
+                  alt={ t('wheelPicture-msg', { ...commonNs, wheelName }) }
                   loading="lazy"
                   src={ picture }
                   layout="fill"
@@ -76,7 +76,7 @@ const Pictures: React.FC<Props> = ({ onClick, onClose, pictureDetail, pictures, 
       </Card>
 
       <PictureDetails
-        alt={ t('wheelPicture-msg', { wheelName }) }
+        alt={ t('wheelPicture-msg', { ...commonNs, wheelName }) }
         handleClose={ onClose }
         picture={ pictureDetail }
       />
