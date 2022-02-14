@@ -360,8 +360,43 @@ const madpackVideos: Video[] = [
     publishDate: '24/Jan/2022',
     releaseDate: '24/Jan/2022',
     language: 'en'
-  }
-  
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=39hiC1RCKJI',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.chatting,
+      WheelId.v12
+    ],
+    publishDate: '27/Jan/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=hfmzvWlhO0s&t=29s',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.chatting,
+      WheelId.xmenHS,
+      WheelId.xmenHT
+    ],
+    publishDate: '31/Jan/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=r0XZaN6IqUs',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.chatting,
+      VideoCategory.comparision,
+      WheelId.abrams,
+      WheelId.commanderHT
+    ],
+    publishDate: '07/Feb/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
+  }  
 ];
 
 

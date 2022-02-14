@@ -96,6 +96,30 @@ const eeveesVideos: Video[] = [
     publishDate: '19/Dec/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=WDmO58YpWYk',
+    tags: [
+      InfluencerId.eevees,
+      VideoCategory.reveal,
+      VideoCategory.chatting,
+      WheelId.ksS20
+    ],
+    publishDate: '11/Feb/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=10Szs8M7u6s',
+    tags: [
+      InfluencerId.eevees,
+      VideoCategory.reveal,
+      VideoCategory.chatting,
+      WheelId.ksS20
+    ],
+    publishDate: '13/Feb/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
   }
 ];
 

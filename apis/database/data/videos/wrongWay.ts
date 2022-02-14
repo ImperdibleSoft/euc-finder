@@ -667,15 +667,15 @@ const wrongWayVideos: Video[] = [
       WheelId.commanderHS,
       WheelId.commanderHT
     ],
-    publishDate: '09/Dec/2021',
-    releaseDate: '07/Dec/2021',
+    publishDate: '07/Dec/2021',
+    releaseDate: '09/Dec/2021',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=Jf77TQrOnDY',
     tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, VideoCategory.offroad, WheelId.v11],
-    publishDate: '12/Dec/2021',
-    releaseDate: '07/Dec/2021',
+    publishDate: '07/Dec/2021',
+    releaseDate: '12/Dec/2021',
     language: 'en'
   },
   {
@@ -687,8 +687,8 @@ const wrongWayVideos: Video[] = [
       WheelId.commanderHS,
       WheelId.commanderHT
     ],
-    publishDate: '16/Dec/2021',
-    releaseDate: '07/Dec/2021',
+    publishDate: '07/Dec/2021',
+    releaseDate: '16/Dec/2021',
     language: 'en'
   },
   {
@@ -699,8 +699,8 @@ const wrongWayVideos: Video[] = [
       VideoCategory.chatting,
       WheelId.abrams
     ],
-    publishDate: '24/Dec/2021',
-    releaseDate: '07/Dec/2021',
+    publishDate: '07/Dec/2021',
+    releaseDate: '24/Dec/2021',
     language: 'en'
   },
   {
@@ -711,8 +711,8 @@ const wrongWayVideos: Video[] = [
       VideoCategory.chatting,
       WheelId.ks18l
     ],
-    publishDate: '16/Jan/2022',
-    releaseDate: '12/Jan/2022',
+    publishDate: '12/Jan/2022',
+    releaseDate: '16/Jan/2022',
     language: 'en'
   },
   {
@@ -724,8 +724,34 @@ const wrongWayVideos: Video[] = [
       WheelId.commanderHT,
       WheelId.commanderHS
     ],
-    publishDate: '16/Jan/2022',
-    releaseDate: '15/Jan/2022',
+    publishDate: '15/Jan/2022',
+    releaseDate: '16/Jan/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=WxTAq2xFnpk',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.offroad,
+      WheelId.ks18l,
+      WheelId.ks18xl
+    ],
+    publishDate: '03/Feb/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=J7DJAXhO3L4',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.offroad,
+      WheelId.ks18l,
+      WheelId.ks18xl
+    ],
+    publishDate: '12/Feb/2022',
+    releaseDate: '14/Feb/2022',
     language: 'en'
   }
 ];

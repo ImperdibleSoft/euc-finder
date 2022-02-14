@@ -105,6 +105,13 @@ const oneradwheelVideos: Video[] = [
     publishDate: '17/Aug/2021',
     releaseDate: '05/Jan/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=MWM15Nlere4',
+    tags: [InfluencerId.oneradwheel, VideoCategory.chatting, WheelId.abrams],
+    publishDate: '01/Feb/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
   }
 ];
 

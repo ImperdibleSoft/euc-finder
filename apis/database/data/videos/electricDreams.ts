@@ -209,6 +209,17 @@ const electricDreamsVideos: Video[] = [
     publishDate: '25/Nov/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=oNLKXGO1F1Y',
+    tags: [
+      InfluencerId.electricDreams,
+      VideoCategory.reveal,
+      WheelId.ksS20
+    ],
+    publishDate: '26/Jan/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
   }
 ];
 

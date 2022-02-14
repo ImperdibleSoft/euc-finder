@@ -276,7 +276,14 @@ const hsiangVideos: Video[] = [
     publishDate: '22/Jan/2022',
     releaseDate: '24/Jan/2022',
     language: 'en'
-  }  
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=j-aUud1ozMA',
+    tags: [InfluencerId.hsiang, VideoCategory.chatting, WheelId.master],
+    publishDate: '05/Feb/2022',
+    releaseDate: '14/Feb/2022',
+    language: 'en'
+  }
 ];
 
 export default hsiangVideos;

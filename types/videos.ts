@@ -16,6 +16,12 @@ export interface Video {
   url: string;
   tags: (InfluencerId | VideoCategory | WheelId)[];
   language: Lang;
+  /** 
+   * Date when video was published on youtube 
+   */
   publishDate: string;
+  /**
+   * Date when video was included in EUC Finder
+   */
   releaseDate: string;
 }
