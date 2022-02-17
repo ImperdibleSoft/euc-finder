@@ -20,8 +20,8 @@ export const alienRidesHttp = createInstance({
 
 export const ciclonicHttp = createInstance({
   headers: {
-    Origin: 'https://ciclonic.es/',
-    Referer: 'https://ciclonic.es/'
+    Origin: 'https://ciclonic.com/',
+    Referer: 'https://ciclonic.com/'
   }
 });
 

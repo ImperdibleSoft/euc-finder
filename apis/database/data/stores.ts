@@ -20,7 +20,7 @@ export const stores: Store[] = [
   {
     id: StoreId.ciclonic,
     name: 'Ciclonic',
-    website: 'https://ciclonic.es/',
+    website: 'https://ciclonic.com/',
     region: 'eu',
     logo: '/logos/distributors/ciclonic.png',
     color: '#0075ff',
