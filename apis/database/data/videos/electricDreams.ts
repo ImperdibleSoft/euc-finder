@@ -220,7 +220,21 @@ const electricDreamsVideos: Video[] = [
     publishDate: '26/Jan/2022',
     releaseDate: '14/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=z8G0uChCn9I',
+    tags: [
+      InfluencerId.electricDreams,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.ksS20
+    ],
+    publishDate: '17/Feb/2022',
+    releaseDate: '17/Feb/2022',
+    language: 'en'
   }
+  
 ];
 
 export default electricDreamsVideos;
