@@ -284,7 +284,7 @@ const ksS20: Wheel = {
   brandId: BrandId.kingsong,
   name: 'S20 Eagle',
   price: 3300,
-  availability: 'preorder',
+  availability: 'available',
 
   ratedPower: 3300,
   peakPower: 7500,

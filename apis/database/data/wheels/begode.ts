@@ -373,7 +373,7 @@ const hero: Wheel = {
   brandId: BrandId.begode,
   name: 'Hero',
   price: 3000,
-  availability: 'preorder',
+  availability: 'available',
 
   ratedPower: 2800,
   peakPower: 0,
@@ -410,7 +410,7 @@ const ex2: Wheel = {
   brandId: BrandId.begode,
   name: 'EX2S',
   price: 0,
-  availability: 'announced',
+  availability: 'discontinued',
 
   ratedPower: 3000,
   peakPower: 0,
@@ -447,7 +447,7 @@ const master: Wheel = {
   brandId: BrandId.begode,
   name: 'Master',
   price: 2900,
-  availability: 'filtered',
+  availability: 'announced',
 
   ratedPower: 3500,
   peakPower: 0,
