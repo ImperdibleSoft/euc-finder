@@ -112,6 +112,20 @@ const oneradwheelVideos: Video[] = [
     publishDate: '01/Feb/2022',
     releaseDate: '14/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=ty90mXGTkWU',
+    tags: [InfluencerId.oneradwheel, VideoCategory.review, WheelId.commanderHS, WheelId.commanderHT],
+    publishDate: '15/Feb/2022',
+    releaseDate: '21/Feb/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=KOFZGDSWN4U',
+    tags: [InfluencerId.oneradwheel, VideoCategory.review, WheelId.ksS20],
+    publishDate: '18/Feb/2022',
+    releaseDate: '21/Feb/2022',
+    language: 'en'
   }
 ];
 

@@ -283,6 +283,13 @@ const hsiangVideos: Video[] = [
     publishDate: '05/Feb/2022',
     releaseDate: '14/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=hbSzSwUuCO0',
+    tags: [InfluencerId.hsiang, VideoCategory.review, VideoCategory.commuting, WheelId.ksS20],
+    publishDate: '18/Feb/2022',
+    releaseDate: '21/Feb/2022',
+    language: 'en'
   }
 ];
 

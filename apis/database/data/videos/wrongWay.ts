@@ -753,6 +753,18 @@ const wrongWayVideos: Video[] = [
     publishDate: '12/Feb/2022',
     releaseDate: '14/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=55IUG4q6CLI',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.offroad,
+      WheelId.abrams
+    ],
+    publishDate: '15/Feb/2022',
+    releaseDate: '21/Feb/2022',
+    language: 'en'
   }
 ];
 
