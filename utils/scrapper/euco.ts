@@ -1,6 +1,8 @@
 import { JSDOM } from 'jsdom';
 
-const priceRegExp = /([0-9]{3,}(\.[0-9]{2,2})?)/;
+const priceRegExp = /\$([0-9]{3,}(\.[0-9]{2,2})?)/g;
+
+const amountRegExp = /([0-9]{3,}(\.[0-9]{2,2})?)/;
 
 export const parseEucoPrice = (html: string): number | '-' | undefined => {
   try {
@@ -20,8 +22,9 @@ export const parseEucoPrice = (html: string): number | '-' | undefined => {
     ] = Array.from(document.querySelectorAll('.product-single__meta~.metafield-section > p:nth-child(3)')) ?? [];
     if (finalPriceElement) {
       const finalPriceString = finalPriceElement?.innerHTML?.replace(',', '');
-      const [, rawFinalPrice] = finalPriceString?.match(priceRegExp) ?? [];
-      const finalPrice = rawFinalPrice;
+      const [rawFinalPrice] = finalPriceString?.match(priceRegExp) ?? finalPriceString?.match(amountRegExp) ?? [];
+      const finalPrice = rawFinalPrice?.replace('$', '');
+
       if (finalPrice) {
         return Number(finalPrice);
       }
@@ -32,8 +35,8 @@ export const parseEucoPrice = (html: string): number | '-' | undefined => {
     const salePriceElem = document.querySelector('.price--on-sale > .price__pricing-group > .price__sale .price-item--sale');
     if (salePriceElem) {
       const salePriceString = salePriceElem?.innerHTML?.replace(',', '');
-      const [, rawSalePrice] = salePriceString?.match(priceRegExp) ?? [];
-      const salePrice = rawSalePrice;
+      const [rawSalePrice] = salePriceString?.match(priceRegExp) ?? salePriceString?.match(amountRegExp) ?? [];
+      const salePrice = rawSalePrice?.replace('$', '');
 
       const isPrePurchase = Number(salePrice) < 500;
       if (salePrice && !isPrePurchase) {
@@ -44,8 +47,11 @@ export const parseEucoPrice = (html: string): number | '-' | undefined => {
       const regularPriceElem = document.querySelector('.price--on-sale > .price__pricing-group > .price__sale .price-item--regular');
       if (regularPriceElem) {
         const regularPriceString = regularPriceElem?.innerHTML?.replace(',', '');
-        const [, rawRegularPrice] = regularPriceString?.match(priceRegExp) ?? [];
-        const regularPrice = rawRegularPrice;
+        const [
+          rawRegularPrice
+        ] = regularPriceString?.match(priceRegExp) ?? regularPriceString?.match(amountRegExp) ?? [];
+        const regularPrice = rawRegularPrice?.replace('$', '');
+
         if (regularPrice) {
           return Number(regularPrice);
         }
@@ -58,8 +64,9 @@ export const parseEucoPrice = (html: string): number | '-' | undefined => {
     const cheapPriceElement = document.querySelector('.price__pricing-group > .price__regular .price-item--regular');
     if (cheapPriceElement) {
       const cheapString = cheapPriceElement?.innerHTML?.replace(',', '');
-      const [, rawCheap] = cheapString?.match(priceRegExp) ?? [];
-      const cheapVersionPrice = rawCheap?.replace(',', '.');
+      const [rawCheap] = cheapString?.match(priceRegExp) ?? cheapString?.match(amountRegExp) ?? [];
+      const cheapVersionPrice = rawCheap?.replace(',', '.')?.replace('$', '');
+      
       if (cheapVersionPrice) {
         return Number(cheapVersionPrice);
       }
