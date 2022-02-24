@@ -765,7 +765,21 @@ const wrongWayVideos: Video[] = [
     publishDate: '15/Feb/2022',
     releaseDate: '21/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=U0wyvr63dLg',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.offroad,
+      WheelId.ks18l,
+      WheelId.ks18xl
+    ],
+    publishDate: '21/Feb/2022',
+    releaseDate: '24/Feb/2022',
+    language: 'en'
   }
+  
 ];
 
 
