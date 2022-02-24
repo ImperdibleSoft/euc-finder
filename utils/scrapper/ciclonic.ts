@@ -12,7 +12,7 @@ export const parseCiclonicPrice = (html: string, showExpensive: boolean): number
 
     /** Final price when released */
     // eslint-disable-next-line max-len
-    const descriptionElements = Array.from(document.querySelectorAll('.summary .woocommerce-product-details__short-description > *')) ?? [];
+    const descriptionElements = Array.from(document.querySelectorAll('.ms-product-summary .woocommerce-product-details__short-description > *')) ?? [];
     const finalPriceElement = descriptionElements.find(elem => currencyRegExp.test(elem.innerHTML.replace(',', '')));
     if (finalPriceElement) {
       const [, rawFinalPrice] = finalPriceElement?.innerHTML?.replace(',', '').match(priceRegExp) ?? [];
@@ -22,7 +22,7 @@ export const parseCiclonicPrice = (html: string, showExpensive: boolean): number
     }
 
     /** Sale price */
-    const salePriceElem = document.querySelector('.summary .price > del+ins > .amount');
+    const salePriceElem = document.querySelector('.ms-product-summary .price > del+ins > .amount');
     if (salePriceElem) {
       const salePriceString = salePriceElem?.innerHTML?.replace('.', '');
       const [, rawSalePrice] = salePriceString?.match(priceRegExp) ?? [];
@@ -35,7 +35,7 @@ export const parseCiclonicPrice = (html: string, showExpensive: boolean): number
     const [
       cheapPriceElement,
       expensivePriceElement
-    ] = Array.from(document.querySelectorAll('.summary .price .amount')) ?? [];
+    ] = Array.from(document.querySelectorAll('.ms-product-summary .price .amount')) ?? [];
 
     /** Expensive version price */
     if (showExpensive && expensivePriceElement) {

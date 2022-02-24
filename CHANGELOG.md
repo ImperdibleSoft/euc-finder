@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.4.13
+
+### Patch Changes
+
+- Read price from Ciclonic's brand new website
+
 ## 2.4.7
 
 ### Patch Changes
