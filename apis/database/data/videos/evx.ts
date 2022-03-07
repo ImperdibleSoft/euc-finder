@@ -197,6 +197,13 @@ const evxVideos: Video[] = [
     publishDate: '26/Aug/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=et-2FCZgs1Q',
+    tags: [InfluencerId.evx, VideoCategory.review, VideoCategory.chatting, WheelId.ksS20],
+    publishDate: '03/Mar/2022',
+    releaseDate: '07/Mar/2022',
+    language: 'en'
   }
 ];
 

@@ -126,6 +126,13 @@ const oneradwheelVideos: Video[] = [
     publishDate: '18/Feb/2022',
     releaseDate: '21/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=SRVveILa-OI',
+    tags: [InfluencerId.oneradwheel, VideoCategory.review, WheelId.ksS20],
+    publishDate: '25/Feb/2022',
+    releaseDate: '07/Mar/2022',
+    language: 'en'
   }
 ];
 

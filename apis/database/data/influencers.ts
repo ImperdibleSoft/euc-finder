@@ -73,6 +73,6 @@ export const influencers: Influencer[] = [
     channel: 'https://www.youtube.com/c/ZenLee',
     id: InfluencerId.zenLee,
     name: 'Zen Tech',
-    avatar: 'https://yt3.ggpht.com/bQoVLk1yu-0rDZm4vBA4c1_sdBy8hxEweKb5wWFt4AUoiiSAJfr9lFs_5L8E68lp9n5UPs7fbA=s88-c-k-c0x00ffffff-no-rj'
+    avatar: 'https://yt3.ggpht.com/dWWIWDwE2q0KUlh0pNBtZudGKxP4cDMbIfZGpXarUR_Ns0HsD8YuTE76jTJl-A7BI6KfAwektA=s88-c-k-c0x00ffffff-no-rj'
   }
 ];

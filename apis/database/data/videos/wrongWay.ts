@@ -778,9 +778,42 @@ const wrongWayVideos: Video[] = [
     publishDate: '21/Feb/2022',
     releaseDate: '24/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=4qqBe4xADnk',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.reveal,
+      WheelId.ksS20
+    ],
+    publishDate: '24/Feb/2022',
+    releaseDate: '07/Mar/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=GPnYc9tAhwQ',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.offroad,
+      WheelId.abrams
+    ],
+    publishDate: '28/Feb/2022',
+    releaseDate: '07/Mar/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=oBzHtP0kQes',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.offroad,
+      WheelId.ksS20
+    ],
+    publishDate: '05/Mar/2022',
+    releaseDate: '07/Mar/2022',
+    language: 'en'
   }
-  
 ];
-
 
 export default wrongWayVideos;

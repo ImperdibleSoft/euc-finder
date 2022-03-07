@@ -396,6 +396,19 @@ const madpackVideos: Video[] = [
     publishDate: '07/Feb/2022',
     releaseDate: '14/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=p44aac2S-WQ',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.review,
+      VideoCategory.comparision,
+      WheelId.abrams,
+      WheelId.shermanMax
+    ],
+    publishDate: '07/Mar/2022',
+    releaseDate: '07/Mar/2022',
+    language: 'en'
   }  
 ];
 
