@@ -1,6 +1,6 @@
 {
   "name": "euc-finder",
-  "version": "2.4.13",
+  "version": "2.4.14",
   "displayName": "EUC Finder",
   "description": "Find the best EUC for you",
   "private": false,
@@ -20,7 +20,7 @@
     "@emotion/styled": "^11.6.0",
     "@fontsource/roboto": "^4.5.1",
     "@mui/material": "^5.2.8",
-    "axios": "^0.24.0",
+    "axios": "^0.26.0",
     "i18next": "^21.3.0",
     "i18next-browser-languagedetector": "^6.1.2",
     "jsdom": "^19.0.0",
@@ -36,7 +36,7 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.0",
-    "sharp": "^0.29.3"
+    "sharp": "^0.30.2"
   },
   "devDependencies": {
     "@changesets/cli": "^2.19.0",
@@ -45,7 +45,7 @@
     "@testing-library/user-event": "^13.2.1",
     "@types/jsdom": "^16.2.14",
     "@types/node": "^17.0.8",
-    "@types/react": "17.0.38",
+    "@types/react": "17.0.39",
     "@types/react-dom": "^17.0.9",
     "@types/redux-devtools-extension": "^2.13.2",
     "@types/redux-logger": "^3.0.9",
@@ -62,6 +62,6 @@
     "next": "^12.0.8",
     "raw-loader": "^4.0.2",
     "tslib": "^2.3.1",
-    "typescript": "4.5.4"
+    "typescript": "4.6.2"
   }
 }

@@ -26,6 +26,7 @@ class MyDocument extends Document {
             src="https://cdn.jsdelivr.net/npm/pwacompat"
             crossOrigin="anonymous"
           />
+          <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
           <meta property="fb:app_id" content={ `&#123;${ FB_APP_ID }&#125;` } />
         </Head>
