@@ -16,11 +16,11 @@
     "check-integrity": "npm run lint && npm run types"
   },
   "dependencies": {
-    "@emotion/react": "^11.6.0",
+    "@emotion/react": "^11.8.2",
     "@emotion/styled": "^11.6.0",
     "@fontsource/roboto": "^4.5.1",
-    "@mui/material": "^5.2.8",
-    "axios": "^0.26.0",
+    "@mui/material": "^5.5.1",
+    "axios": "^0.26.1",
     "i18next": "^21.3.0",
     "i18next-browser-languagedetector": "^6.1.2",
     "jsdom": "^19.0.0",
@@ -36,16 +36,16 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.4.0",
-    "sharp": "^0.30.2"
+    "sharp": "^0.30.3"
   },
   "devDependencies": {
     "@changesets/cli": "^2.19.0",
     "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.1.2",
+    "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.2.1",
     "@types/jsdom": "^16.2.14",
     "@types/node": "^17.0.8",
-    "@types/react": "17.0.39",
+    "@types/react": "17.0.40",
     "@types/react-dom": "^17.0.9",
     "@types/redux-devtools-extension": "^2.13.2",
     "@types/redux-logger": "^3.0.9",
