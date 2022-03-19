@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { EUC_FINDER, EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import getNavigation from '../../../../constants/navigation';
 import { useLayoutTranslations } from '../../../../hooks';
+import { HEADER_HEIGHT } from '../../constants';
 
 const isSameRoute = (pathname: string, path: string) => {
   if (path === EUC_FINDER) {
@@ -92,7 +93,10 @@ const NavigationMenu: React.FC = () => {
         id="navigationMenu"
         open={ open }
         onClose={ handleClose }
-        sx={ { maxHeight: { xs: '350px', sm: 'none' } } }
+        sx={ {
+          maxHeight: `calc(100vh - ${ HEADER_HEIGHT * 2 }px)`,
+          '@media screen and (min-width: 583px)': { maxHeight: `calc(100vh - ${ HEADER_HEIGHT }px)` }
+        } }
       >
         <Box sx={ {
           p: 2,

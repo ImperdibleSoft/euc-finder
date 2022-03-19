@@ -47,6 +47,7 @@ const Header: React.FC<Props> = ({
   
   return (
     <AppBar
+      id="Header"
       position="fixed"
       sx={ {
         backgroundColor: BRAND_COLOR,
@@ -54,16 +55,23 @@ const Header: React.FC<Props> = ({
         width: '100%'
       } }
     >
-      <Toolbar sx={ {
-        alignItems: 'center',
-        flexDirection: 'column',
-        '@media screen and (min-width: 583px)': { flexDirection: 'row' }
-      } }>
-        <Box  sx={ {
-          flex: 1,
-          py: { xs: 1, sm: 0 },
-          width: { xs: '100%', sm: 'auto' } 
-        } }>
+      <Toolbar
+        id="Header-content"
+        sx={ {
+          alignItems: 'center',
+          flexDirection: 'column',
+          pr: { xs: 1, sm: 2 },
+          '@media screen and (min-width: 583px)': { flexDirection: 'row' }
+        } }
+      >
+        <Box
+          id="Header-contentLeft"
+          sx={ {
+            flex: 1,
+            py: { xs: 1, sm: 0 },
+            width: { xs: '100%', sm: 'auto' } 
+          } }
+        >
           <Link href={ ROOT } passHref>
             <Box sx={ {
               alignItems: 'center',
@@ -92,17 +100,20 @@ const Header: React.FC<Props> = ({
           </Link>
         </Box>
 
-        <Box sx={ {
-          alignItems: 'center',
-          display: 'flex',
-          flex: { xs: 1, sm: 0 },
-          flexDirection: 'row',
-          height: '100%',
-          justifyContent: 'flex-end',
-          pb: { xs: 1, sm: 0 },
-          width: { xs: '100%', sm: 'auto' }
-        } }>
-          <Search sx={ { mr: (theme) => theme.spacing(1) } }>
+        <Box
+          id="Header-contentRight"
+          sx={ {
+            alignItems: 'center',
+            display: 'flex',
+            flex: { xs: 1, sm: 0 },
+            flexDirection: 'row',
+            height: '100%',
+            justifyContent: 'flex-end',
+            pb: { xs: 1, sm: 0 },
+            width: { xs: '100%', sm: 'auto' }
+          } }
+        >
+          <Search id="Header-search" sx={ { mr: (theme) => theme.spacing(1) } }>
             <SearchIconWrapper>
               <Icon>search</Icon>
             </SearchIconWrapper>
@@ -121,7 +132,7 @@ const Header: React.FC<Props> = ({
             />
           </Search>
 
-          <Search>
+          <Search id="Header-region">
             <Dropdown
               icon="public"
               label={ t('region-label') }
