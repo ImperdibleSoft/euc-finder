@@ -1,12 +1,16 @@
-import { Box, Button, Fab, Icon, Popover, Theme, Typography } from '@mui/material';
+import { Badge, Box, Button, Fab, Icon, Popover, Theme, Typography, useTheme } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { EUC_FINDER, EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import getNavigation from '../../../../constants/navigation';
 import { useLayoutTranslations } from '../../../../hooks';
+import { getNewVideosLength } from '../../../../store/selectors';
 import { isDesktop } from '../../../../utils';
 import { HEADER_HEIGHT } from '../../constants';
+
+const navItems = getNavigation();
 
 const isSameRoute = (pathname: string, path: string) => {
   if (path === EUC_FINDER) {
@@ -16,7 +20,7 @@ const isSameRoute = (pathname: string, path: string) => {
   return pathname.startsWith(path);
 };
 
-const renderCustomIcon = (icon: string, dark = true) => {
+const renderCustomIcon = (icon: string, dark = true, badge = 0) => {
   switch (icon) {
     case 'instagram':
       return (
@@ -30,6 +34,15 @@ const renderCustomIcon = (icon: string, dark = true) => {
         </Box>
       );
 
+    case 'smart_display':
+      return (
+        <Badge badgeContent={ badge } color="secondary">
+          <Icon>
+            { icon }
+          </Icon>
+        </Badge>
+      );
+
     default:
       return <Icon>{ icon }</Icon>;
   }
@@ -38,10 +51,11 @@ const renderCustomIcon = (icon: string, dark = true) => {
 const NavigationMenu: React.FC = () => {
   const { t } = useLayoutTranslations();
   const router = useRouter();
+  const theme = useTheme();
+  const isDark = theme.palette.mode === 'dark';
+  const newVideos = useSelector(getNewVideosLength());
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const open = !!anchorEl;
-
-  const navItems = getNavigation();
 
   const handleToggle = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -112,7 +126,7 @@ const NavigationMenu: React.FC = () => {
                 width: { xs: 'calc(50% - 16px)', sm: 'calc(25% - 16px)' }
               } }
             >
-              { renderCustomIcon(item.icon) }
+              { renderCustomIcon(item.icon, isDark, newVideos) }
 
               <Typography variant="button" component="span" sx={ { mt: 1 } }>
                 { t(item.label) }
