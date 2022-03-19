@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.4.15
+
+### Patch Changes
+
+- Implement a new navigation
+
 ## 2.4.13
 
 ### Patch Changes
