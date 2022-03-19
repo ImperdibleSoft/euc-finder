@@ -1,6 +1,6 @@
 export * from './analytics';
-export * from './bottomNavigation';
 export * from './branding';
+export * from './navigation';
 export * from './regions';
 export * from './wheelFeatures';
 

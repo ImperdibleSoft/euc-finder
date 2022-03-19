@@ -4,9 +4,7 @@ import { useModalsContext } from '../../../context';
 import { useBreakpoints } from '../../../hooks';
 import InfoDisclaimer from '../../InfoDisclaimer';
 import { NAV_SIDEBAR_WIDTH } from '../constants';
-import BottomNavigation from './BottomNavigation';
 import Header, { Props } from './Header';
-import Notifications from './Notifications';
 
 const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   brands,
@@ -64,8 +62,6 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
 
           { children }
         </Box>
-
-        <BottomNavigation isTablet={ isDesktop } />
       </Box>
 
       { initialDisclaimer.open && initialDisclaimer.handleClose && (
@@ -74,8 +70,6 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
           open={ initialDisclaimer.open }
         />
       ) }
-
-      <Notifications isTablet={ isDesktop } />
     </Box>
   );};
 

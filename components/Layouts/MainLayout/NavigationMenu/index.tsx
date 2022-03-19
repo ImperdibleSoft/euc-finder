@@ -1,6 +1,6 @@
 import { Box, Button, Icon, Popover, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import getNavigation from '../../../../constants/bottomNavigation';
+import getNavigation from '../../../../constants/navigation';
 import { useLayoutTranslations } from '../../../../hooks';
 
 const NavigationMenu: React.FC = () => {
@@ -37,6 +37,7 @@ const NavigationMenu: React.FC = () => {
       >
         <Icon>apps</Icon>
       </Button>
+
       <Popover
         anchorEl={ anchorEl }
         anchorOrigin={ {
@@ -50,10 +51,11 @@ const NavigationMenu: React.FC = () => {
         id="navigationMenu"
         open={ open }
         onClose={ handleClose }
+        sx={ { maxHeight: { xs: '350px', sm: 'none' } } }
       >
         <Box sx={ {
           p: 2,
-          width: { xs: '100%', sm: '400px' }
+          width: { xs: '100%', sm: '500px' }
         } }>
           { navItems.map(item => (
             <Button
@@ -62,11 +64,12 @@ const NavigationMenu: React.FC = () => {
                 flexDirection: 'column',
                 m: 1,
                 py: 2,
-                width: { xs: 'calc(50% - 16px)', sm: 'calc(33% - 16px)' }
+                width: { xs: 'calc(50% - 16px)', sm: 'calc(25% - 16px)' }
               } }
             >
               <Icon>{ item.icon }</Icon>
-              <Typography variant="button" component="span">
+              
+              <Typography variant="button" component="span" sx={ { mt: 1 } }>
                 { t(item.label) }
               </Typography>
             </Button>
