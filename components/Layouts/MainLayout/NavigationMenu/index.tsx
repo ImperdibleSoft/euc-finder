@@ -1,9 +1,18 @@
-import { Box, Button, Icon, Popover, Typography } from '@mui/material';
+import { Box, Button, Icon, Popover, Theme, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
+import { EUC_FINDER, EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import getNavigation from '../../../../constants/navigation';
 import { useLayoutTranslations } from '../../../../hooks';
+
+const isSameRoute = (pathname: string, path: string) => {
+  if (path === EUC_FINDER) {
+    return pathname === path || pathname === EUC_FINDER_DETAILS.replace(':id', '[id]');
+  }
+  
+  return pathname.startsWith(path);
+};
 
 const renderCustomIcon = (icon: string, dark = true) => {
   switch (icon) {
@@ -92,8 +101,11 @@ const NavigationMenu: React.FC = () => {
           { navItems.map(item => (
             <Button
               key={ item.path }
+              className={ router.pathname === item.path ? 'active' : undefined }
               onClick={ () => { onClick(item.path); } }
               sx={ {
+                color: ({ palette }: Theme) =>
+                  palette[isSameRoute(router.pathname, item.path) ? 'secondary' : 'primary'].main,
                 flexDirection: 'column',
                 m: 1,
                 py: 2,
