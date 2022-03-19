@@ -18,7 +18,6 @@ import { BRAND_COLOR } from '../../../../styles/theme';
 import { Brand, Region, Wheel } from '../../../../types';
 import { getBrandInfo } from '../../../../utils';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
-import NavigationMenu from '../NavigationMenu';
 import { Search, SearchIconWrapper, StyledInputBase } from '../SearchBar';
 
 export interface Props {
@@ -142,8 +141,6 @@ const Header: React.FC<Props> = ({
               value={ selectedRegion }
             />
           </Search>
-
-          <NavigationMenu />
         </Box>
       </Toolbar>
     </AppBar>

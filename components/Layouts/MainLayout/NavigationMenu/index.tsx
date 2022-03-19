@@ -1,10 +1,11 @@
-import { Box, Button, Icon, Popover, Theme, Typography } from '@mui/material';
+import { Box, Button, Fab, Icon, Popover, Theme, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import { EUC_FINDER, EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import getNavigation from '../../../../constants/navigation';
 import { useLayoutTranslations } from '../../../../hooks';
+import { isDesktop } from '../../../../utils';
 import { HEADER_HEIGHT } from '../../constants';
 
 const isSameRoute = (pathname: string, path: string) => {
@@ -59,44 +60,39 @@ const NavigationMenu: React.FC = () => {
       window.open(path);
     }
   };
-
   
   return (
     <>
-      <Button
+      <Fab
+        color="secondary"
+        size="large"
+        variant="circular"
         sx={ {
-          alignItems: 'center',
-          display: 'flex',
-          justifyContent: 'center',
-          height: '100%',
-          flex: 1,
-          p: 1,
-          ml: 1,
-          minWidth: 46,
+          position: 'fixed',
+          bottom: 16,
+          right: 16 + ((open && isDesktop()) ? 17 : 0),
           '& > .MuiIcon-root': { fontSize: '30px' }
         } }
         onClick={ handleToggle }
       >
         <Icon>apps</Icon>
-      </Button>
+      </Fab>
 
       <Popover
         anchorEl={ anchorEl }
         anchorOrigin={ {
-          vertical: 'bottom',
+          vertical: 'top',
           horizontal: 'right'
         } }
         transformOrigin={ {
-          vertical: 'top',
+          vertical: 'bottom',
           horizontal: 'right'
         } }
         id="navigationMenu"
         open={ open }
         onClose={ handleClose }
-        sx={ {
-          maxHeight: `calc(100vh - ${ HEADER_HEIGHT * 2 }px)`,
-          '@media screen and (min-width: 583px)': { maxHeight: `calc(100vh - ${ HEADER_HEIGHT }px)` }
-        } }
+        sx={ { maxHeight: `calc(100vh - ${ HEADER_HEIGHT }px)` } }
+        PaperProps={ { sx: { mt: -2 } } }
       >
         <Box sx={ {
           p: 2,

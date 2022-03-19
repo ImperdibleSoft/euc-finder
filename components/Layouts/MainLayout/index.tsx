@@ -4,6 +4,7 @@ import { useModalsContext } from '../../../context';
 import { useBreakpoints } from '../../../hooks';
 import InfoDisclaimer from '../../InfoDisclaimer';
 import Header, { Props } from './Header';
+import NavigationMenu from './NavigationMenu';
 
 const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   brands,
@@ -68,6 +69,8 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
           />
 
           { children }
+
+          <NavigationMenu />
         </Box>
       </Box>
 
