@@ -1,4 +1,5 @@
 export enum InfluencerId {
+  bonheursurSeine = 'bonheursurSeine',
   chooch = 'chooch',
   eevees = 'eevees',
   electricDreams = 'electricDreams',
@@ -8,6 +9,7 @@ export enum InfluencerId {
   kellyChameleons = 'kellyChameleons',
   kuji = 'kuji',
   madpack = 'madpack',
+  mrFlex = 'mrFlex',
   oneradwheel = 'onerad',
   ox = 'ox',
   wrongWay = 'wrongWay',
