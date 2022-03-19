@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { EUC_COMPARE, SETTINGS } from '../../constants/clientRoutes';
+import { EUC_COMPARATOR, SETTINGS } from '../../constants/clientRoutes';
 import { addWheelToComparision, removeWheelToComparision, resetWheelToComparision } from '../../store/actions';
 import { getComparedWheels, getMaxComparedWheels, getSpecWeights, getWheels } from '../../store/selectors';
 import { Wheel, WheelId } from '../../types';
@@ -31,11 +31,11 @@ export const useCompareActions = () => {
       dispatch(addWheelToComparision({ wheelId }));
     });
     
-    router.push(EUC_COMPARE);
+    router.push(EUC_COMPARATOR);
   };
 
   const handleNavigateToComparator = () => {
-    router.push(EUC_COMPARE);
+    router.push(EUC_COMPARATOR);
   };
 
   const handleAddToComparision = (wheelId: WheelId, shouldRedirect = false) => {
@@ -55,7 +55,7 @@ export const useCompareActions = () => {
   };
 
   const handleOpenComparator = () => {
-    router.push(EUC_COMPARE);
+    router.push(EUC_COMPARATOR);
   };
 
   const handleOpenSettings = () => {

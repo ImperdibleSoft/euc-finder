@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
-import { EUCS, EUC_DETAILS, VIDEOS } from '../../constants/clientRoutes';
+import { EUC_FINDER, EUC_FINDER_DETAILS, VIDEOS } from '../../constants/clientRoutes';
 
 const parsePathname = (pathname: string) =>
   pathname.replace(/\[(.*)\]/, (match, p) => `:${ p }`);
 
 export const useContainerMargins = () => {
   const router = useRouter();
-  const container = parsePathname(router.pathname) === EUCS || parsePathname(router.pathname) === VIDEOS;
-  const firstItem = parsePathname(router.pathname) !== EUC_DETAILS;
+  const container = parsePathname(router.pathname) === EUC_FINDER || parsePathname(router.pathname) === VIDEOS;
+  const firstItem = parsePathname(router.pathname) !== EUC_FINDER_DETAILS;
 
   return {
     container,
@@ -17,7 +17,7 @@ export const useContainerMargins = () => {
 
 export const useCardSizes = () => {
   const router = useRouter();
-  const hasSidebar = router.pathname === EUCS || router.pathname === VIDEOS;
+  const hasSidebar = router.pathname === EUC_FINDER || router.pathname === VIDEOS;
 
   return {
     xs: 12,

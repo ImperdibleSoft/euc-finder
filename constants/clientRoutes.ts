@@ -1,16 +1,19 @@
 export const ROOT = '/';
 
-export const EUCS = '/';
+export const EUC_MANAGER = '/manager';
+
+export const EUC_COMPARATOR = '/comparator';
+
+export const EUC_FINDER = '/';
 export const EUCS_PREFIX = '/wheels';
-export const EUC_COMPARE = `${ EUCS_PREFIX }/compare`;
-export const EUC_DETAILS = `${ EUCS_PREFIX }/:id`;
+export const EUC_FINDER_DETAILS = `${ EUCS_PREFIX }/:id`;
 
 export const VIDEOS = '/videos';
 export const VIDEO_DETAILS = `${ VIDEOS }/:id`;
 
-export const INFLUENCERS = '/influencers';
-
 export const DEALERS = '/dealers';
+
+export const INFLUENCERS = '/influencers';
 
 export const SETTINGS = '/settings';
 

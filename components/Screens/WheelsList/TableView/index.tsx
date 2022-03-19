@@ -1,7 +1,7 @@
 import { Box, Button, TableCell } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
-import { EUC_DETAILS } from '../../../../constants/clientRoutes';
+import { EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import { useTableData, useWheelsListTranslations } from '../../../../hooks';
 import { WheelId, WheelSorting, WheelSortingKeys, WheelsTableColumns, WheelWithPicture } from '../../../../types';
 import AvailabilityIcon from '../../../AvailabilityIcon';
@@ -129,7 +129,7 @@ const TableView: React.FC<Props> = ({
                     </Button>
                   ) }
 
-                  <Link href={ EUC_DETAILS.replace(':id', row.id) } passHref>
+                  <Link href={ EUC_FINDER_DETAILS.replace(':id', row.id) } passHref>
                     <Button size="small" variant="outlined" sx={ { display: 'flex', width: '100%' } }>
                       { t('details-btn') }
                     </Button>

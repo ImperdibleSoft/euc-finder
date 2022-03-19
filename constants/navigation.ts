@@ -1,18 +1,18 @@
 import { BottomNavigationRoute, LOCAL_STORAGE_KEY } from '../types';
 import { getItem } from '../utils';
-import { DEALERS, EUCS, EUC_COMPARE, INFLUENCERS, SETTINGS, VIDEOS } from './clientRoutes';
+import { DEALERS, EUC_FINDER, EUC_COMPARATOR, INFLUENCERS, SETTINGS, VIDEOS, EUC_MANAGER } from './clientRoutes';
 
 const getNavigation = (): BottomNavigationRoute[] => {
   const apps: BottomNavigationRoute[] = [
     {
       label: 'nav-comparator',
       icon: 'compare',
-      path: EUC_COMPARE
+      path: EUC_COMPARATOR
     },
     {
       label: 'nav-finder',
       icon: 'search',
-      path: EUCS
+      path: EUC_FINDER
     },
     {
       label: 'nav-videos',
@@ -51,7 +51,7 @@ const getNavigation = (): BottomNavigationRoute[] => {
       {
         label: 'nav-manager',
         icon: 'speed',
-        path: EUCS
+        path: EUC_MANAGER
       },
       ...apps
     ];

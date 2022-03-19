@@ -3,7 +3,7 @@ import { Box, Button, Icon, TableCell, Theme, Tooltip } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
 import { wheelFeatureFormatters } from '../../../../constants';
-import { EUC_DETAILS } from '../../../../constants/clientRoutes';
+import { EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import { commonNs, useBreakpoints, useComparatorTranslations } from '../../../../hooks';
 import { MeasureUnits, SpecWeights } from '../../../../store/types';
 import {
@@ -249,7 +249,7 @@ const CompareTable: React.FC<Props> = ({
             >
               { typeof wheel !== 'number' && (
                 <Box sx={ { display: 'flex', flexDirection: 'column' } }>
-                  <Link href={ EUC_DETAILS.replace(':id', wheel.id) } passHref>
+                  <Link href={ EUC_FINDER_DETAILS.replace(':id', wheel.id) } passHref>
                     <Button
                       size="small"
                       sx={ { mb: 1 } }

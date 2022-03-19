@@ -5,8 +5,9 @@ import { APP_URL } from '../constants';
 import {
   CHANGELOG,
   DEALERS,
-  EUC_COMPARE,
-  EUC_DETAILS,
+  EUC_COMPARATOR,
+  EUC_FINDER,
+  EUC_FINDER_DETAILS,
   INFLUENCERS,
   SETTINGS,
   VIDEOS
@@ -34,14 +35,15 @@ export const getServerSideProps = ({ res }: Props) => {
 
   const mainPages = [
     '',
-    EUC_COMPARE,
+    EUC_FINDER,
+    EUC_COMPARATOR,
     VIDEOS,
     INFLUENCERS,
     DEALERS,
     SETTINGS,
     CHANGELOG
   ].map((staticPagePath) => `${ baseUrl }${ staticPagePath }`);
-  const wheelsPages = wheels.map((wheel) => `${ baseUrl }${ EUC_DETAILS.replace(':id', wheel.id) }`);
+  const wheelsPages = wheels.map((wheel) => `${ baseUrl }${ EUC_FINDER_DETAILS.replace(':id', wheel.id) }`);
 
   const staticPages = [...mainPages, ...wheelsPages];
 
@@ -50,7 +52,7 @@ export const getServerSideProps = ({ res }: Props) => {
     ${ staticPages.map((url) => `<url>
       <loc>${ url }</loc>
       <lastmod>${ new Date().toISOString() }</lastmod>
-      <changefreq>monthly</changefreq>
+      <changefreq>daily</changefreq>
       <priority>1.0</priority>
     </url>
     `).join('') }
