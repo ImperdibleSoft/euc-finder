@@ -18,6 +18,7 @@ import { BRAND_COLOR } from '../../../../styles/theme';
 import { Brand, Region, Wheel } from '../../../../types';
 import { getBrandInfo } from '../../../../utils';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
+import NavigationMenu from '../NavigationMenu';
 import { Search, SearchIconWrapper, StyledInputBase } from '../SearchBar';
 
 export interface Props {
@@ -92,11 +93,12 @@ const Header: React.FC<Props> = ({
         </Box>
 
         <Box sx={ {
-          alignItems: { xs: 'center', sm: 'flex-end' },
+          alignItems: 'center',
           display: 'flex',
           flex: { xs: 1, sm: 0 },
           flexDirection: 'row',
-          justifyContent: { xs: 'flex-end', sm: 'center' },
+          height: '100%',
+          justifyContent: 'flex-end',
           pb: { xs: 1, sm: 0 },
           width: { xs: '100%', sm: 'auto' }
         } }>
@@ -129,6 +131,8 @@ const Header: React.FC<Props> = ({
               value={ selectedRegion }
             />
           </Search>
+
+          <NavigationMenu />
         </Box>
       </Toolbar>
     </AppBar>
