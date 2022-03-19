@@ -95,6 +95,12 @@ export enum LOCAL_STORAGE_KEY {
   ENABLE_PURCHASELINKS = 'eucFinder_enablePurchaseLinks',
 
   /**
+   * Should display navigation for
+   * EUC Manager
+   */
+  ENABLE_EUCMANAGER = 'eucFinder_enableEucManager',
+
+  /**
    * Should force a particular theme
    */
   THEME = 'eucFinder_theme',
