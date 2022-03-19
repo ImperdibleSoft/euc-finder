@@ -1,10 +1,32 @@
 import { Box, Button, Icon, Popover, Typography } from '@mui/material';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import getNavigation from '../../../../constants/navigation';
 import { useLayoutTranslations } from '../../../../hooks';
 
+const renderCustomIcon = (icon: string, dark = true) => {
+  switch (icon) {
+    case 'instagram':
+      return (
+        <Box component="span" sx={ { '& img': { filter: dark ? 'grayscale(1) invert(1)' : undefined } } }>
+          <Image
+            alt="presentation"
+            height="24"
+            src="/logos/instagram-icon.png"          
+            width="24"
+          />
+        </Box>
+      );
+
+    default:
+      return <Icon>{ icon }</Icon>;
+  }
+};
+
 const NavigationMenu: React.FC = () => {
   const { t } = useLayoutTranslations();
+  const router = useRouter();
   const [anchorEl, setAnchorEl] = useState<Element | null>(null);
   const open = !!anchorEl;
 
@@ -16,6 +38,16 @@ const NavigationMenu: React.FC = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const onClick = (path: string) => {
+    handleClose();
+
+    if (path.startsWith('/')) {
+      router.push(path);
+    } else {
+      window.open(path);
+    }
   };
 
   
@@ -60,6 +92,7 @@ const NavigationMenu: React.FC = () => {
           { navItems.map(item => (
             <Button
               key={ item.path }
+              onClick={ () => { onClick(item.path); } }
               sx={ {
                 flexDirection: 'column',
                 m: 1,
@@ -67,8 +100,8 @@ const NavigationMenu: React.FC = () => {
                 width: { xs: 'calc(50% - 16px)', sm: 'calc(25% - 16px)' }
               } }
             >
-              <Icon>{ item.icon }</Icon>
-              
+              { renderCustomIcon(item.icon) }
+
               <Typography variant="button" component="span" sx={ { mt: 1 } }>
                 { t(item.label) }
               </Typography>
