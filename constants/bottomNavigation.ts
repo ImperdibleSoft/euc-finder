@@ -1,16 +1,35 @@
-import { BottomNavigationRoute } from '../types';
-import { DEALERS, EUCS, INFLUENCERS, SETTINGS, VIDEOS } from './clientRoutes';
+import { BottomNavigationRoute, LOCAL_STORAGE_KEY } from '../types';
+import { getItem } from '../utils';
+import { DEALERS, EUCS, EUC_COMPARE, INFLUENCERS, SETTINGS, VIDEOS } from './clientRoutes';
+
+const eucManager: BottomNavigationRoute = {
+  label: 'bottomNav-app',
+  icon: 'speed',
+  path: EUCS
+};
+
+const eucComparator: BottomNavigationRoute = {
+  label: 'bottomNav-comparator',
+  icon: 'compare',
+  path: EUC_COMPARE
+};
+
+const eucFinder: BottomNavigationRoute = {
+  label: 'bottomNav-eucs',
+  icon: 'radio_button_unchecked',
+  path: EUCS
+};
+
+const videos: BottomNavigationRoute = {
+  label: 'bottomNav-videos',
+  icon: 'smart_display',
+  path: VIDEOS
+};
 
 const dealers: BottomNavigationRoute = {
   label: 'bottomNav-dealers',
   icon: 'storefront',
   path: DEALERS
-};
-
-const eucs: BottomNavigationRoute = {
-  label: 'bottomNav-eucs',
-  icon: 'radio_button_unchecked',
-  path: EUCS
 };
 
 const influencers: BottomNavigationRoute = {
@@ -25,11 +44,27 @@ const settings: BottomNavigationRoute = {
   path: SETTINGS
 };
 
-const videos: BottomNavigationRoute = {
-  label: 'bottomNav-videos',
-  icon: 'smart_display',
-  path: VIDEOS
+const apps = [
+  eucComparator,
+  eucFinder,
+  videos,
+  dealers,
+  influencers,
+  settings
+];
+
+export const getMobileNavigation = () => [influencers, videos, eucFinder, dealers, settings];
+export const getDesktopNavigation = () => [eucFinder, videos, dealers, influencers, settings];
+
+const getNavigation = () => {
+  if (getItem(LOCAL_STORAGE_KEY.ENABLE_EUCMANAGER) === 'true') {
+    return [
+      eucManager,
+      ...apps
+    ];
+  }
+  
+  return apps;
 };
 
-export const getMobileNavigation = () => [influencers, videos, eucs, dealers, settings];
-export const getDesktopNavigation = () => [eucs, videos, dealers, influencers, settings];
+export default getNavigation;
