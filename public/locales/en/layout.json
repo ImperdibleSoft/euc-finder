@@ -1,14 +1,15 @@
 {
-  "bottomNav-eucs": "EUCs",
-  "bottomNav-videos": "Videos",
-  "bottomNav-dealers": "Dealers",
-  "bottomNav-influencers": "Influencers",
-  "bottomNav-settings": "Settings",
+  "nav-manager": "App",
+  "nav-comparator": "Comparator",
+  "nav-finder": "Finder",
+  "nav-videos": "Videos",
+  "nav-dealers": "Dealers",
+  "nav-influencers": "Influencers",
+  "nav-instagram": "Instagram",
+  "nav-telegram": "Telegram",
+  "nav-settings": "Settings",
   
   "search-label": "Search...",
-
-  "stayUpdated-msg": "Stay updated!",
-  "joinToTelegram-msg": "Telegram Group",
 
   "importantInfo-title": "Important information",
   

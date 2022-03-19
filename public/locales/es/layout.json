@@ -1,14 +1,15 @@
 {
-  "bottomNav-eucs": "Ruedas",
-  "bottomNav-videos": "Vídeos",
-  "bottomNav-dealers": "Tiendas",
-  "bottomNav-influencers": "Influencers",
-  "bottomNav-settings": "Opciones",
+  "nav-manager": "App",
+  "nav-comparator": "Comparador",
+  "nav-finder": "Buscador",
+  "nav-videos": "Videos",
+  "nav-dealers": "Tiendas",
+  "nav-influencers": "Influencers",
+  "nav-instagram": "Instagram",
+  "nav-telegram": "Telegram",
+  "nav-settings": "Opciones",
   
   "search-label": "Buscar...",
-
-  "stayUpdated-msg": "Mantente actualizado",
-  "joinToTelegram-msg": "Grupo de Telegram",
 
   "importantInfo-title": "Información importante",
   
