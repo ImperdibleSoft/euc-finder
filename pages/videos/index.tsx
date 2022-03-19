@@ -186,7 +186,7 @@ const Videos: React.FC = () => {
           </>
         ) }
 
-        { (true || (!sponsored.videos.length && !unwatched.videos.length && !watched.videos.length)) && (
+        { (!sponsored.videos.length && !unwatched.videos.length && !watched.videos.length) && (
           <EmptyCase
             handleOpenFilters={ handleOpenSidebar }
             handleResetFilters={ handleResetFilters }

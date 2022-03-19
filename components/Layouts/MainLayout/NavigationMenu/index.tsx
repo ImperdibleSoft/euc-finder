@@ -24,7 +24,10 @@ const renderCustomIcon = (icon: string, dark = true, badge = 0) => {
   switch (icon) {
     case 'instagram':
       return (
-        <Box component="span" sx={ { '& img': { filter: dark ? 'grayscale(1) invert(1)' : undefined } } }>
+        <Box component="span" sx={ {
+          height: 24,
+          '& img': { filter: dark ? 'grayscale(1) invert(1)' : undefined }
+        } }>
           <Image
             alt="presentation"
             height="24"
@@ -109,6 +112,7 @@ const NavigationMenu: React.FC = () => {
         PaperProps={ { sx: { mt: -2 } } }
       >
         <Box sx={ {
+          textAlign: 'right',
           p: 2,
           width: { xs: '100%', sm: '500px' }
         } }>
