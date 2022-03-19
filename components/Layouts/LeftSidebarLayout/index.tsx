@@ -2,7 +2,7 @@ import { Box, Drawer, Icon, IconButton, SwipeableDrawer, SxProps, Theme } from '
 import React, { PropsWithChildren } from 'react';
 import { useBreakpoints } from '../../../hooks';
 import Footer from '../Footer';
-import { BOTTOM_NAVIGATION_HEIGHT, FILTERS_SIDEBAR_WIDTH, HEADER_HEIGHT, NAV_SIDEBAR_WIDTH } from '../constants';
+import { FILTERS_SIDEBAR_WIDTH, HEADER_HEIGHT } from '../constants';
 
 const sidebarStyles: SxProps<Theme> = {
   alignItems: 'flex-start',
@@ -30,10 +30,11 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
   open,
   sidebar
 }) => {
-  const { sm: isPermanentSidebar, md: isNavSidebar } = useBreakpoints();
+  const { sm: isPermanentSidebar } = useBreakpoints();
 
   const renderSwipableSidebar = (content: React.ReactNode) => (
     <SwipeableDrawer
+      id="LeftSidebarLayout-swipeableSidebar"
       anchor="left"
       BackdropProps={ { sx: { display: { xs: 'block', sm: 'none' } } } }
       ModalProps={ {
@@ -62,15 +63,22 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
 
   const renderPermanentSidebar = (content: React.ReactNode) => (
     <Drawer
+      id="LeftSidebarLayout-permanentSidebar"
       variant="permanent"
       PaperProps={ {
         sx:{ 
           ...sidebarStyles,
           display: { xs: 'none', sm: 'block' },
-          maxHeight: `calc(100vh - ${ HEADER_HEIGHT }px - ${ isNavSidebar ? 0 : BOTTOM_NAVIGATION_HEIGHT }px)`,
+          maxHeight: `calc(100vh - ${ HEADER_HEIGHT }px)`,
           top: HEADER_HEIGHT,
-          left: isNavSidebar ? NAV_SIDEBAR_WIDTH : 0
+          left: 0
         } 
+      } }
+      sx={ {
+        backgroundColor: 'red',
+        display: 'flex',
+        height: '100%',
+        width: FILTERS_SIDEBAR_WIDTH
       } }
       open
     >
@@ -81,21 +89,26 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
   const renderSidebar = isPermanentSidebar ? renderPermanentSidebar : renderSwipableSidebar;
   
   return (
-    <>
+    <Box
+      id="LeftSidebarLayout"
+      sx={ { display: 'flex', maxWidth: '100%' } }
+    >
       { renderSidebar(sidebar) }
 
-      <Box sx={ {
-        flex: 1,
-        marginLeft: {
-          xs: 0,
-          sm: FILTERS_SIDEBAR_WIDTH / 8
-        }
-      } }>
+      <Box
+        id="LeftSidebarLayout-content"
+        sx={ {
+          display: 'flex',
+          flex: 1,
+          flexDirection: 'column',
+          maxWidth: isPermanentSidebar ? `calc(100% - ${ FILTERS_SIDEBAR_WIDTH }px)` : '100%'
+        } }
+      >
         { children }
 
         <Footer />
       </Box>
-    </>
+    </Box>
   );};
 
 export default LeftSidebarLayout;

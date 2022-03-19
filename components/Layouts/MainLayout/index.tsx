@@ -3,10 +3,7 @@ import React, { PropsWithChildren } from 'react';
 import { useModalsContext } from '../../../context';
 import { useBreakpoints } from '../../../hooks';
 import InfoDisclaimer from '../../InfoDisclaimer';
-import { NAV_SIDEBAR_WIDTH } from '../constants';
-import BottomNavigation from './BottomNavigation';
 import Header, { Props } from './Header';
-import Notifications from './Notifications';
 
 const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   brands,
@@ -22,6 +19,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
   
   return (
     <Box
+      id="MainLayout"
       sx={ {
         bgcolor: (theme) => theme.palette.background.default,
         display: 'flex',
@@ -41,31 +39,36 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
       />
 
       <Box
-        sx={ { display: 'flex', flexDirection: isDesktop ? 'row-reverse' : 'column', flex: 1, maxWidth: '100%' } }
+        id="MainLayout-contentWrapper"
+        sx={ {
+          display: 'flex',
+          flexDirection: isDesktop ? 'row-reverse' : 'column',
+          flex: 1,
+          maxWidth: '100%'
+        } }
       >
         <Box
+          id="MainLayout-content"
           component="main"
           sx={ {
             display: 'flex',
             flexDirection: 'column',
             flexGrow: 1,
-            maxWidth: {
-              xs: '100%',
-              md: `calc(100% - ${ NAV_SIDEBAR_WIDTH }px)`
-            },
+            maxWidth: '100%',
             position: 'relative',
             py: 3
           } }
         >
-          <Toolbar sx={ {
-            boxSizing: 'content-box',
-            py: { xs: 3, sm: 0 }
-          } } />
+          <Toolbar
+            id="MainLayout-contentSpacer"
+            sx={ {
+              boxSizing: 'content-box',
+              py: { xs: 3, sm: 0 }
+            } }
+          />
 
           { children }
         </Box>
-
-        <BottomNavigation isTablet={ isDesktop } />
       </Box>
 
       { initialDisclaimer.open && initialDisclaimer.handleClose && (
@@ -74,8 +77,6 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
           open={ initialDisclaimer.open }
         />
       ) }
-
-      <Notifications isTablet={ isDesktop } />
     </Box>
   );};
 

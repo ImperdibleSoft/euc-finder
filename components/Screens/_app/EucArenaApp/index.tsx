@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { PropsWithChildren } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRegions } from '../../../../constants';
-import { EUC_DETAILS } from '../../../../constants/clientRoutes';
+import { EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import { useAppData, useCommonTranslations } from '../../../../hooks';
 import { setRegion } from '../../../../store/actions';
 import { getBrands, getRegion, getWheels } from '../../../../store/selectors';
@@ -22,7 +22,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
 
   const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
     if (value?.id) {
-      router.push(EUC_DETAILS.replace(':id', value.id));
+      router.push(EUC_FINDER_DETAILS.replace(':id', value.id));
     }
   };
 

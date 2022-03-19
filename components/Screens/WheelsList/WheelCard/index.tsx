@@ -10,7 +10,7 @@ import Link from 'next/link';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../../constants';
-import { EUC_DETAILS } from '../../../../constants/clientRoutes';
+import { EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import { commonNs, useEucListInformationGroups, useWheelsListTranslations } from '../../../../hooks';
 import { getBrands, getMeasureUnits } from '../../../../store/selectors';
 import { WheelFeatureFormatters, WheelFeatureIcons, WheelSorting, WheelWithPicture } from '../../../../types';
@@ -33,7 +33,7 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
   const brand = getBrandInfo(wheel.brandId, brands);
   const measureUnits = useSelector(getMeasureUnits);
   const { mainSpecs, additionalSpecs } = useEucListInformationGroups(sorting);
-  const link = EUC_DETAILS.replace(':id', wheel.id);
+  const link = EUC_FINDER_DETAILS.replace(':id', wheel.id);
   
   const mainSpecItems: ListItem[] = mainSpecs.map(key => {
     const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
