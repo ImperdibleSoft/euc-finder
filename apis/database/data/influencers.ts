@@ -61,7 +61,7 @@ export const influencers: Influencer[] = [
     id: InfluencerId.ox,
     name: 'A film by OX',
     avatar: 'https://yt3.ggpht.com/ytc/AKedOLSwlGKsiwJvgtmuz298QsPt5ojSWPe42qQxhylUiQ=s88-c-k-c0x00ffffff-no-rj',
-    sponsored: true
+    promoted: true
   },
   {
     channel: 'https://www.youtube.com/c/WrongWayYouTube',

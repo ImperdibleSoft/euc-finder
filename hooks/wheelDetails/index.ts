@@ -71,8 +71,8 @@ export const useEucPurchaseLinks = (id: WheelId) => {
     stores: dealers
   };
 
-  const sponsoredLinks = wheelLinks
-    .map(url => getPurchaseLink({ ...options, url, sponsored: true }, showAllPurchaseLinks))
+  const promotedLinks = wheelLinks
+    .map(url => getPurchaseLink({ ...options, url, promoted: true }, showAllPurchaseLinks))
     .filter(link => !!link) as PurchaseLink[];
 
   const regularLinks = wheelLinks
@@ -80,7 +80,7 @@ export const useEucPurchaseLinks = (id: WheelId) => {
     .filter(link => !!link) as PurchaseLink[];
 
   return {
-    sponsoredLinks: sponsoredLinks.sort(sortBy('store', 'asc', 'name')),
+    promotedLinks: promotedLinks.sort(sortBy('store', 'asc', 'name')),
     regularLinks: regularLinks.sort(sortBy('store', 'asc', 'name'))
   };
 };

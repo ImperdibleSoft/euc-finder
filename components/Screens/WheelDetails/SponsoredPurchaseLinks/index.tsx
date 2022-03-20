@@ -22,7 +22,7 @@ const SponsoredPurchaseLinks: React.FC<Props> = ({ expensive, items, large, whee
     <>
       { large && (
         <Typography sx={ { mt: 4, mb: 2 } } variant="h6" component="div">
-          { t('sponsoredStores-title') }
+          { t('promotedStores-title') }
         </Typography>
       ) }
 

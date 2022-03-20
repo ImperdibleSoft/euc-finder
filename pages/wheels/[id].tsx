@@ -55,7 +55,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const { name, wheel } = useEucDetail(id);
   const { highlightedSpecs, mainSpecs, additionalSpecs } = useEucDetailInformationGroups();
   const { handleClosePicture, handleOpenPicture, pictureDetail } = useEucDetailHandlers();
-  const { sponsoredLinks, regularLinks } = useEucPurchaseLinks(id);
+  const { promotedLinks, regularLinks } = useEucPurchaseLinks(id);
   const { handleWatchMoreVideos, totalCount, videos } = useEucVideos(id);
   const { canCompareMoreWheels, handleAddToComparision } = useCompareActions();
 
@@ -125,7 +125,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
 
             <SponsoredPurchaseLinks
               expensive={ expensive }
-              items={ sponsoredLinks }
+              items={ promotedLinks }
               large
               wheel={ id }
             />

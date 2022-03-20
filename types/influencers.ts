@@ -21,5 +21,5 @@ export interface Influencer {
   name: string;
   channel: string;
   avatar?: string;
-  sponsored?: boolean;
+  promoted?: boolean;
 }

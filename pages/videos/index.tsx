@@ -19,7 +19,7 @@ const Videos: React.FC = () => {
   const dispatch = useDispatch();
   const {
     loaded,
-    sponsored,
+    promoted,
     unwatched,
     watched,
     paginationSize
@@ -81,36 +81,36 @@ const Videos: React.FC = () => {
           </Button>
         </ButtonGroup>
 
-        { sponsored.videos.length > 0 && (
+        { promoted.videos.length > 0 && (
           <>
             <Box sx={ { mt: 3, px: 2 } }>
               <Typography variant="h4" component="h1" sx={ { mb: { sm: 3 } } }>
-                { t('sponsoredVideos-title') }
+                { t('promotedVideos-title') }
               </Typography>
             </Box>
 
             <VideosCarousel
-              count={ sponsored.pagination.total }
+              count={ promoted.pagination.total }
               entityName={ entityName }
               handleChangeCategories={ handleChangeCategories }
               handleChangeInfluencers={ handleChangeInfluencers }
               handleChangeWheels={ handleChangeWheels }
               skeleton={ !loaded }
-              videos={ sponsored.videos }
+              videos={ promoted.videos }
             />
 
             <Box sx={ { alignItems: 'center', display: 'flex', flexDirection: 'column', pb: 1 } }>
               <Pagination
                 color="secondary"
-                count={ Math.ceil(sponsored.pagination.total / paginationSize) }
-                hidden={ sponsored.pagination.count >= sponsored.pagination.total }
+                count={ Math.ceil(promoted.pagination.total / paginationSize) }
+                hidden={ promoted.pagination.count >= promoted.pagination.total }
                 hideNextButton={
-                  (sponsored.pagination.sponsoredOffset + sponsored.pagination.count) >= sponsored.pagination.total
+                  (promoted.pagination.promotedOffset + promoted.pagination.count) >= promoted.pagination.total
                 }
-                hidePrevButton={ sponsored.pagination.sponsoredOffset <= 0 }
-                onChange={ (e, p) => { handlePaginate(e, p, 'sponsored'); } }
+                hidePrevButton={ promoted.pagination.promotedOffset <= 0 }
+                onChange={ (e, p) => { handlePaginate(e, p, 'promoted'); } }
                 page={
-                  Math.ceil((sponsored.pagination.sponsoredOffset + sponsored.pagination.count) / paginationSize)
+                  Math.ceil((promoted.pagination.promotedOffset + promoted.pagination.count) / paginationSize)
                 }
               />
             </Box>
@@ -141,11 +141,11 @@ const Videos: React.FC = () => {
                 count={ Math.ceil(unwatched.pagination.total / paginationSize) }
                 hidden={ unwatched.pagination.count >= unwatched.pagination.total }
                 hideNextButton={
-                  (unwatched.pagination.newOffset + unwatched.pagination.count) >= unwatched.pagination.total
+                  (unwatched.pagination.unwatchedOffset + unwatched.pagination.count) >= unwatched.pagination.total
                 }
-                hidePrevButton={ unwatched.pagination.newOffset <= 0 }
-                onChange={ (e, p) => { handlePaginate(e, p, 'new'); } }
-                page={ Math.ceil((unwatched.pagination.newOffset + unwatched.pagination.count) / paginationSize) }
+                hidePrevButton={ unwatched.pagination.unwatchedOffset <= 0 }
+                onChange={ (e, p) => { handlePaginate(e, p, 'unwatched'); } }
+                page={ Math.ceil((unwatched.pagination.unwatchedOffset + unwatched.pagination.count) / paginationSize) }
               />
             </Box>
           </>
@@ -186,7 +186,7 @@ const Videos: React.FC = () => {
           </>
         ) }
 
-        { (!sponsored.videos.length && !unwatched.videos.length && !watched.videos.length) && (
+        { (!promoted.videos.length && !unwatched.videos.length && !watched.videos.length) && (
           <EmptyCase
             handleOpenFilters={ handleOpenSidebar }
             handleResetFilters={ handleResetFilters }

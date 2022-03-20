@@ -12,15 +12,15 @@ interface GetDealerParams {
   stores: Store[]
   region: Region
   url: string
-  sponsored?: boolean
+  promoted?: boolean
 }
 
-const getStoreFromUrl = ({ region, stores: dealers, url, sponsored }: GetDealerParams) =>
+const getStoreFromUrl = ({ region, stores: dealers, url, promoted }: GetDealerParams) =>
   dealers.find(({ meta, region: dealerRegion, website }) => (
     region === dealerRegion
       && website
       && url.includes(website)
-      && ((sponsored && meta.sponsor) || (!sponsored && !meta.sponsor))
+      && ((promoted && meta.sponsor) || (!promoted && !meta.sponsor))
   ));
 
 export const getPurchaseLink = (
