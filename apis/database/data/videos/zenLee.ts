@@ -309,6 +309,17 @@ const zenLeeVideos: Video[] = [
     publishDate: '22/Dec/2021',
     releaseDate: '05/Jan/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=152lKoVhb9E',
+    tags: [
+      InfluencerId.zenLee,
+      WheelId.master,
+      VideoCategory.chatting
+    ],
+    publishDate: '07/Mar/2022',
+    releaseDate: '20/Mar/2022',
+    language: 'en'
   }
 ];
 

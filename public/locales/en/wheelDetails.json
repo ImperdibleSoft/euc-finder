@@ -8,7 +8,7 @@
 
   "highlightedSpecs-title": "Highlighted specs",
   
-  "sponsoredStores-title": "Sponsored stores",
+  "promotedStores-title": "Promoted stores",
   "loadingPrice-msg": "Looking for {{storeName}}'s price",
   "soldOut-msg": "Sold out!",
   "discount-msg": "{{discount}} off",

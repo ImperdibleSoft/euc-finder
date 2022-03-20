@@ -409,6 +409,19 @@ const madpackVideos: Video[] = [
     publishDate: '07/Mar/2022',
     releaseDate: '07/Mar/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=IBGzONb3MQw',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.review,
+      VideoCategory.comparision,
+      WheelId.commanderHS,
+      WheelId.shermanMax
+    ],
+    publishDate: '14/Mar/2022',
+    releaseDate: '20/Mar/2022',
+    language: 'en'
   }  
 ];
 

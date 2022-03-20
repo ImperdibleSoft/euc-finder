@@ -1,3 +1,4 @@
+import { sortBy } from '../../utils';
 import { getInfluencersInitialState } from '../models';
 import { InfluencersState, SetInitialDataAction } from '../types';
 
@@ -6,7 +7,7 @@ const reducer = (state = getInfluencersInitialState(), action: SetInitialDataAct
     case 'SET_APP_DATA':
       return {
         ...state,
-        collection: action.payload.influencers
+        collection: [...action.payload.influencers].sort(sortBy('name', 'asc'))
       };
 
     default:

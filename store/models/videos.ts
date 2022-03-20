@@ -11,8 +11,8 @@ export const getVideosInitialState = (): VideosState => ({
   },
   lastVisit: getLastVisit(),
   pagination: {
-    sponsoredOffset: 0,
-    newOffset: 0,
+    promotedOffset: 0,
+    unwatchedOffset: 0,
     watchedOffset: 0
   },
   sorting: undefined

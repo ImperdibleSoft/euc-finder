@@ -1,14 +1,20 @@
 import { InfluencerId } from '../../types';
 import { RootState } from '../types';
 
-export const getSponsoredInfluencers = ({ influencers }: RootState) =>
-  influencers.collection.filter(influencer => influencer.sponsored);
+export const getPromotedInfluencers = ({ influencers }: RootState) => {
+  const promoted = influencers.collection.filter(influencer => influencer.promoted);
+  return promoted;
+};
 
-export const getInfluencers = (rootState: RootState) =>
-  [
-    ...getSponsoredInfluencers(rootState),
-    ...rootState.influencers.collection.filter(influencer => !influencer.sponsored)
-  ];
+export const getRegularInfluencers = ({ influencers }: RootState) => {
+  const regular = influencers.collection.filter(influencer => !influencer.promoted);
+  return regular;
+};
+
+export const getInfluencers = (rootState: RootState) => [
+  ...getPromotedInfluencers(rootState),
+  ...getRegularInfluencers(rootState)
+];
 
 export const getInfluencerById = (id: InfluencerId) =>
   ({ influencers }: RootState) =>

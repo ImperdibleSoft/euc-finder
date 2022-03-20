@@ -34,6 +34,10 @@ export const getDropdownOptions = (
     {
       label: t('es-label', commonNs),
       value: 'es'
+    },
+    {
+      label: t('fr-label', commonNs),
+      value: 'fr'
     }
   ];
 

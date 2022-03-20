@@ -7,13 +7,14 @@ import EmptyCase from '../../components/Screens/Influencers/EmptyCase';
 import InfluencerCard from '../../components/Screens/Influencers/InfluencerCard';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { useInfluencersTranslations } from '../../hooks';
-import { getInfluencers } from '../../store/selectors';
+import { getRegularInfluencers, getPromotedInfluencers } from '../../store/selectors';
 import { TranslationFile } from '../../types';
 import { getTranslationsFromFiles } from '../../utils-server';
 
 const Influencers: React.FC = () => {
   const { t } = useInfluencersTranslations();
-  const influencers = useSelector(getInfluencers);
+  const promotedInfluencers = useSelector(getPromotedInfluencers);
+  const regularInfluencers = useSelector(getRegularInfluencers);
 
   const pageTitle = t('influencers-title');
   const pageDescription = t('influencers-description', { appName: APP_NAME });
@@ -34,18 +35,43 @@ const Influencers: React.FC = () => {
       </Head>
 
       <SimpleLayout>
-        { !!influencers.length && (
+        { !!promotedInfluencers.length && (
           <>
             <Typography variant="h4" sx={ { mb: 2 } }>
               { pageTitle }
             </Typography>
 
             <Typography variant="body1" sx={ { mb: 2 } }>
-              { t('influencers-msg') }
+              { t('influencers-msg1') }
+            </Typography>
+
+            <Typography variant="body1" sx={ { mb: 2 } }>
+              { t('influencers-msg2') }
+            </Typography>
+
+            <Typography variant="h5" sx={ { mb: 2, mt: 6 } }>
+              { t('promotedInfluencers-title') }
+            </Typography>
+
+            <Typography variant="body1" sx={ { mb: 2 } }>
+              { t('promotedInfluencers-msg') }
             </Typography>
 
             <Grid container spacing={ 2 }>
-              { influencers.map(influencer => (
+              { promotedInfluencers.map(influencer => (
+                <InfluencerCard
+                  key={ influencer.id }
+                  influencer={ influencer }
+                />
+              )) }
+            </Grid>
+
+            <Typography variant="h5" sx={ { mb: 2, mt: 6 } }>
+              { t('regularInfluencers-title') }
+            </Typography>
+
+            <Grid container spacing={ 2 }>
+              { regularInfluencers.map(influencer => (
                 <InfluencerCard
                   key={ influencer.id }
                   influencer={ influencer }
@@ -55,7 +81,7 @@ const Influencers: React.FC = () => {
           </>
         ) }
 
-        { !influencers.length && (
+        { !promotedInfluencers.length && (
           <EmptyCase />
         ) }
       </SimpleLayout>

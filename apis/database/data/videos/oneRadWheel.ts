@@ -133,6 +133,13 @@ const oneradwheelVideos: Video[] = [
     publishDate: '25/Feb/2022',
     releaseDate: '07/Mar/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=eD2FevSzJ-o',
+    tags: [InfluencerId.oneradwheel, VideoCategory.reveal, WheelId.hero],
+    publishDate: '13/Feb/2022',
+    releaseDate: '20/Mar/2022',
+    language: 'en'
   }
 ];
 

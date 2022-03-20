@@ -23,12 +23,12 @@ const reducer = (state = getVideosInitialState(), action: VideosAction | SetInit
       let key: keyof VideosState['pagination'];
 
       switch (action.payload.type) {
-        case 'sponsored':
-          key = 'sponsoredOffset';
+        case 'promoted':
+          key = 'promotedOffset';
           break;
 
-        case 'new':
-          key = 'newOffset';
+        case 'unwatched':
+          key = 'unwatchedOffset';
           break;
 
         case 'watched':

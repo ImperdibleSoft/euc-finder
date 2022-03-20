@@ -10,7 +10,7 @@ export enum VideoCategory {
   review = 'review',
 }
 
-export type Lang = 'en' | 'es'
+export type Lang = 'en' | 'es' | 'fr'
 
 export interface Video {
   url: string;

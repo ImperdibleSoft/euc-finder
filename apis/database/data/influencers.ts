@@ -61,7 +61,7 @@ export const influencers: Influencer[] = [
     id: InfluencerId.ox,
     name: 'A film by OX',
     avatar: 'https://yt3.ggpht.com/ytc/AKedOLSwlGKsiwJvgtmuz298QsPt5ojSWPe42qQxhylUiQ=s88-c-k-c0x00ffffff-no-rj',
-    sponsored: true
+    promoted: true
   },
   {
     channel: 'https://www.youtube.com/c/WrongWayYouTube',
@@ -74,5 +74,17 @@ export const influencers: Influencer[] = [
     id: InfluencerId.zenLee,
     name: 'Zen Tech',
     avatar: 'https://yt3.ggpht.com/dWWIWDwE2q0KUlh0pNBtZudGKxP4cDMbIfZGpXarUR_Ns0HsD8YuTE76jTJl-A7BI6KfAwektA=s88-c-k-c0x00ffffff-no-rj'
+  },
+  {
+    channel: 'https://www.youtube.com/c/BonheursurSeine',
+    id: InfluencerId.bonheursurSeine,
+    name: 'BonheursurSeine',
+    avatar: 'https://yt3.ggpht.com/Gg3ECuJCbksOwOJOrWhY-5aYj9TonRMfiYmLGocn_wuyamrfxpNC-sDKs_HxW3BEusvnkstq=s88-c-k-c0x00ffffff-no-rj'
+  },
+  {
+    channel: 'https://www.youtube.com/c/MonsieurFlex',
+    id: InfluencerId.mrFlex,
+    name: 'Monsieur Flex',
+    avatar: 'https://yt3.ggpht.com/ytc/AKedOLRgnLGi8jDaX7mqTfoo05pqBuCcziDy7LOCyJUHNw=s88-c-k-c0x00ffffff-no-rj'
   }
 ];

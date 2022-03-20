@@ -6,7 +6,7 @@ import {
   getInfluencers,
   getNewVideos,
   getPaginationConfig,
-  getSponsoredVideos,
+  getPromotedVideos,
   getVideosLastVisit,
   getWatchedVideos,
   getWheels
@@ -29,7 +29,7 @@ export const useVideos = () => {
   const dispatch = useDispatch();
   const [lastVisit] = useState(getLastVisit());
   const liveLastVisit = useSelector(getVideosLastVisit);
-  const sponsored = useSelector(getSponsoredVideos());
+  const promoted = useSelector(getPromotedVideos());
   const unwatched = useSelector(getNewVideos(lastVisit));
   const watched = useSelector(getWatchedVideos(lastVisit));
   const paginationSize = useSelector(getPaginationConfig);
@@ -47,7 +47,7 @@ export const useVideos = () => {
 
   return {
     loaded: !!liveLastVisit,
-    sponsored,
+    promoted,
     unwatched,
     watched,
     paginationSize
