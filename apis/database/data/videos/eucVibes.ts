@@ -74,6 +74,13 @@ const eucVibesVideos: Video[] = [
     publishDate: '29/Oct/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=jgf9yfuWI3o',
+    tags: [InfluencerId.eucVibes, VideoCategory.chatting, WheelId.ksS20, WheelId.abrams],
+    publishDate: '14/Mar/2022',
+    releaseDate: '20/Mar/2022',
+    language: 'en'
   }
 ];
 

@@ -133,7 +133,7 @@ const eeveesVideos: Video[] = [
     language: 'en'
   },
   {
-    url: 'https://www.youtube.com/watch?v=cxCH5LyQLTU&t=42s',
+    url: 'https://www.youtube.com/watch?v=cxCH5LyQLTU',
     tags: [
       InfluencerId.eevees,
       VideoCategory.review,
@@ -141,6 +141,28 @@ const eeveesVideos: Video[] = [
     ],
     publishDate: '21/Feb/2022',
     releaseDate: '24/Feb/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=_xRIaewNirM',
+    tags: [
+      InfluencerId.eevees,
+      VideoCategory.review,
+      WheelId.ksS20
+    ],
+    publishDate: '26/Feb/2022',
+    releaseDate: '20/Mar/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=SVrTpzBbIWc',
+    tags: [
+      InfluencerId.eevees,
+      VideoCategory.review,
+      WheelId.ksS20
+    ],
+    publishDate: '18/Mar/2022',
+    releaseDate: '20/Mar/2022',
     language: 'en'
   }
 ];
