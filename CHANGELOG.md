@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.5.0
+
+### Minor Changes
+
+- Add some french influencers, and apply some new copies to influencers page
+
 ## 2.4.15
 
 ### Patch Changes
