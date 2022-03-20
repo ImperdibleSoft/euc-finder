@@ -7,6 +7,7 @@ import evxVideos from './videos/evx';
 import hsiangVideos from './videos/hsiang';
 import kujiVideos from './videos/kuji';
 import madpackVideos from './videos/madpack';
+import mrFlexVideos from './videos/mrFlex';
 import oneradwheelVideos from './videos/oneRadWheel';
 import oxVideos from './videos/ox';
 import wrongWayVideos from './videos/wrongWay';
@@ -21,6 +22,7 @@ export const videos: Video[] = [
   ...hsiangVideos,
   ...kujiVideos,
   ...madpackVideos,
+  ...mrFlexVideos,
   ...oneradwheelVideos,
   ...oxVideos,
   ...wrongWayVideos,
