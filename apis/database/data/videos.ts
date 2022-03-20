@@ -1,4 +1,5 @@
 import { Video } from '../../../types';
+import bonheursurSeineVideos from './videos/bonheursurSeine';
 import eeveesVideos from './videos/eevees';
 import electricDreamsVideos from './videos/electricDreams';
 import eucVibesVideos from './videos/eucVibes';
@@ -12,6 +13,7 @@ import wrongWayVideos from './videos/wrongWay';
 import zenLeeVideos from './videos/zenLee';
 
 export const videos: Video[] = [
+  ...bonheursurSeineVideos,
   ...eeveesVideos,
   ...electricDreamsVideos,
   ...eucVibesVideos,
