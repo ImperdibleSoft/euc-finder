@@ -1,10 +1,15 @@
 {
   "influencers-title": "Creadores de contendido",
-  "influencers-description": "",
-  "influencers-msg": "",
+  "influencers-description": "Una lista de influencers en la comunidad de las ruedas",
+  "influencers-msg1": "Aquí tienes una lista de influencers en la comunidad de las ruedas que han sido seleccionados cuidadosamente.",
+  "influencers-msg2": "Esta gente crea contenido de calidad relacionado con las ruedas, y te ayudarán a conocer y entender algunas de las últimas novedades/mejoras en el mundo de las ruedas.",
 
   "noInfluencers-title": "",
-  "noInfluencers-msg": "Todavía no hay creadores de contenido.",
+  "noInfluencers-msg": "Todavía no hay Creadores de contenido.",
+
+  "promotedInfluencers-title": "Creadores de contenido promocionados",
+  "promotedInfluencers-msg": "Estos Creadores de contenido colaboran activamente con EUC Finder, ayudando a mejorar el contenido de la aplicación.",
+  "regularInfluencers-title": "Otros Creadores de contenido",
   
   "youtubeChannel-label": "Canal de Youtube",
   "watchVideos-btn": "Ver todos los vídeos"

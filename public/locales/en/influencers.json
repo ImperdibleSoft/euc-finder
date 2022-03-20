@@ -1,10 +1,15 @@
 {
   "influencers-title": "Content creators",
-  "influencers-description": "",
-  "influencers-msg": "",
+  "influencers-description": "Curated list of influencers in the EUC community",
+  "influencers-msg1": "Here you have a curated list of influencers in the EUC community.",
+  "influencers-msg2": "This people is creating high quality content related with EUC, and they will help you to know and understand some of the latest news/improvements in the EUC world.",
 
   "noInfluencers-title": "",
-  "noInfluencers-msg": "There are no influencers yet.",
+  "noInfluencers-msg": "There are no Content creators yet.",
+
+  "promotedInfluencers-title": "Promoted Content creators",
+  "promotedInfluencers-msg": "These Content creators actively cooperate with EUC Finder, improving app's content quality.",
+  "regularInfluencers-title": "Other Content creators",
 
   "youtubeChannel-label": "Youtube channel",
   "watchVideos-btn": "Watch all videos"
