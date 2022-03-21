@@ -15,7 +15,7 @@ import {
   WheelId,
   WheelScoreProps
 } from '../../../../types';
-import { cleanWheelId, getBrandInfo } from '../../../../utils';
+import { cleanWheelId, getBrandInfo, getFormatterValue } from '../../../../utils';
 import { isCompetingValue, isTopValue } from '../../../../utils/comparing';
 import Table, { TableBody, TableHead, TableHeading, TableRow } from '../../../Table';
 
@@ -81,6 +81,7 @@ const getSortedKeys = (specs: (keyof Wheel)[], specWeights: SpecWeights): WheelS
 interface Props {
   brands: Brand[];
   handleRemoveFromComparision: (wheelId: WheelId) => void;
+  maxCurrentAllowed: number;
   measureUnits: MeasureUnits;
   minMaxScores: MinMaxScores;
   specWeights: SpecWeights;
@@ -94,6 +95,7 @@ interface Props {
 const CompareTable: React.FC<Props> = ({
   brands,
   handleRemoveFromComparision,
+  maxCurrentAllowed,
   measureUnits,
   minMaxScores,
   specWeights,
@@ -191,16 +193,15 @@ const CompareTable: React.FC<Props> = ({
               </TableCell>
 
               { cells.map((wheel, index) => {
+                const isValidSpec = typeof wheel !== 'number' && key !== 'brandId' && key !== 'score';
                 // @ts-ignore
                 // eslint-disable-next-line no-restricted-syntax
                 const units = key in measureUnits ? measureUnits[key] : undefined;
-                const formatter = typeof wheel !== 'number' && key !== 'brandId' && key !== 'score'
-                  ? wheelFeatureFormatters[key]
-                  : undefined;
-                const value = typeof wheel !== 'number' && key !== 'brandId' && key !== 'score'
-                  ? wheel[key]
-                  : undefined;
-                let formattedValue = formatter?.(value, t, units, key === 'width' ? 2 : 0) ?? value;
+                const formatter = isValidSpec ? wheelFeatureFormatters[key] : undefined;
+                const value = isValidSpec ? wheel[key] : undefined;
+                // eslint-disable-next-line max-len
+                const formatterValue = isValidSpec ? getFormatterValue(wheel, key, { brands, maxCurrentAllowed }) : undefined;
+                let formattedValue = formatter?.(formatterValue, t, units, key === 'width' ? 2 : 0) ?? value;
 
                 const minMax = key !== 'brandId' ? minMaxScores[key] : undefined;
                 const score = typeof wheel !== 'number' ?

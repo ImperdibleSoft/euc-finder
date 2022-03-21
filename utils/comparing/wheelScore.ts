@@ -7,7 +7,8 @@ import {
   pedalTypeWeight,
   soundSystemWeight,
   suspensionWeight,
-  trolleyHandleWeight
+  trolleyHandleWeight,
+  usbWeight
 } from '../../constants';
 import { SpecWeights } from '../../store/types';
 import {
@@ -24,6 +25,7 @@ import {
   WheelFeatures,
   WheelScore
 } from '../../types';
+import { getChargingTime } from '../conversions';
 import { toDecimals } from '../range';
 
 const applyMaxValue = (value: number, maxValue = 10) => 
@@ -31,12 +33,12 @@ const applyMaxValue = (value: number, maxValue = 10) =>
 
 export const isCompetingValue = (key: keyof WheelScore) =>
   key !== 'brandId' &&
-  key !== 'color' &&
   key !== 'diameter' &&
-  key !== 'groundClearance' &&
+  key !== 'width' &&
   key !== 'peakPower' &&
   key !== 'voltage' &&
-  key !== 'width';
+  key !== 'groundClearance' &&
+  key !== 'color';
 
 export const getBooleanScore = (value?: boolean) =>
   (value ? 1 : 0) * 10;
@@ -65,6 +67,44 @@ export const getLowestValueScore = (value: number, minMax: [number, number]) => 
   return getValueBasedOnMinMax(value, [max, min]);
 };
 
+export const getStockChargerScore = (wheel: Wheel) => {
+  if (!wheel.stockCharger) {
+    return 0;
+  }
+
+  const tension = wheel.stockCharger * (wheel.chargePorts || 1);
+  if (!wheel.voltage || !wheel.battery.wattsHour) {
+    return tension;
+  }
+
+  return Number(getChargingTime({
+    tension,
+    voltage: wheel.voltage,
+    wattsHour: wheel.battery.wattsHour
+  }));
+};
+
+export const getMaxChargerScore = (wheel: Wheel) => {
+  if (!wheel.stockCharger) {
+    return 0;
+  }
+
+  const tension = (wheel.maxCharger || wheel.stockCharger) * (wheel.chargePorts || 1);
+  if (!wheel.voltage || !wheel.battery.wattsHour) {
+    return tension;
+  }
+
+  return Number(getChargingTime({
+    tension,
+    voltage: wheel.voltage,
+    wattsHour: wheel.battery.wattsHour
+  }));
+};
+
+export const getUsbPortsScore = (value: [number, number]) => {
+  const [usbA, usbC] = value;
+  return (usbA * usbWeight.usbA) + (usbC * usbWeight.usbC);
+};
 
 export const getMaxGradabilityScore = (value: number, minMax: [number, number]) =>
   (getValueBasedOnMinMax(value, minMax) / 10) * 5;
@@ -133,6 +173,11 @@ export const getPedalsScore = (value?: WheelFeatures['pedals']) => {
   return getValueBasedOnMinMax(total, [min, max]);
 };
 
+export const getPedalSizeScore = (value: WheelFeatures['pedalSize']) => {
+  const [length = 1, width = 1] = (value ?? [1, 1]);
+  return length * width;
+};
+
 export const getAntiSpinScore = (value?: AntiSpin) => {
   const min = 0;
   const max = antiSpinWeight.sensor;
@@ -172,7 +217,7 @@ export const getDisplayScore = (value?: Display) => {
   return getValueBasedOnMinMax(total, [min, max]);
 };
 
-
+// eslint-disable-next-line max-lines-per-function
 export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeights: SpecWeights): WheelScore => {
   const price = applyMaxValue(
     getLowestValueScore(wheel.price, minMaxValues.price),
@@ -200,6 +245,22 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
     getValueBasedOnMinMax(wheel.battery.wattsHour, minMaxValues.battery),
     specWeights.battery
   );
+  const stockCharger = applyMaxValue(
+    getLowestValueScore(getStockChargerScore(wheel), minMaxValues.stockCharger),
+    specWeights.stockCharger
+  );
+  const maxCharger = applyMaxValue(
+    getLowestValueScore(getMaxChargerScore(wheel), minMaxValues.maxCharger),
+    specWeights.maxCharger
+  );
+  const chargePorts = applyMaxValue(
+    wheel.chargePorts,
+    specWeights.chargePorts
+  );
+  const usbPorts = applyMaxValue(
+    getUsbPortsScore(wheel.usbPorts ?? [0, 0]),
+    specWeights.usbPorts
+  );
   const maxGradibility = applyMaxValue(
     getMaxGradabilityScore(wheel.maxGradibility, minMaxValues.maxGradibility),
     specWeights.maxGradibility
@@ -225,6 +286,10 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
     getPedalsScore(wheel.pedals),
     specWeights.pedals
   );
+  const pedalSize = applyMaxValue(
+    getValueBasedOnMinMax(getPedalSizeScore(wheel.pedalSize), minMaxValues.pedalSize),
+    specWeights.pedalSize
+  );
   const antiSpin = applyMaxValue(
     getAntiSpinScore(wheel.antiSpin),
     specWeights.antiSpin
@@ -246,8 +311,29 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
     specWeights.display
   );
 
-  const score = Number(toDecimals(price + maxSpeed + range + weight + ratedPower + battery + maxGradibility +
-    suspension + headlight + tailLight + trolleyHandle + pedals + antiSpin + kickstand + leds + sound + display, 2));
+  const rawScore = price +
+    maxSpeed +
+    range +
+    weight +
+    ratedPower +
+    battery +
+    stockCharger +
+    maxCharger +
+    chargePorts +
+    usbPorts +
+    maxGradibility +
+    suspension +
+    headlight +
+    tailLight +
+    trolleyHandle +
+    pedals +
+    pedalSize +
+    antiSpin +
+    kickstand +
+    leds +
+    sound +
+    display;
+  const score = Number(toDecimals(rawScore, 2));
 
   return {
     brandId: 0,
@@ -264,10 +350,10 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
     peakPower: 0,
 
     battery,
-    stockCharger: 0,
-    maxCharger: 0,
-    chargePorts: 0,
-    usbPorts: 0,
+    stockCharger,
+    maxCharger,
+    chargePorts,
+    usbPorts,
 
     voltage: 0,
     maxGradibility,
@@ -279,7 +365,7 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
     trolleyHandle,
     dimensions: 0,
     pedals,
-    pedalSize: 0,
+    pedalSize,
     antiSpin,
     kickstand,
     leds,

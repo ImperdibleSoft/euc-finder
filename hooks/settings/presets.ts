@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { ChangeEvent, useEffect } from 'react';
 import { TFunction } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
@@ -80,6 +81,38 @@ export const usePresets = (t: TFunction<'translation'>) => {
     },
     {
       ...commonOptions,
+      icon: wheelFeatureIcons.stockCharger,
+      label: t('stockCharger', commonNs),
+      name: 'stockCharger',
+      onChange: handleChangeCustomValue,
+      value: specWeights.stockCharger
+    },
+    {
+      ...commonOptions,
+      icon: wheelFeatureIcons.maxCharger,
+      label: t('maxCharger', commonNs),
+      name: 'maxCharger',
+      onChange: handleChangeCustomValue,
+      value: specWeights.maxCharger
+    },
+    {
+      ...commonOptions,
+      icon: wheelFeatureIcons.chargePorts,
+      label: t('chargePorts', commonNs),
+      name: 'chargePorts',
+      onChange: handleChangeCustomValue,
+      value: specWeights.chargePorts
+    },
+    {
+      ...commonOptions,
+      icon: wheelFeatureIcons.usbPorts,
+      label: t('usbPorts', commonNs),
+      name: 'usbPorts',
+      onChange: handleChangeCustomValue,
+      value: specWeights.usbPorts
+    },
+    {
+      ...commonOptions,
       icon: wheelFeatureIcons.maxGradibility,
       label: t('maxGradibility', commonNs),
       name: 'maxGradibility',
@@ -117,6 +150,14 @@ export const usePresets = (t: TFunction<'translation'>) => {
       name: 'pedals',
       onChange: handleChangeCustomValue,
       value: specWeights.pedals
+    },
+    {
+      ...commonOptions,
+      icon: wheelFeatureIcons.pedalSize,
+      label: t('pedalSize', commonNs),
+      name: 'pedalSize',
+      onChange: handleChangeCustomValue,
+      value: specWeights.pedalSize
     },
     {
       ...commonOptions,

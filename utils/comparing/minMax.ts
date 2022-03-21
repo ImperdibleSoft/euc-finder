@@ -7,10 +7,12 @@ import {
   getDisplayScore,
   getKickstandScore,
   getLedsScore,
+  getPedalSizeScore,
   getPedalsScore,
   getSoundScore,
   getSuspensionScore,
   getTrolleyHandleScore,
+  getUsbPortsScore,
   getWheelScore
 } from './wheelScore';
 
@@ -90,6 +92,20 @@ export const getAbsoluteMinMaxValues = (wheels: Wheel[]): MinMaxValues => {
     if (!minMaxValues.battery[1] || (wheel.battery && wheel.battery.wattsHour > minMaxValues.battery[1])) {
       minMaxValues.battery = [minMaxValues.battery[0], wheel.battery.wattsHour];
     }
+    if (!minMaxValues.stockCharger[1] || (wheel.stockCharger && wheel.stockCharger > minMaxValues.stockCharger[1])) {
+      minMaxValues.stockCharger = [minMaxValues.stockCharger[0], wheel.stockCharger];
+    }
+    if (!minMaxValues.maxCharger[1] || (wheel.maxCharger && wheel.maxCharger > minMaxValues.maxCharger[1])) {
+      minMaxValues.maxCharger = [minMaxValues.maxCharger[0], wheel.maxCharger];
+    }
+    if (!minMaxValues.chargePorts[1] || (wheel.chargePorts && wheel.chargePorts > minMaxValues.chargePorts[1])) {
+      minMaxValues.chargePorts = [minMaxValues.chargePorts[0], wheel.chargePorts];
+    }
+
+    const usbPortsScore = getUsbPortsScore(wheel.usbPorts ?? [0, 0]);
+    if (!minMaxValues.usbPorts[1] || (usbPortsScore && usbPortsScore > minMaxValues.usbPorts[1])) {
+      minMaxValues.usbPorts = [minMaxValues.usbPorts[0], usbPortsScore];
+    }
     
     if (
       !minMaxValues.maxGradibility[1] ||
@@ -133,6 +149,14 @@ export const getAbsoluteMinMaxValues = (wheels: Wheel[]): MinMaxValues => {
     }
     if (!minMaxValues.pedals[1] || pedalScore > minMaxValues.pedals[1]) {
       minMaxValues.pedals = [minMaxValues.pedals[0], pedalScore];
+    }
+
+    const pedalSizeScore = getPedalSizeScore(wheel.pedalSize);
+    if (!minMaxValues.pedalSize[0] || pedalSizeScore < minMaxValues.pedalSize[0]) {
+      minMaxValues.pedalSize = [pedalSizeScore, minMaxValues.pedalSize[1]];
+    }
+    if (!minMaxValues.pedalSize[1] || pedalSizeScore > minMaxValues.pedalSize[1]) {
+      minMaxValues.pedalSize = [minMaxValues.pedalSize[0], pedalSizeScore];
     }
 
     const antiSpinScore = getAntiSpinScore(wheel.antiSpin);
@@ -277,6 +301,22 @@ export const getRelativeMinMaxScores = (
       minMaxScores.battery = [minMaxScores.battery[0], wheelScore.battery];
     }
     
+    if (!minMaxScores.stockCharger[1] || wheelScore.stockCharger > minMaxScores.stockCharger[1]) {
+      minMaxScores.stockCharger = [minMaxScores.stockCharger[0], wheelScore.stockCharger];
+    }
+    
+    if (!minMaxScores.maxCharger[1] || wheelScore.maxCharger > minMaxScores.maxCharger[1]) {
+      minMaxScores.maxCharger = [minMaxScores.maxCharger[0], wheelScore.maxCharger];
+    }
+    
+    if (!minMaxScores.chargePorts[1] || wheelScore.chargePorts > minMaxScores.chargePorts[1]) {
+      minMaxScores.chargePorts = [minMaxScores.chargePorts[0], wheelScore.chargePorts];
+    }
+    
+    if (!minMaxScores.usbPorts[1] || wheelScore.usbPorts > minMaxScores.usbPorts[1]) {
+      minMaxScores.usbPorts = [minMaxScores.usbPorts[0], wheelScore.usbPorts];
+    }
+    
     if (!minMaxScores.maxGradibility[1] || wheelScore.maxGradibility > minMaxScores.maxGradibility[1]) {
       minMaxScores.maxGradibility = [minMaxScores.maxGradibility[0], wheelScore.maxGradibility];
     }
@@ -314,6 +354,13 @@ export const getRelativeMinMaxScores = (
     }
     if (!minMaxScores.pedals[1] || wheelScore.pedals > minMaxScores.pedals[1]) {
       minMaxScores.pedals = [minMaxScores.pedals[0], wheelScore.pedals];
+    }
+
+    if (!minMaxScores.pedalSize[0] || wheelScore.pedalSize < minMaxScores.pedalSize[0]) {
+      minMaxScores.pedalSize = [wheelScore.pedalSize, minMaxScores.pedalSize[1]];
+    }
+    if (!minMaxScores.pedalSize[1] || wheelScore.pedalSize > minMaxScores.pedalSize[1]) {
+      minMaxScores.pedalSize = [minMaxScores.pedalSize[0], wheelScore.pedalSize];
     }
 
     if (!minMaxScores.antiSpin[0] || wheelScore.antiSpin < minMaxScores.antiSpin[0]) {

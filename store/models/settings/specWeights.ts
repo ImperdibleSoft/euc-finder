@@ -9,10 +9,10 @@ export const getGenericSpecWheights = (): SpecWeights => ({
   // This value is automatically calculated.
   // It is declared here in order to match Types
   battery: 0,
-  stockCharger: 0,
-  maxCharger: 0,
-  chargePorts: 0,
-  usbPorts: 0,
+  stockCharger: 5,
+  maxCharger: 3,
+  chargePorts: 2,
+  usbPorts: 3,
 
   maxGradibility: 10,
   maxSpeed: 15,
@@ -23,7 +23,7 @@ export const getGenericSpecWheights = (): SpecWeights => ({
   antiSpin: 5,
   dimensions: 0,
   pedals: 10,
-  pedalSize: 0,
+  pedalSize: 5,
   kickstand: 5,
   headlight: 10,
   tailLight: 10,
@@ -42,10 +42,10 @@ export const getComfortableSpecWheights = (): SpecWeights => ({
   // This value is automatically calculated.
   // It is declared here in order to match Types
   battery: 0,
-  stockCharger: 0,
-  maxCharger: 0,
-  chargePorts: 0,
-  usbPorts: 0,
+  stockCharger: 5,
+  maxCharger: 3,
+  chargePorts: 3,
+  usbPorts: 8,
 
   maxGradibility: 10,
   maxSpeed: 5,
@@ -56,7 +56,7 @@ export const getComfortableSpecWheights = (): SpecWeights => ({
   antiSpin: 15,
   dimensions: 0,
   pedals: 10,
-  pedalSize: 0,
+  pedalSize: 8,
   kickstand: 15,
   headlight: 10,
   tailLight: 10,
@@ -75,10 +75,10 @@ export const getSafetySpecWheights = (): SpecWeights => ({
   // This value is automatically calculated.
   // It is declared here in order to match Types
   battery: 0,
-  stockCharger: 0,
+  stockCharger: 8,
   maxCharger: 0,
-  chargePorts: 0,
-  usbPorts: 0,
+  chargePorts: 2,
+  usbPorts: 3,
 
   maxGradibility: 10,
   maxSpeed: 8,
@@ -89,7 +89,7 @@ export const getSafetySpecWheights = (): SpecWeights => ({
   antiSpin: 10,
   dimensions: 0,
   pedals: 12,
-  pedalSize: 0,
+  pedalSize: 10,
   kickstand: 5,
   headlight: 15,
   tailLight: 15,
@@ -108,9 +108,9 @@ export const getPerformanceSpecWheights = (): SpecWeights => ({
   // This value is automatically calculated.
   // It is declared here in order to match Types
   battery: 0,
-  stockCharger: 0,
-  maxCharger: 0,
-  chargePorts: 0,
+  stockCharger: 5,
+  maxCharger: 5,
+  chargePorts: 8,
   usbPorts: 0,
 
   maxGradibility: 5,
@@ -122,7 +122,7 @@ export const getPerformanceSpecWheights = (): SpecWeights => ({
   antiSpin: 0,
   dimensions: 0,
   pedals: 10,
-  pedalSize: 0,
+  pedalSize: 5,
   kickstand: 0,
   headlight: 0,
   tailLight: 0,

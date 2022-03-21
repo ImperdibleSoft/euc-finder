@@ -1,5 +1,4 @@
 /* eslint-disable max-lines */
-import { usbWeight } from '../constants';
 import { Order, Wheel } from '../types';
 import { getMaximumValue, getMinimumValue, sortBy } from './collections';
 import {
@@ -9,7 +8,8 @@ import {
   getPedalsScore,
   getSoundScore,
   getSuspensionScore,
-  getTrolleyHandleScore
+  getTrolleyHandleScore,
+  getUsbPortsScore
 } from './comparing';
 import { getChargingTime } from './conversions';
 import { toDecimals } from './range';
@@ -92,10 +92,8 @@ export const customisedSortBy = (key: keyof Wheel, order: Order, { maxCurrentAll
         const undefinedUsbPorts = undefinedProxy(key)(a, b);
         if (undefinedUsbPorts !== undefined) return undefinedUsbPorts;
         
-        const [aUsbA = 0, aUsbC = 0] = a.usbPorts ?? [];
-        const [bUsbA = 0, bUsbC = 0] = b.usbPorts ?? [];
-        const aUsbWeight = (aUsbA * usbWeight.usbA) + (aUsbC * usbWeight.usbC);
-        const bUsbWeight = (bUsbA * usbWeight.usbA) + (bUsbC * usbWeight.usbC);
+        const aUsbWeight = getUsbPortsScore(a.usbPorts ?? [0, 0]);
+        const bUsbWeight = getUsbPortsScore(b.usbPorts ?? [0, 0]);
         if (aUsbWeight < bUsbWeight) return order === 'asc' ? -1 : 1;
         if (aUsbWeight > bUsbWeight) return order === 'asc' ? 1 : -1;
         return sortBy(key, order)(a, b);

@@ -26,6 +26,7 @@ const Settings: React.FC = () => {
     handleChangePreset,
     specWeightsFields
   } = useSettings();
+  const splitComparatorFieldsIndex = Math.round(specWeightsFields.length / 2);
 
   useEffect(() => {
     setRender(true);
@@ -169,7 +170,7 @@ const Settings: React.FC = () => {
                 
                   <Grid container spacing={ { xs: 0, md: 6 } }>
                     <Grid item xs={ 12 } md={ 6 }>
-                      { specWeightsFields.slice(0, 8).map(field => (
+                      { specWeightsFields.slice(0, splitComparatorFieldsIndex).map(field => (
                         <Slider
                           key={ field.name }
                           { ...field }
@@ -182,7 +183,7 @@ const Settings: React.FC = () => {
                     </Grid>
 
                     <Grid item xs={ 12 } md={ 6 }>
-                      { specWeightsFields.slice(8).map(field => (
+                      { specWeightsFields.slice(splitComparatorFieldsIndex).map(field => (
                         <Slider
                           key={ field.name }
                           { ...field }

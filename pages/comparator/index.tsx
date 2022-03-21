@@ -9,7 +9,7 @@ import CompareTable from '../../components/Screens/CompareView/CompareTable';
 import EmptyCase from '../../components/Screens/CompareView/EmptyCase';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useComparatorTranslations, useCompareActions, useComparedWheels } from '../../hooks';
-import { getBrands, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
+import { getBrands, getMaxCurrentAllowed, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
 import { TranslationFile, WheelId } from '../../types';
 import { getTranslationsFromFiles } from '../../utils-server';
 
@@ -29,6 +29,7 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
   const brands = useSelector(getBrands);
   const specs = useSelector(getTableViewSpecs).filter(k => k !== 'name');
   const measureUnits = useSelector(getMeasureUnits);
+  const maxCurrentAllowed = useSelector(getMaxCurrentAllowed);
   const addWheelOptions = useSelector(getWheels)
     .map((w): DropdownItem => ({
       label: w.name,
@@ -105,6 +106,7 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
             <CompareTable
               brands={ brands }
               handleRemoveFromComparision={ handleRemoveFromComparision }
+              maxCurrentAllowed={ maxCurrentAllowed }
               measureUnits={ measureUnits }
               minMaxScores={ minMaxScores }
               specWeights={ specWeights }
