@@ -87,6 +87,8 @@
   
   "pedals": "Pedales",
   "pedalSize": "Tamaño de los pedales",
+  "pedalLength": "Largo de los pedales",
+  "pedalWidth": "Ancho de los pedales",
   
   "pedalType": "Tipo de pedales",
   "plain": "Lisos",

@@ -12,8 +12,8 @@
   "with": "With",
   "without": "Without",
   
-  "maximum": "{{property}} maximum",
-  "minimum": "{{property}} minimum",
+  "maximum": "Maximum {{property}}",
+  "minimum": "Minimum {{property}}",
   
   "region-label": "Region",
   "europe-label": "Europe",
@@ -87,6 +87,8 @@
   
   "pedals": "Pedals",
   "pedalSize": "Pedal's size",
+  "pedalLength": "Pedals' length",
+  "pedalWidth": "Pedals' width",
   
   "pedalType": "Pedals' type",
   "plain": "Plain",

@@ -473,7 +473,25 @@ export const useFilterFields = () => {
       name: 'retentionPins',
       onChange: handleChangePedalRetentionPins,
       options: retentionPinOptions,
-      value: filters.retentionPins?.toString() ?? '',
+      value: filters.retentionPins?.toString() ?? ''
+    },
+    {
+      Field: Text,
+      icon: 'import_export',
+      label: t('minimum', { property: t('pedalLength') }),
+      name: 'pedalLength',
+      onChange: handleChange,
+      type: 'number',
+      value: filters.pedalLength ?? ''
+    },
+    {
+      Field: Text,
+      icon: 'swap_horiz',
+      label: t('minimum', { property: t('pedalWidth') }),
+      name: 'pedalWidth',
+      onChange: handleChange,
+      type: 'number',
+      value: filters.pedalWidth ?? '',
       space: true
     },
     
@@ -550,6 +568,44 @@ export const useFilterFields = () => {
       onChange: handleChange,
       type:'text',
       value: filters.batteryType ?? '',
+      space: true
+    },
+
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.stockCharger,
+      label: t('maximum', { property: t('stockCharger') }),
+      name: 'stockCharger',
+      onChange: handleChange,
+      type:'number',
+      value: filters.stockCharger ?? ''
+    },
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.maxCharger,
+      label: t('maximum', { property: t('maxCharger') }),
+      name: 'maxCharger',
+      onChange: handleChange,
+      type:'number',
+      value: filters.maxCharger ?? ''
+    },
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.chargePorts,
+      label: t('chargePorts'),
+      name: 'chargePorts',
+      onChange: handleChange,
+      type:'number',
+      value: filters.chargePorts ?? ''
+    },
+    {
+      Field: Text,
+      icon: wheelFeatureIcons.usbPorts,
+      label: t('usbPorts'),
+      name: 'usbPorts',
+      onChange: handleChange,
+      type:'number',
+      value: filters.usbPorts ?? '',
       space: true
     },
     

@@ -51,6 +51,8 @@ export interface WheelFilters {
   pedalType?: PedalType;
   pedalSurface?: PedalSurface;
   retentionPins?: boolean;
+  pedalLength?: string;
+  pedalWidth?: string;
 
   maxPower?: string;
   minPower?: string;
@@ -61,6 +63,11 @@ export interface WheelFilters {
   maxBatteryParallels?: string;
   minBatteryOutput?: string;
   batteryType?: string;
+
+  stockCharger?: string;
+  maxCharger?: string;
+  chargePorts?: string;
+  usbPorts?: string;
 
   color?: Color;
   trolleyHandle?: TrolleyHandle | true;

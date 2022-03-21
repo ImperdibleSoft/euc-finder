@@ -2,6 +2,7 @@ import { MeasureUnits } from '../store/types';
 import { Wheel, WheelFilters } from '../types';
 import { getMaximumValue, getMinimumValue } from './collections';
 import {
+  getChargingTime,
   getConvertedDiameter,
   getConvertedGroundClearance,
   getConvertedRange,
@@ -26,7 +27,26 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Measure
   const width = Number(getConvertedDiameter(wheel.width, units.diameter));
 
   const [pedalType, pedalSurface, retentionPins = false] = wheel.pedals;
+  const [pedalLength, pedalWidth] = wheel.pedalSize;
   const category = getWheelCategory(wheel);
+
+  const stockCharger = wheel.stockCharger && wheel.voltage && wheel.battery.wattsHour
+    ? Number(getChargingTime({
+      tension: wheel.stockCharger * (wheel.chargePorts || 1),
+      voltage: wheel.voltage,
+      wattsHour: wheel.battery.wattsHour
+    }))
+    : undefined;
+  const maxCharger = wheel.maxCharger && wheel.voltage && wheel.battery.wattsHour
+    ? Number(getChargingTime({
+      tension: wheel.maxCharger * (wheel.chargePorts || 1),
+      voltage: wheel.voltage,
+      wattsHour: wheel.battery.wattsHour
+    }))
+    : undefined;
+  const usbPorts = wheel.usbPorts?.reduce((acc, curr) => {
+    return acc + curr;
+  }, 0);
 
   return (
     filters.availability.includes(wheel.availability)
@@ -56,6 +76,8 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Measure
       || (filters.retentionPins && retentionPins)
       || (!filters.retentionPins && !retentionPins)
     )
+    && (!filters.pedalLength || !pedalLength || (pedalLength >= Number(filters.pedalLength)))
+    && (!filters.pedalWidth || !pedalWidth || (pedalWidth >= Number(filters.pedalWidth)))
     
 
     && (!filters.minPower || wheel.ratedPower >= Number(filters.minPower))
@@ -66,6 +88,11 @@ export const filterWheels = (wheel: Wheel, filters: WheelFilters, units: Measure
     && (!filters.maxBatteryParallels || wheel.battery.parallels <= Number(filters.maxBatteryParallels))
     && (!filters.minBatteryOutput || wheel.battery.wattsHour >= Number(filters.minBatteryOutput))
     && (!filters.batteryType || wheel.battery.type.includes(filters.batteryType))
+
+    && (!filters.stockCharger || !stockCharger || (stockCharger <= Number(filters.stockCharger)))
+    && (!filters.maxCharger || !maxCharger || (maxCharger <= Number(filters.maxCharger)))
+    && (!filters.chargePorts || !wheel.chargePorts || (wheel.chargePorts >= Number(filters.chargePorts)))
+    && (!filters.usbPorts || usbPorts === undefined || (usbPorts >= Number(filters.usbPorts)))
     
     && (
       !filters.color
