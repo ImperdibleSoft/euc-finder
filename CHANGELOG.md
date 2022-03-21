@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.6.0
+
+### Minor Changes
+
+- Add hollow motor, pedals' size, stock charger, fast charger, charging ports, usb ports specs
+
 ## 2.5.0
 
 ### Minor Changes
