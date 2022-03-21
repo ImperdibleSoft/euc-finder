@@ -34,7 +34,7 @@ const commanderHT: Wheel = {
   stockCharger: 3,
   maxCharger: 0,
   chargePorts: 2,
-  usbPorts:[0, 0],
+  usbPorts: [0, 0],
   
   ...torqueMotor,
   range: 170,

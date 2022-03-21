@@ -220,27 +220,31 @@ export const maxCharger = (value: number): string => {
   return '-';
 };
 
-export const usbPorts = (value?: [number, number]): string => {
-  if (value) {
-    const [usbA, usbC] = value;
-    let str = '';
-
-    if (usbA) {
-      str += `${ usbA }x USB-A`;
-    }
-
-    if (usbC) {
-      if (usbA) {
-        str += ', ';
-      }
-
-      str += `${ usbC }x USB-C`;
-    }
-
-    return str;
+export const usbPorts = (value?: [number, number] | false, t?: TFunction<'translation'>): string => {
+  if (value === undefined) {
+    return '-';
   }
 
-  return '-';
+  if (value === false) {
+    return boolean(false, t);
+  }
+  
+  const [usbA, usbC] = value;
+  let str = '';
+
+  if (usbA) {
+    str += `${ usbA }x USB-A`;
+  }
+
+  if (usbC) {
+    if (usbA) {
+      str += ', ';
+    }
+
+    str += `${ usbC }x USB-C`;
+  }
+
+  return str;
 };
 
 export const degrees = (value: number): string => {

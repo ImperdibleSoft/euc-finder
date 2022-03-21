@@ -5,35 +5,9 @@ import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../../constants
 import { commonNs, useWheelsDetailsTranslations } from '../../../../hooks';
 import { getMaxCurrentAllowed, getMeasureUnits } from '../../../../store/selectors';
 import { Wheel, WheelFeatureFormatters, WheelFeatureIcons } from '../../../../types';
-import { toDecimals } from '../../../../utils';
+import { getFormatterValue } from '../../../../utils';
 import RegularList from '../../../Lists/RegularList';
 import { ListItem } from '../../../Lists/types';
-
-const getFormatterParam = (wheel: Wheel, key: keyof Wheel, maxCurrentAllowed: number) => {
-  switch (key) {
-    case 'stockCharger':
-      return {
-        battery: wheel.battery,
-        voltage: wheel.voltage,
-        chargePorts: wheel.chargePorts,
-        tension: wheel.stockCharger
-      };
-
-    case 'maxCharger':
-      return {
-        battery: wheel.battery,
-        voltage: wheel.voltage,
-        chargePorts: wheel.chargePorts,
-        tension: (
-          wheel.maxCharger ||
-          Number(toDecimals(wheel.stockCharger * maxCurrentAllowed, 1, 0))
-        )
-      };
-
-    default:
-      return wheel[key];
-  }
-};
 
 interface Props {
   specs: Array<keyof Wheel>
@@ -52,7 +26,7 @@ const AdditionalSpecs: React.FC<Props> = ({ specs, wheel }) => {
     // @ts-ignore
     // eslint-disable-next-line no-restricted-syntax
     const convertTo = key in measureUnits ? measureUnits[key] : undefined;
-    const valueToFormat = getFormatterParam(wheel, key, maxCurrentAllowed);
+    const valueToFormat = getFormatterValue(wheel, key, { maxCurrentAllowed });
     const value = formatter(valueToFormat, t, convertTo, key === 'width' ? 2 : 0);
 
     return {

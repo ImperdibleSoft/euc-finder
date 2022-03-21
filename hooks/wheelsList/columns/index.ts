@@ -4,12 +4,13 @@ import { wheelFeatureFormatters } from '../../../constants';
 import {
   getBrands,
   getListViewSpecs,
+  getMaxCurrentAllowed,
   getMeasureUnits,
   getPricesConfig,
   getTableViewSpecs
 } from '../../../store/selectors';
-import { Brand, Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
-import { formatWheelName } from '../../../utils';
+import { Wheel, WheelFeatureFormatters, WheelsTableColumns } from '../../../types';
+import { getFormatterValue } from '../../../utils';
 import { useCommonTranslations } from '../../translations';
 import wheelsTableSettingsReducer, { getInitialValue } from './reducer';
 
@@ -59,22 +60,13 @@ const getCellStyles = (key: keyof Wheel): React.CSSProperties => {
   }
 };
 
-const getColumnValue = (key: keyof Wheel, record: Wheel, brands: Brand[]) => {
-  switch (key) {
-    case 'name':
-      return formatWheelName(record, brands);
-
-    default:
-      return record[key];
-  }
-};
-
 export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
   const { t } = useCommonTranslations();
   const brands = useSelector(getBrands);
   const measureUnits = useSelector(getMeasureUnits);
   const showPrice = useSelector(getPricesConfig);
   const specColumns = useSelector(getTableViewSpecs);
+  const maxCurrentAllowed = useSelector(getMaxCurrentAllowed);
 
   const headings = specColumns
     .filter(key => shouldShowColumn(columns, key, showPrice))
@@ -95,7 +87,7 @@ export const useTableData = (records: Wheel[], columns: WheelsTableColumns) => {
           // @ts-ignore
           // eslint-disable-next-line no-restricted-syntax
           units: key in measureUnits ? measureUnits[key] : undefined,
-          value: getColumnValue(key, record, brands)
+          value: getFormatterValue(record, key, { brands, maxCurrentAllowed })
         }))
     }));
 

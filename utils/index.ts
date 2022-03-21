@@ -13,6 +13,7 @@ export * from './dates';
 export * from './devices';
 export * from './filtering';
 export * from './formatters';
+export * from './formatterValues';
 export * from './http';
 export * from './localStorage';
 export * from './range';
