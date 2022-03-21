@@ -27,6 +27,7 @@ import {
 import { getBrandInfo } from './brands';
 import { getTranslation } from './clientTranslatedResources';
 import {
+  getChargingTime,
   getConvertedDiameter,
   getConvertedDimensions,
   getConvertedGroundClearance,
@@ -164,6 +165,79 @@ export const battery = (value: Battery): string => {
     if (output.length) {
       return output;
     }
+  }
+
+  return '-';
+};
+
+export const chargePorts = (value: number): string => {
+  if (value) {
+    return `${ value }`;
+  }
+
+  return '-';
+};
+
+interface ChargingParams {
+  battery: Battery;
+  voltage: number;
+  chargePorts: number;
+  tension: number;
+}
+export const chargeInfo = (val: ChargingParams, t: TFunction<'translation'>): string => {
+  if (val.tension) {
+    if (val.battery && val.voltage) {
+      let str = '';
+
+      for (let x = 1; x <= val.chargePorts; x++) {
+        const chargingTime = getChargingTime({
+          tension: val.tension * x,
+          voltage: val.voltage,
+          wattsHour: val.battery.wattsHour
+        });
+
+        if (str !== '') {
+          str += ', ';
+        }
+
+        str += `${ chargingTime }h (${ t('usingChargers', { ...commonNs, count: x, tension: `${ val.tension }A` }) })`;
+      }
+
+      return str;
+    }
+
+    return `${ val.tension }A`;
+  }
+
+  return '-';
+};
+
+export const maxCharger = (value: number): string => {
+  if (value) {
+    return `${ value }`;
+  }
+
+  return '-';
+};
+
+export const usbPorts = (value?: [number, number]): string => {
+  if (value) {
+    const [usbA, usbC] = value;
+    let str = '';
+
+    if (usbA) {
+      str += `${ usbA }x USB-A`;
+    }
+
+    if (usbC) {
+      if (usbA) {
+        str += ', ';
+      }
+
+      str += `${ usbC }x USB-C`;
+    }
+
+    return str;
   }
 
   return '-';
@@ -327,6 +401,41 @@ export const pedals = (value?: [PedalType, PedalSurface, boolean], t?: TFunction
   return str || '-';
 };
 
+export const pedalSize = (
+  value?: [number | undefined, number | undefined],
+  t?: TFunction<'translation'>,
+  units?: DimensionsUnits
+  // eslint-disable-next-line max-params
+): string => {
+  if (!value) {
+    return '-';
+  }
+
+  const [length, width] = value;
+
+  if (!length || !width) {
+    return '-';
+  }
+
+  const convertedVal = [
+    getConvertedDimensions(length, units),
+    getConvertedDimensions(width, units)
+  ];
+
+  const transL = t?.('long-label', commonNs) ?? getTranslation('long-label');
+  const transW = t?.('width-label', commonNs) ?? getTranslation('width-label');
+  
+  const [convertedH, convertedW] = convertedVal;
+  switch (units) {
+    case DimensionsUnits.in:
+      return `${ transL } ${ convertedH }'' x ${ transW } ${ convertedW }''`;
+      
+    case DimensionsUnits.mm:
+    default:
+      return `${ transL } ${ convertedH }mm x ${ transW } ${ convertedW }mm`;
+  }
+};
+
 export const kickstand = (value?: Kickstand, t?: TFunction<'translation'>): string => {
   switch (value) {
     case Kickstand.dedicated:
@@ -355,6 +464,10 @@ export const lumens = (value: Lumens, t?: TFunction<'translation'>): string => {
 };
 
 export const boolean = (value: boolean, t?: TFunction<'translation'>): string => {
+  if (value === undefined) {
+    return '-';
+  }
+  
   if (value) {
     return t?.('yes', commonNs) ?? getTranslation('yes');
   }

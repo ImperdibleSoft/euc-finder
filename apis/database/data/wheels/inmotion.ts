@@ -164,7 +164,7 @@ const v10: Wheel = {
     type: '18650',
     wattsHour: 650
   },
-  stockCharger: 4.5,
+  stockCharger: 1.5,
   maxCharger: 0,
   chargePorts: 1,
   usbPorts: [0, 0],

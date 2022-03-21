@@ -31,8 +31,8 @@ const commanderHT: Wheel = {
     type: '21700',
     wattsHour: 3600
   },
-  stockCharger: 5,
-  maxCharger: 8,
+  stockCharger: 3,
+  maxCharger: 0,
   chargePorts: 2,
   usbPorts:[0, 0],
   

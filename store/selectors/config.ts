@@ -9,6 +9,9 @@ export const getMaxComparedWheels = ({ config }: RootState) =>
   
 export const getPaginationConfig = ({ config }: RootState) =>
   config.configValues.paginationSize;
+  
+export const getMaxCurrentAllowed = ({ config }: RootState) =>
+  config.configValues.maxCurrentAllowed;
 
 // Feature Flags
 export const getPricesConfig = ({ config }: RootState) =>

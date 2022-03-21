@@ -53,6 +53,7 @@
   
   "name": "Name",
   "price": "Price",
+  "hollowMotor": "Hollow motor",
   "ratedPower": "Rated power",
   "peakPower": "Peak power",
   "maxGradibility": "Climbing angle",
@@ -61,6 +62,12 @@
   "battery": "Battery",
   "parallels": "Parallels",
   "batteryType": "Cell's type",
+  "stockCharger": "Stock charging time",
+  "maxCharger": "Fast charging time",
+  "usingChargers": "using a {{tension}} charger",
+  "usingChargers_plural": "using {{count}} {{tension}} chargers",
+  "chargePorts": "Charge ports",
+  "usbPorts": "USB Ports",
   
   "range": "Real range*",
   "voltage": "Voltage",
@@ -79,6 +86,7 @@
   "long-label": "(Long)",
   
   "pedals": "Pedals",
+  "pedalSize": "Pedal's size",
   
   "pedalType": "Pedals' type",
   "plain": "Plain",

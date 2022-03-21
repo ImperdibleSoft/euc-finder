@@ -5,6 +5,7 @@ import { Wheel } from '../../../types';
 const defaultPreset = SpecWeightsPreset.generic;
 const maxComparedWheels = 5;
 const paginationSize = 12;
+const maxCurrentAllowed = 1.7;
 
 // Feature flags
 const calculatedRange = true;
@@ -77,11 +78,17 @@ const detailMainSpecs: (keyof Wheel)[] =  [
   'suspension'
 ];
 const detailAdditionalSpecs: (keyof Wheel)[] =  [
+  'hollowMotor',
+  'chargePorts',
+  'stockCharger',
+  'maxCharger',
+  'usbPorts',
   'headlight',
   'tailLight',
   'trolleyHandle',
   'dimensions',
   'pedals',
+  'pedalSize',
   'antiSpin',
   'kickstand',
   'leds',
@@ -94,7 +101,8 @@ export const config: ConfigState = {
   configValues: {
     defaultPreset,
     maxComparedWheels,
-    paginationSize
+    paginationSize,
+    maxCurrentAllowed
   },
   featureFlags: {
     calculatedRange,

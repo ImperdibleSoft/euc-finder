@@ -483,6 +483,7 @@ const heroHT: Wheel = {
 
 const heroHS: Wheel = {
   ...heroHT,
+  id: WheelId.heroHS,
   name: 'Hero Speed',
 
   ...speedMotor

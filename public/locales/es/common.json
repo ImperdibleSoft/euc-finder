@@ -53,6 +53,7 @@
   
   "name": "Nombre",
   "price": "Precio",
+  "hollowMotor": "Motor de vacío",
   "ratedPower": "Potencia del motor",
   "peakPower": "Picos de potencia",
   "maxGradibility": "Inclinación",
@@ -61,6 +62,12 @@
   "battery": "Batería",
   "parallels": "Paralelos",
   "batteryType": "Tipo de celdas",
+  "stockCharger": "Tiempo de carga de fábrica",
+  "maxCharger": "Tiempo de carga rápida",
+  "usingChargers": "usando un cargador de {{tension}}",
+  "usingChargers_plural": "usando {{count}} cargadores de {{tension}}",
+  "chargePorts": "Puertos de carga",
+  "usbPorts": "Puertos USB",
   
   "range": "Autonomía real*",
   "voltage": "Voltaje",
@@ -79,6 +86,7 @@
   "long-label": "(Largo)",
   
   "pedals": "Pedales",
+  "pedalSize": "Tamaño de los pedales",
   
   "pedalType": "Tipo de pedales",
   "plain": "Lisos",

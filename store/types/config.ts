@@ -20,6 +20,12 @@ interface ConfigValues {
    * - Videos
    */
   paginationSize: number;
+
+  /**
+   * Multiplier to be applied to `stockCharger` in order to get
+   * a safe fast-charge value if noone is provided
+   */
+  maxCurrentAllowed: number;
 }
 
 interface FeatureFlags {
