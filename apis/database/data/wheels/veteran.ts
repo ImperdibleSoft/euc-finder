@@ -4,40 +4,47 @@ import {
   Color,
   Display,
   Kickstand,
-  PedalSurface,
-  PedalType,
   TrolleyHandle,
   Wheel,
   WheelId
 } from '../../../../types';
+import { veteranMetalicL, veteranPlainM } from './common';
 
 const sherman: Wheel = {
   id: WheelId.sherman,
   brandId: BrandId.veteran,
   name: 'Sherman',
+  website: 'https://www.leaperkim.com/sherman1?article_category=1&brd=1',
   price: 4400,
   availability: 'available',
 
+  hollowMotor: false,
   ratedPower: 2500,
   peakPower: 0,
-  maxGradibility: 30,
-  maxSpeed: 80,
+
   battery: {
     capacity: 3500,
     parallels: 10,
     type: '18650',
     wattsHour: 3200
   },
+  stockCharger: 5,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: undefined,
+
+  maxGradibility: 30,
+  maxSpeed: 80,
   range: 190,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 20,
   width: 3,
   groundClearance: 170,
-  weight: 35,
+  weight: 38,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [592, 195, 500],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...veteranPlainM,
   antiSpin: undefined,
   kickstand: undefined,
   headlight: 1500,
@@ -53,20 +60,22 @@ const shermanMax: Wheel = {
   ...sherman,
   id: WheelId.shermanMax,
   name: 'Sherman Max',
+  website: '',
   availability: 'preorder',
   
   ratedPower: 2800,
   peakPower: 3750,
-  maxGradibility: 35,
+  
   battery: {
-    capacity: 0,
-    parallels: 0,
-    type: '18650',
+    ...sherman.battery,
+    type: '21700',
     wattsHour: 3600
   },
+
+  maxGradibility: 35,
   range: 215,
 
-  weight: 38,
+  weight: 40,
   dimensions: [605, 195, 500],
   headlight: 3500
 };
@@ -75,21 +84,29 @@ const abrams: Wheel = {
   id: WheelId.abrams,
   brandId: BrandId.veteran,
   name: 'Abrams',
+  website: '',
   price: 3700,
   availability: 'available',
 
+  hollowMotor: false,
   ratedPower: 3500,
   peakPower: 6500,
-  maxGradibility: 30,
-  maxSpeed: 80,
+
   battery: {
     capacity: 0,
     parallels: 0,
     type: '21700',
     wattsHour: 2700
   },
+  stockCharger: 9,
+  maxCharger: 15,
+  chargePorts: 0,
+  usbPorts: undefined,
+  
+  maxGradibility: 30,
+  maxSpeed: 80,
   range: 130,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 22,
   width: 2.75,
@@ -97,7 +114,7 @@ const abrams: Wheel = {
   weight: 40,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [660, 215, 620],
-  pedals: [PedalType.plain, PedalSurface.metalic, true],
+  ...veteranMetalicL,
   antiSpin: undefined,
   kickstand: Kickstand.shell,
   headlight: 2800,

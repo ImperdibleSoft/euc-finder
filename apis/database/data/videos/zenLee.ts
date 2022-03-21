@@ -221,7 +221,14 @@ const zenLeeVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=136OkbxarGo',
-    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.hero, WheelId.commanderHS, WheelId.commanderHT],
+    tags: [
+      InfluencerId.zenLee,
+      VideoCategory.chatting,
+      WheelId.heroHT,
+      WheelId.heroHS,
+      WheelId.commanderHS,
+      WheelId.commanderHT
+    ],
     publishDate: '04/Aug/2021',
     releaseDate: '05/Jan/2022',
     language: 'en'
@@ -242,7 +249,7 @@ const zenLeeVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=RgnJWiMTqCk',
-    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.hero],
+    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.heroHT, WheelId.heroHS],
     publishDate: '23/Aug/2021',
     releaseDate: '05/Jan/2022',
     language: 'en'
@@ -284,7 +291,7 @@ const zenLeeVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=EaoXtthliwQ',
-    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.hero],
+    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.heroHT, WheelId.heroHS],
     publishDate: '04/Dec/2021',
     releaseDate: '05/Jan/2022',
     language: 'en'

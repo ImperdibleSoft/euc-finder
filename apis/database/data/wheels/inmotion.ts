@@ -5,32 +5,39 @@ import {
   Color,
   Display,
   Kickstand,
-  PedalSurface,
-  PedalType,
   SoundSystem,
   Suspension,
   TrolleyHandle,
   Wheel,
   WheelId
 } from '../../../../types';
+import { inmotionPlainL, inmotionPlainM, inmotionPlainS } from './common';
 
 const v5: Wheel = {
   id: WheelId.v5,
   brandId: BrandId.inmotion,
   name: 'V5',
+  website: 'https://www.inmotionworld.com/product/electric-unicycle-inmotion-v5',
   price: 550,
   availability: 'available',
 
+  hollowMotor: false,
   ratedPower: 450,
   peakPower: 0,
-  maxGradibility: 18,
-  maxSpeed: 20,
+
   battery: {
     capacity: 0,
     parallels: 0,
     type: '18650',
     wattsHour: 160
   },
+  stockCharger: 1.5,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [0, 0],
+
+  maxGradibility: 18,
+  maxSpeed: 20,
   range: 18,
   voltage: 84,
 
@@ -40,7 +47,7 @@ const v5: Wheel = {
   weight: 10.9,
   trolleyHandle: TrolleyHandle.scorpion,
   dimensions: [476, 166, 402],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...inmotionPlainS,
   antiSpin: AntiSpin.button,
   kickstand: Kickstand.shell,
   headlight: true,
@@ -75,19 +82,27 @@ const v8: Wheel = {
   id: WheelId.v8,
   brandId: BrandId.inmotion,
   name: 'V8',
+  website: 'https://www.inmotionworld.com/product/electric-unicycle-inmotion-v8f',
   price: 1000,
   availability: 'available',
 
+  hollowMotor: false,
   ratedPower: 800,
   peakPower: 0,
-  maxGradibility: 25,
-  maxSpeed: 30,
+
   battery: {
     capacity: 0,
     parallels: 0,
     type: '18650',
     wattsHour: 450
   },
+  stockCharger: 1.3,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [0, 0],
+
+  maxGradibility: 25,
+  maxSpeed: 30,
   range: 40,
   voltage: 84,
 
@@ -97,7 +112,7 @@ const v8: Wheel = {
   weight: 13.8,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [538, 148, 462],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...inmotionPlainM,
   antiSpin: AntiSpin.button,
   kickstand: Kickstand.shell,
   headlight: true,
@@ -135,19 +150,27 @@ const v10: Wheel = {
   id: WheelId.v10,
   brandId: BrandId.inmotion,
   name: 'V10',
-  price: 1099,
+  website: 'https://www.inmotionworld.com/product/electric-unicycle-inmotion-v10',
+  price: 1300,
   availability: 'available',
 
+  hollowMotor: false,
   ratedPower: 1800,
   peakPower: 0,
-  maxGradibility: 30,
-  maxSpeed: 40,
+
   battery: {
     capacity: 2200,
     parallels: 4,
     type: '18650',
     wattsHour: 650
   },
+  stockCharger: 4.5,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [0, 0],
+
+  maxGradibility: 30,
+  maxSpeed: 40,
   range: 70,
   voltage: 84,
 
@@ -157,7 +180,7 @@ const v10: Wheel = {
   weight: 20.6,
   trolleyHandle: TrolleyHandle.scorpion,
   dimensions: [624, 160, 528],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...inmotionPlainL,
   antiSpin: AntiSpin.button,
   kickstand: Kickstand.shell,
   headlight: true,
@@ -189,19 +212,27 @@ const v11: Wheel = {
   id: WheelId.v11,
   brandId: BrandId.inmotion,
   name: 'V11',
+  website: 'https://www.inmotionworld.com/product/inmotion-v11',
   price: 2300,
   availability: 'available',
 
+  hollowMotor: true,
   ratedPower: 2200,
   peakPower: 0,
-  maxGradibility: 35,
-  maxSpeed: 55,
+
   battery: {
     capacity: 5000,
     parallels: 4,
     type: '21700',
     wattsHour: 1500
   },
+  stockCharger: 2.5,
+  maxCharger: 0,
+  chargePorts: 2,
+  usbPorts: [1, 0],
+
+  maxGradibility: 35,
+  maxSpeed: 55,
   range: 120,
   voltage: 84,
 
@@ -211,7 +242,7 @@ const v11: Wheel = {
   weight: 27,
   trolleyHandle: TrolleyHandle.scorpion,
   dimensions: [676, 200, 500],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...inmotionPlainL,
   antiSpin: AntiSpin.button,
   kickstand: Kickstand.dedicated,
   headlight: true,
@@ -227,21 +258,29 @@ const v12HT: Wheel = {
   id: WheelId.v12HT,
   brandId: BrandId.inmotion,
   name: 'V12 Torque',
+  website: '',
   price: 2500,
   availability: 'announced',
 
+  hollowMotor: false,
   ratedPower: 2800,
   peakPower: 5000,
-  maxGradibility: 45,
-  maxSpeed: 60,
+
   battery: {
     capacity: 0,
-    parallels: 0,
-    type: '',
+    parallels: 4,
+    type: '21700',
     wattsHour: 1750
   },
+  stockCharger: 2.3,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [1, 1],
+
+  maxGradibility: 45,
+  maxSpeed: 60,
   range: 160,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 16,
   width: 3,
@@ -249,7 +288,7 @@ const v12HT: Wheel = {
   weight: 29,
   trolleyHandle: TrolleyHandle.scorpion,
   dimensions: [607, 191, 498],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...inmotionPlainL,
   antiSpin: AntiSpin.button,
   kickstand: Kickstand.dedicated,
   headlight: true,
@@ -276,19 +315,27 @@ const v13: Wheel = {
   id: WheelId.v13,
   brandId: BrandId.inmotion,
   name: 'V13 Raptor',
+  website: '',
   price: 0,
   availability: 'announced',
 
+  hollowMotor: undefined,
   ratedPower: 0,
   peakPower: 0,
-  maxGradibility: 0,
-  maxSpeed: 0,
+
   battery: {
     capacity: 0,
     parallels: 0,
     type: '',
     wattsHour: 0
   },
+  stockCharger: 0,
+  maxCharger: 0,
+  chargePorts: 0,
+  usbPorts: undefined,
+
+  maxGradibility: 0,
+  maxSpeed: 0,
   range: 0,
   voltage: 0,
 
@@ -299,6 +346,7 @@ const v13: Wheel = {
   trolleyHandle: undefined,
   dimensions: [0, 0, 0],
   pedals: [undefined, undefined, undefined],
+  pedalSize: [undefined, undefined],
   antiSpin: undefined,
   kickstand: undefined,
   headlight: false,

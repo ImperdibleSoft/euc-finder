@@ -91,7 +91,8 @@ const eeveesVideos: Video[] = [
       VideoCategory.reveal,
       VideoCategory.chatting,
       VideoCategory.commuting,
-      WheelId.hero
+      WheelId.heroHT,
+      WheelId.heroHS
     ],
     publishDate: '19/Dec/2021',
     releaseDate: '07/Dec/2021',

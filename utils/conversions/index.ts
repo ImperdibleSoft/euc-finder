@@ -4,6 +4,7 @@ import { inchesToCentimeters, kilogramsToPounds, kilometersToMiles, milimetersTo
 
 export * from './currencies';
 export * from './decimalMetricSystem';
+export * from './currentAndPower';
 
 export const getConvertedDiameter = (value: number, units?: DiameterUnits, decimals = 0): string => {
   switch (units) {

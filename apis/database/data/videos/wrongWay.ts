@@ -582,7 +582,8 @@ const wrongWayVideos: Video[] = [
       WheelId.commanderHT,
       WheelId.ksS20,
       WheelId.abrams,
-      WheelId.hero
+      WheelId.heroHT,
+      WheelId.heroHS
     ],
     publishDate: '02/Sep/2021',
     releaseDate: '07/Dec/2021',

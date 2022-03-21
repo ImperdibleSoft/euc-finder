@@ -266,7 +266,7 @@ const hsiangVideos: Video[] = [
     tags: [
       InfluencerId.hsiang,
       VideoCategory.chatting,
-      WheelId.hero,
+      WheelId.heroHT, WheelId.heroHS,
       WheelId.ex2,
       WheelId.xmenHT,
       WheelId.xmenHS,

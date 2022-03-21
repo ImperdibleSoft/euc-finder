@@ -5,43 +5,49 @@ import {
   Color,
   Display,
   Kickstand,
-  PedalSurface,
-  PedalType,
   SoundSystem,
   Suspension,
   TrolleyHandle,
   Wheel,
   WheelId
 } from '../../../../types';
-import { speedMotor, torqueMotor } from './motors';
+import { begodeHoneycomb, begodePlainL, begodePlainM, begodePlainS, speedMotor, torqueMotor } from './common';
 
 const mten: Wheel = {
   id: WheelId.mten,
   brandId: BrandId.begode,
   name: 'Mten 3',
+  website: 'http://www.begode.com/productinfo/371629.html',
   price: 1000,
   availability: 'available',
 
   ratedPower: 800,
   peakPower: 0,
-  maxGradibility: 30,
-  maxSpeed: 35,
+  hollowMotor: false,
+
   battery: {
     capacity: 0,
-    parallels: 0,
-    type: '',
+    parallels: 2,
+    type: '18650',
     wattsHour: 512
   },
+  stockCharger: 1.2,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [0, 0],
+
+  maxGradibility: 30,
+  maxSpeed: 38,
   range: 40,
   voltage: 84,
 
   diameter: 10,
   width: 3,
   groundClearance: 110,
-  weight: 11,
+  weight: 13,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [450, 150, 290],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...begodePlainS,
   antiSpin: AntiSpin.button,
   kickstand: undefined,
   headlight: 500,
@@ -57,29 +63,37 @@ const mcm5: Wheel = {
   id: WheelId.mcm5,
   brandId: BrandId.begode,
   name: 'MCM 5',
+  website: 'http://www.begode.com/productinfo/371631.html',
   price: 1400,
   availability: 'available',
 
+  hollowMotor: false,
   ratedPower: 1500,
   peakPower: 2250,
-  maxGradibility: 30,
-  maxSpeed: 40,
+  
   battery: {
     capacity: 0,
     parallels: 0,
     type: '18650',
     wattsHour: 800
   },
+  stockCharger: 1.9,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [1, 0],
+
+  maxGradibility: 30,
+  maxSpeed: 35,
   range: 65,
   voltage: 84,
 
   diameter: 14,
   width: 2.5,
-  groundClearance: 140,
+  groundClearance: 120,
   weight: 17,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [410, 170, 525],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...begodePlainS,
   antiSpin: AntiSpin.button,
   kickstand: undefined,
   headlight: 500,
@@ -95,19 +109,27 @@ const tesla: Wheel = {
   id: WheelId.tesla,
   brandId: BrandId.begode,
   name: 'Tesla',
+  website: 'http://www.begode.com/productinfo/371642.html',
   price: 1650,
   availability: 'available',
 
+  hollowMotor: true,
   ratedPower: 2000,
   peakPower: 4000,
-  maxGradibility: 30,
-  maxSpeed: 50,
+  
   battery: {
     capacity: 0,
-    parallels: 0,
-    type: '',
-    wattsHour: 1500
+    parallels: 4,
+    type: '21700',
+    wattsHour: 1480
   },
+  stockCharger: 2.15,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: undefined,
+
+  maxGradibility: 30,
+  maxSpeed: 40,
   range: 100,
   voltage: 84,
 
@@ -117,7 +139,7 @@ const tesla: Wheel = {
   weight: 22,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [570, 230, 420],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...begodePlainM,
   antiSpin: AntiSpin.button,
   kickstand: undefined,
   headlight: 1200,
@@ -133,21 +155,29 @@ const nikola: Wheel = {
   id: WheelId.nikola,
   brandId: BrandId.begode,
   name: 'Nikola Plus',
+  website: 'http://www.begode.com/productinfo/371591.html',
   price: 2800,
   availability: 'available',
 
+  hollowMotor: false,
   ratedPower: 2000,
   peakPower: 0,
-  maxGradibility: 30,
-  maxSpeed: 60,
+
   battery: {
     capacity: 3500,
     parallels: 6,
     type: '18650',
     wattsHour: 1860
   },
+  stockCharger: 3,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [1, 0],
+
+  maxGradibility: 30,
+  maxSpeed: 60,
   range: 95,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 16,
   width: 3,
@@ -155,7 +185,7 @@ const nikola: Wheel = {
   weight: 26,
   trolleyHandle: TrolleyHandle.scorpion,
   dimensions: [490, 200, 590],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...begodePlainM,
   antiSpin: AntiSpin.button,
   kickstand: Kickstand.shell,
   headlight: 1200,
@@ -171,19 +201,27 @@ const msx: Wheel = {
   id: WheelId.msx,
   brandId: BrandId.begode,
   name: 'MSuper X',
+  website: 'http://www.begode.com/productinfo/371621.html',
   price: 3400,
-  availability: 'available',
+  availability: 'discontinued',
 
+  hollowMotor: false,
   ratedPower: 2000,
   peakPower: 4000,
-  maxGradibility: 35,
-  maxSpeed: 60,
+
   battery: {
     capacity: 3500,
     parallels: 6,
     type: '18650',
     wattsHour: 1600
   },
+  stockCharger: 1.25,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: undefined,
+
+  maxGradibility: 35,
+  maxSpeed: 60,
   range: 100,
   voltage: 84,
 
@@ -193,7 +231,7 @@ const msx: Wheel = {
   weight: 23.5,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [490, 230, 560],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...begodePlainM,
   antiSpin: AntiSpin.button,
   kickstand: undefined,
   headlight: true,
@@ -210,14 +248,16 @@ const msx100: Wheel = {
   id: WheelId.msx100,
   name: 'MSuper X (100v)',
   price: 2500,
-  availability: 'available',
+  availability: 'discontinued',
 
   ratedPower: 2350,
   peakPower: 5700,
+  
   battery: {
     ...msx.battery,
     wattsHour: 1860
   },
+
   range: 95,
   voltage: 100
 };
@@ -226,21 +266,29 @@ const msp: Wheel = {
   id: WheelId.msp,
   brandId: BrandId.begode,
   name: 'MSuper Pro',
+  website: 'http://www.begode.com/productinfo/406993.html',
   price: 2500,
-  availability: 'available',
+  availability: 'discontinued',
 
+  hollowMotor: false,
   ratedPower: 2500,
   peakPower: 0,
-  maxGradibility: 35,
-  maxSpeed: 50,
+
   battery: {
     capacity: 5000,
     parallels: 4,
     type: '21700',
     wattsHour: 1800
   },
+  stockCharger: 3,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: undefined,
+
+  maxGradibility: 35,
+  maxSpeed: 50,
   range: 120,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 18,
   width: 3,
@@ -248,7 +296,7 @@ const msp: Wheel = {
   weight: 25,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [490, 230, 560],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...begodePlainM,
   antiSpin: AntiSpin.button,
   kickstand: undefined,
   headlight: true,
@@ -261,23 +309,31 @@ const msp: Wheel = {
 };
 
 const rsHT: Wheel = {
-  ...torqueMotor,
   id: WheelId.rsHT,
   brandId: BrandId.begode,
   name: 'RS Torque',
+  website: 'http://www.begode.com/productinfo/3129.html',
   price: 2300,
   availability: 'available',
-
+  
+  hollowMotor: true,
   ratedPower: 2600,
   peakPower: 0,
+
   battery: {
     capacity: 5000,
     parallels: 4,
     type: '21700',
     wattsHour: 1800
   },
+  stockCharger: 3,
+  maxCharger: 0,
+  chargePorts: 2,
+  usbPorts: [1, 0],
+  
+  ...torqueMotor,
   range: 130,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 19,
   width: 3,
@@ -285,7 +341,7 @@ const rsHT: Wheel = {
   weight: 27,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [560, 240, 490],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...begodePlainM,
   antiSpin: AntiSpin.button,
   kickstand: undefined,
   headlight: 6000,
@@ -299,30 +355,39 @@ const rsHT: Wheel = {
 
 const rsHS: Wheel = {
   ...rsHT,
-  ...speedMotor,
   id: WheelId.rsHS,
-  name: 'RS Speed'
+  name: 'RS Speed',
+  
+  ...speedMotor
 };
 
 const ex: Wheel = {
   id: WheelId.ex,
   brandId: BrandId.begode,
   name: 'EX',
+  website: 'http://www.begode.com/productinfo/515824.html',
   price: 4000,
   availability: 'available',
 
+  hollowMotor: true,
   ratedPower: 3500,
   peakPower: 0,
-  maxGradibility: 30,
-  maxSpeed: 70,
+
   battery: {
     capacity: 5000,
     parallels: 6,
     type: '21700',
     wattsHour: 2700
   },
+  stockCharger: 3,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: undefined,
+  
+  maxGradibility: 30,
+  maxSpeed: 70,
   range: 190,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 20,
   width: 3,
@@ -330,7 +395,7 @@ const ex: Wheel = {
   weight: 33,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [615, 250, 510],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
+  ...begodePlainL,
   antiSpin: AntiSpin.button,
   kickstand: undefined,
   headlight: 6000,
@@ -344,13 +409,16 @@ const ex: Wheel = {
 
 const exnHT: Wheel = {
   ...ex,
-  ...torqueMotor,
   id: WheelId.exnHT,
   name: 'EX.N Torque',
+  website: 'http://www.begode.com/productinfo/557433.html',
   price: 3000,
   availability: 'available',
-
+  
   ratedPower: 2800,
+  peakPower: 3500,
+
+  ...torqueMotor,
   range: 190,
 
   groundClearance: 160,
@@ -362,29 +430,38 @@ const exnHT: Wheel = {
 
 const exnHS: Wheel = {
   ...exnHT,
-  ...speedMotor,
   id: WheelId.exnHS,
-  name: 'EX.N Speed'
+  name: 'EX.N Speed',
+  
+  ...speedMotor
 };
 
-const hero: Wheel = {
-  ...torqueMotor,
-  id: WheelId.hero,
+const heroHT: Wheel = {
+  id: WheelId.heroHT,
   brandId: BrandId.begode,
-  name: 'Hero',
+  name: 'Hero Torque',
+  website: 'http://www.begode.com/productinfo/715123.html',
   price: 3000,
   availability: 'available',
-
+  
+  hollowMotor: true,
   ratedPower: 2800,
   peakPower: 0,
+  
   battery: {
     capacity: 0,
     parallels: 0,
-    type: '',
+    type: '21700',
     wattsHour: 1800
   },
+  stockCharger: 0,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [1, 0],
+
+  ...torqueMotor,
   range: 125,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 18,
   width: 3,
@@ -392,7 +469,7 @@ const hero: Wheel = {
   weight: 36.5,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [580, 200, 790],
-  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
+  ...begodePlainL,
   antiSpin: AntiSpin.position,
   kickstand: Kickstand.shell,
   headlight: 5000,
@@ -404,32 +481,47 @@ const hero: Wheel = {
   color: Color.black
 };
 
-const ex2: Wheel = {
-  ...torqueMotor,
+const heroHS: Wheel = {
+  ...heroHT,
+  name: 'Hero Speed',
+
+  ...speedMotor
+};
+
+const ex20s: Wheel = {
   id: WheelId.ex2,
   brandId: BrandId.begode,
-  name: 'EX2S',
+  name: 'EX20S',
+  website: 'http://www.begode.com/productinfo/756873.html',
   price: 0,
   availability: 'discontinued',
 
+  hollowMotor: undefined,
   ratedPower: 3000,
   peakPower: 0,
+
   battery: {
     capacity: 0,
-    parallels: 0,
+    parallels: 8,
     type: '21700',
     wattsHour: 3600
   },
+  stockCharger: 0,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: undefined,
+  
+  ...torqueMotor,
   range: 190,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 20,
-  width: 3,
+  width: 2.75,
   groundClearance: [160, 240],
   weight: 47,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [550, 330, 710],
-  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
+  ...begodeHoneycomb,
   antiSpin: undefined,
   kickstand: Kickstand.shell,
   headlight: 7000,
@@ -442,24 +534,32 @@ const ex2: Wheel = {
 };
 
 const master: Wheel = {
-  ...torqueMotor,
   id: WheelId.master,
   brandId: BrandId.begode,
   name: 'Master',
+  website: 'http://www.begode.com/productinfo/770685.html',
   price: 2900,
   availability: 'announced',
 
+  hollowMotor: undefined,
   ratedPower: 3500,
   peakPower: 0,
-  maxSpeed: 90,
+
   battery: {
     capacity: 0,
     parallels: 0,
     type: '',
     wattsHour: 2400
   },
+  stockCharger: 0,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: undefined,
+
+  ...torqueMotor,
+  maxSpeed: 90,
   range: 150,
-  voltage: 134,
+  voltage: 134.4,
 
   diameter: 20,
   width: 2.75,
@@ -467,7 +567,7 @@ const master: Wheel = {
   weight: 36,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [567, 330, 628],
-  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
+  ...begodeHoneycomb,
   antiSpin: AntiSpin.button,
   kickstand: Kickstand.shell,
   headlight: 7000,
@@ -483,21 +583,29 @@ const monster: Wheel = {
   id: WheelId.monster,
   brandId: BrandId.begode,
   name: 'Monster',
+  website: 'http://www.begode.com/productinfo/371628.html',
   price: 3500,
   availability: 'available',
 
+  hollowMotor: false,
   ratedPower: 2500,
   peakPower: 0,
-  maxGradibility: 20,
-  maxSpeed: 68,
+
   battery: {
     capacity: 3500,
     parallels: 6,
     type: '18650',
     wattsHour: 1845
   },
+  stockCharger: 3,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: [1, 0],
+
+  maxGradibility: 20,
+  maxSpeed: 68,
   range: 120,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 22,
   width: 3,
@@ -505,13 +613,13 @@ const monster: Wheel = {
   weight: 29,
   trolleyHandle: undefined,
   dimensions: [655, 231, 590],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
-  antiSpin: undefined,
+  ...begodePlainL,
+  antiSpin: AntiSpin.button,
   kickstand: undefined,
   headlight: true,
   tailLight: true,
   leds: false,
-  sound: undefined,
+  sound: SoundSystem.twoPointO,
   display: undefined,
   suspension: undefined,
   color: Color.black
@@ -521,19 +629,24 @@ const monsterPro: Wheel = {
   ...monster,
   id: WheelId.monsterPro,
   name: 'Monster Pro',
+  website: 'http://www.begode.com/productinfo/515827.html',
   price: 3900,
   availability: 'available',
 
+  hollowMotor: true,
   ratedPower: 3500,
-  maxSpeed: 80,
+  
   battery: {
     capacity: 5000,
     parallels: 8,
     type: '21700',
     wattsHour: 3600
   },
+  chargePorts: 2,
+  
+  maxSpeed: 80,
   range: 200,
-  voltage: 100,
+  voltage: 100.8,
 
   diameter: 24,
   width: 3,
@@ -541,7 +654,6 @@ const monsterPro: Wheel = {
   weight: 40,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [680, 260, 610],
-  pedals: [PedalType.plain, PedalSurface.fullGripTape, false],
   antiSpin: AntiSpin.sensor,
   sound: SoundSystem.twoPointO,
   display: Display.led
@@ -557,11 +669,12 @@ export const begodeWheels: Wheel[] = [
   msp,
   rsHT,
   rsHS,
-  ex,
   exnHT,
   exnHS,
-  hero,
-  ex2,
+  ex,
+  heroHT,
+  heroHS,
+  ex20s,
   master,
   monster,
   monsterPro

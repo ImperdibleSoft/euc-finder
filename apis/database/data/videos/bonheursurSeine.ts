@@ -358,7 +358,7 @@ const bonheursurSeineVideos: Video[] = [
       WheelId.ksS20,
       WheelId.commanderHS,
       WheelId.commanderHT,
-      WheelId.hero,
+      WheelId.heroHT, WheelId.heroHS,
       WheelId.abrams,
       WheelId.recioWheel16,
       WheelId.recioWheel18,
@@ -429,7 +429,7 @@ const bonheursurSeineVideos: Video[] = [
       WheelId.v12HT,
       WheelId.shermanMax,
       WheelId.ksS20,
-      WheelId.hero,
+      WheelId.heroHT, WheelId.heroHS,
       WheelId.ex2,
       WheelId.v13,
       WheelId.xmenHS,
@@ -481,7 +481,7 @@ const bonheursurSeineVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=2hbRcoAp3AE',
     tags: [
       InfluencerId.bonheursurSeine,
-      WheelId.hero,
+      WheelId.heroHT, WheelId.heroHS,
       VideoCategory.review,
       VideoCategory.commuting,
       VideoCategory.offroad

@@ -27,7 +27,8 @@ export enum WheelId {
   ex = 'ex',
   exnHT = 'exnHT',
   exnHS = 'exnHS',
-  hero = 'hero',
+  heroHT = 'heroHT',
+  heroHS = 'heroHS',
   ex2 = 'ex2',
   master = 'master',
   monster = 'monster',
@@ -96,109 +97,138 @@ export interface WheelFeatures {
   /**
    * Price, in €
    */
-  price: number
+  price: number;
 
+  /**
+   * Hollow motor
+   */
+  hollowMotor: boolean | undefined;
   /**
    * Rated nominal power, in W
    */
-  ratedPower: number
+  ratedPower: number;
   /**
    * Peak nominal power, in W
    */
-  peakPower: number
+  peakPower: number;
   /**
    * Can go up ramps with this incline, in º
    */
-  maxGradibility: number
+  maxGradibility: number;
   /**
    * Top speed, in km/h
    */
-  maxSpeed: number
+  maxSpeed: number;
+
   /**
    * Battery information
    */
-  battery: Battery
+  battery: Battery;
+  /**
+   * Stock charger's tension, in A
+   */
+  stockCharger: number;
+  /**
+   * Max supported charging tension, in A
+   */
+  maxCharger: number;
+  /**
+   * How many charge ports
+   * the wheel has enabled
+   */
+  chargePorts: number;
+  /**
+   * How many and what type USB
+   * connectors the wheel has enabled
+   * [USB-A, USB-C]
+   */
+  usbPorts: [number, number] | undefined;
   /**
    * Estimated mileage, in km
    */
-  range: number
+  range: number;
   /**
    * Charge output, in v
    */
-  voltage: number
+  voltage: number;
 
   /**
    * Wheel diameter, in inches
    */
-  diameter: number
+  diameter: number;
   /**
    * Wheel width, in inches
    */
-  width: number
+  width: number;
 
 
   /**
    * Ground clearance, in mm
    */
-  groundClearance: number | number[]
+  groundClearance: number | number[];
   /**
    * Weight, in Kg
    */
-  weight: number,
+  weight: number;
   /**
    * Trolley handle
    */
-  trolleyHandle: undefined | TrolleyHandle
+  trolleyHandle: undefined | TrolleyHandle;
   /**
    * Anti-spin button
    */
-  antiSpin: undefined | AntiSpin
+  antiSpin: undefined | AntiSpin;
   /**
    * Wheel dimensions front-faced [height, width, deep]
    */
-  dimensions: [number, number, number],
+  dimensions: [number, number, number];
   /**
    * Pedals [type, surface, retentionpins]
    */
-  pedals: [PedalType | undefined, PedalSurface | undefined, boolean | undefined]
+  pedals: [PedalType | undefined, PedalSurface | undefined, boolean | undefined];
+  /**
+   * Size of the pedal [length, width]
+   */
+  pedalSize: [number | undefined, number | undefined];
   /**
    * Kickstand
    */
-  kickstand: undefined | Kickstand
+  kickstand: undefined | Kickstand;
   /**
    * Integrated front lights, in Lumens
    */
-  headlight: Lumens
+  headlight: Lumens;
   /**
    * Integrated taillight
    */
-  tailLight: boolean
+  tailLight: boolean;
   /**
    * Color LEDs
    */
-  leds: boolean
+  leds: boolean;
   /**
    * Sound system, in channels
    */
-  sound: undefined | SoundSystem
+  sound: undefined | SoundSystem;
   /**
    * Display
    */
-  display: undefined | Display
+  display: undefined | Display;
   /**
    * Suspension system
    */
-  suspension: undefined | Suspension
+  suspension: undefined | Suspension;
   /**
    * Wheel main color
    */
-  color: undefined | Color | Color[]
+  color: undefined | Color | Color[];
 }
 
 export interface Wheel extends WheelFeatures {
   id: WheelId;
   brandId: BrandId;
   name: string;
+  website: string;
   availability: Availability;
 }
 

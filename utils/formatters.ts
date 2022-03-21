@@ -169,18 +169,6 @@ export const battery = (value: Battery): string => {
   return '-';
 };
 
-export const batterySetup = (value: number[]): string => {
-  if (value?.length === 2) {
-    const [cells, mAh] = value;
-
-    if (cells && mAh) {
-      return `${ cells }p x ${ mAh } mAh`;
-    }
-  }
-
-  return '-';
-};
-
 export const degrees = (value: number): string => {
   if (value) {
     return `${ value }°`;
@@ -191,7 +179,7 @@ export const degrees = (value: number): string => {
 
 export const voltage = (value: number): string => {
   if (value) {
-    return `${ toDecimals(value, 0) }v`;
+    return `${ toDecimals(value, 1) }v`;
   }
 
   return '-';

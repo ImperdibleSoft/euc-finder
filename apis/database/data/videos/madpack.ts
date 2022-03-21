@@ -355,7 +355,8 @@ const madpackVideos: Video[] = [
     tags: [
       InfluencerId.madpack,
       VideoCategory.chatting,
-      WheelId.hero
+      WheelId.heroHT,
+      WheelId.heroHS
     ],
     publishDate: '24/Jan/2022',
     releaseDate: '24/Jan/2022',

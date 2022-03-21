@@ -131,7 +131,18 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://revrides.com/collections/all-vehicles/products/gotway-ex-n',
     'https://oneride.eu/electric-unicycles/227-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html'
   ],
-  [WheelId.hero]: [
+  [WheelId.heroHT]: [
+    'https://ciclonic.com/tienda/monociclos/monociclos-gotway/reserva-begode-hero/',
+    'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
+    'https://www.ewheels.com/product/begode-hero-100-deposit/',
+    'https://eucsale.com/euc-transport/begode/begode-hero.html',
+    'https://alienrides.com/collections/electric-unicycles/products/begode-hero-off-road-electric-unicycle',
+    'https://www.smartwheel.ca/gotway-hero-electric-unicycle-euc-with-suspension/',
+    'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/begode-hero',
+    'https://e-rides.com/product/begode-hero-suspension-electric-unicycle-deposit/',
+    'https://oneride.eu/electric-unicycles/200--preorder-begode-hero-1800wh-100v-electric-unicycle.html'
+  ],
+  [WheelId.heroHS]: [
     'https://ciclonic.com/tienda/monociclos/monociclos-gotway/reserva-begode-hero/',
     'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
     'https://www.ewheels.com/product/begode-hero-100-deposit/',

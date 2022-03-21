@@ -204,7 +204,8 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.review,
       VideoCategory.commuting,
       VideoCategory.offroad,
-      WheelId.hero
+      WheelId.heroHT,
+      WheelId.heroHS
     ],
     publishDate: '25/Nov/2021',
     releaseDate: '07/Dec/2021',

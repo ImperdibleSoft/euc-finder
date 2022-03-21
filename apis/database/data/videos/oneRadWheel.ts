@@ -136,7 +136,7 @@ const oneradwheelVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=eD2FevSzJ-o',
-    tags: [InfluencerId.oneradwheel, VideoCategory.reveal, WheelId.hero],
+    tags: [InfluencerId.oneradwheel, VideoCategory.reveal, WheelId.heroHT, WheelId.heroHS],
     publishDate: '13/Feb/2022',
     releaseDate: '20/Mar/2022',
     language: 'en'

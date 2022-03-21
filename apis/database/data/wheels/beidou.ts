@@ -3,30 +3,37 @@ import {
   BrandId,
   Color,
   Display,
-  PedalSurface,
-  PedalType,
   TrolleyHandle,
   Wheel,
   WheelId
 } from '../../../../types';
+import { recioPedals } from './common';
 
 const recioWheel16: Wheel = {
   id: WheelId.recioWheel16,
   brandId: BrandId.beidou,
   name: 'RecioWheel 16',
+  website: '',
   price: 0,
   availability: 'announced',
 
+  hollowMotor: false,
   ratedPower: 2500,
   peakPower: 0,
-  maxGradibility: 0,
-  maxSpeed: 0, // 60
+
   battery: {
     capacity: 0,
     parallels: 4,
     type: '21700',
     wattsHour: 1480
   },
+  stockCharger: 0,
+  maxCharger: 0,
+  chargePorts: 1,
+  usbPorts: undefined,
+
+  maxGradibility: 0,
+  maxSpeed: 0, // 60
   range: 110,
   voltage: 84,
 
@@ -36,7 +43,7 @@ const recioWheel16: Wheel = {
   weight: 30,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [0, 0, 0],
-  pedals: [PedalType.honeycomb, PedalSurface.metalic, true],
+  ...recioPedals,
   antiSpin: undefined,
   kickstand: undefined,
   headlight: true,

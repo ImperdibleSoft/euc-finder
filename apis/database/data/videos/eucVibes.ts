@@ -46,7 +46,8 @@ const eucVibesVideos: Video[] = [
       WheelId.commanderHT,
       WheelId.ksS20,
       WheelId.abrams,
-      WheelId.hero
+      WheelId.heroHT,
+      WheelId.heroHS
     ],
     publishDate: '20/Sep/2021',
     releaseDate: '07/Dec/2021',
@@ -62,7 +63,8 @@ const eucVibesVideos: Video[] = [
       WheelId.commanderHT,
       WheelId.ksS20,
       WheelId.abrams,
-      WheelId.hero
+      WheelId.heroHT,
+      WheelId.heroHS
     ],
     publishDate: '24/Sep/2021',
     releaseDate: '07/Dec/2021',

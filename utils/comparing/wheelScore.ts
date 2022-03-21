@@ -259,9 +259,16 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
     range,
     weight,
     
+    hollowMotor: 0,
     ratedPower,
     peakPower: 0,
+
     battery,
+    stockCharger: 0,
+    maxCharger: 0,
+    chargePorts: 0,
+    usbPorts: 0,
+
     voltage: 0,
     maxGradibility,
     groundClearance: 0,
@@ -272,6 +279,7 @@ export const getWheelScore = (wheel: Wheel, minMaxValues: MinMaxValues, specWeig
     trolleyHandle,
     dimensions: 0,
     pedals,
+    pedalSize: 0,
     antiSpin,
     kickstand,
     leds,
