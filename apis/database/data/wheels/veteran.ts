@@ -71,6 +71,7 @@ const shermanMax: Wheel = {
     type: '21700',
     wattsHour: 3600
   },
+  usbPorts: undefined,
 
   maxGradibility: 35,
   range: 215,
@@ -100,7 +101,7 @@ const abrams: Wheel = {
   },
   stockCharger: 9,
   maxCharger: 15,
-  chargePorts: 0,
+  chargePorts: 1,
   usbPorts: undefined,
   
   maxGradibility: 30,

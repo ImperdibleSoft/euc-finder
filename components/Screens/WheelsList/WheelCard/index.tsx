@@ -12,9 +12,9 @@ import { useSelector } from 'react-redux';
 import { wheelFeatureFormatters, wheelFeatureIcons } from '../../../../constants';
 import { EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import { commonNs, useEucListInformationGroups, useWheelsListTranslations } from '../../../../hooks';
-import { getBrands, getMeasureUnits } from '../../../../store/selectors';
+import { getBrands, getMaxCurrentAllowed, getMeasureUnits } from '../../../../store/selectors';
 import { WheelFeatureFormatters, WheelFeatureIcons, WheelSorting, WheelWithPicture } from '../../../../types';
-import { formatWheelName, getBrandInfo } from '../../../../utils';
+import { formatWheelName, getBrandInfo, getFormatterValue } from '../../../../utils';
 import AvailabilityIcon from '../../../AvailabilityIcon';
 import BrandLogo from '../../../BrandLogo';
 import IconsList from '../../../Lists/IconsList';
@@ -32,6 +32,7 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
   const brands = useSelector(getBrands);
   const brand = getBrandInfo(wheel.brandId, brands);
   const measureUnits = useSelector(getMeasureUnits);
+  const maxCurrentAllowed = useSelector(getMaxCurrentAllowed);
   const { mainSpecs, additionalSpecs } = useEucListInformationGroups(sorting);
   const link = EUC_FINDER_DETAILS.replace(':id', wheel.id);
   
@@ -42,11 +43,12 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
     // @ts-ignore
     // eslint-disable-next-line no-restricted-syntax
     const convertTo = key in measureUnits ? measureUnits[key] : undefined;
-    const value = formatter?.(wheel[key], t, convertTo, key === 'width' ? 2 : 0) ??  wheel[key];
+    const formatterValue = getFormatterValue(wheel, key, { brands, maxCurrentAllowed });
+    const value = formatter?.(formatterValue, t, convertTo, key === 'width' ? 2 : 0) ??  wheel[key];
 
     return {
       icon,
-      iconProps: { active: !!wheel[key] && value && value !== '-' },
+      iconProps: { active: !!formatterValue && value && value !== '-' },
       primary: label,
       secondary: value
     };

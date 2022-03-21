@@ -1,5 +1,11 @@
 import { useSelector } from 'react-redux';
-import { getListViewSpecs, getMeasureUnits, getPricesConfig, getWheels } from '../../store/selectors';
+import {
+  getListViewSpecs,
+  getMaxCurrentAllowed,
+  getMeasureUnits,
+  getPricesConfig,
+  getWheels
+} from '../../store/selectors';
 import { Wheel, WheelFilters, WheelId, WheelSorting, WheelWithPicture } from '../../types';
 import { cleanWheelId, customisedSortBy, filterWheels } from '../../utils';
 
@@ -32,10 +38,11 @@ export const useEucList = (
   pictures: Record<WheelId, string>
 ): WheelWithPicture[] => {
   const measureUnits = useSelector(getMeasureUnits);
+  const maxCurrentAllowed = useSelector(getMaxCurrentAllowed);
   const wheels = useSelector(getWheels);
 
   return wheels
     .filter(wheel => filterWheels(wheel, filters, measureUnits))
     .map((wheel): WheelWithPicture => ({ ...wheel, picture: pictures?.[cleanWheelId(wheel.id)] }))
-    .sort(customisedSortBy(sorting.key, sorting.order));
+    .sort(customisedSortBy(sorting.key, sorting.order, { maxCurrentAllowed }));
 };

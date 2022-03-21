@@ -4,6 +4,13 @@ export type Availability = 'filtered' | 'announced' | 'preorder' | 'available' |
 
 export type Category = 'starter' | 'standard' | 'high-end' | 'extreme';
 
+export enum Usb {
+  usbC = 'usbC',
+  usbA = 'usbA',
+}
+
+export type UsbWeight = Record<Usb, number>;
+
 export type GroundClearance = number | number[];
 
 export enum TrolleyHandle {

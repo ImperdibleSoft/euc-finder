@@ -1,7 +1,9 @@
 import { Container, Grid, Toolbar } from '@mui/material';
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { wheelFeatureIcons } from '../../../../constants';
 import { commonNs, useWheelsListTranslations } from '../../../../hooks';
+import { getTableViewSpecs } from '../../../../store/selectors';
 import { WheelFeatureIcons, WheelId, WheelSorting, WheelSortingKeys, WheelWithPicture } from '../../../../types';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
 import WheelCard from '../WheelCard';
@@ -24,13 +26,27 @@ const GridView: React.FC<Props> = ({
   sorting
 }) => {
   const { t } = useWheelsListTranslations();
+  const specs = useSelector(getTableViewSpecs);
 
   const [sampleWheel] = records ?? [];
-  const sortCriteriaOptions = Object
-    .keys(sampleWheel ?? {})
+
+
+  const sortCriteriaOptions = specs
     .filter(key => {
-      if (key === 'id' || key === 'peakPower' || key === 'maxGradibility' || key === 'picture') return false;
-      if (key === 'price') return showPrice;
+      if (
+        key === 'id' ||
+        key === 'website' ||
+        key === 'availability' ||
+        key === 'peakPower' ||
+        key === 'maxGradibility'
+      ) {
+        return false;
+      }
+
+      if (key === 'price') {
+        return showPrice;
+      }
+
       return true;
     })
     .map((key): DropdownItem => ({

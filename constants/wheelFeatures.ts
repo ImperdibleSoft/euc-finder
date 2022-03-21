@@ -8,6 +8,7 @@ import {
   SoundSystemWeight,
   SuspensionWeight,
   TrolleyHandleWeight,
+  UsbWeight,
   WheelFeatureFormatters,
   WheelFeatureIcons
 } from '../types';
@@ -96,6 +97,11 @@ export const wheelFeatureFormatters: WheelFeatureFormatters = {
   sound: formatters.soundChannels,
   display: formatters.display,
   color: formatters.color
+};
+
+export const usbWeight: UsbWeight = {
+  usbC: 1.2,
+  usbA: 1.1
 };
 
 export const trolleyHandleWeight: TrolleyHandleWeight = {
