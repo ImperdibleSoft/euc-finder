@@ -21,7 +21,7 @@ import * as formatters from '../../../utils/formatters';
 // eslint-disable-next-line max-lines-per-function
 export const getDropdownOptions = (t: TFunction<'translation'>, brands: Brand[]) => {
   const availabilityOptions: CheckboxProps[] =
-    (['filtered', 'announced', 'preorder', 'available', 'discontinued'] as Availability[])
+    (['leaked', 'announced', 'preorder', 'available', 'discontinued'] as Availability[])
       .map(category => ({
         label: t(`${ category }-label`),
         name: category,

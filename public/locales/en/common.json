@@ -39,7 +39,7 @@
   "brandId": "Manufacturer",
 
   "availability-label": "Availability",
-  "filtered-label": "Filtered",
+  "leaked-label": "Leaked",
   "announced-label": "Announced",
   "preorder-label": "Preorder available",
   "available-label": "Available",
