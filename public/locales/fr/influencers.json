@@ -1,0 +1,16 @@
+{
+  "influencers-title": "Créateurs de contenu",
+  "influencers-description": "Liste des principaux influenceurs de la communauté",
+  "influencers-msg1": "Vous avez ici une liste d'influenceurs de la communauté du monde de la roue éléctrique.",
+  "influencers-msg2": "Ces personnes créent du contenu de haute qualité concernant la roue électrique. Elles vous aideront à mieux connaître et comprendre certaines des dernières informations/améliorations dans le monde de la roue électrique (aussi appelée gyroroue, monoroue ou EUC en anglais).",
+
+  "noInfluencers-title": "",
+  "noInfluencers-msg": "There are no Content creators yet.",
+
+  "promotedInfluencers-title": "Créateurs de contenu sponsorisés",
+  "promotedInfluencers-msg": "Ces créateurs de contenu coopèrent activement avec EUC Finder, améliorant la qualité du contenu de l'application.",
+  "regularInfluencers-title": "Autres créateurs de contenu",
+
+  "youtubeChannel-label": "Chaîne Youtube",
+  "watchVideos-btn": "Voir ses vidéos"
+}

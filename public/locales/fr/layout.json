@@ -1,0 +1,36 @@
+{
+  "nav-manager": "App",
+  "nav-comparator": "Comparer",
+  "nav-finder": "Chercher",
+  "nav-videos": "Vidéos",
+  "nav-dealers": "Revendeurs",
+  "nav-influencers": "Influenceurs",
+  "nav-instagram": "Instagram",
+  "nav-telegram": "Telegram",
+  "nav-settings": "Paramètres",
+  
+  "search-label": "Recherche...",
+
+  "importantInfo-title": "Informations importantes",
+  
+  "models-title": "Modèles",
+  "newModels-msg": "Le site web n'inventorie que les modèles de roues éléctriques (aussi appelées gyoroues, monoroues, ou EUC en anglais) les plus récents et les plus puissants de chaque fabricant.",
+  "olderVersions-msg": "Cela signifie que certains modèles plus anciens et/ou moins puissants ne sont plus affichées sur le site (même s'il sont parfois encore en vente sur certains sites).",
+  
+  "speed-title": "Vitesse",
+  "displayedSpeed-msg": "Tous les modèles mentionnés sur le site sont vendus avec une vitesse de pointe limitée à {{speed}}.",
+  "modifySpeed-msg": "Pour atteindre les vitesses indiquées sur le site, certaines modifications sont nécessaires.",
+  
+  "range-title": "Autonomie",
+  "displayedRange-msg": "Les distances affichées sur le site sont basées sur une utilisation la plus réaliste possible de chaque roue.",
+  "usageExamples-msg": "Cela inclut des accélérations ou des freinages brusques, des montées, des sauts ou la conduite à vitesse soutenue pendant de longues périodes.",
+  
+  "ok-btn": "OK",
+  
+  "createdBy-msg": "Created by",
+  "information-label": "Informations",
+
+  "information-msg": "concernant les modèles, la vitesse et l'autonomie affichée.",
+  "disclaimer1-msg": "Ce site web n'est pas affilié, ni ne dépend d'aucun des magasins qui peuvent être affichés.",
+  "disclaimer2-msg": "Cependant, certains des liens affichés peuvent être promus par certains de ces magasins."
+}

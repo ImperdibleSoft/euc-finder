@@ -1,0 +1,22 @@
+{
+  "compare-title": "Comparateur",
+  
+  "settings-btn": "Paramètres",
+  "reset-btn": "Tout enlever",
+
+  "addWheel-label": "Ajouter un modèle",
+
+  "noWheelsToCompare-title": "",
+  "noWheelsToCompare-msg": "Aucun modèle sélectionné dans le comparateur.",
+  "addWheelsToCompare-msg": "Veuillez ajouter au moins un modèle pour consulter les résultats.",
+
+  "score": "Score",
+  "maxSpecValue-msg": "Importance : {{value}}/20",
+  "unusedSpec-msg": "Ce critère n'est pas utilisé dans le score.",
+  
+  "details-btn": "Détails",
+  "remove-btn": "Retirer",
+
+  "higherBetter-msg": "Plus c'est haut, mieux c'est",
+  "lowerBetter-msg": "Plus c'est bas, mieux c'est"
+}

@@ -1,0 +1,46 @@
+{
+  "noWheel-title": "",
+  "noWheel-msg": "Ce modèle de roue n'est pas référencé dans la base de données.",
+  
+  "compare-btn": "Comparer",
+
+  "defaultDescription-msg": "Nous ajouterons prochainement une petite description de ce modèle.",
+
+  "highlightedSpecs-title": "Principales spécifications",
+  
+  "promotedStores-title": "Magasins sponsorisés",
+  "loadingPrice-msg": "Consulter les prix chez {{storeName}}",
+  "soldOut-msg": "Épuisé !",
+  "discount-msg": "Réduction : {{discount}}",
+  "buy-btn": "Acheter",
+  "confirmation-title": "En poursuivant, vous quittez {{appName}}",
+  "confirmation-msg": "Cela signifie qu'{{appName}} n'est pas responsable de ce que vous ferez sur le site {{storeName}}.",
+  "manualDiscount-msg": "Afin de profiter de la réduction de {{discount}} lors de votre achat, n'oubliez pas d'ajouter ce code promo à votre panier avant votre paiement :",
+  "confirmationStay-btn": "Rester sur {{appName}}",
+  "confirmationVisit-btn": "Aller sur {{storeName}}",
+  
+  "mainSpecs-title": "Spécifications",
+  
+  "pictures-title": "Images",
+  
+  "videos-title": "Vidéos",
+  "watchVideos-btn": "Voir toutes les vidéos",
+
+  "officialWheelApps-title": "Applications officielles pour {{wheelName}}",
+  "unofficialApps-title": "Applications universelles",
+  "filterByPlatform-label": "Choix par plateforme",
+  "allPlatforms-label": "Tous",
+  "android-label": "Android",
+  "ios-label": "iOS",
+  "appPicture-label": "Logo {{appName}}",
+  "downloadApp-btn": "Télécharger",
+
+  "additionalSpecs-title": "Spécifications complémentaires",
+
+  "otherStores-title": "Autres magasins disponibles",
+  
+  "loadingLikes-msg": "Chargement des likes...",
+  "errorLoadingLikes-msg": "Une erreur est survenue lors du chargement du système des likes. Veuillez réessayer plus tard.",
+  "loadingComments-msg": ""Chargement des commentaires...",
+  "errorLoadingComments-msg": "Une erreur est survenue lors du chargement du système des commentaires. Veuillez réessayer plus tard.."
+}

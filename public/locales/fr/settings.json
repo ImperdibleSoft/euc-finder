@@ -1,0 +1,36 @@
+{
+  "settings-title": "Paramètres",
+
+  "interface-title": "Interface utilisateur",
+  
+  "theme-label": "Couleur",
+  "auto-label": "Auto",
+  "dark-label": "Sombre",
+  "light-label": "Clair",
+
+  "measureUnits-title": "Unités de mesure",
+  "centimeters-label": "Centimètres",
+  "inches-label": "Pouces",
+  "kilometers-label": "Kilomètres",
+  "miles-label": "Miles",
+  "perHour-label": "par heure",
+  "kilograms-label": "Kilogrammes",
+  "pounds-label": "Pounds",
+  "milimeters-label": "Milimètres",
+  
+  "default-btn": "Par défaut",
+  "cancel-btn": "Annuler",
+  "save-btn": "Enregistrer",
+  
+  "settingsSpecWeights-msg": "Ici, vous pouvez choisir vos préférences concernant les spécifications des  modèles de roue. Ces changements modifieront la façon dont chaque roue est notée dans le comparateur.",
+  "settingsSpecWeightsPresets-msg": "Vous pouvez choisir parmi les différents profils prédéfinis celui qui vous correspond le mieux.",
+  "settingsSpecWeightsCustom-msg": "Si aucun des profils prédéfinis ne répond parfaitement à vos préférences, vous pouvez le personnaliser et définir un à un la façon dont chaque critère est utilisé dans le score du comparateur.",
+
+  "compare-title": "Paramètrage du comparateur",
+  
+  "genericPreset-label": "Equilibré",
+  "comfyPreset-label": "Confort",
+  "safePreset-label": "Sécurité",
+  "performantPreset-label": "Performance",
+  "customPreset-label": "Personnalisé"
+}

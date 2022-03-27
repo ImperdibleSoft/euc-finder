@@ -56,7 +56,7 @@ export const wheelFeatureIcons: WheelFeatureIcons = {
 };
 
 export const availabilityIcons: Record<Availability, string> = {
-  filtered: 'bubble_chart',
+  leaked: 'bubble_chart',
   announced: 'campaign',
   preorder: 'confirmation_number',
   available: 'event_available',

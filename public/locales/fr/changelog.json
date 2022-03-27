@@ -1,0 +1,38 @@
+{
+  "changelog-title": "Journal des modifications",
+  
+  "changes-title": "Changement {{changeType}}",
+  
+  "majorChange": "majeur",
+  "minorChange": "notable",
+  "patchChange": "mineur",
+
+  "Add automated changelog to the project": "",
+
+  "Add a changelog page to the applicaction, accessible from the version's link, in the Footer": "",
+  
+  "Support for fixed discounts in addition to percentage discounts": "",
+  "Add discounts for REV Rides store": "",
+  "Bugfixs in Changelog page": "",
+
+  "Add a new filter for the maximum rated power": "",
+
+  "Allows the user to select the desired color scheme": "",
+  "Allows the user to select custom values for the weight of each specification": "",
+
+  "Add charts to the Comparator": "",
+
+  "Add availability filter": "",
+
+  "Add availability information to all wheels": "",
+
+  "Add wheels' dimensions to the app": "",
+
+  "Read price from Ciclonic's brand new website": "",
+
+  "Nouveau système de navigation",
+
+  "Ajouts de quelques influenceurs français, and apply some new copies to influencers page": "",
+
+  "Ajouts de spécifications : hollow motor, taille des pédales, durée de charge, charge rapide, ports de charge, ports USB": ""
+}

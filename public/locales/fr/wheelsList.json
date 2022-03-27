@@ -1,0 +1,28 @@
+{
+  "filters-title": "Filtres",
+  "columns-title": "Choix des colonnes",
+
+  "compare-btn": "Comparer",
+  "compareAll-btn": "Compare {{wheels}} EUCs",
+
+  "wheelAddedToComparator-msg": "{{wheel}} a été ajouté au comparateur.",
+  "checkResults-btn": "Voir les résultats",
+
+  "noWheels-title": "",
+  "noWheels-msg": "Aucun modèle ne correspond aux critères sélectionnés.",
+  
+  "changeFilters-msg": "Modifier ou réinitialiser les filtres afin de trouver des modèles proches de ce que vous recherchez.",
+  "changeFilters-btn": "Changer les filtres",
+  "resetFilters-btn": "Réinitialiser les filtres",
+
+  "resetColumns-btn": "Réinitialiser les colonnes",
+
+  "unicycles-label": "{{quantity}} roues électriques",
+
+  "ascending-label": "Croissant",
+  "descending-label": "Décroissant",
+  "sortBy-label": "Critère de tri",
+  "order-label": "Ordre",
+  
+  "details-btn": "Détails"
+}
