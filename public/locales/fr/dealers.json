@@ -2,13 +2,13 @@
   "dealers-title": "Boutiques",
 
   "dealers1-msg": "{{appName}} regroupe sur cette page les liens vers les principaux sites web des revendeurs et distributeurs en {{region}}, ceci afin que vous puissiez accéder à une liste de revendeurs reconnus dans votre région.",
-  "dealers2-msg": "En plus de cela, notre application récupère les prix et les disponibilités des diférents modèles auprès de ces magasins de manière à vous proposer le meilleur achat possible.",
+  "dealers2-msg": "En plus de cela, l'application récupère automatiquement les prix et les disponibilités des différents modèles auprès de ces magasins, de manière ainsique à vous proposer le meilleur achat possible.",
   
   "noDealers-msg": "Nous n'avons actuellement aucun accord avec des revendeurs en {{region}}.",
   
   "discounts-title": "Promotions",
   "discounts1-msg": "{{appName}} a également négocié des accords avec certains magasins afin de vous offrir des codes de réductions.",
-  "discounts2-msg": "Quand ils sont disponibles, ces codes sont visibles lorsque vous cliquez sur le boutton <Acheter> d'un magasin lorsque vous consultez la page d'un modèle de roue.",
+  "discounts2-msg": "Quand ils sont disponibles, ces codes sont visibles lorsque vous consultez la page d'un modèle de roue, puis lorsque vous cliquez sur le boutton <Acheter> d'un magasin.",
   
   "website-label": "Site web",
   "dealers-storeInformation-label": "Informations sur le magasin",

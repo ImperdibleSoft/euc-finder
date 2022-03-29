@@ -1,9 +1,9 @@
 {
-  "filters-title": "Filtres",
+  "filters-title": "Choix des filtres",
   "columns-title": "Choix des colonnes",
 
   "compare-btn": "Comparer",
-  "compareAll-btn": "Compare {{wheels}} EUCs",
+  "compareAll-btn": "Comparer les {{wheels}} roues",
 
   "wheelAddedToComparator-msg": "{{wheel}} a été ajouté au comparateur.",
   "checkResults-btn": "Voir les résultats",

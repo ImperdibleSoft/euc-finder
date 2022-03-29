@@ -22,8 +22,8 @@
   "watchedVideos-title": "Vidéos vues",
 
   "noVideos-title": "",
-  "noVideos-msg": "There are no videos that match your search criterias.",
-  "changeVideoFilters-msg": "Relax or reset the filters to find some options that is close to what you are looking for.",
-  "changeFilters-btn": "CHange filters",
-  "resetFilters-btn": "Reset filters"
+  "noVideos-msg": "Aucune vidéo ne correspond aux critères sélectionnés.",
+  "changeVideoFilters-msg": "Modifier ou réinitialiser les filtres afin de trouver quelque chose de proche de ce que vous souhaitez voir.",
+  "changeFilters-btn": "Changer les filtres",
+  "resetFilters-btn": "Réinitialiser les filtres"
 }

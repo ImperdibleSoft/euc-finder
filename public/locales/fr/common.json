@@ -3,12 +3,12 @@
   "no": "Non",
   "at": "à",
 
-  "more": "Plus de",
-  "less": "Moins de",
+  "more": "Agrandir",
+  "less": "Réduire",
   
   "selectAnOption-label": "Selectionner une option",
 
-  "withAny": "Avec tout type de",
+  "withAny": "Tout type de",
   "with": "Avec",
   "without": "Sans",
   
@@ -39,7 +39,7 @@
   "brandId": "Fabricants",
 
   "availability-label": "Disponibilité",
-  "filtered-label": "Fuitée",
+  "filtered-label": "Fuitée/Leakée",
   "announced-label": "Annoncée",
   "preorder-label": "En précommande",
   "available-label": "Disponible",
@@ -56,14 +56,14 @@
   "hollowMotor": "Moteur creux / Hollow motor",
   "ratedPower": "Puissance nominale",
   "peakPower": "Puissance en pique",
-  "maxGradibility": "Angle de montée",
+  "maxGradibility": "Pente max",
   "maxSpeed": "Vitesse max*",
   
   "battery": "Batteries",
   "parallels": "Parallèles",
   "batteryType": "Type de cellules",
-  "stockCharger": "Durée de charge",
-  "maxCharger": "Durée de charge rapide",
+  "stockCharger": "Temps de charge",
+  "maxCharger": "Temps de charge rapide",
   "usingChargers": "avec un chargeur de {{tension}}",
   "usingChargers_plural": "avec {{count}} {{tension}} chargeurs",
   "chargePorts": "Ports de charge",
@@ -73,7 +73,7 @@
   "voltage": "Voltage",
   "diameter": "Taille/Diamètre",
   "width": "Largeur du pneu",
-  "groundClearance": "Garde au sol",
+  "groundClearance": "Hauteur des pédales",
   "weight": "Poids",
   
   "trolleyHandle": "Trolley",
