@@ -15,7 +15,7 @@
   "unusedSpec-msg": "Esto no se usa para los cálculos",
 
   "details-btn": "Detalles",
-  "remove-label": "Quitar",
+  "remove-btn": "Quitar",
   
   "higherBetter-msg": "Cuanto más alto, mejor",
   "lowerBetter-msg": "Cuanto más bajo, mejor"

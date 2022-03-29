@@ -266,7 +266,7 @@ const CompareTable: React.FC<Props> = ({
                     variant="outlined"
                     onClick={ () => handleRemoveFromComparision(wheel.id) }
                   >
-                    { t('remove-label') }
+                    { t('remove-btn') }
                   </Button>
                 </Box>
               ) }
