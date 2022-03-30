@@ -303,6 +303,17 @@ const hsiangVideos: Video[] = [
     publishDate: '18/Feb/2022',
     releaseDate: '21/Feb/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=ZOVx2-jhpi4',
+    tags: [
+      InfluencerId.hsiang,
+      VideoCategory.chatting,
+      WheelId.ksS20
+    ],
+    publishDate: '28/Mar/2022',
+    releaseDate: '30/Mar/2022',
+    language: 'en'
   }
 ];
 

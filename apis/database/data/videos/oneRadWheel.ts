@@ -140,6 +140,19 @@ const oneradwheelVideos: Video[] = [
     publishDate: '13/Feb/2022',
     releaseDate: '20/Mar/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=DK8e4T08XPs',
+    tags: [
+      InfluencerId.oneradwheel,
+      VideoCategory.comparision,
+      WheelId.ksS20,
+      WheelId.heroHT,
+      WheelId.heroHS
+    ],
+    publishDate: '28/Mar/2022',
+    releaseDate: '30/Mar/2022',
+    language: 'en'
   }
 ];
 

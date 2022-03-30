@@ -423,6 +423,29 @@ const madpackVideos: Video[] = [
     publishDate: '14/Mar/2022',
     releaseDate: '20/Mar/2022',
     language: 'en'
+  } ,
+  {
+    url: 'https://www.youtube.com/watch?v=7xv-X5HjgeQ',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.review,
+      WheelId.heroHS,
+      WheelId.heroHT
+    ],
+    publishDate: '21/Mar/2022',
+    releaseDate: '30/Mar/2022',
+    language: 'en'
+  } ,
+  {
+    url: '',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.chatting,
+      WheelId.master
+    ],
+    publishDate: '28/Mar/2022',
+    releaseDate: '30/Mar/2022',
+    language: 'en'
   }  
 ];
 

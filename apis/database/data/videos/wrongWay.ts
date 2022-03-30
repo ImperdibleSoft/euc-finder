@@ -825,8 +825,29 @@ const wrongWayVideos: Video[] = [
     publishDate: '10/Mar/2022',
     releaseDate: '20/Mar/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=JPVeeGBD7sc',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.chatting,
+      WheelId.abrams
+    ],
+    publishDate: '22/Mar/2022',
+    releaseDate: '30/Mar/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=xTGcl4qFW9U',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.chatting,
+      WheelId.ksS20
+    ],
+    publishDate: '26/Mar/2022',
+    releaseDate: '30/Mar/2022',
+    language: 'en'
   }
-
 ];
 
 export default wrongWayVideos;

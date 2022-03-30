@@ -489,7 +489,20 @@ const bonheursurSeineVideos: Video[] = [
     publishDate: '18/Mar/2022',
     releaseDate: '20/Mar/2022',
     language: 'fr'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=l_jxa-WhUNM',
+    tags: [
+      InfluencerId.bonheursurSeine,
+      WheelId.heroHT, WheelId.heroHS,
+      VideoCategory.review,
+      VideoCategory.chatting
+    ],
+    publishDate: '25/Mar/2022',
+    releaseDate: '30/Mar/2022',
+    language: 'fr'
   }
+  
 ];
 
 export default bonheursurSeineVideos;
