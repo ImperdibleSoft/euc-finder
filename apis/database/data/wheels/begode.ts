@@ -456,7 +456,7 @@ const heroHT: Wheel = {
   },
   stockCharger: 0,
   maxCharger: 0,
-  chargePorts: 1,
+  chargePorts: 2,
   usbPorts: [1, 0],
 
   ...torqueMotor,
