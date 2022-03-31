@@ -24,7 +24,7 @@
   
   "settingsSpecWeights-msg": "Ici, vous pouvez modifier la façon dont les roues sont notées dans le comparateur, en indiquant les critères qui vous semblent importants.",
   "settingsSpecWeightsPresets-msg": "Vous pouvez choisir, parmi les différents profils prédéfinis, celui qui vous correspond le mieux.",
-  "settingsSpecWeightsCustom-msg": "Si aucun des profils prédéfinis ne correspond parfaitement à vos préférences, vous pouvez personnaliser vos choix, en définissant un à un la façon (de 0 à 20) dont chaque critère/spécification est utilisé dans le score du comparateur.",
+  "settingsSpecWeightsCustom-msg": "Si aucun des profils prédéfinis ne correspond parfaitement à vos préférences, vous pouvez personnaliser vos choix, en définissant un à un la façon (pondération de 0 à 20) dont chaque critère/spécification est utilisé dans le score du comparateur.",
 
   "compare-title": "Paramétrage du comparateur",
   

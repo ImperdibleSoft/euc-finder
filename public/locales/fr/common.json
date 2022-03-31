@@ -39,7 +39,7 @@
   "brandId": "Fabricants",
 
   "availability-label": "Disponibilité",
-  "filtered-label": "Fuitée/Leakée",
+  "leaked-label": "Fuitée/Leakée",
   "announced-label": "Annoncée",
   "preorder-label": "En précommande",
   "available-label": "Disponible",
@@ -53,9 +53,9 @@
   
   "name": "Modèle",
   "price": "Prix",
-  "hollowMotor": "Moteur creux / Hollow motor",
-  "ratedPower": "Puissance nominale",
-  "peakPower": "Puissance en pique",
+  "hollowMotor": "Hollow motor/Moteur creux",
+  "ratedPower": "Puissance moteur (nominale)",
+  "peakPower": "Puissance moteur (max)",
   "maxGradibility": "Pente max",
   "maxSpeed": "Vitesse max*",
   
@@ -114,7 +114,7 @@
   "headlight": "Phare avant",
   "tailLight": "Feu arrière",
   "leds": "LEDs",
-  "sound": "Haut-parleurs",
+  "sound": "Haut-parleurs bluetooth",
   
   "display": "Écran",
   "lcd": "LCD",

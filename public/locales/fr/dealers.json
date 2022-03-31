@@ -2,7 +2,7 @@
   "dealers-title": "Boutiques",
 
   "dealers1-msg": "{{appName}} regroupe sur cette page les liens vers les principaux sites web des revendeurs et distributeurs en {{region}}, ceci afin que vous puissiez accéder à une liste de revendeurs reconnus dans votre région.",
-  "dealers2-msg": "En plus de cela, l'application récupère automatiquement les prix et les disponibilités des différents modèles auprès de ces magasins, de manière ainsique à vous proposer le meilleur achat possible.",
+  "dealers2-msg": "En plus de cela, l'application récupère automatiquement les prix et les disponibilités des différents modèles auprès de ces magasins, de manière à vous proposer le meilleur achat possible.",
   
   "noDealers-msg": "Nous n'avons actuellement aucun accord avec des revendeurs en {{region}}.",
   

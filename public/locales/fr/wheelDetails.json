@@ -41,6 +41,6 @@
   
   "loadingLikes-msg": "Chargement des likes...",
   "errorLoadingLikes-msg": "Une erreur est survenue lors du chargement du système des likes. Veuillez réessayer plus tard.",
-  "loadingComments-msg": ""Chargement des commentaires...",
+  "loadingComments-msg": "Chargement des commentaires...",
   "errorLoadingComments-msg": "Une erreur est survenue lors du chargement du système des commentaires. Veuillez réessayer plus tard.."
 }
