@@ -1,0 +1,38 @@
+{
+  "changelog-title": "Journal des modifications",
+  
+  "changes-title": "Changement {{changeType}",
+  
+  "majorChange": "majeur",
+  "minorChange": "notable",
+  "patchChange": "mineur",
+
+  "Add automated changelog to the project": "Création du journal des modifications",
+
+  "Add a changelog page to the applicaction, accessible from the version's link, in the Footer": "Affichage du lien d'accès au journal des modifications dans le bas de page",
+  
+  "Support for fixed discounts in addition to percentage discounts": "Prise en charge des remises en montants fixes en plus des remises en pourcentage",
+  "Add discounts for REV Rides store": "Mise en place des codes de réduction pour le magasin REV Rides",
+  "Bugfixs in Changelog page": "Correction de buggs dans le journal des modifications",
+
+  "Add a new filter for the maximum rated power": "Ajout d'un nouveau filtre : Puissance moteur max",
+
+  "Allows the user to select the desired color scheme": "Permettre aux utilisateurs de choisir les couleurs de thème",
+  "Allows the user to select custom values for the weight of each specification": "Permettre aux utilisateurs de choisir les pondérations de chaque spécification dans le score",
+
+  "Add charts to the Comparator": "Ajout de graphiques dans le comparateur",
+
+  "Add availability filter": "Ajout du filtre disponibilité",
+
+  "Add availability information to all wheels": "Ajout des informations de disponibilités pour toutes les roues",
+
+  "Add wheels' dimensions to the app": "Ajout des dimensions des roues",
+
+  "Read price from Ciclonic's brand new website": "Collecte des prix depuis le nouveau site du magasin Ciclonic",
+
+  "Implement a new navigation": "Nouveau système de navigation",
+
+  "Add some french influencers, and apply some new copies to influencers page": "Ajouts des influenceurs français, et de quelques compléments dans la partie influenceurs",
+
+  "Add hollow motor, pedals' size, stock charger, fast charger, charging ports, usb ports specs": "Ajouts de plusieurs spécifications: hollow motor, taille des pédales, durée de charge, charge rapide, ports de charge, ports USB"
+}

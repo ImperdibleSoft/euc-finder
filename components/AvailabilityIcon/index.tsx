@@ -23,7 +23,7 @@ const getAvailabilityColor = (availability: Availability) => {
     case 'available':
       return 'success';
 
-    case 'filtered':
+    case 'leaked':
     case 'announced':
       return 'warning';
 

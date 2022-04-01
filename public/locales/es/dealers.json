@@ -7,7 +7,7 @@
   "noDealers-msg": "No tenemos acuerdos ni tiendas en {{region}}",
   
   "discounts-title": "Descuentos",
-  "discounts1-msg": "Por si no fuera suficiente, tenemos acuerdos con algunas de estas tiendas para ofrecerte descuentos si utilizas nuestros códigos.",
+  "discounts1-msg": "{{appName}} ha negociado acuerdos acuerdos con algunas de estas tiendas para ofrecerte descuentos.",
   "discounts2-msg": "Éstos códigos se te mostrarán siempre que estén disponibles, cuando hagas click en el botón de <Comprar> de cada tienda.",
   
   "website-label": "Página web",

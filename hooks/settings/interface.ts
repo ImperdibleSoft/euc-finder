@@ -43,6 +43,10 @@ export const useInterface = (t: TFunction<'translation'>, i18nFunc: i18n) => {
         {
           label: t('es-label', commonNs),
           value: 'es'
+        },
+        {
+          label: t('fr-label', commonNs),
+          value: 'fr'
         }
       ],
       style: { marginBottom: 24 },

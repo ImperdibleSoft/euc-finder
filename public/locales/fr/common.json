@@ -1,0 +1,133 @@
+{
+  "yes": "Oui",
+  "no": "Non",
+  "at": "à",
+
+  "more": "Agrandir",
+  "less": "Réduire",
+  
+  "selectAnOption-label": "Selectionner une option",
+
+  "withAny": "Tout type de",
+  "with": "Avec",
+  "without": "Sans",
+  
+  "maximum": "Maximum {{property}}",
+  "minimum": "Minimum {{property}}",
+  
+  "region-label": "Région",
+  "europe-label": "Europe",
+  "america-label": "Amérique",
+  "asia-label": "Asie",
+
+  "copy-btn": "Copier",
+  "copied-msg": "Copié dans le presse-papier.",
+  "copyError-msg": "Une erreur est survenue. Veuiller copier le code manuellement.",
+  
+  "appLogo-label": "Logo {{appName}}",
+  "wheelPicture-msg": "Image {{wheelName}}",
+
+  "eucs": "Roues",
+  "videos": "Vidéos",
+  
+  "language-label": "Langues",
+  "en-label": "English",
+  "es-label": "Español",
+  "fr-label": "Français",
+  
+  "id": "ID",
+  "brandId": "Fabricants",
+
+  "availability-label": "Disponibilité",
+  "leaked-label": "Fuitée/Leakée",
+  "announced-label": "Annoncée",
+  "preorder-label": "En précommande",
+  "available-label": "Disponible",
+  "discontinued-label": "Interrompue",
+  
+  "categories-label": "Catégories",
+  "starter-label": "Entrée de gamme",
+  "standard-label": "Moyenne gamme",
+  "high-end-label": "Haut de gamme",
+  "extreme-label": "Extrême",
+  
+  "name": "Modèle",
+  "price": "Prix",
+  "hollowMotor": "Hollow motor/Moteur creux",
+  "ratedPower": "Puissance moteur (nominale)",
+  "peakPower": "Puissance moteur (max)",
+  "maxGradibility": "Pente max",
+  "maxSpeed": "Vitesse max*",
+  
+  "battery": "Batteries",
+  "parallels": "Parallèles",
+  "batteryType": "Type de cellules",
+  "stockCharger": "Temps de charge",
+  "maxCharger": "Temps de charge rapide",
+  "usingChargers": "avec un chargeur de {{tension}}",
+  "usingChargers_plural": "avec {{count}} {{tension}} chargeurs",
+  "chargePorts": "Ports de charge",
+  "usbPorts": "Ports USB",
+  
+  "range": "Autonomie constatée*",
+  "voltage": "Voltage",
+  "diameter": "Taille/Diamètre",
+  "width": "Largeur du pneu",
+  "groundClearance": "Hauteur des pédales",
+  "weight": "Poids",
+  
+  "trolleyHandle": "Trolley",
+  "scorpion": "Scorpion",
+  "telescopic": "Télescopique",
+  
+  "dimensions": "Dimensions",
+  "height-label": "(Hauteur)",
+  "width-label": "(Largeur)",
+  "long-label": "(Longueur)",
+  
+  "pedals": "Pédales",
+  "pedalSize": "Taille des pédales",
+  "pedalLength": "Longueur des pédales",
+  "pedalWidth": "Largeur des pédales",
+  
+  "pedalType": "Structure des pédales",
+  "plain": "Pleine",
+  "honeycomb": "En nid d'abeilles",
+  
+  "pedalSurface": "Revêtement des pédales",
+  "metalic": "Métalique",
+  "rubber": "Silicone",
+  "partialGripTape": "Avec bande(s) antidérapante(s)",
+  "fullGripTape": "Entièrement antidérapante",
+
+  "retentionPins": "Système bloc pédales",
+  
+  "antiSpin": "Coupe-circuit",
+  "sensor": "Capteur",
+  "button": "Boutton",
+  "position": "Position du trolley",
+  
+  "kickstand": "Béquille",
+  "dedicated": "Béquille dédiée",
+  "shell": "Coque",
+  
+  "headlight": "Phare avant",
+  "tailLight": "Feu arrière",
+  "leds": "LEDs",
+  "sound": "Haut-parleurs bluetooth",
+  
+  "display": "Écran",
+  "lcd": "LCD",
+  "led": "LED",
+  
+  "suspension": "Suspension",
+  "custom": "Personnalisable",
+  "standard": "Standard",
+  
+  "color": "Couleur",
+  "white": "Blanc",
+  "black": "Noire",
+  "blackAndRed": "Noir et Rouge",
+  "blackAndYellow": "Noir et Jaune",
+  "blackAndSilver": "Noir et Argentée"
+}

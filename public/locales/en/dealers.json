@@ -7,7 +7,7 @@
   "noDealers-msg": "We don't have agreements or dealers in {{region}}",
   
   "discounts-title": "Discounts",
-  "discounts1-msg": "If that's not enough, we have agreements with some of those dealers, to offer you discounts if you use our codes.",
+  "discounts1-msg": "{{appName}} has also negotiated agreements with certain stores in order to offer you discount codes.",
   "discounts2-msg": "These codes will be shown to you when available, when you click each dealer's <Buy> button.",
   
   "website-label": "Website",

@@ -1,6 +1,6 @@
 import { WheelFeatures, WheelId } from './wheel';
 
-export type Availability = 'filtered' | 'announced' | 'preorder' | 'available' | 'discontinued';
+export type Availability = 'leaked' | 'announced' | 'preorder' | 'available' | 'discontinued';
 
 export type Category = 'starter' | 'standard' | 'high-end' | 'extreme';
 

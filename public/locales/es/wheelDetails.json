@@ -16,8 +16,8 @@
   "confirmation-title": "Vas a abandonar {{appName}}",
   "confirmation-msg": "Esto significa que {{appName}} no será responsable de nada de lo que hagas en la web de {{storeName}}.",
   "manualDiscount-msg": "Si quieres obtener un {{discount}} de descuento, tienes que introducir este código manualmente, cuando estés procesando tu pedido:",
-  "confirmationStay-btn": "Quedarme aquí",
-  "confirmationVisit-btn": "Visitar",
+  "confirmationStay-btn": "Quedarme en {{appName}}",
+  "confirmationVisit-btn": "Visitar {{storeName}}",
 
   "mainSpecs-title": "Especificaciones principales",
 

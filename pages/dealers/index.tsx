@@ -73,7 +73,7 @@ const Dealers: React.FC = () => {
             </Typography>
 
             <Typography variant="body1" component="p" sx={ { mb: 3 } }>
-              { t('discounts1-msg') }
+              { t('discounts1-msg', { appName: APP_NAME }) }
             </Typography>
 
             <Typography variant="body1" component="p" sx={ { mb: 3 } }>
