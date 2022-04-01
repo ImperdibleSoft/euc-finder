@@ -14,12 +14,12 @@
   "importantInfo-title": "Informations importantes",
   
   "models-title": "Roues électriques",
-  "newModels-msg": "Ce site web ne liste que les modèles de roues éléctriques (également appelées gyoroues, monoroues, ou Electric UniCycle / EUC en anglais) les plus récents et les plus puissants de chaque fabricant.",
+  "newModels-msg": "Ce site web est dédié au roues éléctriques (également appelées gyoroues, monoroues, ou Electric UniCycle / EUC en anglais). Il ne liste que les modèles les plus récents de chaque fabricant.",
   "olderVersions-msg": "Cela signifie que certains modèles plus anciens et/ou moins puissants ne sont plus affichés sur le site (même s'ils sont parfois encore en vente sur certains sites).",
   
   "speed-title": "Vitesse max",
-  "displayedSpeed-msg": "Tous les modèles inventoriés sur le site sont vendus avec une vitesse de pointe limitée à {{speed}}.",
-  "modifySpeed-msg": "Pour atteindre les vitesses indiquées sur le site, certaines modifications sont nécessaires.",
+  "displayedSpeed-msg": "Tous les modèles référencés sur le site sont vendus avec une vitesse de pointe limitée à {{speed}}.",
+  "modifySpeed-msg": "Pour atteindre les vitesses max indiquées sur le site, certaines modifications sont nécessaires.",
   
   "range-title": "Autonomie constatée",
   "displayedRange-msg": "Les distances affichées sur le site sont basées sur une utilisation qui se veut la plus réaliste possible de chaque roue.",

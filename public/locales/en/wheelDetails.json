@@ -16,8 +16,8 @@
   "confirmation-title": "You are navigating out of {{appName}}",
   "confirmation-msg": "This means {{appName}} is not responsible for anything you do in {{storeName}}'s site.",
   "manualDiscount-msg": "If you want to get a {{discount}} discount, you need to manually enter this code when you are proccesing your payment:",
-  "confirmationStay-btn": "Stay here",
-  "confirmationVisit-btn": "Visit",
+  "confirmationStay-btn": "Stay at {{appName}}",
+  "confirmationVisit-btn": "Visit {{storeName}}",
   
   "mainSpecs-title": "Main specs",
   

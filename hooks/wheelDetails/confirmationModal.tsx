@@ -70,8 +70,8 @@ export const useConfirmationModal = ({ callback, code, copyCallback, discount, s
         </DialogContent>
 
         <DialogActions>
-          <Button onClick={ handleDismiss }>{ t('confirmationStay-btn') }</Button>
-          <Button onClick={ handleConfirm } variant="contained">{ t('confirmationVisit-btn') }</Button>
+          <Button onClick={ handleDismiss }>{ t('confirmationStay-btn', { appName: APP_NAME }) }</Button>
+          <Button onClick={ handleConfirm } variant="contained">{ t('confirmationVisit-btn', { storeName }) }</Button>
         </DialogActions>
       </Dialog>
     );

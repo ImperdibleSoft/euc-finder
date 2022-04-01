@@ -7,7 +7,7 @@
   "minorChange": "notable",
   "patchChange": "mineur",
 
-  "Add automated changelog to the project": "Ajout d'un historique des versions",
+  "Add automated changelog to the project": "Création du journal des modifications",
 
   "Add a changelog page to the applicaction, accessible from the version's link, in the Footer": "Affichage du lien d'accès au journal des modifications dans le bas de page",
   
