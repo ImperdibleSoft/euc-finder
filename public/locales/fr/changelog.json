@@ -1,7 +1,7 @@
 {
   "changelog-title": "Journal des modifications",
   
-  "changes-title": "Changement {{changeType}",
+  "changes-title": "Changement {{changeType}}",
   
   "majorChange": "majeur",
   "minorChange": "notable",
