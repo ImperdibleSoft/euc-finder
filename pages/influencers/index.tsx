@@ -16,6 +16,7 @@ const Influencers: React.FC = () => {
   const promotedInfluencers = useSelector(getPromotedInfluencers);
   const regularInfluencers = useSelector(getRegularInfluencers);
 
+  const emptyPage = !(promotedInfluencers.length > 0 || regularInfluencers.length > 0);
   const pageTitle = t('influencers-title');
   const pageDescription = t('influencers-description', { appName: APP_NAME });
 
@@ -35,7 +36,7 @@ const Influencers: React.FC = () => {
       </Head>
 
       <SimpleLayout>
-        { !!promotedInfluencers.length && (
+        { !emptyPage && (
           <>
             <Typography variant="h4" sx={ { mb: 2 } }>
               { pageTitle }
@@ -49,39 +50,47 @@ const Influencers: React.FC = () => {
               { t('influencers-msg2') }
             </Typography>
 
-            <Typography variant="h5" sx={ { mb: 2, mt: 6 } }>
-              { t('promotedInfluencers-title') }
-            </Typography>
+            { promotedInfluencers.length > 0 && (
+              <>
+                <Typography variant="h5" sx={ { mb: 2, mt: 6 } }>
+                  { t('promotedInfluencers-title') }
+                </Typography>
 
-            <Typography variant="body1" sx={ { mb: 2 } }>
-              { t('promotedInfluencers-msg') }
-            </Typography>
+                <Typography variant="body1" sx={ { mb: 2 } }>
+                  { t('promotedInfluencers-msg') }
+                </Typography>
 
-            <Grid container spacing={ 2 }>
-              { promotedInfluencers.map(influencer => (
-                <InfluencerCard
-                  key={ influencer.id }
-                  influencer={ influencer }
-                />
-              )) }
-            </Grid>
+                <Grid container spacing={ 2 }>
+                  { promotedInfluencers.map(influencer => (
+                    <InfluencerCard
+                      key={ influencer.id }
+                      influencer={ influencer }
+                    />
+                  )) }
+                </Grid>
+              </>
+            ) }
 
-            <Typography variant="h5" sx={ { mb: 2, mt: 6 } }>
-              { t('regularInfluencers-title') }
-            </Typography>
+            { regularInfluencers.length > 0 && (
+              <>
+                <Typography variant="h5" sx={ { mb: 2, mt: 6 } }>
+                  { t('regularInfluencers-title') }
+                </Typography>
 
-            <Grid container spacing={ 2 }>
-              { regularInfluencers.map(influencer => (
-                <InfluencerCard
-                  key={ influencer.id }
-                  influencer={ influencer }
-                />
-              )) }
-            </Grid>
+                <Grid container spacing={ 2 }>
+                  { regularInfluencers.map(influencer => (
+                    <InfluencerCard
+                      key={ influencer.id }
+                      influencer={ influencer }
+                    />
+                  )) }
+                </Grid>
+              </>
+            ) }
           </>
         ) }
 
-        { !promotedInfluencers.length && (
+        { emptyPage && (
           <EmptyCase />
         ) }
       </SimpleLayout>

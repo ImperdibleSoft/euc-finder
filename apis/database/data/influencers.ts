@@ -14,12 +14,12 @@ export const influencers: Influencer[] = [
     name: 'Electric Dreams',
     avatar: 'https://yt3.ggpht.com/qcq7ZCCYiNkGZPEoXe5UChiFTSOMVVEfmJBli2rYbGabuszaQ5cOjAYRBGz4PTpCuyThRwxI=s88-c-k-c0x00ffffff-no-rj'
   },
-  {
-    channel: 'https://www.youtube.com/c/EUCvibes',
-    id: InfluencerId.eucVibes,
-    name: 'EUC Vibes',
-    avatar: 'https://yt3.ggpht.com/ytc/AKedOLTKdmjfs35Sr74i7H7PbfsUjCxphv75ogcCPgWgwQ=s88-c-k-c0x00ffffff-no-rj'
-  },
+  // {
+  //   channel: 'https://www.youtube.com/c/EUCvibes',
+  //   id: InfluencerId.eucVibes,
+  //   name: 'EUC Vibes',
+  //   avatar: 'https://yt3.ggpht.com/ytc/AKedOLTKdmjfs35Sr74i7H7PbfsUjCxphv75ogcCPgWgwQ=s88-c-k-c0x00ffffff-no-rj'
+  // },
   {
     channel: 'https://www.youtube.com/c/evXNYC',
     id: InfluencerId.evx,
@@ -60,8 +60,8 @@ export const influencers: Influencer[] = [
     channel: 'https://www.youtube.com/channel/UC_XZvw2sCJWEfEiG7aTDnPA',
     id: InfluencerId.ox,
     name: 'A film by OX',
-    avatar: 'https://yt3.ggpht.com/ytc/AKedOLSwlGKsiwJvgtmuz298QsPt5ojSWPe42qQxhylUiQ=s88-c-k-c0x00ffffff-no-rj',
-    promoted: true
+    avatar: 'https://yt3.ggpht.com/ytc/AKedOLSwlGKsiwJvgtmuz298QsPt5ojSWPe42qQxhylUiQ=s88-c-k-c0x00ffffff-no-rj'
+    // promoted: true
   },
   {
     channel: 'https://www.youtube.com/c/WrongWayYouTube',
@@ -69,12 +69,12 @@ export const influencers: Influencer[] = [
     name: 'Wrong Way',
     avatar: 'https://yt3.ggpht.com/ytc/AKedOLQP2W4s93R1YJOiDKaVFVmxQA9oSYdL1SVWMthAHlA=s88-c-k-c0x00ffffff-no-rj'
   },
-  {
-    channel: 'https://www.youtube.com/c/ZenLee',
-    id: InfluencerId.zenLee,
-    name: 'Zen Tech',
-    avatar: 'https://yt3.ggpht.com/dWWIWDwE2q0KUlh0pNBtZudGKxP4cDMbIfZGpXarUR_Ns0HsD8YuTE76jTJl-A7BI6KfAwektA=s88-c-k-c0x00ffffff-no-rj'
-  },
+  // {
+  //   channel: 'https://www.youtube.com/c/ZenLee',
+  //   id: InfluencerId.zenLee,
+  //   name: 'Zen Tech',
+  //   avatar: 'https://yt3.ggpht.com/dWWIWDwE2q0KUlh0pNBtZudGKxP4cDMbIfZGpXarUR_Ns0HsD8YuTE76jTJl-A7BI6KfAwektA=s88-c-k-c0x00ffffff-no-rj'
+  // },
   {
     channel: 'https://www.youtube.com/c/BonheursurSeine',
     id: InfluencerId.bonheursurSeine,

@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.6.1
+
+### Patch Changes
+
+- Fix Content creators page
+
 ## 2.6.0
 
 ### Minor Changes
