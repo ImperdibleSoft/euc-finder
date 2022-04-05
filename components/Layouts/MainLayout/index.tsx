@@ -2,20 +2,26 @@ import { Box, CssBaseline, Theme } from '@mui/material';
 import { useRouter } from 'next/router';
 import React, { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
+import { ROOT } from '../../../constants/clientRoutes';
 import { useModalsContext } from '../../../context';
 import { useBreakpoints, useLayoutTranslations } from '../../../hooks';
 import { getComparedWheels, getNewVideosLength } from '../../../store/selectors';
+import { BRAND_COLOR } from '../../../styles/theme';
 import InfoDisclaimer from '../../InfoDisclaimer';
 import Header from './Header';
 
-const MainLayout = ({ children }: PropsWithChildren<{}>) => {
+interface Props {
+  loading: boolean;
+}
+
+const MainLayout = ({ children, loading }: PropsWithChildren<Props>) => {
   const { initialDisclaimer } = useModalsContext();
   const { md: isDesktop } = useBreakpoints();
   const { t } = useLayoutTranslations();
   const router = useRouter();
   const comparedWheels = useSelector(getComparedWheels).length;
   const newVideos = useSelector(getNewVideosLength());
-  
+  const isLanding = router.pathname === ROOT;
 
   const handleNavigate = (path: string) => {
     if (path.startsWith('http')) {
@@ -29,10 +35,17 @@ const MainLayout = ({ children }: PropsWithChildren<{}>) => {
     <Box
       id="MainLayout"
       sx={ {
-        bgcolor: ({ palette }: Theme) => palette.background.default,
+        bgcolor: ({ palette }: Theme) => loading
+          ? BRAND_COLOR
+          : (
+            isLanding
+              ? palette.background.paper
+              : palette.background.default
+          ),
         display: 'flex',
         flexDirection: 'row',
-        minHeight: '100vh'
+        minHeight: '100vh',
+        transition: 'backgroundColor 0.2s'
       } }
     >
       <CssBaseline />
@@ -40,6 +53,7 @@ const MainLayout = ({ children }: PropsWithChildren<{}>) => {
       <Header
         comparedWheels={ comparedWheels }
         handleNavigate={ handleNavigate }
+        isLanding={ isLanding }
         newVideos={ newVideos }
         pathname={ router.pathname }
         t={ t }

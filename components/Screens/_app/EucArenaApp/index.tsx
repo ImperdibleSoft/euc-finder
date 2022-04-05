@@ -7,7 +7,7 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const loadingStates = useAppData();
 
   return (
-    <MainLayout>
+    <MainLayout loading={ loadingStates.initialData !== 'success' && loadingStates.initialData !== 'error' }>
       { loadingStates.initialData === 'loading' && (
         <LoadingScreen />
       ) }
