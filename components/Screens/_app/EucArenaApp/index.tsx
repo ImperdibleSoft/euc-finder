@@ -1,49 +1,13 @@
-import { useRouter } from 'next/router';
 import { PropsWithChildren } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getRegions } from '../../../../constants';
-import { EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
-import { useAppData, useCommonTranslations } from '../../../../hooks';
-import { setRegion } from '../../../../store/actions';
-import { getBrands, getRegion, getWheels } from '../../../../store/selectors';
-import { LOCAL_STORAGE_KEY, Region, WheelId } from '../../../../types';
-import { setItem } from '../../../../utils';
+import { useAppData } from '../../../../hooks';
 import MainLayout from '../../../Layouts/MainLayout';
 import LoadingScreen from '../../LoadingScreen';
 
 const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
-  const { t } = useCommonTranslations();
-  const dispatch = useDispatch();
-  const router = useRouter();
-  const brands = useSelector(getBrands);
-  const region = useSelector(getRegion);
-  const wheels = useSelector(getWheels);
   const loadingStates = useAppData();
 
-  const handleSelectWheel = (wheelId: WheelId) => {
-    if (wheelId) {
-      router.push(EUC_FINDER_DETAILS.replace(':id', wheelId));
-    }
-  };
-
-  const handleSelectRegion = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
-
-    if (value) {
-      dispatch(setRegion(value as Region));
-      setItem(LOCAL_STORAGE_KEY.REGION, value);
-    }
-  };
-
   return (
-    <MainLayout
-      brands={ brands }
-      handleSelectRegion={ handleSelectRegion }
-      handleSelectWheel={ handleSelectWheel }
-      regions={ getRegions(t) }
-      selectedRegion={ region }
-      wheels={ wheels }
-    >
+    <MainLayout>
       { loadingStates.initialData === 'loading' && (
         <LoadingScreen />
       ) }

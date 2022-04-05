@@ -22,10 +22,12 @@ export interface ClientRoute {
   exact?: boolean;
 }
 
-export interface BottomNavigationRoute {
+export interface NavigationRoute {
   label: string;
   icon: string;
   path: string;
+  secondary?: boolean;
+  small?: boolean;
 }
 
 export interface ServerRoute {

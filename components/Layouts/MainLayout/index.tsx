@@ -1,28 +1,35 @@
-import { Box, CssBaseline, Toolbar } from '@mui/material';
+import { Box, CssBaseline, Theme } from '@mui/material';
+import { useRouter } from 'next/router';
 import React, { PropsWithChildren } from 'react';
+import { useSelector } from 'react-redux';
 import { useModalsContext } from '../../../context';
-import { useBreakpoints } from '../../../hooks';
+import { useBreakpoints, useLayoutTranslations } from '../../../hooks';
+import { getComparedWheels, getNewVideosLength } from '../../../store/selectors';
 import InfoDisclaimer from '../../InfoDisclaimer';
-import Header, { Props } from './Header';
-import NavigationMenu from './NavigationMenu';
+import Header from './Header';
 
-const MainLayout: React.FC<PropsWithChildren<Props>> = ({
-  brands,
-  children,
-  handleSelectRegion,
-  handleSelectWheel,
-  regions,
-  selectedRegion,
-  wheels
-}) => {
+const MainLayout = ({ children }: PropsWithChildren<{}>) => {
   const { initialDisclaimer } = useModalsContext();
   const { md: isDesktop } = useBreakpoints();
+  const { t } = useLayoutTranslations();
+  const router = useRouter();
+  const comparedWheels = useSelector(getComparedWheels).length;
+  const newVideos = useSelector(getNewVideosLength());
   
+
+  const handleNavigate = (path: string) => {
+    if (path.startsWith('http')) {
+      global?.window?.open?.(path);
+    } else { 
+      router.push(path);
+    }
+  };
+
   return (
     <Box
       id="MainLayout"
       sx={ {
-        bgcolor: (theme) => theme.palette.background.default,
+        bgcolor: ({ palette }: Theme) => palette.background.default,
         display: 'flex',
         flexDirection: 'row',
         minHeight: '100vh'
@@ -31,12 +38,11 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
       <CssBaseline />
 
       <Header
-        brands={ brands }
-        handleSelectRegion={ handleSelectRegion }
-        handleSelectWheel={ handleSelectWheel }
-        regions={ regions }
-        selectedRegion={ selectedRegion }
-        wheels={ wheels }
+        comparedWheels={ comparedWheels }
+        handleNavigate={ handleNavigate }
+        newVideos={ newVideos }
+        pathname={ router.pathname }
+        t={ t }
       />
 
       <Box
@@ -45,7 +51,8 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
           display: 'flex',
           flexDirection: isDesktop ? 'row-reverse' : 'column',
           flex: 1,
-          maxWidth: '100%'
+          maxWidth: '100%',
+          mt: 8
         } }
       >
         <Box
@@ -60,17 +67,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
             py: 3
           } }
         >
-          <Toolbar
-            id="MainLayout-contentSpacer"
-            sx={ {
-              boxSizing: 'content-box',
-              py: { xs: 3, sm: 0 }
-            } }
-          />
-
           { children }
-
-          <NavigationMenu />
         </Box>
       </Box>
 
@@ -81,6 +78,7 @@ const MainLayout: React.FC<PropsWithChildren<Props>> = ({
         />
       ) }
     </Box>
-  );};
+  );
+};
 
 export default MainLayout;
