@@ -1,216 +1,73 @@
-/* eslint-disable max-lines */
-import { Alert, Button, ButtonGroup, Container, Icon, Snackbar, Typography } from '@mui/material';
-import Head from 'next/head';
-import React, { useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { Box, SxProps, Theme, Typography } from '@mui/material';
+import Link from 'next/link';
+import React from 'react';
 import { HEADER_HEIGHT } from '../components/Layouts/constants';
-import LeftSidebarLayout from '../components/Layouts/LeftSidebarLayout';
-import Columns from '../components/Screens/WheelsList/Columns';
-import EmptyCase from '../components/Screens/WheelsList/EmptyCase';
-import Filters from '../components/Screens/WheelsList/Filters';
-import GridView from '../components/Screens/WheelsList/GridView';
-import TableView from '../components/Screens/WheelsList/TableView';
-import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../constants';
-import {
-  useBreakpoints,
-  useColumns,
-  useCompareActions,
-  useEucList,
-  useFilterFields,
-  useHeadingStyles,
-  useSidebar,
-  useSorting,
-  useWheelsListTranslations
-} from '../hooks';
-import { getBrands, getMaxComparedWheels, getPricesConfig } from '../store/selectors';
-import { TranslationFile, WheelId } from '../types';
-import { formatWheelName } from '../utils';
+import { EUC_COMPARATOR, EUC_FINDER, VIDEOS } from '../constants/clientRoutes';
+import { BRAND_COLOR } from '../styles/theme';
 import { getTranslationsFromFiles } from '../utils-server';
 
-interface Props {
-  pictures: Record<WheelId, string>;
-}
+const section: SxProps<Theme> = {
+  alignItems: 'center',
+  display: 'flex',
+  flexDirection: 'row',
+  height: {
+    xs: `calc(100vh - ${ HEADER_HEIGHT }px)`,
+    md: `calc(50vh - ${ HEADER_HEIGHT / 2 }px)`
+  },
+  justifyContent: 'center',
+  mx: 'auto',
+  maxWidth: 1280,
+  width: '100%',
+  '&:nth-child(even)': { flexDirection: 'row-reverse' }
+};
 
-// eslint-disable-next-line max-lines-per-function
-const Wheels: React.FC<Props> = ({ pictures }) => {
-  const { sm: isTablet } = useBreakpoints();
-  const { t } = useWheelsListTranslations();
-  const [view, setView] = useState<'grid' | 'table'>('grid');
-  const displayTable = view === 'table';
-  const ListView = displayTable ? TableView : GridView;
-  const showPrice = useSelector(getPricesConfig);
-  const maxComparedWheels = useSelector(getMaxComparedWheels);
-  const brands = useSelector(getBrands);
-
-  const { handleHide, handleReset, handleShow, ...columns } = useColumns();
-  const { fields, filters, handleResetFilters } = useFilterFields();
-
-  const { handleCloseSidebar, handleOpenSidebar, open } = useSidebar();
-  const { sorting, handleSort } = useSorting();
-
-  const sortedWheels = useEucList(filters, sorting, pictures);
-
-  const {
-    canCompareMoreWheels,
-    comparedWheels,
-    handleAddAllToComparision,
-    handleAddToComparision,
-    handleNavigateToComparator,
-    handleOpenComparator,
-    isBeingCompared
-  } = useCompareActions();
-
-  const canCompareAllWheels = sortedWheels.length > 0 && sortedWheels.length <= maxComparedWheels;
-  const canCompareOneWheel = canCompareMoreWheels();
-  const styles = useHeadingStyles(canCompareAllWheels, view);
-
-  const pageTitle = APP_NAME;
-  const pageDescription = APP_DESCRIPTION;
-
-  const collapsableSize = useMemo(() => {
-    if (!displayTable || !isTablet) {
-      return undefined;
-    }
-
-    const headerSize = HEADER_HEIGHT / 2;
-    const paddingBottom = 16;
-    const button = 36;
-    const spacing = headerSize + paddingBottom + button;
-
-    return `calc(50vh - ${ spacing }px)`;
-  }, [isTablet, displayTable]);
-
+const Landing = () => {
   return (
-    <>
-      <Head>
-        <title>{ pageTitle }</title>
-        <meta name="description" content={ pageDescription } />
-
-        <meta name="keywords" content={ KEYWORDS.join(', ') } />
-
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content={ pageTitle } />
-        <meta property="og:description" content={ pageDescription } />
-        <meta property="og:image" content={ require('/public/assets/ogImage.png').default?.src } />
-        <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
-      </Head>
-
-      <LeftSidebarLayout
-        handleCloseSidebar={ handleCloseSidebar }
-        handleOpenSidebar={ handleOpenSidebar }
-        open={ open }
-        sidebar={ (
-          <>
-            <Filters
-              collapsedSize={ collapsableSize }
-              fields={ fields }
-              handleResetFilters={ handleResetFilters }
-            />
-
-            { displayTable && (
-              <Columns
-                collapsedSize={ collapsableSize }
-                columns={ columns }
-                handleHide={ handleHide }
-                handleReset={ handleReset }
-                handleShow={ handleShow }
-              />
-            ) }
-          </>
-        ) }
+    <Box sx={ { my: -3 } }>
+      <Box
+        sx={ {
+          ...section,
+          background: `linear-gradient(180deg, ${ BRAND_COLOR }FF 70%, ${ BRAND_COLOR }00 100%)`,
+          height: '100vh',
+          maxWidth: 'none'
+        } }
       >
-        <Container maxWidth={ styles.containerMaxWidth } sx={ styles.buttonsContainer }>
-          { /* Filters */ }
-          <ButtonGroup sx={ styles.filtersGroup }>
-            <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
-              { t('filters-title') }
-            </Button>
-          </ButtonGroup>
-
-          { /* Comparator */ }
-          <ButtonGroup sx={ styles.comparatorGroup } orientation={ styles.comparatorGroupOrientation }>
-            <Button onClick={ handleOpenComparator }>
-              { t('compare-btn') }
-            </Button>
-
-            { canCompareAllWheels && (
-              <Button
-                onClick={ () => handleAddAllToComparision(sortedWheels.map(w => w.id)) }
-                sx={ styles.compareAllWheels }
-              >
-                { t('compareAll-btn', { wheels: sortedWheels.length }) }
-              </Button>
-            ) }
-          </ButtonGroup>
-
-          { /* View toggles */ }
-          <ButtonGroup sx={ styles.viewTogglesGroup }>
-            <Button onClick={ () => { setView('grid'); } }>
-              <Icon color={ view === 'grid' ? 'primary' : 'disabled' }>grid_view</Icon>
-            </Button>
         
-            <Button onClick={ () => { setView('table'); } }>
-              <Icon color={ view === 'table' ? 'primary' : 'disabled' }>table_rows</Icon>
-            </Button>
-          </ButtonGroup>
-        </Container>
-
-        <Container maxWidth={ styles.containerMaxWidth } sx={ styles.commonContainer }>
-          <Typography variant="body1" component="p">
-            { t('unicycles-label', { quantity: sortedWheels.length }) }
-          </Typography>
-        </Container>
+      </Box>
       
-        <ListView
-          columns={ columns }
-          handleAddToCompare={ canCompareOneWheel ? handleAddToComparision : undefined }
-          handleSort={ handleSort }
-          isBeingCompared={ isBeingCompared }
-          records={ sortedWheels }
-          showPrice={ showPrice }
-          sorting={ sorting }
-        />
+      <Box sx={ section }>
+        <Typography variant="h3">
+          EUC Finder
+        </Typography>
 
-        { comparedWheels.map((wheelId, index) => {
-          const isLastSnackbar = index >= comparedWheels.length - 1;
-          const wheel = sortedWheels.find(w => w.id === wheelId);
+        <Link href={ EUC_FINDER }>Link</Link>
+      </Box>
 
-          return (
-            <Snackbar
-              key={ wheelId }
-              anchorOrigin={ { horizontal: 'center', vertical: 'bottom' } }
-              autoHideDuration={ 6000 }
-              open={ isLastSnackbar }
-            >
-              <Alert
-                action={
-                  <Button color="inherit" onClick={ handleNavigateToComparator } size="small">
-                    { t('checkResults-btn') }
-                  </Button>
-                }
-                severity="success"
-                sx={ { width: '100%' } }
-              >
-                { t(
-                  'wheelAddedToComparator-msg',
-                  { wheel: wheel ? formatWheelName(wheel, brands) : wheelId }
-                ) }
-              </Alert>
-            </Snackbar>
-          );
-        }) }
+      <Box sx={ section }>
+        <Typography variant="h3">
+          EUC Comparator
+        </Typography>
 
-        { sortedWheels.length <= 0 && (
-          <EmptyCase
-            handleOpenFilters={ handleOpenSidebar }
-            handleResetFilters={ handleResetFilters }
-          />
-        ) }
-      </LeftSidebarLayout>
-    </>
+        <Link href={ EUC_COMPARATOR }>Link</Link>
+      </Box>
+      
+      <Box sx={ section }>
+        <Typography variant="h3">
+          Videos
+        </Typography>
+
+        <Link href={ VIDEOS }>Link</Link>
+      </Box>
+      
+      <Box sx={ section }>
+        <Typography variant="h3">
+          About
+        </Typography>
+      </Box>
+    </Box>
   );
 };
 
-export default Wheels;
+export default Landing;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.wheelsList], 'first');
+export const getStaticProps = getTranslationsFromFiles([], 'none');
