@@ -1,10 +1,8 @@
-import { alpha, InputBase, styled } from '@mui/material';
+import { InputBase, styled } from '@mui/material';
 
 export const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white , 0.15),
-  '&:hover': { backgroundColor: alpha(theme.palette.common.white, 0.25) },
   height: 40,
   width: 'calc(50% - 4px)',
   [theme.breakpoints.up('sm')]: {

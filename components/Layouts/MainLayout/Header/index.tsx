@@ -101,6 +101,8 @@ const Header: React.FC<Props> = ({
           <WheelSelector
             brands={ brands }
             onChange={ handleSelectWheel }
+            style={ { marginBottom: 0 } }
+            traslucent
             wheels={ wheels }
           />
 

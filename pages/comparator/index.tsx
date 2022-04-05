@@ -2,11 +2,11 @@ import { Box, Button, ButtonGroup } from '@mui/material';
 import Head from 'next/head';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Dropdown, { DropdownItem } from '../../components/Form/Dropdown';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import CompareCharts from '../../components/Screens/CompareView/CompareCharts';
 import CompareTable from '../../components/Screens/CompareView/CompareTable';
 import EmptyCase from '../../components/Screens/CompareView/EmptyCase';
+import WheelSelector from '../../components/WheelSelector';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
 import { useComparatorTranslations, useCompareActions, useComparedWheels } from '../../hooks';
 import { getBrands, getMaxCurrentAllowed, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
@@ -30,17 +30,12 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
   const specs = useSelector(getTableViewSpecs).filter(k => k !== 'name');
   const measureUnits = useSelector(getMeasureUnits);
   const maxCurrentAllowed = useSelector(getMaxCurrentAllowed);
-  const addWheelOptions = useSelector(getWheels)
-    .map((w): DropdownItem => ({
-      label: w.name,
-      value: w.id
-    }));
+  const wheels = useSelector(getWheels);
   const { minMaxScores, specWeights, wheelScores, wheels: comparedWheels } = useComparedWheels();
 
-  const renderWheelDropdown = (name: string) => {
+  const renderWheelDropdown = () => {
     const handleChange = canCompareMoreWheels()
-      ? (event: React.ChangeEvent<HTMLSelectElement>) => {
-        const wheelId = event.target.value as WheelId;
+      ? (wheelId: WheelId) => {
         handleAddToComparision(wheelId);
       }
       : undefined;
@@ -50,13 +45,11 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
     }
 
     return (
-      <Dropdown
-        name={ name }
+      <WheelSelector
+        brands={ brands }
         onChange={ handleChange }
-        options={ addWheelOptions }
-        label={ t('addWheel-label') }
-        fullWidth={ false }
-        value=""
+        placeholder={ t('addWheel-label') }
+        wheels={ wheels }
       />
     );
   };
@@ -99,7 +92,7 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
           </ButtonGroup>
         </Box>
 
-        { renderWheelDropdown('addWheel') }
+        { renderWheelDropdown() }
 
         { comparedWheels.length > 0 && (
           <>
@@ -125,7 +118,7 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
 
         { comparedWheels.length <= 0 && (
           <EmptyCase>
-            { renderWheelDropdown('addWheel-emptyCase') }
+            { renderWheelDropdown() }
           </EmptyCase>
         ) }
       </SimpleLayout>
