@@ -101,12 +101,24 @@ const Header: React.FC<Props> = ({
           <WheelSelector
             brands={ brands }
             onChange={ handleSelectWheel }
-            style={ { marginBottom: 0 } }
+            sx={ {
+              flex: 1,
+              mb: '0 !important',
+              minWidth: { xs: '0 !important', sm: '200px !important' },
+              width: { xs: `calc(50% - 4px)`, sm: 'auto' }
+            } }
             traslucent
             wheels={ wheels }
           />
 
-          <Search id="Header-region">
+          <Search
+            id="Header-region"
+            sx={ {
+              display: 'inline-flex',
+              flex: 1,
+              minWidth: { sm: '200px' }
+            } }
+          >
             <Dropdown
               icon="public"
               label={ t('region-label') }

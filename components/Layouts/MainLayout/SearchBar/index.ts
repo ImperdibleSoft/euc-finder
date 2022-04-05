@@ -4,12 +4,6 @@ export const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   height: 40,
-  width: 'calc(50% - 4px)',
-  [theme.breakpoints.up('sm')]: {
-    maxWidth: 'none',
-    minWidth: 200,
-    width: 'auto'
-  },
   '& > div': {
     marginBottom: '0px !important',
     maxWidth: '100%',

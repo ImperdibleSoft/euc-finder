@@ -1,4 +1,4 @@
-import { alpha, Autocomplete, FormControl, Icon, Theme } from '@mui/material';
+import { alpha, Autocomplete, FormControl, Icon, SxProps, Theme } from '@mui/material';
 import React from 'react';
 import { useLayoutTranslations } from '../../hooks';
 import { Brand, Wheel, WheelId } from '../../types';
@@ -11,11 +11,11 @@ interface Props {
   onChange: (wheelId: WheelId) => void;
   placeholder?: string;
   traslucent?: boolean;
-  style?: React.CSSProperties;
+  sx?: SxProps<Theme>;
   wheels: Wheel[];
 }
 
-const WheelSelector = ({ brands, onChange, placeholder, traslucent = false, style, wheels }: Props) => {
+const WheelSelector = ({ brands, onChange, placeholder, traslucent = false, sx, wheels }: Props) => {
   const { t } = useLayoutTranslations();
 
   const handleChange = (
@@ -30,11 +30,11 @@ const WheelSelector = ({ brands, onChange, placeholder, traslucent = false, styl
   };
 
   return (
-    <FormControl style={ { ...formControlStyles, ...style } }>
+    <FormControl style={ formControlStyles } sx={ sx }>
       <Search sx={ {
         backgroundColor: ({ palette  }: Theme) => alpha(palette.background.default , traslucent ? 0.15 : 1),
         borderBottom: ({ palette }: Theme) => `1px solid ${ alpha(palette.primary.main, 1) }`,
-        borderRadius: 0,
+        borderRadius: traslucent ? undefined : 0,
         mr: (theme) => theme.spacing(1),
 
         '&:hover': {
