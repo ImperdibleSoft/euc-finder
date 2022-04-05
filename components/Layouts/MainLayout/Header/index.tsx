@@ -1,13 +1,4 @@
-import {
-  AppBar,
-  Autocomplete,
-  AutocompleteChangeDetails,
-  AutocompleteChangeReason,
-  Box,
-  Icon,
-  Toolbar,
-  Typography
-} from '@mui/material';
+import { AppBar, Box, Toolbar, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -15,20 +6,15 @@ import { APP_NAME } from '../../../../constants';
 import { ROOT } from '../../../../constants/clientRoutes';
 import { commonNs, useLayoutTranslations } from '../../../../hooks';
 import { BRAND_COLOR } from '../../../../styles/theme';
-import { Brand, Region, Wheel } from '../../../../types';
-import { getBrandInfo } from '../../../../utils';
+import { Brand, Region, Wheel, WheelId } from '../../../../types';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
-import { Search, SearchIconWrapper, StyledInputBase } from '../SearchBar';
+import WheelSelector from '../../../WheelSelector';
+import { Search } from '../SearchBar';
 
 export interface Props {
   brands: Brand[];
   handleSelectRegion: (event: React.ChangeEvent<HTMLSelectElement>) => void
-  handleSelectWheel: (
-    event: React.SyntheticEvent<Element, Event>,
-    value: Wheel | null,
-    reason: AutocompleteChangeReason,
-    details?: AutocompleteChangeDetails<Wheel> | undefined
-  ) => void
+  handleSelectWheel: (wheelId: WheelId) => void
   regions: DropdownItem[]
   selectedRegion: Region
   wheels: Wheel[]
@@ -112,24 +98,11 @@ const Header: React.FC<Props> = ({
             width: { xs: '100%', sm: 'auto' }
           } }
         >
-          <Search id="Header-search" sx={ { mr: (theme) => theme.spacing(1) } }>
-            <SearchIconWrapper>
-              <Icon>search</Icon>
-            </SearchIconWrapper>
-
-            <Autocomplete<Wheel>
-              onChange={ handleSelectWheel }
-              options={ wheels }
-              getOptionLabel={ wheel => wheel.name }
-              groupBy={ wheel => getBrandInfo(wheel.brandId, brands)?.name ?? '' }
-              renderInput={ ({ InputLabelProps, InputProps, ...params }) => (
-                <StyledInputBase
-                  { ...InputProps }
-                  { ...params }
-                  placeholder={ t('search-label') }
-                />) }
-            />
-          </Search>
+          <WheelSelector
+            brands={ brands }
+            onChange={ handleSelectWheel }
+            wheels={ wheels }
+          />
 
           <Search id="Header-region">
             <Dropdown

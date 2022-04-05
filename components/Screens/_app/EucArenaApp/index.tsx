@@ -6,7 +6,7 @@ import { EUC_FINDER_DETAILS } from '../../../../constants/clientRoutes';
 import { useAppData, useCommonTranslations } from '../../../../hooks';
 import { setRegion } from '../../../../store/actions';
 import { getBrands, getRegion, getWheels } from '../../../../store/selectors';
-import { LOCAL_STORAGE_KEY, Region, Wheel } from '../../../../types';
+import { LOCAL_STORAGE_KEY, Region, WheelId } from '../../../../types';
 import { setItem } from '../../../../utils';
 import MainLayout from '../../../Layouts/MainLayout';
 import LoadingScreen from '../../LoadingScreen';
@@ -20,9 +20,9 @@ const EucArenaApp: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const wheels = useSelector(getWheels);
   const loadingStates = useAppData();
 
-  const handleSelectWheel = (event: React.SyntheticEvent<Element, Event>, value: Wheel | null) => {
-    if (value?.id) {
-      router.push(EUC_FINDER_DETAILS.replace(':id', value.id));
+  const handleSelectWheel = (wheelId: WheelId) => {
+    if (wheelId) {
+      router.push(EUC_FINDER_DETAILS.replace(':id', wheelId));
     }
   };
 

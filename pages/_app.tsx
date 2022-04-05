@@ -18,7 +18,6 @@ import '../styles/globals.css';
 import { LOCAL_STORAGE_KEY } from '../types';
 import { cleanOldCaches, pageview, setItem } from '../utils';
 
-
 const store = configureStore();
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
