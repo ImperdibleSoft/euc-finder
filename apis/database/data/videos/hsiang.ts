@@ -305,14 +305,14 @@ const hsiangVideos: Video[] = [
     language: 'en'
   },
   {
-    url: 'https://www.youtube.com/watch?v=ZOVx2-jhpi4',
+    url: 'https://www.youtube.com/watch?v=8h41p13e4TU',
     tags: [
       InfluencerId.hsiang,
       VideoCategory.chatting,
       WheelId.ksS20
     ],
     publishDate: '28/Mar/2022',
-    releaseDate: '30/Mar/2022',
+    releaseDate: '05/Apr/2022',
     language: 'en'
   }
 ];
