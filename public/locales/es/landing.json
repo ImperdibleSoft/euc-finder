@@ -1,7 +1,24 @@
 {
   "visit-btn": "Visitar",
 
-  "eucFinder-desc": "Encuentra la mejor rueda para tí",
-  "eucComparator-desc": "",
-  "videos-desc": ""
+  "eucFinder-desc": "¡Conoce el {{appName}}! La mejor forma de encontrar tu rueda ideal.",
+  "eucFinder-desc2": "En el {{appName}} podrás seleccionar las especificaciones que te gustaría tener en tu rueda para ver las diferentes opciones disponibles.",
+
+  "eucComparator-desc": "¿No puedes decidir entre varias ruedas? ¡No te preocupes! El {{appName}} le asignará una puntuación a cada una para decirte cuál es la mejor de todas.",
+  "eucComparator-desc2": "Además, podrás personalizar tus preferencias para que el {{appName}} puntúe mejor aquellas funcionalidades que tú valoras más.",
+
+  "settings-desc": "En EUC Finder dispones de una amplia variedad de opciones para personalizar tu experiencia. Desde el idioma o el modo oscuro, pasando por unidades de medida (como kilómetros o millas, milímetros o pulgadas) hasta la importancia que tiene para tí cada funcionalidad de un monociclo.",
+  "settings-desc2": "Aquí podrás personalizar casi cualquier aspecto de la aplicación, para que usarla sea una experiencia cómoda y gratificante.",
+
+  "videos-desc": "¿Quieres aprender más sobre ruedas? ¿Tienes dudas sobre un modelo en particular? Sumérgete en la sección de {{appName}} y vuélvete un experto.",
+  "videos-desc2": "La sección de {{appName}} cuenta con cientos de vídeos de calidad, seleccionados manualmente, donde podrás ver reviews, comparaciones o unboxings realizados por los mejores Creadores de contenido.",
+
+  "dealers-desc": "Como apuesta de EUC Finder por la transparencia, aquí podrás ver todas las tiendas con las que EUC Finder trabaja en tu región.",
+  "dealers-desc2": "Podrás ver información relevante, como sus páginas web oficiales, cuántas ruedas tienen a la venta, o el estado de las negociaciones para ofrecerte códigos de descuento.",
+
+  "influencers-desc": "Aquí podrás conocer a algunas de las personalidades más importantes en la comunidad de los monociclos.",
+  "influencers-desc2": "Estos Creadores de contenido ayudan a la comunidad a crecer, informando a nuevos y veteranos sobre las últimas novedades en el mundo de los monociclos.",
+
+  "about-desc": "",
+  "about-desc2": ""
 }

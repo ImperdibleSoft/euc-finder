@@ -1,0 +1,24 @@
+{
+  "visit-btn": "Visiter",
+
+  "eucFinder-desc": "Apprenez à connaître le {{appName}}! La meilleure façon de trouver votre roue idéale.",
+  "eucFinder-desc2": "Dans le {{appName}}, vous pouvez sélectionner les spécifications que vous souhaitez avoir sur votre roue pour voir les différentes options disponibles.",
+
+  "eucComparator-desc": "Vous hésitez entre plusieurs roues ? Ne vous inquiétez pas! Le {{appName}} attribuera une note à chacun pour vous dire lequel est le meilleur de tous.",
+  "eucComparator-desc2": "De plus, vous pouvez personnaliser vos préférences afin que le {{appName}} note mieux les fonctionnalités que vous appréciez le plus.",
+
+  "settings-desc": "Dans EUC Finder, vous disposez d'une grande variété d'options pour personnaliser votre expérience. De la langue ou du mode sombre, en passant par les unités de mesure (telles que les kilomètres ou les miles, les millimètres ou les pouces) jusqu'à l'importance que chaque fonctionnalité d'un monocycle a pour vous.",
+  "settings-desc2": "Ici, vous pouvez personnaliser presque tous les aspects de l'application, de sorte que son utilisation soit une expérience confortable et enrichissante.",
+
+  "videos-desc": "Vous souhaitez en savoir plus sur les roues ? Vous avez des doutes sur un modèle en particulier ? Plongez dans la section {{appName}} et devenez un expert.",
+  "videos-desc2": "La section {{appName}} contient des centaines de vidéos de qualité, sélectionnées manuellement, où vous pouvez voir des critiques, des comparaisons ou des déballages réalisés par les meilleurs créateurs de contenu.",
+
+  "dealers-desc": "Dans le cadre de l'engagement d'EUC Finder en faveur de la transparence, vous pouvez voir ici tous les magasins avec lesquels EUC Finder travaille dans votre région.",
+  "dealers-desc2": "Vous pourrez voir des informations pertinentes, telles que leurs pages Web officielles, le nombre de roues qu'ils ont à vendre ou l'état des négociations pour vous offrir des codes de réduction.",
+
+  "influencers-desc": "Ici, vous pouvez rencontrer certaines des plus grandes personnalités de la communauté des monocycles.",
+  "influencers-desc2": "Ces créateurs de contenu aident la communauté à se développer en informant les nouveaux arrivants et les vétérans des dernières nouvelles dans le monde du monocycle.",
+
+  "about-desc": "",
+  "about-desc2": ""
+}
