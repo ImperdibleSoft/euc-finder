@@ -5,6 +5,8 @@ import { useLandingTranslations } from '../../../hooks';
 import { TranslationFile } from '../../../types';
 import LandingSection from './Section';
 
+const layoutNs = { ns: TranslationFile.layout };
+
 const LandingPage = () => {
   const { t } = useLandingTranslations();
 
@@ -14,7 +16,8 @@ const LandingPage = () => {
         <LandingSection
           key={ section.path }
           callToAction={ t(section.callToAction) }
-          description={ t(section.description) }
+          description={ t(section.description, { appName: t(section.title, layoutNs) }) }
+          extraText={ section.extraText ? t(section.extraText, { appName: t(section.title, layoutNs) }) : undefined }
           path={ section.path }
           picture={ section.picture }
           sx={ section.sx }

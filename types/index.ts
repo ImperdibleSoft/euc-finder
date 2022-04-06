@@ -53,6 +53,7 @@ export type LoadingState<T = 'loading'> = 'idle' | T | 'success' | 'error'
 export interface LandingSectionProps {
   callToAction: string;
   description: string;
+  extraText?: string;
   path: string;
   picture: string;
   sx?: SxProps<Theme>;

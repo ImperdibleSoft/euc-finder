@@ -2,15 +2,23 @@ import { Box, Button, Theme, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { useBreakpoints } from '../../../../hooks';
+import { useTranslation } from 'react-i18next';
 import { BRAND_COLOR } from '../../../../styles/theme';
 import { LandingSectionProps } from '../../../../types';
 import { HEADER_HEIGHT } from '../../../Layouts/constants';
 
-const LandingSection = ({ callToAction, description, path, picture, title, sx }: LandingSectionProps): JSX.Element => {
-  const { md } = useBreakpoints();
+const LandingSection = ({
+  callToAction,
+  description,
+  extraText,
+  path,
+  picture,
+  title,
+  sx
+}: LandingSectionProps): JSX.Element => {
+  const { i18n } = useTranslation();
 
-  const imgWidth = md ? 1280 : 320;
+  const imgWidth = 1280;
   const imgHeight = Math.round(((imgWidth / 16) * 10));
 
   return (
@@ -66,13 +74,19 @@ const LandingSection = ({ callToAction, description, path, picture, title, sx }:
             textAlign: 'center'
           } }
         >
-          <Typography className="LandingSection-title" variant="h3" sx={ { mb: 2 } }>
+          <Typography className="LandingSection-title" variant="h3" sx={ { mb: 3 } }>
             { title }
           </Typography>
 
-          <Typography className="LandingSection-description" variant="body1" sx={ { mb: 2 } }>
+          <Typography className="LandingSection-description" variant="body1" sx={ { mb: 3 } }>
             { description }
           </Typography>
+
+          { extraText && (
+            <Typography className="LandingSection-description" variant="body1" sx={ { mb: 3 } }>
+              { extraText }
+            </Typography>
+          ) }
 
           <Link href={ path } passHref>
             <Button className="LandingSection-cta" variant="contained" size="large">
@@ -111,7 +125,7 @@ const LandingSection = ({ callToAction, description, path, picture, title, sx }:
               alt=""
               className="LandingSection-picture"
               height={ imgHeight }
-              src={ picture }
+              src={ picture.replace('{{lang}}', i18n.language) }
               width={ imgWidth }
             />
           </Box>
