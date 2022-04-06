@@ -84,7 +84,7 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
   return (
     <Box
       id="LeftSidebarLayout"
-      sx={ { display: 'flex', maxWidth: '100%' } }
+      sx={ { display: 'flex', height: '100%', maxWidth: '100%' } }
     >
       { renderSidebar(sidebar) }
 
@@ -94,14 +94,18 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
           display: 'flex',
           flex: 1,
           flexDirection: 'column',
+          height: '100%',
           maxWidth: isPermanentSidebar ? `calc(100% - ${ FILTERS_SIDEBAR_WIDTH }px)` : '100%'
         } }
       >
-        { children }
+        <Box sx={ { flex: 1 } }>
+          { children }
+        </Box>
 
         <Footer />
       </Box>
     </Box>
-  );};
+  );
+};
 
 export default LeftSidebarLayout;
