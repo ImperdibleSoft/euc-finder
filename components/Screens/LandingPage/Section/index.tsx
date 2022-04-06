@@ -102,7 +102,7 @@ const LandingSection = ({
             display: 'flex',
             justifyContent: 'center',
             pb: {
-              xs: 2,
+              xs: 3,
               md: 0
             },
             '&, & *': { borderRadius: 2 }
