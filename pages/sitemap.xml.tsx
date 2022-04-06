@@ -3,6 +3,7 @@ import React from 'react';
 import { wheels } from '../apis/database/data';
 import { APP_URL } from '../constants';
 import {
+  ABOUT,
   CHANGELOG,
   DEALERS,
   EUC_COMPARATOR,
@@ -38,10 +39,11 @@ export const getServerSideProps = ({ res }: Props) => {
     EUC_FINDER,
     EUC_COMPARATOR,
     VIDEOS,
-    INFLUENCERS,
     DEALERS,
+    INFLUENCERS,
     SETTINGS,
-    CHANGELOG
+    CHANGELOG,
+    ABOUT
   ].map((staticPagePath) => `${ baseUrl }${ staticPagePath }`);
   const wheelsPages = wheels.map((wheel) => `${ baseUrl }${ EUC_FINDER_DETAILS.replace(':id', wheel.id) }`);
 
