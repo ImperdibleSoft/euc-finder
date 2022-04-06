@@ -23,6 +23,12 @@ export const useLandingTranslations = () => {
   return { t, i18n };
 };
 
+export const useAboutTranslations = () => {
+  const { t, i18n } = useTranslation([TranslationFile.about, ...commonTranslations]);
+
+  return { t, i18n };
+};
+
 export const useChangelogTranslations = () => {
   const { t, i18n } = useTranslation([TranslationFile.changelog, ...commonTranslations]);
 

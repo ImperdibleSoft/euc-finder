@@ -1,6 +1,6 @@
 import { LOCAL_STORAGE_KEY, NavigationRoute } from '../types';
 import { getItem } from '../utils';
-import { DEALERS, EUC_FINDER, EUC_COMPARATOR, INFLUENCERS, SETTINGS, VIDEOS, EUC_MANAGER } from './clientRoutes';
+import { DEALERS, EUC_FINDER, EUC_COMPARATOR, INFLUENCERS, SETTINGS, VIDEOS, EUC_MANAGER, ABOUT } from './clientRoutes';
 
 const getNavigation = (): NavigationRoute[] => {
   const eucFinder = {
@@ -41,6 +41,13 @@ const getNavigation = (): NavigationRoute[] => {
     secondary: true
   };
 
+  const about = {
+    label: 'nav-about',
+    icon: 'info',
+    path: ABOUT,
+    secondary: true
+  };
+
   const instagram = {
     label: 'nav-instagram',
     icon: 'instagram',
@@ -68,7 +75,7 @@ const getNavigation = (): NavigationRoute[] => {
     nav.push(eucManager);
   }
 
-  nav.push(videos, dealers, influencers, instagram, telegram, settings);
+  nav.push(videos, dealers, influencers, about, instagram, telegram, settings);
   return nav;
 };
 

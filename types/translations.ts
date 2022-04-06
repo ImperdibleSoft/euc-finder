@@ -1,4 +1,5 @@
 export enum TranslationFile {
+  about = 'about',
   changelog = 'changelog',
   common = 'common',
   comparator = 'comparator',

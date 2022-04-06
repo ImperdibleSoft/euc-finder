@@ -16,4 +16,6 @@ export const INFLUENCERS = '/influencers';
 
 export const SETTINGS = '/settings';
 
+export const ABOUT = '/about';
+
 export const CHANGELOG = '/changelog';

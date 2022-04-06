@@ -1,0 +1,22 @@
+{
+  "about-title": "About the project",
+  "about1-msg": "{{appName}} is a personal project conceived, created and maintained by ::author::.",
+  "about2-msg": "This project arose from the need to find a centralized place where you can consult all the unicycles available on the market in a standardized format common to all unicycles.",
+  "about3-msg": "This is due to the fact that both manufacturers and stores show different specifications, in different formats and/or units of measurement; making it extremely difficult to evaluate and compare unicycles.",
+
+  "credits-title": "Credits",
+  "credits1-msg": "Some members of the community have been actively involved in helping {{appName}} improve in certain areas.",
+  "credits2-msg": "These are the different tasks to carry out {{appName}}, and the people who have made it possible:",
+
+  "task-label": "Task",
+  "responsible-label": "Responsable",
+  "contributors-label": "Collaborator/s",
+
+  "design-label": "Design of the functionalities",
+  "develop-label": "Developing",
+  "research-label": "Search and contrast of information",
+  "wording-label": "Wording",
+  "englishTranslations-label": "English Translation",
+  "spanishTranslations-label": "Spanish Translation",
+  "frenchTranslations-label": "French Translation"
+}
