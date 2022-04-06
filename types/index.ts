@@ -1,3 +1,4 @@
+import { SxProps, Theme } from '@mui/material';
 import React from 'react';
 import { Store } from './stores';
 
@@ -47,4 +48,13 @@ export interface PurchaseLink {
   url: string
 }
 
-export type LoadingState = 'idle' | 'loading' | 'success' | 'error'
+export type LoadingState<T = 'loading'> = 'idle' | T | 'success' | 'error'
+
+export interface LandingSectionProps {
+  callToAction: string;
+  description: string;
+  path: string;
+  picture: string;
+  sx?: SxProps<Theme>;
+  title: string;
+}

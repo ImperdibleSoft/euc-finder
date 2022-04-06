@@ -4,6 +4,7 @@ export enum TranslationFile {
   comparator = 'comparator',
   dealers = 'dealers',
   influencers = 'influencers',
+  landing = 'landing',
   layout = 'layout',
   settings = 'settings',
   videos = 'videos',

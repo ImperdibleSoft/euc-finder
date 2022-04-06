@@ -17,6 +17,12 @@ export const useLayoutTranslations = () => {
   return { t, i18n };
 };
 
+export const useLandingTranslations = () => {
+  const { t, i18n } = useTranslation([TranslationFile.landing, ...commonTranslations]);
+
+  return { t, i18n };
+};
+
 export const useChangelogTranslations = () => {
   const { t, i18n } = useTranslation([TranslationFile.changelog, ...commonTranslations]);
 
