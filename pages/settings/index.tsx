@@ -20,6 +20,7 @@ const Settings: React.FC = () => {
   const dispatch = useDispatch();
   const [render, setRender] = useState(false);
   const {
+    systemFields,
     interfaceFields,
     measureUnitFields,
     activePreset,
@@ -75,6 +76,21 @@ const Settings: React.FC = () => {
         { render && (
           <Grid container spacing={ 2 }>
             <Grid item xs={ 12 } sm={ 6 } md={ 4 }>
+              <Card sx={ { mb: 2 } }>
+                <CardContent>
+                  <Typography variant="h5" component="div" sx={ { mb: 3 } }>
+                    { t('system-title') }
+                  </Typography>
+
+                  { systemFields.map(field => (
+                    <Dropdown
+                      key={ field.name }
+                      { ...field }
+                    />
+                  )) }
+                </CardContent>
+              </Card>
+
               <Card sx={ { mb: 2 } }>
                 <CardContent>
                   <Typography variant="h5" component="div" sx={ { mb: 3 } }>

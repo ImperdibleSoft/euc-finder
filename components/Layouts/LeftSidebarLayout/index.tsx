@@ -1,4 +1,4 @@
-import { Box, Drawer, Icon, IconButton, SwipeableDrawer, SxProps, Theme } from '@mui/material';
+import { Box, Drawer, Icon, IconButton, SxProps, Theme } from '@mui/material';
 import React, { PropsWithChildren } from 'react';
 import { useBreakpoints } from '../../../hooks';
 import Footer from '../Footer';
@@ -26,26 +26,19 @@ interface Props {
 const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
   children,
   handleCloseSidebar,
-  handleOpenSidebar,
   open,
   sidebar
 }) => {
   const { sm: isPermanentSidebar } = useBreakpoints();
 
   const renderSwipableSidebar = (content: React.ReactNode) => (
-    <SwipeableDrawer
+    <Drawer
       id="LeftSidebarLayout-swipeableSidebar"
       anchor="left"
       BackdropProps={ { sx: { display: { xs: 'block', sm: 'none' } } } }
-      ModalProps={ {
-        // Better open performance on mobile.
-        keepMounted: true
-      } }
       open={ open }
       onClose={ handleCloseSidebar }
-      onOpen={ handleOpenSidebar }
       PaperProps={ { sx: sidebarStyles } }
-      variant="temporary"
     >
       <IconButton onClick={ handleCloseSidebar }>
         <Icon fontSize="large">close</Icon>
@@ -58,7 +51,7 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
       } }>
         { content }
       </Box>
-    </SwipeableDrawer>
+    </Drawer>
   );
 
   const renderPermanentSidebar = (content: React.ReactNode) => (
@@ -91,7 +84,7 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
   return (
     <Box
       id="LeftSidebarLayout"
-      sx={ { display: 'flex', maxWidth: '100%' } }
+      sx={ { display: 'flex', height: '100%', maxWidth: '100%' } }
     >
       { renderSidebar(sidebar) }
 
@@ -101,14 +94,18 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
           display: 'flex',
           flex: 1,
           flexDirection: 'column',
+          height: '100%',
           maxWidth: isPermanentSidebar ? `calc(100% - ${ FILTERS_SIDEBAR_WIDTH }px)` : '100%'
         } }
       >
-        { children }
+        <Box sx={ { flex: 1 } }>
+          { children }
+        </Box>
 
         <Footer />
       </Box>
     </Box>
-  );};
+  );
+};
 
 export default LeftSidebarLayout;

@@ -1,5 +1,11 @@
 # euc-finder
 
+## 2.7.0
+
+### Minor Changes
+
+- Add a Landing page with information about each area of the application
+
 ## 2.6.1
 
 ### Patch Changes

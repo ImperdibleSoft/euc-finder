@@ -1,0 +1,22 @@
+{
+  "about-title": "À propos du projet",
+  "about1-msg": "{{appName}} est un projet personnel conçu, créé et maintenu par ::author::.",
+  "about2-msg": "Ce projet est né de la nécessité de trouver un lieu centralisé où consulter tous les monocycles disponibles sur le marché dans un format standardisé commun à tous les monocycles.",
+  "about3-msg": "Cela est dû au fait que les fabricants et les magasins affichent des spécifications différentes, dans des formats et/ou des unités de mesure différents ; ce qui rend extrêmement difficile l'évaluation et la comparaison des monocycles.",
+
+  "credits-title": "Crédits",
+  "credits1-msg": "Certains membres de la communauté ont été activement impliqués pour aider {{appName}} à améliorer certains aspects.",
+  "credits2-msg": "Voici les différentes tâches pour mener à bien {{appName}}, et les personnes qui ont rendu cela possible:",
+
+  "task-label": "Tâche",
+  "responsible-label": "Responsable",
+  "contributors-label": "Collaborateur(s)",
+
+  "design-label": "Conception des fonctionnalités",
+  "develop-label": "Développement",
+  "research-label": "Recherche et contraste d'informations",
+  "wording-label": "Formulation",
+  "englishTranslations-label": "Traduction en anglais",
+  "spanishTranslations-label": "Traduction en espagnol",
+  "frenchTranslations-label": "Traduction française"
+}

@@ -4,7 +4,7 @@ import React from 'react';
 import { APP_NAME, APP_REPO, APP_VERSION, CURRENT_YEAR } from '../../../constants';
 import { CHANGELOG } from '../../../constants/clientRoutes';
 import { useModalsContext } from '../../../context';
-import { useLayoutTranslations } from '../../../hooks';
+import { commonNs, useLayoutTranslations } from '../../../hooks';
 
 const launchYear = 2021;
 const yearText = CURRENT_YEAR <= launchYear ? CURRENT_YEAR : `${ launchYear }-${ CURRENT_YEAR }`;
@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
             </Link>
           </NextLink>
 
-          { ` ${ t('at') } ` }
+          { ` ${ t('at', commonNs) } ` }
 
           <Link href={ APP_REPO } target="_blank" rel="noreferrer">
             Github

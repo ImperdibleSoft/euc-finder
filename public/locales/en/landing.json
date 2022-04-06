@@ -1,0 +1,24 @@
+{
+  "visit-btn": "Visit",
+
+  "eucFinder-desc": "Get to know the {{appName}}! The best way to find your ideal wheel.",
+  "eucFinder-desc2": "In the {{appName}} you can select the specifications you would like to have on your wheel to see the different options available.",
+
+  "eucComparator-desc": "Can't decide between multiple wheels? Do not worry! The {{appName}} will assign a score to each one to tell you which one is the best of all.",
+  "eucComparator-desc2": "In addition, you can customize your preferences so that the {{appName}} better scores those features that you value the most.",
+
+  "settings-desc": "In EUC Finder you have a wide variety of options to personalize your experience. From the language or the dark mode, through units of measurement (such as kilometers or miles, millimeters or inches) to the importance that each functionality of a unicycle has for you.",
+  "settings-desc2": "Here you can customize almost any aspect of the application, so that using it is a comfortable and rewarding experience.",
+
+  "videos-desc": "Do you want to learn more about wheels? Do you have doubts about a particular model? Immerse yourself in the {{appName}} section and become an expert.",
+  "videos-desc2": "The {{appName}} section has hundreds of quality videos, selected manually, where you can see reviews, comparisons or unboxings made by the best Content Creators.",
+
+  "dealers-desc": "As EUC Finder's commitment to transparency, here you can see all the stores that EUC Finder works with in your region.",
+  "dealers-desc2": "You will be able to see relevant information, such as their official websites, how many wheels they have for sale, or the status of the negotiations to offer you discount codes.",
+
+  "influencers-desc": "Here you can meet some of the biggest personalities in the unicycle community.",
+  "influencers-desc2": "These Content Creators help the community grow by informing newcomers and veterans alike about the latest news in the unicycle world.",
+
+  "about-desc": "",
+  "about-desc2": ""
+}

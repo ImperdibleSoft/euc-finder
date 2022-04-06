@@ -1,136 +1,86 @@
-import { AppBar, Box, Toolbar, Typography } from '@mui/material';
-import Image from 'next/image';
+import { AppBar, Box, Toolbar, useScrollTrigger } from '@mui/material';
 import Link from 'next/link';
-import React from 'react';
-import { APP_NAME } from '../../../../constants';
+import React, { PropsWithChildren, ReactElement } from 'react';
 import { ROOT } from '../../../../constants/clientRoutes';
-import { commonNs, useLayoutTranslations } from '../../../../hooks';
+import { useBreakpoints } from '../../../../hooks';
 import { BRAND_COLOR } from '../../../../styles/theme';
-import { Brand, Region, Wheel, WheelId } from '../../../../types';
-import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
-import WheelSelector from '../../../WheelSelector';
-import { Search } from '../SearchBar';
+import Logotype from '../../../Logotype';
+import MobileNavigationMenu from './MobileNavigationMenu';
+import TabletNavigationMenu from './TabletNavigationMenu';
+import { NavigationProps } from './utils';
 
-export interface Props {
-  brands: Brand[];
-  handleSelectRegion: (event: React.ChangeEvent<HTMLSelectElement>) => void
-  handleSelectWheel: (wheelId: WheelId) => void
-  regions: DropdownItem[]
-  selectedRegion: Region
-  wheels: Wheel[]
+interface ElevationProps {
+  isLanding: boolean;
 }
 
-const Header: React.FC<Props> = ({
-  brands,
-  handleSelectRegion,
-  handleSelectWheel,
-  regions,
-  selectedRegion,
-  wheels
-}) => {
-  const { t } = useLayoutTranslations();
-  
+const ElevationScroll = ({ children, isLanding }: PropsWithChildren<ElevationProps>): JSX.Element => {
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0
+  });
+
+  return React.cloneElement(children as ReactElement, { elevation: (isLanding && !trigger) ? 0 : 4 });
+};
+
+type Props = ElevationProps & NavigationProps;
+
+const Header = ({ isLanding, ...navigationProps }: Props) => {
+  const { md: renderFullHeader } = useBreakpoints();
+
   return (
-    <AppBar
-      id="Header"
-      position="fixed"
-      sx={ {
-        backgroundColor: BRAND_COLOR,
-        ml: 0,
-        width: '100%'
-      } }
-    >
-      <Toolbar
-        id="Header-content"
+    <ElevationScroll isLanding={ isLanding }>
+      <AppBar
+        id="Header"
         sx={ {
           alignItems: 'center',
-          flexDirection: 'column',
-          pr: { xs: 1, sm: 2 },
-          '@media screen and (min-width: 583px)': { flexDirection: 'row' }
+          backgroundColor: BRAND_COLOR,
+          justifyContent: 'center',
+          ml: 0,
+          minHeight: 64,
+          width: '100%'
         } }
       >
-        <Box
-          id="Header-contentLeft"
-          sx={ {
-            flex: 1,
-            py: { xs: 1, sm: 0 },
-            width: { xs: '100%', sm: 'auto' } 
-          } }
-        >
-          <Link href={ ROOT } passHref>
-            <Box sx={ {
-              alignItems: 'center',
-              cursor: 'pointer',
-              display: 'flex' 
-            } }>
-              <Image
-                alt={ t('appLogo-label', { ...commonNs, appName: APP_NAME }) }
-                height="48px"
-                src="/logos/eucfinder-dark.png"
-                width="48px"
-              />
-
-              <Typography
-                variant="h6"
-                noWrap
-                sx={ {
-                  color: (theme) => theme.palette.common.white,
-                  display: 'inline-block',
-                  textDecoration: 'none'
-                } }
-              >
-                { APP_NAME }
-              </Typography>
-            </Box>
-          </Link>
-        </Box>
-
-        <Box
-          id="Header-contentRight"
+        <Toolbar
+          id="Header-content"
           sx={ {
             alignItems: 'center',
-            display: 'flex',
-            flex: { xs: 1, sm: 0 },
-            flexDirection: 'row',
-            height: '100%',
-            justifyContent: 'flex-end',
-            pb: { xs: 1, sm: 0 },
-            width: { xs: '100%', sm: 'auto' }
+            flexDirection: 'column',
+            justifyContent: 'space-between',
+            width: '100%',
+            '@media screen and (min-width: 583px)': { flexDirection: 'row' }
           } }
         >
-          <WheelSelector
-            brands={ brands }
-            onChange={ handleSelectWheel }
+          <Box
+            id="Header-contentLeft"
             sx={ {
-              flex: 1,
-              mb: '0 !important',
-              minWidth: { xs: '0 !important', sm: '200px !important' },
-              width: { xs: `calc(50% - 4px)`, sm: 'auto' }
-            } }
-            traslucent
-            wheels={ wheels }
-          />
-
-          <Search
-            id="Header-region"
-            sx={ {
-              display: 'inline-flex',
-              flex: 1,
-              minWidth: { sm: '200px' }
+              display: 'flex',
+              flexDirection: 'row',
+              py: { xs: 1, sm: 0 },
+              width: { xs: '100%', sm: 'auto' } 
             } }
           >
-            <Dropdown
-              icon="public"
-              label={ t('region-label') }
-              name="region"
-              onChange={ handleSelectRegion }
-              options={ regions }
-              value={ selectedRegion }
-            />
-          </Search>
-        </Box>
-      </Toolbar>
-    </AppBar>
+            { !renderFullHeader && (
+              <MobileNavigationMenu { ...navigationProps } />
+            ) }
+          
+            <Link href={ ROOT } passHref>
+              <Box sx={ {
+                alignItems: 'center',
+                cursor: 'pointer',
+                display: 'flex'
+              } }>
+                <Logotype icon={ renderFullHeader } />
+              </Box>
+            </Link>
+          </Box>
+
+          { renderFullHeader && (
+            <TabletNavigationMenu { ...navigationProps } />
+          ) }
+        
+        </Toolbar>
+      </AppBar>
+    </ElevationScroll>
   );
 };
 
