@@ -14,12 +14,20 @@ export const APP_URL = 'https://www.eucfinder.com';
 export const CURRENT_YEAR = new Date(Date.now()).getFullYear();
 
 export const KEYWORDS = [
-  'Electric',
-  'Personal',
-  'Transport',
-  'Unicycle',
-  'Vehicles',
   'EUC',
+  'Unicycle',
+  'Electric',
+
+  'Inmotion',
+  'Kingsong',
+  'Gotway',
+  'Begode',
+  'Veteran',
+  'Leaperkim',
+  
+  'Transport',
+  'Personal',
+  'Vehicles',
   'Eléctrico',
   'Transporte',
   'Monociclos',
