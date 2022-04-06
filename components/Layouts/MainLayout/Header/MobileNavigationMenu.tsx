@@ -53,6 +53,7 @@ const MobileNavigationMenu = ({
         onClose={ handleCloseSidebar }
         onOpen={ handleOpenSidebar }
         open={ open }
+        PaperProps={ { sx: { minWidth: 240 } } }
       >
         <Toolbar sx={ { backgroundColor: BRAND_COLOR, height: 64 } }>
           <Logotype />

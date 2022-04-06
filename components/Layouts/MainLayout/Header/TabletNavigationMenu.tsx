@@ -1,16 +1,4 @@
-import {
-  ClickAwayListener,
-  Grow,
-  Icon,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  MenuItem,
-  MenuList,
-  Paper,
-  Popper
-} from '@mui/material';
+import { ClickAwayListener, Grow, List, ListItem, ListItemIcon, ListItemText, Paper, Popper } from '@mui/material';
 import React, { useRef, useState } from 'react';
 import { EUC_COMPARATOR, VIDEOS } from '../../../../constants/clientRoutes';
 import getNavigation from '../../../../constants/navigation';
@@ -123,17 +111,26 @@ const TabletNavigationMenu = ({
             <Grow { ...TransitionProps }>
               <Paper>
                 <ClickAwayListener onClickAway={ handleCloseMenu }>
-                  <MenuList id="split-button-menu" autoFocusItem>
+                  <List>
                     { moreItems.map(item => (
-                      <MenuItem
+                      <ListItem
                         key={ item.path }
                         onClick={ () => handleClickMenuItem(item) }
+                        selected={ pathname === item.path }
+                        sx={ { cursor: 'pointer' } }
                       >
-                        { item.icon && (<Icon sx={ { mr: 1 } }>{ item.icon }</Icon>) }
-                        { t(item.label) }
-                      </MenuItem>
+                        { item.icon && (
+                          <ListItemIcon sx={ { minWidth: 0, mr: 1 } }>
+                            { renderIconWithBadge(item.icon, undefined, true) }
+                          </ListItemIcon>
+                        ) }
+
+                        <ListItemText>
+                          { t(item.label) }
+                        </ListItemText>
+                      </ListItem>
                     )) }
-                  </MenuList>
+                  </List>
                 </ClickAwayListener>
               </Paper>
             </Grow>

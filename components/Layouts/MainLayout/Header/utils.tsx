@@ -42,7 +42,7 @@ export const renderCustomIcon = (icon: string, blackColor?: boolean) => {
     default:
       return (
         <Icon
-          sx={ { color: ({ palette }: Theme) => palette.common[blackColor ? 'black' : 'white'] } }
+          sx={ { color: ({ palette }: Theme) => blackColor ? 'inherit' : palette.common.white } }
         >
           { icon }
         </Icon>
