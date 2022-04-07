@@ -355,7 +355,7 @@ const ksS22: Wheel = {
   stockCharger: 6,
   maxCharger: 10,
   chargePorts: 2,
-  usbPorts: undefined,
+  usbPorts: [0, 0],
 
   maxGradibility: 40,
   maxSpeed: 70,
@@ -369,7 +369,7 @@ const ksS22: Wheel = {
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [686, 330, 584],
   ...kingsongHoneycomb,
-  antiSpin: AntiSpin.sensor,
+  antiSpin: AntiSpin.position,
   kickstand: Kickstand.shell,
   headlight: true,
   tailLight: true,

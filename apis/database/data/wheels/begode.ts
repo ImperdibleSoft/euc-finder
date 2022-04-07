@@ -507,10 +507,10 @@ const ex20s: Wheel = {
     type: '21700',
     wattsHour: 3600
   },
-  stockCharger: 0,
+  stockCharger: 3,
   maxCharger: 0,
   chargePorts: 1,
-  usbPorts: undefined,
+  usbPorts: [0, 0],
   
   ...torqueMotor,
   range: 190,
@@ -552,7 +552,7 @@ const master: Wheel = {
     type: '',
     wattsHour: 2400
   },
-  stockCharger: 0,
+  stockCharger: 3,
   maxCharger: 0,
   chargePorts: 1,
   usbPorts: undefined,
@@ -575,7 +575,7 @@ const master: Wheel = {
   tailLight: true,
   leds: false,
   sound: undefined,
-  display: Display.lcd,
+  display: Display.led,
   suspension: Suspension.standard,
   color: Color.blackAndRed
 };
