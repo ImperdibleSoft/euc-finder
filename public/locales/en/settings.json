@@ -2,6 +2,7 @@
   "settings-title": "Settings",
 
   "system-title": "System",
+  "startupApp-label": "App to run by default",
   "none-label": "None",
   
   "interface-title": "User interface",

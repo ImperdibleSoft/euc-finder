@@ -36,14 +36,14 @@ const eeveesVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=o_eN1KQyM5o',
-    tags: [InfluencerId.eevees, VideoCategory.chatting, WheelId.ksS20],
+    tags: [InfluencerId.eevees, VideoCategory.chatting, WheelId.ksS22],
     publishDate: '26/Aug/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=w1EN668qbGo',
-    tags: [InfluencerId.eevees, VideoCategory.chatting, WheelId.ksS20],
+    tags: [InfluencerId.eevees, VideoCategory.chatting, WheelId.ksS22],
     publishDate: '27/Aug/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
@@ -104,7 +104,7 @@ const eeveesVideos: Video[] = [
       InfluencerId.eevees,
       VideoCategory.reveal,
       VideoCategory.chatting,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '11/Feb/2022',
     releaseDate: '14/Feb/2022',
@@ -116,7 +116,7 @@ const eeveesVideos: Video[] = [
       InfluencerId.eevees,
       VideoCategory.reveal,
       VideoCategory.chatting,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '13/Feb/2022',
     releaseDate: '14/Feb/2022',
@@ -127,7 +127,7 @@ const eeveesVideos: Video[] = [
     tags: [
       InfluencerId.eevees,
       VideoCategory.review,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '15/Feb/2022',
     releaseDate: '24/Feb/2022',
@@ -138,7 +138,7 @@ const eeveesVideos: Video[] = [
     tags: [
       InfluencerId.eevees,
       VideoCategory.review,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '21/Feb/2022',
     releaseDate: '24/Feb/2022',
@@ -149,7 +149,7 @@ const eeveesVideos: Video[] = [
     tags: [
       InfluencerId.eevees,
       VideoCategory.review,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '26/Feb/2022',
     releaseDate: '20/Mar/2022',
@@ -160,7 +160,7 @@ const eeveesVideos: Video[] = [
     tags: [
       InfluencerId.eevees,
       VideoCategory.review,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '18/Mar/2022',
     releaseDate: '20/Mar/2022',

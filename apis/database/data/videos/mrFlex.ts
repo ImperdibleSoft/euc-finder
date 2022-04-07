@@ -228,7 +228,7 @@ const mrFlexVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=rpIpicFIXjk',
     tags: [
       InfluencerId.mrFlex,
-      WheelId.ksS20,
+      WheelId.ksS22,
       VideoCategory.review,
       VideoCategory.commuting
     ],
@@ -240,7 +240,7 @@ const mrFlexVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=2EMzSOaNxDc',
     tags: [
       InfluencerId.mrFlex,
-      WheelId.ksS20,
+      WheelId.ksS22,
       VideoCategory.review,
       VideoCategory.commuting
     ],

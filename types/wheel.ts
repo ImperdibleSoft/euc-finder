@@ -29,7 +29,7 @@ export enum WheelId {
   exnHS = 'exnHS',
   heroHT = 'heroHT',
   heroHS = 'heroHS',
-  ex2 = 'ex2',
+  ex20s = 'ex20s',
   master = 'master',
   monster = 'monster',
   monsterPro = 'monsterPro',
@@ -66,7 +66,7 @@ export enum WheelId {
   ks18l = 'ks18l',
   ks18xl = 'ks18xl',
   ksS18 = 'ksS18',
-  ksS20 = 'ksS20',
+  ksS22 = 'ksS22',
 
   // Veteran
   sherman = 'sherman',

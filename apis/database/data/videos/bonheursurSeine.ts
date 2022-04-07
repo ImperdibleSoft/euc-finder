@@ -355,7 +355,7 @@ const bonheursurSeineVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=ki-18u-aeM8',
     tags: [
       InfluencerId.bonheursurSeine,
-      WheelId.ksS20,
+      WheelId.ksS22,
       WheelId.commanderHS,
       WheelId.commanderHT,
       WheelId.heroHT, WheelId.heroHS,
@@ -428,9 +428,9 @@ const bonheursurSeineVideos: Video[] = [
       InfluencerId.bonheursurSeine,
       WheelId.v12HT,
       WheelId.shermanMax,
-      WheelId.ksS20,
+      WheelId.ksS22,
       WheelId.heroHT, WheelId.heroHS,
-      WheelId.ex2,
+      WheelId.ex20s,
       WheelId.v13,
       WheelId.xmenHS,
       WheelId.xmenHT,
@@ -446,7 +446,7 @@ const bonheursurSeineVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=0uDX7JZr60Q',
     tags: [
       InfluencerId.bonheursurSeine,
-      WheelId.ksS20,
+      WheelId.ksS22,
       VideoCategory.reveal,
       VideoCategory.review
     ],
@@ -458,7 +458,7 @@ const bonheursurSeineVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=YEhCwID0CQU',
     tags: [
       InfluencerId.bonheursurSeine,
-      WheelId.ksS20,
+      WheelId.ksS22,
       VideoCategory.review
     ],
     publishDate: '18/Feb/2022',
@@ -469,7 +469,7 @@ const bonheursurSeineVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=N6n9J7VCp2o',
     tags: [
       InfluencerId.bonheursurSeine,
-      WheelId.ksS20,
+      WheelId.ksS22,
       VideoCategory.chatting,
       VideoCategory.offroad
     ],

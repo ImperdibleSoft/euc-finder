@@ -256,7 +256,7 @@ const madpackVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=CJUxdYVT7zg',
-    tags: [InfluencerId.madpack, VideoCategory.comparision, WheelId.v12, WheelId.ksS20],
+    tags: [InfluencerId.madpack, VideoCategory.comparision, WheelId.v12, WheelId.ksS22],
     publishDate: '29/Nov/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'

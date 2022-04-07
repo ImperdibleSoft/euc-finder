@@ -334,8 +334,8 @@ const ksS18: Wheel = {
   color: [Color.black, Color.white]
 };
 
-const ksS20: Wheel = {
-  id: WheelId.ksS20,
+const ksS22: Wheel = {
+  id: WheelId.ksS22,
   brandId: BrandId.kingsong,
   name: 'S20 Eagle',
   website: 'https://www.kingsong.com/18inchseries/6-20.html',
@@ -390,5 +390,5 @@ export const kingsongWheels = [
   ks18l,
   ks18xl,
   ksS18,
-  ksS20
+  ksS22
 ];

@@ -242,7 +242,7 @@ const zenLeeVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=rW_6xiUruFo',
-    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.ksS20],
+    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.ksS22],
     publishDate: '19/Aug/2021',
     releaseDate: '05/Jan/2022',
     language: 'en'
@@ -256,7 +256,7 @@ const zenLeeVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=nvQ8gzthfd8',
-    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.ksS20],
+    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.ksS22],
     publishDate: '26/Aug/2021',
     releaseDate: '05/Jan/2022',
     language: 'en'
@@ -284,7 +284,7 @@ const zenLeeVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=Bc0hDPX0Qe4',
-    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.ksS20],
+    tags: [InfluencerId.zenLee, VideoCategory.chatting, WheelId.ksS22],
     publishDate: '27/Sep/2021',
     releaseDate: '05/Jan/2022',
     language: 'en'

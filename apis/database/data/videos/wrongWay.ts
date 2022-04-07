@@ -580,7 +580,7 @@ const wrongWayVideos: Video[] = [
       VideoCategory.commuting,
       WheelId.commanderHS,
       WheelId.commanderHT,
-      WheelId.ksS20,
+      WheelId.ksS22,
       WheelId.abrams,
       WheelId.heroHT,
       WheelId.heroHS
@@ -785,7 +785,7 @@ const wrongWayVideos: Video[] = [
     tags: [
       InfluencerId.wrongWay,
       VideoCategory.reveal,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '24/Feb/2022',
     releaseDate: '07/Mar/2022',
@@ -809,7 +809,7 @@ const wrongWayVideos: Video[] = [
       InfluencerId.wrongWay,
       VideoCategory.review,
       VideoCategory.offroad,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '05/Mar/2022',
     releaseDate: '07/Mar/2022',
@@ -820,7 +820,7 @@ const wrongWayVideos: Video[] = [
     tags: [
       InfluencerId.wrongWay,
       VideoCategory.review,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '10/Mar/2022',
     releaseDate: '20/Mar/2022',
@@ -842,7 +842,7 @@ const wrongWayVideos: Video[] = [
     tags: [
       InfluencerId.wrongWay,
       VideoCategory.chatting,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '26/Mar/2022',
     releaseDate: '30/Mar/2022',

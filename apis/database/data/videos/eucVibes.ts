@@ -44,7 +44,7 @@ const eucVibesVideos: Video[] = [
       VideoCategory.comparision,
       WheelId.commanderHS,
       WheelId.commanderHT,
-      WheelId.ksS20,
+      WheelId.ksS22,
       WheelId.abrams,
       WheelId.heroHT,
       WheelId.heroHS
@@ -61,7 +61,7 @@ const eucVibesVideos: Video[] = [
       VideoCategory.comparision,
       WheelId.commanderHS,
       WheelId.commanderHT,
-      WheelId.ksS20,
+      WheelId.ksS22,
       WheelId.abrams,
       WheelId.heroHT,
       WheelId.heroHS
@@ -79,7 +79,7 @@ const eucVibesVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=jgf9yfuWI3o',
-    tags: [InfluencerId.eucVibes, VideoCategory.chatting, WheelId.ksS20, WheelId.abrams],
+    tags: [InfluencerId.eucVibes, VideoCategory.chatting, WheelId.ksS22, WheelId.abrams],
     publishDate: '14/Mar/2022',
     releaseDate: '20/Mar/2022',
     language: 'en'

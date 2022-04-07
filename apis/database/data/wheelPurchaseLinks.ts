@@ -153,7 +153,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://e-rides.com/product/begode-hero-suspension-electric-unicycle-deposit/',
     'https://oneride.eu/electric-unicycles/200--preorder-begode-hero-1800wh-100v-electric-unicycle.html'
   ],
-  [WheelId.ex2]: [],
+  [WheelId.ex20s]: [],
   [WheelId.master]: [],
   [WheelId.monster]: [
     'https://ciclonic.com/tienda/gotway/monociclos-gotway/gotway-monster-100v/',
@@ -385,7 +385,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://madridrueda.es/kingsong/13-9-ks-s18.html#/11-s18-negro',
     'https://oneride.eu/electric-unicycles/174-kingsong-s18-electric-unicycle.html'
   ],
-  [WheelId.ksS20]: [
+  [WheelId.ksS22]: [
     'https://ciclonic.com/tienda/kingsong/monocilos-kingsong/kingsong-s20-precompra-reserva/',
     'https://store.urban360.es/product/sample-product/king-song-s20-eagle/',
     'https://www.euco.us/products/king-song-s20-eagle-preorder-deposit',

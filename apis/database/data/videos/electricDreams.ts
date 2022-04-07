@@ -173,7 +173,7 @@ const electricDreamsVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=yOHpV6-nQDI',
-    tags: [InfluencerId.electricDreams, VideoCategory.reveal, WheelId.ksS20],
+    tags: [InfluencerId.electricDreams, VideoCategory.reveal, WheelId.ksS22],
     publishDate: '02/Oct/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
@@ -192,7 +192,7 @@ const electricDreamsVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=ASjM8yjsviU',
-    tags: [InfluencerId.electricDreams, VideoCategory.commuting, WheelId.ksS20],
+    tags: [InfluencerId.electricDreams, VideoCategory.commuting, WheelId.ksS22],
     publishDate: '29/Oct/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
@@ -216,7 +216,7 @@ const electricDreamsVideos: Video[] = [
     tags: [
       InfluencerId.electricDreams,
       VideoCategory.reveal,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '26/Jan/2022',
     releaseDate: '14/Feb/2022',
@@ -229,7 +229,7 @@ const electricDreamsVideos: Video[] = [
       VideoCategory.review,
       VideoCategory.commuting,
       VideoCategory.offroad,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '17/Feb/2022',
     releaseDate: '17/Feb/2022',

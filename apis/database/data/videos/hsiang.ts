@@ -249,7 +249,7 @@ const hsiangVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=cONBzqvaeyE',
-    tags: [InfluencerId.hsiang, VideoCategory.chatting, WheelId.ksS20],
+    tags: [InfluencerId.hsiang, VideoCategory.chatting, WheelId.ksS22],
     publishDate: '05/Sep/2021',
     releaseDate: '07/Dec/2021',
     language: 'en'
@@ -267,10 +267,10 @@ const hsiangVideos: Video[] = [
       InfluencerId.hsiang,
       VideoCategory.chatting,
       WheelId.heroHT, WheelId.heroHS,
-      WheelId.ex2,
+      WheelId.ex20s,
       WheelId.xmenHT,
       WheelId.xmenHS,
-      WheelId.ksS20,
+      WheelId.ksS22,
       WheelId.v13
     ],
     publishDate: '22/Jan/2022',
@@ -286,7 +286,7 @@ const hsiangVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=hbSzSwUuCO0',
-    tags: [InfluencerId.hsiang, VideoCategory.review, VideoCategory.commuting, WheelId.ksS20],
+    tags: [InfluencerId.hsiang, VideoCategory.review, VideoCategory.commuting, WheelId.ksS22],
     publishDate: '18/Feb/2022',
     releaseDate: '21/Feb/2022',
     language: 'en'
@@ -297,7 +297,7 @@ const hsiangVideos: Video[] = [
       InfluencerId.hsiang,
       VideoCategory.comparision,
       VideoCategory.chatting,
-      WheelId.ksS20,
+      WheelId.ksS22,
       WheelId.sherman
     ],
     publishDate: '18/Feb/2022',
@@ -309,7 +309,7 @@ const hsiangVideos: Video[] = [
     tags: [
       InfluencerId.hsiang,
       VideoCategory.chatting,
-      WheelId.ksS20
+      WheelId.ksS22
     ],
     publishDate: '28/Mar/2022',
     releaseDate: '05/Apr/2022',

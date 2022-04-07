@@ -490,12 +490,12 @@ const heroHS: Wheel = {
 };
 
 const ex20s: Wheel = {
-  id: WheelId.ex2,
+  id: WheelId.ex20s,
   brandId: BrandId.begode,
   name: 'EX20S',
   website: 'http://www.begode.com/productinfo/756873.html',
   price: 0,
-  availability: 'discontinued',
+  availability: 'preorder',
 
   hollowMotor: undefined,
   ratedPower: 3000,

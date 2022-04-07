@@ -122,14 +122,14 @@ const oneradwheelVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=KOFZGDSWN4U',
-    tags: [InfluencerId.oneradwheel, VideoCategory.review, WheelId.ksS20],
+    tags: [InfluencerId.oneradwheel, VideoCategory.review, WheelId.ksS22],
     publishDate: '18/Feb/2022',
     releaseDate: '21/Feb/2022',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=SRVveILa-OI',
-    tags: [InfluencerId.oneradwheel, VideoCategory.review, WheelId.ksS20],
+    tags: [InfluencerId.oneradwheel, VideoCategory.review, WheelId.ksS22],
     publishDate: '25/Feb/2022',
     releaseDate: '07/Mar/2022',
     language: 'en'
@@ -146,7 +146,7 @@ const oneradwheelVideos: Video[] = [
     tags: [
       InfluencerId.oneradwheel,
       VideoCategory.comparision,
-      WheelId.ksS20,
+      WheelId.ksS22,
       WheelId.heroHT,
       WheelId.heroHS
     ],
