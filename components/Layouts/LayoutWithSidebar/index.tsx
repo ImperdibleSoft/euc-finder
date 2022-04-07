@@ -1,5 +1,5 @@
-import { Box, Drawer, Icon, IconButton, SxProps, Theme } from '@mui/material';
-import React, { PropsWithChildren } from 'react';
+import { Box, Drawer, Icon, IconButton, SwipeableDrawer, SxProps, Theme } from '@mui/material';
+import React, { PropsWithChildren, useEffect, useState } from 'react';
 import { useBreakpoints } from '../../../hooks';
 import Footer from '../Footer';
 import { FILTERS_SIDEBAR_WIDTH, HEADER_HEIGHT } from '../constants';
@@ -23,21 +23,24 @@ interface Props {
   sidebar: PropsWithChildren<{}>['children']
 }
 
-const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
+const LayoutWithSidebar: React.FC<PropsWithChildren<Props>> = ({
   children,
   handleCloseSidebar,
+  handleOpenSidebar,
   open,
   sidebar
 }) => {
   const { sm: isPermanentSidebar } = useBreakpoints();
+  const [permanentSidebarStyle, setPermanentSidebarStyle] = useState({ paddingRight: 0, overflowY: '' });
 
   const renderSwipableSidebar = (content: React.ReactNode) => (
-    <Drawer
+    <SwipeableDrawer
       id="LeftSidebarLayout-swipeableSidebar"
-      anchor="left"
+      anchor="right"
       BackdropProps={ { sx: { display: { xs: 'block', sm: 'none' } } } }
       open={ open }
       onClose={ handleCloseSidebar }
+      onOpen={ handleOpenSidebar }
       PaperProps={ { sx: sidebarStyles } }
     >
       <IconButton onClick={ handleCloseSidebar }>
@@ -51,7 +54,7 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
       } }>
         { content }
       </Box>
-    </Drawer>
+    </SwipeableDrawer>
   );
 
   const renderPermanentSidebar = (content: React.ReactNode) => (
@@ -59,18 +62,26 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
       id="LeftSidebarLayout-permanentSidebar"
       variant="permanent"
       PaperProps={ {
+        elevation: 4,
         sx:{ 
           ...sidebarStyles,
           display: { xs: 'none', sm: 'block' },
+          left: 'initial',
           maxHeight: `calc(100vh - ${ HEADER_HEIGHT }px)`,
+          right: 0,
           top: HEADER_HEIGHT,
-          left: 0
+          width: FILTERS_SIDEBAR_WIDTH + ((permanentSidebarStyle.overflowY && permanentSidebarStyle.paddingRight)
+            ? permanentSidebarStyle.paddingRight
+            : 0),
+          zIndex: 1050
         } 
       } }
       sx={ {
         backgroundColor: 'red',
         display: 'flex',
-        height: '100%',
+        height: `calc(100% + ${ 8 * 3 }px)`,
+        my: -3,
+        position: 'relative',
         width: FILTERS_SIDEBAR_WIDTH
       } }
       open
@@ -80,14 +91,37 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
   );
 
   const renderSidebar = isPermanentSidebar ? renderPermanentSidebar : renderSwipableSidebar;
+
+  const handleChangeBodyStyles: MutationCallback = (mutations) => {
+    const mutation = mutations.pop();
+
+    if (mutation) {
+      const style = (mutation.target as HTMLElement).style;
+  
+      const newValue = {
+        paddingRight: parseInt(style.paddingRight, 10),
+        overflowY: style.overflowY
+      };
+
+      setPermanentSidebarStyle(newValue);
+    }
+  };
+
+  useEffect(() => {
+    const observer = new MutationObserver(handleChangeBodyStyles);
+
+    observer.observe(global.document.body, { attributes: true, attributeFilter: ['style'] });
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
   
   return (
     <Box
       id="LeftSidebarLayout"
       sx={ { display: 'flex', height: '100%', maxWidth: '100%' } }
     >
-      { renderSidebar(sidebar) }
-
       <Box
         id="LeftSidebarLayout-content"
         sx={ {
@@ -104,8 +138,10 @@ const LeftSidebarLayout: React.FC<PropsWithChildren<Props>> = ({
 
         <Footer />
       </Box>
+
+      { renderSidebar(sidebar) }
     </Box>
   );
 };
 
-export default LeftSidebarLayout;
+export default LayoutWithSidebar;

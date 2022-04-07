@@ -4,7 +4,7 @@ import Head from 'next/head';
 import React, { useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { HEADER_HEIGHT } from '../../components/Layouts/constants';
-import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
+import LayoutWithSidebar from '../../components/Layouts/LayoutWithSidebar';
 import Columns from '../../components/Screens/WheelsList/Columns';
 import EmptyCase from '../../components/Screens/WheelsList/EmptyCase';
 import Filters from '../../components/Screens/WheelsList/Filters';
@@ -95,7 +95,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
         <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
       </Head>
 
-      <LeftSidebarLayout
+      <LayoutWithSidebar
         handleCloseSidebar={ handleCloseSidebar }
         handleOpenSidebar={ handleOpenSidebar }
         open={ open }
@@ -206,7 +206,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
             handleResetFilters={ handleResetFilters }
           />
         ) }
-      </LeftSidebarLayout>
+      </LayoutWithSidebar>
     </>
   );
 };

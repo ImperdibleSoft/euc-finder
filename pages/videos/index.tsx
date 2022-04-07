@@ -2,7 +2,7 @@ import { Box, Button, ButtonGroup, Icon, Pagination, Typography } from '@mui/mat
 import Head from 'next/head';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import LeftSidebarLayout from '../../components/Layouts/LeftSidebarLayout';
+import LayoutWithSidebar from '../../components/Layouts/LayoutWithSidebar';
 import EmptyCase from '../../components/Screens/Videos/EmptyCase';
 import VideoFilters from '../../components/Screens/Videos/VideoFilters';
 import VideosCarousel from '../../components/Screens/Videos/VideosCarousel';
@@ -62,7 +62,7 @@ const Videos: React.FC = () => {
         <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
       </Head>
 
-      <LeftSidebarLayout
+      <LayoutWithSidebar
         handleCloseSidebar={ handleCloseSidebar }
         handleOpenSidebar={ handleOpenSidebar }
         open={ open }
@@ -192,7 +192,7 @@ const Videos: React.FC = () => {
             handleResetFilters={ handleResetFilters }
           />
         ) }
-      </LeftSidebarLayout>
+      </LayoutWithSidebar>
     </>
   );
 };

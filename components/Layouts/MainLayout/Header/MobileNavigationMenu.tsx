@@ -50,6 +50,7 @@ const MobileNavigationMenu = ({
       </Button>
 
       <SwipeableDrawer
+        anchor="left"
         onClose={ handleCloseSidebar }
         onOpen={ handleOpenSidebar }
         open={ open }
