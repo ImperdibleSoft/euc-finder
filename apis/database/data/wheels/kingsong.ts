@@ -337,7 +337,7 @@ const ksS18: Wheel = {
 const ksS22: Wheel = {
   id: WheelId.ksS22,
   brandId: BrandId.kingsong,
-  name: 'S20 Eagle',
+  name: 'S22 Eagle',
   website: 'https://www.kingsong.com/18inchseries/6-20.html',
   price: 3300,
   availability: 'available',
