@@ -18,5 +18,6 @@ export const getSettingsInitialState = (): SettingsState => ({
       ...getUserCustomSpecWeights()
     }
   },
+  startupApp: (getItem(LOCAL_STORAGE_KEY.STARTUP_APP) || undefined),
   theme: AvailableTheme.light
 });

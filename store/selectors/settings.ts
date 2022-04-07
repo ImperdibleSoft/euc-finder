@@ -13,6 +13,9 @@ export const getDisclaimer = ({ settings }: RootState) =>
 export const getRegion = ({ settings }: RootState) =>
   settings.region;
 
+export const getStartupApp = ({ settings }: RootState) =>
+  settings.startupApp;
+
 export const getMeasureUnits = ({ settings }: RootState) =>
   settings.measureUnits;
 

@@ -1,9 +1,11 @@
 import { ThemeProvider } from '@mui/material';
+import { useRouter } from 'next/router';
 import React, { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { ROOT } from '../../../../constants/clientRoutes';
 import { ModalsContextProvider } from '../../../../context';
 import { setTheme } from '../../../../store/actions';
-import { getTheme } from '../../../../store/selectors';
+import { getStartupApp, getTheme } from '../../../../store/selectors';
 import { darkTheme, lightTheme } from '../../../../styles/theme';
 import { LOCAL_STORAGE_KEY } from '../../../../types';
 import { getItem, getUserSelectedTheme, isDarkTheme, setItem } from '../../../../utils';
@@ -14,7 +16,9 @@ const showLRangeDisclaimer = getItem(LOCAL_STORAGE_KEY.INITIAL_DISCLAIMER) !== '
 
 const AppWithStore: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   const dispatch = useDispatch();
+  const router = useRouter();
   const [openDisclaimer, setOpenDisclaimer] = useState(showLRangeDisclaimer);
+  const startupApp = useSelector(getStartupApp);
   const themeName = useSelector(getTheme);
   const themeColorPalette = useMemo(() => {
     return isDarkTheme(themeName)
@@ -25,6 +29,10 @@ const AppWithStore: React.FC<PropsWithChildren<{}>> = ({ children }) => {
   useEffect(() => {
     const theme = getUserSelectedTheme();
     dispatch(setTheme({ theme }));
+
+    if (router.pathname === ROOT && startupApp && startupApp !== ROOT) {
+      router.replace(startupApp);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

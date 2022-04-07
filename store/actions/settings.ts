@@ -7,6 +7,7 @@ import {
   SetMeasureUnitAction,
   SetRegionAction,
   SetSpecWeightsPresetAction,
+  SetStartupAppAction,
   SetThemeAction,
   SpecWeightsPreset
 } from '../types';
@@ -31,6 +32,13 @@ export const setRegion = (region: Region) => (dispatch: Dispatch) => {
     type: 'SET_REGION',
     payload: { region }
   } as SetRegionAction);
+};
+
+export const setAppOnStartup = (startupApp?: string) => (dispatch: Dispatch) => {
+  dispatch({
+    type: 'SET_STARTUP_APP',
+    payload: { startupApp }
+  } as SetStartupAppAction);
 };
 
 export const setSpecWeightsPreset = (preset: SpecWeightsPreset) => (dispatch: Dispatch) => {

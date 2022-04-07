@@ -30,6 +30,12 @@ const reducer = (state = getSettingsInitialState(), action: SettingsAction): Set
         region: action.payload.region
       };
 
+    case 'SET_STARTUP_APP':
+      return {
+        ...state,
+        startupApp: action.payload.startupApp
+      };
+
     case 'SET_SPECWEIGHTS_PRESET':
       return {
         ...state,

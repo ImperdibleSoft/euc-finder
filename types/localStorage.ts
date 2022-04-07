@@ -16,6 +16,10 @@ export enum LOCAL_STORAGE_KEY {
    * User selected region
    */
   REGION = 'eucFinder_region',
+  /**
+   * App on Startup
+   */
+  STARTUP_APP = 'eucFinder_startupApp',
 
   // Videos
 

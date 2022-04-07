@@ -43,6 +43,7 @@ export interface SettingsState {
     preset?: SpecWeightsPreset;
     customValues: SpecWeights
   };
+  startupApp?: string;
   theme: AvailableTheme;
 }
 
@@ -66,6 +67,13 @@ export interface SetRegionAction {
   type: 'SET_REGION',
   payload: {
     region: Region;
+  }
+}
+
+export interface SetStartupAppAction {
+  type: 'SET_STARTUP_APP';
+  payload: {
+    startupApp?: string;
   }
 }
 
@@ -96,6 +104,7 @@ export type SettingsAction =
   | ResetMeasureUnitsAction
   | SetMeasureUnitAction
   | SetRegionAction
+  | SetStartupAppAction
   | SetSpecWeightsPresetAction
   | SetCustomSpecWeightAction
   | SetThemeAction;
