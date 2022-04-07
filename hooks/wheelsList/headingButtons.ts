@@ -24,12 +24,14 @@ export const useHeadingStyles = (canCompareAllWheels: boolean, view: 'grid' | 't
   };
 
   const filtersGroup: SxProps<Theme> = {
+    alignItems: 'center',
     display: {
       xs: displayCompareAllWheelsBtn ? 'flex' : 'inline-flex',
       sm: 'none'
     },
     flex: 1,
-    mr: 1,
+    justifyContent: 'flex-end',
+    ml: 1,
     pb: {
       xs: displayCompareAllWheelsBtn ? 2 : 0,
       sm: 0
@@ -44,7 +46,7 @@ export const useHeadingStyles = (canCompareAllWheels: boolean, view: 'grid' | 't
   const comparatorGroup: SxProps<Theme> = {
     display: displayCompareAllWheelsBtn ? 'flex' : 'inline-flex',
     justifyContent: 'flex-end',
-    mr: displayViewToggleBtns ? 1 : 0,
+    ml: displayViewToggleBtns ? 1 : 0,
     pb: {
       xs: displayCompareAllWheelsBtn ? 2 : 0,
       sm: 0

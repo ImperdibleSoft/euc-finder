@@ -56,7 +56,6 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
     handleAddAllToComparision,
     handleAddToComparision,
     handleNavigateToComparator,
-    handleOpenComparator,
     isBeingCompared
   } = useCompareActions();
 
@@ -120,19 +119,19 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
         ) }
       >
         <Container maxWidth={ styles.containerMaxWidth } sx={ styles.buttonsContainer }>
-          { /* Filters */ }
-          <ButtonGroup sx={ styles.filtersGroup }>
-            <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
-              { t('filters-title') }
+          { /* View toggles */ }
+          <ButtonGroup sx={ styles.viewTogglesGroup }>
+            <Button onClick={ () => { setView('grid'); } }>
+              <Icon color={ view === 'grid' ? 'primary' : 'disabled' }>grid_view</Icon>
+            </Button>
+
+            <Button onClick={ () => { setView('table'); } }>
+              <Icon color={ view === 'table' ? 'primary' : 'disabled' }>table_rows</Icon>
             </Button>
           </ButtonGroup>
 
           { /* Comparator */ }
           <ButtonGroup sx={ styles.comparatorGroup } orientation={ styles.comparatorGroupOrientation }>
-            <Button onClick={ handleOpenComparator }>
-              { t('compare-btn') }
-            </Button>
-
             { canCompareAllWheels && (
               <Button
                 onClick={ () => handleAddAllToComparision(sortedWheels.map(w => w.id)) }
@@ -143,14 +142,10 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
             ) }
           </ButtonGroup>
 
-          { /* View toggles */ }
-          <ButtonGroup sx={ styles.viewTogglesGroup }>
-            <Button onClick={ () => { setView('grid'); } }>
-              <Icon color={ view === 'grid' ? 'primary' : 'disabled' }>grid_view</Icon>
-            </Button>
-        
-            <Button onClick={ () => { setView('table'); } }>
-              <Icon color={ view === 'table' ? 'primary' : 'disabled' }>table_rows</Icon>
+          { /* Filters */ }
+          <ButtonGroup sx={ styles.filtersGroup }>
+            <Button onClick={ handleOpenSidebar } startIcon={ <Icon>filter_list</Icon> }>
+              { t('filters-title') }
             </Button>
           </ButtonGroup>
         </Container>

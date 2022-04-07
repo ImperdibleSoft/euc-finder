@@ -54,10 +54,6 @@ export const useCompareActions = () => {
     dispatch(resetWheelToComparision());
   };
 
-  const handleOpenComparator = () => {
-    router.push(EUC_COMPARATOR);
-  };
-
   const handleOpenSettings = () => {
     router.push(SETTINGS);
   };
@@ -70,7 +66,6 @@ export const useCompareActions = () => {
     handleNavigateToComparator,
     handleOpenSettings,
     handleRemoveFromComparision,
-    handleOpenComparator,
     handleResetComparision,
     isBeingCompared
   };
