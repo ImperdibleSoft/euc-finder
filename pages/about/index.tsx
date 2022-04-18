@@ -58,7 +58,8 @@ const tableData = [
   },
   {
     task: 'frenchTranslations-label',
-    responsible: 'fabien.wheel'
+    responsible: 'fabien.wheel',
+    contributors: ['bonheursurseine']
   }
 ];
 
