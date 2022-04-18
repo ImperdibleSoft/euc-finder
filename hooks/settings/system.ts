@@ -21,6 +21,7 @@ export const useSystem = (t: TFunction<'translation'>) => {
       icon: i.icon,
       value: i.path
     }))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   , []);
   const selectedRegion = useSelector(getRegion);
   const regions = getRegions(t);
