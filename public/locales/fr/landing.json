@@ -1,23 +1,23 @@
 {
   "visit-btn": "Visiter",
 
-  "eucFinder-desc": "Apprenez à connaître le {{appName}}! La meilleure façon de trouver votre roue idéale.",
-  "eucFinder-desc2": "Dans le {{appName}}, vous pouvez sélectionner les spécifications que vous souhaitez avoir sur votre roue pour voir les différentes options disponibles.",
+  "eucFinder-desc": "La meilleure façon de trouver votre roue idéale.",
+  "eucFinder-desc2": "Dans la section {{appName}}, vous pouvez sélectionner les spécifications que vous souhaitez avoir pour la roue que vous cherchez, et ainsi voir quels sont les modèles existants.",
 
-  "eucComparator-desc": "Vous hésitez entre plusieurs roues ? Ne vous inquiétez pas! Le {{appName}} attribuera une note à chacun pour vous dire lequel est le meilleur de tous.",
-  "eucComparator-desc2": "De plus, vous pouvez personnaliser vos préférences afin que le {{appName}} note mieux les fonctionnalités que vous appréciez le plus.",
+  "eucComparator-desc": "Vous hésitez entre plusieurs roues? Ne vous inquiétez pas!",
+  "eucComparator-desc2": "La section {{appName}} attribue pour chaque roue un score vous indiquant laquelle est la meilleure. De plus, vous pourrez personnaliser vos critères afin que le score reflète aux mieux les spécifications que vous appréciez le plus.",
 
-  "settings-desc": "Dans EUC Finder, vous disposez d'une grande variété d'options pour personnaliser votre expérience. De la langue ou du mode sombre, en passant par les unités de mesure (telles que les kilomètres ou les miles, les millimètres ou les pouces) jusqu'à l'importance que chaque fonctionnalité d'un monocycle a pour vous.",
-  "settings-desc2": "Ici, vous pouvez personnaliser presque tous les aspects de l'application, de sorte que son utilisation soit une expérience confortable et enrichissante.",
+  "settings-desc": "Personnalisez presque tous les aspects de l'application, afin que votre visite soit agréable et profitable.",
+  "settings-desc2": "EUC Finder vous propose une grande variété d'options pour personnaliser votre navigation: la langue, le mode sombre, les unités de mesure (telles que les kilomètres ou les miles, les millimètres ou les pouces), jusqu'à la pondération de chaque critère/spécification utilisé dans le score du comparateur.",
 
-  "videos-desc": "Vous souhaitez en savoir plus sur les roues ? Vous avez des doutes sur un modèle en particulier ? Plongez dans la section {{appName}} et devenez un expert.",
-  "videos-desc2": "La section {{appName}} contient des centaines de vidéos de qualité, sélectionnées manuellement, où vous pouvez voir des critiques, des comparaisons ou des déballages réalisés par les meilleurs créateurs de contenu.",
+  "videos-desc": "Vous souhaitez en savoir plus sur les roues? Vous avez des questions sur un modèle en particulier? Plongez dans la section {{appName}} et devenez un expert.",
+  "videos-desc2": "La section {{appName}} contient des centaines de vidéos de qualité, sélectionnées manuellement, où vous pourrez visionner des reviews, des comparaisons ou des unboxings réalisés par les meilleurs créateurs de contenu de la communauté.",
 
-  "dealers-desc": "Dans le cadre de l'engagement d'EUC Finder en faveur de la transparence, vous pouvez voir ici tous les magasins avec lesquels EUC Finder travaille dans votre région.",
-  "dealers-desc2": "Vous pourrez voir des informations pertinentes, telles que leurs pages Web officielles, le nombre de roues qu'ils ont à vendre ou l'état des négociations pour vous offrir des codes de réduction.",
+  "dealers-desc": "Dans le cadre de l’engagement d’EUC Finder en matière de transparence, cette section liste tous les magasins de votre région qui collabore avec le site.",
+  "dealers-desc2": "Vous y trouverez des informations utiles, tels que leur site Web officielle, le nombre de modèles qu'ils commercialisent, et l'avancé des négociations pour vous offrir des codes de réduction.",
 
-  "influencers-desc": "Ici, vous pouvez rencontrer certaines des plus grandes personnalités de la communauté des monocycles.",
-  "influencers-desc2": "Ces créateurs de contenu aident la communauté à se développer en informant les nouveaux arrivants et les vétérans des dernières nouvelles dans le monde du monocycle.",
+  "influencers-desc": "Consultez la liste des principaux influenceurs dans la communauté de la roue électrique.",
+  "influencers-desc2": "Ces personnes aident la communauté à se développer en informant, aussi bien les nouveaux arrivants que les plus expérimentés, des dernières nouveautés et des évènements récents qui agitent le monde de la roue.",
 
   "about-desc": "",
   "about-desc2": ""
