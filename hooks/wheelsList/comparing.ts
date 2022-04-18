@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { EUC_COMPARATOR, SETTINGS } from '../../constants/clientRoutes';
+import { EUC_COMPARATOR } from '../../constants/clientRoutes';
 import { addWheelToComparision, removeWheelToComparision, resetWheelToComparision } from '../../store/actions';
 import { getComparedWheels, getMaxComparedWheels, getSpecWeights, getWheels } from '../../store/selectors';
 import { Wheel, WheelId } from '../../types';
@@ -54,17 +54,12 @@ export const useCompareActions = () => {
     dispatch(resetWheelToComparision());
   };
 
-  const handleOpenSettings = () => {
-    router.push(SETTINGS);
-  };
-
   return {
     canCompareMoreWheels,
     comparedWheels,
     handleAddAllToComparision,
     handleAddToComparision,
     handleNavigateToComparator,
-    handleOpenSettings,
     handleRemoveFromComparision,
     handleResetComparision,
     isBeingCompared

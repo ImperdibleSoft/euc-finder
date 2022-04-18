@@ -1,15 +1,13 @@
 /* eslint-disable max-lines */
-import { Box, Button, ButtonGroup, Card, CardActions, CardContent, Divider, Grid, Typography } from '@mui/material';
+import { Button, Card, CardActions, CardContent, Grid, Typography } from '@mui/material';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Dropdown from '../../components/Form/Dropdown';
-import Slider from '../../components/Form/Slider';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { useSettings, useSettingsTranslations } from '../../hooks';
 import { defaultMeasureUnits, resetMeasureUnits } from '../../store/actions';
-import { SpecWeightsPreset } from '../../store/types';
 import { LOCAL_STORAGE_KEY, TranslationFile } from '../../types';
 import { removeItem, setItem } from '../../utils';
 import { getTranslationsFromFiles } from '../../utils-server';
@@ -22,12 +20,8 @@ const Settings: React.FC = () => {
   const {
     systemFields,
     interfaceFields,
-    measureUnitFields,
-    activePreset,
-    handleChangePreset,
-    specWeightsFields
+    measureUnitFields
   } = useSettings();
-  const splitComparatorFieldsIndex = Math.round(specWeightsFields.length / 2);
 
   useEffect(() => {
     setRender(true);
@@ -75,37 +69,45 @@ const Settings: React.FC = () => {
 
         { render && (
           <Grid container spacing={ 2 }>
-            <Grid item xs={ 12 } sm={ 6 } md={ 4 }>
-              <Card sx={ { mb: 2 } }>
-                <CardContent>
-                  <Typography variant="h5" component="div" sx={ { mb: 3 } }>
-                    { t('system-title') }
-                  </Typography>
+            <Grid item xs={ 12 } sm={ 6 } md={ 8 }>
+              <Grid container spacing={ 2 }>
+                <Grid item xs={ 12 } md={ 6 }>
+                  <Card>
+                    <CardContent>
+                      <Typography variant="h5" component="div" sx={ { mb: 3 } }>
+                        { t('system-title') }
+                      </Typography>
 
-                  { systemFields.map(field => (
-                    <Dropdown
-                      key={ field.name }
-                      { ...field }
-                    />
-                  )) }
-                </CardContent>
-              </Card>
+                      { systemFields.map(field => (
+                        <Dropdown
+                          key={ field.name }
+                          { ...field }
+                        />
+                      )) }
+                    </CardContent>
+                  </Card>
+                </Grid>
 
-              <Card sx={ { mb: 2 } }>
-                <CardContent>
-                  <Typography variant="h5" component="div" sx={ { mb: 3 } }>
-                    { t('interface-title') }
-                  </Typography>
+                <Grid item xs={ 12 } md={ 6 }>
+                  <Card>
+                    <CardContent>
+                      <Typography variant="h5" component="div" sx={ { mb: 3 } }>
+                        { t('interface-title') }
+                      </Typography>
 
-                  { interfaceFields.map(field => (
-                    <Dropdown
-                      key={ field.name }
-                      { ...field }
-                    />
-                  )) }
-                </CardContent>
-              </Card>
+                      { interfaceFields.map(field => (
+                        <Dropdown
+                          key={ field.name }
+                          { ...field }
+                        />
+                      )) }
+                    </CardContent>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Grid>
             
+            <Grid item xs={ 12 } sm={ 6 } md={ 4 }>
               <Card>
                 <CardContent>
                   <Typography variant="h5" component="div" sx={ { mb: 3 } }>
@@ -135,83 +137,6 @@ const Settings: React.FC = () => {
                     { t('save-btn') }
                   </Button>
                 </CardActions>
-              </Card>
-            </Grid>
-
-            <Grid item xs={ 12 } sm={ 6 } md={ 8 }>
-              <Card>
-                <CardContent>
-                  <Typography variant="h5" component="div" gutterBottom>
-                    { t('compare-title') }
-                  </Typography>
-
-                  <Typography variant="body1" component="p" gutterBottom>
-                    { t('settingsSpecWeights-msg') }
-                  </Typography>
-                  <Divider />
-                  
-                  <Typography variant="body1" component="p" sx={ { my: 2 } }>
-                    { t('settingsSpecWeightsPresets-msg') }
-                  </Typography>
-
-                  <Box sx={ {
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    justifyContent: 'center',
-                    maxWidth: '100%',
-                    mt: 2,
-                    overflow: 'hidden',
-                    overflowX: 'auto',
-                    pb: 2,
-                    pr: '1px'
-                  } }
-                  >
-                    <ButtonGroup variant="outlined" disableElevation>
-                      { Object.values(SpecWeightsPreset).map(preset => (
-                        <Button
-                          key={ `${ preset }-preset` }
-                          variant={ activePreset === preset ? 'contained' : undefined }
-                          onClick={ () => handleChangePreset(preset) }
-                        >
-                          { t(`${ preset }Preset-label`) }
-                        </Button>
-                      )) }
-                    </ButtonGroup>
-                  </Box>
-                  <Divider />
-
-                  <Typography variant="body1" component="p" sx={ { my: 2 } }>
-                    { t('settingsSpecWeightsCustom-msg') }
-                  </Typography>
-                
-                  <Grid container spacing={ { xs: 0, md: 6 } }>
-                    <Grid item xs={ 12 } md={ 6 }>
-                      { specWeightsFields.slice(0, splitComparatorFieldsIndex).map(field => (
-                        <Slider
-                          key={ field.name }
-                          { ...field }
-                          style={ {
-                            marginBottom: 24,
-                            ...field.style
-                          } }
-                        />
-                      )) }
-                    </Grid>
-
-                    <Grid item xs={ 12 } md={ 6 }>
-                      { specWeightsFields.slice(splitComparatorFieldsIndex).map(field => (
-                        <Slider
-                          key={ field.name }
-                          { ...field }
-                          style={ {
-                            marginBottom: 24,
-                            ...field.style
-                          } }
-                        />
-                      )) }
-                    </Grid>
-                  </Grid>
-                </CardContent>
               </Card>
             </Grid>
           </Grid>

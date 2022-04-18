@@ -27,9 +27,7 @@ const GridView: React.FC<Props> = ({
 }) => {
   const { t } = useWheelsListTranslations();
   const specs = useSelector(getTableViewSpecs);
-
   const [sampleWheel] = records ?? [];
-
 
   const sortCriteriaOptions = specs
     .filter(key => {

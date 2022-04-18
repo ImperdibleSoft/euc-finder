@@ -1,14 +1,21 @@
-import { Box, Button, ButtonGroup } from '@mui/material';
+import { Box, Button, ButtonGroup, Container } from '@mui/material';
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import SimpleLayout from '../../components/Layouts/SimpleLayout';
+import LayoutWithSidebar from '../../components/Layouts/LayoutWithSidebar';
 import CompareCharts from '../../components/Screens/CompareView/CompareCharts';
+import CompareSettings from '../../components/Screens/CompareView/CompareSettings';
 import CompareTable from '../../components/Screens/CompareView/CompareTable';
 import EmptyCase from '../../components/Screens/CompareView/EmptyCase';
 import WheelSelector from '../../components/WheelSelector';
 import { APP_DESCRIPTION, APP_NAME, KEYWORDS } from '../../constants';
-import { useComparatorTranslations, useCompareActions, useComparedWheels } from '../../hooks';
+import {
+  useBreakpoints,
+  useComparatorTranslations,
+  useCompareActions,
+  useComparedWheels,
+  useSettings
+} from '../../hooks';
 import { getBrands, getMaxCurrentAllowed, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
 import { TranslationFile, WheelId } from '../../types';
 import { getTranslationsFromFiles } from '../../utils-server';
@@ -19,13 +26,15 @@ interface Props {
 
 const CompareWheels: React.FC<Props> = ({ pictures }) => {
   const { t } = useComparatorTranslations();
+  const [openSettings, setOpenSettings] = useState(false);
   const {
     canCompareMoreWheels,
     handleAddToComparision,
-    handleOpenSettings,
     handleRemoveFromComparision,
     handleResetComparision
   } = useCompareActions();
+  const { sm } = useBreakpoints();
+  const { activePreset, handleChangePreset, specWeightsFields } = useSettings();
   const brands = useSelector(getBrands);
   const specs = useSelector(getTableViewSpecs).filter(k => k !== 'name');
   const measureUnits = useSelector(getMeasureUnits);
@@ -54,6 +63,14 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
     );
   };
 
+  const handleOpenSettings = () => {
+    setOpenSettings(true);
+  };
+
+  const handleCloseSettings = () => {
+    setOpenSettings(false);
+  };
+
   const pageTitle = `${ t('compare-title') } - ${ APP_NAME }`;
   const pageDescription = APP_DESCRIPTION;
 
@@ -72,60 +89,72 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
         <meta property="og:image:alt" content={ t('appLogo-label', { appName: APP_NAME }) } />
       </Head>
 
-      <SimpleLayout>
-        <Box sx={ { alignItems: 'center', display: 'flex', justifyContent: 'flex-end', pb: 2 } }>
-          <ButtonGroup>
-            <Button
-              onClick={ handleOpenSettings }
-              variant="outlined"
-            >
-              { t('settings-btn') }
-            </Button>
-
-            <Button
-              color="error"
-              onClick={ handleResetComparision }
-              variant="outlined"
-            >
-              { t('reset-btn') }
-            </Button>
-          </ButtonGroup>
-        </Box>
-
-        { renderWheelDropdown() }
-
-        { comparedWheels.length > 0 && (
-          <>
-            <CompareTable
-              brands={ brands }
-              handleRemoveFromComparision={ handleRemoveFromComparision }
-              maxCurrentAllowed={ maxCurrentAllowed }
-              measureUnits={ measureUnits }
-              minMaxScores={ minMaxScores }
-              specWeights={ specWeights }
-              specs={ specs }
-              wheelPictures={ pictures }
-              wheelScores={ wheelScores }
-              wheels={ comparedWheels }
-            />
-
-            <CompareCharts
-              measureUnits={ measureUnits }
-              wheels={ comparedWheels }
-            />
-          </>
+      <LayoutWithSidebar
+        handleCloseSidebar={ handleCloseSettings }
+        handleOpenSidebar={ handleOpenSettings }
+        open={ openSettings }
+        sidebar={ (
+          <CompareSettings
+            activePreset={ activePreset }
+            handleChangePreset={ handleChangePreset }
+            fields={ specWeightsFields }
+          />
         ) }
+      >
+        <Container>
+          <Box sx={ { alignItems: 'center', display: 'flex', justifyContent: 'flex-end', pb: 2 } }>
+            <ButtonGroup>
+              { !sm && (
+                <Button onClick={ handleOpenSettings } variant="outlined">
+                  { t('settings-btn') }
+                </Button>
+              ) }
 
-        { comparedWheels.length <= 0 && (
-          <EmptyCase>
-            { renderWheelDropdown() }
-          </EmptyCase>
-        ) }
-      </SimpleLayout>
+              <Button
+                color="error"
+                onClick={ handleResetComparision }
+                variant="outlined"
+              >
+                { t('reset-btn') }
+              </Button>
+            </ButtonGroup>
+          </Box>
+
+          { renderWheelDropdown() }
+
+          { comparedWheels.length > 0 && (
+            <>
+              <CompareTable
+                brands={ brands }
+                handleRemoveFromComparision={ handleRemoveFromComparision }
+                maxCurrentAllowed={ maxCurrentAllowed }
+                measureUnits={ measureUnits }
+                minMaxScores={ minMaxScores }
+                specWeights={ specWeights }
+                specs={ specs }
+                wheelPictures={ pictures }
+                wheelScores={ wheelScores }
+                wheels={ comparedWheels }
+              />
+
+              <CompareCharts
+                measureUnits={ measureUnits }
+                wheels={ comparedWheels }
+              />
+            </>
+          ) }
+
+          { comparedWheels.length <= 0 && (
+            <EmptyCase>
+              { renderWheelDropdown() }
+            </EmptyCase>
+          ) }
+        </Container>
+      </LayoutWithSidebar>
     </>
   );
 };
 
 export default CompareWheels;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.comparator], 'first');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.comparator, TranslationFile.settings], 'first');
