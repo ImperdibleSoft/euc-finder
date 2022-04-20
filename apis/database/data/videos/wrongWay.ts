@@ -1143,12 +1143,7 @@ const wrongWayVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=PjNLci-06-8',
-    tags: [
-      InfluencerId.wrongWay,
-      VideoCategory.reveal,
-      WheelId.v8,
-      WheelId.v8f
-    ],
+    tags: [InfluencerId.wrongWay, VideoCategory.chatting, WheelId.sherman],
     publishDate: '12/Apr/2022',
     releaseDate: '20/Apr/2022',
     language: 'en'
