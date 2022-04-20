@@ -17,11 +17,7 @@ const bonheursurSeineVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=_ueyEPfleV0',
-    tags: [
-      InfluencerId.bonheursurSeine,
-      WheelId.nikola,
-      VideoCategory.review
-    ],
+    tags: [InfluencerId.bonheursurSeine, WheelId.nikola, VideoCategory.review],
     publishDate: '30/Apr/2019',
     releaseDate: '20/Mar/2022',
     language: 'fr'
@@ -257,11 +253,7 @@ const bonheursurSeineVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=Pdf8WJQO9pE',
-    tags: [
-      InfluencerId.bonheursurSeine,
-      WheelId.v12,
-      VideoCategory.chatting
-    ],
+    tags: [InfluencerId.bonheursurSeine, WheelId.v12, VideoCategory.chatting],
     publishDate: '19/Mar/2021',
     releaseDate: '20/Mar/2022',
     language: 'fr'
@@ -306,11 +298,7 @@ const bonheursurSeineVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=qtlKrIEUJyQ',
-    tags: [
-      InfluencerId.bonheursurSeine,
-      WheelId.v12,
-      VideoCategory.chatting
-    ],
+    tags: [InfluencerId.bonheursurSeine, WheelId.v12, VideoCategory.chatting],
     publishDate: '21/May/2021',
     releaseDate: '20/Mar/2022',
     language: 'fr'
@@ -358,7 +346,8 @@ const bonheursurSeineVideos: Video[] = [
       WheelId.ksS22,
       WheelId.commanderHS,
       WheelId.commanderHT,
-      WheelId.heroHT, WheelId.heroHS,
+      WheelId.heroHT,
+      WheelId.heroHS,
       WheelId.abrams,
       WheelId.recioWheel16,
       WheelId.recioWheel18,
@@ -429,7 +418,8 @@ const bonheursurSeineVideos: Video[] = [
       WheelId.v12HT,
       WheelId.shermanMax,
       WheelId.ksS22,
-      WheelId.heroHT, WheelId.heroHS,
+      WheelId.heroHT,
+      WheelId.heroHS,
       WheelId.ex20s,
       WheelId.v13,
       WheelId.xmenHS,
@@ -456,11 +446,7 @@ const bonheursurSeineVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=YEhCwID0CQU',
-    tags: [
-      InfluencerId.bonheursurSeine,
-      WheelId.ksS22,
-      VideoCategory.review
-    ],
+    tags: [InfluencerId.bonheursurSeine, WheelId.ksS22, VideoCategory.review],
     publishDate: '18/Feb/2022',
     releaseDate: '20/Mar/2022',
     language: 'fr'
@@ -481,7 +467,8 @@ const bonheursurSeineVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=2hbRcoAp3AE',
     tags: [
       InfluencerId.bonheursurSeine,
-      WheelId.heroHT, WheelId.heroHS,
+      WheelId.heroHT,
+      WheelId.heroHS,
       VideoCategory.review,
       VideoCategory.commuting,
       VideoCategory.offroad
@@ -494,15 +481,27 @@ const bonheursurSeineVideos: Video[] = [
     url: 'https://www.youtube.com/watch?v=l_jxa-WhUNM',
     tags: [
       InfluencerId.bonheursurSeine,
-      WheelId.heroHT, WheelId.heroHS,
+      WheelId.heroHT,
+      WheelId.heroHS,
       VideoCategory.review,
       VideoCategory.chatting
     ],
     publishDate: '25/Mar/2022',
     releaseDate: '30/Mar/2022',
     language: 'fr'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=l_jxa-WhUNM',
+    tags: [
+      InfluencerId.bonheursurSeine,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.abrams
+    ],
+    publishDate: '08/Apr/2022',
+    releaseDate: '20/Apr/2022',
+    language: 'fr'
   }
-  
 ];
 
 export default bonheursurSeineVideos;
