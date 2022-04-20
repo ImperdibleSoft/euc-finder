@@ -68,24 +68,24 @@ const Influencers: React.FC = () => {
                     />
                   )) }
                 </Grid>
+                
+                { regularInfluencers.length > 0 && (
+                  <Typography variant="h5" sx={ { mb: 2, mt: 6 } }>
+                    { t('regularInfluencers-title') }
+                  </Typography>
+                ) }
               </>
             ) }
 
             { regularInfluencers.length > 0 && (
-              <>
-                <Typography variant="h5" sx={ { mb: 2, mt: 6 } }>
-                  { t('regularInfluencers-title') }
-                </Typography>
-
-                <Grid container spacing={ 2 }>
-                  { regularInfluencers.map(influencer => (
-                    <InfluencerCard
-                      key={ influencer.id }
-                      influencer={ influencer }
-                    />
-                  )) }
-                </Grid>
-              </>
+              <Grid container spacing={ 2 }>
+                { regularInfluencers.map(influencer => (
+                  <InfluencerCard
+                    key={ influencer.id }
+                    influencer={ influencer }
+                  />
+                )) }
+              </Grid>
             ) }
           </>
         ) }
