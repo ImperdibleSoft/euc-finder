@@ -30,7 +30,7 @@ const sherman: Wheel = {
   },
   stockCharger: 5,
   maxCharger: 0,
-  chargePorts: 1,
+  chargePorts: 2,
   usbPorts: undefined,
 
   maxGradibility: 30,
