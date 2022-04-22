@@ -7,9 +7,9 @@ import { getRegions, wheelFeatureIcons } from '../../constants';
 import { EUC_COMPARATOR, EUC_FINDER, ROOT, VIDEOS } from '../../constants/clientRoutes';
 import getNavigation from '../../constants/navigation';
 import { setAppOnStartup, setRegion, setUserWeight } from '../../store/actions';
-import { getRegion, getStartupApp, getUserWeight } from '../../store/selectors';
-import { LOCAL_STORAGE_KEY, Region, TranslationFile } from '../../types';
-import { setItem } from '../../utils';
+import { getMeasureUnits, getRegion, getStartupApp, getUserWeight } from '../../store/selectors';
+import { LOCAL_STORAGE_KEY, Region, TranslationFile, WeightUnits } from '../../types';
+import { kilogramsToPounds, poundsToKilograms, setItem, toDecimals } from '../../utils';
 import { commonNs } from '../translations';
 
 export const useSystem = (t: TFunction<'translation'>) => {
@@ -26,7 +26,9 @@ export const useSystem = (t: TFunction<'translation'>) => {
   , []);
   const regions = getRegions(t);
   const selectedRegion = useSelector(getRegion);
+  const units = useSelector(getMeasureUnits);
   const userWeight = useSelector(getUserWeight);
+  const calculatedWeight = units.weight === WeightUnits.lb ? kilogramsToPounds(userWeight) : userWeight;
 
   const handleChangeAppOnStartup = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
@@ -44,10 +46,11 @@ export const useSystem = (t: TFunction<'translation'>) => {
   };
 
   const handleChangeUserWeight = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = Number(event.target.value).toFixed(2);
+    const value = Number(event.target.value);
     if (value) {
-      dispatch(setUserWeight({ weight: Number(value) }));
-      setItem(LOCAL_STORAGE_KEY.USER_WEIGHT, value);
+      const weightToStore = units.weight === WeightUnits.lb ? poundsToKilograms(value) : value;
+      dispatch(setUserWeight({ weight: weightToStore }));
+      setItem(LOCAL_STORAGE_KEY.USER_WEIGHT, `${ weightToStore }`);
     }
   };
 
@@ -80,7 +83,7 @@ export const useSystem = (t: TFunction<'translation'>) => {
       name: 'userWeight',
       onChange: handleChangeUserWeight,
       type: 'number',
-      value: userWeight.toString()
+      value: toDecimals(calculatedWeight, 2, 0)
     } as TextProps
   ];
 
