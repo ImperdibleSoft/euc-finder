@@ -4,6 +4,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Dropdown from '../../components/Form/Dropdown';
+import Text from '../../components/Form/Text';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import { APP_NAME, KEYWORDS } from '../../constants';
 import { useSettings, useSettingsTranslations } from '../../hooks';
@@ -78,12 +79,14 @@ const Settings: React.FC = () => {
                         { t('system-title') }
                       </Typography>
 
-                      { systemFields.map(field => (
-                        <Dropdown
-                          key={ field.name }
-                          { ...field }
-                        />
-                      )) }
+                      { systemFields.map(field => {
+                        // eslint-disable-next-line 
+                        if ('options' in field) {
+                          return <Dropdown key={ field.name } { ...field } />;
+                        }
+
+                        return <Text key={ field.name } { ...field } />;
+                      }) }
                     </CardContent>
                   </Card>
                 </Grid>

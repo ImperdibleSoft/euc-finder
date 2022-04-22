@@ -1,12 +1,13 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { TFunction } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { DropdownItem, Props } from '../../components/Form/Dropdown';
-import { getRegions } from '../../constants';
+import { DropdownItem, Props as DropdownProps } from '../../components/Form/Dropdown';
+import { Props as TextProps } from '../../components/Form/Text';
+import { getRegions, wheelFeatureIcons } from '../../constants';
 import { EUC_COMPARATOR, EUC_FINDER, ROOT, VIDEOS } from '../../constants/clientRoutes';
 import getNavigation from '../../constants/navigation';
-import { setAppOnStartup, setRegion } from '../../store/actions';
-import { getRegion, getStartupApp } from '../../store/selectors';
+import { setAppOnStartup, setRegion, setUserWeight } from '../../store/actions';
+import { getRegion, getStartupApp, getUserWeight } from '../../store/selectors';
 import { LOCAL_STORAGE_KEY, Region, TranslationFile } from '../../types';
 import { setItem } from '../../utils';
 import { commonNs } from '../translations';
@@ -23,8 +24,9 @@ export const useSystem = (t: TFunction<'translation'>) => {
     }))
   // eslint-disable-next-line react-hooks/exhaustive-deps
   , []);
-  const selectedRegion = useSelector(getRegion);
   const regions = getRegions(t);
+  const selectedRegion = useSelector(getRegion);
+  const userWeight = useSelector(getUserWeight);
 
   const handleChangeAppOnStartup = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const { value } = event.target;
@@ -41,7 +43,15 @@ export const useSystem = (t: TFunction<'translation'>) => {
     }
   };
 
-  const fields: Props[] = [
+  const handleChangeUserWeight = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = Number(event.target.value).toFixed(2);
+    if (value) {
+      dispatch(setUserWeight({ weight: Number(value) }));
+      setItem(LOCAL_STORAGE_KEY.USER_WEIGHT, value);
+    }
+  };
+
+  const fields = [
     {
       label: t('startupApp-label'),
       name: 'startupApp',
@@ -55,7 +65,7 @@ export const useSystem = (t: TFunction<'translation'>) => {
       ],
       style: { marginBottom: 24 },
       value: appOnStartup
-    },
+    } as DropdownProps,
     {
       label: t('region-label', commonNs),
       name: 'region',
@@ -63,7 +73,15 @@ export const useSystem = (t: TFunction<'translation'>) => {
       options: regions,
       style: { marginBottom: 24 },
       value: selectedRegion
-    }
+    } as DropdownProps,
+    {
+      icon: wheelFeatureIcons.suspension,
+      label: t('userWeight-label'),
+      name: 'userWeight',
+      onChange: handleChangeUserWeight,
+      type: 'number',
+      value: userWeight.toString()
+    } as TextProps
   ];
 
   return { systemFields: fields };

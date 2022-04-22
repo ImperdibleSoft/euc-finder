@@ -20,6 +20,10 @@ export enum LOCAL_STORAGE_KEY {
    * App on Startup
    */
   STARTUP_APP = 'eucFinder_startupApp',
+  /**
+   * User's weight
+   */
+  USER_WEIGHT = 'eucFinder_userWeight',
 
   // Videos
 
