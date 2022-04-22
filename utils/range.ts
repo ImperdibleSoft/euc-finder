@@ -14,7 +14,7 @@ export const getRangeFromBattery = ({ battery, brandId, range }: Wheel, weight: 
     ? brand.misc.kmPerWh * battery.wattsHour
     : range);
 
-  const maxRange = (defaultRange * 0.8) * getWeightMultiplier(weight);
+  const maxRange = (defaultRange * 0.9) * getWeightMultiplier(weight);
 
   return (maxRange <= 0) ? 0 : maxRange;
 };
