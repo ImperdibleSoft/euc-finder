@@ -2,15 +2,17 @@ import { BrandId, Region, StoreId, Wheel, WheelId } from '../../types';
 import { getRangeFromBattery } from '../../utils';
 import { RootState } from '../types';
 import { getRangeConfig } from './config';
+import { getUserWeight } from './settings';
 
 export const getWheels = (rootState: RootState): Wheel[] => {
   const { wheels: { brands, collection } } = rootState;
   const shouldCalculateRange = getRangeConfig(rootState);
+  const userWeight = getUserWeight(rootState);
 
   return collection.map(w => ({
     ...w,
     range: shouldCalculateRange
-      ? getRangeFromBattery(w, brands)
+      ? getRangeFromBattery(w, userWeight, brands)
       : w.range * 0.85
   }));
 };

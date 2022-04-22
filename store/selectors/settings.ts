@@ -61,3 +61,6 @@ export const getSpecWeights = (rootState: RootState): SpecWeights => {
 
 export const getTheme = ({ settings }: RootState) =>
   settings.theme;
+
+export const getUserWeight = ({ settings }: RootState) =>
+  settings.user.weight;

@@ -9,6 +9,7 @@ import {
   SetSpecWeightsPresetAction,
   SetStartupAppAction,
   SetThemeAction,
+  SetUserWeightAction,
   SpecWeightsPreset
 } from '../types';
 
@@ -61,4 +62,12 @@ export const setTheme = (payload: SetThemeAction['payload']) =>
       type: 'SET_THEME',
       payload
     } as SetThemeAction);
+  };
+
+export const setUserWeight = (payload: SetUserWeightAction['payload']) =>
+  (dispatch: Dispatch) => {
+    dispatch({
+      type: 'SET_WEIGHT',
+      payload
+    } as SetUserWeightAction);
   };

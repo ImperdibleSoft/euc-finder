@@ -4,6 +4,7 @@ import { getUserCustomSpecWeights } from '../../../utils/settings';
 import { SettingsState, SpecWeightsPreset } from '../../types';
 import { getInitialMeasureUnits } from './measureUnits';
 import { getGenericSpecWheights } from './specWeights';
+import { getUserInitialState } from './user';
 
 export * from './measureUnits';
 
@@ -19,5 +20,6 @@ export const getSettingsInitialState = (): SettingsState => ({
     }
   },
   startupApp: (getItem(LOCAL_STORAGE_KEY.STARTUP_APP) || undefined),
-  theme: AvailableTheme.light
+  theme: AvailableTheme.light,
+  user: getUserInitialState()
 });

@@ -35,6 +35,11 @@ export type SpecWeights = Record<
   number
 >;
 
+
+interface UserState {
+  weight: number;
+}
+
 export interface SettingsState {
   disclaimer: boolean;
   measureUnits: MeasureUnits;
@@ -45,6 +50,7 @@ export interface SettingsState {
   };
   startupApp?: string;
   theme: AvailableTheme;
+  user: UserState;
 }
 
 export interface DefaultMeasureUnitsAction {
@@ -99,6 +105,13 @@ export interface SetThemeAction {
   }
 }
 
+export interface SetUserWeightAction {
+  type: 'SET_WEIGHT',
+  payload: {
+    weight: number,
+  }
+}
+
 export type SettingsAction =
   | DefaultMeasureUnitsAction
   | ResetMeasureUnitsAction
@@ -107,4 +120,5 @@ export type SettingsAction =
   | SetStartupAppAction
   | SetSpecWeightsPresetAction
   | SetCustomSpecWeightAction
-  | SetThemeAction;
+  | SetThemeAction
+  | SetUserWeightAction;

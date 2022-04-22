@@ -62,6 +62,15 @@ const reducer = (state = getSettingsInitialState(), action: SettingsAction): Set
         ...state,
         theme: action.payload.theme
       };
+
+    case 'SET_WEIGHT':
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          weight: action.payload.weight
+        }
+      };
         
     default:
       return state;
