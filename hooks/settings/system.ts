@@ -12,8 +12,6 @@ import { LOCAL_STORAGE_KEY, Region, TranslationFile, WeightUnits } from '../../t
 import { kilogramsToPounds, poundsToKilograms, setItem, toDecimals } from '../../utils';
 import { commonNs } from '../translations';
 
-let debouncer: NodeJS.Timeout;
-
 export const useSystem = (t: TFunction<'translation'>) => {
   const dispatch = useDispatch();
   const appOnStartup = useSelector(getStartupApp);
@@ -48,15 +46,12 @@ export const useSystem = (t: TFunction<'translation'>) => {
   };
 
   const handleChangeUserWeight = (event: React.ChangeEvent<HTMLInputElement>) => {
-    clearTimeout(debouncer);
-    debouncer = setTimeout(() => {
-      const value = Number(event.target.value);
-      if (value) {
-        const weightToStore = units.weight === WeightUnits.lb ? poundsToKilograms(value) : value;
-        dispatch(setUserWeight({ weight: weightToStore }));
-        setItem(LOCAL_STORAGE_KEY.USER_WEIGHT, `${ weightToStore }`);
-      }
-    }, 200);
+    const value = Number(event.target.value);
+    if (value) {
+      const weightToStore = units.weight === WeightUnits.lb ? poundsToKilograms(value) : value;
+      dispatch(setUserWeight({ weight: weightToStore }));
+      setItem(LOCAL_STORAGE_KEY.USER_WEIGHT, `${ weightToStore }`);
+    }
   };
 
   const fields = [
