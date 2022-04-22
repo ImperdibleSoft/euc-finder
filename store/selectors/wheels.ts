@@ -11,9 +11,7 @@ export const getWheels = (rootState: RootState): Wheel[] => {
 
   return collection.map(w => ({
     ...w,
-    range: shouldCalculateRange
-      ? getRangeFromBattery(w, userWeight, brands)
-      : w.range * 0.85
+    range: getRangeFromBattery(w, userWeight, shouldCalculateRange ? brands : [])
   }));
 };
 
