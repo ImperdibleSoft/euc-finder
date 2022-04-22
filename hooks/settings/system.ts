@@ -78,13 +78,14 @@ export const useSystem = (t: TFunction<'translation'>) => {
       value: selectedRegion
     } as DropdownProps,
     {
+      description: t('userWeight-msg'),
       icon: wheelFeatureIcons.suspension,
       label: t('userWeight-label'),
       name: 'userWeight',
       onChange: handleChangeUserWeight,
       type: 'number',
       value: toDecimals(calculatedWeight, 2, 0)
-    } as TextProps
+    } as (TextProps & { description: string; })
   ];
 
   return { systemFields: fields };

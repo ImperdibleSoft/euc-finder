@@ -4,6 +4,7 @@
   "system-title": "Sistema",
   "startupApp-label": "App para abrir por defecto",
   "none-label": "Ninguna",
+  "userWeight-msg": "Esta información se usará para calcular la autonomía estimada de las ruedas de forma más precisa",
   "userWeight-label": "Peso del usuario",
 
   "interface-title": "Interfaz de usuario",

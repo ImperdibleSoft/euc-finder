@@ -85,7 +85,16 @@ const Settings: React.FC = () => {
                           return <Dropdown key={ field.name } { ...field } />;
                         }
 
-                        return <Text key={ field.name } { ...field } />;
+                        return (
+                          <React.Fragment key={ field.name }>
+                            <Text { ...field } />
+                            { !!field.description && (
+                              <Typography variant="caption" sx={ { mt: 0 } }>
+                                *{ field.description }
+                              </Typography>
+                            ) }
+                          </React.Fragment>
+                        );
                       }) }
                     </CardContent>
                   </Card>
