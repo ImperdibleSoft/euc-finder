@@ -1147,7 +1147,15 @@ const wrongWayVideos: Video[] = [
     publishDate: '12/Apr/2022',
     releaseDate: '20/Apr/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=Q-DlIgOB3sc',
+    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, WheelId.v8, WheelId.v8f],
+    publishDate: '20/Apr/2022',
+    releaseDate: '24/Apr/2022',
+    language: 'en'
   }
+  
 ];
 
 export default wrongWayVideos;

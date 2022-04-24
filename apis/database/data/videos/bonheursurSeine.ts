@@ -501,6 +501,17 @@ const bonheursurSeineVideos: Video[] = [
     publishDate: '08/Apr/2022',
     releaseDate: '20/Apr/2022',
     language: 'fr'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=KOXvuT_Hp_4',
+    tags: [
+      InfluencerId.bonheursurSeine,
+      VideoCategory.chatting,
+      WheelId.ksS22
+    ],
+    publishDate: '22/Apr/2022',
+    releaseDate: '24/Apr/2022',
+    language: 'fr'
   }
 ];
 
