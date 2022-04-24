@@ -14,3 +14,6 @@ export const getLastVisit = () => {
 
   return lastVisitStr ? new Date(lastVisitStr) : new Date('01 Jan 2000');
 };
+
+export const humanDate = (date: Date): string =>
+  date.toLocaleDateString(undefined, { dateStyle: 'medium' });

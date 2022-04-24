@@ -1,8 +1,8 @@
-import { Avatar, Box, Card, CardContent, Chip, List, ListItem } from '@mui/material';
+import { Avatar, Box, Card, CardContent, Chip, List, ListItem, Typography } from '@mui/material';
 import React from 'react';
 import { useVideoInfo } from '../../../../hooks';
 import { Video } from '../../../../types';
-import { getEmbedPath } from '../../../../utils';
+import { getEmbedPath, humanDate } from '../../../../utils';
 import YoutubePlayer from '../../../YoutubePlayer';
 
 const cardWidth = 314;
@@ -30,6 +30,9 @@ type Props = SmallProps | RegularProps;
 const VideoCard: React.FC<Props> = ({ video, ...props }) => {
   const { categories, influencers, wheels } = useVideoInfo(video);
   const { url } = getEmbedPath(video);
+
+  // eslint-disable-next-line no-restricted-syntax
+  const smallCard = 'small' in props;
   
   return (
     <Box
@@ -44,26 +47,35 @@ const VideoCard: React.FC<Props> = ({ video, ...props }) => {
       } }
     >
       <Card
-        sx={ {
-          // eslint-disable-next-line no-restricted-syntax
-          boxShadow: 'small' in props ? 0 : undefined
-        } }
+        variant={ smallCard ? 'outlined' : 'elevation' }
+        sx={ { boxShadow: smallCard ? 0 : undefined } }
       >
         <YoutubePlayer 
           controls
           url={ url }
           width={ cardWidth }
         />
-
-        { /* eslint-disable-next-line no-restricted-syntax */ }
-        { 'handleChangeInfluencers' in props && (
-          <CardContent
+        <CardContent
+          sx={ {
+            maxWidth: '100%',
+            p: 0,
+            '&:last-child': { pb: 0 }
+          } }
+        >
+          <Typography
+            color="text.secondary"
+            gutterBottom
             sx={ {
-              maxWidth: '100%',
-              p: 0,
-              '&:last-child': { pb: 0 }
+              fontSize: 14,
+              px: 2,
+              pt: 1,
+              pb: smallCard ? 1 : 0
             } }
           >
+            { humanDate(new Date(video.releaseDate)) }
+          </Typography>
+
+          { !smallCard && (
             <List dense>
               <ListItem sx={ { display: 'block' } }>
                 { influencers.map(influencer => (
@@ -78,6 +90,7 @@ const VideoCard: React.FC<Props> = ({ video, ...props }) => {
                   />
                 )) }
               </ListItem>
+
               <ListItem sx={ { display: 'block' } }>
                 { wheels.map(wheel => (
                 // @ts-ignore
@@ -90,6 +103,7 @@ const VideoCard: React.FC<Props> = ({ video, ...props }) => {
                   />
                 )) }
               </ListItem>
+
               <ListItem sx={ { display: 'block' } }>
                 { categories.map(category => (
                 // @ts-ignore
@@ -102,8 +116,8 @@ const VideoCard: React.FC<Props> = ({ video, ...props }) => {
                 )) }
               </ListItem>
             </List>
-          </CardContent>
-        ) }
+          ) }
+        </CardContent>
       </Card>
     </Box>
   );
