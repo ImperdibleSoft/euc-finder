@@ -227,6 +227,17 @@ const oneradwheelVideos: Video[] = [
     publishDate: '14/Apr/2022',
     releaseDate: '20/Apr/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=Jp6NLyDuhSI',
+    tags: [
+      InfluencerId.oneradwheel,
+      VideoCategory.review,
+      WheelId.master
+    ],
+    publishDate: '30/Apr/2022',
+    releaseDate: '03/May/2022',
+    language: 'en'
   }
 ];
 

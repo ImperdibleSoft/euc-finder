@@ -512,6 +512,18 @@ const bonheursurSeineVideos: Video[] = [
     publishDate: '22/Apr/2022',
     releaseDate: '24/Apr/2022',
     language: 'fr'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=ekm6MC1rM2M',
+    tags: [
+      InfluencerId.bonheursurSeine,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.master
+    ],
+    publishDate: '26/Apr/2022',
+    releaseDate: '03/May/2022',
+    language: 'fr'
   }
 ];
 

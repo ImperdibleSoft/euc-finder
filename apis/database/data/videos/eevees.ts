@@ -165,6 +165,32 @@ const eeveesVideos: Video[] = [
     publishDate: '18/Mar/2022',
     releaseDate: '20/Mar/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=djhenDsRzVI',
+    tags: [
+      InfluencerId.eevees,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.shermanMax,
+      WheelId.ksS22
+    ],
+    publishDate: '26/Apr/2022',
+    releaseDate: '03/May/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=_Iz45h7t3T0',
+    tags: [
+      InfluencerId.eevees,
+      VideoCategory.review,
+      VideoCategory.comparision,
+      WheelId.ksS22,
+      WheelId.master
+    ],
+    publishDate: '30/Apr/2022',
+    releaseDate: '03/May/2022',
+    language: 'en'
   }
 ];
 

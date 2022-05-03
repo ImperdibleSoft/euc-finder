@@ -607,6 +607,30 @@ const madpackVideos: Video[] = [
     publishDate: '14/Apr/2022',
     releaseDate: '20/Apr/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=cyneuNGIzeE',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.review,
+      WheelId.ksS22
+    ],
+    publishDate: '25/Apr/2022',
+    releaseDate: '03/May/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=2BQeJnMs5x4',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.comparision,
+      WheelId.heroHS,
+      WheelId.heroHT,
+      WheelId.ksS22
+    ],
+    publishDate: '02/May/2022',
+    releaseDate: '03/May/2022',
+    language: 'en'
   }
 ];
 

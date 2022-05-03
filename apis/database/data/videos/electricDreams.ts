@@ -234,8 +234,20 @@ const electricDreamsVideos: Video[] = [
     publishDate: '17/Feb/2022',
     releaseDate: '17/Feb/2022',
     language: 'en'
-  }
-  
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=AFYo8JBfUII',
+    tags: [
+      InfluencerId.electricDreams,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.master
+    ],
+    publishDate: '29/Apr/2022',
+    releaseDate: '03/May/2022',
+    language: 'en'
+  }  
 ];
 
 export default electricDreamsVideos;
