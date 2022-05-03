@@ -266,6 +266,9 @@ export const getRelativeMinMaxScores = (
   // eslint-disable-next-line max-lines-per-function
   wheels.forEach(wheelId => {
     const wheelScore = scores[wheelId];
+    if (!wheelScore) {
+      return;
+    }
 
     if (!minMaxScores.price[0] || (wheelScore.price && wheelScore.price < minMaxScores.price[0])) {
       minMaxScores.price = [wheelScore.price, minMaxScores.price[1]];
