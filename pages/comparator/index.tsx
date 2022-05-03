@@ -139,7 +139,9 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
 
               <CompareCharts
                 measureUnits={ measureUnits }
+                minMaxScores={ minMaxScores }
                 wheels={ comparedWheels }
+                wheelScores={ wheelScores }
               />
             </>
           ) }
