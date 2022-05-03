@@ -205,7 +205,9 @@ const v10f: Wheel = {
     parallels: 4,
     wattsHour: 960
   },
-  range: 90
+  range: 90,
+
+  weight: 22.5
 };
 
 const v11: Wheel = {

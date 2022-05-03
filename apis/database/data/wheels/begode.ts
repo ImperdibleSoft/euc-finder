@@ -145,7 +145,7 @@ const tesla: Wheel = {
   headlight: 1200,
   tailLight: true,
   leds: true,
-  sound: undefined,
+  sound: SoundSystem.twoPointO,
   display: Display.led,
   suspension: undefined,
   color: Color.black
@@ -175,7 +175,7 @@ const nikola: Wheel = {
   usbPorts: [1, 0],
 
   maxGradibility: 30,
-  maxSpeed: 60,
+  maxSpeed: 70,
   range: 95,
   voltage: 100.8,
 
@@ -286,7 +286,7 @@ const msp: Wheel = {
   usbPorts: undefined,
 
   maxGradibility: 35,
-  maxSpeed: 50,
+  maxSpeed: 60,
   range: 120,
   voltage: 100.8,
 
