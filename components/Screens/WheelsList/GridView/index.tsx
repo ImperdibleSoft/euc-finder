@@ -4,17 +4,18 @@ import { useSelector } from 'react-redux';
 import { wheelFeatureIcons } from '../../../../constants';
 import { commonNs, useWheelsListTranslations } from '../../../../hooks';
 import { getTableViewSpecs } from '../../../../store/selectors';
-import { WheelFeatureIcons, WheelId, WheelSorting, WheelSortingKeys, WheelWithPicture } from '../../../../types';
+import { ScoreCollection, WheelFeatureIcons, WheelId, WheelSorting, WheelSortingKeys, WheelWithPicture } from '../../../../types';
 import Dropdown, { DropdownItem } from '../../../Form/Dropdown';
 import WheelCard from '../WheelCard';
 
 interface Props {
   handleAddToCompare?: (wheelId: WheelId) => void;
-  handleSort: (key: WheelSortingKeys) => void
+  handleSort: (key: WheelSortingKeys) => void;
   isBeingCompared: (wheelId: WheelId) => boolean;
-  records: WheelWithPicture[]
-  showPrice: boolean,
-  sorting: WheelSorting
+  records: WheelWithPicture[];
+  showPrice: boolean;
+  sorting: WheelSorting;
+  wheelScores: ScoreCollection;
 }
 
 const GridView: React.FC<Props> = ({
@@ -23,7 +24,8 @@ const GridView: React.FC<Props> = ({
   isBeingCompared,
   records,
   showPrice,
-  sorting
+  sorting,
+  wheelScores
 }) => {
   const { t } = useWheelsListTranslations();
   const specs = useSelector(getTableViewSpecs);
@@ -121,6 +123,7 @@ const GridView: React.FC<Props> = ({
             <Grid item key={ record.id } xs={ 12 } md={ 6 } lg={ 4 } xl={ 3 }>
               <WheelCard
                 handleAddToCompare={ handleCompareClick }
+                score={ wheelScores[record.id].score }
                 sorting={ sorting }
                 wheel={ record }
               />

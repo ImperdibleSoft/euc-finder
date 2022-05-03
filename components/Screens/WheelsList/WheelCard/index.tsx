@@ -23,11 +23,12 @@ import { ListItem } from '../../../Lists/types';
 
 interface Props {
   handleAddToCompare?: () => void;
+  score: number;
   sorting: WheelSorting;
   wheel: WheelWithPicture;
 }
 
-const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
+const WheelCard: React.FC<Props> = ({ handleAddToCompare, score, sorting, wheel }) => {
   const { t } = useWheelsListTranslations();
   const brands = useSelector(getBrands);
   const brand = getBrandInfo(wheel.brandId, brands);
@@ -95,7 +96,17 @@ const WheelCard: React.FC<Props> = ({ handleAddToCompare, sorting, wheel }) => {
           { brand?.name }
         </Typography>
 
-        <SmallList items={ mainSpecItems } />
+        <SmallList
+          items={ [
+            {
+              primary: t('score-label'),
+              icon: 'star',
+              iconProps: { active: true },
+              secondary: score.toString()
+            },
+            ...mainSpecItems
+          ] }
+        />
       </CardContent>
 
       <CardActions sx={ { pt: 0, pb: 2 } }>

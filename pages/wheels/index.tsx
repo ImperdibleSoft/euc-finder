@@ -15,6 +15,7 @@ import {
   useBreakpoints,
   useColumns,
   useCompareActions,
+  useComparedWheels,
   useEucList,
   useFilterFields,
   useHeadingStyles,
@@ -42,6 +43,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
   const showPrice = useSelector(getPricesConfig);
   const maxComparedWheels = useSelector(getMaxComparedWheels);
   const brands = useSelector(getBrands);
+  const { wheelScores } = useComparedWheels();
 
   const { handleHide, handleReset, handleShow, ...columns } = useColumns();
   const { fields, filters, handleResetFilters } = useFilterFields();
@@ -165,6 +167,7 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
           records={ sortedWheels }
           showPrice={ showPrice }
           sorting={ sorting }
+          wheelScores={ wheelScores }
         />
 
         { comparedWheels.map((wheelId, index) => {
