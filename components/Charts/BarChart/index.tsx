@@ -9,9 +9,9 @@ import {
   YAxis
 } from 'recharts';
 import { useBreakpoints, useResize } from '../../../hooks';
-import { BarchartData } from '../types';
+import { BarChartData } from '../types';
 
-interface Props<T = BarchartData> {
+interface Props<T = BarChartData> {
   data: T[];
   dataLabel?: keyof T;
   dataValue?: keyof T;
