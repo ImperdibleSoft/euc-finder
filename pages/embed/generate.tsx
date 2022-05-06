@@ -12,9 +12,22 @@ import { APP_URL, wheelFeatureIcons } from '../../constants';
 import { EMBED } from '../../constants/clientRoutes';
 import { commonNs, useBreakpoints, useEmbedTranslations, useResize } from '../../hooks';
 import { useCopyToClipboard } from '../../hooks/copyToClipboard';
-import { getBrands, getTableViewSpecs, getWheels } from '../../store/selectors';
-import { TranslationFile, WheelFeatureIcons, WheelId } from '../../types';
+import { useMeasureUnits } from '../../hooks/settings/measureUnits';
+import { getBrands, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
+import {
+  DiameterUnits,
+  DimensionsUnits,
+  GroundClearanceUnits,
+  RangeUnits,
+  SpeedUnits,
+  TranslationFile,
+  WeightUnits,
+  WheelFeatureIcons,
+  WheelId,
+  WidthUnits
+} from '../../types';
 import { getTranslationsFromFiles } from '../../utils-server';
+
 
 const commonStyles: React.CSSProperties = {
   display: 'flex',
@@ -23,14 +36,56 @@ const commonStyles: React.CSSProperties = {
   padding: 8
 };
 
-const defaults = {
+const titleStyle = {
+  mb: 1,
+  mt: 2
+};
+
+interface State {
+  language: 'en' | 'es' | 'fr';
+  
+  // UI
+  darkMode: string;
+  icons: string;
+  limits: string;
+  title: string;
+  picture: string;
+
+  // Settings
+  diameter: DiameterUnits;
+  dimensions: DimensionsUnits;
+  groundClearance: GroundClearanceUnits;
+  maxSpeed: SpeedUnits;
+  range: RangeUnits;
+  weight: WeightUnits;
+  width: WidthUnits;
+
+  // Wheel
+  wheelId: WheelId;
+  features: string[];
+}
+
+const defaults: State = {
   language: 'en',
+
+  // UI
   darkMode: 'false',
   icons: 'true',
   limits: 'false',
-  wheelId: WheelId.v12,
   title: 'true',
   picture: 'true',
+
+  // Settings
+  diameter: DiameterUnits.in,
+  dimensions: DimensionsUnits.mm,
+  groundClearance: GroundClearanceUnits.mm,
+  maxSpeed: SpeedUnits.kmh,
+  range: RangeUnits.km,
+  weight: WeightUnits.kg,
+  width: WidthUnits.in,
+
+  // Wheel
+  wheelId: WheelId.v12,
   features: ['diameter', 'maxSpeed', 'range', 'weight']
 };
 
@@ -41,69 +96,96 @@ const EmbedGenerate = () => {
   const { sm } = useBreakpoints();
   const { rect, screenWidth } = useResize(ref);
   const { canCopy, copied, handleCopy: copy } = useCopyToClipboard();
+  const { measureUnitFields } = useMeasureUnits(t);
   const brands = useSelector(getBrands);
   const wheels = useSelector(getWheels);
   const availableFeatures = useSelector(getTableViewSpecs);
+  const measureUnits = useSelector(getMeasureUnits);
 
-  const [language, setLanguage] = useState(i18n.language);
-  const [darkMode, setDarkMode] = useState(defaults.darkMode);
-  const [limits, setLimits] = useState(defaults.limits);
-  const [wheelId, setWheelId] = useState(defaults.wheelId);
-  const [title, setTitle] = useState(defaults.title);
-  const [picture, setPicture] = useState(defaults.picture);
-  const [icons, setIcons] = useState(defaults.icons);
-  const [features, setFeatures] = useState(defaults.features);
+  const [widgetOptions, setWidgetOptions] = useState<State>({
+    ...defaults,
+    language: i18n.language as State['language'],
+    diameter: measureUnits.diameter,
+    dimensions: measureUnits.dimensions,
+    groundClearance: measureUnits.groundClearance,
+    maxSpeed: measureUnits.maxSpeed,
+    range: measureUnits.range,
+    weight: measureUnits.weight,
+    width: measureUnits.width
+  });
 
-  const getWidgetUrl = (params?: typeof defaults) => {
+  const getWidgetUrl = (params?: State) => {
     const appUrl = process.env.NODE_ENV === 'production' ? APP_URL : 'http://localhost:3000';
-    const baseUrl = `${ appUrl }/${ params?.language ?? language }${ EMBED }`;
-    const theme = `dark=${ params?.darkMode ?? darkMode }`;
-    const displayLimits = `limits=${ params?.limits ?? limits }`;
-    const wheel = `wheelId=${ params?.wheelId ?? wheelId }`;
-    const displayTitle = `title=${ params?.title ?? title }`;
-    const displayPicture = `picture=${ params?.picture ?? picture }`;
-    const displayIcons = `icons=${ params?.icons ?? icons }`;
-    const feats = `features=${ (params?.features ?? features).join(',') }`;
+    const baseUrl = `${ appUrl }/${ params?.language ?? widgetOptions.language }${ EMBED }`;
+
+    // UI
+    const theme = `dark=${ params?.darkMode ?? widgetOptions.darkMode }`;
+    const displayLimits = `limits=${ params?.limits ?? widgetOptions.limits }`;
+    const displayTitle = `title=${ params?.title ?? widgetOptions.title }`;
+    const displayPicture = `picture=${ params?.picture ?? widgetOptions.picture }`;
+    const displayIcons = `icons=${ params?.icons ?? widgetOptions.icons }`;
+    
+    // Settings
+    const displayDiameter = `diameter=${ params?.diameter ?? widgetOptions.diameter }`;
+    const displayDimensions = `dimensions=${ params?.dimensions ?? widgetOptions.dimensions }`;
+    const displayGroundClearance = `groundClearance=${ params?.groundClearance ?? widgetOptions.groundClearance }`;
+    const displayMaxSpeed = `maxSpeed=${ params?.maxSpeed ?? widgetOptions.maxSpeed }`;
+    const displayRange = `range=${ params?.range ?? widgetOptions.range }`;
+    const displayWeight = `weight=${ params?.weight ?? widgetOptions.weight }`;
+    const displayWidth = `width=${ params?.width ?? widgetOptions.width }`;
+
+    // Wheel
+    const wheel = `wheelId=${ params?.wheelId ?? widgetOptions.wheelId }`;
+    const feats = `features=${ (params?.features ?? widgetOptions.features).join(',') }`;
 
     // eslint-disable-next-line max-len
-    return `${ baseUrl }?${ theme }&${ displayLimits }&${ wheel }&${ displayTitle }&${ displayPicture }&${ displayIcons }&${ feats }`;
+    const uiElements = `${ theme }&${ displayLimits }&${ displayTitle }&${ displayPicture }&${ displayIcons }`;
+    // eslint-disable-next-line max-len
+    const settingsElements = `${ displayDiameter }&${ displayDimensions }&${ displayGroundClearance }&${ displayMaxSpeed }&${ displayRange }&${ displayWeight }&${ displayWidth }`;
+    const wheelElements = `${ wheel }&${ feats }`;
+
+    return `${ baseUrl }?${ uiElements }&${ settingsElements }&${ wheelElements }`;
   };
   const [frameUrl, setFrameUrl] = useState(getWidgetUrl());
 
   const getIframeCode = () =>`<iframe\n  frameborder="0"\n  height="700"\n  src="${ frameUrl }"\n  width="100%"\n/>`;
 
-  const handleChangeLanguage = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
-    setLanguage(value);
-  };
+  const handleChangeProp = (key: keyof State) => (payload: unknown) => {
+    let value;
 
-  const handleChangeDarkMode = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.checked;
-    setDarkMode(value.toString());
-  };
+    switch (key) {
+      case 'language':
+      case 'diameter':
+      case 'dimensions':
+      case 'groundClearance':
+      case 'maxSpeed':
+      case 'range':
+      case 'weight':
+      case 'width':
+        value = (payload as React.ChangeEvent<HTMLSelectElement>).target.value;
+        break;
 
-  const handleChangeLimits = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.checked;
-    setLimits(value.toString());
-  };
+      case 'darkMode':
+      case 'icons':
+      case 'limits':
+      case 'title':
+      case 'picture':
+        value = (payload as React.ChangeEvent<HTMLInputElement>).target.checked.toString();
+        break;
 
-  const handleChangeWheel = (value: WheelId) => {
-    setWheelId(value);
-  };
+      case 'wheelId':
+        value = payload as WheelId;
+        break;
 
-  const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.checked;
-    setTitle(value.toString());
-  };
+      case 'features':
+        value = payload as string[];
+        break;
+    }
 
-  const handleChangePicture = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.checked;
-    setPicture(value.toString());
-  };
-
-  const handleChangeIcons = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.checked;
-    setIcons(value.toString());
+    setWidgetOptions({
+      ...widgetOptions,
+      [key]: value
+    });
   };
 
   const featureOptions = useMemo(() => availableFeatures.map((feature): DropdownItem<string> => ({
@@ -111,9 +193,6 @@ const EmbedGenerate = () => {
     icon: wheelFeatureIcons[feature as unknown as keyof WheelFeatureIcons],
     value: feature
   })), [availableFeatures, t]);
-  const handleChangeFeatures = (value: string[]) => {
-    setFeatures(value);
-  };
 
   const handleUpdateWidget = () => {
     const widgetUrl = getWidgetUrl();
@@ -121,20 +200,26 @@ const EmbedGenerate = () => {
   };
 
   const handleResetWidget = async () => {
-    setLanguage(i18n.language);
-    setDarkMode(defaults.darkMode);
-    setLimits(defaults.limits);
-    setWheelId(defaults.wheelId);
-    setTitle(defaults.title);
-    setPicture(defaults.picture);
-    setIcons(defaults.icons);
-    setFeatures(defaults.features);
-    setFrameUrl(getWidgetUrl({ ...defaults, language: i18n.language }));
+    const options = {
+      ...defaults,
+      language: i18n.language as State['language'],
+      diameter: measureUnits.diameter,
+      dimensions: measureUnits.dimensions,
+      groundClearance: measureUnits.groundClearance,
+      maxSpeed: measureUnits.maxSpeed,
+      range: measureUnits.range,
+      weight: measureUnits.weight,
+      width: measureUnits.width
+    };
+    setWidgetOptions(options);
+    setFrameUrl(getWidgetUrl(options));
   };
 
   const handleCopy = () => {
     copy(getIframeCode());
   };
+
+  const isMeasureUnitNeeded = (key: keyof State) => widgetOptions.features.includes(key);
 
   return (
     <>
@@ -163,7 +248,7 @@ const EmbedGenerate = () => {
                   fullWidth={ false }
                   label={ t('language-label', commonNs) }
                   name="language"
-                  onChange={ handleChangeLanguage }
+                  onChange={ handleChangeProp('language') }
                   options={ [
                     {
                       label: t('en-label', commonNs),
@@ -178,22 +263,10 @@ const EmbedGenerate = () => {
                       value: 'fr'
                     }
                   ] }
-                  value={ language }
+                  value={ widgetOptions.language }
                 />
 
-                <Checkbox
-                  checked={ darkMode !== 'false' }
-                  label={ t('darkMode-label') }
-                  name="darkMode"
-                  onChange={ handleChangeDarkMode }
-                />
-
-                <Checkbox
-                  checked={ limits !== 'false' }
-                  label={ t('limits-label') }
-                  name="limits"
-                  onChange={ handleChangeLimits }
-                />
+                <Typography variant="h6" sx={ titleStyle }>Wheel</Typography>
 
                 <label style={ { display: 'inline-flex', flexDirection: 'column' } }>
                   <Typography variant="caption">
@@ -202,40 +275,81 @@ const EmbedGenerate = () => {
 
                   <WheelSelector
                     brands={ brands }
-                    onChange={ handleChangeWheel }
+                    onChange={ handleChangeProp('wheelId') }
                     wheels={ wheels }
                   />
                 </label>
-
-                <Checkbox
-                  checked={ title !== 'false' }
-                  label={ t('title-label') }
-                  name="title"
-                  onChange={ handleChangeTitle }
-                />
-
-                <Checkbox
-                  checked={ picture !== 'false' }
-                  label={ t('picture-label') }
-                  name="picture"
-                  onChange={ handleChangePicture }
-                />
-
-                <Checkbox
-                  checked={ icons !== 'false' }
-                  label={ t('icons-label') }
-                  name="icons"
-                  onChange={ handleChangeIcons }
-                />
 
                 <MultiSelect
                   fullWidth={ false }
                   label={ t('features-label') }
                   name="features"
-                  onChange={ handleChangeFeatures }
+                  onChange={ handleChangeProp('features') }
                   options={ featureOptions }
-                  value={ features }
+                  value={ widgetOptions.features }
                 />
+
+                <Typography variant="h6" sx={ titleStyle }>UI</Typography>
+
+                <Checkbox
+                  checked={ widgetOptions.darkMode !== 'false' }
+                  label={ t('darkMode-label') }
+                  name="darkMode"
+                  onChange={ handleChangeProp('darkMode') }
+                />
+
+                <Checkbox
+                  checked={ widgetOptions.limits !== 'false' }
+                  label={ t('limits-label') }
+                  name="limits"
+                  onChange={ handleChangeProp('limits') }
+                />
+
+                <Checkbox
+                  checked={ widgetOptions.title !== 'false' }
+                  label={ t('title-label') }
+                  name="title"
+                  onChange={ handleChangeProp('title') }
+                />
+
+                <Checkbox
+                  checked={ widgetOptions.picture !== 'false' }
+                  label={ t('picture-label') }
+                  name="picture"
+                  onChange={ handleChangeProp('picture') }
+                />
+
+                <Checkbox
+                  checked={ widgetOptions.icons !== 'false' }
+                  label={ t('icons-label') }
+                  name="icons"
+                  onChange={ handleChangeProp('icons') }
+                />
+                
+                <Typography variant="h6" sx={ titleStyle }>Settings</Typography>
+                { measureUnitFields.map(field => {
+                  const key = field.name as keyof State;
+
+                  if (!isMeasureUnitNeeded(key)) {
+                    return null;
+                  }
+
+                  return (
+                    <Dropdown
+                      key={ key }
+                      { ...field }
+                      fullWidth={ !sm }
+                      onChange={ handleChangeProp(key) }
+                      value={ widgetOptions[key] as string }
+                      style={ {
+                        display: sm ? 'block' : undefined,
+                        marginTop: 16,
+                        minWidth: sm ? 250 : undefined
+                      } }
+
+                    />
+                  );
+                }) }
 
                 <ButtonGroup
                   orientation={ sm ? 'horizontal' : 'vertical' }
@@ -250,8 +364,17 @@ const EmbedGenerate = () => {
                 </ButtonGroup>
               </CardContent>
             </Card>
-
-            <Card>
+          </Box>
+    
+          <Box
+            sx={ {
+              maxWidth: { md: 320 },
+              minWidth: 280,
+              ml: { md: 2 },
+              width: '100%'
+            } }
+          >
+            <Card sx={ { mb: 2 } }>
               <CardContent sx={ { p: 0, '&:last-child': { pb: 0 } } }>
                 <Typography variant="h5" sx={ { my: 2, px: 2 } }>
                   { t('widgetCode-title') }
@@ -273,29 +396,26 @@ const EmbedGenerate = () => {
                 ) }
               </CardContent>
             </Card>
-          </Box>
-    
-          <Box
-            sx={ {
-              maxWidth: 320,
-              minWidth: 280,
-              ml: { md: 2 },
-              mt: { xs: 2, md: 0 },
-              mx: 'auto',
-              width: '100%'
-            } }
-          >
-            <iframe
-              frameBorder={ 0 }
-              // height={ 700 }
-              height={
-                screenWidth >= 900
-                  ? Math.floor(rect?.height ?? 700) - 7
-                  : 700
-              }
-              src={ frameUrl }
-              width="100%"
-            />
+            
+            <Box
+              sx={ {
+                maxWidth: { sm: 320 },
+                mx: 'auto',
+                width: '100%'
+              } }
+            >
+              <iframe
+                frameBorder={ 0 }
+                // height={ 700 }
+                height={
+                  screenWidth >= 900
+                    ? Math.floor(rect?.height ?? 700) - 7 - 290
+                    : 700
+                }
+                src={ frameUrl }
+                width="100%"
+              />
+            </Box>
           </Box>
         </Box>
       </SimpleLayout>
@@ -305,4 +425,4 @@ const EmbedGenerate = () => {
 
 export default EmbedGenerate;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.embed], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.embed, TranslationFile.settings], 'none');
