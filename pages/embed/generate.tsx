@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { Box, Button, ButtonGroup, Card, CardContent, Typography } from '@mui/material';
+import { Alert, Box, Button, ButtonGroup, Card, CardContent, Snackbar, Typography } from '@mui/material';
 import React, { useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Checkbox from '../../components/Form/Checkbox';
@@ -400,6 +400,26 @@ const EmbedGenerate = () => {
                         { t('copy-btn', commonNs) }
                       </Button>
                     </ButtonGroup>
+
+                    <Snackbar
+                      anchorOrigin={ { horizontal: 'center', vertical: 'bottom' } }
+                      open={ copied === 'success' }
+                      autoHideDuration={ 6000 }
+                    >
+                      <Alert severity="success" sx={ { width: '100%' } }>
+                        { t('copied-msg', commonNs) }
+                      </Alert>
+                    </Snackbar>
+
+                    <Snackbar
+                      anchorOrigin={ { horizontal: 'center', vertical: 'bottom' } }
+                      open={ copied === 'error' }
+                      autoHideDuration={ 6000 }
+                    >
+                      <Alert severity="error" sx={ { width: '100%' } }>
+                        { t('copyError-msg', commonNs) }
+                      </Alert>
+                    </Snackbar>
                   </>
                 ) }
               </CardContent>
