@@ -1,14 +1,30 @@
-import { WheelId } from '../types';
+import {
+  DiameterUnits,
+  DimensionsUnits,
+  GroundClearanceUnits,
+  RangeUnits,
+  SpeedUnits,
+  WeightUnits,
+  WheelId,
+  WidthUnits
+} from '../types';
 
 export interface AvailableQueryParams {
   dark: boolean;
+  diameter: DiameterUnits;
+  dimensions: DimensionsUnits;
   features?: string[];
+  groundClearance: GroundClearanceUnits;
   icons: boolean;
   lang: 'en' | 'es' | 'fr';
   limits: boolean;
+  maxSpeed: SpeedUnits;
   picture: boolean;
+  range: RangeUnits;
   title: boolean;
   wheelId?: WheelId;
+  weight: WeightUnits;
+  width: WidthUnits;
 }
 
 const parseValue = (key: string, value: string) => {
@@ -18,6 +34,24 @@ const parseValue = (key: string, value: string) => {
         return value.split(',');
       }
       return undefined;
+
+    case 'diameter':
+      return value === DiameterUnits.in ? value : DiameterUnits.cm;
+      
+    case 'maxSpeed':
+      return value === SpeedUnits.mih ? value : SpeedUnits.kmh;
+
+    case 'range':
+      return value === RangeUnits.mi ? value : RangeUnits.km;
+
+    case 'dimensions':
+      return value === DimensionsUnits.in ? value : DimensionsUnits.mm;
+
+    case 'weight':
+      return value === WeightUnits.lb ? value : WeightUnits.kg;
+
+    case 'width':
+      return value === WidthUnits.in ? value : WidthUnits.cm;
 
     case 'dark':
     case 'icons':
@@ -43,11 +77,18 @@ export const getQueryParams = (): AvailableQueryParams => {
 
   const defaultParams: AvailableQueryParams = {
     dark: false,
+    diameter: DiameterUnits.in,
+    dimensions: DimensionsUnits.mm,
+    groundClearance: GroundClearanceUnits.mm,
     icons: true,
     lang: 'en',
     limits: true,
+    maxSpeed: SpeedUnits.kmh,
     picture: true,
-    title: true
+    range: RangeUnits.km,
+    title: true,
+    weight: WeightUnits.kg,
+    width: WidthUnits.cm
   };
 
   return (location.search ?? '')

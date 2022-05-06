@@ -66,7 +66,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
     return (
       <Provider store={ store }>
-        <EmbedWrapper dark={ params.dark }>
+        <EmbedWrapper { ...params }>
           <Component { ...pageProps } { ...params }/>
         </EmbedWrapper>
       </Provider>
