@@ -6,7 +6,8 @@ import {
   INFLUENCERS,
   SETTINGS,
   VIDEOS,
-  ABOUT
+  ABOUT,
+  EMBED_GENERATE
 } from './clientRoutes';
 
 const getNavigation = (): NavigationRoute[] => [
@@ -38,6 +39,18 @@ const getNavigation = (): NavigationRoute[] => [
     secondary: true
   },
   {
+    label: 'nav-embedGenerator',
+    icon: 'extension',
+    path: EMBED_GENERATE,
+    secondary: true
+  },
+  {
+    label: 'nav-settings',
+    icon: 'settings',
+    path: SETTINGS,
+    secondary: true
+  },
+  {
     label: 'nav-about',
     icon: 'info',
     path: ABOUT,
@@ -54,12 +67,6 @@ const getNavigation = (): NavigationRoute[] => [
     icon: 'telegram',
     path: 'https://t.me/EUCFinder',
     small: true
-  },
-  {
-    label: 'nav-settings',
-    icon: 'settings',
-    path: SETTINGS,
-    secondary: true
   }
 ];
 
