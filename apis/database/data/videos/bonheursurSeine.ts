@@ -524,6 +524,18 @@ const bonheursurSeineVideos: Video[] = [
     publishDate: '26/Apr/2022',
     releaseDate: '03/May/2022',
     language: 'fr'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=YsF-okGwrAQ',
+    tags: [
+      InfluencerId.bonheursurSeine,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.v12HT
+    ],
+    publishDate: '06/May/2022',
+    releaseDate: '07/May/2022',
+    language: 'fr'
   }
 ];
 
