@@ -29,6 +29,7 @@ interface Props extends AvailableQueryParams {
 const Embed = ({
   dark,
   features = defaultFeatures,
+  icons,
   lang,
   limits,
   picture,
@@ -54,7 +55,7 @@ const Embed = ({
         return undefined;
       }
 
-      const icon = wheelFeatureIcons[key as keyof WheelFeatureIcons];
+      const icon = icons ? wheelFeatureIcons[key as keyof WheelFeatureIcons] : undefined;
       const label = t(key, commonNs);
       const formatter = wheelFeatureFormatters[key as keyof WheelFeatureFormatters];
       // @ts-ignore

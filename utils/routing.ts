@@ -3,6 +3,7 @@ import { WheelId } from '../types';
 export interface AvailableQueryParams {
   dark: boolean;
   features?: string[];
+  icons: boolean;
   lang: 'en' | 'es' | 'fr';
   limits: boolean;
   picture: boolean;
@@ -19,6 +20,7 @@ const parseValue = (key: string, value: string) => {
       return undefined;
 
     case 'dark':
+    case 'icons':
     case 'limits':
     case 'picture':
     case 'title':
@@ -41,6 +43,7 @@ export const getQueryParams = (): AvailableQueryParams => {
 
   const defaultParams: AvailableQueryParams = {
     dark: false,
+    icons: true,
     lang: 'en',
     limits: true,
     picture: true,
