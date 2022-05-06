@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { TranslationFile } from '../types';
 
 export const commonNs = { ns: TranslationFile.common };
+export const settingsNs = { ns: TranslationFile.settings };
 
 const commonTranslations = [TranslationFile.layout, TranslationFile.common ];
 
