@@ -2,6 +2,9 @@
   "poweredBy-msg": "Powered by",
 
   "customizeWidget-title": "Personaliza tu widget",
+  "wheel-title": "Opciones de la rueda",
+  "ui-title": "Elementos mostrados",
+  "settings-title": "Unidades de medida",
 
   "invalidId-msg": "Por favor, configura el widget con un Wheel ID válido",
 

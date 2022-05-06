@@ -2,6 +2,9 @@
   "poweredBy-msg": "Powered by",
 
   "customizeWidget-title": "Customize your widget",
+  "wheel-title": "EUC Options",
+  "ui-title": "Displayed elements",
+  "settings-title": "Measure units",
 
   "invalidId-msg": "Please, configure the widget with a valid Wheel ID",
 

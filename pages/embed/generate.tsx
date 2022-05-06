@@ -237,134 +237,140 @@ const EmbedGenerate = () => {
             justifyContent: 'center'
           } }
         >
-          <Box sx={ { flex: 1 } }>
-            <Card style={ commonStyles } sx={ { mb: 2 } }>
-              <CardContent>
-                <Typography variant="h5" sx={ { mb: 2 } }>
-                  { t('customizeWidget-title') }
+          <Card style={ commonStyles } sx={ { flex: 1, mb: 2 } }>
+            <CardContent>
+              <Typography variant="h5" sx={ { mb: 2 } }>
+                { t('customizeWidget-title') }
+              </Typography>
+
+              <Dropdown
+                fullWidth={ false }
+                label={ t('language-label', commonNs) }
+                name="language"
+                onChange={ handleChangeProp('language') }
+                options={ [
+                  {
+                    label: t('en-label', commonNs),
+                    value: 'en'
+                  },
+                  {
+                    label: t('es-label', commonNs),
+                    value: 'es'
+                  },
+                  {
+                    label: t('fr-label', commonNs),
+                    value: 'fr'
+                  }
+                ] }
+                value={ widgetOptions.language }
+              />
+
+              <Typography variant="h6" sx={ titleStyle }>
+                { t('wheel-title') }
+              </Typography>
+
+              <label style={ { display: 'inline-flex', flexDirection: 'column', marginBottom: 16 } }>
+                <Typography variant="caption">
+                  { t('wheelId-label') }
                 </Typography>
 
-                <Dropdown
-                  fullWidth={ false }
-                  label={ t('language-label', commonNs) }
-                  name="language"
-                  onChange={ handleChangeProp('language') }
-                  options={ [
-                    {
-                      label: t('en-label', commonNs),
-                      value: 'en'
-                    },
-                    {
-                      label: t('es-label', commonNs),
-                      value: 'es'
-                    },
-                    {
-                      label: t('fr-label', commonNs),
-                      value: 'fr'
-                    }
-                  ] }
-                  value={ widgetOptions.language }
+                <WheelSelector
+                  brands={ brands }
+                  onChange={ handleChangeProp('wheelId') }
+                  wheels={ wheels }
                 />
+              </label>
 
-                <Typography variant="h6" sx={ titleStyle }>Wheel</Typography>
+              <MultiSelect
+                fullWidth={ false }
+                label={ t('features-label') }
+                name="features"
+                onChange={ handleChangeProp('features') }
+                options={ featureOptions }
+                value={ widgetOptions.features }
+              />
 
-                <label style={ { display: 'inline-flex', flexDirection: 'column' } }>
-                  <Typography variant="caption">
-                    { t('wheelId-label') }
-                  </Typography>
+              <Typography variant="h6" sx={ titleStyle }>
+                { t('ui-title') }
+              </Typography>
 
-                  <WheelSelector
-                    brands={ brands }
-                    onChange={ handleChangeProp('wheelId') }
-                    wheels={ wheels }
+              <Checkbox
+                checked={ widgetOptions.darkMode !== 'false' }
+                label={ t('darkMode-label') }
+                name="darkMode"
+                onChange={ handleChangeProp('darkMode') }
+              />
+
+              <Checkbox
+                checked={ widgetOptions.limits !== 'false' }
+                label={ t('limits-label') }
+                name="limits"
+                onChange={ handleChangeProp('limits') }
+              />
+
+              <Checkbox
+                checked={ widgetOptions.title !== 'false' }
+                label={ t('title-label') }
+                name="title"
+                onChange={ handleChangeProp('title') }
+              />
+
+              <Checkbox
+                checked={ widgetOptions.picture !== 'false' }
+                label={ t('picture-label') }
+                name="picture"
+                onChange={ handleChangeProp('picture') }
+              />
+
+              <Checkbox
+                checked={ widgetOptions.icons !== 'false' }
+                label={ t('icons-label') }
+                name="icons"
+                onChange={ handleChangeProp('icons') }
+              />
+              
+              <Typography variant="h6" sx={ titleStyle }>
+                { t('settings-title') }
+              </Typography>
+              
+              { measureUnitFields.map(field => {
+                const key = field.name as keyof State;
+
+                if (!isMeasureUnitNeeded(key)) {
+                  return null;
+                }
+
+                return (
+                  <Dropdown
+                    key={ key }
+                    { ...field }
+                    fullWidth={ !sm }
+                    onChange={ handleChangeProp(key) }
+                    value={ widgetOptions[key] as string }
+                    style={ {
+                      display: sm ? 'block' : undefined,
+                      marginBottom: 16,
+                      minWidth: sm ? 250 : undefined
+                    } }
+
                   />
-                </label>
+                );
+              }) }
 
-                <MultiSelect
-                  fullWidth={ false }
-                  label={ t('features-label') }
-                  name="features"
-                  onChange={ handleChangeProp('features') }
-                  options={ featureOptions }
-                  value={ widgetOptions.features }
-                />
+              <ButtonGroup
+                orientation={ sm ? 'horizontal' : 'vertical' }
+                sx={ { justifyContent: 'flex-end', mt: 2, width: '100%' } }
+              >
+                <Button variant="contained" onClick={ handleUpdateWidget }>
+                  { t('updateWidget-btn') }
+                </Button>
 
-                <Typography variant="h6" sx={ titleStyle }>UI</Typography>
-
-                <Checkbox
-                  checked={ widgetOptions.darkMode !== 'false' }
-                  label={ t('darkMode-label') }
-                  name="darkMode"
-                  onChange={ handleChangeProp('darkMode') }
-                />
-
-                <Checkbox
-                  checked={ widgetOptions.limits !== 'false' }
-                  label={ t('limits-label') }
-                  name="limits"
-                  onChange={ handleChangeProp('limits') }
-                />
-
-                <Checkbox
-                  checked={ widgetOptions.title !== 'false' }
-                  label={ t('title-label') }
-                  name="title"
-                  onChange={ handleChangeProp('title') }
-                />
-
-                <Checkbox
-                  checked={ widgetOptions.picture !== 'false' }
-                  label={ t('picture-label') }
-                  name="picture"
-                  onChange={ handleChangeProp('picture') }
-                />
-
-                <Checkbox
-                  checked={ widgetOptions.icons !== 'false' }
-                  label={ t('icons-label') }
-                  name="icons"
-                  onChange={ handleChangeProp('icons') }
-                />
-                
-                <Typography variant="h6" sx={ titleStyle }>Settings</Typography>
-                { measureUnitFields.map(field => {
-                  const key = field.name as keyof State;
-
-                  if (!isMeasureUnitNeeded(key)) {
-                    return null;
-                  }
-
-                  return (
-                    <Dropdown
-                      key={ key }
-                      { ...field }
-                      fullWidth={ !sm }
-                      onChange={ handleChangeProp(key) }
-                      value={ widgetOptions[key] as string }
-                      style={ {
-                        display: sm ? 'block' : undefined,
-                        marginTop: 16,
-                        minWidth: sm ? 250 : undefined
-                      } }
-
-                    />
-                  );
-                }) }
-
-                <ButtonGroup
-                  orientation={ sm ? 'horizontal' : 'vertical' }
-                  sx={ { justifyContent: 'flex-end', mt: 2, width: '100%' } }
-                >
-                  <Button variant="contained" onClick={ handleUpdateWidget }>
-                    { t('updateWidget-btn') }
-                  </Button>
-                  <Button onClick={ handleResetWidget }>
-                    { t('reset-btn') }
-                  </Button>
-                </ButtonGroup>
-              </CardContent>
-            </Card>
-          </Box>
+                <Button onClick={ handleResetWidget }>
+                  { t('reset-btn') }
+                </Button>
+              </ButtonGroup>
+            </CardContent>
+          </Card>
     
           <Box
             sx={ {
@@ -388,11 +394,13 @@ const EmbedGenerate = () => {
                 />
 
                 { canCopy && (
-                  <ButtonGroup sx={ { justifyContent: 'flex-end', mb: 2, mt: 1, px: 2, width: '100%' } }>
-                    <Button variant="contained" onClick={ handleCopy }>
-                      { t('copy-btn', commonNs) }
-                    </Button>
-                  </ButtonGroup>
+                  <>
+                    <ButtonGroup sx={ { justifyContent: 'flex-end', mb: 2, mt: 1, px: 2, width: '100%' } }>
+                      <Button variant="contained" onClick={ handleCopy }>
+                        { t('copy-btn', commonNs) }
+                      </Button>
+                    </ButtonGroup>
+                  </>
                 ) }
               </CardContent>
             </Card>
@@ -406,7 +414,6 @@ const EmbedGenerate = () => {
             >
               <iframe
                 frameBorder={ 0 }
-                // height={ 700 }
                 height={
                   screenWidth >= 900
                     ? Math.floor(rect?.height ?? 700) - 7 - 290
