@@ -12,9 +12,12 @@ const RegularList: React.FC<Props> = ({ dense, items }) => (
   <List dense={ dense }>
     { items.map(({ icon, iconProps, primary, secondary }) => (
       <MaterialListItem key={ `${ primary }-${ secondary }-${ icon }` }>
-        <ListItemIcon>
-          <Icon color={ iconProps?.active ? 'primary' : 'disabled' }>{ icon }</Icon>
-        </ListItemIcon>
+        { !!icon && (
+          <ListItemIcon>
+            <Icon color={ iconProps?.active ? 'primary' : 'disabled' }>{ icon }</Icon>
+          </ListItemIcon>
+        ) }
+
         <ListItemText
           primary={ primary }
           secondary={ secondary }
