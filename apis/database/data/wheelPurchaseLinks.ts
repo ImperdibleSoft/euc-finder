@@ -34,6 +34,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.euco.us/products/gotway-t3-tesla-v3',
     'https://myewheel.com/gotway-tesla-2-1020wh/',
     'https://www.ewheels.com/product/begode-tesla-v3-1500wh-battery-2000w-motor-deposit/',
+    'https://eucsale.com/euc-transport/begode/tesla-v2.html',
     'https://eucservice.com/produkt/tesla-t3-2000w-1500wh-84v/',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-tesla-v3-electric-unicycle',
     'https://www.smartwheel.ca/gotway-tesla-t3-16-2000w-electric-unicycle-with-1500wh-84v-battery/',
@@ -51,7 +52,6 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucservice.com/produkt/gotway-rs-19-speed-version-1800wh-100v-copy-3/',
     'https://alienrides.com/collections/electric-unicycles/products/nikola-ar-plus-electric-unicycle',
     'https://www.smartwheel.ca/Gotway-Nikola-Plus-17-1900W-Motor-Electric-Unicycle_p_1957.html',
-    'https://e-rides.com/product/gotway-nikola-plus-100v-21700-cells/',
     'https://madridrueda.es/gotway/38-nicola-plus.html',
     'https://oneride.eu/electric-unicycles/118-gotway-nikola-plus-1800wh-100v-electric-unicycle.html'
   ],
@@ -66,7 +66,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://ciclonic.com/tienda/gotway/monociclos-gotway/m-super-pro-100v/',
     'https://store.urban360.es/product/sample-product/gotway-msuper-pro-100v-1800wh/',
     'https://myewheel.com/gotway-msp/',
-    'https://eucsale.com/euc-transport/begode/msp-msuper-pro-100v-1800wh.html',
+    'https://eucsale.com/euc-transport/begode/msp-fast-msuper-pro-fast.html',
     'https://www.smartwheel.ca/Gotway-Msuper-Pro-MSP-19-2600W-Motor-Electric-Unicycle_p_1971.html',
     'https://oneride.eu/electric-unicycles/153-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html'
   ],
@@ -188,27 +188,29 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
 
   // Extreme bull
   [WheelId.commanderHT]: [
-    'https://ciclonic.com/tienda/monociclos/monociclos-gotway/begode-extreme-bull-commander/',
     'https://www.euco.us/products/begode-commander-electric-unicycle',
     'https://www.ewheels.com/product/begode-commander-100-deposit/',
+    'https://eucsale.com/euc-transport/begode/extreme-bull-commander.html',
     'https://alienrides.com/collections/electric-unicycles/products/extreme-bull-commander-electric-unicycle?variant=40605519675557',
     'https://www.smartwheel.ca/gotway-commander-high-torque-c38-20-2800w-motor-electric-unicycle-with-3600wh100v-battery/',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/extreme-bull-commander?variant=40959280545951',
-    'https://e-rides.com/product/extremebull-commander-electric-unicycle-100-deposit-fully-refundable-torque-variant/',
     'https://oneride.eu/electric-unicycles/203--preorder-begode-extreme-bull-commander-20-3600-wh-100v-electric-unicycle.html'
   ],
   [WheelId.commanderHS]: [
-    'https://ciclonic.com/tienda/monociclos/monociclos-gotway/begode-extreme-bull-commander/',
     'https://www.euco.us/products/begode-commander-electric-unicycle',
     'https://www.ewheels.com/product/begode-commander-100-deposit/',
+    'https://eucsale.com/euc-transport/begode/extreme-bull-commander.html',
     'https://alienrides.com/collections/electric-unicycles/products/extreme-bull-commander-electric-unicycle?variant=40605519642789',
     'https://www.smartwheel.ca/gotway-commander-high-speed-c30-20-2800w-motor-electric-unicycle-with-3600wh100v-battery/',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/extreme-bull-commander?variant=40959280578719',
-    'https://e-rides.com/product/extreme-bull-commander-electric-unicycle-deposit/',
     'https://oneride.eu/electric-unicycles/203--preorder-begode-extreme-bull-commander-20-3600-wh-100v-electric-unicycle.html'
   ],
-  [WheelId.xmenHT]: [],
-  [WheelId.xmenHS]: [],
+  [WheelId.xmenHT]: [
+    'https://eucsale.com/euc-transport/begode/extreme-bull-xmen.html'
+  ],
+  [WheelId.xmenHS]: [
+    'https://eucsale.com/euc-transport/begode/extreme-bull-xmen.html'
+  ],
 
   // Inmotion
   [WheelId.v5]: [],
@@ -251,6 +253,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.inmotion-france.fr/v10',
     'https://www.euco.us/products/inmotion-v10-electric-unicycle',
     'https://myewheel.com/inmotion-v10/',
+    'https://eucsale.com/euc-transport/inmotion/inmotion-v10.html',
     'https://www.ewheels.com/product/new-inmotion-v10-v10f/',
     'https://www.smartwheel.ca/Inmotion-V10-1800W-Electric-Unicycle-EUC-_p_1749.html'
   ],
@@ -299,7 +302,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/204-inmotion-v12-electric-unicycle.html'
   ],
   [WheelId.v12HT]: [
-    'https://e-rides.com/product/inmotion-v12-electric-unicycle-high-torque/'
+    'https://e-rides.com/product/inmotion-v12-electric-unicycle-high-torque/',
+    'https://eucsale.com/euc-transport/inmotion/inmotion-v12ht.html'
   ],
   [WheelId.v13]: [],
   
@@ -356,6 +360,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.euco.us/products/king-song-16x-electric-unicycle',
     'https://myewheel.com/kingsong-ks-16x/',
     'https://www.ewheels.com/product/new-king-song-16x-1554wh-battery-2000w-motor-3-wide-tire/',
+    'https://eucsale.com/euc-transport/kingsong/16x.html',
     'https://www.smartwheel.ca/KingSong-KS-16X-2200W-Electric-Unicycle-EUC-Black_p_1875.html',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/king-song-16x',
     'https://e-rides.com/product/kingsong-ks-16x-1554wh-2200w/',
@@ -432,6 +437,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
   ],
   [WheelId.shermanMax]: [
     'https://www.ewheels.com/product/new-veteran-sherman-18-100v-3200wh-battery-2500w-motor-1000-deposit/',
+    'https://eucsale.com/euc-transport/veteran-leaperkim-electric-unicycle/sherman.html',
     'https://eevees.com/products/veteran-sherman-vancouver',
     'https://e-rides.com/product/veteran-sherman-max/',
     'https://oneride.eu/electric-unicycles/155-veteran-sherman-3200wh-100v-electric-unicycle-black.html'
