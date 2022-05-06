@@ -1,5 +1,22 @@
 {
   "poweredBy-msg": "Powered by",
+
+  "customizeWidget-title": "Customize your widget",
+
   "invalidId-msg": "Please, configure the widget with a valid Wheel ID",
+
+  "darkMode-label": "Dark mode",
+  "limits-label": "Add spaces around the widget",
+  "wheelId-label": "Display wheel",
+  "title-label": "Display EUC's name",
+  "picture-label": "Display EUC's picture",
+  "icons-label": "Display icons in specifications",
+  "features-label": "Display these specs",
+
+  "updateWidget-btn": "Update widget",
+  "reset-btn": "Reset",
+
+  "widgetCode-title": "Widget's code",
+
   "fullDetails-btn": "View full details"
 }

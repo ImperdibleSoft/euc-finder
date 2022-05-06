@@ -1,5 +1,22 @@
 {
   "poweredBy-msg": "Powered by",
+
+  "customizeWidget-title": "Personaliza tu widget",
+
   "invalidId-msg": "Por favor, configura el widget con un Wheel ID válido",
+
+  "darkMode-label": "Modo oscuro",
+  "limits-label": "Añadir espacios alrededor del widget",
+  "wheelId-label": "Rueda para mostrar",
+  "title-label": "Mostrar el nombre de la rueda",
+  "picture-label": "Mostrar una foto de la rueda",
+  "icons-label": "Mostrar iconos en las especificaciones",
+  "features-label": "Mostrar éstas especificaciones",
+
+  "updateWidget-btn": "Actualizar widget",
+  "reset-btn": "Reiniciar",
+
+  "widgetCode-title": "Código del widget",
+
   "fullDetails-btn": "Ver todos los detalles"
 }
