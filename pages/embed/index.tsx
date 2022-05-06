@@ -1,11 +1,12 @@
 /* eslint-disable max-lines */
 import { Box, Button, Card, CardContent, CardMedia, Link, Typography } from '@mui/material';
+import Head from 'next/head';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import RegularList from '../../components/Lists/RegularList';
 import { ListItem } from '../../components/Lists/types';
 import Logotype from '../../components/Logotype';
-import { APP_URL, wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
+import { APP_NAME, APP_URL, wheelFeatureFormatters, wheelFeatureIcons } from '../../constants';
 import { EUC_FINDER_DETAILS } from '../../constants/clientRoutes';
 import { commonNs, useEmbedTranslations } from '../../hooks';
 import {
@@ -74,79 +75,85 @@ const Embed = ({
     .filter(item => !!item) as ListItem[];
 
   return (
-    <Box
-      sx={ {
-        alignItems: 'flex-start',
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-        justifyContent: 'center',
-        minWidth: 250,
-        p: limits ? 2 : 0,
-        width: '100%'
-      } }
-    >
-      <Card variant="outlined" sx={ { width: '100%' } }>
-        <CardContent sx={ { pt: 0, textAlign: 'center' } }>
-          <Box
-            sx={ {
-              alignItems: 'center',
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center'
-            } }
-          >
-            <Typography variant="caption">
-              { t('poweredBy-msg') }
-            </Typography>
-            <Link
-              target="_blank"
-              href={ appUrl }
-              hrefLang={ lang }
-              sx={ { textDecoration: 'none' } }
+    <>
+      <Head>
+        <title>{ wheelName } - { APP_NAME }</title>
+      </Head>
+      
+      <Box
+        sx={ {
+          alignItems: 'flex-start',
+          display: 'flex',
+          flexDirection: 'column',
+          height: '100%',
+          justifyContent: 'center',
+          minWidth: 250,
+          p: limits ? 2 : 0,
+          width: '100%'
+        } }
+      >
+        <Card variant="outlined" sx={ { width: '100%' } }>
+          <CardContent sx={ { pt: 0, textAlign: 'center' } }>
+            <Box
+              sx={ {
+                alignItems: 'center',
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'center'
+              } }
             >
-              <Logotype darkBg={ dark } icon text />
-            </Link>
-          </Box>
-
-          { !wheel && (
-            <Typography>
-              { t('invalidId-msg') }
-            </Typography>
-          ) }
-
-          { !!wheel && (
-            <>
-              { (picture && !!wheelPicture) && (
-                <CardMedia
-                  alt={ t('wheelPicture-msg', { ...commonNs, wheelName }) }
-                  component="img"
-                  src={ wheelPicture }
-                  sx={ { maxWidth: 320, mx: 'auto' } }
-                />
-              ) }
-
-              { title && (
-                <Typography variant="h5" component="p" sx={ { mt: 1.5 } }>
-                  { wheelName }
-                </Typography>
-              ) }
-
-              <RegularList dense items={ items } />
-
-              <Button
-                variant="contained"
-                href={ wheelUrl }
-                hrefLang={ lang }
+              <Typography variant="caption">
+                { t('poweredBy-msg') }
+              </Typography>
+              <Link
                 target="_blank"
+                href={ appUrl }
+                hrefLang={ lang }
+                sx={ { textDecoration: 'none' } }
               >
-                { t('fullDetails-btn') }
-              </Button>
-            </>
-          ) }
-        </CardContent>
-      </Card>
-    </Box>
+                <Logotype darkBg={ dark } icon text />
+              </Link>
+            </Box>
+
+            { !wheel && (
+              <Typography>
+                { t('invalidId-msg') }
+              </Typography>
+            ) }
+
+            { !!wheel && (
+              <>
+                { (picture && !!wheelPicture) && (
+                  <CardMedia
+                    alt={ t('wheelPicture-msg', { ...commonNs, wheelName }) }
+                    component="img"
+                    src={ wheelPicture }
+                    sx={ { maxWidth: 320, mx: 'auto' } }
+                  />
+                ) }
+
+                { title && (
+                  <Typography variant="h5" component="p" sx={ { mt: 1.5 } }>
+                    { wheelName }
+                  </Typography>
+                ) }
+
+                <RegularList dense items={ items } />
+
+                <Button
+                  variant="contained"
+                  href={ wheelUrl }
+                  hrefLang={ lang }
+                  target="_blank"
+                >
+                  { t('fullDetails-btn') }
+                </Button>
+              </>
+            ) }
+          </CardContent>
+        </Card>
+      </Box>
+    </>
   );
 };
 

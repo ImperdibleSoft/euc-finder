@@ -1,5 +1,6 @@
 /* eslint-disable max-lines */
 import { Alert, Box, Button, ButtonGroup, Card, CardContent, Snackbar, Typography } from '@mui/material';
+import Head from 'next/head';
 import React, { useMemo, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Checkbox from '../../components/Form/Checkbox';
@@ -8,7 +9,7 @@ import MultiSelect from '../../components/Form/MultiSelect';
 import Textarea from '../../components/Form/Textarea';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import WheelSelector from '../../components/WheelSelector';
-import { wheelFeatureIcons } from '../../constants';
+import { APP_NAME, wheelFeatureIcons } from '../../constants';
 import { EMBED } from '../../constants/clientRoutes';
 import { commonNs, useBreakpoints, useEmbedTranslations, useResize } from '../../hooks';
 import { useCopyToClipboard } from '../../hooks/copyToClipboard';
@@ -223,6 +224,10 @@ const EmbedGenerate = () => {
 
   return (
     <>
+      <Head>
+        <title>{ t('customizeWidget-title') } - { APP_NAME }</title>
+      </Head>
+
       <SimpleLayout>
         <Box
           id="EmbedGenerate-wrapper"
