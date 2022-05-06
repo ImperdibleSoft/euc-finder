@@ -155,8 +155,12 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://e-rides.com/product/begode-hero-suspension-electric-unicycle-deposit/',
     'https://oneride.eu/electric-unicycles/200--preorder-begode-hero-1800wh-100v-electric-unicycle.html'
   ],
-  [WheelId.ex20s]: [],
-  [WheelId.master]: [],
+  [WheelId.ex20s]: [
+    'https://e-rides.com/product/begode-ex20s-suspension-electric-unicycle-high-speed/'
+  ],
+  [WheelId.master]: [
+    'https://e-rides.com/product/begode-master-suspension-electric-unicycle-134v-2400wh/'
+  ],
   [WheelId.monster]: [
     'https://ciclonic.com/tienda/begode-antes-gotway-es/monociclos-gotway/gotway-monster-100v/',
     'https://store.urban360.es/product/sample-product/nuevo-gotway-monster-v3-100v-1854wh/',
@@ -174,6 +178,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucservice.com/produkt/gotway-monster-pro-3600wh-100v-lg-inr21700-m50t/',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-moster-pro-electric-unicycle',
     'https://www.smartwheel.ca/gotway-monster-pro-24-3500w-motor-electric-unicycle-with-3600wh-100v-battery/',
+    'https://e-rides.com/product/gotway-monster-pro-electric-unicycle/',
     'https://madridrueda.es/gotway/17-monster-pro.html'
   ],
 
@@ -274,6 +279,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucservice.com/produkt/inmotion-v11-1500wh-84vv-lg-21700m50t/',
     'https://www.smartwheel.ca/Inmotion-V11-2000W-Electric-Unicycle-EUC-with-Suspension_p_1980.html',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/inmotion-v11',
+    'https://e-rides.com/product/inmotion-v11/',
     'https://madridrueda.es/inicio/11-inmotion-v11.html',
     'https://oneride.eu/electric-unicycles/156-inmotion-v11-electric-unicycle.html'
   ],
@@ -288,10 +294,13 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://alienrides.com/collections/electric-unicycles/products/inmotion-v12-electric-unicycle-wheel',
     'https://www.smartwheel.ca/inmotion-v12-2500w-electric-unicycle-euc/',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/inmotion-v12',
+    'https://e-rides.com/product/inmotion-v12/',
     'https://madridrueda.es/inmotion/6-inmotion-v12.html',
     'https://oneride.eu/electric-unicycles/204-inmotion-v12-electric-unicycle.html'
   ],
-  [WheelId.v12HT]: [],
+  [WheelId.v12HT]: [
+    'https://e-rides.com/product/inmotion-v12-electric-unicycle-high-torque/'
+  ],
   [WheelId.v13]: [],
   
   // Kingsong
@@ -317,6 +326,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://www.ewheels.com/product/new-king-song-14d-420wh-battery800w-motor/',
     'https://eucsale.com/euc-transport/kingsong/14m/14d/14s.html',
     'https://www.smartwheel.ca/KingSong-KS-14D-800W-Electric-Unicycle-EUC-Black_p_1970.html',
+    'https://e-rides.com/product/kingsong-ks-14d-electric-unicycle/',
     'https://oneride.eu/electric-unicycles/176-kingsong-ks-14d-electric-unicycle.html'
   ],
   [WheelId.ks16s]: [
@@ -396,8 +406,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://alienrides.com/collections/electric-unicycles/products/king-song-s20-electric-unicycle',
     'https://www.smartwheel.ca/kingsong-ks-s20-eagle/',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/king-song-s20-eagle',
-    'https://e-rides.com/product/kingsong-s20-eagle-electric-unicycle-deposit/',
     'https://revrides.com/collections/all-vehicles/products/s20-deposit',
+    'https://e-rides.com/product/kingsong-s22-eagle-electric-unicycle/',
     'https://madridrueda.es/kingsong/54-kingsong-ks-s20-eagle.html',
     'https://oneride.eu/electric-unicycles/198-kingsong-s20-eagle-electric-unicycle.html'
   ],
@@ -411,19 +421,19 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucservice.com/produkt/veteran-sherman-3200wh-100v-sanyo-ncr18650ga/',
     'https://www.smartwheel.ca/Veteran-Sherman-20-2500W-Motor-Electric-Unicycle_p_2014.html',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/veteran-sherman-vancouver',
-    'https://e-rides.com/product/veteran-sherman/',
     'https://madridrueda.es/leaperkim/12-8-veteran-sherman.html#/10-sherman-v2_campo'
   ],
   [WheelId.abrams]: [
     'https://www.ewheels.com/product/veteran-abrams-100-deposit/',
     'https://eucsale.com/euc-transport/veteran-leaperkim-electric-unicycle/veteran-abrams.html',
     'https://eevees.com/collections/eucs-electric-unicycles-vancouver/products/veteran-abrams',
-    'https://e-rides.com/product/veteran-abrams-electric-unicycle-22-inch-2700w-pre-order/',
+    'https://e-rides.com/product/veteran-abrams-electric-unicycle-22-inch-2700w/',
     'https://oneride.eu/electric-unicycles/199--preorder-veteran-abrams-2700wh-100v-electric-unicycle-black.html'
   ],
   [WheelId.shermanMax]: [
     'https://www.ewheels.com/product/new-veteran-sherman-18-100v-3200wh-battery-2500w-motor-1000-deposit/',
     'https://eevees.com/products/veteran-sherman-vancouver',
+    'https://e-rides.com/product/veteran-sherman-max/',
     'https://oneride.eu/electric-unicycles/155-veteran-sherman-3200wh-100v-electric-unicycle-black.html'
   ]
 };

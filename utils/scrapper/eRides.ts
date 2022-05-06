@@ -37,6 +37,12 @@ export const parseERidesPrice = (html: string, showExpensive: boolean): number |
     const { document } = dom.window;
 
     /** Sold out. Out of stock */
+    // This won't work because this item is added via JS, client-side
+    // eslint-disable-next-line max-len
+    const soldOutElement = document.querySelector('.variations_form.cart .woocommerce-variation-availability .stock.out-of-stock');
+    if (!!soldOutElement) {
+      return '-';
+    }
 
     /** Final price when released */
     // eslint-disable-next-line max-len
@@ -61,10 +67,12 @@ export const parseERidesPrice = (html: string, showExpensive: boolean): number |
       if (finalPriceStringOptions.length) {
         const finalPriceNumberOptions = finalPriceStringOptions
           .map(opt => convertCurrencyToNumber(opt))
-          .filter(opt => !!opt)
+          .filter(opt => !!opt && opt >= 300)
           .sort((a = 0, b = 0) => b - a);
 
-        return finalPriceNumberOptions[0];
+        if (finalPriceNumberOptions[0]) {
+          return finalPriceNumberOptions[0];
+        }
       }
     }
 
