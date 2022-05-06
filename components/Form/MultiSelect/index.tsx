@@ -87,7 +87,13 @@ const MultiSelect: React.FC<Props> = ({
         const opt = options.find(o => o.value === s);
 
         if (opt?.value) {
-          return <Chip key={ opt.value } label={ opt.label } />;
+          return (
+            <Chip
+              key={ opt.value }
+              icon={ opt.icon ? <Icon>{ opt.icon }</Icon> : undefined }
+              label={ opt.label }
+            />
+          );
         }
 
         return null;
