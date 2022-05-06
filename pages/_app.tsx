@@ -10,19 +10,22 @@ import Script from 'next/script';
 import qs from 'query-string';
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
+import EmbedWrapper from '../components/Screens/Embed';
 import AppWithStore from '../components/Screens/_app/AppWithStore';
 import { APP_NAME, APP_URL, MEASUREMENT_ID } from '../constants';
+import { EMBED } from '../constants/clientRoutes';
 import nextI18NextConfig from '../next-i18next.config.js';
 import { configureStore } from '../store';
 import '../styles/globals.css';
 import { LOCAL_STORAGE_KEY } from '../types';
 import { cleanOldCaches, pageview, setItem } from '../utils';
+import { getQueryParams } from '../utils/routing';
 
 const store = configureStore();
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   const { price, purchaseLinks, test } = qs.parse(global?.location?.search);
-  const { asPath, events } = useRouter();
+  const { asPath, events, pathname } = useRouter();
 
   useEffect(() => {
     cleanOldCaches();
@@ -57,6 +60,18 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       events.off('routeChangeComplete', handleRouteChange);
     };
   }, [events]);
+
+  if (pathname === EMBED) {
+    const params = getQueryParams();
+
+    return (
+      <Provider store={ store }>
+        <EmbedWrapper dark={ params.dark }>
+          <Component { ...pageProps } { ...params }/>
+        </EmbedWrapper>
+      </Provider>
+    );
+  }
 
   return (
     <>

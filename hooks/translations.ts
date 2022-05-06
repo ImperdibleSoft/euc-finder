@@ -35,6 +35,12 @@ export const useChangelogTranslations = () => {
   return { t, i18n };
 };
 
+export const useEmbedTranslations = () => {
+  const { t, i18n } = useTranslation([TranslationFile.embed, ...commonTranslations]);
+
+  return { t, i18n };
+};
+
 export const useInfluencersTranslations = () => {
   const { t, i18n } = useTranslation([TranslationFile.influencers, ...commonTranslations]);
 
