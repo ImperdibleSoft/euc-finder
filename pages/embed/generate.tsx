@@ -8,7 +8,7 @@ import MultiSelect from '../../components/Form/MultiSelect';
 import Textarea from '../../components/Form/Textarea';
 import SimpleLayout from '../../components/Layouts/SimpleLayout';
 import WheelSelector from '../../components/WheelSelector';
-import { APP_URL, wheelFeatureIcons } from '../../constants';
+import { wheelFeatureIcons } from '../../constants';
 import { EMBED } from '../../constants/clientRoutes';
 import { commonNs, useBreakpoints, useEmbedTranslations, useResize } from '../../hooks';
 import { useCopyToClipboard } from '../../hooks/copyToClipboard';
@@ -115,7 +115,7 @@ const EmbedGenerate = () => {
   });
 
   const getWidgetUrl = (params?: State) => {
-    const appUrl = process.env.NODE_ENV === 'production' ? APP_URL : 'http://localhost:3000';
+    const appUrl = global?.location?.origin ?? 'http://localhost:3000';
     const baseUrl = `${ appUrl }/${ params?.language ?? widgetOptions.language }${ EMBED }`;
 
     // UI
