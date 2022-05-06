@@ -67,7 +67,8 @@ const Header = ({ isLanding, ...navigationProps }: Props) => {
               <Box sx={ {
                 alignItems: 'center',
                 cursor: 'pointer',
-                display: 'flex'
+                display: 'flex',
+                mr: 2
               } }>
                 <Logotype icon={ renderFullHeader } />
               </Box>
