@@ -4,7 +4,7 @@ import { WheelId, WheelPurchaseLinks } from '../../../types';
 export const wheelPurchaseLinks: WheelPurchaseLinks = {
   // Begode / Gotway
   [WheelId.mten]: [
-    'https://ciclonic.com/tienda/gotway/monociclos-gotway/gotway-mten3/',
+    'https://ciclonic.com/tienda/begode-antes-gotway/monociclos-gotway/gotway-mten3/',
     'https://www.euco.us/products/gotway-mten-electric-unicycle',
     'https://myewheel.com/gotway-mten3-512wh/',
     'https://www.ewheels.com/product/gotway-mten3-512-800w-motor/',
@@ -17,7 +17,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/116-gotway-mten3-512wh-electric-unicycle-black.html'
   ],
   [WheelId.mcm5]: [
-    'https://ciclonic.com/tienda/gotway/monociclos-gotway/mcm5/',
+    'https://ciclonic.com/tienda/begode-antes-gotway/monociclos-gotway/mcm5/',
     'https://www.euco.us/products/gotway-mcm5-v2-electric-unicycle',
     'https://myewheel.com/gotway-mcm5/',
     'https://www.ewheels.com/product/new-gotway-mcm5-14-the-mountain-climber-800wh-battery-1500w-motor/',
@@ -42,7 +42,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/171-begode-tesla-v3-t31500wh-electric-unicycle.html'
   ],
   [WheelId.nikola]: [
-    'https://ciclonic.com/tienda/gotway/monociclos-gotway/nikola-plus/',
+    'https://ciclonic.com/tienda/begode-antes-gotway/monociclos-gotway/nikola-plus/',
     'https://store.urban360.es/product/sample-product/gotway-nikola-plus-1800wh-100v/',
     'https://www.euco.us/products/gotway-nikola-electric-unicycle',
     'https://myewheel.com/gotway-nikola-plus/',
@@ -71,6 +71,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/153-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html'
   ],
   [WheelId.rsHT]: [
+    'https://ciclonic.com/tienda/begode-antes-gotway/monociclos-gotway/begode-rs/',
     'https://store.urban360.es/product/sample-product/nuevo-gotway-rs/',
     'https://www.euco.us/products/gotway-rs-electric-unicycle',
     'https://www.ewheels.com/product/new-gotway-rs-19-100v-1800wh-battery/',
@@ -83,6 +84,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/172-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html'
   ],
   [WheelId.rsHS]: [
+    'https://ciclonic.com/tienda/begode-antes-gotway/monociclos-gotway/begode-rs/',
     'https://store.urban360.es/product/sample-product/nuevo-gotway-rs/',
     'https://www.euco.us/products/gotway-rs-electric-unicycle',
     'https://myewheel.com/gotway-msuper-pro-1800wh/',
@@ -132,7 +134,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/227-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html'
   ],
   [WheelId.heroHT]: [
-    'https://ciclonic.com/tienda/monociclos/monociclos-gotway/reserva-begode-hero/',
+    'https://ciclonic.com/tienda/begode-antes-gotway/monociclos-gotway/reserva-begode-hero/',
     'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
     'https://www.ewheels.com/product/begode-hero-100-deposit/',
     'https://eucsale.com/euc-transport/begode/begode-hero.html',
@@ -143,7 +145,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/200--preorder-begode-hero-1800wh-100v-electric-unicycle.html'
   ],
   [WheelId.heroHS]: [
-    'https://ciclonic.com/tienda/monociclos/monociclos-gotway/reserva-begode-hero/',
+    'https://ciclonic.com/tienda/begode-antes-gotway/monociclos-gotway/reserva-begode-hero/',
     'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
     'https://www.ewheels.com/product/begode-hero-100-deposit/',
     'https://eucsale.com/euc-transport/begode/begode-hero.html',
@@ -156,7 +158,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
   [WheelId.ex20s]: [],
   [WheelId.master]: [],
   [WheelId.monster]: [
-    'https://ciclonic.com/tienda/gotway/monociclos-gotway/gotway-monster-100v/',
+    'https://ciclonic.com/tienda/begode-antes-gotway-es/monociclos-gotway/gotway-monster-100v/',
     'https://store.urban360.es/product/sample-product/nuevo-gotway-monster-v3-100v-1854wh/',
     'https://myewheel.com/gotway-monster-v3/',
     'https://eucsale.com/euc-transport/begode/monster-v3-100v-1845wh.html',
