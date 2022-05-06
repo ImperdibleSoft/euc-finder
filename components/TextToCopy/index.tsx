@@ -1,8 +1,7 @@
 import { Alert, Box, Button, FormControl, Icon, Input, Snackbar } from '@mui/material';
-import React, { useState } from 'react';
+import React from 'react';
 import { useCommonTranslations } from '../../hooks';
-
-type CopyState = 'idle' | 'success' | 'error'
+import { useCopyToClipboard } from '../../hooks/copyToClipboard';
 
 interface Props {
   callback?: () => void;
@@ -11,19 +10,10 @@ interface Props {
 
 const TextToCopy: React.FC<Props> = ({ callback, text }) => {
   const { t } = useCommonTranslations();
-  const canCopy = !!navigator?.clipboard?.writeText;
-  const [copied, setCopied] = useState<CopyState>('idle');
+  const { canCopy, copied, handleCopy: copy } = useCopyToClipboard(callback);
 
   const handleCopy = () => {
-    if (canCopy) {
-      try {
-        navigator.clipboard.writeText(text);
-        setCopied('success');
-        callback?.();
-      } catch {
-        setCopied('error');
-      }
-    }
+    copy(text);
   };
 
   return (
