@@ -37,10 +37,12 @@ const Dropdown: React.FC<Props> = ({
   name,
   onChange,
   options,
-  style,
+  style: styles,
   variant = 'standard',
   value
 }) => {
+  const { minWidth, ...style } = styles ?? {};
+
   const handleChange: SelectProps<string>['onChange'] = (event) => {
     onChange(event as unknown as React.ChangeEvent<HTMLSelectElement>);
   };
@@ -73,6 +75,7 @@ const Dropdown: React.FC<Props> = ({
         onChange={ handleChange }
         value={ value }
         startAdornment={ renderIcon() }
+        style={ { minWidth } }
       >
         { options.map(option => (
           <MenuItem
