@@ -1,0 +1,25 @@
+{
+  "poweredBy-msg": "Powered by",
+
+  "customizeWidget-title": "Customize your widget",
+  "wheel-title": "EUC Options",
+  "ui-title": "Displayed elements",
+  "settings-title": "Measure units",
+
+  "invalidId-msg": "Veuillez configurer le widget avec un Wheel ID valide",
+
+  "darkMode-label": "Dark mode",
+  "limits-label": "Add spaces around the widget",
+  "wheelId-label": "Display wheel",
+  "title-label": "Display EUC's name",
+  "picture-label": "Display EUC's picture",
+  "icons-label": "Display icons in specifications",
+  "features-label": "Display specs",
+
+  "updateWidget-btn": "Update widget",
+  "reset-btn": "Reset",
+
+  "widgetCode-title": "Widget's code",
+
+  "fullDetails-btn": "Voir tous les détails"
+}

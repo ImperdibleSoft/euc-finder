@@ -4,6 +4,7 @@ export enum TranslationFile {
   common = 'common',
   comparator = 'comparator',
   dealers = 'dealers',
+  embed = 'embed',
   influencers = 'influencers',
   landing = 'landing',
   layout = 'layout',

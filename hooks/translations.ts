@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { TranslationFile } from '../types';
 
 export const commonNs = { ns: TranslationFile.common };
+export const settingsNs = { ns: TranslationFile.settings };
 
 const commonTranslations = [TranslationFile.layout, TranslationFile.common ];
 
@@ -31,6 +32,12 @@ export const useAboutTranslations = () => {
 
 export const useChangelogTranslations = () => {
   const { t, i18n } = useTranslation([TranslationFile.changelog, ...commonTranslations]);
+
+  return { t, i18n };
+};
+
+export const useEmbedTranslations = () => {
+  const { t, i18n } = useTranslation([TranslationFile.embed, ...commonTranslations]);
 
   return { t, i18n };
 };

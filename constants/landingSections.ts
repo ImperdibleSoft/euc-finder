@@ -1,7 +1,7 @@
 import { Theme } from '@mui/material';
 import { BRAND_COLOR } from '../styles/theme';
 import { LandingSectionProps } from '../types';
-import { DEALERS, EUC_COMPARATOR, EUC_FINDER, INFLUENCERS, SETTINGS, VIDEOS } from './clientRoutes';
+import { DEALERS, EMBED_GENERATE, EUC_COMPARATOR, EUC_FINDER, INFLUENCERS, SETTINGS, VIDEOS } from './clientRoutes';
 
 const landingSections: LandingSectionProps[] = [
   {
@@ -42,6 +42,14 @@ const landingSections: LandingSectionProps[] = [
     path: VIDEOS,
     picture: '/assets/screenshots/videos-{{lang}}.png',
     title: 'nav-videos'
+  },
+  {
+    callToAction: 'visit-btn',
+    description: 'embedGenerator-desc',
+    extraText: 'embedGenerator-desc2',
+    path: EMBED_GENERATE,
+    picture: '/assets/screenshots/embedGenerator-{{lang}}.png',
+    title: 'nav-embedGenerator'
   },
   {
     callToAction: 'visit-btn',

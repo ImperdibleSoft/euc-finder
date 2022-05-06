@@ -6,6 +6,7 @@ import {
   ABOUT,
   CHANGELOG,
   DEALERS,
+  EMBED_GENERATE,
   EUC_COMPARATOR,
   EUC_FINDER,
   EUC_FINDER_DETAILS,
@@ -38,10 +39,11 @@ export const getServerSideProps = ({ res }: Props) => {
     '',
     EUC_FINDER,
     EUC_COMPARATOR,
+    SETTINGS,
     VIDEOS,
+    EMBED_GENERATE,
     DEALERS,
     INFLUENCERS,
-    SETTINGS,
     CHANGELOG,
     ABOUT
   ].map((staticPagePath) => `${ baseUrl }${ staticPagePath }`);
