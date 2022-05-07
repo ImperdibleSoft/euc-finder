@@ -9,6 +9,11 @@ export const parseEeveesPrice = (html: string): number | '-' | undefined => {
     const { document } = dom.window;
 
     /** Sold out. Out of stock */
+    // eslint-disable-next-line max-len
+    const soldOutElement = document.querySelector('.product-single__info-wrapper #AddToCartForm-product-template .sold-out-gray-btn');
+    if (soldOutElement?.innerHTML?.toLowerCase().includes('sold out')) {
+      return '-';
+    }
 
     /** Final price when released */
 
