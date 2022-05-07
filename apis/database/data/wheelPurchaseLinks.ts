@@ -10,8 +10,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/150-gotway-mten3-420wh-electric-unicycle-black.html',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-mten3-electric-unicycle',
     'https://eevees.com/collections/begode-gotway/products/gotway-mten',
-
     'https://www.euco.us/products/gotway-mten-electric-unicycle',
+
     'https://www.ewheels.com/product/gotway-mten3-512-800w-motor/',
     'https://www.smartwheel.ca/Gotway-Mten3-10-800W-Motor-Electric-Unicycle_p_1955.html'
   ],
@@ -24,8 +24,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/166-gotway-mcm5-800wh-v2-electric-unicycle.html',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-mcm5-electric-unicycle',
     'https://eevees.com/collections/begode-gotway/products/gotway-mcm5-v2',
-    
     'https://www.euco.us/products/gotway-mcm5-v2-electric-unicycle',
+    
     'https://www.ewheels.com/product/new-gotway-mcm5-14-the-mountain-climber-800wh-battery-1500w-motor/',
     'https://www.smartwheel.ca/Gotway-MCM5-14-1500W-Motor-Electric-Unicycle_p_1958.html'
   ],
@@ -36,8 +36,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/171-begode-tesla-v3-t31500wh-electric-unicycle.html',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-tesla-v3-electric-unicycle',
     'https://eevees.com/collections/begode-gotway/products/gotway-tesla-t3',
-    
     'https://www.euco.us/products/gotway-t3-tesla-v3',
+    
     'https://www.ewheels.com/product/begode-tesla-v3-1500wh-battery-2000w-motor-deposit/',
     'https://www.smartwheel.ca/gotway-tesla-t3-16-2000w-electric-unicycle-with-1500wh-84v-battery/'
   ],
@@ -49,8 +49,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://myewheel.com/begode-nikola-plus/',
     'https://oneride.eu/electric-unicycles/118-gotway-nikola-plus-1800wh-100v-electric-unicycle.html',
     'https://alienrides.com/collections/electric-unicycles/products/nikola-ar-plus-electric-unicycle',
-    
     'https://www.euco.us/products/gotway-nikola-electric-unicycle',
+    
     'https://www.ewheels.com/product/new-gotway-nikola-1800wh-battery-2000w-motor-3-wide-tire/',
     'https://www.smartwheel.ca/Gotway-Nikola-Plus-17-1900W-Motor-Electric-Unicycle_p_1957.html'
   ],
@@ -75,8 +75,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/304-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-rs-torque-version',
     'https://eevees.com/collections/begode-gotway/products/gotway-rs-torque',
+    'https://www.euco.us/products/gotway-rs-electric-unicycle?variant=34780833415302',
     
-    'https://www.euco.us/products/gotway-rs-electric-unicycle',
     'https://www.ewheels.com/product/new-gotway-rs-19-100v-1800wh-battery/',
     'https://www.smartwheel.ca/gotway-rs-19-2600w-motor-electric-unicycle/',
     'https://revrides.com/collections/all-vehicles/products/gotway-msp-rs'
@@ -90,8 +90,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/172-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-rs-electric-unicycle',
     'https://eevees.com/collections/begode-gotway/products/gotway-rs',
+    'https://www.euco.us/products/gotway-rs-electric-unicycle?variant=34780833448070',
     
-    'https://www.euco.us/products/gotway-rs-electric-unicycle',
     'https://www.ewheels.com/product/new-gotway-rs-19-100v-1800wh-battery/',
     'https://www.smartwheel.ca/rs-19-2600w-C30-motor-electric-unicycle/',
     'https://revrides.com/collections/all-vehicles/products/copy-of-gotway-rs-high-speed'
@@ -100,7 +100,6 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucsale.com/euc-transport/begode/ex.html',
     'https://madridrueda.es/gotway/18-ex.html',
 
-    'https://www.euco.us/products/gotway-ex-electric-unicycle',
     'https://www.smartwheel.ca/gotway-ex-20-2500w-motor-suspension-electric-unicycle/',
     'https://revrides.com/collections/all-vehicles/products/gotway-ex'
   ],
@@ -111,8 +110,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/305-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-ex-n-torque',
     'https://eevees.com/collections/begode-gotway/products/gotway-ex-n?variant=41926006571251',
+    'https://www.euco.us/products/gotway-ex-n-electric-unicycle?variant=39638737191046',
 
-    'https://www.euco.us/products/gotway-ex-n-electric-unicycle',
     'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/',
     'https://www.smartwheel.ca/gotway-exn-20-2800w-motor-electric-unicycle-with-2700wh100v-battery/'
   ],
@@ -124,8 +123,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/227-gotway-msuper-pro-msp-1800-wh-100v-electric-unicycle.html',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-ex-n-electric-unicycle',
     'https://eevees.com/collections/begode-gotway/products/gotway-ex-n?variant=41926006604019',
+    'https://www.euco.us/products/gotway-ex-n-electric-unicycle?variant=39638737158278',
 
-    'https://www.euco.us/products/gotway-ex-n-electric-unicycle',
     'https://www.ewheels.com/product/begode-ex-n-2700wh-battery-2800w-motor/',
     'https://www.smartwheel.ca/gotway-exn-20-2800w-motor-electric-unicycle-with-2700wh100v-battery/',
     'https://revrides.com/collections/all-vehicles/products/gotway-ex-n'
@@ -136,8 +135,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucsale.com/euc-transport/begode/begode-hero.html',
     'https://alienrides.com/collections/electric-unicycles/products/begode-hero-off-road-electric-unicycle',
     'https://eevees.com/collections/begode-gotway/products/begode-hero',
+    'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit?variant=39758601683078',
     
-    'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
     'https://www.ewheels.com/product/begode-hero-100-deposit/',
     'https://www.smartwheel.ca/gotway-hero-electric-unicycle-euc-with-suspension/'
   ],
@@ -145,8 +144,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://ciclonic.com/tienda/begode-antes-gotway/monociclos-gotway/reserva-begode-hero/',
     'https://e-rides.com/product/begode-hero-suspension-electric-unicycle-deposit/',
     'https://eucsale.com/euc-transport/begode/begode-hero.html',
+    'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit?variant=39758601715846',
     
-    'https://www.euco.us/products/begode-hero-electric-unicycle-preorder-deposit',
     'https://www.ewheels.com/product/begode-hero-100-deposit/',
     'https://www.smartwheel.ca/gotway-hero-electric-unicycle-euc-with-suspension/'
   ],
@@ -160,7 +159,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucservice.com/produkt/begode-gotway-master-2400wh-134v/',
     'https://myewheel.com/begode-master/',
     'https://alienrides.com/collections/electric-unicycles/products/begode-master-electric-unicycle',
-    'https://eevees.com/collections/begode-gotway/products/begode-master'
+    'https://eevees.com/collections/begode-gotway/products/begode-master',
+    'https://www.euco.us/products/pre-order-deposit-begode-master-electric-unicycle'
   ],
   [WheelId.monster]: [
     'https://ciclonic.com/tienda/begode-antes-gotway-es/monociclos-gotway/gotway-monster-100v/',
@@ -176,8 +176,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucservice.com/produkt/begode-gotway-monster-pro-3600wh-100v/',
     'https://madridrueda.es/gotway/17-monster-pro.html',
     'https://alienrides.com/collections/electric-unicycles/products/gotway-begode-moster-pro-electric-unicycle',
-
     'https://www.euco.us/products/gotway-monster-pro-electric-unicycle',
+
     'https://www.smartwheel.ca/gotway-monster-pro-24-3500w-motor-electric-unicycle-with-3600wh-100v-battery/'
   ],
 
@@ -192,8 +192,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://myewheel.com/extremebull-commander-ht/',
     'https://alienrides.com/collections/electric-unicycles/products/extreme-bull-commander-torque',
     'https://eevees.com/collections/begode-gotway/products/extreme-bull-commander?variant=40959280545951',
+    'https://www.euco.us/products/begode-commander-electric-unicycle?variant=39467476975750',
 
-    'https://www.euco.us/products/begode-commander-electric-unicycle',
     'https://www.ewheels.com/product/begode-commander-100-deposit/',
     'https://www.smartwheel.ca/gotway-commander-high-torque-c38-20-2800w-motor-electric-unicycle-with-3600wh100v-battery/'
   ],
@@ -202,8 +202,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucservice.com/produkt/extreme-bull-commander-2800w-3600wh-100v/',
     'https://alienrides.com/collections/electric-unicycles/products/extreme-bull-commander-electric-unicycle',
     'https://eevees.com/collections/begode-gotway/products/extreme-bull-commander?variant=40959280578719',
+    'https://www.euco.us/products/begode-commander-electric-unicycle?variant=39467477008518',
 
-    'https://www.euco.us/products/begode-commander-electric-unicycle',
     'https://www.ewheels.com/product/begode-commander-100-deposit/',
     'https://www.smartwheel.ca/gotway-commander-high-speed-c30-20-2800w-motor-electric-unicycle-with-3600wh100v-battery/'
   ],
@@ -228,15 +228,14 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://myewheel.com/inmotion-v5f/',
     'https://oneride.eu/electric-unicycles/91-inmotion-v5f-electric-unicycle.html',
     'https://store.urban360.es/product/sample-product/inmotion-v5f-negro/',
-    
     'https://www.euco.us/products/inmotion-v5f-electric-unicycle',
+    
     'https://www.smartwheel.ca/Inmotion-V5F-Electric-Unicycle-Solowheel-Glide-2-EUC_p_241.html'
   ],
   [WheelId.v8]: [
     'https://eucsale.com/euc-transport/inmotion/v8.html',
-    'https://oneride.eu/electric-unicycles/89-inmotion-v8-electric-unicycle.html',
+    'https://oneride.eu/electric-unicycles/89-inmotion-v8-electric-unicycle.html'
     
-    'https://www.euco.us/products/inmotion-v8f-electric-unicycle'
   ],
   [WheelId.v8f]: [
     'https://ciclonic.com/tienda/inmotion/monociclos-inmotion/inmotion-v8f/',
@@ -248,15 +247,14 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://store.urban360.es/product/sample-product/inmotion-v8f/',
     'https://alienrides.com/collections/electric-unicycles/products/inmotion-v8s-electric-unicycle',
     'https://eevees.com/collections/inmotion/products/inmotion-v8f',
-    
     'https://www.euco.us/products/inmotion-v8f-electric-unicycle',
+    
     'https://www.ewheels.com/product/new-inmotion-v8f-518wh-battery-1000w-motor/',
     'https://www.smartwheel.ca/Inmotion-V8F-1000W-Electric-Unicycle-EUC-_p_1954.html'
   ],
   [WheelId.v10]: [
     'https://eucsale.com/euc-transport/inmotion/inmotion-v10.html',
 
-    'https://www.euco.us/products/inmotion-v10-electric-unicycle',
     'https://www.ewheels.com/product/new-inmotion-v10-v10f/',
     'https://www.smartwheel.ca/Inmotion-V10-1800W-Electric-Unicycle-EUC-_p_1749.html'
   ],
@@ -269,8 +267,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/99-inmotion-v10f-electric-unicycle.html',
     'https://store.urban360.es/product/sample-product/v10f/',
     'https://eevees.com/collections/inmotion/products/inmotion-v10f',
-    
     'https://www.euco.us/products/inmotion-v10-electric-unicycle',
+    
     'https://www.ewheels.com/product/new-inmotion-v10-v10f/',
     'https://www.smartwheel.ca/Inmotion-V10F-2000W-Electric-Unicycle-EUC-_p_1750.html'
   ],
@@ -283,8 +281,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/156-inmotion-v11-electric-unicycle.html',
     'https://store.urban360.es/product/sample-product/inmotion-v11/',
     'https://eevees.com/collections/inmotion/products/inmotion-v11',
-    
     'https://www.euco.us/products/inmotion-v11-electric-unicycle',
+    
     'https://www.ewheels.com/product/inmotion-v11-1420wh-battery-2000w-motor-pedal-suspension/',
     'https://eucservice.com/produkt/inmotion-v11-1500wh-84vv-lg-21700m50t/',
     'https://www.smartwheel.ca/Inmotion-V11-2000W-Electric-Unicycle-EUC-with-Suspension_p_1980.html'
@@ -299,8 +297,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://store.urban360.es/product/sample-product/nuevo-inmotion-v12/',
     'https://alienrides.com/collections/electric-unicycles/products/inmotion-v12-electric-unicycle-wheel',
     'https://eevees.com/collections/inmotion/products/inmotion-v12',
-
     'https://www.euco.us/products/inmotion-v12-electric-unicycle',
+
     'https://www.ewheels.com/product/new-inmotion-v12-1750wh-battery-2500w-motor-500-deposit/',
     'https://www.smartwheel.ca/inmotion-v12-2500w-electric-unicycle-euc/'
   ],
@@ -309,7 +307,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucsale.com/euc-transport/inmotion/inmotion-v12ht.html',
     'https://myewheel.com/inmotion-v12-ht/',
     'https://oneride.eu/electric-unicycles/268-inmotion-v12-electric-unicycle.html',
-    'https://eevees.com/collections/inmotion/products/inmotion-v12-high-torque'
+    'https://eevees.com/collections/inmotion/products/inmotion-v12-high-torque',
+    'https://www.euco.us/products/inmotion-v12-high-torque-ht-1750wh-100v'
   ],
   [WheelId.v13]: [],
   
@@ -336,8 +335,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://myewheel.com/kingsong-ks-14d/',
     'https://oneride.eu/electric-unicycles/374-kingsong-ks-14d-black-420wh-electric-unicycle.html',
     'https://store.urban360.es/product/sample-product/kingsong-ks14d-420wh/',
-
     'https://www.euco.us/products/king-song-ks-14d-electric-unicycle',
+
     'https://www.ewheels.com/product/new-king-song-14d-420wh-battery800w-motor/',
     'https://www.smartwheel.ca/KingSong-KS-14D-800W-Electric-Unicycle-EUC-Black_p_1970.html'
   ],
@@ -349,8 +348,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://myewheel.com/kingsong-ks-16s/',
     'https://oneride.eu/electric-unicycles/83-kingsong-ks-16s-v2-electric-unicycle.html',
     'https://store.urban360.es/product/sample-product/kingsong-ks16s-420wh/',
-
     'https://www.euco.us/products/king-song-ks-16s-electric-unicycle',
+
     'https://www.ewheels.com/product/kingsong-16-electric-unicycle/',
     'https://www.smartwheel.ca/KingSong-KS-16S-1200W-Electric-Unicycle-EUC-Black_p_1820.html',
     'https://revrides.com/collections/all-vehicles/products/ks16s'
@@ -373,8 +372,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/88-kingsong-ks-16x-electric-unicycle.html',
     'https://store.urban360.es/product/sample-product/king-song-ks16x-1554wh-2000w/',
     'https://eevees.com/collections/kingsong-eucs/products/king-song-16x',
-    
     'https://www.euco.us/products/king-song-16x-electric-unicycle',
+    
     'https://www.ewheels.com/product/new-king-song-16x-1554wh-battery-2000w-motor-3-wide-tire/',
     'https://www.smartwheel.ca/KingSong-KS-16X-2200W-Electric-Unicycle-EUC-Black_p_1875.html'
   ],
@@ -395,8 +394,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/224-kingsong-ks-18xl-1554wh-electric-unicycle.html',
     'https://store.urban360.es/product/sample-product/king-song-ks18xl/',
     'https://eevees.com/collections/kingsong-eucs/products/king-song-18xl',
-    
     'https://www.euco.us/products/king-song-18xl-electric-unicycle',
+    
     'https://www.ewheels.com/product/new-king-song-18xl-1554wh-battery-2000w-motor/',
     'https://www.smartwheel.ca/KingSong-KS-18XL-2000W-2200W-Electric-Unicycle-EUC-1554WH-Black_p_1830.html',
     'https://revrides.com/collections/all-vehicles/products/ks18xl'
@@ -410,8 +409,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://oneride.eu/electric-unicycles/174-kingsong-s18-electric-unicycle.html',
     'https://store.urban360.es/product/sample-product/ks-s18/',
     'https://eevees.com/collections/kingsong-eucs/products/king-song-s18-black',
-
     'https://www.euco.us/products/king-song-s18-electric-unicycle',
+
     'https://www.ewheels.com/product/new-king-song-s18-1110wh-battery-2200w-motor-full-body-suspension/',
     'https://www.smartwheel.ca/KingSong-KS-S18-2200W-Electric-Unicycle-EUC-with-Suspension-1110WH-White_p_2007.html',
     'https://revrides.com/collections/all-vehicles/products/king-song-s18-1'
@@ -425,8 +424,8 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://store.urban360.es/product/sample-product/king-song-s20-eagle/',
     'https://alienrides.com/collections/electric-unicycles/products/king-song-s20-electric-unicycle',
     'https://eevees.com/collections/kingsong-eucs/products/king-song-s20-eagle',
-
     'https://www.euco.us/products/king-song-s20-eagle-preorder-deposit',
+
     'https://www.ewheels.com/product/king-song-s20-eagle-100-deposit/',
     'https://www.smartwheel.ca/kingsong-ks-s20-eagle/',
     'https://revrides.com/collections/all-vehicles/products/s20-deposit'
