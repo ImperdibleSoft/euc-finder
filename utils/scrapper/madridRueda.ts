@@ -15,6 +15,7 @@ export const parseMadridRuedaPrice = (html: string): number | '-' | undefined =>
       // eslint-disable-next-line max-len
       soldOutElement?.innerHTML?.includes('Debido a la escasez de componentes y celdas para las baterías el stock no es estable')
       || soldOutElement?.innerHTML?.includes('Producto bajo pedido')
+      || soldOutElement?.innerHTML?.includes('Stock por confirmar')
       || (soldOutElement?.innerHTML?.includes('Sin stock') && !reservationElement)
     ) {
       return '-';
