@@ -266,6 +266,7 @@ export const wheelPurchaseLinks: WheelPurchaseLinks = {
     'https://eucsale.com/euc-transport/inmotion/inmotion-v12ht.html',
     'https://myewheel.com/inmotion-v12-ht/',
     'https://oneride.eu/electric-unicycles/268-inmotion-v12-electric-unicycle.html',
+    'https://store.urban360.es/product/sample-product/nuevo-inmotion-v12/',
     'https://eevees.com/collections/inmotion/products/inmotion-v12-high-torque',
     'https://www.euco.us/products/inmotion-v12-high-torque-ht-1750wh-100v',
     'https://www.ewheels.com/product/new-inmotion-v12-1750wh-battery-2500w-motor-500-deposit/'
