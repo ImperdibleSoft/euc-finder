@@ -9,6 +9,14 @@ export const parseEWheelsPrice = (html: string, showExpensive: boolean): number 
     const { document } = dom.window;
 
     /** Sold out. Out of stock */
+    // eslint-disable-next-line max-len
+    const soldOutElements = Array.from(document.querySelectorAll('.entry-summary .summary-container .woocommerce-product-details__short-description > ul > li'));
+    if (
+      soldOutElements.some(element => element.innerHTML.toLowerCase().includes('out of stock'))
+      || soldOutElements.some(element => element.innerHTML.toLowerCase().includes('next eta'))
+    ) {
+      return '-';
+    }
 
     /** Final price when released */
     const regularPriceElems = Array.from(document.querySelectorAll('.summary .summary-container .price .amount'));
@@ -45,7 +53,7 @@ export const parseEWheelsPrice = (html: string, showExpensive: boolean): number 
           .filter(opt => !!opt)
           .sort((a = 0, b = 0) => b - a);
 
-        return finalPriceNumberOptions[0];
+        return finalPriceNumberOptions[showExpensive ? 0 : 1] ?? finalPriceNumberOptions[0];
       }
     }
 

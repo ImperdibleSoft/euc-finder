@@ -42,7 +42,7 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const router = useRouter();
   const id = router.query.id as WheelId;
   const { t } = useWheelsDetailsTranslations();
-  const expensive = (id !== WheelId.ks16xs && id !== WheelId.v10);
+  const expensive = (id !== WheelId.ks16xs && id !== WheelId.ksS18 && id !== WheelId.v10);
   const wheelPictures = pictures[cleanWheelId(id)];
 
   useEffect(() => {
