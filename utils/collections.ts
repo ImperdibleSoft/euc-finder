@@ -1,4 +1,5 @@
 import { Order } from '../types';
+import { createDate } from './dates';
 
 interface Collection {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -23,8 +24,8 @@ export const sortBy = <T extends Collection>(
     }
 
     if ((key as string).toLowerCase().includes('date') && typeof a[key] === 'string') {
-      if (new Date(a[key]) < new Date(b[key])) return order === 'asc' ? -1 : 1;
-      if (new Date(a[key]) > new Date(b[key])) return order === 'asc' ? 1 : -1;
+      if (createDate(a[key]) < createDate(b[key])) return order === 'asc' ? -1 : 1;
+      if (createDate(a[key]) > createDate(b[key])) return order === 'asc' ? 1 : -1;
     } else if (typeof a[key] === 'string') {
       if (a[key].toLowerCase() < b[key].toLowerCase()) return order === 'asc' ? -1 : 1;
       if (a[key].toLowerCase() > b[key].toLowerCase()) return order === 'asc' ? 1 : -1;

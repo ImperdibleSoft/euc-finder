@@ -2,7 +2,7 @@ import { Avatar, Box, Card, CardContent, Chip, List, ListItem, Typography } from
 import React from 'react';
 import { useVideoInfo } from '../../../../hooks';
 import { Video } from '../../../../types';
-import { getEmbedPath, humanDate } from '../../../../utils';
+import { createDate, getEmbedPath, humanDate } from '../../../../utils';
 import YoutubePlayer from '../../../YoutubePlayer';
 
 const cardWidth = 314;
@@ -72,7 +72,7 @@ const VideoCard: React.FC<Props> = ({ video, ...props }) => {
               pb: smallCard ? 1 : 0
             } }
           >
-            { humanDate(new Date(video.releaseDate)) }
+            { humanDate(createDate(video.releaseDate)) }
           </Typography>
 
           { !smallCard && (

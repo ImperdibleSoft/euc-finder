@@ -1,4 +1,4 @@
-import { getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
+import { createDate, getCategoryFromTags, getInfluencerFromTags, getWheelFromTags, sortBy } from '../../utils';
 import { Influencer, InfluencerId, Video, WheelId } from '../../types';
 import { RootState } from '../types';
 import { getPromotedInfluencers } from './influencers';
@@ -100,8 +100,8 @@ export const getNewVideos = (fromDate?: Date, shouldPaginate = true) =>
     const allVideos = getFilteredVideos(rootState);
     const newVideos = lastVisit
       ? allVideos.filter(video =>
-        !isPromoted(video, rootState.influencers.collection) &&
-      new Date(video.releaseDate) > lastVisit
+        !isPromoted(video, rootState.influencers.collection)
+        && createDate(video.releaseDate) > lastVisit
       )
       : allVideos;
     const videos = shouldPaginate ? newVideos.slice(start, end) : newVideos;
@@ -129,8 +129,8 @@ export const getWatchedVideos = (fromDate?: Date) =>
     const allVideos = getFilteredVideos(rootState);
     const watchedVideos = lastVisit
       ? allVideos.filter(video =>
-        !isPromoted(video, rootState.influencers.collection) &&
-      new Date(video.releaseDate) <= lastVisit
+        !isPromoted(video, rootState.influencers.collection)
+        && (createDate(video.releaseDate) <= lastVisit)
       )
       : [];
     const videos = watchedVideos.slice(start, end);
