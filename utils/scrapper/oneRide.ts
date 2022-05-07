@@ -9,11 +9,13 @@ export const parseOneRidePrice = (html: string): number | '-' | undefined => {
 
     /** Sold out. Out of stock */
     // eslint-disable-next-line max-len
-    const reservationElement = document.querySelector('.product-detail .product-detail-name');
     const soldOutElement = document.querySelector('#product-availability');
+    const reservationElement = document.querySelector('.product-detail .product-detail-name');
     if (
-      // eslint-disable-next-line max-len
-      soldOutElement?.innerHTML?.toLowerCase().replace(/ /g, '-').includes('out-of-stock')
+      (
+        soldOutElement?.innerHTML?.toLowerCase().replace(/ /g, '-').includes('expected-in')
+        || soldOutElement?.innerHTML?.toLowerCase().replace(/ /g, '-').includes('out-of-stock')
+      )
       && !reservationElement?.innerHTML?.toLowerCase().replace(/ /g, '').includes('[preorder]')
     ) {
       return '-';
