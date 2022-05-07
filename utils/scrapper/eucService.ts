@@ -16,7 +16,6 @@ export const parseEucServicePrice = (html: string, showExpensive: boolean): numb
     /** Final price when released */
 
     /** Sale price */
-  
     const [
       cheapPriceElement,
       expensivePriceElement
