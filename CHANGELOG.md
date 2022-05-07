@@ -1,5 +1,17 @@
 # euc-finder
 
+## 2.9.1
+
+### Patch Changes
+
+- Fix purchase links and price detection
+
+## 2.9.0
+
+### Minor Changes
+
+- Add the EUC Finder's widget and a customization tool in order to customize it
+
 ## 2.7.0
 
 ### Minor Changes
