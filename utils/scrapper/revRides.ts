@@ -16,7 +16,7 @@ export const parseRevRidesPrice = (html: string): number | '-' | undefined => {
 
     /** Final price when released */
     // eslint-disable-next-line max-len
-    const finalPriceElems = Array.from(document.querySelectorAll('.product_section > .columns > .description > div > b')) ?? [];
+    const finalPriceElems = Array.from(document.querySelectorAll('.product_section > .columns > .description > div > *')) ?? [];
 
     if (finalPriceElems.length) {
       const finalPriceStringOptions = finalPriceElems.reduce((acc, curr) => {
