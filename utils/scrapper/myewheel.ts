@@ -8,13 +8,14 @@ export const parseMyEWheelPrice = (html: string, showExpensive: boolean): number
     const { document } = dom.window;
 
     /** Sold out. Out of stock */
-    const soldOutElement = document.querySelector('.summary .sorry');
-    if (!!soldOutElement) {
+    const soldOutElement = document.querySelector('.product-info .product-center > span');
+    if (soldOutElement?.innerHTML?.includes('Out Of Stock')) {
       return '-';
     }
 
     /** Final price when released */
-    const finalPriceElement = document.querySelector('.summary .woocommerce-product-details__short-description strong');
+    // eslint-disable-next-line max-len
+    const finalPriceElement = document.querySelector('.product-info .woocommerce-product-details__short-description strong');
     if (finalPriceElement) {
       const [, rawFinalPrice] = finalPriceElement?.innerHTML?.replace(',', '').match(priceRegExp) ?? [];
       if (rawFinalPrice) {
@@ -27,7 +28,7 @@ export const parseMyEWheelPrice = (html: string, showExpensive: boolean): number
     const [
       cheapPriceElement,
       expensivePriceElement
-    ] = Array.from(document.querySelectorAll('.summary .price .amount')) ?? [];
+    ] = Array.from(document.querySelectorAll('.product-info .price #price-old')) ?? [];
     
     /** Expensive version price */
     if (showExpensive && expensivePriceElement) {
