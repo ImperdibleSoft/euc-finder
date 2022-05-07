@@ -1,25 +1,25 @@
 {
   "poweredBy-msg": "Powered by",
 
-  "customizeWidget-title": "Customize your widget",
-  "wheel-title": "EUC Options",
-  "ui-title": "Displayed elements",
-  "settings-title": "Measure units",
+  "customizeWidget-title": "Personnalisation du widget",
+  "wheel-title": "Modèles et spécifications",
+  "ui-title": "Options d'affichage",
+  "settings-title": "Unités de mesure",
 
   "invalidId-msg": "Veuillez configurer le widget avec un Wheel ID valide",
 
-  "darkMode-label": "Dark mode",
-  "limits-label": "Add spaces around the widget",
-  "wheelId-label": "Display wheel",
-  "title-label": "Display EUC's name",
-  "picture-label": "Display EUC's picture",
-  "icons-label": "Display icons in specifications",
-  "features-label": "Display specs",
+  "darkMode-label": "Mode sombre",
+  "limits-label": "Ajouter un espace autour",
+  "wheelId-label": "Choix du modèle",
+  "title-label": "Afficher le nom",
+  "picture-label": "Afficher l'image",
+  "icons-label": "Afficher les icônes",
+  "features-label": "Sélection des spécifications",
 
-  "updateWidget-btn": "Update widget",
-  "reset-btn": "Reset",
+  "updateWidget-btn": "Enregistrer et visualiser",
+  "reset-btn": "Réinitialiser",
 
-  "widgetCode-title": "Widget's code",
+  "widgetCode-title": "Code généré",
 
   "fullDetails-btn": "Voir tous les détails"
 }
