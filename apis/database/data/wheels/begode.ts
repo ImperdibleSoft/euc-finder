@@ -509,7 +509,7 @@ const ex20s: Wheel = {
   },
   stockCharger: 3,
   maxCharger: 0,
-  chargePorts: 1,
+  chargePorts: 2,
   usbPorts: [0, 0],
   
   ...torqueMotor,
@@ -523,7 +523,7 @@ const ex20s: Wheel = {
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [550, 330, 710],
   ...begodeHoneycomb,
-  antiSpin: undefined,
+  antiSpin: AntiSpin.button,
   kickstand: Kickstand.shell,
   headlight: 7000,
   tailLight: true,
