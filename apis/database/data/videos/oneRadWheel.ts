@@ -238,6 +238,18 @@ const oneradwheelVideos: Video[] = [
     publishDate: '30/Apr/2022',
     releaseDate: '03/May/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=VA9ogBD-YNk',
+    tags: [
+      InfluencerId.oneradwheel,
+      VideoCategory.reveal,
+      VideoCategory.chatting,
+      WheelId.shermanMax
+    ],
+    publishDate: '07/May/2022',
+    releaseDate: '12/May/2022',
+    language: 'en'
   }
 ];
 

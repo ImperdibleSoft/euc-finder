@@ -631,6 +631,20 @@ const madpackVideos: Video[] = [
     publishDate: '02/May/2022',
     releaseDate: '03/May/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=sRCO5lS0qZo',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.comparision,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.v11,
+      WheelId.ksS22
+    ],
+    publishDate: '08/May/2022',
+    releaseDate: '12/May/2022',
+    language: 'en'
   }
 ];
 

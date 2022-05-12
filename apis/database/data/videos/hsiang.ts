@@ -475,6 +475,13 @@ const hsiangVideos: Video[] = [
     publishDate: '28/Mar/2022',
     releaseDate: '05/Apr/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=2EyMc4nSaVc',
+    tags: [InfluencerId.hsiang, VideoCategory.chatting, VideoCategory.comparision, WheelId.ksS22, WheelId.v11],
+    publishDate: '08/May/2022',
+    releaseDate: '12/May/2022',
+    language: 'en'
   }
 ];
 
