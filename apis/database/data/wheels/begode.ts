@@ -129,7 +129,7 @@ const tesla: Wheel = {
   usbPorts: undefined,
 
   maxGradibility: 30,
-  maxSpeed: 40,
+  maxSpeed: 55,
   range: 100,
   voltage: 84,
 
