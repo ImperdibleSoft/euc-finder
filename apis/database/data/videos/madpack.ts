@@ -645,6 +645,20 @@ const madpackVideos: Video[] = [
     publishDate: '08/May/2022',
     releaseDate: '12/May/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=zj_owsppXtY',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.comparision,
+      VideoCategory.commuting,
+      WheelId.v12,
+      WheelId.commanderHT,
+      WheelId.commanderHS
+    ],
+    publishDate: '16/May/2022',
+    releaseDate: '16/May/2022',
+    language: 'en'
   }
 ];
 

@@ -1175,6 +1175,13 @@ const wrongWayVideos: Video[] = [
     publishDate: '11/May/2022',
     releaseDate: '12/May/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=83RmBFskmf0',
+    tags: [InfluencerId.wrongWay, VideoCategory.review, WheelId.master],
+    publishDate: '15/May/2022',
+    releaseDate: '16/May/2022',
+    language: 'en'
   }
 ];
 
