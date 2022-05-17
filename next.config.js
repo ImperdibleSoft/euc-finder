@@ -6,6 +6,12 @@ const { pwa } = require('./next-pwa.config');
 const { webpack } = require('./next-webpack.config');
 
 const config = {
+  env: {
+    DDBB_HOST: process.env.DDBB_HOST,
+    DDBB_USER: process.env.DDBB_USER,
+    DDBB_PASSWD: process.env.DDBB_PASSWD,
+    DDBB_NAME: process.env.DDBB_NAME
+  },
   reactStrictMode: true,
   images: {
     domains: [
