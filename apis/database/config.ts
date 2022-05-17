@@ -1,12 +1,14 @@
 import { ConfigState } from '../../store/types';
 import { config as availableConfig } from './data';
 import fetchDataFromDB from './dataBaseApi';
+import { createConfigFromDatabase } from './modelCreators/config';
 
 const getConfig = async (): Promise<ConfigState> => {
   try {
-    const data = await fetchDataFromDB('SELECT * FROM config');
-    // eslint-disable-next-line no-console
-    console.log('data', data);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const data = (await fetchDataFromDB('SELECT * FROM config')) as any;
+    const config = createConfigFromDatabase(data?.[0]);
+    return config;
   } catch (err) {
     console.error('error', err);
   }

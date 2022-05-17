@@ -6,7 +6,7 @@ interface ConfigValues {
    * If the user has not selected any specific preset,
    * this preset will be loaded by default
    */
-  defaultPreset: SpecWeightsPreset.generic;
+  defaultPreset: SpecWeightsPreset;
 
   /**
    * How many wheels can be compared at the same time
