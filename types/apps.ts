@@ -1,20 +1,19 @@
 import { BrandId } from './brands';
 
-interface IOSPlatform {
-  iOS: {
-    logo: string;
-    url: string;
-  };
+export interface Platform {
+  logo: string;
+  url: string;
 }
 
-interface AndroidPlatform {
-  android: {
-    logo: string;
-    url: string;
-  };
+export interface IOSPlatform {
+  iOS: Platform;
 }
 
-type UniversalPlatform = IOSPlatform & AndroidPlatform;
+export interface AndroidPlatform {
+  android: Platform;
+}
+
+export type UniversalPlatform = IOSPlatform & AndroidPlatform;
 
 export type AvailablePlatforms = (keyof UniversalPlatform) | ''
 
@@ -22,5 +21,5 @@ export interface App {
   id: BrandId | string;
   name: string;
   url: string;
-  platforms: IOSPlatform | AndroidPlatform | UniversalPlatform;
+  platforms?: IOSPlatform | AndroidPlatform | UniversalPlatform;
 }
