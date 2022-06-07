@@ -548,9 +548,19 @@ const bonheursurSeineVideos: Video[] = [
     publishDate: '13/May/2022',
     releaseDate: '14/May/2022',
     language: 'fr'
-  }
-
-  
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=MQYOvexD14s',
+    tags: [
+      InfluencerId.bonheursurSeine,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.master
+    ],
+    publishDate: '23/May/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'fr'
+  }  
 ];
 
 export default bonheursurSeineVideos;

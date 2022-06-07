@@ -1182,6 +1182,34 @@ const wrongWayVideos: Video[] = [
     publishDate: '15/May/2022',
     releaseDate: '16/May/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=YInGw04W6so',
+    tags: [InfluencerId.wrongWay, VideoCategory.review, WheelId.v8, WheelId.v8f],
+    publishDate: '20/May/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=BUvzCLUqpmI',
+    tags: [InfluencerId.wrongWay, VideoCategory.review, WheelId.v12HT],
+    publishDate: '23/May/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=QLSlC7q2iuI',
+    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, VideoCategory.offroad, WheelId.ex20s],
+    publishDate: '26/May/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=w-WA_5CJ-KM',
+    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, VideoCategory.offroad, WheelId.ksS22],
+    publishDate: '01/Jun/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'en'
   }
 ];
 

@@ -204,6 +204,13 @@ const evxVideos: Video[] = [
     publishDate: '03/Mar/2022',
     releaseDate: '07/Mar/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=q00ls5JS2So',
+    tags: [InfluencerId.evx, VideoCategory.review, VideoCategory.chatting, WheelId.master],
+    publishDate: '27/Mar/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'en'
   }
 ];
 

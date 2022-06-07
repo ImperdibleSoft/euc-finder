@@ -259,6 +259,18 @@ const mrFlexVideos: Video[] = [
     publishDate: '15/May/2022',
     releaseDate: '16/May/2022',
     language: 'fr'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=KLRFA95DkTI',
+    tags: [
+      InfluencerId.mrFlex,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      WheelId.master
+    ],
+    publishDate: '29/May/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'fr'
   }
 ];
 

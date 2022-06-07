@@ -482,6 +482,26 @@ const hsiangVideos: Video[] = [
     publishDate: '08/May/2022',
     releaseDate: '12/May/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=HWo_F6xY3uw',
+    tags: [InfluencerId.hsiang, VideoCategory.review, VideoCategory.commuting, WheelId.master],
+    publishDate: '16/May/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=kAK3fq7ogcw',
+    tags: [
+      InfluencerId.hsiang,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      WheelId.commanderHS,
+      WheelId.commanderHT
+    ],
+    publishDate: '30/May/2022',
+    releaseDate: '07/Jun/2022',
+    language: 'en'
   }
 ];
 
