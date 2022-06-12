@@ -70,16 +70,16 @@ module.exports = {
       assets,
       bundles,
       documents
-    ],
-    exclude: [
-      /middleware-manifest\.json$/,
-      /react-loadable-manifest\.json$/,
-      /build-manifest\.json$/
-    ],
-    buildExcludes: [
-      /middleware-manifest\.json$/,
-      /react-loadable-manifest\.json$/,
-      /build-manifest\.json$/
+    // ],
+    // exclude: [
+    //   /middleware-manifest\.json$/,
+    //   /react-loadable-manifest\.json$/,
+    //   /build-manifest\.json$/
+    // ],
+    // buildExcludes: [
+    //   /middleware-manifest\.json$/,
+    //   /react-loadable-manifest\.json$/,
+    //   /build-manifest\.json$/
     ]
   }
 };
