@@ -1,5 +1,5 @@
 /* eslint-disable max-lines */
-import { Box, Button, ButtonGroup, Grid } from '@mui/material';
+import { Box, Button, Grid } from '@mui/material';
 import { GetStaticPaths } from 'next';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
@@ -23,6 +23,7 @@ import { APP_NAME, KEYWORDS } from '../../constants';
 import {
   commonNs,
   useCompareActions,
+  useConfirmationModal,
   useEucDetail,
   useEucDetailHandlers,
   useEucDetailInformationGroups,
@@ -40,6 +41,7 @@ interface Props {
   pictures: Record<WheelId, string[]>;
 }
 
+// eslint-disable-next-line max-lines-per-function
 const EucDetail: React.FC<Props> = ({ pictures }) => {
   const router = useRouter();
   const id = router.query.id as WheelId;
@@ -70,6 +72,17 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   const brandKeywords = brand ? [brand.name] : [];
   const newKeywords = wheel ? [...brandKeywords, wheel.name, name] : [];
   const keywords = KEYWORDS.concat(newKeywords).join(', ');
+
+  const navigate = () => {
+    if (wheel?.website) {
+      window.open(wheel.website);
+    }
+  };
+  
+  const { handleOpen, render } = useConfirmationModal({
+    callback: navigate,
+    storeName: brand?.name ?? wheel?.brandId ?? ''
+  });
 
   const handleCompare = canCompareMoreWheels()
     ? () => {
@@ -110,13 +123,19 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
             >
               <FacebookLikeButton />
 
-              { !!handleCompare && (
+              { (!!wheel.website || !!handleCompare) && (
                 <Box sx={ { mb: 1 } }>
-                  <ButtonGroup variant="contained">
-                    <Button color="primary" onClick={ handleCompare }>
+                  { !!wheel.website && (
+                    <Button color="primary" onClick={ handleOpen } variant="contained" sx={ { mr: 2 } }>
+                      { t('website-btn') }
+                    </Button>
+                  ) }
+
+                  { !!handleCompare && (
+                    <Button color="primary" onClick={ handleCompare } variant="contained">
                       { t('compare-btn') }
                     </Button>
-                  </ButtonGroup>
+                  ) }
                 </Box>
               ) }
               
@@ -170,6 +189,8 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
 
           </>
         ) }
+
+        { render() }
       </SimpleLayout>
     </>
   );

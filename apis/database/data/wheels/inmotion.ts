@@ -17,7 +17,7 @@ const v5: Wheel = {
   id: WheelId.v5,
   brandId: BrandId.inmotion,
   name: 'V5',
-  website: 'https://www.inmotionworld.com/product/electric-unicycle-inmotion-v5',
+  website: '',
   price: 550,
   availability: 'available',
 
@@ -63,6 +63,7 @@ const v5f: Wheel = {
   ...v5,
   id: WheelId.v5f,
   name: 'V5F',
+  website: 'https://www.inmotionworld.com/v5f-electric-unicycle',
   price: 700,
 
   ratedPower: 550,
@@ -82,7 +83,7 @@ const v8: Wheel = {
   id: WheelId.v8,
   brandId: BrandId.inmotion,
   name: 'V8',
-  website: 'https://www.inmotionworld.com/product/electric-unicycle-inmotion-v8f',
+  website: '',
   price: 1000,
   availability: 'available',
 
@@ -128,6 +129,7 @@ const v8f: Wheel = {
   ...v8,
   id: WheelId.v8f,
   name: 'V8F',
+  website: 'https://www.inmotionworld.com/v8f-electric-unicycle',
   price: 1100,
 
   ratedPower: 1000,
@@ -150,7 +152,7 @@ const v10: Wheel = {
   id: WheelId.v10,
   brandId: BrandId.inmotion,
   name: 'V10',
-  website: 'https://www.inmotionworld.com/product/electric-unicycle-inmotion-v10',
+  website: 'https://www.inmotionworld.com/v10-electric-unicycle',
   price: 1300,
   availability: 'available',
 
@@ -214,7 +216,7 @@ const v11: Wheel = {
   id: WheelId.v11,
   brandId: BrandId.inmotion,
   name: 'V11',
-  website: 'https://www.inmotionworld.com/product/inmotion-v11',
+  website: 'https://www.inmotionworld.com/v11-electric-unicycle',
   price: 2300,
   availability: 'available',
 
@@ -260,7 +262,7 @@ const v12HT: Wheel = {
   id: WheelId.v12HT,
   brandId: BrandId.inmotion,
   name: 'V12 Torque',
-  website: '',
+  website: 'https://www.inmotionworld.com/v12-electric-unicycle',
   price: 2500,
   availability: 'announced',
 
@@ -306,6 +308,7 @@ const v12HS: Wheel = {
   ...v12HT,
   id: WheelId.v12,
   name: 'V12 Speed',
+  website: 'https://www.inmotionworld.com/v12ht-electric-unicycle',
   availability: 'available',
 
   ratedPower: 2500,
