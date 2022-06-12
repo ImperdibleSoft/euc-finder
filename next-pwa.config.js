@@ -75,6 +75,11 @@ module.exports = {
       /middleware-manifest\.json$/,
       /react-loadable-manifest\.json$/,
       /build-manifest\.json$/
+    ],
+    buildExcludes: [
+      /middleware-manifest\.json$/,
+      /react-loadable-manifest\.json$/,
+      /build-manifest\.json$/
     ]
   }
 };
