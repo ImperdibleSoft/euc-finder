@@ -20,6 +20,7 @@ import '../styles/globals.css';
 import { LOCAL_STORAGE_KEY } from '../types';
 import { cleanOldCaches, pageview, setItem } from '../utils';
 import { getQueryParams } from '../utils/routing';
+import renderCommonHeaders from '../utils/seo';
 
 const store = configureStore();
 
@@ -76,6 +77,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
       <Head>
+        { renderCommonHeaders() }
         <link rel="canonical" href={ `${ APP_URL }${ asPath }` } />
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
