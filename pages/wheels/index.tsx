@@ -25,7 +25,8 @@ import {
 import { getBrands, getMaxComparedWheels, getPricesConfig } from '../../store/selectors';
 import { TranslationFile, WheelId } from '../../types';
 import { formatWheelName } from '../../utils';
-import { getTranslationsFromFiles } from '../../utils-server';
+import { getTranslationsFromFiles, StaticProps } from '../../utils-server';
+import { getFirstWheelPicture } from '../../utils-server/wheelFirstPicture';
 
 interface Props {
   pictures: Record<WheelId, string>;
@@ -208,4 +209,16 @@ const Wheels: React.FC<Props> = ({ pictures }) => {
 
 export default Wheels;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.wheelsList], 'first');
+export const getStaticProps = async (staticProps: StaticProps) => {
+  const getInnerStaticProps = getTranslationsFromFiles([TranslationFile.wheelsList]);
+  const pictures = getFirstWheelPicture();
+
+  const value = await getInnerStaticProps(staticProps);
+  return {
+    ...value,
+    props: {
+      ...value.props,
+      pictures
+    }
+  };
+};

@@ -3,11 +3,8 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import nextI18NextConfig from '../next-i18next.config.js';
 import { TranslationFile } from '../types';
 import { WheelId } from '../types/wheel';
-import { getFirstWheelPicture, getWheelPictures } from './wheelPictures';
 
-type WheelPictures = 'none' | 'first' | 'all';
-
-interface StaticProps {
+export interface StaticProps {
   params: {
     id?: string;
   };
@@ -20,11 +17,11 @@ interface Props extends SSRConfig {
   pictures?: Record<WheelId, string | string[]>;
 }
 
-interface ReturnType {
+export interface ReturnType {
   props: Props;
 }
 
-export const getTranslationsFromFiles = (files: TranslationFile[], pictures: WheelPictures) => {
+export const getTranslationsFromFiles = (files: TranslationFile[]) => {
   const getStaticProps = async ({ locale }: StaticProps): Promise<ReturnType> => {
     const translations = await serverSideTranslations(
       locale,
@@ -32,25 +29,6 @@ export const getTranslationsFromFiles = (files: TranslationFile[], pictures: Whe
       nextI18NextConfig
     );
     const props: Props = { ...translations };
-
-    let pictureGetter: undefined | (() => Record<WheelId, string | string[]>);
-
-    switch (pictures) {
-      case 'all':
-        pictureGetter = getWheelPictures;
-        break;
-
-      case 'first':
-        pictureGetter = getFirstWheelPicture;
-        break;
-
-      case 'none':
-      default:
-    }
-
-    if (pictureGetter) {
-      props.pictures = pictureGetter();
-    }
 
     return { props };
   };

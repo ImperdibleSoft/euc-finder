@@ -199,4 +199,4 @@ const Videos: React.FC = () => {
 
 export default Videos;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.videos], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.videos]);

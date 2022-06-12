@@ -160,4 +160,4 @@ const Settings: React.FC = () => {
 
 export default Settings;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.settings], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.settings]);

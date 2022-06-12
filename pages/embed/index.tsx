@@ -18,7 +18,8 @@ import {
 } from '../../store/selectors';
 import { TranslationFile, WheelFeatureFormatters, WheelFeatureIcons, WheelId } from '../../types';
 import { cleanWheelId, formatWheelName, getFormatterValue } from '../../utils';
-import { getTranslationsFromFiles } from '../../utils-server';
+import { getTranslationsFromFiles, StaticProps } from '../../utils-server';
+import { getFirstWheelPicture } from '../../utils-server/wheelFirstPicture';
 import { AvailableQueryParams } from '../../utils/routing';
 
 const defaultFeatures: string[] = ['diameter', 'maxSpeed', 'range', 'weight'];
@@ -159,4 +160,16 @@ const Embed = ({
 
 export default Embed;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.embed], 'first');
+export const getStaticProps = async (staticProps: StaticProps) => {
+  const getInnerStaticProps = getTranslationsFromFiles([TranslationFile.embed]);
+  const pictures = getFirstWheelPicture();
+
+  const value = await getInnerStaticProps(staticProps);
+  return {
+    ...value,
+    props: {
+      ...value.props,
+      pictures
+    }
+  };
+};

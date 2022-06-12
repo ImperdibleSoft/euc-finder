@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { BrandId, WheelId } from '../types';
 
-export const getWheelPictures = (): Record<WheelId, string[]> => {
+export const getAllWheelPictures = (): Record<WheelId, string[]> => {
   const relativePath = `/pictures/wheels`;
   const absolutePath = path.join(process.cwd(), 'public', relativePath);
   
@@ -24,16 +24,4 @@ export const getWheelPictures = (): Record<WheelId, string[]> => {
   });
   
   return pictures as Record<WheelId, string[]>;
-};
-
-export const getFirstWheelPicture = (): Record<WheelId, string> => {
-  const pictures = {};
-  const allPictures = getWheelPictures();
-
-  Object.keys(allPictures).forEach(key => {
-    const wheelId = key as WheelId;
-    (pictures as Record<WheelId, string>)[wheelId] = allPictures[wheelId][0];
-  });
-
-  return pictures as Record<WheelId, string>;
 };

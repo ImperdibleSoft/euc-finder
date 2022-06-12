@@ -97,4 +97,4 @@ const Changelog: React.FC = () => {
 
 export default Changelog;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.changelog], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.changelog]);

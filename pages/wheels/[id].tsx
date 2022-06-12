@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { Box, Button, ButtonGroup, Grid } from '@mui/material';
 import { GetStaticPaths } from 'next';
 import Head from 'next/head';
@@ -32,7 +33,8 @@ import {
 import { getBrands } from '../../store/selectors';
 import { TranslationFile, WheelId } from '../../types';
 import { cleanWheelId, getBrandInfo } from '../../utils';
-import { getTranslationsFromFiles } from '../../utils-server';
+import { getTranslationsFromFiles, StaticProps } from '../../utils-server';
+import { getAllWheelPictures } from '../../utils-server/wheelAllPictures';
 
 interface Props {
   pictures: Record<WheelId, string[]>;
@@ -173,7 +175,21 @@ const EucDetail: React.FC<Props> = ({ pictures }) => {
   );
 };
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.wheelDetails], 'all');
+export default EucDetail;
+
+export const getStaticProps = async (staticProps: StaticProps) => {
+  const getInnerStaticProps = getTranslationsFromFiles([TranslationFile.wheelDetails]);
+  const pictures = getAllWheelPictures();
+
+  const value = await getInnerStaticProps(staticProps);
+  return {
+    ...value,
+    props: {
+      ...value.props,
+      pictures
+    }
+  };
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { wheels } = await eucFinderApi.data.getInitialData();
@@ -186,5 +202,3 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback:'blocking'
   };
 };
-
-export default EucDetail;

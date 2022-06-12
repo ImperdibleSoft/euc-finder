@@ -108,4 +108,4 @@ const Dealers: React.FC = () => {
 
 export default Dealers;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.dealers], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.dealers]);

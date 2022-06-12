@@ -457,4 +457,4 @@ const EmbedGenerate = () => {
 
 export default EmbedGenerate;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.embed, TranslationFile.settings], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.embed, TranslationFile.settings]);

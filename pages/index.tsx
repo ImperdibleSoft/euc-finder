@@ -31,4 +31,4 @@ const Landing = () => {
 
 export default Landing;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.landing], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.landing]);

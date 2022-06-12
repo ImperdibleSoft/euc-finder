@@ -100,4 +100,4 @@ const Influencers: React.FC = () => {
 
 export default Influencers;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.influencers], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.influencers]);

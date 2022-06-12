@@ -18,7 +18,8 @@ import {
 } from '../../hooks';
 import { getBrands, getMaxCurrentAllowed, getMeasureUnits, getTableViewSpecs, getWheels } from '../../store/selectors';
 import { TranslationFile, WheelId } from '../../types';
-import { getTranslationsFromFiles } from '../../utils-server';
+import { getTranslationsFromFiles, StaticProps } from '../../utils-server';
+import { getFirstWheelPicture } from '../../utils-server/wheelFirstPicture';
 
 interface Props {
   pictures: Record<WheelId, string>;
@@ -159,4 +160,16 @@ const CompareWheels: React.FC<Props> = ({ pictures }) => {
 
 export default CompareWheels;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.comparator, TranslationFile.settings], 'first');
+export const getStaticProps = async (staticProps: StaticProps) => {
+  const getInnerStaticProps = getTranslationsFromFiles([TranslationFile.comparator, TranslationFile.settings]);
+  const pictures = getFirstWheelPicture();
+
+  const value = await getInnerStaticProps(staticProps);
+  return {
+    ...value,
+    props: {
+      ...value.props,
+      pictures
+    }
+  };
+};

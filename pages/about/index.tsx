@@ -214,5 +214,5 @@ const AboutPage = (): JSX.Element => {
 
 export default AboutPage;
 
-export const getStaticProps = getTranslationsFromFiles([TranslationFile.about], 'none');
+export const getStaticProps = getTranslationsFromFiles([TranslationFile.about]);
 
