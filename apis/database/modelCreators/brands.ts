@@ -20,7 +20,7 @@ export const createBrandFromServer = ({
     name: `${ name ?? id }`,
     logo: `${ logo }`,
     website: `${ website }`,
-    misc: { kmPerWh: baseKmPerWh * Number(kmPerWh ?? 1) }
+    misc: { kmPerWh: Number((baseKmPerWh * Number(kmPerWh ?? 1)).toFixed(4)) }
   });};
 
 export const createBrandsFromServer = (brands: BrandFromServer[]): Brand[] => {
