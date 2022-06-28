@@ -674,6 +674,45 @@ const madpackVideos: Video[] = [
     publishDate: '23/May/2022',
     releaseDate: '07/Jun/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=mwaYUyZ4xXM',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.reveal,
+      VideoCategory.chatting,
+      WheelId.v12HT
+    ],
+    publishDate: '13/Jun/2022',
+    releaseDate: '28/Jun/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=yebFelG7dc0',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.review,
+      VideoCategory.comparision,
+      WheelId.v12,
+      WheelId.v12HT
+    ],
+    publishDate: '13/Jun/2022',
+    releaseDate: '28/Jun/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=dWPrtl8Hocw',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.comparision,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.ksS18,
+      WheelId.ksS22
+    ],
+    publishDate: '27/Jun/2022',
+    releaseDate: '28/Jun/2022',
+    language: 'en'
   }
 ];
 

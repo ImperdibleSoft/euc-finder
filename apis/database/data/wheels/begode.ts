@@ -652,7 +652,7 @@ const monsterPro: Wheel = {
   diameter: 24,
   width: 3,
   groundClearance: 165,
-  weight: 40,
+  weight: 45,
   trolleyHandle: TrolleyHandle.telescopic,
   dimensions: [680, 260, 610],
   antiSpin: AntiSpin.button,

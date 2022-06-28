@@ -250,6 +250,18 @@ const oneradwheelVideos: Video[] = [
     publishDate: '07/May/2022',
     releaseDate: '12/May/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=e5ki31f2NMI',
+    tags: [
+      InfluencerId.oneradwheel,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.master
+    ],
+    publishDate: '17/May/2022',
+    releaseDate: '28/Jun/2022',
+    language: 'en'
   }
 ];
 

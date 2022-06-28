@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { InfluencerId, Video, VideoCategory, WheelId } from '../../../../types';
 
 const eeveesVideos: Video[] = [
@@ -190,6 +191,18 @@ const eeveesVideos: Video[] = [
     ],
     publishDate: '30/Apr/2022',
     releaseDate: '03/May/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=6y9V1i31x34',
+    tags: [
+      InfluencerId.eevees,
+      VideoCategory.review,
+      VideoCategory.comparision,
+      WheelId.v12HT
+    ],
+    publishDate: '17/Jun/2022',
+    releaseDate: '28/Jun/2022',
     language: 'en'
   }
 ];

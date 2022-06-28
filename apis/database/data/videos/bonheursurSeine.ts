@@ -560,6 +560,18 @@ const bonheursurSeineVideos: Video[] = [
     publishDate: '23/May/2022',
     releaseDate: '07/Jun/2022',
     language: 'fr'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=tok8k5sZLM0',
+    tags: [
+      InfluencerId.bonheursurSeine,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      WheelId.ex20s
+    ],
+    publishDate: '11/Jun/2022',
+    releaseDate: '28/Jun/2022',
+    language: 'fr'
   }  
 ];
 

@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import { InfluencerId, Video, VideoCategory, WheelId } from '../../../../types';
 
 const oxVideos: Video[] = [

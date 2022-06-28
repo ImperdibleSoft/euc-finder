@@ -1217,6 +1217,20 @@ const wrongWayVideos: Video[] = [
     publishDate: '09/Jun/2022',
     releaseDate: '12/Jun/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=t9CODg5a7BI',
+    tags: [InfluencerId.wrongWay, VideoCategory.review, WheelId.v8, WheelId.v8f],
+    publishDate: '17/Jun/2022',
+    releaseDate: '28/Jun/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=y0jNrd-K6bM',
+    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.chatting, WheelId.master],
+    publishDate: '24/Jun/2022',
+    releaseDate: '28/Jun/2022',
+    language: 'en'
   }
 ];
 
