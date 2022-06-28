@@ -650,7 +650,7 @@ const monsterPro: Wheel = {
   voltage: 100.8,
 
   diameter: 24,
-  width: 3,
+  width: 2.7,
   groundClearance: 165,
   weight: 45,
   trolleyHandle: TrolleyHandle.telescopic,
