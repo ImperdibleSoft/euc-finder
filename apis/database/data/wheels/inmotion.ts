@@ -319,14 +319,14 @@ const v12HS: Wheel = {
 const v13: Wheel = {
   id: WheelId.v13,
   brandId: BrandId.inmotion,
-  name: 'V13 Raptor',
+  name: 'V13 Challenger',
   website: '',
   price: 0,
   availability: 'announced',
 
-  hollowMotor: undefined,
-  ratedPower: 0,
-  peakPower: 0,
+  hollowMotor: true,
+  ratedPower: 4500,
+  peakPower: 10000,
 
   battery: {
     capacity: 0,
@@ -340,11 +340,11 @@ const v13: Wheel = {
   usbPorts: undefined,
 
   maxGradibility: 0,
-  maxSpeed: 0,
+  maxSpeed: 120,
   range: 0,
-  voltage: 0,
+  voltage: 126,
 
-  diameter: 0,
+  diameter: 22,
   width: 0,
   groundClearance: 0,
   weight: 0,
