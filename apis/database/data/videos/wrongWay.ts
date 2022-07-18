@@ -1150,28 +1150,50 @@ const wrongWayVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=Q-DlIgOB3sc',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, WheelId.v8, WheelId.v8f],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      WheelId.v8,
+      WheelId.v8f
+    ],
     publishDate: '20/Apr/2022',
     releaseDate: '24/Apr/2022',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=9NCUOjIJvBg',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, WheelId.master],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      WheelId.master
+    ],
     publishDate: '28/Apr/2022',
     releaseDate: '03/May/2022',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=u3lGzDBh_JU',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, VideoCategory.offroad, WheelId.ksS22],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.ksS22
+    ],
     publishDate: '03/May/2022',
     releaseDate: '07/May/2022',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=jQZm1CCKO4E',
-    tags: [InfluencerId.wrongWay, VideoCategory.reveal, VideoCategory.chatting, WheelId.ex20s],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.reveal,
+      VideoCategory.chatting,
+      WheelId.ex20s
+    ],
     publishDate: '11/May/2022',
     releaseDate: '12/May/2022',
     language: 'en'
@@ -1185,7 +1207,12 @@ const wrongWayVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=YInGw04W6so',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, WheelId.v8, WheelId.v8f],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      WheelId.v8,
+      WheelId.v8f
+    ],
     publishDate: '20/May/2022',
     releaseDate: '07/Jun/2022',
     language: 'en'
@@ -1199,37 +1226,97 @@ const wrongWayVideos: Video[] = [
   },
   {
     url: 'https://www.youtube.com/watch?v=QLSlC7q2iuI',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, VideoCategory.offroad, WheelId.ex20s],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.ex20s
+    ],
     publishDate: '26/May/2022',
     releaseDate: '07/Jun/2022',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=w-WA_5CJ-KM',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.commuting, VideoCategory.offroad, WheelId.ksS22],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.ksS22
+    ],
     publishDate: '01/Jun/2022',
     releaseDate: '07/Jun/2022',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=Bc32MeWtY9c',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.chatting, WheelId.v12HT],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.v12HT
+    ],
     publishDate: '09/Jun/2022',
     releaseDate: '12/Jun/2022',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=t9CODg5a7BI',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, WheelId.v8, WheelId.v8f],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      WheelId.v8,
+      WheelId.v8f
+    ],
     publishDate: '17/Jun/2022',
     releaseDate: '28/Jun/2022',
     language: 'en'
   },
   {
     url: 'https://www.youtube.com/watch?v=y0jNrd-K6bM',
-    tags: [InfluencerId.wrongWay, VideoCategory.review, VideoCategory.chatting, WheelId.master],
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.master
+    ],
     publishDate: '24/Jun/2022',
     releaseDate: '28/Jun/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=MUTGjQx0imE',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      VideoCategory.offroad,
+      WheelId.heroHS,
+      WheelId.heroHT
+    ],
+    publishDate: '28/Jun/2022',
+    releaseDate: '18/Jul/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=55pDtLfsbQg',
+    tags: [
+      InfluencerId.wrongWay,
+      VideoCategory.review,
+      VideoCategory.chatting,
+      WheelId.ex20s
+    ],
+    publishDate: '07/Jul/2022',
+    releaseDate: '18/Jul/2022',
+    language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=y3LDN8GgpuU',
+    tags: [InfluencerId.wrongWay, VideoCategory.chatting, WheelId.v13],
+    publishDate: '18/Jul/2022',
+    releaseDate: '18/Jul/2022',
     language: 'en'
   }
 ];
