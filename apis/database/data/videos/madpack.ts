@@ -713,6 +713,17 @@ const madpackVideos: Video[] = [
     publishDate: '27/Jun/2022',
     releaseDate: '28/Jun/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=21lO2_YOcz0',
+    tags: [
+      InfluencerId.madpack,
+      VideoCategory.chatting,
+      WheelId.v13
+    ],
+    publishDate: '18/Jul/2022',
+    releaseDate: '18/Jul/2022',
+    language: 'en'
   }
 ];
 

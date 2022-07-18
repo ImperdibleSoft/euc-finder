@@ -572,6 +572,18 @@ const bonheursurSeineVideos: Video[] = [
     publishDate: '11/Jun/2022',
     releaseDate: '28/Jun/2022',
     language: 'fr'
+  }  ,
+  {
+    url: 'https://www.youtube.com/watch?v=8FyF8AL77_w',
+    tags: [
+      InfluencerId.bonheursurSeine,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      WheelId.v8f
+    ],
+    publishDate: '01/Jul/2022',
+    releaseDate: '18/Jul/2022',
+    language: 'fr'
   }  
 ];
 

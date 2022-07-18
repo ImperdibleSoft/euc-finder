@@ -502,6 +502,18 @@ const hsiangVideos: Video[] = [
     publishDate: '30/May/2022',
     releaseDate: '07/Jun/2022',
     language: 'en'
+  },
+  {
+    url: 'https://www.youtube.com/watch?v=HgHQC09rbAI',
+    tags: [
+      InfluencerId.hsiang,
+      VideoCategory.review,
+      VideoCategory.commuting,
+      WheelId.mten
+    ],
+    publishDate: '18/Jul/2022',
+    releaseDate: '18/Jul/2022',
+    language: 'en'
   }
 ];
 
