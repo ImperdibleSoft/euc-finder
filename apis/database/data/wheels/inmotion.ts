@@ -332,7 +332,7 @@ const v13: Wheel = {
     capacity: 0,
     parallels: 0,
     type: '',
-    wattsHour: 0
+    wattsHour: 3024
   },
   stockCharger: 0,
   maxCharger: 0,
