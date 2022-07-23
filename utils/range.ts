@@ -1,11 +1,16 @@
 import { Brand, Wheel } from '../types';
 import { getBrandInfo } from './brands';
 
-const REFERENCE_WEIGHT = 77;
-// const REFERENCE_WEIGHT = 77 + 30;
+const hasWeight = (wheelWeight?: number) => !!wheelWeight && wheelWeight > 0;
 
-const getWeightMultiplier = (weight: number) => {
-  const multiplier = (1-(0.15) * (weight - REFERENCE_WEIGHT)/10);
+const PERSON_REFERENCE_WEIGHT = 77;
+const WHEEL_REFERENCE_WEIGH = 30;
+
+const getWeightMultiplier = (userWeight: number, wheelWeight = 0) => {
+  const referenceWeight = PERSON_REFERENCE_WEIGHT + (hasWeight(wheelWeight) ? WHEEL_REFERENCE_WEIGH : 0);
+  const loadWeight = userWeight + wheelWeight;
+
+  const multiplier = (1-(0.15) * (loadWeight - referenceWeight)/10);
   return multiplier;
 };
 
@@ -13,8 +18,8 @@ export const getRangeFromBattery = (
   {
     battery,
     brandId,
-    range
-    // weight: wheelWeight
+    range,
+    weight: wheelWeight
   }: Wheel,
   userWeight: number,
   brands: Brand[]
@@ -24,8 +29,8 @@ export const getRangeFromBattery = (
     ? brand.misc.kmPerWh * battery.wattsHour
     : range);
 
-  const maxRange = (defaultRange * 0.9) * getWeightMultiplier(userWeight);
-  // const maxRange = (defaultRange * 0.95) * getWeightMultiplier(userWeight + wheelWeight);
+  const multiplier = hasWeight(wheelWeight) ? 0.95 : 0.85;
+  const maxRange = (defaultRange * multiplier) * getWeightMultiplier(userWeight, wheelWeight);
 
   return (maxRange <= 0) ? 0 : maxRange;
 };
